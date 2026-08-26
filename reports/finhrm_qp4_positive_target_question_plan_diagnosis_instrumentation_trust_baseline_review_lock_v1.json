@@ -1,0 +1,41 @@
+{
+  "schema": "finhrm-qp4-question-plan-diagnosis-instrumentation-trust-baseline-review-lock-v1",
+  "created_at": "2026-08-26T09:36:54.181145+07:00",
+  "classification": "development_only_post_hoc_question_plan_trace_review_lock",
+  "status": "PASS",
+  "governing_baseline": "5da2ff00bf58496a36be7c08d5bbdb1959a9542e",
+  "artifacts": {
+    "review": {
+      "path": "reports/finhrm_qp4_positive_target_question_plan_diagnosis_instrumentation_trust_baseline_review_v1.json",
+      "size_bytes": 13980,
+      "sha256": "98da825364432e1e6a7a18f3d0b5720349406fb613d79df881d1f3467ecf3ae1"
+    },
+    "markdown": {
+      "path": "reports/finhrm_qp4_positive_target_question_plan_diagnosis_instrumentation_trust_baseline_review_v1.md",
+      "size_bytes": 1000,
+      "sha256": "1e803f76b7ecdae2c7b3523e467404593c13a05098d3d9b8b5c8585876d1f40f"
+    },
+    "review_script": {
+      "path": "scripts/review_qp4_question_plan_trust_baseline_trace.py",
+      "size_bytes": 10651,
+      "sha256": "c38209d5a5150f719fca3e5315fc74fc3da5c12f52cd828554e6e5b2411ab812"
+    }
+  },
+  "execution_evidence": {
+    "target_cases": 19,
+    "baseline_compiler_calls": 19,
+    "instrumented_compiler_calls": 19,
+    "total_compiler_calls": 38,
+    "baseline_matches_frozen": "19/19",
+    "instrumentation_noninterference": "19/19",
+    "candidate_or_binding_calls": 0,
+    "model_inferences": 0,
+    "pdf_reads": 0,
+    "ocr_calls": 0,
+    "page_index_calls": 0
+  },
+  "compiler_calls_during_review": 0,
+  "runtime_changed": false,
+  "repair_authorized": false,
+  "authorized_next_action": "A separate runtime-repair precommit is required before any runtime edit"
+}

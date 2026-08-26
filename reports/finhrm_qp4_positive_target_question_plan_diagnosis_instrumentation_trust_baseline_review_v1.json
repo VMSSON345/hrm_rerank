@@ -1,0 +1,317 @@
+{
+  "schema": "finhrm-qp4-question-plan-diagnosis-instrumentation-trust-baseline-review-v1",
+  "created_at": "2026-08-26T09:36:54.181145+07:00",
+  "classification": "development_only_post_hoc_review_of_locked_question_plan_trace_no_compiler_calls",
+  "status": "PASS",
+  "governing_baseline": "5da2ff00bf58496a36be7c08d5bbdb1959a9542e",
+  "inputs": {
+    "locked_trace": {
+      "path": "reports/finhrm_qp4_positive_target_question_plan_diagnosis_instrumentation_trust_baseline_replay_v2.jsonl",
+      "size_bytes": 2771480,
+      "sha256": "6a31dc04f9982cadc344bbe48ee1dca7459a1dbaacdb9d6c1b7f7777fdb888d5"
+    },
+    "replay_summary": {
+      "path": "reports/finhrm_qp4_positive_target_question_plan_diagnosis_instrumentation_trust_baseline_replay_v2.json",
+      "size_bytes": 8987,
+      "sha256": "f8355f00b273d089f81c316cd4430d23c5bc3ec1dde09564c671b9c18289f985"
+    },
+    "replay_lock": {
+      "path": "reports/finhrm_qp4_positive_target_question_plan_diagnosis_instrumentation_trust_baseline_replay_lock_v2.json",
+      "size_bytes": 1693,
+      "sha256": "fd68af1f1f6c75d8b5001ff3e39f52213ced36c28333818e1a96b07dc082b94a"
+    }
+  },
+  "review_boundary": {
+    "compiler_calls": 0,
+    "model_inferences": 0,
+    "pdf_reads": 0,
+    "ocr_calls": 0,
+    "page_index_calls": 0,
+    "candidate_or_binding_calls": 0,
+    "runtime_changed": false
+  },
+  "normalization_rule": {
+    "reason": "Fixed year and slot-id literals are forbidden genericity signals and cannot split an otherwise exact code-level signature.",
+    "dropped_only_for_operand_slot_signature": [
+      "slot.id",
+      "slot.year"
+    ],
+    "retained": [
+      "module",
+      "producer symbol",
+      "producer line",
+      "source-line hash",
+      "slot position",
+      "typed role",
+      "unit family",
+      "downstream incorrect fields"
+    ],
+    "company_source_layout_used_only_for_diversity_gate": true
+  },
+  "execution_evidence_retained": {
+    "target_cases": 19,
+    "baseline_compiler_calls": 19,
+    "instrumented_compiler_calls": 19,
+    "total_compiler_calls": 38,
+    "baseline_matches_frozen": "19/19",
+    "instrumentation_noninterference": "19/19",
+    "candidate_or_binding_calls": 0,
+    "model_inferences": 0,
+    "pdf_reads": 0,
+    "ocr_calls": 0,
+    "page_index_calls": 0
+  },
+  "normalized_causal_clusters": [
+    {
+      "normalized_causal_signature_sha256": "4c68f8ce8afc17484f216813ac2abd803df2b517a1888368f9c0c3093d734614",
+      "normalized_causal_signature": {
+        "module": "hrm_finance_qa.question_planner",
+        "producer_symbol": "_compile_operand_slots",
+        "producer_line": 1144,
+        "source_line_sha256": "abf61b8d8952b819d78b1ffb4462eabc0cf451e5d9e253ff843c06312beac5c2",
+        "causal_transition": [
+          {
+            "slot_position": 0,
+            "role": "PLAN",
+            "unit_family": "currency"
+          },
+          {
+            "slot_position": 1,
+            "role": "ACTUAL",
+            "unit_family": "currency"
+          }
+        ],
+        "downstream_incorrect_fields": [
+          "reference_base",
+          "roles"
+        ],
+        "normalization": "drop fixed slot id and literal year; preserve position, typed role, and unit family",
+        "sha256": "4c68f8ce8afc17484f216813ac2abd803df2b517a1888368f9c0c3093d734614"
+      },
+      "case_ids": [
+        "qp4-rcc-pic-total-revenue:base_target:clause_reordered",
+        "qp4-rcc-agr-total-expense:base_target:clause_reordered",
+        "qp4-rcc-hub-parent-profit-after-tax:base_target:clause_reordered",
+        "qp4-rcc-ict-total-revenue:base_target:clause_reordered",
+        "qp4-rcc-scg-total-revenue:base_target:clause_reordered",
+        "qp4-rcc-vnl-profit-before-tax:base_target:clause_reordered"
+      ],
+      "diversity": {
+        "rows": 6,
+        "companies": 6,
+        "sources": 6,
+        "real_document_layouts": 3
+      },
+      "conclusion": "GENERIC_ROOT_CAUSE"
+    },
+    {
+      "normalized_causal_signature_sha256": "86db219d02d5a40dc50ebb2e3d6eaac6df8ea1c315978ddf54e4e6e3abffea5d",
+      "normalized_causal_signature": {
+        "module": "hrm_finance_qa.question_planner",
+        "producer_symbol": "compile_question_plan",
+        "producer_line": 575,
+        "source_line_sha256": "9999a512a158f7427316ddc14e4a8fa11f9c49b61b0b339cd5b7e6368f13b54b",
+        "causal_transition": {
+          "producer_line": 575,
+          "source_line_sha256": "9999a512a158f7427316ddc14e4a8fa11f9c49b61b0b339cd5b7e6368f13b54b",
+          "from": null,
+          "to": "SELECT"
+        },
+        "downstream_incorrect_fields": [
+          "operation",
+          "operation_candidates",
+          "reference_base"
+        ],
+        "normalization": "none_required",
+        "sha256": "86db219d02d5a40dc50ebb2e3d6eaac6df8ea1c315978ddf54e4e6e3abffea5d"
+      },
+      "case_ids": [
+        "qp4-rcc-pic-total-revenue:reference_base_mutation_target:paraphrase_1",
+        "qp4-rcc-agr-total-expense:reference_base_mutation_target:paraphrase_1",
+        "qp4-rcc-hub-parent-profit-after-tax:reference_base_mutation_target:paraphrase_1",
+        "qp4-rcc-ict-total-revenue:reference_base_mutation_target:paraphrase_1",
+        "qp4-rcc-scg-total-revenue:reference_base_mutation_target:paraphrase_1",
+        "qp4-rcc-vnl-profit-before-tax:reference_base_mutation_target:paraphrase_1"
+      ],
+      "diversity": {
+        "rows": 6,
+        "companies": 6,
+        "sources": 6,
+        "real_document_layouts": 3
+      },
+      "conclusion": "GENERIC_ROOT_CAUSE"
+    },
+    {
+      "normalized_causal_signature_sha256": "285c10f624322f00ba6e72e3bf1ddf28a087074b9019a0a1447a1a67f2f98cd7",
+      "normalized_causal_signature": {
+        "module": "hrm_finance_qa.question_planner",
+        "producer_symbol": "compile_question_plan",
+        "producer_line": 575,
+        "source_line_sha256": "9999a512a158f7427316ddc14e4a8fa11f9c49b61b0b339cd5b7e6368f13b54b",
+        "causal_transition": {
+          "producer_line": 575,
+          "source_line_sha256": "9999a512a158f7427316ddc14e4a8fa11f9c49b61b0b339cd5b7e6368f13b54b",
+          "from": null,
+          "to": "SELECT"
+        },
+        "downstream_incorrect_fields": [
+          "operation",
+          "operation_candidates",
+          "reference_base",
+          "years"
+        ],
+        "normalization": "none_required",
+        "sha256": "285c10f624322f00ba6e72e3bf1ddf28a087074b9019a0a1447a1a67f2f98cd7"
+      },
+      "case_ids": [
+        "qp4-rcc-pic-total-revenue:reference_base_mutation_target:clause_reordered",
+        "qp4-rcc-agr-total-expense:reference_base_mutation_target:clause_reordered",
+        "qp4-rcc-hub-parent-profit-after-tax:reference_base_mutation_target:clause_reordered",
+        "qp4-rcc-ict-total-revenue:reference_base_mutation_target:clause_reordered",
+        "qp4-rcc-scg-total-revenue:reference_base_mutation_target:clause_reordered",
+        "qp4-rcc-vnl-profit-before-tax:reference_base_mutation_target:clause_reordered"
+      ],
+      "diversity": {
+        "rows": 6,
+        "companies": 6,
+        "sources": 6,
+        "real_document_layouts": 3
+      },
+      "conclusion": "GENERIC_ROOT_CAUSE"
+    },
+    {
+      "normalized_causal_signature_sha256": "2557d375f56992b2235dd00882eb8ae21bf144668baad0dab3d6b68b6cf635a6",
+      "normalized_causal_signature": {
+        "module": "hrm_finance_qa.question_planner",
+        "producer_symbol": "compile_question_plan",
+        "producer_line": 521,
+        "source_line_sha256": "fe7023b87d4e4b489bcaac259c27b3100465c1e97b04dfe9144fae2c9d869c9d",
+        "causal_transition": {
+          "producer_line": 521,
+          "source_line_sha256": "fe7023b87d4e4b489bcaac259c27b3100465c1e97b04dfe9144fae2c9d869c9d",
+          "from": null,
+          "to": "PERCENT_CHANGE"
+        },
+        "downstream_incorrect_fields": [
+          "operation",
+          "operation_candidates"
+        ],
+        "normalization": "none_required",
+        "sha256": "2557d375f56992b2235dd00882eb8ae21bf144668baad0dab3d6b68b6cf635a6"
+      },
+      "case_ids": [
+        "qp4-rcc-ict-total-revenue:reference_base_mutation_target:long_clause"
+      ],
+      "diversity": {
+        "rows": 1,
+        "companies": 1,
+        "sources": 1,
+        "real_document_layouts": 1
+      },
+      "conclusion": "LOCAL_INSUFFICIENT_FOR_GENERICITY"
+    }
+  ],
+  "case_dispositions": [
+    {
+      "oracle_row_id": "qp4-rcc-agr-total-expense:base_target:clause_reordered",
+      "normalized_causal_signature_sha256": "4c68f8ce8afc17484f216813ac2abd803df2b517a1888368f9c0c3093d734614",
+      "disposition": "GENERIC_ROOT_CAUSE_MEMBER"
+    },
+    {
+      "oracle_row_id": "qp4-rcc-agr-total-expense:reference_base_mutation_target:clause_reordered",
+      "normalized_causal_signature_sha256": "285c10f624322f00ba6e72e3bf1ddf28a087074b9019a0a1447a1a67f2f98cd7",
+      "disposition": "GENERIC_ROOT_CAUSE_MEMBER"
+    },
+    {
+      "oracle_row_id": "qp4-rcc-agr-total-expense:reference_base_mutation_target:paraphrase_1",
+      "normalized_causal_signature_sha256": "86db219d02d5a40dc50ebb2e3d6eaac6df8ea1c315978ddf54e4e6e3abffea5d",
+      "disposition": "GENERIC_ROOT_CAUSE_MEMBER"
+    },
+    {
+      "oracle_row_id": "qp4-rcc-hub-parent-profit-after-tax:base_target:clause_reordered",
+      "normalized_causal_signature_sha256": "4c68f8ce8afc17484f216813ac2abd803df2b517a1888368f9c0c3093d734614",
+      "disposition": "GENERIC_ROOT_CAUSE_MEMBER"
+    },
+    {
+      "oracle_row_id": "qp4-rcc-hub-parent-profit-after-tax:reference_base_mutation_target:clause_reordered",
+      "normalized_causal_signature_sha256": "285c10f624322f00ba6e72e3bf1ddf28a087074b9019a0a1447a1a67f2f98cd7",
+      "disposition": "GENERIC_ROOT_CAUSE_MEMBER"
+    },
+    {
+      "oracle_row_id": "qp4-rcc-hub-parent-profit-after-tax:reference_base_mutation_target:paraphrase_1",
+      "normalized_causal_signature_sha256": "86db219d02d5a40dc50ebb2e3d6eaac6df8ea1c315978ddf54e4e6e3abffea5d",
+      "disposition": "GENERIC_ROOT_CAUSE_MEMBER"
+    },
+    {
+      "oracle_row_id": "qp4-rcc-ict-total-revenue:base_target:clause_reordered",
+      "normalized_causal_signature_sha256": "4c68f8ce8afc17484f216813ac2abd803df2b517a1888368f9c0c3093d734614",
+      "disposition": "GENERIC_ROOT_CAUSE_MEMBER"
+    },
+    {
+      "oracle_row_id": "qp4-rcc-ict-total-revenue:reference_base_mutation_target:clause_reordered",
+      "normalized_causal_signature_sha256": "285c10f624322f00ba6e72e3bf1ddf28a087074b9019a0a1447a1a67f2f98cd7",
+      "disposition": "GENERIC_ROOT_CAUSE_MEMBER"
+    },
+    {
+      "oracle_row_id": "qp4-rcc-ict-total-revenue:reference_base_mutation_target:long_clause",
+      "normalized_causal_signature_sha256": "2557d375f56992b2235dd00882eb8ae21bf144668baad0dab3d6b68b6cf635a6",
+      "disposition": "LOCAL"
+    },
+    {
+      "oracle_row_id": "qp4-rcc-ict-total-revenue:reference_base_mutation_target:paraphrase_1",
+      "normalized_causal_signature_sha256": "86db219d02d5a40dc50ebb2e3d6eaac6df8ea1c315978ddf54e4e6e3abffea5d",
+      "disposition": "GENERIC_ROOT_CAUSE_MEMBER"
+    },
+    {
+      "oracle_row_id": "qp4-rcc-pic-total-revenue:base_target:clause_reordered",
+      "normalized_causal_signature_sha256": "4c68f8ce8afc17484f216813ac2abd803df2b517a1888368f9c0c3093d734614",
+      "disposition": "GENERIC_ROOT_CAUSE_MEMBER"
+    },
+    {
+      "oracle_row_id": "qp4-rcc-pic-total-revenue:reference_base_mutation_target:clause_reordered",
+      "normalized_causal_signature_sha256": "285c10f624322f00ba6e72e3bf1ddf28a087074b9019a0a1447a1a67f2f98cd7",
+      "disposition": "GENERIC_ROOT_CAUSE_MEMBER"
+    },
+    {
+      "oracle_row_id": "qp4-rcc-pic-total-revenue:reference_base_mutation_target:paraphrase_1",
+      "normalized_causal_signature_sha256": "86db219d02d5a40dc50ebb2e3d6eaac6df8ea1c315978ddf54e4e6e3abffea5d",
+      "disposition": "GENERIC_ROOT_CAUSE_MEMBER"
+    },
+    {
+      "oracle_row_id": "qp4-rcc-scg-total-revenue:base_target:clause_reordered",
+      "normalized_causal_signature_sha256": "4c68f8ce8afc17484f216813ac2abd803df2b517a1888368f9c0c3093d734614",
+      "disposition": "GENERIC_ROOT_CAUSE_MEMBER"
+    },
+    {
+      "oracle_row_id": "qp4-rcc-scg-total-revenue:reference_base_mutation_target:clause_reordered",
+      "normalized_causal_signature_sha256": "285c10f624322f00ba6e72e3bf1ddf28a087074b9019a0a1447a1a67f2f98cd7",
+      "disposition": "GENERIC_ROOT_CAUSE_MEMBER"
+    },
+    {
+      "oracle_row_id": "qp4-rcc-scg-total-revenue:reference_base_mutation_target:paraphrase_1",
+      "normalized_causal_signature_sha256": "86db219d02d5a40dc50ebb2e3d6eaac6df8ea1c315978ddf54e4e6e3abffea5d",
+      "disposition": "GENERIC_ROOT_CAUSE_MEMBER"
+    },
+    {
+      "oracle_row_id": "qp4-rcc-vnl-profit-before-tax:base_target:clause_reordered",
+      "normalized_causal_signature_sha256": "4c68f8ce8afc17484f216813ac2abd803df2b517a1888368f9c0c3093d734614",
+      "disposition": "GENERIC_ROOT_CAUSE_MEMBER"
+    },
+    {
+      "oracle_row_id": "qp4-rcc-vnl-profit-before-tax:reference_base_mutation_target:clause_reordered",
+      "normalized_causal_signature_sha256": "285c10f624322f00ba6e72e3bf1ddf28a087074b9019a0a1447a1a67f2f98cd7",
+      "disposition": "GENERIC_ROOT_CAUSE_MEMBER"
+    },
+    {
+      "oracle_row_id": "qp4-rcc-vnl-profit-before-tax:reference_base_mutation_target:paraphrase_1",
+      "normalized_causal_signature_sha256": "86db219d02d5a40dc50ebb2e3d6eaac6df8ea1c315978ddf54e4e6e3abffea5d",
+      "disposition": "GENERIC_ROOT_CAUSE_MEMBER"
+    }
+  ],
+  "all_19_cases_disposed": true,
+  "generic_clusters": 3,
+  "local_clusters": 1,
+  "failures": [],
+  "repair_authorized": false,
+  "authorized_next_action": "A separate runtime-repair precommit is required before any runtime edit"
+}

@@ -1,0 +1,1287 @@
+{
+  "schema": "finhrm-qp4-question-plan-diagnosis-instrumentation-trust-baseline-precommit-v2",
+  "created_at": "2026-08-26T09:31:32.058713+07:00",
+  "classification": "development_only_new_trust_baseline_question_plan_diagnosis_instrumentation_precommit",
+  "status": "PASS",
+  "precommit_gate_passed": true,
+  "governing_baseline": {
+    "commit": "5da2ff00bf58496a36be7c08d5bbdb1959a9542e",
+    "head_at_precommit": "5da2ff00bf58496a36be7c08d5bbdb1959a9542e",
+    "parent_count": 0,
+    "semantics": "forward anchor only; no pre-baseline cleanliness claim",
+    "user_authorized_qp4_restart_from_this_baseline": true
+  },
+  "inputs": {
+    "trust_baseline_audit": {
+      "path": "reports/post_contamination_trust_baseline_audit_v1.json",
+      "size_bytes": 2538,
+      "sha256": "af542deb5311f5908781eb57f421da0a072ba422c3004acd6d837cc9b6bed67e"
+    },
+    "generalization_invariant": {
+      "path": "config/finhrm_report_generalization_invariant_v1.json",
+      "size_bytes": 2512,
+      "sha256": "7a8c6e58a47314d522adb782277f6d5bf0cbf761faf681d848e2e9ae4e861846"
+    },
+    "generalization_invariant_lock": {
+      "path": "reports/finhrm_report_generalization_invariant_lock_v1.json",
+      "size_bytes": 1108,
+      "sha256": "9e68934387185fd21f6f3927686ff3bece8366f7babbfe3e15f7d603c0c60bc9"
+    },
+    "thesis_core": {
+      "path": "config/finhrm_thesis_core_v1.json",
+      "size_bytes": 24625,
+      "sha256": "a9f2f3088f7622c6c8912086eac16252f154fcae1164a3fe7ba75107a0ece502"
+    },
+    "development_source_cohort": {
+      "path": "reports/finhrm_qp4_post_question_surface_post_cache_residual_coverage_cohort_build_v1.json",
+      "size_bytes": 40607,
+      "sha256": "e084ec16312488c1badb5b645cfdf135a623cf89486d0f189648404fc5de35e6"
+    },
+    "raw_development_replay_diagnostic_evidence_only": {
+      "path": "reports/finhrm_qp4_full_source_semantic_replay_refresh_v1.json",
+      "size_bytes": 247897,
+      "sha256": "a693c0b011685dac70be5365d175ce4065dce192b3ce72525a9fa34ad776f56f"
+    },
+    "question_planner_source": {
+      "path": "src/hrm_finance_qa/question_planner.py",
+      "size_bytes": 63023,
+      "sha256": "334ab6bfb57b883ff2022cdcb39614d7e7a8d3269c14f4bea188640d53111bf4"
+    },
+    "persistent_replay_harness": {
+      "path": "scripts/run_qp4_question_plan_trust_baseline.py",
+      "size_bytes": 40084,
+      "sha256": "96e2be9d0acae3c1994331383a87ee24e6302ea647ca0490836dee6c555395c1"
+    }
+  },
+  "explicitly_excluded_as_inputs": {
+    "old_precommits_and_locks": true,
+    "old_corrected_evaluator_and_its_selection": true,
+    "old_question_plan_instrumentation_replay": true,
+    "old_candidate_or_binding_diagnosis": true,
+    "validation_blind_test_sealed_current_best_validation": true,
+    "source_pdf_content": true,
+    "model_checkpoint_page_index_ocr": true
+  },
+  "development_scope": {
+    "anchors": 6,
+    "positive_rows_rederived": 60,
+    "source_diversity": {
+      "companies": 6,
+      "sources": 6,
+      "real_document_layouts": 3
+    },
+    "source_paths_checked_by_metadata_only": true,
+    "source_pdf_bytes_read": 0
+  },
+  "oracle_contract": {
+    "correctness_source": "each frozen development anchor's programs, evidence roles, and evidence periods",
+    "raw_replay_use": "diagnostic observed projection only; question_plan_passed is ignored",
+    "comparison": "exact operation, operation_candidates, roles, years, reference_base, and abstention presence",
+    "gold_or_expected_plan_passed_to_compiler": false,
+    "oracle_applied_post_hoc_only": true
+  },
+  "independent_diagnosis": {
+    "target_count": 19,
+    "target_order": "source cohort anchor order, then base_target/reference_base_mutation_target, then frozen surface order",
+    "observed_projection_groups": [
+      {
+        "observed_signature_sha256": "9f6ed18a5dbf4631f8530580fd6d0e72463de8a7ab35a9762e7d15f3fba35ee6",
+        "category": "base_target",
+        "surface_label": "clause_reordered",
+        "observed_projection_sha256s": [
+          "acbeda928f8a5c627c09fb026dff5bccef48e8e954ca96919aec540af128140e",
+          "d0890bb9f99f19f63b1090a84ddcbba3d34d0bfa0e72307b9b51932de8bdc04d"
+        ],
+        "divergence_field_sets": [
+          "[\"reference_base\",\"roles\"]"
+        ],
+        "diversity": {
+          "rows": 6,
+          "companies": 6,
+          "sources": 6,
+          "real_document_layouts": 3,
+          "real_table_layouts": 6,
+          "extraction_families": 2
+        },
+        "causal_claim_before_instrumentation": "NONE"
+      },
+      {
+        "observed_signature_sha256": "b0d796f6f78fcf6a055f31419f77acb6543961cf621289107238f908fd6ebffd",
+        "category": "reference_base_mutation_target",
+        "surface_label": "paraphrase_1",
+        "observed_projection_sha256s": [
+          "3b30e3d51ce59aab94c19958e9a00acd2792bf682754d0613b1a8b6359ce66e5",
+          "de0087cf4444671604db95c8451b4e767c6c55c6cc44c21c59d8d0badb7f6c58"
+        ],
+        "divergence_field_sets": [
+          "[\"operation\",\"operation_candidates\",\"reference_base\"]"
+        ],
+        "diversity": {
+          "rows": 6,
+          "companies": 6,
+          "sources": 6,
+          "real_document_layouts": 3,
+          "real_table_layouts": 6,
+          "extraction_families": 2
+        },
+        "causal_claim_before_instrumentation": "NONE"
+      },
+      {
+        "observed_signature_sha256": "011d300a50d40a84ced9174a64951468b8131cae9e085956cacf2b8a1ebcf289",
+        "category": "reference_base_mutation_target",
+        "surface_label": "clause_reordered",
+        "observed_projection_sha256s": [
+          "0edd75847a778f8b5065472fe823b31394bec46d7a1bb58744f1b9ae7aaca62f",
+          "220ca86fc85bda34dcb71f8b5e7961cfa97bb7074defb75991dfd5003ee6f3fe"
+        ],
+        "divergence_field_sets": [
+          "[\"operation\",\"operation_candidates\",\"reference_base\",\"years\"]"
+        ],
+        "diversity": {
+          "rows": 6,
+          "companies": 6,
+          "sources": 6,
+          "real_document_layouts": 3,
+          "real_table_layouts": 6,
+          "extraction_families": 2
+        },
+        "causal_claim_before_instrumentation": "NONE"
+      },
+      {
+        "observed_signature_sha256": "4610fe9100336272c832e22eee001c7cd17c35b04e0554c163109fa589c306fa",
+        "category": "reference_base_mutation_target",
+        "surface_label": "long_clause",
+        "observed_projection_sha256s": [
+          "06056fe64aab3f42ed26e32d523d851650de88313629af124e4373ba833a36ba"
+        ],
+        "divergence_field_sets": [
+          "[\"operation\",\"operation_candidates\"]"
+        ],
+        "diversity": {
+          "rows": 1,
+          "companies": 1,
+          "sources": 1,
+          "real_document_layouts": 1,
+          "real_table_layouts": 1,
+          "extraction_families": 1
+        },
+        "causal_claim_before_instrumentation": "NONE"
+      }
+    ],
+    "root_cause_hypotheses_carried_from_old_precommit": 0,
+    "root_cause_claim_before_instrumentation": "NONE",
+    "targets": [
+      {
+        "order": 1,
+        "raw_row_ordinal": 49,
+        "oracle_row_id": "qp4-rcc-pic-total-revenue:base_target:clause_reordered",
+        "anchor_id": "qp4-rcc-pic-total-revenue",
+        "company_key": "development-company-2255c8b55faa7d4f",
+        "source_sha256": "ae0d9aa6645251025f3f71572205f5ef0f93a6f136ae243c2f3cd0700befb96e",
+        "document_layout_family": "native_text_mixed_orientation",
+        "table_layout_family": "dense_single_matrix_prior_actual_current_plan_current_actual_dual_ratio",
+        "extraction_family": "native_vector_text_table",
+        "category": "base_target",
+        "surface_label": "clause_reordered",
+        "question_selector": {
+          "collection": "base_surfaces",
+          "index": 3
+        },
+        "question_sha256": "60730f69092059a1198dec973f2bca6afe9a239e63f680c8d79f934337d67644",
+        "expected_projection": {
+          "abstention_reason_present": false,
+          "operation": "RATIO_PERCENT",
+          "operation_candidates": [
+            "RATIO_PERCENT"
+          ],
+          "reference_base": "plan",
+          "roles": [
+            "ACTUAL",
+            "PLAN"
+          ],
+          "years": [
+            "2023",
+            "2023"
+          ]
+        },
+        "observed_frozen_projection": {
+          "abstention_reason_present": false,
+          "operation": "RATIO_PERCENT",
+          "operation_candidates": [
+            "RATIO_PERCENT"
+          ],
+          "reference_base": "actual",
+          "roles": [
+            "PLAN",
+            "ACTUAL"
+          ],
+          "years": [
+            "2023",
+            "2023"
+          ]
+        },
+        "divergence_fields": [
+          "reference_base",
+          "roles"
+        ]
+      },
+      {
+        "order": 2,
+        "raw_row_ordinal": 52,
+        "oracle_row_id": "qp4-rcc-pic-total-revenue:reference_base_mutation_target:paraphrase_1",
+        "anchor_id": "qp4-rcc-pic-total-revenue",
+        "company_key": "development-company-2255c8b55faa7d4f",
+        "source_sha256": "ae0d9aa6645251025f3f71572205f5ef0f93a6f136ae243c2f3cd0700befb96e",
+        "document_layout_family": "native_text_mixed_orientation",
+        "table_layout_family": "dense_single_matrix_prior_actual_current_plan_current_actual_dual_ratio",
+        "extraction_family": "native_vector_text_table",
+        "category": "reference_base_mutation_target",
+        "surface_label": "paraphrase_1",
+        "question_selector": {
+          "collection": "reference_base_mutation_surfaces",
+          "index": 1
+        },
+        "question_sha256": "51de98ef1368dd1eeb60031bed5c4a4a0fcf4b1435bdb35da69a76c1d34097c4",
+        "expected_projection": {
+          "abstention_reason_present": false,
+          "operation": "RATIO_PERCENT",
+          "operation_candidates": [
+            "RATIO_PERCENT"
+          ],
+          "reference_base": "actual_2022",
+          "roles": [
+            "ACTUAL",
+            "ACTUAL"
+          ],
+          "years": [
+            "2023",
+            "2022"
+          ]
+        },
+        "observed_frozen_projection": {
+          "abstention_reason_present": false,
+          "operation": "SELECT",
+          "operation_candidates": [
+            "SELECT"
+          ],
+          "reference_base": null,
+          "roles": [
+            "ACTUAL",
+            "ACTUAL"
+          ],
+          "years": [
+            "2023",
+            "2022"
+          ]
+        },
+        "divergence_fields": [
+          "operation",
+          "operation_candidates",
+          "reference_base"
+        ]
+      },
+      {
+        "order": 3,
+        "raw_row_ordinal": 54,
+        "oracle_row_id": "qp4-rcc-pic-total-revenue:reference_base_mutation_target:clause_reordered",
+        "anchor_id": "qp4-rcc-pic-total-revenue",
+        "company_key": "development-company-2255c8b55faa7d4f",
+        "source_sha256": "ae0d9aa6645251025f3f71572205f5ef0f93a6f136ae243c2f3cd0700befb96e",
+        "document_layout_family": "native_text_mixed_orientation",
+        "table_layout_family": "dense_single_matrix_prior_actual_current_plan_current_actual_dual_ratio",
+        "extraction_family": "native_vector_text_table",
+        "category": "reference_base_mutation_target",
+        "surface_label": "clause_reordered",
+        "question_selector": {
+          "collection": "reference_base_mutation_surfaces",
+          "index": 3
+        },
+        "question_sha256": "a2fcf0e112a55df86a8c253e17adb143cf503f026faa51d02c4f3ca47da57978",
+        "expected_projection": {
+          "abstention_reason_present": false,
+          "operation": "RATIO_PERCENT",
+          "operation_candidates": [
+            "RATIO_PERCENT"
+          ],
+          "reference_base": "actual_2022",
+          "roles": [
+            "ACTUAL",
+            "ACTUAL"
+          ],
+          "years": [
+            "2023",
+            "2022"
+          ]
+        },
+        "observed_frozen_projection": {
+          "abstention_reason_present": false,
+          "operation": "SELECT",
+          "operation_candidates": [
+            "SELECT"
+          ],
+          "reference_base": null,
+          "roles": [
+            "ACTUAL",
+            "ACTUAL"
+          ],
+          "years": [
+            "2022",
+            "2023"
+          ]
+        },
+        "divergence_fields": [
+          "operation",
+          "operation_candidates",
+          "reference_base",
+          "years"
+        ]
+      },
+      {
+        "order": 4,
+        "raw_row_ordinal": 4,
+        "oracle_row_id": "qp4-rcc-agr-total-expense:base_target:clause_reordered",
+        "anchor_id": "qp4-rcc-agr-total-expense",
+        "company_key": "development-company-18",
+        "source_sha256": "29cda4b451aa6e180334489db732ce77b94df32a8f19d6ee93afd234ce1a7d6e",
+        "document_layout_family": "native_text_mixed_orientation",
+        "table_layout_family": "compact_current_year_plan_actual_with_prior_and_ratio_spanner",
+        "extraction_family": "native_vector_text_table",
+        "category": "base_target",
+        "surface_label": "clause_reordered",
+        "question_selector": {
+          "collection": "base_surfaces",
+          "index": 3
+        },
+        "question_sha256": "be215ec322dd5381c6b60ea128a6bb973d45b8cbb2e0a94d7b11faa1d1bc6055",
+        "expected_projection": {
+          "abstention_reason_present": false,
+          "operation": "RATIO_PERCENT",
+          "operation_candidates": [
+            "RATIO_PERCENT"
+          ],
+          "reference_base": "plan",
+          "roles": [
+            "ACTUAL",
+            "PLAN"
+          ],
+          "years": [
+            "2024",
+            "2024"
+          ]
+        },
+        "observed_frozen_projection": {
+          "abstention_reason_present": false,
+          "operation": "RATIO_PERCENT",
+          "operation_candidates": [
+            "RATIO_PERCENT"
+          ],
+          "reference_base": "actual",
+          "roles": [
+            "PLAN",
+            "ACTUAL"
+          ],
+          "years": [
+            "2024",
+            "2024"
+          ]
+        },
+        "divergence_fields": [
+          "reference_base",
+          "roles"
+        ]
+      },
+      {
+        "order": 5,
+        "raw_row_ordinal": 7,
+        "oracle_row_id": "qp4-rcc-agr-total-expense:reference_base_mutation_target:paraphrase_1",
+        "anchor_id": "qp4-rcc-agr-total-expense",
+        "company_key": "development-company-18",
+        "source_sha256": "29cda4b451aa6e180334489db732ce77b94df32a8f19d6ee93afd234ce1a7d6e",
+        "document_layout_family": "native_text_mixed_orientation",
+        "table_layout_family": "compact_current_year_plan_actual_with_prior_and_ratio_spanner",
+        "extraction_family": "native_vector_text_table",
+        "category": "reference_base_mutation_target",
+        "surface_label": "paraphrase_1",
+        "question_selector": {
+          "collection": "reference_base_mutation_surfaces",
+          "index": 1
+        },
+        "question_sha256": "1793edead391ce22336521bde4220d2d6cb59af2dc6d3b5067341b35584da6ef",
+        "expected_projection": {
+          "abstention_reason_present": false,
+          "operation": "RATIO_PERCENT",
+          "operation_candidates": [
+            "RATIO_PERCENT"
+          ],
+          "reference_base": "actual_2023",
+          "roles": [
+            "ACTUAL",
+            "ACTUAL"
+          ],
+          "years": [
+            "2024",
+            "2023"
+          ]
+        },
+        "observed_frozen_projection": {
+          "abstention_reason_present": false,
+          "operation": "SELECT",
+          "operation_candidates": [
+            "SELECT"
+          ],
+          "reference_base": null,
+          "roles": [
+            "ACTUAL",
+            "ACTUAL"
+          ],
+          "years": [
+            "2024",
+            "2023"
+          ]
+        },
+        "divergence_fields": [
+          "operation",
+          "operation_candidates",
+          "reference_base"
+        ]
+      },
+      {
+        "order": 6,
+        "raw_row_ordinal": 9,
+        "oracle_row_id": "qp4-rcc-agr-total-expense:reference_base_mutation_target:clause_reordered",
+        "anchor_id": "qp4-rcc-agr-total-expense",
+        "company_key": "development-company-18",
+        "source_sha256": "29cda4b451aa6e180334489db732ce77b94df32a8f19d6ee93afd234ce1a7d6e",
+        "document_layout_family": "native_text_mixed_orientation",
+        "table_layout_family": "compact_current_year_plan_actual_with_prior_and_ratio_spanner",
+        "extraction_family": "native_vector_text_table",
+        "category": "reference_base_mutation_target",
+        "surface_label": "clause_reordered",
+        "question_selector": {
+          "collection": "reference_base_mutation_surfaces",
+          "index": 3
+        },
+        "question_sha256": "128429c7de5b8c48f10e9475d2314d32b6d2d0ffb3a0b2b8ed8ab69bfe653e1f",
+        "expected_projection": {
+          "abstention_reason_present": false,
+          "operation": "RATIO_PERCENT",
+          "operation_candidates": [
+            "RATIO_PERCENT"
+          ],
+          "reference_base": "actual_2023",
+          "roles": [
+            "ACTUAL",
+            "ACTUAL"
+          ],
+          "years": [
+            "2024",
+            "2023"
+          ]
+        },
+        "observed_frozen_projection": {
+          "abstention_reason_present": false,
+          "operation": "SELECT",
+          "operation_candidates": [
+            "SELECT"
+          ],
+          "reference_base": null,
+          "roles": [
+            "ACTUAL",
+            "ACTUAL"
+          ],
+          "years": [
+            "2023",
+            "2024"
+          ]
+        },
+        "divergence_fields": [
+          "operation",
+          "operation_candidates",
+          "reference_base",
+          "years"
+        ]
+      },
+      {
+        "order": 7,
+        "raw_row_ordinal": 19,
+        "oracle_row_id": "qp4-rcc-hub-parent-profit-after-tax:base_target:clause_reordered",
+        "anchor_id": "qp4-rcc-hub-parent-profit-after-tax",
+        "company_key": "development-company-08d33503ee27d4c1",
+        "source_sha256": "daad4aaec36be97b5ae6f99d1d822fb9efe12d2b92110e81be7df150e991f695",
+        "document_layout_family": "native_text_portrait",
+        "table_layout_family": "portrait_table_above_grouped_bar_chart",
+        "extraction_family": "native_vector_text_table",
+        "category": "base_target",
+        "surface_label": "clause_reordered",
+        "question_selector": {
+          "collection": "base_surfaces",
+          "index": 3
+        },
+        "question_sha256": "ae8512c3fa48d2ad96db9b7a12e64f46bb35c641ce425705a87d0a81dc10327f",
+        "expected_projection": {
+          "abstention_reason_present": false,
+          "operation": "RATIO_PERCENT",
+          "operation_candidates": [
+            "RATIO_PERCENT"
+          ],
+          "reference_base": "plan",
+          "roles": [
+            "ACTUAL",
+            "PLAN"
+          ],
+          "years": [
+            "2023",
+            "2023"
+          ]
+        },
+        "observed_frozen_projection": {
+          "abstention_reason_present": false,
+          "operation": "RATIO_PERCENT",
+          "operation_candidates": [
+            "RATIO_PERCENT"
+          ],
+          "reference_base": "actual",
+          "roles": [
+            "PLAN",
+            "ACTUAL"
+          ],
+          "years": [
+            "2023",
+            "2023"
+          ]
+        },
+        "divergence_fields": [
+          "reference_base",
+          "roles"
+        ]
+      },
+      {
+        "order": 8,
+        "raw_row_ordinal": 22,
+        "oracle_row_id": "qp4-rcc-hub-parent-profit-after-tax:reference_base_mutation_target:paraphrase_1",
+        "anchor_id": "qp4-rcc-hub-parent-profit-after-tax",
+        "company_key": "development-company-08d33503ee27d4c1",
+        "source_sha256": "daad4aaec36be97b5ae6f99d1d822fb9efe12d2b92110e81be7df150e991f695",
+        "document_layout_family": "native_text_portrait",
+        "table_layout_family": "portrait_table_above_grouped_bar_chart",
+        "extraction_family": "native_vector_text_table",
+        "category": "reference_base_mutation_target",
+        "surface_label": "paraphrase_1",
+        "question_selector": {
+          "collection": "reference_base_mutation_surfaces",
+          "index": 1
+        },
+        "question_sha256": "c334928addd3f0b6fa5f341ccf0385570b86c0624829c27f3d1f18a894029c79",
+        "expected_projection": {
+          "abstention_reason_present": false,
+          "operation": "RATIO_PERCENT",
+          "operation_candidates": [
+            "RATIO_PERCENT"
+          ],
+          "reference_base": "actual_2022",
+          "roles": [
+            "ACTUAL",
+            "ACTUAL"
+          ],
+          "years": [
+            "2023",
+            "2022"
+          ]
+        },
+        "observed_frozen_projection": {
+          "abstention_reason_present": false,
+          "operation": "SELECT",
+          "operation_candidates": [
+            "SELECT"
+          ],
+          "reference_base": null,
+          "roles": [
+            "ACTUAL",
+            "ACTUAL"
+          ],
+          "years": [
+            "2023",
+            "2022"
+          ]
+        },
+        "divergence_fields": [
+          "operation",
+          "operation_candidates",
+          "reference_base"
+        ]
+      },
+      {
+        "order": 9,
+        "raw_row_ordinal": 24,
+        "oracle_row_id": "qp4-rcc-hub-parent-profit-after-tax:reference_base_mutation_target:clause_reordered",
+        "anchor_id": "qp4-rcc-hub-parent-profit-after-tax",
+        "company_key": "development-company-08d33503ee27d4c1",
+        "source_sha256": "daad4aaec36be97b5ae6f99d1d822fb9efe12d2b92110e81be7df150e991f695",
+        "document_layout_family": "native_text_portrait",
+        "table_layout_family": "portrait_table_above_grouped_bar_chart",
+        "extraction_family": "native_vector_text_table",
+        "category": "reference_base_mutation_target",
+        "surface_label": "clause_reordered",
+        "question_selector": {
+          "collection": "reference_base_mutation_surfaces",
+          "index": 3
+        },
+        "question_sha256": "f9dee39b57c1deda8bded30ed8e5ceab892b4e76bcdec798803ffae42b6f28d2",
+        "expected_projection": {
+          "abstention_reason_present": false,
+          "operation": "RATIO_PERCENT",
+          "operation_candidates": [
+            "RATIO_PERCENT"
+          ],
+          "reference_base": "actual_2022",
+          "roles": [
+            "ACTUAL",
+            "ACTUAL"
+          ],
+          "years": [
+            "2023",
+            "2022"
+          ]
+        },
+        "observed_frozen_projection": {
+          "abstention_reason_present": false,
+          "operation": "SELECT",
+          "operation_candidates": [
+            "SELECT"
+          ],
+          "reference_base": null,
+          "roles": [
+            "ACTUAL",
+            "ACTUAL"
+          ],
+          "years": [
+            "2022",
+            "2023"
+          ]
+        },
+        "divergence_fields": [
+          "operation",
+          "operation_candidates",
+          "reference_base",
+          "years"
+        ]
+      },
+      {
+        "order": 10,
+        "raw_row_ordinal": 34,
+        "oracle_row_id": "qp4-rcc-ict-total-revenue:base_target:clause_reordered",
+        "anchor_id": "qp4-rcc-ict-total-revenue",
+        "company_key": "development-company-175a680792c1fbf7",
+        "source_sha256": "ee2061e29c1923da0e38ba33a7e25c7d0d2a2f6f22f045b8b30bd4c1bb539ac1",
+        "document_layout_family": "native_text_mixed_orientation",
+        "table_layout_family": "stacked_plan_actual_and_prior_actual_comparison_tables",
+        "extraction_family": "native_vector_text_table",
+        "category": "base_target",
+        "surface_label": "clause_reordered",
+        "question_selector": {
+          "collection": "base_surfaces",
+          "index": 3
+        },
+        "question_sha256": "60730f69092059a1198dec973f2bca6afe9a239e63f680c8d79f934337d67644",
+        "expected_projection": {
+          "abstention_reason_present": false,
+          "operation": "RATIO_PERCENT",
+          "operation_candidates": [
+            "RATIO_PERCENT"
+          ],
+          "reference_base": "plan",
+          "roles": [
+            "ACTUAL",
+            "PLAN"
+          ],
+          "years": [
+            "2023",
+            "2023"
+          ]
+        },
+        "observed_frozen_projection": {
+          "abstention_reason_present": false,
+          "operation": "RATIO_PERCENT",
+          "operation_candidates": [
+            "RATIO_PERCENT"
+          ],
+          "reference_base": "actual",
+          "roles": [
+            "PLAN",
+            "ACTUAL"
+          ],
+          "years": [
+            "2023",
+            "2023"
+          ]
+        },
+        "divergence_fields": [
+          "reference_base",
+          "roles"
+        ]
+      },
+      {
+        "order": 11,
+        "raw_row_ordinal": 37,
+        "oracle_row_id": "qp4-rcc-ict-total-revenue:reference_base_mutation_target:paraphrase_1",
+        "anchor_id": "qp4-rcc-ict-total-revenue",
+        "company_key": "development-company-175a680792c1fbf7",
+        "source_sha256": "ee2061e29c1923da0e38ba33a7e25c7d0d2a2f6f22f045b8b30bd4c1bb539ac1",
+        "document_layout_family": "native_text_mixed_orientation",
+        "table_layout_family": "stacked_plan_actual_and_prior_actual_comparison_tables",
+        "extraction_family": "native_vector_text_table",
+        "category": "reference_base_mutation_target",
+        "surface_label": "paraphrase_1",
+        "question_selector": {
+          "collection": "reference_base_mutation_surfaces",
+          "index": 1
+        },
+        "question_sha256": "51de98ef1368dd1eeb60031bed5c4a4a0fcf4b1435bdb35da69a76c1d34097c4",
+        "expected_projection": {
+          "abstention_reason_present": false,
+          "operation": "RATIO_PERCENT",
+          "operation_candidates": [
+            "RATIO_PERCENT"
+          ],
+          "reference_base": "actual_2022",
+          "roles": [
+            "ACTUAL",
+            "ACTUAL"
+          ],
+          "years": [
+            "2023",
+            "2022"
+          ]
+        },
+        "observed_frozen_projection": {
+          "abstention_reason_present": false,
+          "operation": "SELECT",
+          "operation_candidates": [
+            "SELECT"
+          ],
+          "reference_base": null,
+          "roles": [
+            "ACTUAL",
+            "ACTUAL"
+          ],
+          "years": [
+            "2023",
+            "2022"
+          ]
+        },
+        "divergence_fields": [
+          "operation",
+          "operation_candidates",
+          "reference_base"
+        ]
+      },
+      {
+        "order": 12,
+        "raw_row_ordinal": 38,
+        "oracle_row_id": "qp4-rcc-ict-total-revenue:reference_base_mutation_target:long_clause",
+        "anchor_id": "qp4-rcc-ict-total-revenue",
+        "company_key": "development-company-175a680792c1fbf7",
+        "source_sha256": "ee2061e29c1923da0e38ba33a7e25c7d0d2a2f6f22f045b8b30bd4c1bb539ac1",
+        "document_layout_family": "native_text_mixed_orientation",
+        "table_layout_family": "stacked_plan_actual_and_prior_actual_comparison_tables",
+        "extraction_family": "native_vector_text_table",
+        "category": "reference_base_mutation_target",
+        "surface_label": "long_clause",
+        "question_selector": {
+          "collection": "reference_base_mutation_surfaces",
+          "index": 2
+        },
+        "question_sha256": "11f286123504061e75169aac9e30bc4e0f4a7adcb03559d520ba2e05a9d8a23a",
+        "expected_projection": {
+          "abstention_reason_present": false,
+          "operation": "RATIO_PERCENT",
+          "operation_candidates": [
+            "RATIO_PERCENT"
+          ],
+          "reference_base": "actual_2022",
+          "roles": [
+            "ACTUAL",
+            "ACTUAL"
+          ],
+          "years": [
+            "2023",
+            "2022"
+          ]
+        },
+        "observed_frozen_projection": {
+          "abstention_reason_present": false,
+          "operation": "PERCENT_CHANGE",
+          "operation_candidates": [
+            "PERCENT_CHANGE"
+          ],
+          "reference_base": "actual_2022",
+          "roles": [
+            "ACTUAL",
+            "ACTUAL"
+          ],
+          "years": [
+            "2023",
+            "2022"
+          ]
+        },
+        "divergence_fields": [
+          "operation",
+          "operation_candidates"
+        ]
+      },
+      {
+        "order": 13,
+        "raw_row_ordinal": 39,
+        "oracle_row_id": "qp4-rcc-ict-total-revenue:reference_base_mutation_target:clause_reordered",
+        "anchor_id": "qp4-rcc-ict-total-revenue",
+        "company_key": "development-company-175a680792c1fbf7",
+        "source_sha256": "ee2061e29c1923da0e38ba33a7e25c7d0d2a2f6f22f045b8b30bd4c1bb539ac1",
+        "document_layout_family": "native_text_mixed_orientation",
+        "table_layout_family": "stacked_plan_actual_and_prior_actual_comparison_tables",
+        "extraction_family": "native_vector_text_table",
+        "category": "reference_base_mutation_target",
+        "surface_label": "clause_reordered",
+        "question_selector": {
+          "collection": "reference_base_mutation_surfaces",
+          "index": 3
+        },
+        "question_sha256": "a2fcf0e112a55df86a8c253e17adb143cf503f026faa51d02c4f3ca47da57978",
+        "expected_projection": {
+          "abstention_reason_present": false,
+          "operation": "RATIO_PERCENT",
+          "operation_candidates": [
+            "RATIO_PERCENT"
+          ],
+          "reference_base": "actual_2022",
+          "roles": [
+            "ACTUAL",
+            "ACTUAL"
+          ],
+          "years": [
+            "2023",
+            "2022"
+          ]
+        },
+        "observed_frozen_projection": {
+          "abstention_reason_present": false,
+          "operation": "SELECT",
+          "operation_candidates": [
+            "SELECT"
+          ],
+          "reference_base": null,
+          "roles": [
+            "ACTUAL",
+            "ACTUAL"
+          ],
+          "years": [
+            "2022",
+            "2023"
+          ]
+        },
+        "divergence_fields": [
+          "operation",
+          "operation_candidates",
+          "reference_base",
+          "years"
+        ]
+      },
+      {
+        "order": 14,
+        "raw_row_ordinal": 64,
+        "oracle_row_id": "qp4-rcc-scg-total-revenue:base_target:clause_reordered",
+        "anchor_id": "qp4-rcc-scg-total-revenue",
+        "company_key": "development-company-128d077252ff6e80",
+        "source_sha256": "fabcefdf81e9bf90abdfe4497a4b7ba7960d564e9ce525ecd7dfe8dd05c62ff1",
+        "document_layout_family": "native_text_mixed_orientation",
+        "table_layout_family": "wide_left_panel_plan_actual_prior_growth_matrix",
+        "extraction_family": "native_vector_text_table",
+        "category": "base_target",
+        "surface_label": "clause_reordered",
+        "question_selector": {
+          "collection": "base_surfaces",
+          "index": 3
+        },
+        "question_sha256": "60730f69092059a1198dec973f2bca6afe9a239e63f680c8d79f934337d67644",
+        "expected_projection": {
+          "abstention_reason_present": false,
+          "operation": "RATIO_PERCENT",
+          "operation_candidates": [
+            "RATIO_PERCENT"
+          ],
+          "reference_base": "plan",
+          "roles": [
+            "ACTUAL",
+            "PLAN"
+          ],
+          "years": [
+            "2023",
+            "2023"
+          ]
+        },
+        "observed_frozen_projection": {
+          "abstention_reason_present": false,
+          "operation": "RATIO_PERCENT",
+          "operation_candidates": [
+            "RATIO_PERCENT"
+          ],
+          "reference_base": "actual",
+          "roles": [
+            "PLAN",
+            "ACTUAL"
+          ],
+          "years": [
+            "2023",
+            "2023"
+          ]
+        },
+        "divergence_fields": [
+          "reference_base",
+          "roles"
+        ]
+      },
+      {
+        "order": 15,
+        "raw_row_ordinal": 67,
+        "oracle_row_id": "qp4-rcc-scg-total-revenue:reference_base_mutation_target:paraphrase_1",
+        "anchor_id": "qp4-rcc-scg-total-revenue",
+        "company_key": "development-company-128d077252ff6e80",
+        "source_sha256": "fabcefdf81e9bf90abdfe4497a4b7ba7960d564e9ce525ecd7dfe8dd05c62ff1",
+        "document_layout_family": "native_text_mixed_orientation",
+        "table_layout_family": "wide_left_panel_plan_actual_prior_growth_matrix",
+        "extraction_family": "native_vector_text_table",
+        "category": "reference_base_mutation_target",
+        "surface_label": "paraphrase_1",
+        "question_selector": {
+          "collection": "reference_base_mutation_surfaces",
+          "index": 1
+        },
+        "question_sha256": "51de98ef1368dd1eeb60031bed5c4a4a0fcf4b1435bdb35da69a76c1d34097c4",
+        "expected_projection": {
+          "abstention_reason_present": false,
+          "operation": "RATIO_PERCENT",
+          "operation_candidates": [
+            "RATIO_PERCENT"
+          ],
+          "reference_base": "actual_2022",
+          "roles": [
+            "ACTUAL",
+            "ACTUAL"
+          ],
+          "years": [
+            "2023",
+            "2022"
+          ]
+        },
+        "observed_frozen_projection": {
+          "abstention_reason_present": false,
+          "operation": "SELECT",
+          "operation_candidates": [
+            "SELECT"
+          ],
+          "reference_base": null,
+          "roles": [
+            "ACTUAL",
+            "ACTUAL"
+          ],
+          "years": [
+            "2023",
+            "2022"
+          ]
+        },
+        "divergence_fields": [
+          "operation",
+          "operation_candidates",
+          "reference_base"
+        ]
+      },
+      {
+        "order": 16,
+        "raw_row_ordinal": 69,
+        "oracle_row_id": "qp4-rcc-scg-total-revenue:reference_base_mutation_target:clause_reordered",
+        "anchor_id": "qp4-rcc-scg-total-revenue",
+        "company_key": "development-company-128d077252ff6e80",
+        "source_sha256": "fabcefdf81e9bf90abdfe4497a4b7ba7960d564e9ce525ecd7dfe8dd05c62ff1",
+        "document_layout_family": "native_text_mixed_orientation",
+        "table_layout_family": "wide_left_panel_plan_actual_prior_growth_matrix",
+        "extraction_family": "native_vector_text_table",
+        "category": "reference_base_mutation_target",
+        "surface_label": "clause_reordered",
+        "question_selector": {
+          "collection": "reference_base_mutation_surfaces",
+          "index": 3
+        },
+        "question_sha256": "a2fcf0e112a55df86a8c253e17adb143cf503f026faa51d02c4f3ca47da57978",
+        "expected_projection": {
+          "abstention_reason_present": false,
+          "operation": "RATIO_PERCENT",
+          "operation_candidates": [
+            "RATIO_PERCENT"
+          ],
+          "reference_base": "actual_2022",
+          "roles": [
+            "ACTUAL",
+            "ACTUAL"
+          ],
+          "years": [
+            "2023",
+            "2022"
+          ]
+        },
+        "observed_frozen_projection": {
+          "abstention_reason_present": false,
+          "operation": "SELECT",
+          "operation_candidates": [
+            "SELECT"
+          ],
+          "reference_base": null,
+          "roles": [
+            "ACTUAL",
+            "ACTUAL"
+          ],
+          "years": [
+            "2022",
+            "2023"
+          ]
+        },
+        "divergence_fields": [
+          "operation",
+          "operation_candidates",
+          "reference_base",
+          "years"
+        ]
+      },
+      {
+        "order": 17,
+        "raw_row_ordinal": 79,
+        "oracle_row_id": "qp4-rcc-vnl-profit-before-tax:base_target:clause_reordered",
+        "anchor_id": "qp4-rcc-vnl-profit-before-tax",
+        "company_key": "development-company-0d2016d24a4bb0bd",
+        "source_sha256": "c1f20dffb1a4ed818cd4d3d78f5d47ce2e1517b8a78e6c8e9eee1aaafca51c2b",
+        "document_layout_family": "hybrid_scan_text",
+        "table_layout_family": "portrait_audit_committee_table_with_interleaved_ratio_columns",
+        "extraction_family": "hybrid_scan_text_existing_text_layer",
+        "category": "base_target",
+        "surface_label": "clause_reordered",
+        "question_selector": {
+          "collection": "base_surfaces",
+          "index": 3
+        },
+        "question_sha256": "acf9075bddca43172d3509f0d715f704567b64ad0624a885f016de14a7ded60d",
+        "expected_projection": {
+          "abstention_reason_present": false,
+          "operation": "RATIO_PERCENT",
+          "operation_candidates": [
+            "RATIO_PERCENT"
+          ],
+          "reference_base": "plan",
+          "roles": [
+            "ACTUAL",
+            "PLAN"
+          ],
+          "years": [
+            "2023",
+            "2023"
+          ]
+        },
+        "observed_frozen_projection": {
+          "abstention_reason_present": false,
+          "operation": "RATIO_PERCENT",
+          "operation_candidates": [
+            "RATIO_PERCENT"
+          ],
+          "reference_base": "actual",
+          "roles": [
+            "PLAN",
+            "ACTUAL"
+          ],
+          "years": [
+            "2023",
+            "2023"
+          ]
+        },
+        "divergence_fields": [
+          "reference_base",
+          "roles"
+        ]
+      },
+      {
+        "order": 18,
+        "raw_row_ordinal": 82,
+        "oracle_row_id": "qp4-rcc-vnl-profit-before-tax:reference_base_mutation_target:paraphrase_1",
+        "anchor_id": "qp4-rcc-vnl-profit-before-tax",
+        "company_key": "development-company-0d2016d24a4bb0bd",
+        "source_sha256": "c1f20dffb1a4ed818cd4d3d78f5d47ce2e1517b8a78e6c8e9eee1aaafca51c2b",
+        "document_layout_family": "hybrid_scan_text",
+        "table_layout_family": "portrait_audit_committee_table_with_interleaved_ratio_columns",
+        "extraction_family": "hybrid_scan_text_existing_text_layer",
+        "category": "reference_base_mutation_target",
+        "surface_label": "paraphrase_1",
+        "question_selector": {
+          "collection": "reference_base_mutation_surfaces",
+          "index": 1
+        },
+        "question_sha256": "8294c650946e645ad766fbbae9adb13fe0264853aa35c8ec2ce19c0515c3d3a8",
+        "expected_projection": {
+          "abstention_reason_present": false,
+          "operation": "RATIO_PERCENT",
+          "operation_candidates": [
+            "RATIO_PERCENT"
+          ],
+          "reference_base": "actual_2022",
+          "roles": [
+            "ACTUAL",
+            "ACTUAL"
+          ],
+          "years": [
+            "2023",
+            "2022"
+          ]
+        },
+        "observed_frozen_projection": {
+          "abstention_reason_present": false,
+          "operation": "SELECT",
+          "operation_candidates": [
+            "SELECT"
+          ],
+          "reference_base": null,
+          "roles": [
+            "ACTUAL",
+            "ACTUAL"
+          ],
+          "years": [
+            "2023",
+            "2022"
+          ]
+        },
+        "divergence_fields": [
+          "operation",
+          "operation_candidates",
+          "reference_base"
+        ]
+      },
+      {
+        "order": 19,
+        "raw_row_ordinal": 84,
+        "oracle_row_id": "qp4-rcc-vnl-profit-before-tax:reference_base_mutation_target:clause_reordered",
+        "anchor_id": "qp4-rcc-vnl-profit-before-tax",
+        "company_key": "development-company-0d2016d24a4bb0bd",
+        "source_sha256": "c1f20dffb1a4ed818cd4d3d78f5d47ce2e1517b8a78e6c8e9eee1aaafca51c2b",
+        "document_layout_family": "hybrid_scan_text",
+        "table_layout_family": "portrait_audit_committee_table_with_interleaved_ratio_columns",
+        "extraction_family": "hybrid_scan_text_existing_text_layer",
+        "category": "reference_base_mutation_target",
+        "surface_label": "clause_reordered",
+        "question_selector": {
+          "collection": "reference_base_mutation_surfaces",
+          "index": 3
+        },
+        "question_sha256": "acf96ccbec78ed070b259d55db065135b47251e050be97311a922ef394473e7d",
+        "expected_projection": {
+          "abstention_reason_present": false,
+          "operation": "RATIO_PERCENT",
+          "operation_candidates": [
+            "RATIO_PERCENT"
+          ],
+          "reference_base": "actual_2022",
+          "roles": [
+            "ACTUAL",
+            "ACTUAL"
+          ],
+          "years": [
+            "2023",
+            "2022"
+          ]
+        },
+        "observed_frozen_projection": {
+          "abstention_reason_present": false,
+          "operation": "SELECT",
+          "operation_candidates": [
+            "SELECT"
+          ],
+          "reference_base": null,
+          "roles": [
+            "ACTUAL",
+            "ACTUAL"
+          ],
+          "years": [
+            "2022",
+            "2023"
+          ]
+        },
+        "divergence_fields": [
+          "operation",
+          "operation_candidates",
+          "reference_base",
+          "years"
+        ]
+      }
+    ]
+  },
+  "instrumentation_contract": {
+    "module": "hrm_finance_qa.question_planner",
+    "entry_symbol": "compile_question_plan",
+    "mechanism": "Python frame tracing limited to named Question Planner symbols; no monkeypatch, argument rewrite, return rewrite, model, source, candidate, or binding access",
+    "allowed_symbols": [
+      "_align_column_roles",
+      "_compile_abstention_reason",
+      "_compile_column_roles",
+      "_compile_operand_slots",
+      "_compile_program_intent_dag",
+      "_partition_column_role_context",
+      "compile_question_plan"
+    ],
+    "question_content_in_trace": false,
+    "question_sha256_only": true,
+    "source_line_identity": "line number plus SHA-256 of source line under frozen question_planner hash",
+    "observer_noninterference_gate": "19/19 exact baseline projection equals instrumented projection"
+  },
+  "replay_contract": {
+    "command": "py -3.13 scripts/run_qp4_question_plan_trust_baseline.py replay",
+    "execution_order": "for each target in frozen order: one baseline call, then one traced call",
+    "baseline_compiler_calls": 19,
+    "instrumented_compiler_calls": 19,
+    "total_compiler_calls": 38,
+    "candidate_or_binding_calls": 0,
+    "model_inferences": 0,
+    "pdf_reads": 0,
+    "ocr_calls": 0,
+    "page_index_calls": 0,
+    "baseline_frozen_match_required": "19/19",
+    "output_noninterference_required": "19/19",
+    "direct_trace": "reports/finhrm_qp4_positive_target_question_plan_diagnosis_instrumentation_trust_baseline_replay_v2.jsonl",
+    "trace_durability": "one JSON object per case, flush plus os.fsync",
+    "final_outputs": [
+      "reports/finhrm_qp4_positive_target_question_plan_diagnosis_instrumentation_trust_baseline_replay_v2.json",
+      "reports/finhrm_qp4_positive_target_question_plan_diagnosis_instrumentation_trust_baseline_replay_v2.md",
+      "reports/finhrm_qp4_positive_target_question_plan_diagnosis_instrumentation_trust_baseline_replay_lock_v2.json"
+    ]
+  },
+  "precommit_feasibility_gates": {
+    "baseline_head_exact": true,
+    "baseline_root_commit": true,
+    "forward_anchor_semantics_acknowledged": true,
+    "old_precommit_not_an_input": true,
+    "old_evaluator_not_an_input": true,
+    "raw_question_plan_passed_flag_ignored": true,
+    "protected_paths_not_read": true,
+    "governing_invariant_hashes_reverified": true,
+    "development_scope_reverified": true,
+    "oracle_materialized_from_anchor_program_and_evidence": true,
+    "selection_independently_recomputed": true,
+    "all_question_selectors_and_hashes_materialized": true,
+    "unobserved_frozen_projection_available_19": true,
+    "persistent_replay_harness_present": true,
+    "runtime_whitelist_empty": true,
+    "compiler_calls_during_precommit_zero": true
+  },
+  "failures": [],
+  "runtime_freeze": {
+    "runtime_file_whitelist": [],
+    "question_planner_sha256": "334ab6bfb57b883ff2022cdcb39614d7e7a8d3269c14f4bea188640d53111bf4",
+    "model_inference_authorized": false,
+    "checkpoint_read_or_change_authorized": false,
+    "threshold_change_authorized": false,
+    "runtime_repair_authorized": false
+  },
+  "authorized_next_action": "Run replay mode exactly once"
+}
