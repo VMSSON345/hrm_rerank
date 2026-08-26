@@ -569,6 +569,14 @@ def compile_question_plan(question: str) -> QuestionPlan:
         operation = "MULTIPLY"
     elif par_value_roles is not None:
         operation = "MULTIPLY"
+    elif (
+        asks_percent
+        and len(column_roles) == 2
+        and len(set(column_roles)) == 1
+        and len(years) == 2
+        and len(set(years)) == 2
+    ):
+        operation = 'RATIO_PERCENT'
     elif column_roles and len(set(column_roles)) == 1:
         # An explicit plan/actual/forecast lookup is a typed SELECT request,
         # not an unconstrained neural operation hypothesis.
@@ -706,11 +714,10 @@ def compile_question_plan(question: str) -> QuestionPlan:
         metric_text=metric_text,
         operation=operation,
         requested_years=years,
-        # Preserve the lexical operand order for the new slot contract. The
-        # legacy completion-ratio branch above intentionally canonicalizes
-        # runtime column_roles to ACTUAL/PLAN; QP2A must not inherit that loss
-        # on a counterfactual PLAN/ACTUAL question.
-        column_roles=lexical_column_roles,
+        # Consume the aligned roles selected by the operation compiler. A
+        # role-swapped ratio remains lexical unless a generic branch above
+        # explicitly canonicalizes its semantics.
+        column_roles=column_roles,
         requested_unit_family=requested_unit_family,
         entity_mode=entity_mode,
         entity_text=entity_text,
@@ -1099,7 +1106,15 @@ def _compile_operand_slots(
     if len(requested_years) == 1:
         years = (requested_years[0],) * len(roles)
     elif len(roles) == len(requested_years):
-        years = requested_years
+        if (
+            operation == 'RATIO_PERCENT'
+            and len(roles) == 2
+            and len(set(roles)) == 1
+            and len(set(requested_years)) == 2
+        ):
+            years = tuple(sorted(requested_years, key=int, reverse=True))
+        else:
+            years = requested_years
     elif len(roles) == 1:
         # Do not duplicate a role unless the existing column-role compiler has
         # explicitly aligned it to every requested period.
