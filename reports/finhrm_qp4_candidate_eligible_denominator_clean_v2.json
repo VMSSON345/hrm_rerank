@@ -1,0 +1,123 @@
+{
+  "schema": "finhrm-qp4-candidate-eligible-denominator-clean-v2",
+  "status": "PASS",
+  "classification": "development_only_denominator_and_provenance",
+  "governance": {
+    "governing_head": "50df502b002cbeb5769c341c133d4904faf31276",
+    "trust_root": "5da2ff00bf58496a36be7c08d5bbdb1959a9542e",
+    "candidate_calls": 0,
+    "model_calls": 0,
+    "binding_calls": 0,
+    "candidate_outputs_included": false,
+    "binding_outputs_included": false
+  },
+  "governing_inputs": [
+    {"path":"config/finhrm_qp4_development_cohort_v1.json","bytes":13032,"sha256":"1d8cf947c4af4819f50e9d5384c8c2426fd3cadbe5ca18837b1186f6ef0d1af2"},
+    {"path":"reports/finhrm_qp3_core_add_diverse_development_reviewed_cohort_v1.json","bytes":20350,"sha256":"f187e5966f47069717cbdc1cdf9fd063ef74d2418a1b5e1850a89bb3cdbca28f"},
+    {"path":"reports/finhrm_qp3_core_add_diverse_end_to_end_v1.json","bytes":36506,"sha256":"774e174610137a9be134497259c30f075ca9ab1dd3df3f6f0bfe9ce00d77a53d","access":"minimum eligibility projection only"},
+    {"path":"scripts/evaluate_qp3_answer_presentation_implementation.py","bytes":30899,"sha256":"14de097d098cd8ce8beaca44b86ce048dabe9f715c7ad8992a2150ef01d65b2d","predicate":"_eligible_records lines 138-181"},
+    {"path":"scripts/evaluate_qp4_development_baseline.py","bytes":45905,"sha256":"118c956a243a73c48e1de05bd2fa650449422bf3a9809b74d36ff5d6c8bd51c5","expansion":"_source_surface/_source_counterfactual and run_source_backed"},
+    {"path":"src/hrm_finance_qa/ontology.py","bytes":9472,"sha256":"47375f6a95057ddda75433fd40a8e9c2be3448165e288c2764d1d54bc83e400b","normalization":"normalize_text lines 44-52"}
+  ],
+  "unit_of_analysis": {
+    "parent_record": "one reviewed example_id carrying one base question and one real PDF source",
+    "candidate_query_case": "one transformed question plus its source PDF path",
+    "base_question_is_additional_runtime_query": false
+  },
+  "counts": {
+    "reviewed_parent_records": 8,
+    "reviewed_parent_source_documents": 8,
+    "eligible_anchors_A": 5,
+    "ineligible_anchors": 3,
+    "eligible_distinct_source_documents": 5,
+    "queries_per_eligible_anchor": 10,
+    "candidate_query_cases_Q": 50,
+    "formula": "Q = A * (7 meaning-preserving surfaces + 3 counterfactuals) = 5 * 10"
+  },
+  "anchor_order_source": "frozen end-to-end results order retained by _eligible_records",
+  "anchors": [
+    {"order":1,"example_id":"synthetic-document-000005","source_path":"pdf/PDF_23/LAS_23CN_BCTN.pdf","source_sha256":"0512d6848014459b74a4293f9ed98a3d0c98c5af54aa21e12e5949df89ce1cf6","source_hash_valid":true,"eligible":true,"reasons":[]},
+    {"order":2,"example_id":"synthetic-document-000012","source_path":"pdf/PDF_23/TNA_23CN_BCTN.pdf","source_sha256":"05982d532c7771e90133c6f5ff49d21309249b7f04a60b2c211d06305480f9c3","source_hash_valid":true,"eligible":true,"reasons":[]},
+    {"order":3,"example_id":"synthetic-document-000021","source_path":"pdf/PDF_23/CMG_23CN_BCTN.pdf","source_sha256":"1151a65a8d1028834a84179543d7b721df57e9c6c8f539e419ecbd8d978fd65f","source_hash_valid":true,"eligible":false,"reasons":["end_to_end_positive_passed_false","observed_abstained","gold_execution_not_exact","observed_provenance_incomplete","evidence_period_empty"]},
+    {"order":4,"example_id":"synthetic-document-000066","source_path":"pdf/PDF_23/VCE_23CN_BCTN.pdf","source_sha256":"3e5568ee0dd44c454ae98ab588e74c86cbb4421daed72d17cd45d1e5e59af11c","source_hash_valid":true,"eligible":true,"reasons":[]},
+    {"order":5,"example_id":"synthetic-document-000014","source_path":"pdf/PDF_23/PCT_23CN_BCTN.pdf","source_sha256":"156945b3a6df780a56d1474ae43ee74c4baf78fd38fc07be5f305ebf001bbf77","source_hash_valid":true,"eligible":true,"reasons":[]},
+    {"order":6,"example_id":"synthetic-document-000054","source_path":"pdf/PDF_23/TMC_23CN_BCTN.pdf","source_sha256":"19e535558fac5d289d91c94a551ed686e97045726e1666e231caaf7b360883ce","source_hash_valid":true,"eligible":false,"reasons":["end_to_end_positive_passed_false","observed_abstained","observed_unit_empty","gold_execution_not_exact"]},
+    {"order":7,"example_id":"synthetic-document-000087","source_path":"pdf/PDF_23/VID_23CN_BCTN.pdf","source_sha256":"39d9fa177669d89a0595acb9938fc0d1e57958970473ff07fb03d3ae815b9b20","source_hash_valid":true,"eligible":false,"reasons":["observed_unit_empty"]},
+    {"order":8,"example_id":"synthetic-document-000106","source_path":"pdf/PDF_23/AGP_23CN_BCTN.pdf","source_sha256":"519da08c72bedfc2b4338356edff2f2d5e62d38d82fc897c5e30bfff14682687","source_hash_valid":true,"eligible":true,"reasons":[]}
+  ],
+  "eligible_anchor_ids_in_order": [
+    "synthetic-document-000005",
+    "synthetic-document-000012",
+    "synthetic-document-000066",
+    "synthetic-document-000014",
+    "synthetic-document-000106"
+  ],
+  "ineligible_anchor_ids_in_order": [
+    "synthetic-document-000021",
+    "synthetic-document-000054",
+    "synthetic-document-000087"
+  ],
+  "expansion_order_per_anchor": {
+    "surface": ["SHORT_LONG_EQUIVALENT","DISCOURSE_PREFIX_SUFFIX","CLAUSE_PERMUTATION","PUNCTUATION_VARIANT","NO_DIACRITICS","BILINGUAL_PARENTHETICAL","IRRELEVANT_DISTRACTOR_CLAUSE"],
+    "counterfactual": ["OPERAND_YEAR","ENTITY_SCOPE","UNIT_SCALE"]
+  },
+  "query_cases": [
+    {"position":1,"query_case_id":"synthetic-document-000005::surface::SHORT_LONG_EQUIVALENT","question_sha256":"24cf040343cf44a87be642fb998ff22dd9b11ab7316a80bc5c1da06ffd5a8ca4"},
+    {"position":2,"query_case_id":"synthetic-document-000005::surface::DISCOURSE_PREFIX_SUFFIX","question_sha256":"5cd04e0f71a595dd572b9c0923503c9a5df1c53cc0568315273bf3f86ec6d011"},
+    {"position":3,"query_case_id":"synthetic-document-000005::surface::CLAUSE_PERMUTATION","question_sha256":"dee50882220d550848e2d1d81552cd324b70b6859b4dd10f9931d9a9e3161738"},
+    {"position":4,"query_case_id":"synthetic-document-000005::surface::PUNCTUATION_VARIANT","question_sha256":"b5a1d0a4c12b9eb638eb092515be554276f7948821317ab9996be0601ae44ce4"},
+    {"position":5,"query_case_id":"synthetic-document-000005::surface::NO_DIACRITICS","question_sha256":"cfd995e9858b9057e5d0623962de3c8f46b66921867b40f29dad330a9fc5ca31"},
+    {"position":6,"query_case_id":"synthetic-document-000005::surface::BILINGUAL_PARENTHETICAL","question_sha256":"c424d36474a7e652494336a42d0697548dc76141d38894c7a0787f63be086041"},
+    {"position":7,"query_case_id":"synthetic-document-000005::surface::IRRELEVANT_DISTRACTOR_CLAUSE","question_sha256":"2e1e557d0056e7f5d1fb2d11462f1dbf28a899dcddd851044c33248e9f29eb82"},
+    {"position":8,"query_case_id":"synthetic-document-000005::counterfactual::OPERAND_YEAR","question_sha256":"f7b1752c018016ef4aab67653b8196b6986e0a01f841cf6592dcaf8bebb2ceac"},
+    {"position":9,"query_case_id":"synthetic-document-000005::counterfactual::ENTITY_SCOPE","question_sha256":"df9de274e97e6e1acd580545e89d6530d1becff1513ee265751d908c7c8ca891"},
+    {"position":10,"query_case_id":"synthetic-document-000005::counterfactual::UNIT_SCALE","question_sha256":"3ef3de6ffcad0b3583e7c81707c78470ce5d136599fb14c2e011a6eefcb42f10"},
+    {"position":11,"query_case_id":"synthetic-document-000012::surface::SHORT_LONG_EQUIVALENT","question_sha256":"327a05c55709e59280e4b9607f04cbffe8fdce32447db89f5a24e204dfeaef95"},
+    {"position":12,"query_case_id":"synthetic-document-000012::surface::DISCOURSE_PREFIX_SUFFIX","question_sha256":"5f1d7e574133e7279bd181442bd723d0d3c823cdf1b6aec3ffe40211be36cd01"},
+    {"position":13,"query_case_id":"synthetic-document-000012::surface::CLAUSE_PERMUTATION","question_sha256":"a1d30219a633856f95aee86c820fe72e8cea67b1d9ce3b242990578393e250cd"},
+    {"position":14,"query_case_id":"synthetic-document-000012::surface::PUNCTUATION_VARIANT","question_sha256":"9058539e2ef36829cbe6381c728d941bd1b25ebf457b94421cb6e0eab5a8e397"},
+    {"position":15,"query_case_id":"synthetic-document-000012::surface::NO_DIACRITICS","question_sha256":"db65914b5eef65198ea5237952eb6a5fea72c67b394ff5d8ba5a99bac321da97"},
+    {"position":16,"query_case_id":"synthetic-document-000012::surface::BILINGUAL_PARENTHETICAL","question_sha256":"cc8edd6acef2b6acc04b04f5b088ff431c5781ecb3e00c5bdd09023220d5155b"},
+    {"position":17,"query_case_id":"synthetic-document-000012::surface::IRRELEVANT_DISTRACTOR_CLAUSE","question_sha256":"f227232a72c5f6463a913cbb48ebf43ea242d264b66e10a79b5db669bb8d4368"},
+    {"position":18,"query_case_id":"synthetic-document-000012::counterfactual::OPERAND_YEAR","question_sha256":"d234f590b97245254c1c3918479ac3f163e0dd9ef8867210611815ec741e1dec"},
+    {"position":19,"query_case_id":"synthetic-document-000012::counterfactual::ENTITY_SCOPE","question_sha256":"70957c680796a548a595be758c715afb2b5b440946681f02745f038ae1107a63"},
+    {"position":20,"query_case_id":"synthetic-document-000012::counterfactual::UNIT_SCALE","question_sha256":"016eca84112ed736b89f97894705d8ffea8eff7444a5938292a44c858f75690d"},
+    {"position":21,"query_case_id":"synthetic-document-000066::surface::SHORT_LONG_EQUIVALENT","question_sha256":"41ea9d62433240546cea982e66d1b60667f3719098db7a7d21aed0db1e2ac8b7"},
+    {"position":22,"query_case_id":"synthetic-document-000066::surface::DISCOURSE_PREFIX_SUFFIX","question_sha256":"6e799e9b0d67a841338e74033931ef670110f14013c8ac897e12fd1948efb0e8"},
+    {"position":23,"query_case_id":"synthetic-document-000066::surface::CLAUSE_PERMUTATION","question_sha256":"f62c40fb2094486482b128be20c9f07df9abc8f6998d50e0595846894db6c0ca"},
+    {"position":24,"query_case_id":"synthetic-document-000066::surface::PUNCTUATION_VARIANT","question_sha256":"1eecfbe2b9fb30f298618a992ca0ee9c8ce16daf14f5aed86cc0cccece4b4dbb"},
+    {"position":25,"query_case_id":"synthetic-document-000066::surface::NO_DIACRITICS","question_sha256":"1aab0c6b88b6ac1a05cff38f0d9c542c62ca9ea6bf47128de97b570da056fdec"},
+    {"position":26,"query_case_id":"synthetic-document-000066::surface::BILINGUAL_PARENTHETICAL","question_sha256":"2498bdbc464705942a5e02014fc956bfa0c42c7948d2de155c836a436025d8a4"},
+    {"position":27,"query_case_id":"synthetic-document-000066::surface::IRRELEVANT_DISTRACTOR_CLAUSE","question_sha256":"9dde27c4427d7c9fdac41cd114aca54595a999051467d223740f7601c2b00516"},
+    {"position":28,"query_case_id":"synthetic-document-000066::counterfactual::OPERAND_YEAR","question_sha256":"da81d3b5981ebd730544330933a25001a417aa04fdb864b4fa062907eef6c304"},
+    {"position":29,"query_case_id":"synthetic-document-000066::counterfactual::ENTITY_SCOPE","question_sha256":"cdd63a009fe4bff5af77e9f664ccb1ac081a73ec5258c10df93e373ee892f706"},
+    {"position":30,"query_case_id":"synthetic-document-000066::counterfactual::UNIT_SCALE","question_sha256":"a9acfb61697384e1364fb5bb691e7ea000321469afd8840a94ea75fb2aba3417"},
+    {"position":31,"query_case_id":"synthetic-document-000014::surface::SHORT_LONG_EQUIVALENT","question_sha256":"1b9f19deead7338eaa8df6c5d400ad94920e4baba92e5df441c12215c133ed9a"},
+    {"position":32,"query_case_id":"synthetic-document-000014::surface::DISCOURSE_PREFIX_SUFFIX","question_sha256":"2d9221ca3b94ee31d947b841a8234d11c836beacb19fad22b2b081bb8f2b0320"},
+    {"position":33,"query_case_id":"synthetic-document-000014::surface::CLAUSE_PERMUTATION","question_sha256":"803aa71b6741cc871602c51a8d78dce395a88ef5c5b0f71885a972bc8b543cda"},
+    {"position":34,"query_case_id":"synthetic-document-000014::surface::PUNCTUATION_VARIANT","question_sha256":"1f81fffa981cdc6ea9cb7d9f4eaab71bf207cc8b9a8364ea2ccceb4a5fda3452"},
+    {"position":35,"query_case_id":"synthetic-document-000014::surface::NO_DIACRITICS","question_sha256":"f667d88dbdcc2dd0e9a001a5cd5bcc0d7e2d14fae60ca1a8e4294fdfc749c253"},
+    {"position":36,"query_case_id":"synthetic-document-000014::surface::BILINGUAL_PARENTHETICAL","question_sha256":"f8a4fb8e4136aeb9dab721a3adb793debdd1821512799f7e6d3110be93ac3cb9"},
+    {"position":37,"query_case_id":"synthetic-document-000014::surface::IRRELEVANT_DISTRACTOR_CLAUSE","question_sha256":"802e917a692cb7e91f7016bab50e0e60f6a3ecfc39e334450cbb3ed69b2c2851"},
+    {"position":38,"query_case_id":"synthetic-document-000014::counterfactual::OPERAND_YEAR","question_sha256":"73f217833b734918b9d7399c8d88f95dd2db207def1c13a95d81baf1cc286a8b"},
+    {"position":39,"query_case_id":"synthetic-document-000014::counterfactual::ENTITY_SCOPE","question_sha256":"ad912730b4e3f5b4b3ab0118c3652133a6a1d066ab9939c3ebef151b45db01a4"},
+    {"position":40,"query_case_id":"synthetic-document-000014::counterfactual::UNIT_SCALE","question_sha256":"48c864fc625c7a8ff931c02e83db53d4f9be017f4035b9d4f079e9cdfac9ae1f"},
+    {"position":41,"query_case_id":"synthetic-document-000106::surface::SHORT_LONG_EQUIVALENT","question_sha256":"fc4e71c411e7b6c5ce8abfc47dc25973624ebadcf6415d3455b5eea49e1f993d"},
+    {"position":42,"query_case_id":"synthetic-document-000106::surface::DISCOURSE_PREFIX_SUFFIX","question_sha256":"46f16f57d538ad34fbb3195d69dae5bea5d6112ae976ad04c19b30a48030d766"},
+    {"position":43,"query_case_id":"synthetic-document-000106::surface::CLAUSE_PERMUTATION","question_sha256":"1d655c2c59008dbe0bab6e0c8ba2b871fb852244f3bb37cb90c43d29738e1039"},
+    {"position":44,"query_case_id":"synthetic-document-000106::surface::PUNCTUATION_VARIANT","question_sha256":"f30dd5bd08d26df2e0a029a6fd0c11b130a2fbe12bef803f2820bef1a4f19704"},
+    {"position":45,"query_case_id":"synthetic-document-000106::surface::NO_DIACRITICS","question_sha256":"f09251e49364eb61f90c8823681329a66fe3779e667f653a7ce7298b10ec6528"},
+    {"position":46,"query_case_id":"synthetic-document-000106::surface::BILINGUAL_PARENTHETICAL","question_sha256":"4e45ee687d9dd0fb2a50c0d543f79d03943f4b44d2cdf4309dc4f504a91f7fce"},
+    {"position":47,"query_case_id":"synthetic-document-000106::surface::IRRELEVANT_DISTRACTOR_CLAUSE","question_sha256":"4a3b68700f0f83327afd92ed74c2d20f5881089d4ecc9606e30ecc1a6e341c09"},
+    {"position":48,"query_case_id":"synthetic-document-000106::counterfactual::OPERAND_YEAR","question_sha256":"6bfacc8b48e81d3a44cd73b3783b9ad2a9424297bda4f902162e8326e9b4f10a"},
+    {"position":49,"query_case_id":"synthetic-document-000106::counterfactual::ENTITY_SCOPE","question_sha256":"c2ad0b02fc18625b2e0b71f041c60ebe04c84f552c9a6dde7e870f42d6272376"},
+    {"position":50,"query_case_id":"synthetic-document-000106::counterfactual::UNIT_SCALE","question_sha256":"814130502ddae21b4ba2f559392ef644de4c698d83e6ca23324ea113d2c7b263"}
+  ],
+  "access_audit": {
+    "frozen_end_to_end_projection": ["example_id","end_to_end_positive_passed","observed.abstained","observed.unit nonempty","checks.gold_execution_exact","checks.provenance_complete","observed.evidence count and required-field presence","source_path","source_sha256"],
+    "unrelated_end_to_end_fields_exposed": false,
+    "candidate_retrieval_ranking_pool_trace_score_accessed": false,
+    "protected_data_accessed": false,
+    "hold_v1_artifacts_read_or_reused": false
+  }
+}
