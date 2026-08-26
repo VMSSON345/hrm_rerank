@@ -1,0 +1,134 @@
+{
+  "schema": "finhrm-qp4-question-surface-implementation-v1",
+  "created_at": "2026-08-22",
+  "classification": "development_only_generic_question_surface_runtime_implementation",
+  "parents": {
+    "precommit_config": {
+      "path": "config/finhrm_qp4_question_surface_implementation_precommit_v1.json",
+      "sha256": "37e3d024c417e3aa808dacbe46c9455bb346a5069b95d5b77cf8f021a177145e"
+    },
+    "precommit_lock": {
+      "path": "reports/finhrm_qp4_question_surface_implementation_precommit_lock_v1.json",
+      "sha256": "b2a263c1820cffebf5e58b8a171c2673ff89ea16278be898c59417fe9d7d4ec9"
+    },
+    "correction_config": {
+      "path": "config/finhrm_qp4_question_surface_implementation_precommit_correction_v1.json",
+      "sha256": "b5d76489a619a7d971e96fbf0ce4ff8749d0e862d271306301ff6b3aecd927e1"
+    },
+    "correction_report": {
+      "path": "reports/finhrm_qp4_question_surface_implementation_precommit_correction_v1.json",
+      "sha256": "968268fe5fe41ad543e1c835879280c16d3cc3ca53ff810c9c132e0bd02cd4bb"
+    },
+    "correction_lock": {
+      "path": "reports/finhrm_qp4_question_surface_implementation_precommit_correction_lock_v1.json",
+      "sha256": "76cc64502ff00774edd6a87f332856e3545686afe36fb4b2e5ca29c7a081aaa5"
+    },
+    "development_cohort": {
+      "path": "config/finhrm_qp4_development_cohort_v1.json",
+      "sha256": "1d8cf947c4af4819f50e9d5384c8c2426fd3cadbe5ca18837b1186f6ef0d1af2"
+    },
+    "baseline_refresh": {
+      "path": "reports/finhrm_qp4_post_unit_scale_development_baseline_refresh_v1.json",
+      "sha256": "5fedfcff1c70ae0f0e6c878c08132f14ed2743a3d7aefc4640fcd91fe43db84a"
+    },
+    "diagnostic_raw": {
+      "path": "reports/finhrm_qp4_post_unit_scale_baseline_diagnostic_review_raw_v1.json",
+      "sha256": "9a23c5a7157827e546c2e2cd5ab1b9e8c95144f3cd2ffea58bd6f0dd622b7a2f"
+    },
+    "safe_replay_preimplementation": {
+      "path": "reports/finhrm_qp4_unit_scale_proof_contract_safe_replay_v1.json",
+      "sha256": "73cc2bc11f3872cf25714de9b6d92ae9f40b4b349a4a63f4c8cc3b25e53d932d"
+    }
+  },
+  "checkpoint": {
+    "path": "models/document_hrm_V8_candidate.pt",
+    "sha256": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de"
+  },
+  "runtime_before": {
+    "src/hrm_finance_qa/question_planner.py": "0973e72711fccdac6fd8615e5dd5afc8f47fb98024c9080063cd6bac46bd66a2",
+    "src/hrm_finance_qa/symbolic_verifier.py": "2679b1ce55cc070697438c806f19e3e888bfc19bc1a9ae3686a0b7fd7ffb0087",
+    "src/hrm_finance_qa/program_synthesis.py": "e4acc4878d0dfd465ba66ab91f3aaf8be71db5591aa1358fb8cb81f3c7bff550",
+    "src/hrm_finance_qa/evidence_schema.py": "2f16fabf932dc9dabc8203d9642d2503bb2dab43e0e1ee0f78755dd4fb00825d",
+    "src/hrm_finance_qa/document_hrm.py": "b5951bcde79583950b672f7fb6b199b3e5b9904e6784daae7c4c5be0eba65d21",
+    "src/hrm_finance_qa/document_reasoning_engine.py": "3883500011472716bc01f8e04a6d6f925173b35a14bbedd945c5ca4fb0063fa2",
+    "src/hrm_finance_qa/program_data.py": "5199434fc0628b7d270ce62b12657366cbe118901065edd9f1e1f6ca0f1f8d54",
+    "src/hrm_finance_qa/direction_contract.py": "a18aa130419fc74ce647bd92dc9c1b1217007738e636aad0f28c7f78396be937",
+    "src/hrm_finance_qa/answer_presentation.py": "c40bd4a8dff39162b44cf11ef2da12e7b153d907f7254e5d1856157b3ac56d36",
+    "src/hrm_finance_qa/document_sources.py": "e9eb7b3ddcc2ed13060a573a6a0101a216fa49ff21dd65cd5fc2629b92f5fc0b",
+    "src/hrm_finance_qa/document_page_index.py": "c99e011175afef21f302be42ba9454b948caa549d4d445d6bb35c5b974b81f85"
+  },
+  "runtime_after": {
+    "src/hrm_finance_qa/question_planner.py": "3a882445630c3c0c05dfbe6cbc4b7fb22c71c9cfd450ee7c73a929fbe5a9cca1",
+    "src/hrm_finance_qa/symbolic_verifier.py": "2679b1ce55cc070697438c806f19e3e888bfc19bc1a9ae3686a0b7fd7ffb0087",
+    "src/hrm_finance_qa/program_synthesis.py": "e4acc4878d0dfd465ba66ab91f3aaf8be71db5591aa1358fb8cb81f3c7bff550",
+    "src/hrm_finance_qa/evidence_schema.py": "2f16fabf932dc9dabc8203d9642d2503bb2dab43e0e1ee0f78755dd4fb00825d",
+    "src/hrm_finance_qa/document_hrm.py": "b5951bcde79583950b672f7fb6b199b3e5b9904e6784daae7c4c5be0eba65d21",
+    "src/hrm_finance_qa/document_reasoning_engine.py": "3883500011472716bc01f8e04a6d6f925173b35a14bbedd945c5ca4fb0063fa2",
+    "src/hrm_finance_qa/program_data.py": "5199434fc0628b7d270ce62b12657366cbe118901065edd9f1e1f6ca0f1f8d54",
+    "src/hrm_finance_qa/direction_contract.py": "a18aa130419fc74ce647bd92dc9c1b1217007738e636aad0f28c7f78396be937",
+    "src/hrm_finance_qa/answer_presentation.py": "c40bd4a8dff39162b44cf11ef2da12e7b153d907f7254e5d1856157b3ac56d36",
+    "src/hrm_finance_qa/document_sources.py": "e9eb7b3ddcc2ed13060a573a6a0101a216fa49ff21dd65cd5fc2629b92f5fc0b",
+    "src/hrm_finance_qa/document_page_index.py": "c99e011175afef21f302be42ba9454b948caa549d4d445d6bb35c5b974b81f85"
+  },
+  "implementation_scope": {
+    "changed_runtime_files": [
+      "src/hrm_finance_qa/question_planner.py"
+    ],
+    "changed_symbols": [
+      "_strip_nonsemantic_metric_surface",
+      "compile_question_plan"
+    ],
+    "allowed_observable_fields": [
+      "metric_text",
+      "operand_slots[*].metric"
+    ],
+    "company_report_filename_page_year_value_example_or_question_literal_rule_added": false,
+    "rank_score_or_confidence_used_as_semantic_proof": false
+  },
+  "gates": {
+    "isolated_compiler_residuals": "18/18",
+    "canonical_compiler": "13/13",
+    "ambiguity_controls": "3/3",
+    "frozen_surface_semantic_projection": "91/91",
+    "corrected_hold_ahead_semantic_projection": "78/78",
+    "minimal_pair_detection": "57/57",
+    "source_surface_queries_executed": 35,
+    "source_previously_passing_retained": "20/20",
+    "source_residuals_must_be_reported": true,
+    "affected_regression_expected": 354,
+    "safe_replay_actions": {
+      "ANSWER": 257,
+      "ABSTAIN": 92,
+      "REJECT": 14
+    },
+    "safe_replay_execution": "363/363",
+    "safe_replay_permutation": "363/363",
+    "safe_replay_counterfactuals": 141,
+    "safe_replay_counterfactual_false_accepts": 0
+  },
+  "outputs": {
+    "source_replay": "reports/finhrm_qp4_question_surface_source_replay_v1.json",
+    "safe_replay": "reports/finhrm_qp4_question_surface_safe_replay_v1.json",
+    "report": "reports/finhrm_qp4_question_surface_implementation_v1.json",
+    "markdown": "reports/finhrm_qp4_question_surface_implementation_v1.md",
+    "lock": "reports/finhrm_qp4_question_surface_implementation_lock_v1.json"
+  },
+  "invariants": {
+    "abw_used": false,
+    "protected_evaluation_loaded": false,
+    "validation_loaded": false,
+    "blind_loaded": false,
+    "test_data_loaded": false,
+    "sealed_or_holdout_loaded": false,
+    "threshold_changed": false,
+    "checkpoint_changed": false,
+    "model_changed": false,
+    "fine_tuning_performed": false,
+    "synthetic_layout_counted_as_confirmation": false,
+    "safe_abstention_counted_as_answer": false,
+    "candidate_rank_score_or_confidence_used_as_semantic_proof": false,
+    "qp4_complete": false,
+    "qp5_authorized": false,
+    "phase_d_unlocked": false
+  }
+}

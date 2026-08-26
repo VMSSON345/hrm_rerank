@@ -1,0 +1,48 @@
+{
+  "protocol": "v12b2-requested-period-dominance-fix-v2-summary",
+  "date": "2026-08-09",
+  "scope": "same-period financial-role grounding when absolute values and percentage/change columns coexist",
+  "root_cause": "Period-unknown percentage/change cells remained eligible beside explicit requested-period values and could win on proof/neural ranking.",
+  "fix": {
+    "typed_synthesis": "Apply requested-period dominance after metric-slot narrowing.",
+    "runtime_eligibility": "Apply requested-period dominance independently inside each operand-role-compatible set.",
+    "sparse_ocr_fallback": "Retain period-unknown evidence when no explicit requested-period role match exists.",
+    "company_year_value_specific_rules": false,
+    "threshold_changed": false,
+    "training_performed": false
+  },
+  "verification": {
+    "focused_tests": "7/7",
+    "related_regression_tests": "222/222",
+    "development_sources": 3,
+    "development_structural_groups": 2345,
+    "development_groups_passed": 2345,
+    "development_groups_failed": 0,
+    "test_blind_used_for_rule_selection": false
+  },
+  "frozen_holdout_after_code_lock": {
+    "examples": 11,
+    "operation_accuracy": 1.0,
+    "program_exact_accuracy": 1.0,
+    "execution_accuracy": 1.0,
+    "pointer_pair_accuracy": 1.0,
+    "gold_program_recall_at_10": 1.0,
+    "search_pipeline_gold_rejection_rate": 0.0,
+    "accepted_coverage": 0.8181818181818182,
+    "accepted_execution_precision": 1.0,
+    "accepted_program_precision": 1.0,
+    "per_operation": {
+      "ADD": "7/7 exact",
+      "SUBTRACT": "2/2 exact",
+      "DIVIDE": "2/2 exact; both safely abstained under the unchanged frozen DIVIDE confidence threshold"
+    },
+    "report_sha256": "27d122284e38eccd78d2178453724e12f2dafab2adce61a2fbfd831ade8f3f09"
+  },
+  "gates": {
+    "requested_period_grounding_gate": true,
+    "scoped_phase_c_program_and_execution_gate": true,
+    "confidence_threshold_preservation_gate": true,
+    "full_multi_step_question_set_gate": false
+  },
+  "remaining_out_of_scope": "Interest-bearing financial debt share requires the planned V12-C multi-step DAG/SHARE_OF_TOTAL work; it was not mixed into this fix."
+}

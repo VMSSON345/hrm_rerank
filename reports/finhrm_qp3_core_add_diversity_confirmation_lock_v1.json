@@ -1,0 +1,54 @@
+{
+  "schema": "finhrm-qp3-core-add-diversity-confirmation-lock-v1",
+  "created_at": "2026-08-20",
+  "classification": "development_only_candidate_evidence_diversity_gap_audit",
+  "status": "diversity_gate_not_closed",
+  "diversity_gate_passed": false,
+  "failed_gates": [
+    "minimum_three_companies_in_every_additional_layout",
+    "minimum_three_source_pdfs_in_every_additional_layout",
+    "independent_review_complete_in_every_company_layout",
+    "all_required_end_to_end_stages_exercised",
+    "company_layout_disjoint_confirmation_available"
+  ],
+  "invariants": {
+    "runtime_changed": false,
+    "threshold_checkpoint_or_model_changed": false,
+    "fine_tuning_performed": false,
+    "abw_used_as_confirmation": false,
+    "protected_evaluation_loaded": false,
+    "synthetic_projection_counted_as_confirmation": false,
+    "candidate_rank_score_or_confidence_used_as_proof": false,
+    "qp3_answer_presentation_unlocked": false,
+    "qp4_authorized": false,
+    "phase_d_unlocked": false
+  },
+  "artifacts": [
+    {
+      "path": "config/finhrm_qp3_core_add_diversity_confirmation_precommit_v1.json",
+      "size_bytes": 3824,
+      "sha256": "4383ebdc8f3a788ffd71a482b7ac0207ab3c482071ed181c8b40e3785a11179a"
+    },
+    {
+      "path": "scripts/evaluate_qp3_core_add_diversity_confirmation.py",
+      "size_bytes": 12135,
+      "sha256": "1c9601662ae0919008f2b1841598a44106aab300780bb899b2339c75affeb02d"
+    },
+    {
+      "path": "tests/test_qp3_core_add_diversity_confirmation.py",
+      "size_bytes": 3349,
+      "sha256": "5c7ed986d819d708766ec850d0b00b563e89469434bbabdeefed7f5391880b22"
+    },
+    {
+      "path": "reports/finhrm_qp3_core_add_diversity_confirmation_v1.json",
+      "size_bytes": 4415,
+      "sha256": "53a16c90f8b7ebf05a1c1a676b434cc8f099775c1c65327f28b1011a5859c709"
+    },
+    {
+      "path": "reports/finhrm_qp3_core_add_diversity_confirmation_v1.md",
+      "size_bytes": 1331,
+      "sha256": "d3a7fcc00ec10d8a4f1e9577be3e04040062f6cddd44a8a321cd95cb65d643f3"
+    }
+  ],
+  "authorized_next_step": "Remain in QP3-CORE-GENERALIZATION-COVERAGE-IMPLEMENTATION. Build or identify development-safe independently reviewed ADD cases that satisfy the per-layout company/source minima and exercise the required end-to-end stages, then run permutation, counterfactual and frozen safe replay. QP3 answer presentation, QP4 and Phase D remain locked."
+}

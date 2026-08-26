@@ -1,0 +1,4773 @@
+{
+  "schema": "finhrm-qp3-core-add-diverse-development-source-audit-v1",
+  "created_at": "2026-08-20",
+  "classification": "development_only_hash_locked_pdf_layout_discovery",
+  "source_catalog": {
+    "path": "data/pdf_development_company_catalog_v3.json",
+    "sha256": "17f74e49fe1894871453dd0c2b2ec8f13fa3650c4294c324d90bc7e47dd8bb2b",
+    "documents": 169,
+    "company_groups": 150
+  },
+  "metrics": {
+    "documents_admitted": 167,
+    "company_groups_admitted": 149,
+    "layout_family_counts": {
+      "hybrid_scan_text": 9,
+      "native_text_mixed_orientation": 43,
+      "native_text_portrait": 33,
+      "scanned_image_dominant": 82
+    },
+    "documents_with_statement_keyword_page": 38,
+    "documents_with_balance_term_page": 42,
+    "excluded": {
+      "marker:abw": 2
+    }
+  },
+  "gate_checks": {
+    "catalog_hash_exact": true,
+    "catalog_counts_exact": true,
+    "all_admitted_sources_hash_exact": true,
+    "zero_protected_or_abw_admitted": true,
+    "minimum_two_layout_families_available": true
+  },
+  "details": [
+    {
+      "source_key": "DEVPDF_8526606ffba6423a",
+      "source_name": "AAM_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/AAM_23CN_BCTN.pdf",
+      "source_sha256": "8526606ffba6423a8ae3e36e669b97868f9e457064c120ede4cf4d5489d0e1f8",
+      "company_key": "development-company-09",
+      "pages": 56,
+      "layout_family": "native_text_portrait",
+      "native_text_page_ratio": 0.910714,
+      "scanned_image_page_ratio": 0.0,
+      "landscape_page_ratio": 0.017857,
+      "median_text_characters_per_page": 2246.5,
+      "page_modes": {
+        "native_text": 51,
+        "sparse_or_vector": 5
+      },
+      "page_size_profiles": {
+        "595x842": 55,
+        "842x595": 1
+      },
+      "statement_keyword_pages": [
+        23,
+        35,
+        39,
+        46
+      ],
+      "balance_term_pages": [],
+      "representative_page": 23,
+      "representative_page_reason": "statement_keyword"
+    },
+    {
+      "source_key": "DEVPDF_d369bebc0996e34f",
+      "source_name": "AAM_24CN_BCTN.pdf",
+      "source_path": "pdf/PDF_24/PDF_24/AAM_24CN_BCTN.pdf",
+      "source_sha256": "d369bebc0996e34f81b603e012706c817f23c29608989d9fdd854c50595af4df",
+      "company_key": "development-company-09",
+      "pages": 54,
+      "layout_family": "hybrid_scan_text",
+      "native_text_page_ratio": 0.407407,
+      "scanned_image_page_ratio": 0.0,
+      "landscape_page_ratio": 0.018519,
+      "median_text_characters_per_page": 70.0,
+      "page_modes": {
+        "native_text": 22,
+        "sparse_or_vector": 32
+      },
+      "page_size_profiles": {
+        "595x842": 53,
+        "842x595": 1
+      },
+      "statement_keyword_pages": [
+        19
+      ],
+      "balance_term_pages": [],
+      "representative_page": 19,
+      "representative_page_reason": "statement_keyword"
+    },
+    {
+      "source_key": "DEVPDF_4701e08f278aa37e",
+      "source_name": "AAS_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/AAS_23CN_BCTN.pdf",
+      "source_sha256": "4701e08f278aa37e14f702974c6ea94c753d2f4818ea2e8bf741e82729513343",
+      "company_key": "development-company-01",
+      "pages": 36,
+      "layout_family": "scanned_image_dominant",
+      "native_text_page_ratio": 0.027778,
+      "scanned_image_page_ratio": 0.972222,
+      "landscape_page_ratio": 0.0,
+      "median_text_characters_per_page": 0.0,
+      "page_modes": {
+        "native_text": 1,
+        "scanned_image": 35
+      },
+      "page_size_profiles": {
+        "595x842": 36
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 1,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_234c1b12bf2da48a",
+      "source_name": "AAS_24CN_BCTN.pdf",
+      "source_path": "pdf/PDF_24/PDF_24/AAS_24CN_BCTN.pdf",
+      "source_sha256": "234c1b12bf2da48a26a4b0fc14a2b83bed325b4e05f5779e028b494806afbbe5",
+      "company_key": "development-company-01",
+      "pages": 21,
+      "layout_family": "scanned_image_dominant",
+      "native_text_page_ratio": 0.047619,
+      "scanned_image_page_ratio": 0.952381,
+      "landscape_page_ratio": 0.0,
+      "median_text_characters_per_page": 0,
+      "page_modes": {
+        "native_text": 1,
+        "scanned_image": 20
+      },
+      "page_size_profiles": {
+        "595x842": 21
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 21,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_f4c575b9ee1f1346",
+      "source_name": "AAT_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/AAT_23CN_BCTN.pdf",
+      "source_sha256": "f4c575b9ee1f13460d4e9d5d2451df3a9984a917cf2c949317224e6a25b810ea",
+      "company_key": "development-company-17",
+      "pages": 68,
+      "layout_family": "scanned_image_dominant",
+      "native_text_page_ratio": 0.014706,
+      "scanned_image_page_ratio": 0.985294,
+      "landscape_page_ratio": 0.0,
+      "median_text_characters_per_page": 0.0,
+      "page_modes": {
+        "native_text": 1,
+        "scanned_image": 67
+      },
+      "page_size_profiles": {
+        "595x842": 68
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 1,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_850b4fdf3c399510",
+      "source_name": "AAT_24CN_BCTN.pdf",
+      "source_path": "pdf/PDF_24/PDF_24/AAT_24CN_BCTN.pdf",
+      "source_sha256": "850b4fdf3c399510ec384f3f618834605489626fb40d420577c6ddeafb74980c",
+      "company_key": "development-company-17",
+      "pages": 94,
+      "layout_family": "scanned_image_dominant",
+      "native_text_page_ratio": 0.010638,
+      "scanned_image_page_ratio": 0.978723,
+      "landscape_page_ratio": 0.0,
+      "median_text_characters_per_page": 0.0,
+      "page_modes": {
+        "native_text": 1,
+        "scanned_image": 92,
+        "sparse_or_vector": 1
+      },
+      "page_size_profiles": {
+        "595x842": 93,
+        "612x792": 1
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 1,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_4b80a44499f79fb3",
+      "source_name": "AAV_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/AAV_23CN_BCTN.pdf",
+      "source_sha256": "4b80a44499f79fb31ed1d02c884cb1fca5629149d2e17eaaf9a293f3171bdf99",
+      "company_key": "development-company-02",
+      "pages": 0,
+      "layout_family": "hybrid_scan_text",
+      "native_text_page_ratio": 0.0,
+      "scanned_image_page_ratio": 0.0,
+      "landscape_page_ratio": 0.0,
+      "median_text_characters_per_page": 0.0,
+      "page_modes": {},
+      "page_size_profiles": {},
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 1,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_80760b8e9a0eaeb7",
+      "source_name": "AAV_24CN_BCTN.pdf",
+      "source_path": "pdf/PDF_24/PDF_24/AAV_24CN_BCTN.pdf",
+      "source_sha256": "80760b8e9a0eaeb7f2dc6abe4dc01b96c2f3cf22d826f6b452cd1f2aeba0a99a",
+      "company_key": "development-company-02",
+      "pages": 101,
+      "layout_family": "hybrid_scan_text",
+      "native_text_page_ratio": 0.554455,
+      "scanned_image_page_ratio": 0.445545,
+      "landscape_page_ratio": 0.09901,
+      "median_text_characters_per_page": 973,
+      "page_modes": {
+        "native_text": 56,
+        "scanned_image": 45
+      },
+      "page_size_profiles": {
+        "595x842": 91,
+        "842x595": 10
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [
+        32
+      ],
+      "representative_page": 32,
+      "representative_page_reason": "balance_terms"
+    },
+    {
+      "source_key": "DEVPDF_96c02c5eb28efafa",
+      "source_name": "ABB_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/ABB_23CN_BCTN.pdf",
+      "source_sha256": "96c02c5eb28efafaff69164fef3284ff66a9445e36b727847810fa62aaa8dd93",
+      "company_key": "development-company-10",
+      "pages": 67,
+      "layout_family": "native_text_mixed_orientation",
+      "native_text_page_ratio": 0.955224,
+      "scanned_image_page_ratio": 0.044776,
+      "landscape_page_ratio": 1.0,
+      "median_text_characters_per_page": 2920,
+      "page_modes": {
+        "native_text": 64,
+        "scanned_image": 3
+      },
+      "page_size_profiles": {
+        "1191x842": 67
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 53,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_ad65914c63b5ff34",
+      "source_name": "ABB_24CN_BCTN.pdf",
+      "source_path": "pdf/PDF_24/PDF_24/ABB_24CN_BCTN.pdf",
+      "source_sha256": "ad65914c63b5ff346e303d546f71c66ff15b51bb0ab38225dc2621456792c51c",
+      "company_key": "development-company-10",
+      "pages": 67,
+      "layout_family": "native_text_mixed_orientation",
+      "native_text_page_ratio": 0.970149,
+      "scanned_image_page_ratio": 0.029851,
+      "landscape_page_ratio": 0.970149,
+      "median_text_characters_per_page": 2544,
+      "page_modes": {
+        "native_text": 65,
+        "scanned_image": 2
+      },
+      "page_size_profiles": {
+        "1191x842": 65,
+        "595x842": 2
+      },
+      "statement_keyword_pages": [
+        17,
+        59,
+        60,
+        61,
+        63,
+        64,
+        65
+      ],
+      "balance_term_pages": [],
+      "representative_page": 17,
+      "representative_page_reason": "statement_keyword"
+    },
+    {
+      "source_key": "DEVPDF_5f1219069e35511c",
+      "source_name": "ABC_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/ABC_23CN_BCTN.pdf",
+      "source_sha256": "5f1219069e35511cb9bd96c8e22c993baec977732f9f7cccd225e4b22f2049fa",
+      "company_key": "development-company-04",
+      "pages": 22,
+      "layout_family": "scanned_image_dominant",
+      "native_text_page_ratio": 0.045455,
+      "scanned_image_page_ratio": 0.954545,
+      "landscape_page_ratio": 0.0,
+      "median_text_characters_per_page": 0.0,
+      "page_modes": {
+        "native_text": 1,
+        "scanned_image": 21
+      },
+      "page_size_profiles": {
+        "595x842": 22
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 1,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_f61d6c18332a5b82",
+      "source_name": "ABC_24CN_BCTN.pdf",
+      "source_path": "pdf/PDF_24/PDF_24/ABC_24CN_BCTN.pdf",
+      "source_sha256": "f61d6c18332a5b826cb277fa04a64a168135be1c2cd32810cb6c69daf6721902",
+      "company_key": "development-company-04",
+      "pages": 21,
+      "layout_family": "scanned_image_dominant",
+      "native_text_page_ratio": 0.047619,
+      "scanned_image_page_ratio": 0.952381,
+      "landscape_page_ratio": 0.0,
+      "median_text_characters_per_page": 0,
+      "page_modes": {
+        "native_text": 1,
+        "scanned_image": 20
+      },
+      "page_size_profiles": {
+        "595x842": 21
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 1,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_a87a101c278e2dec",
+      "source_name": "ACB_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/ACB_23CN_BCTN.pdf",
+      "source_sha256": "a87a101c278e2dec6e47e0a979050cf1521a43569715deb9bf14f789695e8172",
+      "company_key": "development-company-14",
+      "pages": 112,
+      "layout_family": "scanned_image_dominant",
+      "native_text_page_ratio": 0.008929,
+      "scanned_image_page_ratio": 0.991071,
+      "landscape_page_ratio": 0.0,
+      "median_text_characters_per_page": 0.0,
+      "page_modes": {
+        "native_text": 1,
+        "scanned_image": 111
+      },
+      "page_size_profiles": {
+        "593x825": 7,
+        "593x826": 20,
+        "593x827": 18,
+        "593x828": 3,
+        "593x829": 1,
+        "594x824": 5,
+        "594x825": 7,
+        "594x826": 16,
+        "594x827": 12,
+        "595x824": 1,
+        "595x825": 5,
+        "595x826": 6,
+        "595x827": 9,
+        "596x826": 1,
+        "596x828": 1
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 1,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_b5aa98be877bab2d",
+      "source_name": "ACB_24CN_BCTN.pdf",
+      "source_path": "pdf/PDF_24/PDF_24/ACB_24CN_BCTN.pdf",
+      "source_sha256": "b5aa98be877bab2da97eff962d200a85ae818509c63fa1f9cb339fccf492d6b7",
+      "company_key": "development-company-14",
+      "pages": 88,
+      "layout_family": "scanned_image_dominant",
+      "native_text_page_ratio": 0.011364,
+      "scanned_image_page_ratio": 0.988636,
+      "landscape_page_ratio": 0.0,
+      "median_text_characters_per_page": 0.0,
+      "page_modes": {
+        "native_text": 1,
+        "scanned_image": 87
+      },
+      "page_size_profiles": {
+        "592x821": 1,
+        "592x822": 1,
+        "593x821": 16,
+        "593x822": 21,
+        "594x820": 1,
+        "594x821": 10,
+        "594x822": 18,
+        "595x821": 3,
+        "595x822": 16,
+        "595x824": 1
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 1,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_97a53d4482c04b9b",
+      "source_name": "ACC_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/ACC_23CN_BCTN.pdf",
+      "source_sha256": "97a53d4482c04b9b0b0bba3b2515131e81f192d01582c1dc08090885234d41ef",
+      "company_key": "development-company-11",
+      "pages": 94,
+      "layout_family": "scanned_image_dominant",
+      "native_text_page_ratio": 0.010638,
+      "scanned_image_page_ratio": 0.989362,
+      "landscape_page_ratio": 0.0,
+      "median_text_characters_per_page": 0.0,
+      "page_modes": {
+        "native_text": 1,
+        "scanned_image": 93
+      },
+      "page_size_profiles": {
+        "591x809": 1,
+        "593x840": 93
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 1,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_64f8004871f84097",
+      "source_name": "ACC_24CN_BCTN.pdf",
+      "source_path": "pdf/PDF_24/PDF_24/ACC_24CN_BCTN.pdf",
+      "source_sha256": "64f8004871f840973c7ec98fc0c3b2af5fb4f128bc9bfa376e2bdb3661192ab4",
+      "company_key": "development-company-11",
+      "pages": 86,
+      "layout_family": "native_text_portrait",
+      "native_text_page_ratio": 0.604651,
+      "scanned_image_page_ratio": 0.383721,
+      "landscape_page_ratio": 0.0,
+      "median_text_characters_per_page": 1062.5,
+      "page_modes": {
+        "native_text": 52,
+        "scanned_image": 33,
+        "sparse_or_vector": 1
+      },
+      "page_size_profiles": {
+        "595x842": 86
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 12,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_9c4049d5f8740afb",
+      "source_name": "ACG_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/ACG_23CN_BCTN.pdf",
+      "source_sha256": "9c4049d5f8740afb7cb4fd29471224cf3c1176401554e39b988b61bc7c7e8f13",
+      "company_key": "development-company-13",
+      "pages": 140,
+      "layout_family": "native_text_mixed_orientation",
+      "native_text_page_ratio": 0.985714,
+      "scanned_image_page_ratio": 0.007143,
+      "landscape_page_ratio": 0.978571,
+      "median_text_characters_per_page": 2302.0,
+      "page_modes": {
+        "native_text": 138,
+        "scanned_image": 1,
+        "sparse_or_vector": 1
+      },
+      "page_size_profiles": {
+        "1191x842": 137,
+        "595x842": 3
+      },
+      "statement_keyword_pages": [
+        104,
+        105,
+        106,
+        109,
+        110,
+        111,
+        112,
+        113,
+        126
+      ],
+      "balance_term_pages": [],
+      "representative_page": 104,
+      "representative_page_reason": "statement_keyword"
+    },
+    {
+      "source_key": "DEVPDF_fa39b2eba2416231",
+      "source_name": "ACG_24CN_BCTN.pdf",
+      "source_path": "pdf/PDF_24/PDF_24/ACG_24CN_BCTN.pdf",
+      "source_sha256": "fa39b2eba241623164e4a5eafd822ecc5fadbc258bcd192285f809055b03a711",
+      "company_key": "development-company-13",
+      "pages": 240,
+      "layout_family": "scanned_image_dominant",
+      "native_text_page_ratio": 0.0,
+      "scanned_image_page_ratio": 1.0,
+      "landscape_page_ratio": 0.0,
+      "median_text_characters_per_page": 0.0,
+      "page_modes": {
+        "scanned_image": 240
+      },
+      "page_size_profiles": {
+        "1000x1414": 240
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 1,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_77636dd051c0f31c",
+      "source_name": "ADC_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/ADC_23CN_BCTN.pdf",
+      "source_sha256": "77636dd051c0f31ca7d9010c4c7c611dd84eaec6e11fa5d2016ce6280c34739c",
+      "company_key": "development-company-06",
+      "pages": 20,
+      "layout_family": "scanned_image_dominant",
+      "native_text_page_ratio": 0.05,
+      "scanned_image_page_ratio": 0.95,
+      "landscape_page_ratio": 0.0,
+      "median_text_characters_per_page": 0.0,
+      "page_modes": {
+        "native_text": 1,
+        "scanned_image": 19
+      },
+      "page_size_profiles": {
+        "596x842": 20
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 20,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_c637dfa6ddacb46a",
+      "source_name": "ADC_24CN_BCTN.pdf",
+      "source_path": "pdf/PDF_24/PDF_24/ADC_24CN_BCTN.pdf",
+      "source_sha256": "c637dfa6ddacb46ada04658e3d4115efeba1de53d55c0c53504631813f1569c1",
+      "company_key": "development-company-06",
+      "pages": 19,
+      "layout_family": "scanned_image_dominant",
+      "native_text_page_ratio": 0.052632,
+      "scanned_image_page_ratio": 0.947368,
+      "landscape_page_ratio": 0.0,
+      "median_text_characters_per_page": 0,
+      "page_modes": {
+        "native_text": 1,
+        "scanned_image": 18
+      },
+      "page_size_profiles": {
+        "596x842": 19
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 19,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_e3a14323512304f6",
+      "source_name": "ADP_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/ADP_23CN_BCTN.pdf",
+      "source_sha256": "e3a14323512304f63711f3d6d7c3af7445d7e6d0a7597bb35d316f51dc30d901",
+      "company_key": "development-company-16",
+      "pages": 54,
+      "layout_family": "native_text_mixed_orientation",
+      "native_text_page_ratio": 0.703704,
+      "scanned_image_page_ratio": 0.018519,
+      "landscape_page_ratio": 0.962963,
+      "median_text_characters_per_page": 1102.0,
+      "page_modes": {
+        "native_text": 38,
+        "scanned_image": 1,
+        "sparse_or_vector": 15
+      },
+      "page_size_profiles": {
+        "1191x842": 52,
+        "595x842": 2
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [
+        29
+      ],
+      "representative_page": 29,
+      "representative_page_reason": "balance_terms"
+    },
+    {
+      "source_key": "DEVPDF_d3bd70aade56e106",
+      "source_name": "ADP_24CN_BCTN.pdf",
+      "source_path": "pdf/PDF_24/PDF_24/ADP_24CN_BCTN.pdf",
+      "source_sha256": "d3bd70aade56e10657014a5719357bbf278f4165a3eefbc89ac5fac4febf4173",
+      "company_key": "development-company-16",
+      "pages": 46,
+      "layout_family": "native_text_mixed_orientation",
+      "native_text_page_ratio": 0.652174,
+      "scanned_image_page_ratio": 0.0,
+      "landscape_page_ratio": 0.934783,
+      "median_text_characters_per_page": 1860.0,
+      "page_modes": {
+        "native_text": 30,
+        "sparse_or_vector": 16
+      },
+      "page_size_profiles": {
+        "612x792": 3,
+        "792x612": 27,
+        "842x595": 16
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [
+        23
+      ],
+      "representative_page": 23,
+      "representative_page_reason": "balance_terms"
+    },
+    {
+      "source_key": "DEVPDF_f6d321ca5858939c",
+      "source_name": "ADS_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/ADS_23CN_BCTN.pdf",
+      "source_sha256": "f6d321ca5858939cebb01c24761aa3eb7b527448ac27cbfbf389d10dfc04991b",
+      "company_key": "development-company-19",
+      "pages": 96,
+      "layout_family": "native_text_mixed_orientation",
+      "native_text_page_ratio": 1.0,
+      "scanned_image_page_ratio": 0.0,
+      "landscape_page_ratio": 0.604167,
+      "median_text_characters_per_page": 2351.0,
+      "page_modes": {
+        "native_text": 96
+      },
+      "page_size_profiles": {
+        "1191x842": 32,
+        "594x843": 1,
+        "595x842": 2,
+        "596x843": 1,
+        "597x843": 3,
+        "597x844": 2,
+        "597x845": 1,
+        "598x842": 5,
+        "598x843": 8,
+        "598x844": 3,
+        "598x845": 2,
+        "599x843": 7,
+        "599x844": 2,
+        "600x844": 1,
+        "842x598": 4,
+        "843x596": 1,
+        "843x597": 3,
+        "843x598": 8,
+        "843x599": 2,
+        "844x597": 3,
+        "844x598": 3,
+        "844x599": 1,
+        "904x598": 1
+      },
+      "statement_keyword_pages": [
+        4,
+        35
+      ],
+      "balance_term_pages": [
+        22
+      ],
+      "representative_page": 22,
+      "representative_page_reason": "balance_terms"
+    },
+    {
+      "source_key": "DEVPDF_0cbc88b29b9a537b",
+      "source_name": "ADS_24CN_BCTN.pdf",
+      "source_path": "pdf/PDF_24/PDF_24/ADS_24CN_BCTN.pdf",
+      "source_sha256": "0cbc88b29b9a537b1f935e7993d8a69678c660670d0f462e3f69e2a65a70cfde",
+      "company_key": "development-company-19",
+      "pages": 98,
+      "layout_family": "native_text_mixed_orientation",
+      "native_text_page_ratio": 1.0,
+      "scanned_image_page_ratio": 0.0,
+      "landscape_page_ratio": 0.561224,
+      "median_text_characters_per_page": 2275.5,
+      "page_modes": {
+        "native_text": 98
+      },
+      "page_size_profiles": {
+        "1191x842": 32,
+        "595x842": 2,
+        "595x843": 1,
+        "595x844": 1,
+        "596x843": 2,
+        "596x844": 2,
+        "596x845": 1,
+        "597x843": 1,
+        "597x844": 5,
+        "597x845": 1,
+        "598x843": 1,
+        "598x844": 2,
+        "598x845": 1,
+        "599x843": 1,
+        "599x844": 1,
+        "599x845": 1,
+        "600x843": 1,
+        "600x844": 2,
+        "600x845": 4,
+        "600x846": 1,
+        "601x845": 5,
+        "601x846": 2,
+        "602x846": 4,
+        "606x855": 1,
+        "842x598": 1,
+        "843x596": 2,
+        "843x597": 2,
+        "843x598": 2,
+        "843x599": 2,
+        "844x594": 1,
+        "844x596": 5,
+        "844x599": 2,
+        "844x600": 2,
+        "845x596": 2,
+        "845x600": 1,
+        "846x600": 1
+      },
+      "statement_keyword_pages": [
+        5
+      ],
+      "balance_term_pages": [
+        22
+      ],
+      "representative_page": 22,
+      "representative_page_reason": "balance_terms"
+    },
+    {
+      "source_key": "DEVPDF_7b5c39e711a6d81d",
+      "source_name": "AFX_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/AFX_23CN_BCTN.pdf",
+      "source_sha256": "7b5c39e711a6d81d8ca96c977136c30a091b2e57eab77c1cb125065681fdf74e",
+      "company_key": "development-company-08",
+      "pages": 69,
+      "layout_family": "scanned_image_dominant",
+      "native_text_page_ratio": 0.014493,
+      "scanned_image_page_ratio": 0.985507,
+      "landscape_page_ratio": 0.086957,
+      "median_text_characters_per_page": 0,
+      "page_modes": {
+        "native_text": 1,
+        "scanned_image": 68
+      },
+      "page_size_profiles": {
+        "578x825": 63,
+        "825x578": 6
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 1,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_7e2f0fd4de5024ee",
+      "source_name": "AFX_24CN_BCTN.pdf",
+      "source_path": "pdf/PDF_24/PDF_24/AFX_24CN_BCTN.pdf",
+      "source_sha256": "7e2f0fd4de5024ee249699549e46a69c388765ff91607121f8a0f45c44f146cb",
+      "company_key": "development-company-08",
+      "pages": 72,
+      "layout_family": "scanned_image_dominant",
+      "native_text_page_ratio": 0.013889,
+      "scanned_image_page_ratio": 0.986111,
+      "landscape_page_ratio": 0.097222,
+      "median_text_characters_per_page": 0.0,
+      "page_modes": {
+        "native_text": 1,
+        "scanned_image": 71
+      },
+      "page_size_profiles": {
+        "578x824": 65,
+        "824x578": 7
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 1,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_fc1acbd849367c3b",
+      "source_name": "AGG_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/AGG_23CN_BCTN.pdf",
+      "source_sha256": "fc1acbd849367c3b4ec2bb0dc3431d85de882f47b29439fefcd0767a1604b2f1",
+      "company_key": "development-company-20",
+      "pages": 93,
+      "layout_family": "native_text_mixed_orientation",
+      "native_text_page_ratio": 0.967742,
+      "scanned_image_page_ratio": 0.010753,
+      "landscape_page_ratio": 0.967742,
+      "median_text_characters_per_page": 2860,
+      "page_modes": {
+        "native_text": 90,
+        "scanned_image": 1,
+        "sparse_or_vector": 2
+      },
+      "page_size_profiles": {
+        "1162x822": 90,
+        "581x822": 2,
+        "595x842": 1
+      },
+      "statement_keyword_pages": [
+        65,
+        66,
+        67,
+        69,
+        71,
+        72,
+        84,
+        89,
+        90
+      ],
+      "balance_term_pages": [
+        89
+      ],
+      "representative_page": 89,
+      "representative_page_reason": "balance_terms"
+    },
+    {
+      "source_key": "DEVPDF_c97893e1def2daef",
+      "source_name": "AGG_24CN_BCTN.pdf",
+      "source_path": "pdf/PDF_24/PDF_24/AGG_24CN_BCTN.pdf",
+      "source_sha256": "c97893e1def2daefeb84163aae8d8fa664c2864ef70792832725e8e1a4aa52e1",
+      "company_key": "development-company-20",
+      "pages": 97,
+      "layout_family": "native_text_mixed_orientation",
+      "native_text_page_ratio": 0.969072,
+      "scanned_image_page_ratio": 0.030928,
+      "landscape_page_ratio": 0.969072,
+      "median_text_characters_per_page": 2154,
+      "page_modes": {
+        "native_text": 94,
+        "scanned_image": 3
+      },
+      "page_size_profiles": {
+        "1191x842": 94,
+        "595x842": 3
+      },
+      "statement_keyword_pages": [
+        7,
+        91,
+        92,
+        93
+      ],
+      "balance_term_pages": [
+        55
+      ],
+      "representative_page": 55,
+      "representative_page_reason": "balance_terms"
+    },
+    {
+      "source_key": "DEVPDF_79af3d0a19f3b570",
+      "source_name": "AGM_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/AGM_23CN_BCTN.pdf",
+      "source_sha256": "79af3d0a19f3b570b4370fbec158f10797e632fe1394582db5a6ff6902347734",
+      "company_key": "development-company-07",
+      "pages": 174,
+      "layout_family": "native_text_portrait",
+      "native_text_page_ratio": 0.603448,
+      "scanned_image_page_ratio": 0.396552,
+      "landscape_page_ratio": 0.017241,
+      "median_text_characters_per_page": 625.5,
+      "page_modes": {
+        "native_text": 105,
+        "scanned_image": 69
+      },
+      "page_size_profiles": {
+        "587x842": 13,
+        "592x857": 1,
+        "595x842": 157,
+        "842x595": 3
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [
+        68,
+        110,
+        112
+      ],
+      "representative_page": 68,
+      "representative_page_reason": "balance_terms"
+    },
+    {
+      "source_key": "DEVPDF_519da08c72bedfc2",
+      "source_name": "AGP_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/AGP_23CN_BCTN.pdf",
+      "source_sha256": "519da08c72bedfc2b4338356edff2f2d5e62d38d82fc897c5e30bfff14682687",
+      "company_key": "development-company-03",
+      "pages": 66,
+      "layout_family": "scanned_image_dominant",
+      "native_text_page_ratio": 0.015152,
+      "scanned_image_page_ratio": 0.984848,
+      "landscape_page_ratio": 0.0,
+      "median_text_characters_per_page": 0.0,
+      "page_modes": {
+        "native_text": 1,
+        "scanned_image": 65
+      },
+      "page_size_profiles": {
+        "596x842": 66
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 1,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_785d7c05bd983d3d",
+      "source_name": "AGP_24CN_BCTN.pdf",
+      "source_path": "pdf/PDF_24/PDF_24/AGP_24CN_BCTN.pdf",
+      "source_sha256": "785d7c05bd983d3d7dd1a75396ff019cdcee688c66df75c11fd7fe69bd6bdc51",
+      "company_key": "development-company-03",
+      "pages": 58,
+      "layout_family": "scanned_image_dominant",
+      "native_text_page_ratio": 0.017241,
+      "scanned_image_page_ratio": 0.982759,
+      "landscape_page_ratio": 0.0,
+      "median_text_characters_per_page": 0.0,
+      "page_modes": {
+        "native_text": 1,
+        "scanned_image": 57
+      },
+      "page_size_profiles": {
+        "595x842": 58
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 1,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_f5cfc7570596b127",
+      "source_name": "AGR_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/AGR_23CN_BCTN.pdf",
+      "source_sha256": "f5cfc7570596b1275366acf4da1ca8f37ca366efbf961c5ffe744ef68d3be5f5",
+      "company_key": "development-company-18",
+      "pages": 52,
+      "layout_family": "native_text_mixed_orientation",
+      "native_text_page_ratio": 1.0,
+      "scanned_image_page_ratio": 0.0,
+      "landscape_page_ratio": 0.961538,
+      "median_text_characters_per_page": 2660.0,
+      "page_modes": {
+        "native_text": 52
+      },
+      "page_size_profiles": {
+        "1191x822": 50,
+        "595x822": 2
+      },
+      "statement_keyword_pages": [
+        19,
+        20,
+        22,
+        28,
+        29,
+        30,
+        43
+      ],
+      "balance_term_pages": [],
+      "representative_page": 19,
+      "representative_page_reason": "statement_keyword"
+    },
+    {
+      "source_key": "DEVPDF_29cda4b451aa6e18",
+      "source_name": "AGR_24CN_BCTN.pdf",
+      "source_path": "pdf/PDF_24/PDF_24/AGR_24CN_BCTN.pdf",
+      "source_sha256": "29cda4b451aa6e180334489db732ce77b94df32a8f19d6ee93afd234ce1a7d6e",
+      "company_key": "development-company-18",
+      "pages": 52,
+      "layout_family": "native_text_mixed_orientation",
+      "native_text_page_ratio": 0.980769,
+      "scanned_image_page_ratio": 0.0,
+      "landscape_page_ratio": 0.961538,
+      "median_text_characters_per_page": 2746.5,
+      "page_modes": {
+        "native_text": 51,
+        "sparse_or_vector": 1
+      },
+      "page_size_profiles": {
+        "1191x822": 50,
+        "595x822": 2
+      },
+      "statement_keyword_pages": [
+        19,
+        20,
+        22,
+        28,
+        29,
+        30,
+        43,
+        50
+      ],
+      "balance_term_pages": [],
+      "representative_page": 19,
+      "representative_page_reason": "statement_keyword"
+    },
+    {
+      "source_key": "DEVPDF_6923fb669f10b376",
+      "source_name": "AGX_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/AGX_23CN_BCTN.pdf",
+      "source_sha256": "6923fb669f10b376a991fc23f4d71d1bbb395ce69b36909cd826570578c1385b",
+      "company_key": "development-company-05",
+      "pages": 15,
+      "layout_family": "native_text_portrait",
+      "native_text_page_ratio": 1.0,
+      "scanned_image_page_ratio": 0.0,
+      "landscape_page_ratio": 0.0,
+      "median_text_characters_per_page": 1623,
+      "page_modes": {
+        "native_text": 15
+      },
+      "page_size_profiles": {
+        "595x842": 15
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 5,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_786dd1a68d0fd327",
+      "source_name": "AGX_24CN_BCTN.pdf",
+      "source_path": "pdf/PDF_24/PDF_24/AGX_24CN_BCTN.pdf",
+      "source_sha256": "786dd1a68d0fd327301e9b3d65a563d2001e5a5e0cb698df095894e3461d4f40",
+      "company_key": "development-company-05",
+      "pages": 15,
+      "layout_family": "native_text_portrait",
+      "native_text_page_ratio": 0.933333,
+      "scanned_image_page_ratio": 0.066667,
+      "landscape_page_ratio": 0.0,
+      "median_text_characters_per_page": 2184,
+      "page_modes": {
+        "native_text": 14,
+        "scanned_image": 1
+      },
+      "page_size_profiles": {
+        "595x842": 15
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 5,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_fc6ad3bcfd5ef9af",
+      "source_name": "AIG_24CN_BCTN.pdf",
+      "source_path": "pdf/PDF_24/PDF_24/AIG_24CN_BCTN.pdf",
+      "source_sha256": "fc6ad3bcfd5ef9af91d53cbf3ca44b4721132609292d84924e087548a0f5cca6",
+      "company_key": "development-company-229a4b0753f710dd",
+      "pages": 75,
+      "layout_family": "native_text_mixed_orientation",
+      "native_text_page_ratio": 0.666667,
+      "scanned_image_page_ratio": 0.0,
+      "landscape_page_ratio": 0.986667,
+      "median_text_characters_per_page": 1512,
+      "page_modes": {
+        "native_text": 50,
+        "sparse_or_vector": 25
+      },
+      "page_size_profiles": {
+        "1191x842": 74,
+        "595x842": 1
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [
+        36
+      ],
+      "representative_page": 36,
+      "representative_page_reason": "balance_terms"
+    },
+    {
+      "source_key": "DEVPDF_b8ef9d95c97df189",
+      "source_name": "ALV_24CN_BCTN.pdf",
+      "source_path": "pdf/PDF_24/PDF_24/ALV_24CN_BCTN.pdf",
+      "source_sha256": "b8ef9d95c97df18957fb81f7c9b5ccdaa876310eedc8c810ddb8d25ae46daac1",
+      "company_key": "development-company-fe17e2f6fc52c186",
+      "pages": 40,
+      "layout_family": "scanned_image_dominant",
+      "native_text_page_ratio": 0.0,
+      "scanned_image_page_ratio": 1.0,
+      "landscape_page_ratio": 0.0,
+      "median_text_characters_per_page": 0.0,
+      "page_modes": {
+        "scanned_image": 40
+      },
+      "page_size_profiles": {
+        "595x842": 40
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 1,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_d1c40a7a9ab9d6e6",
+      "source_name": "AMC_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/AMC_23CN_BCTN.pdf",
+      "source_sha256": "d1c40a7a9ab9d6e63973b4550af203f4c937db2ef8d06496993106e33b9efb5b",
+      "company_key": "development-company-15",
+      "pages": 60,
+      "layout_family": "scanned_image_dominant",
+      "native_text_page_ratio": 0.016667,
+      "scanned_image_page_ratio": 0.983333,
+      "landscape_page_ratio": 0.116667,
+      "median_text_characters_per_page": 0.0,
+      "page_modes": {
+        "native_text": 1,
+        "scanned_image": 59
+      },
+      "page_size_profiles": {
+        "595x842": 53,
+        "842x595": 7
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 1,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_f3ba4e5e7deea75c",
+      "source_name": "AMC_24CN_BCTN.pdf",
+      "source_path": "pdf/PDF_24/PDF_24/AMC_24CN_BCTN.pdf",
+      "source_sha256": "f3ba4e5e7deea75cec76fdbffcde6200a62cfe4f432ac0e24179ce3fa04e4ecc",
+      "company_key": "development-company-15",
+      "pages": 61,
+      "layout_family": "scanned_image_dominant",
+      "native_text_page_ratio": 0.016393,
+      "scanned_image_page_ratio": 0.983607,
+      "landscape_page_ratio": 0.081967,
+      "median_text_characters_per_page": 0,
+      "page_modes": {
+        "native_text": 1,
+        "scanned_image": 60
+      },
+      "page_size_profiles": {
+        "595x842": 56,
+        "842x595": 5
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 1,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_7b21c99bea7730f3",
+      "source_name": "API_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/API_23CN_BCTN.pdf",
+      "source_sha256": "7b21c99bea7730f30d0f82a45f28f71e35cd2ecf59cbe9661d748e572aae0fcd",
+      "company_key": "development-company-14c2529eb4498c5d",
+      "pages": 55,
+      "layout_family": "native_text_mixed_orientation",
+      "native_text_page_ratio": 0.981818,
+      "scanned_image_page_ratio": 0.018182,
+      "landscape_page_ratio": 0.963636,
+      "median_text_characters_per_page": 2003,
+      "page_modes": {
+        "native_text": 54,
+        "scanned_image": 1
+      },
+      "page_size_profiles": {
+        "1191x842": 53,
+        "595x842": 2
+      },
+      "statement_keyword_pages": [
+        4,
+        51,
+        52,
+        53,
+        54
+      ],
+      "balance_term_pages": [
+        32
+      ],
+      "representative_page": 32,
+      "representative_page_reason": "balance_terms"
+    },
+    {
+      "source_key": "DEVPDF_72cc32705749524e",
+      "source_name": "APL_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/APL_23CN_BCTN.pdf",
+      "source_sha256": "72cc32705749524e2b4fb22e7dec6362ce511e0bd7d037f464f062a54e74267e",
+      "company_key": "development-company-1f4daa4c7f71a319",
+      "pages": 15,
+      "layout_family": "native_text_portrait",
+      "native_text_page_ratio": 1.0,
+      "scanned_image_page_ratio": 0.0,
+      "landscape_page_ratio": 0.0,
+      "median_text_characters_per_page": 1515,
+      "page_modes": {
+        "native_text": 15
+      },
+      "page_size_profiles": {
+        "552x838": 2,
+        "591x838": 1,
+        "592x838": 3,
+        "593x838": 5,
+        "594x838": 3,
+        "599x838": 1
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 4,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_947e027134a4ae53",
+      "source_name": "ASG_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/ASG_23CN_BCTN.pdf",
+      "source_sha256": "947e027134a4ae537959d1cf19453cde23a78efbca70bad732f585320ad63c06",
+      "company_key": "development-company-102b69eac137d9ca",
+      "pages": 111,
+      "layout_family": "scanned_image_dominant",
+      "native_text_page_ratio": 0.315315,
+      "scanned_image_page_ratio": 0.684685,
+      "landscape_page_ratio": 0.324324,
+      "median_text_characters_per_page": 0,
+      "page_modes": {
+        "native_text": 35,
+        "scanned_image": 76
+      },
+      "page_size_profiles": {
+        "1191x842": 36,
+        "595x842": 75
+      },
+      "statement_keyword_pages": [
+        3,
+        18,
+        20
+      ],
+      "balance_term_pages": [],
+      "representative_page": 3,
+      "representative_page_reason": "statement_keyword"
+    },
+    {
+      "source_key": "DEVPDF_6e1bff5169b34a91",
+      "source_name": "ASM_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/ASM_23CN_BCTN.pdf",
+      "source_sha256": "6e1bff5169b34a9149be95b3076e1a1b389f728ab3f971d064607d2aa6154f58",
+      "company_key": "development-company-230d8ed852d19b05",
+      "pages": 1,
+      "layout_family": "scanned_image_dominant",
+      "native_text_page_ratio": 0.0,
+      "scanned_image_page_ratio": 1.0,
+      "landscape_page_ratio": 0.0,
+      "median_text_characters_per_page": 91,
+      "page_modes": {
+        "scanned_image": 1
+      },
+      "page_size_profiles": {
+        "595x842": 1
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 1,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_21d57676e8c35646",
+      "source_name": "ATG_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/ATG_23CN_BCTN.pdf",
+      "source_sha256": "21d57676e8c35646481858974091da01b7c8f2b5d13202ce41b9ff1324991323",
+      "company_key": "development-company-00fde59bf66d3bfb",
+      "pages": 30,
+      "layout_family": "native_text_portrait",
+      "native_text_page_ratio": 0.966667,
+      "scanned_image_page_ratio": 0.033333,
+      "landscape_page_ratio": 0.0,
+      "median_text_characters_per_page": 1439.0,
+      "page_modes": {
+        "native_text": 29,
+        "scanned_image": 1
+      },
+      "page_size_profiles": {
+        "595x842": 30
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 11,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_7b2e7e42723245b6",
+      "source_name": "BAF_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/BAF_23CN_BCTN.pdf",
+      "source_sha256": "7b2e7e42723245b6daaee1da3e518cea3fd2f6b8560ee8df0059d997821f5485",
+      "company_key": "development-company-05418f7af32f3c72",
+      "pages": 109,
+      "layout_family": "scanned_image_dominant",
+      "native_text_page_ratio": 0.247706,
+      "scanned_image_page_ratio": 0.752294,
+      "landscape_page_ratio": 0.266055,
+      "median_text_characters_per_page": 0,
+      "page_modes": {
+        "native_text": 27,
+        "scanned_image": 82
+      },
+      "page_size_profiles": {
+        "1191x842": 28,
+        "1219x842": 1,
+        "595x842": 80
+      },
+      "statement_keyword_pages": [
+        3
+      ],
+      "balance_term_pages": [],
+      "representative_page": 3,
+      "representative_page_reason": "statement_keyword"
+    },
+    {
+      "source_key": "DEVPDF_8083e336c0afb7bc",
+      "source_name": "BAL_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/BAL_23CN_BCTN.pdf",
+      "source_sha256": "8083e336c0afb7bc5629158ede3c15fbc455070c09ddd5663d700ad0c1743d6f",
+      "company_key": "development-company-1b5a6f8f2abac45a",
+      "pages": 14,
+      "layout_family": "native_text_portrait",
+      "native_text_page_ratio": 1.0,
+      "scanned_image_page_ratio": 0.0,
+      "landscape_page_ratio": 0.0,
+      "median_text_characters_per_page": 1660.0,
+      "page_modes": {
+        "native_text": 14
+      },
+      "page_size_profiles": {
+        "595x842": 14
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 2,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_f4ccd6d1e766b2ef",
+      "source_name": "BCF_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/BCF_23CN_BCTN.pdf",
+      "source_sha256": "f4ccd6d1e766b2ef4e073400b61598fca6cdca8a13902c3c474173944e51b380",
+      "company_key": "development-company-114ff212f8cf69f6",
+      "pages": 34,
+      "layout_family": "scanned_image_dominant",
+      "native_text_page_ratio": 0.029412,
+      "scanned_image_page_ratio": 0.970588,
+      "landscape_page_ratio": 0.0,
+      "median_text_characters_per_page": 0.0,
+      "page_modes": {
+        "native_text": 1,
+        "scanned_image": 33
+      },
+      "page_size_profiles": {
+        "595x842": 34
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 1,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_ec741227a04b8fd8",
+      "source_name": "BHC_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/BHC_23CN_BCTN.pdf",
+      "source_sha256": "ec741227a04b8fd8a7ac5953e6f2e139293cbfff00a5a83630219831fe5ae39e",
+      "company_key": "development-company-0efb6600fc9c3e95",
+      "pages": 7,
+      "layout_family": "scanned_image_dominant",
+      "native_text_page_ratio": 0.142857,
+      "scanned_image_page_ratio": 0.857143,
+      "landscape_page_ratio": 0.0,
+      "median_text_characters_per_page": 0,
+      "page_modes": {
+        "native_text": 1,
+        "scanned_image": 6
+      },
+      "page_size_profiles": {
+        "595x842": 7
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 7,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_62a6808775bffb52",
+      "source_name": "BHG_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/BHG_23CN_BCTN.pdf",
+      "source_sha256": "62a6808775bffb526b5f4894a463646522410469e7f3084407d498f987303702",
+      "company_key": "development-company-1e13e778d2398758",
+      "pages": 20,
+      "layout_family": "native_text_portrait",
+      "native_text_page_ratio": 1.0,
+      "scanned_image_page_ratio": 0.0,
+      "landscape_page_ratio": 0.0,
+      "median_text_characters_per_page": 1463.5,
+      "page_modes": {
+        "native_text": 20
+      },
+      "page_size_profiles": {
+        "612x792": 20
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [
+        15
+      ],
+      "representative_page": 15,
+      "representative_page_reason": "balance_terms"
+    },
+    {
+      "source_key": "DEVPDF_929039f536166bdc",
+      "source_name": "BIO_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/BIO_23CN_BCTN.pdf",
+      "source_sha256": "929039f536166bdc66b54661be18d59f418fb96af06f7f36ae0e44283e8bdf86",
+      "company_key": "development-company-0532018263446433",
+      "pages": 19,
+      "layout_family": "native_text_portrait",
+      "native_text_page_ratio": 1.0,
+      "scanned_image_page_ratio": 0.0,
+      "landscape_page_ratio": 0.0,
+      "median_text_characters_per_page": 1779,
+      "page_modes": {
+        "native_text": 19
+      },
+      "page_size_profiles": {
+        "612x792": 19
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 15,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_c87dac87eacb4aa2",
+      "source_name": "BKG_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/BKG_23CN_BCTN.pdf",
+      "source_sha256": "c87dac87eacb4aa288ba1577f48b72c4285d94051cf4fa7302a5e0db32e2c89a",
+      "company_key": "development-company-21d7832498861b16",
+      "pages": 127,
+      "layout_family": "native_text_mixed_orientation",
+      "native_text_page_ratio": 0.645669,
+      "scanned_image_page_ratio": 0.0,
+      "landscape_page_ratio": 0.275591,
+      "median_text_characters_per_page": 240,
+      "page_modes": {
+        "native_text": 82,
+        "sparse_or_vector": 45
+      },
+      "page_size_profiles": {
+        "595x842": 1,
+        "612x792": 91,
+        "792x612": 35
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 8,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_489cb5ec7e478522",
+      "source_name": "BMF_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/BMF_23CN_BCTN.pdf",
+      "source_sha256": "489cb5ec7e478522a536518dbcf33e7749939e4fb0659918e2788fe70949e32d",
+      "company_key": "development-company-0705e1308e777598",
+      "pages": 30,
+      "layout_family": "scanned_image_dominant",
+      "native_text_page_ratio": 0.033333,
+      "scanned_image_page_ratio": 0.966667,
+      "landscape_page_ratio": 0.0,
+      "median_text_characters_per_page": 0.0,
+      "page_modes": {
+        "native_text": 1,
+        "scanned_image": 29
+      },
+      "page_size_profiles": {
+        "595x842": 30
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 1,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_a27ee61e64d3e281",
+      "source_name": "BMV_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/BMV_23CN_BCTN.pdf",
+      "source_sha256": "a27ee61e64d3e281e17816552108186fd4e6bf6153e5faad59531dd6e35870e9",
+      "company_key": "development-company-17f76fe91c554529",
+      "pages": 12,
+      "layout_family": "scanned_image_dominant",
+      "native_text_page_ratio": 0.0,
+      "scanned_image_page_ratio": 1.0,
+      "landscape_page_ratio": 0.0,
+      "median_text_characters_per_page": 0.0,
+      "page_modes": {
+        "scanned_image": 12
+      },
+      "page_size_profiles": {
+        "595x842": 12
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 1,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_b90d50e824213031",
+      "source_name": "BSD_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/BSD_23CN_BCTN.pdf",
+      "source_sha256": "b90d50e8242130316d5eeb3179326b8123d2d41605a4693d40be13b36ba2e549",
+      "company_key": "development-company-21721ffc9ac62efc",
+      "pages": 16,
+      "layout_family": "native_text_portrait",
+      "native_text_page_ratio": 1.0,
+      "scanned_image_page_ratio": 0.0,
+      "landscape_page_ratio": 0.0,
+      "median_text_characters_per_page": 2347.0,
+      "page_modes": {
+        "native_text": 16
+      },
+      "page_size_profiles": {
+        "595x842": 16
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 1,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_4a6497f48e1460a1",
+      "source_name": "BSH_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/BSH_23CN_BCTN.pdf",
+      "source_sha256": "4a6497f48e1460a15e8573a8fc29316b109b01ce9cd855c3fe8019c9ee6ef595",
+      "company_key": "development-company-2230a64fe703897f",
+      "pages": 31,
+      "layout_family": "hybrid_scan_text",
+      "native_text_page_ratio": 0.096774,
+      "scanned_image_page_ratio": 0.0,
+      "landscape_page_ratio": 0.0,
+      "median_text_characters_per_page": 0,
+      "page_modes": {
+        "native_text": 3,
+        "sparse_or_vector": 28
+      },
+      "page_size_profiles": {
+        "595x842": 31
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 31,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_e8d888429e2e5eb1",
+      "source_name": "CCP_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/CCP_23CN_BCTN.pdf",
+      "source_sha256": "e8d888429e2e5eb1967eaf2a4155ba1671bb0a5ad6fef2ac7443c2a3c394e395",
+      "company_key": "development-company-0afd7c65e655ce13",
+      "pages": 9,
+      "layout_family": "scanned_image_dominant",
+      "native_text_page_ratio": 0.111111,
+      "scanned_image_page_ratio": 0.888889,
+      "landscape_page_ratio": 0.0,
+      "median_text_characters_per_page": 0,
+      "page_modes": {
+        "native_text": 1,
+        "scanned_image": 8
+      },
+      "page_size_profiles": {
+        "596x842": 9
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 1,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_ac9ed34c4bc2af3d",
+      "source_name": "CET_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/CET_23CN_BCTN.pdf",
+      "source_sha256": "ac9ed34c4bc2af3d65b7d0e39213d025a2717f20952216b1212f80b3825ff69f",
+      "company_key": "development-company-014b813850156c80",
+      "pages": 60,
+      "layout_family": "hybrid_scan_text",
+      "native_text_page_ratio": 0.483333,
+      "scanned_image_page_ratio": 0.516667,
+      "landscape_page_ratio": 0.5,
+      "median_text_characters_per_page": 0.0,
+      "page_modes": {
+        "native_text": 29,
+        "scanned_image": 31
+      },
+      "page_size_profiles": {
+        "591x838": 2,
+        "591x839": 6,
+        "591x840": 5,
+        "591x841": 3,
+        "591x842": 4,
+        "591x843": 2,
+        "591x844": 1,
+        "592x839": 2,
+        "592x842": 3,
+        "595x842": 2,
+        "839x594": 1,
+        "840x594": 3,
+        "840x595": 1,
+        "841x594": 3,
+        "841x595": 4,
+        "842x594": 5,
+        "842x595": 4,
+        "843x593": 1,
+        "844x594": 2,
+        "844x595": 1,
+        "845x595": 1,
+        "846x593": 1,
+        "846x594": 1,
+        "846x595": 1,
+        "847x592": 1
+      },
+      "statement_keyword_pages": [
+        40
+      ],
+      "balance_term_pages": [],
+      "representative_page": 40,
+      "representative_page_reason": "statement_keyword"
+    },
+    {
+      "source_key": "DEVPDF_90ddeeb5158d7262",
+      "source_name": "CLX_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/CLX_23CN_BCTN.pdf",
+      "source_sha256": "90ddeeb5158d72622ea6c96565d45603db90a959418a5fb6e34d3c4fc8f1a0d0",
+      "company_key": "development-company-0cc2f53c87ada142",
+      "pages": 41,
+      "layout_family": "scanned_image_dominant",
+      "native_text_page_ratio": 0.02439,
+      "scanned_image_page_ratio": 0.97561,
+      "landscape_page_ratio": 0.195122,
+      "median_text_characters_per_page": 0,
+      "page_modes": {
+        "native_text": 1,
+        "scanned_image": 40
+      },
+      "page_size_profiles": {
+        "596x842": 33,
+        "842x596": 8
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 1,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_b9c5d64825019871",
+      "source_name": "CMD_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/CMD_23CN_BCTN.pdf",
+      "source_sha256": "b9c5d64825019871ed61010eee3078f47568774dca5bf1a89c8bdc1f9684957e",
+      "company_key": "development-company-04dc5b2136328a0d",
+      "pages": 47,
+      "layout_family": "scanned_image_dominant",
+      "native_text_page_ratio": 0.021277,
+      "scanned_image_page_ratio": 0.851064,
+      "landscape_page_ratio": 0.0,
+      "median_text_characters_per_page": 0,
+      "page_modes": {
+        "native_text": 1,
+        "scanned_image": 40,
+        "sparse_or_vector": 6
+      },
+      "page_size_profiles": {
+        "612x792": 47
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 1,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_1151a65a8d102883",
+      "source_name": "CMG_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/CMG_23CN_BCTN.pdf",
+      "source_sha256": "1151a65a8d1028834a84179543d7b721df57e9c6c8f539e419ecbd8d978fd65f",
+      "company_key": "development-company-1ae2af0e40480754",
+      "pages": 71,
+      "layout_family": "native_text_portrait",
+      "native_text_page_ratio": 0.873239,
+      "scanned_image_page_ratio": 0.098592,
+      "landscape_page_ratio": 0.014085,
+      "median_text_characters_per_page": 2185,
+      "page_modes": {
+        "native_text": 62,
+        "scanned_image": 7,
+        "sparse_or_vector": 2
+      },
+      "page_size_profiles": {
+        "1197x842": 1,
+        "595x842": 67,
+        "596x842": 3
+      },
+      "statement_keyword_pages": [
+        3,
+        58,
+        59,
+        60,
+        65,
+        66,
+        67
+      ],
+      "balance_term_pages": [],
+      "representative_page": 3,
+      "representative_page_reason": "statement_keyword"
+    },
+    {
+      "source_key": "DEVPDF_dd89d303250e826c",
+      "source_name": "CMK_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/CMK_23CN_BCTN.pdf",
+      "source_sha256": "dd89d303250e826ca4a37ec9838584e23d021c218c35c4efd38f26aa4d66f202",
+      "company_key": "development-company-1947e2bdf9b8b693",
+      "pages": 19,
+      "layout_family": "native_text_portrait",
+      "native_text_page_ratio": 1.0,
+      "scanned_image_page_ratio": 0.0,
+      "landscape_page_ratio": 0.0,
+      "median_text_characters_per_page": 2013,
+      "page_modes": {
+        "native_text": 19
+      },
+      "page_size_profiles": {
+        "595x842": 19
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 9,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_b5944cc10f6fe4f0",
+      "source_name": "CMS_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/CMS_23CN_BCTN.pdf",
+      "source_sha256": "b5944cc10f6fe4f003249e81aeb6bb2ba6b01bc7a4f63d1367478652488308eb",
+      "company_key": "development-company-069df57a3a645590",
+      "pages": 31,
+      "layout_family": "native_text_portrait",
+      "native_text_page_ratio": 1.0,
+      "scanned_image_page_ratio": 0.0,
+      "landscape_page_ratio": 0.0,
+      "median_text_characters_per_page": 1943,
+      "page_modes": {
+        "native_text": 31
+      },
+      "page_size_profiles": {
+        "595x842": 31
+      },
+      "statement_keyword_pages": [
+        9,
+        16
+      ],
+      "balance_term_pages": [
+        18
+      ],
+      "representative_page": 18,
+      "representative_page_reason": "balance_terms"
+    },
+    {
+      "source_key": "DEVPDF_8b79f756b289f8ce",
+      "source_name": "CPC_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/CPC_23CN_BCTN.pdf",
+      "source_sha256": "8b79f756b289f8ce50a5641f8dfa83289517bbb226cc78ce3c7daa81db42e5ac",
+      "company_key": "development-company-09076eb7665d1fb9",
+      "pages": 55,
+      "layout_family": "native_text_mixed_orientation",
+      "native_text_page_ratio": 0.690909,
+      "scanned_image_page_ratio": 0.0,
+      "landscape_page_ratio": 0.945455,
+      "median_text_characters_per_page": 1099,
+      "page_modes": {
+        "native_text": 38,
+        "sparse_or_vector": 17
+      },
+      "page_size_profiles": {
+        "1191x842": 52,
+        "595x842": 3
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [
+        23,
+        24,
+        30
+      ],
+      "representative_page": 23,
+      "representative_page_reason": "balance_terms"
+    },
+    {
+      "source_key": "DEVPDF_eba47215bcc68cec",
+      "source_name": "CRE_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/CRE_23CN_BCTN.pdf",
+      "source_sha256": "eba47215bcc68cec0305d305d54ef215b94e3cd6888f6442b5b8955e84c403cd",
+      "company_key": "development-company-109e3945b5072c8e",
+      "pages": 96,
+      "layout_family": "native_text_mixed_orientation",
+      "native_text_page_ratio": 0.697917,
+      "scanned_image_page_ratio": 0.0,
+      "landscape_page_ratio": 0.979167,
+      "median_text_characters_per_page": 979.5,
+      "page_modes": {
+        "native_text": 67,
+        "sparse_or_vector": 29
+      },
+      "page_size_profiles": {
+        "1191x842": 94,
+        "595x842": 2
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 52,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_6f63fa1d379b034f",
+      "source_name": "CST_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/CST_23CN_BCTN.pdf",
+      "source_sha256": "6f63fa1d379b034fba655ac31afd97bc3215b91aa75b6127a16d6cb3c51f320c",
+      "company_key": "development-company-0c706679d12b6123",
+      "pages": 23,
+      "layout_family": "scanned_image_dominant",
+      "native_text_page_ratio": 0.0,
+      "scanned_image_page_ratio": 1.0,
+      "landscape_page_ratio": 0.0,
+      "median_text_characters_per_page": 0,
+      "page_modes": {
+        "scanned_image": 23
+      },
+      "page_size_profiles": {
+        "596x842": 23
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 1,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_fbda6ade7f66f1b1",
+      "source_name": "CTX_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/CTX_23CN_BCTN.pdf",
+      "source_sha256": "fbda6ade7f66f1b18ea46e03823ed4a012db164a3d4fb6e2412958dcae1f015e",
+      "company_key": "development-company-0230c6b1d833c51c",
+      "pages": 16,
+      "layout_family": "scanned_image_dominant",
+      "native_text_page_ratio": 0.0625,
+      "scanned_image_page_ratio": 0.9375,
+      "landscape_page_ratio": 0.0,
+      "median_text_characters_per_page": 0.0,
+      "page_modes": {
+        "native_text": 1,
+        "scanned_image": 15
+      },
+      "page_size_profiles": {
+        "595x842": 16
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 1,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_04d5d45aeb07a867",
+      "source_name": "DAS_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/DAS_23CN_BCTN.pdf",
+      "source_sha256": "04d5d45aeb07a867b2dc65afbfe46a967ebd3f358c019ab8eed0df4139fa7051",
+      "company_key": "development-company-0a7cb27e52927eac",
+      "pages": 20,
+      "layout_family": "native_text_portrait",
+      "native_text_page_ratio": 1.0,
+      "scanned_image_page_ratio": 0.0,
+      "landscape_page_ratio": 0.0,
+      "median_text_characters_per_page": 1839.0,
+      "page_modes": {
+        "native_text": 20
+      },
+      "page_size_profiles": {
+        "595x841": 20
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 18,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_d0e0f017e39e2d41",
+      "source_name": "DBD_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/DBD_23CN_BCTN.pdf",
+      "source_sha256": "d0e0f017e39e2d41869da082f9ba43e6fab85c8a2b73a756215156e063f593ac",
+      "company_key": "development-company-06c7945e848256ab",
+      "pages": 59,
+      "layout_family": "native_text_mixed_orientation",
+      "native_text_page_ratio": 0.983051,
+      "scanned_image_page_ratio": 0.016949,
+      "landscape_page_ratio": 0.949153,
+      "median_text_characters_per_page": 1895,
+      "page_modes": {
+        "native_text": 58,
+        "scanned_image": 1
+      },
+      "page_size_profiles": {
+        "1191x842": 56,
+        "595x842": 3
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [
+        28
+      ],
+      "representative_page": 28,
+      "representative_page_reason": "balance_terms"
+    },
+    {
+      "source_key": "DEVPDF_87d922b78778f455",
+      "source_name": "DHP_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/DHP_23CN_BCTN.pdf",
+      "source_sha256": "87d922b78778f45546727a7bc23741fe4f844857d05a1d0d1cdc859de1676eb5",
+      "company_key": "development-company-0d0d213f8044dc8f",
+      "pages": 43,
+      "layout_family": "native_text_portrait",
+      "native_text_page_ratio": 0.906977,
+      "scanned_image_page_ratio": 0.0,
+      "landscape_page_ratio": 0.0,
+      "median_text_characters_per_page": 1535,
+      "page_modes": {
+        "native_text": 39,
+        "sparse_or_vector": 4
+      },
+      "page_size_profiles": {
+        "595x842": 43
+      },
+      "statement_keyword_pages": [
+        23,
+        24
+      ],
+      "balance_term_pages": [],
+      "representative_page": 23,
+      "representative_page_reason": "statement_keyword"
+    },
+    {
+      "source_key": "DEVPDF_84adc69d7c251e00",
+      "source_name": "DMC_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/DMC_23CN_BCTN.pdf",
+      "source_sha256": "84adc69d7c251e00c22c40906c7e15b328cf0e6842fd65ffa35f0428a044b9d2",
+      "company_key": "development-company-004d652203c89dd2",
+      "pages": 69,
+      "layout_family": "native_text_mixed_orientation",
+      "native_text_page_ratio": 1.0,
+      "scanned_image_page_ratio": 0.0,
+      "landscape_page_ratio": 1.0,
+      "median_text_characters_per_page": 1899,
+      "page_modes": {
+        "native_text": 69
+      },
+      "page_size_profiles": {
+        "1191x842": 69
+      },
+      "statement_keyword_pages": [
+        16,
+        47
+      ],
+      "balance_term_pages": [
+        16,
+        33
+      ],
+      "representative_page": 16,
+      "representative_page_reason": "balance_terms"
+    },
+    {
+      "source_key": "DEVPDF_99e2e52a23b8509a",
+      "source_name": "DVG_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/DVG_23CN_BCTN.pdf",
+      "source_sha256": "99e2e52a23b8509a42b9dbc17adeac23729fa0f9f5262717e6a35c8472a9c853",
+      "company_key": "development-company-055b511edb9748e2",
+      "pages": 38,
+      "layout_family": "scanned_image_dominant",
+      "native_text_page_ratio": 0.0,
+      "scanned_image_page_ratio": 1.0,
+      "landscape_page_ratio": 0.0,
+      "median_text_characters_per_page": 0.0,
+      "page_modes": {
+        "scanned_image": 38
+      },
+      "page_size_profiles": {
+        "1367x2060": 1,
+        "1384x2128": 1,
+        "1388x2128": 1,
+        "1392x2128": 4,
+        "1400x2128": 2,
+        "1402x2124": 1,
+        "1404x2108": 1,
+        "1404x2128": 4,
+        "1408x2128": 5,
+        "1412x2128": 2,
+        "1413x2120": 1,
+        "1416x2096": 1,
+        "1416x2128": 8,
+        "1420x2128": 1,
+        "1424x2128": 2,
+        "1428x2128": 1,
+        "1434x2120": 1,
+        "1456x2128": 1
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 1,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_55064d823c096179",
+      "source_name": "DVP_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/DVP_23CN_BCTN.pdf",
+      "source_sha256": "55064d823c0961794ae4217a8dd3732c67859f8f13de337b1c75c2fa1b48d053",
+      "company_key": "development-company-152d3252ea8e5010",
+      "pages": 70,
+      "layout_family": "scanned_image_dominant",
+      "native_text_page_ratio": 0.0,
+      "scanned_image_page_ratio": 1.0,
+      "landscape_page_ratio": 0.0,
+      "median_text_characters_per_page": 0.0,
+      "page_modes": {
+        "scanned_image": 70
+      },
+      "page_size_profiles": {
+        "595x842": 70
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 1,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_c8b07539b3af4385",
+      "source_name": "DXV_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/DXV_23CN_BCTN.pdf",
+      "source_sha256": "c8b07539b3af4385929a053c23f7b1e0f84f89971d329bedae8125cd62fc2fa3",
+      "company_key": "development-company-110e0a84eb0f55d0",
+      "pages": 29,
+      "layout_family": "scanned_image_dominant",
+      "native_text_page_ratio": 0.0,
+      "scanned_image_page_ratio": 1.0,
+      "landscape_page_ratio": 0.0,
+      "median_text_characters_per_page": 0,
+      "page_modes": {
+        "scanned_image": 29
+      },
+      "page_size_profiles": {
+        "596x842": 29
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 1,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_53c903859243dd9b",
+      "source_name": "ECI_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/ECI_23CN_BCTN.pdf",
+      "source_sha256": "53c903859243dd9b5a71b21364fb4182502ebb11c413a5c9988bbb88268b77d0",
+      "company_key": "development-company-0c7371bc44f1c673",
+      "pages": 32,
+      "layout_family": "scanned_image_dominant",
+      "native_text_page_ratio": 0.0,
+      "scanned_image_page_ratio": 1.0,
+      "landscape_page_ratio": 0.0,
+      "median_text_characters_per_page": 0.0,
+      "page_modes": {
+        "scanned_image": 32
+      },
+      "page_size_profiles": {
+        "592x835": 3,
+        "592x836": 2,
+        "593x836": 8,
+        "593x837": 4,
+        "593x838": 1,
+        "593x839": 1,
+        "594x834": 2,
+        "594x835": 1,
+        "594x836": 4,
+        "594x837": 2,
+        "594x838": 2,
+        "594x839": 2
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 1,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_ae27b6c2f071d717",
+      "source_name": "FCC_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/FCC_23CN_BCTN.pdf",
+      "source_sha256": "ae27b6c2f071d717abcefaa55038599f56f3a5fc8d716a90d495884183e385df",
+      "company_key": "development-company-0d4bf5b068aa598c",
+      "pages": 9,
+      "layout_family": "native_text_portrait",
+      "native_text_page_ratio": 1.0,
+      "scanned_image_page_ratio": 0.0,
+      "landscape_page_ratio": 0.0,
+      "median_text_characters_per_page": 2337,
+      "page_modes": {
+        "native_text": 9
+      },
+      "page_size_profiles": {
+        "595x842": 9
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 8,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_98e89393167e698f",
+      "source_name": "FDC_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/FDC_23CN_BCTN.pdf",
+      "source_sha256": "98e89393167e698f61317d0712f7119dfc27b395f15bff1ecf83cc3032b310f1",
+      "company_key": "development-company-01eb9c15769d6c2c",
+      "pages": 14,
+      "layout_family": "scanned_image_dominant",
+      "native_text_page_ratio": 0.071429,
+      "scanned_image_page_ratio": 0.928571,
+      "landscape_page_ratio": 0.0,
+      "median_text_characters_per_page": 0.0,
+      "page_modes": {
+        "native_text": 1,
+        "scanned_image": 13
+      },
+      "page_size_profiles": {
+        "595x842": 14
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 1,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_2e1c4aaa266b6c1e",
+      "source_name": "GIC_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/GIC_23CN_BCTN.pdf",
+      "source_sha256": "2e1c4aaa266b6c1e26fef41e54f010b3876415a5bfd7c496e0d6b6b8ef90d953",
+      "company_key": "development-company-0d4ba031e63f23c0",
+      "pages": 50,
+      "layout_family": "native_text_portrait",
+      "native_text_page_ratio": 1.0,
+      "scanned_image_page_ratio": 0.0,
+      "landscape_page_ratio": 0.0,
+      "median_text_characters_per_page": 1751.5,
+      "page_modes": {
+        "native_text": 50
+      },
+      "page_size_profiles": {
+        "595x842": 50
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 27,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_c3f9496d0b195baa",
+      "source_name": "GMD_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/GMD_23CN_BCTN.pdf",
+      "source_sha256": "c3f9496d0b195baa858fd658c4b2384850610b0e6a3067202a31e4a36d686ea0",
+      "company_key": "development-company-0a465797a15eeb6b",
+      "pages": 70,
+      "layout_family": "native_text_mixed_orientation",
+      "native_text_page_ratio": 1.0,
+      "scanned_image_page_ratio": 0.0,
+      "landscape_page_ratio": 0.971429,
+      "median_text_characters_per_page": 3425.0,
+      "page_modes": {
+        "native_text": 70
+      },
+      "page_size_profiles": {
+        "1191x842": 68,
+        "595x842": 2
+      },
+      "statement_keyword_pages": [
+        2,
+        57,
+        59,
+        60,
+        61
+      ],
+      "balance_term_pages": [
+        28
+      ],
+      "representative_page": 28,
+      "representative_page_reason": "balance_terms"
+    },
+    {
+      "source_key": "DEVPDF_1941bbdb928b9825",
+      "source_name": "HAM_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/HAM_23CN_BCTN.pdf",
+      "source_sha256": "1941bbdb928b9825b82b1e9af274fe9cf03647825ca038afa6e448ddecf96a51",
+      "company_key": "development-company-0eccfe263668d171",
+      "pages": 50,
+      "layout_family": "scanned_image_dominant",
+      "native_text_page_ratio": 0.02,
+      "scanned_image_page_ratio": 0.98,
+      "landscape_page_ratio": 0.0,
+      "median_text_characters_per_page": 0.0,
+      "page_modes": {
+        "native_text": 1,
+        "scanned_image": 49
+      },
+      "page_size_profiles": {
+        "589x830": 6,
+        "589x831": 10,
+        "589x832": 7,
+        "589x833": 6,
+        "589x834": 3,
+        "589x835": 2,
+        "589x836": 2,
+        "589x837": 3,
+        "589x838": 1,
+        "589x839": 1,
+        "589x843": 1,
+        "589x846": 1,
+        "590x831": 2,
+        "590x832": 1,
+        "590x839": 2,
+        "590x841": 1,
+        "612x792": 1
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 1,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_1bbbaaf0cf8bf89b",
+      "source_name": "HAT_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/HAT_23CN_BCTN.pdf",
+      "source_sha256": "1bbbaaf0cf8bf89bfce6fdd1a4dfcbc9e11ad970d861604a9297a158376c424b",
+      "company_key": "development-company-18e1dd392168f601",
+      "pages": 21,
+      "layout_family": "scanned_image_dominant",
+      "native_text_page_ratio": 0.047619,
+      "scanned_image_page_ratio": 0.952381,
+      "landscape_page_ratio": 0.0,
+      "median_text_characters_per_page": 0,
+      "page_modes": {
+        "native_text": 1,
+        "scanned_image": 20
+      },
+      "page_size_profiles": {
+        "596x842": 21
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 1,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_0cb3aac65efa6de9",
+      "source_name": "HES_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/HES_23CN_BCTN.pdf",
+      "source_sha256": "0cb3aac65efa6de9ca89afe93fc3e18ba7439bd561ffcf1e996fdb3a553976a6",
+      "company_key": "development-company-050be1e2f4531f6d",
+      "pages": 55,
+      "layout_family": "scanned_image_dominant",
+      "native_text_page_ratio": 0.0,
+      "scanned_image_page_ratio": 1.0,
+      "landscape_page_ratio": 0.054545,
+      "median_text_characters_per_page": 0,
+      "page_modes": {
+        "scanned_image": 55
+      },
+      "page_size_profiles": {
+        "592x844": 1,
+        "593x839": 1,
+        "593x840": 2,
+        "594x839": 8,
+        "594x840": 19,
+        "594x841": 15,
+        "594x842": 2,
+        "595x840": 1,
+        "595x841": 2,
+        "595x843": 1,
+        "839x594": 1,
+        "840x594": 1,
+        "840x595": 1
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 1,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_214c5c096af69eb7",
+      "source_name": "HEV_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/HEV_23CN_BCTN.pdf",
+      "source_sha256": "214c5c096af69eb722b52223408aabd7deee801d42cc61021fb584dea596f2ed",
+      "company_key": "development-company-02c526d73293a6cf",
+      "pages": 14,
+      "layout_family": "native_text_portrait",
+      "native_text_page_ratio": 0.857143,
+      "scanned_image_page_ratio": 0.142857,
+      "landscape_page_ratio": 0.142857,
+      "median_text_characters_per_page": 1801.5,
+      "page_modes": {
+        "native_text": 12,
+        "scanned_image": 2
+      },
+      "page_size_profiles": {
+        "595x842": 3,
+        "596x842": 9,
+        "842x595": 1,
+        "842x596": 1
+      },
+      "statement_keyword_pages": [
+        5
+      ],
+      "balance_term_pages": [],
+      "representative_page": 5,
+      "representative_page_reason": "statement_keyword"
+    },
+    {
+      "source_key": "DEVPDF_9eb237fc8efd9017",
+      "source_name": "HHC_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/HHC_23CN_BCTN.pdf",
+      "source_sha256": "9eb237fc8efd90172628ab92e1da8b5f1faf10724bde92159e5099059b1a6083",
+      "company_key": "development-company-207f7bcecdcedf8b",
+      "pages": 63,
+      "layout_family": "native_text_mixed_orientation",
+      "native_text_page_ratio": 0.952381,
+      "scanned_image_page_ratio": 0.047619,
+      "landscape_page_ratio": 0.920635,
+      "median_text_characters_per_page": 2148,
+      "page_modes": {
+        "native_text": 60,
+        "scanned_image": 3
+      },
+      "page_size_profiles": {
+        "1191x842": 58,
+        "596x842": 4,
+        "612x792": 1
+      },
+      "statement_keyword_pages": [
+        4,
+        45
+      ],
+      "balance_term_pages": [
+        48
+      ],
+      "representative_page": 48,
+      "representative_page_reason": "balance_terms"
+    },
+    {
+      "source_key": "DEVPDF_2a79347d2a6e0b86",
+      "source_name": "HLB_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/HLB_23CN_BCTN.pdf",
+      "source_sha256": "2a79347d2a6e0b8618da59f2a311f84fa901e8e25220079979f6c820a8083719",
+      "company_key": "development-company-13ed7955a8035437",
+      "pages": 24,
+      "layout_family": "scanned_image_dominant",
+      "native_text_page_ratio": 0.041667,
+      "scanned_image_page_ratio": 0.958333,
+      "landscape_page_ratio": 0.0,
+      "median_text_characters_per_page": 0.0,
+      "page_modes": {
+        "native_text": 1,
+        "scanned_image": 23
+      },
+      "page_size_profiles": {
+        "595x842": 24
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 1,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_9f445fef5275800b",
+      "source_name": "HLY_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/HLY_23CN_BCTN.pdf",
+      "source_sha256": "9f445fef5275800b121f8be550d908d17ef61dd1607db6061b883f4681947cac",
+      "company_key": "development-company-08881a566ac8b9ee",
+      "pages": 45,
+      "layout_family": "scanned_image_dominant",
+      "native_text_page_ratio": 0.0,
+      "scanned_image_page_ratio": 1.0,
+      "landscape_page_ratio": 0.0,
+      "median_text_characters_per_page": 0,
+      "page_modes": {
+        "scanned_image": 45
+      },
+      "page_size_profiles": {
+        "595x842": 45
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 1,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_4417caba3aaef44a",
+      "source_name": "HNF_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/HNF_23CN_BCTN.pdf",
+      "source_sha256": "4417caba3aaef44a310d2fc21c29acc392e6e1153c30c27ed1770e99ec75af31",
+      "company_key": "development-company-1f8a0616f0de5464",
+      "pages": 32,
+      "layout_family": "native_text_portrait",
+      "native_text_page_ratio": 1.0,
+      "scanned_image_page_ratio": 0.0,
+      "landscape_page_ratio": 0.0,
+      "median_text_characters_per_page": 2585.5,
+      "page_modes": {
+        "native_text": 32
+      },
+      "page_size_profiles": {
+        "589x842": 1,
+        "590x839": 1,
+        "591x838": 1,
+        "591x840": 4,
+        "591x842": 2,
+        "591x843": 2,
+        "592x839": 3,
+        "592x840": 2,
+        "592x841": 3,
+        "592x842": 3,
+        "592x843": 1,
+        "592x844": 1,
+        "593x839": 1,
+        "593x842": 3,
+        "593x843": 3,
+        "593x844": 1
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 26,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_649964f068931dc1",
+      "source_name": "HNP_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/HNP_23CN_BCTN.pdf",
+      "source_sha256": "649964f068931dc115a382b0a750a4d0c4ff3a24f7b7e09be478377c8e1d03eb",
+      "company_key": "development-company-1be3322664f96b6d",
+      "pages": 16,
+      "layout_family": "scanned_image_dominant",
+      "native_text_page_ratio": 0.0,
+      "scanned_image_page_ratio": 1.0,
+      "landscape_page_ratio": 0.0,
+      "median_text_characters_per_page": 0.0,
+      "page_modes": {
+        "scanned_image": 16
+      },
+      "page_size_profiles": {
+        "589x839": 1,
+        "589x840": 3,
+        "589x841": 1,
+        "589x842": 3,
+        "589x843": 1,
+        "590x841": 1,
+        "590x842": 1,
+        "591x840": 1,
+        "591x841": 3,
+        "591x842": 1
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 1,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_592c01c3dbf2b11e",
+      "source_name": "HPI_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/HPI_23CN_BCTN.pdf",
+      "source_sha256": "592c01c3dbf2b11e4b043fa8945624793b4f8bf569e9fbc3071dffa1113f01a1",
+      "company_key": "development-company-1cbf5f7334f5dfbd",
+      "pages": 34,
+      "layout_family": "native_text_portrait",
+      "native_text_page_ratio": 0.970588,
+      "scanned_image_page_ratio": 0.029412,
+      "landscape_page_ratio": 0.029412,
+      "median_text_characters_per_page": 1747.0,
+      "page_modes": {
+        "native_text": 33,
+        "scanned_image": 1
+      },
+      "page_size_profiles": {
+        "589x839": 1,
+        "589x840": 2,
+        "589x841": 1,
+        "589x843": 2,
+        "589x844": 1,
+        "590x838": 4,
+        "590x839": 1,
+        "590x840": 3,
+        "590x841": 4,
+        "590x842": 1,
+        "590x843": 1,
+        "590x844": 1,
+        "591x836": 1,
+        "591x839": 3,
+        "591x840": 1,
+        "591x841": 2,
+        "591x842": 1,
+        "591x844": 1,
+        "591x845": 1,
+        "591x846": 1,
+        "843x590": 1
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 20,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_2d9a36742e3a9a71",
+      "source_name": "HSG_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/HSG_23CN_BCTN.pdf",
+      "source_sha256": "2d9a36742e3a9a718804ec7ec00267b7f58e2af3fd5897b00049005467a820c5",
+      "company_key": "development-company-0bd804ff4d877831",
+      "pages": 117,
+      "layout_family": "native_text_mixed_orientation",
+      "native_text_page_ratio": 0.940171,
+      "scanned_image_page_ratio": 0.051282,
+      "landscape_page_ratio": 0.940171,
+      "median_text_characters_per_page": 3128,
+      "page_modes": {
+        "native_text": 110,
+        "scanned_image": 6,
+        "sparse_or_vector": 1
+      },
+      "page_size_profiles": {
+        "1162x836": 54,
+        "1191x842": 56,
+        "581x836": 6,
+        "595x842": 1
+      },
+      "statement_keyword_pages": [
+        60,
+        61,
+        62,
+        67,
+        68,
+        80,
+        89,
+        90,
+        91,
+        98,
+        99,
+        111
+      ],
+      "balance_term_pages": [],
+      "representative_page": 60,
+      "representative_page_reason": "statement_keyword"
+    },
+    {
+      "source_key": "DEVPDF_90910c735388e8d9",
+      "source_name": "HTC_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/HTC_23CN_BCTN.pdf",
+      "source_sha256": "90910c735388e8d9db55266dfbad1e02938cba7c3b30246e037b27e61c006bfb",
+      "company_key": "development-company-16dc61acc843e20b",
+      "pages": 70,
+      "layout_family": "scanned_image_dominant",
+      "native_text_page_ratio": 0.014286,
+      "scanned_image_page_ratio": 0.985714,
+      "landscape_page_ratio": 0.0,
+      "median_text_characters_per_page": 0.0,
+      "page_modes": {
+        "native_text": 1,
+        "scanned_image": 69
+      },
+      "page_size_profiles": {
+        "595x842": 70
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 1,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_81c23e8f394f3cb9",
+      "source_name": "HTI_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/HTI_23CN_BCTN.pdf",
+      "source_sha256": "81c23e8f394f3cb9d932ae5e77eff73738d4b43431bb28ee9ba19f6aca6b54e1",
+      "company_key": "development-company-0edcdb4ac852829d",
+      "pages": 39,
+      "layout_family": "native_text_mixed_orientation",
+      "native_text_page_ratio": 0.974359,
+      "scanned_image_page_ratio": 0.025641,
+      "landscape_page_ratio": 0.948718,
+      "median_text_characters_per_page": 2319,
+      "page_modes": {
+        "native_text": 38,
+        "scanned_image": 1
+      },
+      "page_size_profiles": {
+        "1191x842": 37,
+        "595x842": 2
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [
+        26
+      ],
+      "representative_page": 26,
+      "representative_page_reason": "balance_terms"
+    },
+    {
+      "source_key": "DEVPDF_daad4aaec36be97b",
+      "source_name": "HUB_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/HUB_23CN_BCTN.pdf",
+      "source_sha256": "daad4aaec36be97b5ae6f99d1d822fb9efe12d2b92110e81be7df150e991f695",
+      "company_key": "development-company-08d33503ee27d4c1",
+      "pages": 72,
+      "layout_family": "native_text_portrait",
+      "native_text_page_ratio": 0.902778,
+      "scanned_image_page_ratio": 0.0,
+      "landscape_page_ratio": 0.0,
+      "median_text_characters_per_page": 1586.0,
+      "page_modes": {
+        "native_text": 65,
+        "sparse_or_vector": 7
+      },
+      "page_size_profiles": {
+        "595x842": 71,
+        "596x840": 1
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [
+        43
+      ],
+      "representative_page": 43,
+      "representative_page_reason": "balance_terms"
+    },
+    {
+      "source_key": "DEVPDF_19af4fcc6421dc38",
+      "source_name": "ICG_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/ICG_23CN_BCTN.pdf",
+      "source_sha256": "19af4fcc6421dc38e6a2d577974334516687fde66219b0912716bdb86b9f926e",
+      "company_key": "development-company-183a74665825292f",
+      "pages": 28,
+      "layout_family": "native_text_portrait",
+      "native_text_page_ratio": 0.964286,
+      "scanned_image_page_ratio": 0.035714,
+      "landscape_page_ratio": 0.0,
+      "median_text_characters_per_page": 1871.0,
+      "page_modes": {
+        "native_text": 27,
+        "scanned_image": 1
+      },
+      "page_size_profiles": {
+        "595x842": 1,
+        "612x792": 27
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [
+        20
+      ],
+      "representative_page": 20,
+      "representative_page_reason": "balance_terms"
+    },
+    {
+      "source_key": "DEVPDF_ee2061e29c1923da",
+      "source_name": "ICT_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/ICT_23CN_BCTN.pdf",
+      "source_sha256": "ee2061e29c1923da0e38ba33a7e25c7d0d2a2f6f22f045b8b30bd4c1bb539ac1",
+      "company_key": "development-company-175a680792c1fbf7",
+      "pages": 62,
+      "layout_family": "native_text_mixed_orientation",
+      "native_text_page_ratio": 0.677419,
+      "scanned_image_page_ratio": 0.0,
+      "landscape_page_ratio": 1.0,
+      "median_text_characters_per_page": 835.0,
+      "page_modes": {
+        "native_text": 42,
+        "sparse_or_vector": 20
+      },
+      "page_size_profiles": {
+        "839x595": 62
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [
+        31
+      ],
+      "representative_page": 31,
+      "representative_page_reason": "balance_terms"
+    },
+    {
+      "source_key": "DEVPDF_3db930b2ac1d7ad5",
+      "source_name": "IDP_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/IDP_23CN_BCTN.pdf",
+      "source_sha256": "3db930b2ac1d7ad5d35b3306a03e19cd79660a65c51ce22d6f3cd8d2970e6caa",
+      "company_key": "development-company-0c1eeccce6f114bf",
+      "pages": 15,
+      "layout_family": "scanned_image_dominant",
+      "native_text_page_ratio": 0.0,
+      "scanned_image_page_ratio": 1.0,
+      "landscape_page_ratio": 0.0,
+      "median_text_characters_per_page": 0,
+      "page_modes": {
+        "scanned_image": 15
+      },
+      "page_size_profiles": {
+        "595x842": 15
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 1,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_a4d94bea8662a771",
+      "source_name": "KKC_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/KKC_23CN_BCTN.pdf",
+      "source_sha256": "a4d94bea8662a77198a244b57f7e9322ebf33e4ffef6fdf2bb47d057d8a5708a",
+      "company_key": "development-company-1d6031fc629bf13d",
+      "pages": 24,
+      "layout_family": "scanned_image_dominant",
+      "native_text_page_ratio": 0.0,
+      "scanned_image_page_ratio": 1.0,
+      "landscape_page_ratio": 0.0,
+      "median_text_characters_per_page": 0.0,
+      "page_modes": {
+        "scanned_image": 24
+      },
+      "page_size_profiles": {
+        "593x834": 1,
+        "593x836": 1,
+        "594x834": 1,
+        "594x835": 3,
+        "594x836": 6,
+        "594x837": 5,
+        "594x838": 3,
+        "594x839": 4
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 1,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_129678cb718ccb1a",
+      "source_name": "KSF_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/KSF_23CN_BCTN.pdf",
+      "source_sha256": "129678cb718ccb1aacb5a5ddcdcb5a0f823ad522dc9ab56855007bc16838eb24",
+      "company_key": "development-company-0b28864100007207",
+      "pages": 78,
+      "layout_family": "native_text_mixed_orientation",
+      "native_text_page_ratio": 0.871795,
+      "scanned_image_page_ratio": 0.128205,
+      "landscape_page_ratio": 0.961538,
+      "median_text_characters_per_page": 2800.0,
+      "page_modes": {
+        "native_text": 68,
+        "scanned_image": 10
+      },
+      "page_size_profiles": {
+        "1191x842": 75,
+        "595x842": 2,
+        "596x842": 1
+      },
+      "statement_keyword_pages": [
+        3,
+        43,
+        44,
+        48,
+        49,
+        50,
+        65,
+        66
+      ],
+      "balance_term_pages": [
+        44,
+        50,
+        51
+      ],
+      "representative_page": 44,
+      "representative_page_reason": "balance_terms"
+    },
+    {
+      "source_key": "DEVPDF_968415afa389c977",
+      "source_name": "KSQ_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/KSQ_23CN_BCTN.pdf",
+      "source_sha256": "968415afa389c977f246d274c2cd78089b16cafe272f1eba5aef5fe26480914b",
+      "company_key": "development-company-061b31a8e0634d50",
+      "pages": 44,
+      "layout_family": "scanned_image_dominant",
+      "native_text_page_ratio": 0.022727,
+      "scanned_image_page_ratio": 0.977273,
+      "landscape_page_ratio": 0.0,
+      "median_text_characters_per_page": 0.0,
+      "page_modes": {
+        "native_text": 1,
+        "scanned_image": 43
+      },
+      "page_size_profiles": {
+        "594x841": 44
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 1,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_0512d6848014459b",
+      "source_name": "LAS_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/LAS_23CN_BCTN.pdf",
+      "source_sha256": "0512d6848014459b74a4293f9ed98a3d0c98c5af54aa21e12e5949df89ce1cf6",
+      "company_key": "development-company-02d5d0522a76608d",
+      "pages": 94,
+      "layout_family": "native_text_portrait",
+      "native_text_page_ratio": 0.968085,
+      "scanned_image_page_ratio": 0.010638,
+      "landscape_page_ratio": 0.010638,
+      "median_text_characters_per_page": 1859.5,
+      "page_modes": {
+        "native_text": 91,
+        "scanned_image": 1,
+        "sparse_or_vector": 2
+      },
+      "page_size_profiles": {
+        "595x842": 21,
+        "596x842": 1,
+        "612x792": 71,
+        "842x595": 1
+      },
+      "statement_keyword_pages": [
+        88,
+        90
+      ],
+      "balance_term_pages": [
+        59
+      ],
+      "representative_page": 59,
+      "representative_page_reason": "balance_terms"
+    },
+    {
+      "source_key": "DEVPDF_7358db78196fecf2",
+      "source_name": "MBB_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/MBB_23CN_BCTN.pdf",
+      "source_sha256": "7358db78196fecf255e81ac4d1113ccedfb272f19aa2abf9f36baee4a0ce39a0",
+      "company_key": "development-company-17339e636a0aec77",
+      "pages": 83,
+      "layout_family": "native_text_mixed_orientation",
+      "native_text_page_ratio": 0.987952,
+      "scanned_image_page_ratio": 0.0,
+      "landscape_page_ratio": 0.987952,
+      "median_text_characters_per_page": 3871,
+      "page_modes": {
+        "native_text": 82,
+        "sparse_or_vector": 1
+      },
+      "page_size_profiles": {
+        "1191x842": 82,
+        "595x842": 1
+      },
+      "statement_keyword_pages": [
+        3,
+        71,
+        74,
+        75,
+        76
+      ],
+      "balance_term_pages": [],
+      "representative_page": 3,
+      "representative_page_reason": "statement_keyword"
+    },
+    {
+      "source_key": "DEVPDF_77d5ee7ec8d31921",
+      "source_name": "MCM_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/MCM_23CN_BCTN.pdf",
+      "source_sha256": "77d5ee7ec8d31921631696f85f7e1639be7bfa0e768ed19af3933f861d0b93d8",
+      "company_key": "development-company-13032acd8761af05",
+      "pages": 81,
+      "layout_family": "native_text_mixed_orientation",
+      "native_text_page_ratio": 1.0,
+      "scanned_image_page_ratio": 0.0,
+      "landscape_page_ratio": 0.975309,
+      "median_text_characters_per_page": 2418,
+      "page_modes": {
+        "native_text": 81
+      },
+      "page_size_profiles": {
+        "1191x842": 79,
+        "595x842": 2
+      },
+      "statement_keyword_pages": [
+        3,
+        16,
+        60,
+        62,
+        63,
+        64,
+        68,
+        76
+      ],
+      "balance_term_pages": [],
+      "representative_page": 3,
+      "representative_page_reason": "statement_keyword"
+    },
+    {
+      "source_key": "DEVPDF_a08b2a0746a38f74",
+      "source_name": "MCP_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/MCP_23CN_BCTN.pdf",
+      "source_sha256": "a08b2a0746a38f74d092f05b2456b56066707de39235ee7d6a462a417aa4e93b",
+      "company_key": "development-company-10182ab855ff7727",
+      "pages": 23,
+      "layout_family": "scanned_image_dominant",
+      "native_text_page_ratio": 0.043478,
+      "scanned_image_page_ratio": 0.956522,
+      "landscape_page_ratio": 0.0,
+      "median_text_characters_per_page": 0,
+      "page_modes": {
+        "native_text": 1,
+        "scanned_image": 22
+      },
+      "page_size_profiles": {
+        "595x842": 23
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 1,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_f38804a0a3ea7cdb",
+      "source_name": "MEL_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/MEL_23CN_BCTN.pdf",
+      "source_sha256": "f38804a0a3ea7cdb3e03b9a5f4352735957191bc41b89cf6e10f10dbda3102b5",
+      "company_key": "development-company-03cdf3e00e74fb35",
+      "pages": 28,
+      "layout_family": "scanned_image_dominant",
+      "native_text_page_ratio": 0.035714,
+      "scanned_image_page_ratio": 0.964286,
+      "landscape_page_ratio": 0.0,
+      "median_text_characters_per_page": 0.0,
+      "page_modes": {
+        "native_text": 1,
+        "scanned_image": 27
+      },
+      "page_size_profiles": {
+        "589x833": 1,
+        "593x833": 2,
+        "593x834": 1,
+        "593x835": 1,
+        "593x836": 1,
+        "593x837": 1,
+        "594x834": 2,
+        "594x835": 5,
+        "594x836": 9,
+        "594x837": 1,
+        "595x836": 2,
+        "595x837": 1,
+        "596x836": 1
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 1,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_76b4e8eacaec9325",
+      "source_name": "MTS_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/MTS_23CN_BCTN.pdf",
+      "source_sha256": "76b4e8eacaec932595620765ee01921e8af3f3ebcbf677a8410bf1dbfb02369c",
+      "company_key": "development-company-083c4cd5ba767988",
+      "pages": 58,
+      "layout_family": "scanned_image_dominant",
+      "native_text_page_ratio": 0.017241,
+      "scanned_image_page_ratio": 0.982759,
+      "landscape_page_ratio": 0.0,
+      "median_text_characters_per_page": 0.0,
+      "page_modes": {
+        "native_text": 1,
+        "scanned_image": 57
+      },
+      "page_size_profiles": {
+        "595x771": 57,
+        "595x863": 1
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 1,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_5994f931f01ca76b",
+      "source_name": "NAB_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/NAB_23CN_BCTN.pdf",
+      "source_sha256": "5994f931f01ca76b3aadbc3675585b2647810c9331233dcbe75bc6ecf6a98cc5",
+      "company_key": "development-company-200d6dbc09aebe2f",
+      "pages": 38,
+      "layout_family": "scanned_image_dominant",
+      "native_text_page_ratio": 0.052632,
+      "scanned_image_page_ratio": 0.947368,
+      "landscape_page_ratio": 0.0,
+      "median_text_characters_per_page": 0.0,
+      "page_modes": {
+        "native_text": 2,
+        "scanned_image": 36
+      },
+      "page_size_profiles": {
+        "595x842": 37,
+        "596x841": 1
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 1,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_b055aa801fa6135e",
+      "source_name": "NAS_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/NAS_23CN_BCTN.pdf",
+      "source_sha256": "b055aa801fa6135eaa3c280dd1b42e431db1727063c62a90ee167e1a5047c081",
+      "company_key": "development-company-047de0f543c7e359",
+      "pages": 42,
+      "layout_family": "scanned_image_dominant",
+      "native_text_page_ratio": 0.02381,
+      "scanned_image_page_ratio": 0.97619,
+      "landscape_page_ratio": 0.0,
+      "median_text_characters_per_page": 0.0,
+      "page_modes": {
+        "native_text": 1,
+        "scanned_image": 41
+      },
+      "page_size_profiles": {
+        "591x841": 4,
+        "591x842": 2,
+        "591x843": 4,
+        "591x844": 1,
+        "592x840": 4,
+        "592x841": 8,
+        "592x842": 9,
+        "592x843": 10
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 1,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_c827a8c5aa478c41",
+      "source_name": "NHA_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/NHA_23CN_BCTN.pdf",
+      "source_sha256": "c827a8c5aa478c419e5c9be36b03d0f106f4c014f76249536aa7e58695c480e6",
+      "company_key": "development-company-1a1d30aab8a585cf",
+      "pages": 89,
+      "layout_family": "native_text_mixed_orientation",
+      "native_text_page_ratio": 0.988764,
+      "scanned_image_page_ratio": 0.0,
+      "landscape_page_ratio": 0.977528,
+      "median_text_characters_per_page": 2070,
+      "page_modes": {
+        "native_text": 88,
+        "sparse_or_vector": 1
+      },
+      "page_size_profiles": {
+        "540x780": 1,
+        "595x841": 1,
+        "720x513": 87
+      },
+      "statement_keyword_pages": [
+        36,
+        68,
+        69,
+        70
+      ],
+      "balance_term_pages": [
+        36
+      ],
+      "representative_page": 36,
+      "representative_page_reason": "balance_terms"
+    },
+    {
+      "source_key": "DEVPDF_bbe183998d1abe63",
+      "source_name": "NKG_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/NKG_23CN_BCTN.pdf",
+      "source_sha256": "bbe183998d1abe6363f9968b9a2d3c996e2a8f9a18729fbafd696f1ae395f0ea",
+      "company_key": "development-company-082342bdd28916e0",
+      "pages": 64,
+      "layout_family": "scanned_image_dominant",
+      "native_text_page_ratio": 0.015625,
+      "scanned_image_page_ratio": 0.984375,
+      "landscape_page_ratio": 1.0,
+      "median_text_characters_per_page": 0.0,
+      "page_modes": {
+        "native_text": 1,
+        "scanned_image": 63
+      },
+      "page_size_profiles": {
+        "1202x853": 64
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 64,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_abb07a3a0137bf24",
+      "source_name": "NSC_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/NSC_23CN_BCTN.pdf",
+      "source_sha256": "abb07a3a0137bf24240e07665919b4c1953a88c02105bc19578ccd8528adbd8f",
+      "company_key": "development-company-045adc143049d771",
+      "pages": 1,
+      "layout_family": "native_text_portrait",
+      "native_text_page_ratio": 1.0,
+      "scanned_image_page_ratio": 0.0,
+      "landscape_page_ratio": 0.0,
+      "median_text_characters_per_page": 398,
+      "page_modes": {
+        "native_text": 1
+      },
+      "page_size_profiles": {
+        "594x840": 1
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 1,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_8895baefcb989c6f",
+      "source_name": "PAN_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/PAN_23CN_BCTN.pdf",
+      "source_sha256": "8895baefcb989c6f07a833ed41bd635a8e19e5a599be3d4196f3be094196bbd4",
+      "company_key": "development-company-00e37ffae0562ab6",
+      "pages": 104,
+      "layout_family": "native_text_mixed_orientation",
+      "native_text_page_ratio": 0.865385,
+      "scanned_image_page_ratio": 0.125,
+      "landscape_page_ratio": 0.971154,
+      "median_text_characters_per_page": 3418.0,
+      "page_modes": {
+        "native_text": 90,
+        "scanned_image": 13,
+        "sparse_or_vector": 1
+      },
+      "page_size_profiles": {
+        "1191x842": 101,
+        "595x839": 1,
+        "595x842": 2
+      },
+      "statement_keyword_pages": [
+        3,
+        75,
+        80,
+        82,
+        83,
+        99
+      ],
+      "balance_term_pages": [
+        55
+      ],
+      "representative_page": 55,
+      "representative_page_reason": "balance_terms"
+    },
+    {
+      "source_key": "DEVPDF_9ce683a86242a145",
+      "source_name": "PBT_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/PBT_23CN_BCTN.pdf",
+      "source_sha256": "9ce683a86242a145f6f6a4cda360ff134e96d1e331f3177e0873b47bfbacf45c",
+      "company_key": "development-company-117abaa98da56632",
+      "pages": 22,
+      "layout_family": "scanned_image_dominant",
+      "native_text_page_ratio": 0.045455,
+      "scanned_image_page_ratio": 0.954545,
+      "landscape_page_ratio": 0.0,
+      "median_text_characters_per_page": 0.0,
+      "page_modes": {
+        "native_text": 1,
+        "scanned_image": 21
+      },
+      "page_size_profiles": {
+        "592x835": 1,
+        "592x837": 1,
+        "592x840": 1,
+        "593x836": 2,
+        "593x837": 3,
+        "593x838": 4,
+        "593x839": 1,
+        "594x837": 1,
+        "594x838": 1,
+        "594x839": 5,
+        "594x840": 1,
+        "596x840": 1
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 1,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_73c8b2f0dea9db8e",
+      "source_name": "PCE_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/PCE_23CN_BCTN.pdf",
+      "source_sha256": "73c8b2f0dea9db8e0d34af0310d8b4253636999e6d4e630a668b8ee7789cf20c",
+      "company_key": "development-company-0014e8573a28e8bc",
+      "pages": 24,
+      "layout_family": "native_text_portrait",
+      "native_text_page_ratio": 1.0,
+      "scanned_image_page_ratio": 0.0,
+      "landscape_page_ratio": 0.0,
+      "median_text_characters_per_page": 2212.0,
+      "page_modes": {
+        "native_text": 24
+      },
+      "page_size_profiles": {
+        "595x842": 24
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [
+        10
+      ],
+      "representative_page": 10,
+      "representative_page_reason": "balance_terms"
+    },
+    {
+      "source_key": "DEVPDF_156945b3a6df780a",
+      "source_name": "PCT_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/PCT_23CN_BCTN.pdf",
+      "source_sha256": "156945b3a6df780a56d1474ae43ee74c4baf78fd38fc07be5f305ebf001bbf77",
+      "company_key": "development-company-02cee318d68057bf",
+      "pages": 48,
+      "layout_family": "scanned_image_dominant",
+      "native_text_page_ratio": 0.020833,
+      "scanned_image_page_ratio": 0.979167,
+      "landscape_page_ratio": 0.0,
+      "median_text_characters_per_page": 0.0,
+      "page_modes": {
+        "native_text": 1,
+        "scanned_image": 47
+      },
+      "page_size_profiles": {
+        "596x842": 48
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 1,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_38d3869b11357bbc",
+      "source_name": "PHP_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/PHP_23CN_BCTN.pdf",
+      "source_sha256": "38d3869b11357bbceaf9c10b74d10437bb154877c3503332dd3bd681977a7f2d",
+      "company_key": "development-company-12a5d18ee896e599",
+      "pages": 74,
+      "layout_family": "native_text_portrait",
+      "native_text_page_ratio": 1.0,
+      "scanned_image_page_ratio": 0.0,
+      "landscape_page_ratio": 0.189189,
+      "median_text_characters_per_page": 2302.0,
+      "page_modes": {
+        "native_text": 74
+      },
+      "page_size_profiles": {
+        "592x838": 1,
+        "592x842": 1,
+        "593x839": 6,
+        "593x840": 8,
+        "593x841": 7,
+        "593x842": 8,
+        "593x843": 2,
+        "594x840": 3,
+        "594x841": 7,
+        "594x842": 3,
+        "594x843": 6,
+        "595x840": 3,
+        "595x842": 2,
+        "595x843": 2,
+        "595x844": 1,
+        "839x594": 2,
+        "840x593": 1,
+        "840x595": 2,
+        "841x593": 1,
+        "841x595": 1,
+        "842x594": 2,
+        "843x594": 3,
+        "843x595": 1,
+        "844x594": 1
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 55,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_ae0d9aa664525102",
+      "source_name": "PIC_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/PIC_23CN_BCTN.pdf",
+      "source_sha256": "ae0d9aa6645251025f3f71572205f5ef0f93a6f136ae243c2f3cd0700befb96e",
+      "company_key": "development-company-2255c8b55faa7d4f",
+      "pages": 63,
+      "layout_family": "native_text_mixed_orientation",
+      "native_text_page_ratio": 1.0,
+      "scanned_image_page_ratio": 0.0,
+      "landscape_page_ratio": 0.984127,
+      "median_text_characters_per_page": 2397,
+      "page_modes": {
+        "native_text": 63
+      },
+      "page_size_profiles": {
+        "612x792": 1,
+        "792x612": 62
+      },
+      "statement_keyword_pages": [
+        45,
+        47,
+        48,
+        51,
+        53,
+        54,
+        59,
+        62
+      ],
+      "balance_term_pages": [],
+      "representative_page": 45,
+      "representative_page_reason": "statement_keyword"
+    },
+    {
+      "source_key": "DEVPDF_a0ce5d60a0edae72",
+      "source_name": "PLE_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/PLE_23CN_BCTN.pdf",
+      "source_sha256": "a0ce5d60a0edae724be2ca43b3e3bfb99a5cecafa547373f12913f49cf3294d3",
+      "company_key": "development-company-0ea76d8f84762606",
+      "pages": 44,
+      "layout_family": "scanned_image_dominant",
+      "native_text_page_ratio": 0.022727,
+      "scanned_image_page_ratio": 0.977273,
+      "landscape_page_ratio": 0.0,
+      "median_text_characters_per_page": 0.0,
+      "page_modes": {
+        "native_text": 1,
+        "scanned_image": 43
+      },
+      "page_size_profiles": {
+        "595x842": 44
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 1,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_c65f6b21bb530a9e",
+      "source_name": "PLP_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/PLP_23CN_BCTN.pdf",
+      "source_sha256": "c65f6b21bb530a9e64d72ddeb96c40ae82f1ad6bbd576f7ad1772a67b33c6729",
+      "company_key": "development-company-12c38af71f5c716a",
+      "pages": 113,
+      "layout_family": "hybrid_scan_text",
+      "native_text_page_ratio": 0.59292,
+      "scanned_image_page_ratio": 0.389381,
+      "landscape_page_ratio": 0.044248,
+      "median_text_characters_per_page": 626,
+      "page_modes": {
+        "native_text": 67,
+        "scanned_image": 44,
+        "sparse_or_vector": 2
+      },
+      "page_size_profiles": {
+        "595x842": 108,
+        "842x595": 5
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 2,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_333c0bcb7266a612",
+      "source_name": "POV_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/POV_23CN_BCTN.pdf",
+      "source_sha256": "333c0bcb7266a61290f1032e17026fe7b6808e07f865b215ebb6f9602f1badf0",
+      "company_key": "development-company-0db56faac9b0e1d3",
+      "pages": 12,
+      "layout_family": "scanned_image_dominant",
+      "native_text_page_ratio": 0.083333,
+      "scanned_image_page_ratio": 0.916667,
+      "landscape_page_ratio": 0.0,
+      "median_text_characters_per_page": 0.0,
+      "page_modes": {
+        "native_text": 1,
+        "scanned_image": 11
+      },
+      "page_size_profiles": {
+        "596x842": 12
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 1,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_9cdeb564769e29ae",
+      "source_name": "PSE_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/PSE_23CN_BCTN.pdf",
+      "source_sha256": "9cdeb564769e29aed8c72fdddac85ffec297c7a4d5399a84cfc122ab1bf54761",
+      "company_key": "development-company-099f00917bc1afb4",
+      "pages": 29,
+      "layout_family": "native_text_portrait",
+      "native_text_page_ratio": 1.0,
+      "scanned_image_page_ratio": 0.0,
+      "landscape_page_ratio": 0.0,
+      "median_text_characters_per_page": 2007,
+      "page_modes": {
+        "native_text": 29
+      },
+      "page_size_profiles": {
+        "595x858": 1,
+        "596x858": 2,
+        "596x860": 1,
+        "597x856": 2,
+        "597x857": 2,
+        "597x858": 6,
+        "597x859": 3,
+        "597x861": 1,
+        "598x857": 1,
+        "598x858": 3,
+        "598x859": 2,
+        "598x860": 2,
+        "599x858": 1,
+        "599x859": 2
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 23,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_f916880ea6dd7c8c",
+      "source_name": "PTC_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/PTC_23CN_BCTN.pdf",
+      "source_sha256": "f916880ea6dd7c8cef4734b9f4ac7a0078ef0eeffa4d8725e8cd155c6e83cba1",
+      "company_key": "development-company-1e7d5ea110099bb4",
+      "pages": 21,
+      "layout_family": "scanned_image_dominant",
+      "native_text_page_ratio": 0.0,
+      "scanned_image_page_ratio": 1.0,
+      "landscape_page_ratio": 0.0,
+      "median_text_characters_per_page": 0,
+      "page_modes": {
+        "scanned_image": 21
+      },
+      "page_size_profiles": {
+        "595x842": 21
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 1,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_b51dcbe31e6049a1",
+      "source_name": "PTG_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/PTG_23CN_BCTN.pdf",
+      "source_sha256": "b51dcbe31e6049a10cb8695a1df8714e1b5a33dc0b83ff82f88bbcab8c8c8286",
+      "company_key": "development-company-09cf88482659bfa8",
+      "pages": 26,
+      "layout_family": "native_text_mixed_orientation",
+      "native_text_page_ratio": 1.0,
+      "scanned_image_page_ratio": 0.0,
+      "landscape_page_ratio": 0.346154,
+      "median_text_characters_per_page": 1764.0,
+      "page_modes": {
+        "native_text": 26
+      },
+      "page_size_profiles": {
+        "595x841": 17,
+        "841x595": 9
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 14,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_20aac2ebbf914f57",
+      "source_name": "PVV_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/PVV_23CN_BCTN.pdf",
+      "source_sha256": "20aac2ebbf914f57f697c749fd5ca56ffb0375ae131f35d1353273d2db530115",
+      "company_key": "development-company-18a728617eab1b41",
+      "pages": 13,
+      "layout_family": "scanned_image_dominant",
+      "native_text_page_ratio": 0.0,
+      "scanned_image_page_ratio": 1.0,
+      "landscape_page_ratio": 0.0,
+      "median_text_characters_per_page": 0,
+      "page_modes": {
+        "scanned_image": 13
+      },
+      "page_size_profiles": {
+        "584x830": 13
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 1,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_7802f1bcbfbd133e",
+      "source_name": "QHD_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/QHD_23CN_BCTN.pdf",
+      "source_sha256": "7802f1bcbfbd133e97c0c3f9bf98f4014806de7b02541fd97f02b20dd8053e61",
+      "company_key": "development-company-07af5816c908036f",
+      "pages": 26,
+      "layout_family": "scanned_image_dominant",
+      "native_text_page_ratio": 0.0,
+      "scanned_image_page_ratio": 1.0,
+      "landscape_page_ratio": 0.0,
+      "median_text_characters_per_page": 0.0,
+      "page_modes": {
+        "scanned_image": 26
+      },
+      "page_size_profiles": {
+        "499x709": 26
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 1,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_9f601d0c02314a10",
+      "source_name": "QNC_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/QNC_23CN_BCTN.pdf",
+      "source_sha256": "9f601d0c02314a10dabc704592b18f01bb5b5520ee3af5d784ad181bce3673c1",
+      "company_key": "development-company-2320ebc76aece593",
+      "pages": 34,
+      "layout_family": "scanned_image_dominant",
+      "native_text_page_ratio": 0.029412,
+      "scanned_image_page_ratio": 0.970588,
+      "landscape_page_ratio": 0.0,
+      "median_text_characters_per_page": 0.0,
+      "page_modes": {
+        "native_text": 1,
+        "scanned_image": 33
+      },
+      "page_size_profiles": {
+        "589x824": 1,
+        "589x825": 2,
+        "589x826": 9,
+        "589x827": 6,
+        "589x828": 6,
+        "589x829": 1,
+        "589x830": 2,
+        "589x831": 1,
+        "589x832": 1,
+        "589x833": 1,
+        "589x835": 2,
+        "589x836": 1,
+        "590x826": 1
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 1,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_e2f295b001fc58df",
+      "source_name": "SBB_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/SBB_23CN_BCTN.pdf",
+      "source_sha256": "e2f295b001fc58df82c480a51c1287d3f7316a5e6fdfaa9061cf0ff8b1ed594d",
+      "company_key": "development-company-0492c0e11c3838d3",
+      "pages": 54,
+      "layout_family": "native_text_mixed_orientation",
+      "native_text_page_ratio": 0.703704,
+      "scanned_image_page_ratio": 0.0,
+      "landscape_page_ratio": 1.0,
+      "median_text_characters_per_page": 781.0,
+      "page_modes": {
+        "native_text": 38,
+        "sparse_or_vector": 16
+      },
+      "page_size_profiles": {
+        "1191x842": 54
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [
+        18,
+        24
+      ],
+      "representative_page": 18,
+      "representative_page_reason": "balance_terms"
+    },
+    {
+      "source_key": "DEVPDF_fabcefdf81e9bf90",
+      "source_name": "SCG_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/SCG_23CN_BCTN.pdf",
+      "source_sha256": "fabcefdf81e9bf90abdfe4497a4b7ba7960d564e9ce525ecd7dfe8dd05c62ff1",
+      "company_key": "development-company-128d077252ff6e80",
+      "pages": 68,
+      "layout_family": "native_text_mixed_orientation",
+      "native_text_page_ratio": 0.911765,
+      "scanned_image_page_ratio": 0.088235,
+      "landscape_page_ratio": 0.955882,
+      "median_text_characters_per_page": 2628.0,
+      "page_modes": {
+        "native_text": 62,
+        "scanned_image": 6
+      },
+      "page_size_profiles": {
+        "1191x842": 65,
+        "595x842": 2,
+        "612x792": 1
+      },
+      "statement_keyword_pages": [
+        3,
+        42,
+        44,
+        45,
+        49,
+        50,
+        59
+      ],
+      "balance_term_pages": [
+        30
+      ],
+      "representative_page": 30,
+      "representative_page_reason": "balance_terms"
+    },
+    {
+      "source_key": "DEVPDF_5f5c3cc3acca7840",
+      "source_name": "SCJ_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/SCJ_23CN_BCTN.pdf",
+      "source_sha256": "5f5c3cc3acca78408f9af2f9087ea4c8aea44ce9e6cc145c8b61108ad314cf63",
+      "company_key": "development-company-20f4909fcf2a1932",
+      "pages": 40,
+      "layout_family": "scanned_image_dominant",
+      "native_text_page_ratio": 0.025,
+      "scanned_image_page_ratio": 0.975,
+      "landscape_page_ratio": 0.025,
+      "median_text_characters_per_page": 0.0,
+      "page_modes": {
+        "native_text": 1,
+        "scanned_image": 39
+      },
+      "page_size_profiles": {
+        "594x841": 2,
+        "594x843": 1,
+        "595x840": 3,
+        "595x841": 13,
+        "595x842": 2,
+        "595x843": 1,
+        "596x839": 2,
+        "596x840": 6,
+        "596x841": 5,
+        "596x842": 3,
+        "597x840": 1,
+        "840x596": 1
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 1,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_9e3d3ce6d0a02e8c",
+      "source_name": "SDC_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/SDC_23CN_BCTN.pdf",
+      "source_sha256": "9e3d3ce6d0a02e8c41eee8f1100d3b563ad5865955e6e8b688c652380bd17ed2",
+      "company_key": "development-company-060c4dee1f4216c9",
+      "pages": 27,
+      "layout_family": "scanned_image_dominant",
+      "native_text_page_ratio": 0.037037,
+      "scanned_image_page_ratio": 0.962963,
+      "landscape_page_ratio": 0.0,
+      "median_text_characters_per_page": 0,
+      "page_modes": {
+        "native_text": 1,
+        "scanned_image": 26
+      },
+      "page_size_profiles": {
+        "594x844": 1,
+        "594x845": 1,
+        "595x843": 1,
+        "596x837": 1,
+        "596x839": 3,
+        "596x840": 4,
+        "596x841": 2,
+        "596x845": 1,
+        "596x846": 1,
+        "596x847": 1,
+        "596x848": 3,
+        "596x850": 1,
+        "597x840": 3,
+        "597x843": 1,
+        "597x845": 1,
+        "597x846": 1,
+        "597x849": 1
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 1,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_1a8f1c392822a483",
+      "source_name": "SEB_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/SEB_23CN_BCTN.pdf",
+      "source_sha256": "1a8f1c392822a483079420fc93d2ef16ff795e74c61f07b242cf1b4fa943b6ce",
+      "company_key": "development-company-155290511d5c4bfb",
+      "pages": 16,
+      "layout_family": "scanned_image_dominant",
+      "native_text_page_ratio": 0.0,
+      "scanned_image_page_ratio": 1.0,
+      "landscape_page_ratio": 0.0,
+      "median_text_characters_per_page": 0.0,
+      "page_modes": {
+        "scanned_image": 16
+      },
+      "page_size_profiles": {
+        "595x842": 16
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 1,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_f1bf623100a95c04",
+      "source_name": "SGH_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/SGH_23CN_BCTN.pdf",
+      "source_sha256": "f1bf623100a95c04a6336049cff7d45eabe3ed133f45e4cc34a12864b5b2df63",
+      "company_key": "development-company-03463e692bda1039",
+      "pages": 21,
+      "layout_family": "scanned_image_dominant",
+      "native_text_page_ratio": 0.0,
+      "scanned_image_page_ratio": 1.0,
+      "landscape_page_ratio": 0.0,
+      "median_text_characters_per_page": 0,
+      "page_modes": {
+        "scanned_image": 21
+      },
+      "page_size_profiles": {
+        "595x842": 21
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 1,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_b7124fdb24bc305b",
+      "source_name": "SJD_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/SJD_23CN_BCTN.pdf",
+      "source_sha256": "b7124fdb24bc305b89c43cb79ca09df7036024d8e308400ee85643f8651708ec",
+      "company_key": "development-company-1c62b495d2805beb",
+      "pages": 34,
+      "layout_family": "scanned_image_dominant",
+      "native_text_page_ratio": 0.0,
+      "scanned_image_page_ratio": 1.0,
+      "landscape_page_ratio": 0.029412,
+      "median_text_characters_per_page": 0.0,
+      "page_modes": {
+        "scanned_image": 34
+      },
+      "page_size_profiles": {
+        "596x842": 33,
+        "842x596": 1
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 1,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_805ddbf4725a7ad6",
+      "source_name": "SRA_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/SRA_23CN_BCTN.pdf",
+      "source_sha256": "805ddbf4725a7ad688b2a6da8c50ff1e475d4fefbda8617a5167600c8ef5d8de",
+      "company_key": "development-company-1d585201d60f1098",
+      "pages": 55,
+      "layout_family": "native_text_mixed_orientation",
+      "native_text_page_ratio": 0.963636,
+      "scanned_image_page_ratio": 0.0,
+      "landscape_page_ratio": 1.0,
+      "median_text_characters_per_page": 1116,
+      "page_modes": {
+        "native_text": 53,
+        "sparse_or_vector": 2
+      },
+      "page_size_profiles": {
+        "792x612": 55
+      },
+      "statement_keyword_pages": [
+        54
+      ],
+      "balance_term_pages": [
+        41
+      ],
+      "representative_page": 41,
+      "representative_page_reason": "balance_terms"
+    },
+    {
+      "source_key": "DEVPDF_576d63a8624f1b53",
+      "source_name": "SRF_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/SRF_23CN_BCTN.pdf",
+      "source_sha256": "576d63a8624f1b5315468ddb8c9c26ad7134a76d5baacc978714c2c30f7f66dc",
+      "company_key": "development-company-1a13a1d7e90611ba",
+      "pages": 67,
+      "layout_family": "native_text_mixed_orientation",
+      "native_text_page_ratio": 0.940299,
+      "scanned_image_page_ratio": 0.044776,
+      "landscape_page_ratio": 0.970149,
+      "median_text_characters_per_page": 2195,
+      "page_modes": {
+        "native_text": 63,
+        "scanned_image": 3,
+        "sparse_or_vector": 1
+      },
+      "page_size_profiles": {
+        "1191x842": 65,
+        "595x842": 2
+      },
+      "statement_keyword_pages": [
+        61,
+        63,
+        64
+      ],
+      "balance_term_pages": [
+        33
+      ],
+      "representative_page": 33,
+      "representative_page_reason": "balance_terms"
+    },
+    {
+      "source_key": "DEVPDF_65ab74cc9d72017a",
+      "source_name": "TCI_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/TCI_23CN_BCTN.pdf",
+      "source_sha256": "65ab74cc9d72017ab26b770a2a629c8dac56d475ed6753f6e01c23c277a94133",
+      "company_key": "development-company-1ab28f3e52d4149a",
+      "pages": 76,
+      "layout_family": "scanned_image_dominant",
+      "native_text_page_ratio": 0.013158,
+      "scanned_image_page_ratio": 0.986842,
+      "landscape_page_ratio": 0.0,
+      "median_text_characters_per_page": 0.0,
+      "page_modes": {
+        "native_text": 1,
+        "scanned_image": 75
+      },
+      "page_size_profiles": {
+        "595x842": 76
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 1,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_9c14b5e906be8291",
+      "source_name": "TCO_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/TCO_23CN_BCTN.pdf",
+      "source_sha256": "9c14b5e906be829188fd57a60762edc44e6cca70b2125de41e061d069b7c0fd2",
+      "company_key": "development-company-0477b12c92f41b20",
+      "pages": 75,
+      "layout_family": "native_text_mixed_orientation",
+      "native_text_page_ratio": 0.666667,
+      "scanned_image_page_ratio": 0.013333,
+      "landscape_page_ratio": 0.973333,
+      "median_text_characters_per_page": 918,
+      "page_modes": {
+        "native_text": 50,
+        "scanned_image": 1,
+        "sparse_or_vector": 24
+      },
+      "page_size_profiles": {
+        "1224x792": 73,
+        "595x842": 1,
+        "612x792": 1
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [
+        41
+      ],
+      "representative_page": 41,
+      "representative_page_reason": "balance_terms"
+    },
+    {
+      "source_key": "DEVPDF_4f47e37f75f2a5e6",
+      "source_name": "TCR_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/TCR_23CN_BCTN.pdf",
+      "source_sha256": "4f47e37f75f2a5e69238d630612bc8d49c2f513a7aa8e0a29dd64923ae411019",
+      "company_key": "development-company-1fde0b02049a9bea",
+      "pages": 53,
+      "layout_family": "native_text_mixed_orientation",
+      "native_text_page_ratio": 0.716981,
+      "scanned_image_page_ratio": 0.0,
+      "landscape_page_ratio": 0.962264,
+      "median_text_characters_per_page": 1177,
+      "page_modes": {
+        "native_text": 38,
+        "sparse_or_vector": 15
+      },
+      "page_size_profiles": {
+        "1191x842": 50,
+        "1191x843": 1,
+        "595x842": 2
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [
+        21,
+        29
+      ],
+      "representative_page": 21,
+      "representative_page_reason": "balance_terms"
+    },
+    {
+      "source_key": "DEVPDF_73954bc9eba3bcec",
+      "source_name": "TDW_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/TDW_23CN_BCTN.pdf",
+      "source_sha256": "73954bc9eba3bcec2354f3fa4d30f57d5010b20ca5c460d720f5308d7ca5c922",
+      "company_key": "development-company-10f237b59be8d441",
+      "pages": 92,
+      "layout_family": "hybrid_scan_text",
+      "native_text_page_ratio": 0.478261,
+      "scanned_image_page_ratio": 0.521739,
+      "landscape_page_ratio": 0.0,
+      "median_text_characters_per_page": 0.0,
+      "page_modes": {
+        "native_text": 44,
+        "scanned_image": 48
+      },
+      "page_size_profiles": {
+        "594x838": 1,
+        "595x840": 1,
+        "595x841": 1,
+        "595x842": 89
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [
+        19,
+        27,
+        28
+      ],
+      "representative_page": 19,
+      "representative_page_reason": "balance_terms"
+    },
+    {
+      "source_key": "DEVPDF_35bdeb62d9507a65",
+      "source_name": "TET_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/TET_23CN_BCTN.pdf",
+      "source_sha256": "35bdeb62d9507a65f1436375c3e2e7b7d86fa198fb3c7dcec9efbde3302f45c7",
+      "company_key": "development-company-0c67b2c1fcfba9fb",
+      "pages": 16,
+      "layout_family": "scanned_image_dominant",
+      "native_text_page_ratio": 0.0,
+      "scanned_image_page_ratio": 1.0,
+      "landscape_page_ratio": 0.0,
+      "median_text_characters_per_page": 0.0,
+      "page_modes": {
+        "scanned_image": 16
+      },
+      "page_size_profiles": {
+        "595x842": 2,
+        "597x843": 6,
+        "597x844": 1,
+        "598x844": 5,
+        "599x845": 1,
+        "605x849": 1
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 1,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_ad48bbd21da58e92",
+      "source_name": "THW_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/THW_23CN_BCTN.pdf",
+      "source_sha256": "ad48bbd21da58e923a49fb9974abbc04a7b9b35409675e82069d65bc79db5fb4",
+      "company_key": "development-company-1d93fc6e0149715f",
+      "pages": 41,
+      "layout_family": "scanned_image_dominant",
+      "native_text_page_ratio": 0.02439,
+      "scanned_image_page_ratio": 0.97561,
+      "landscape_page_ratio": 0.02439,
+      "median_text_characters_per_page": 0,
+      "page_modes": {
+        "native_text": 1,
+        "scanned_image": 40
+      },
+      "page_size_profiles": {
+        "594x840": 17,
+        "595x840": 23,
+        "840x595": 1
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 1,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_2c0481397210a2b1",
+      "source_name": "TLD_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/TLD_23CN_BCTN.pdf",
+      "source_sha256": "2c0481397210a2b1d4e01310a43b49187e5ac04e9653537743fb1a7d9c7d88f0",
+      "company_key": "development-company-1eaec7aae93cc9a6",
+      "pages": 42,
+      "layout_family": "scanned_image_dominant",
+      "native_text_page_ratio": 0.02381,
+      "scanned_image_page_ratio": 0.97619,
+      "landscape_page_ratio": 0.0,
+      "median_text_characters_per_page": 0.0,
+      "page_modes": {
+        "native_text": 1,
+        "scanned_image": 41
+      },
+      "page_size_profiles": {
+        "595x842": 42
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 1,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_950160ffda2d4cc8",
+      "source_name": "TLG_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/TLG_23CN_BCTN.pdf",
+      "source_sha256": "950160ffda2d4cc8a140ed92c63412ac81256511ef5672de9b12fc84287a6b2e",
+      "company_key": "development-company-168f6154daec7420",
+      "pages": 91,
+      "layout_family": "native_text_mixed_orientation",
+      "native_text_page_ratio": 0.901099,
+      "scanned_image_page_ratio": 0.098901,
+      "landscape_page_ratio": 0.956044,
+      "median_text_characters_per_page": 2684,
+      "page_modes": {
+        "native_text": 82,
+        "scanned_image": 9
+      },
+      "page_size_profiles": {
+        "1191x842": 87,
+        "595x842": 4
+      },
+      "statement_keyword_pages": [
+        67,
+        68,
+        70,
+        72,
+        73,
+        74,
+        75,
+        76,
+        86,
+        87
+      ],
+      "balance_term_pages": [
+        48,
+        50,
+        68
+      ],
+      "representative_page": 48,
+      "representative_page_reason": "balance_terms"
+    },
+    {
+      "source_key": "DEVPDF_19e535558fac5d28",
+      "source_name": "TMC_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/TMC_23CN_BCTN.pdf",
+      "source_sha256": "19e535558fac5d289d91c94a551ed686e97045726e1666e231caaf7b360883ce",
+      "company_key": "development-company-0cf6c2d4d5bab184",
+      "pages": 68,
+      "layout_family": "scanned_image_dominant",
+      "native_text_page_ratio": 0.014706,
+      "scanned_image_page_ratio": 0.985294,
+      "landscape_page_ratio": 0.0,
+      "median_text_characters_per_page": 0.0,
+      "page_modes": {
+        "native_text": 1,
+        "scanned_image": 67
+      },
+      "page_size_profiles": {
+        "595x842": 68
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 1,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_0bb854c923edd446",
+      "source_name": "TMX_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/TMX_23CN_BCTN.pdf",
+      "source_sha256": "0bb854c923edd446f754b856cd5d43ab58841483225797633101b6ec548525f5",
+      "company_key": "development-company-02005c8731c7bacd",
+      "pages": 15,
+      "layout_family": "scanned_image_dominant",
+      "native_text_page_ratio": 0.0,
+      "scanned_image_page_ratio": 1.0,
+      "landscape_page_ratio": 0.0,
+      "median_text_characters_per_page": 0,
+      "page_modes": {
+        "scanned_image": 15
+      },
+      "page_size_profiles": {
+        "588x830": 1,
+        "588x832": 1,
+        "589x830": 1,
+        "589x831": 6,
+        "589x832": 5,
+        "590x831": 1
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 1,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_05982d532c7771e9",
+      "source_name": "TNA_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/TNA_23CN_BCTN.pdf",
+      "source_sha256": "05982d532c7771e90133c6f5ff49d21309249b7f04a60b2c211d06305480f9c3",
+      "company_key": "development-company-171130f90d122e5d",
+      "pages": 58,
+      "layout_family": "native_text_mixed_orientation",
+      "native_text_page_ratio": 0.706897,
+      "scanned_image_page_ratio": 0.0,
+      "landscape_page_ratio": 1.0,
+      "median_text_characters_per_page": 1066.5,
+      "page_modes": {
+        "native_text": 41,
+        "sparse_or_vector": 17
+      },
+      "page_size_profiles": {
+        "1191x842": 58
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [
+        33
+      ],
+      "representative_page": 33,
+      "representative_page_reason": "balance_terms"
+    },
+    {
+      "source_key": "DEVPDF_27b78b0c7897aec2",
+      "source_name": "TNH_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/TNH_23CN_BCTN.pdf",
+      "source_sha256": "27b78b0c7897aec2c56daec3ce8d4d9dacf20715b9abfdf3180778bc23b3ab7a",
+      "company_key": "development-company-1d180849caa0b38e",
+      "pages": 88,
+      "layout_family": "native_text_mixed_orientation",
+      "native_text_page_ratio": 0.772727,
+      "scanned_image_page_ratio": 0.011364,
+      "landscape_page_ratio": 0.977273,
+      "median_text_characters_per_page": 1484.5,
+      "page_modes": {
+        "native_text": 68,
+        "scanned_image": 1,
+        "sparse_or_vector": 19
+      },
+      "page_size_profiles": {
+        "1191x842": 86,
+        "595x842": 2
+      },
+      "statement_keyword_pages": [
+        5
+      ],
+      "balance_term_pages": [
+        39
+      ],
+      "representative_page": 39,
+      "representative_page_reason": "balance_terms"
+    },
+    {
+      "source_key": "DEVPDF_16175f575fbf57bf",
+      "source_name": "TOT_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/TOT_23CN_BCTN.pdf",
+      "source_sha256": "16175f575fbf57bf5751f1234081541d500d43eba504aada7b37c1c5b80f4166",
+      "company_key": "development-company-1e84b08c59bf24b2",
+      "pages": 58,
+      "layout_family": "native_text_mixed_orientation",
+      "native_text_page_ratio": 0.724138,
+      "scanned_image_page_ratio": 0.017241,
+      "landscape_page_ratio": 0.982759,
+      "median_text_characters_per_page": 1308.5,
+      "page_modes": {
+        "native_text": 42,
+        "scanned_image": 1,
+        "sparse_or_vector": 15
+      },
+      "page_size_profiles": {
+        "1191x842": 57,
+        "595x842": 1
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [
+        20,
+        28
+      ],
+      "representative_page": 20,
+      "representative_page_reason": "balance_terms"
+    },
+    {
+      "source_key": "DEVPDF_16e57f949f895069",
+      "source_name": "TPP_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/TPP_23CN_BCTN.pdf",
+      "source_sha256": "16e57f949f89506945d64521a41184d9ad61b55b564118feec075dc45fee4ced",
+      "company_key": "development-company-1b3cea6457b69a77",
+      "pages": 36,
+      "layout_family": "native_text_mixed_orientation",
+      "native_text_page_ratio": 0.722222,
+      "scanned_image_page_ratio": 0.027778,
+      "landscape_page_ratio": 0.944444,
+      "median_text_characters_per_page": 852.0,
+      "page_modes": {
+        "native_text": 26,
+        "scanned_image": 1,
+        "sparse_or_vector": 9
+      },
+      "page_size_profiles": {
+        "1191x842": 34,
+        "595x842": 2
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 11,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_698ad3aac6df73d2",
+      "source_name": "TQW_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/TQW_23CN_BCTN.pdf",
+      "source_sha256": "698ad3aac6df73d2f722812b4799f53e69d1367387225410c40a59ae2f711daa",
+      "company_key": "development-company-0ead92a61052957e",
+      "pages": 39,
+      "layout_family": "native_text_portrait",
+      "native_text_page_ratio": 1.0,
+      "scanned_image_page_ratio": 0.0,
+      "landscape_page_ratio": 0.0,
+      "median_text_characters_per_page": 1749,
+      "page_modes": {
+        "native_text": 39
+      },
+      "page_size_profiles": {
+        "612x792": 39
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 20,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_beba34f2204535b2",
+      "source_name": "TVA_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/TVA_23CN_BCTN.pdf",
+      "source_sha256": "beba34f2204535b26fde8493494fd71a417560b42a24eaee3b344d03ba9f587f",
+      "company_key": "development-company-15aa4ce43c3fc979",
+      "pages": 30,
+      "layout_family": "scanned_image_dominant",
+      "native_text_page_ratio": 0.0,
+      "scanned_image_page_ratio": 1.0,
+      "landscape_page_ratio": 0.0,
+      "median_text_characters_per_page": 0.0,
+      "page_modes": {
+        "scanned_image": 30
+      },
+      "page_size_profiles": {
+        "596x842": 30
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 1,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_a9cec7a55e0bcbb7",
+      "source_name": "UEM_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/UEM_23CN_BCTN.pdf",
+      "source_sha256": "a9cec7a55e0bcbb7c7ca721c1d1e9f2cb815635b08c41cd8e8fc3cdf2ba76c84",
+      "company_key": "development-company-17665df03cb820c8",
+      "pages": 14,
+      "layout_family": "native_text_portrait",
+      "native_text_page_ratio": 1.0,
+      "scanned_image_page_ratio": 0.0,
+      "landscape_page_ratio": 0.0,
+      "median_text_characters_per_page": 1923.0,
+      "page_modes": {
+        "native_text": 14
+      },
+      "page_size_profiles": {
+        "591x832": 1,
+        "591x833": 3,
+        "591x834": 2,
+        "591x835": 1,
+        "592x831": 1,
+        "592x832": 1,
+        "592x834": 3,
+        "592x835": 2
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 12,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_ec614118796bf5b7",
+      "source_name": "VCA_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/VCA_23CN_BCTN.pdf",
+      "source_sha256": "ec614118796bf5b703015e3d9794b354698d974ef33ffedaeb5524c066addae7",
+      "company_key": "development-company-1fe2d28f0996841e",
+      "pages": 23,
+      "layout_family": "scanned_image_dominant",
+      "native_text_page_ratio": 0.0,
+      "scanned_image_page_ratio": 1.0,
+      "landscape_page_ratio": 0.0,
+      "median_text_characters_per_page": 0,
+      "page_modes": {
+        "scanned_image": 23
+      },
+      "page_size_profiles": {
+        "595x842": 23
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 1,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_512728c810a86a53",
+      "source_name": "VCC_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/VCC_23CN_BCTN.pdf",
+      "source_sha256": "512728c810a86a531817661064b48fe813c0f5cad5967ed601f3a87e22351b47",
+      "company_key": "development-company-1af5660601b8be7b",
+      "pages": 26,
+      "layout_family": "native_text_portrait",
+      "native_text_page_ratio": 0.923077,
+      "scanned_image_page_ratio": 0.076923,
+      "landscape_page_ratio": 0.0,
+      "median_text_characters_per_page": 2204.0,
+      "page_modes": {
+        "native_text": 24,
+        "scanned_image": 2
+      },
+      "page_size_profiles": {
+        "595x841": 1,
+        "595x842": 25
+      },
+      "statement_keyword_pages": [
+        12
+      ],
+      "balance_term_pages": [
+        12
+      ],
+      "representative_page": 12,
+      "representative_page_reason": "balance_terms"
+    },
+    {
+      "source_key": "DEVPDF_3e5568ee0dd44c45",
+      "source_name": "VCE_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/VCE_23CN_BCTN.pdf",
+      "source_sha256": "3e5568ee0dd44c454ae98ab588e74c86cbb4421daed72d17cd45d1e5e59af11c",
+      "company_key": "development-company-0a3c720ab489e28b",
+      "pages": 15,
+      "layout_family": "native_text_portrait",
+      "native_text_page_ratio": 1.0,
+      "scanned_image_page_ratio": 0.0,
+      "landscape_page_ratio": 0.0,
+      "median_text_characters_per_page": 2009,
+      "page_modes": {
+        "native_text": 15
+      },
+      "page_size_profiles": {
+        "595x842": 15
+      },
+      "statement_keyword_pages": [
+        14
+      ],
+      "balance_term_pages": [
+        9
+      ],
+      "representative_page": 9,
+      "representative_page_reason": "balance_terms"
+    },
+    {
+      "source_key": "DEVPDF_924f7aa19e312375",
+      "source_name": "VGP_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/VGP_23CN_BCTN.pdf",
+      "source_sha256": "924f7aa19e312375c89bcd579a25ef3783b6cb1d07c861a69fa9f0c4e41bd3fd",
+      "company_key": "development-company-070f4ee86c1ea01a",
+      "pages": 8,
+      "layout_family": "scanned_image_dominant",
+      "native_text_page_ratio": 0.0,
+      "scanned_image_page_ratio": 1.0,
+      "landscape_page_ratio": 0.0,
+      "median_text_characters_per_page": 0.0,
+      "page_modes": {
+        "scanned_image": 8
+      },
+      "page_size_profiles": {
+        "611x842": 8
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 1,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_0994ccd63cd7a871",
+      "source_name": "VGR_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/VGR_23CN_BCTN.pdf",
+      "source_sha256": "0994ccd63cd7a871fd14e41c1caf7d413c6264c2d7b94827afe02f0695a097fb",
+      "company_key": "development-company-109221118fecb3ac",
+      "pages": 51,
+      "layout_family": "scanned_image_dominant",
+      "native_text_page_ratio": 0.019608,
+      "scanned_image_page_ratio": 0.980392,
+      "landscape_page_ratio": 0.078431,
+      "median_text_characters_per_page": 0,
+      "page_modes": {
+        "native_text": 1,
+        "scanned_image": 50
+      },
+      "page_size_profiles": {
+        "593x840": 1,
+        "593x842": 3,
+        "593x843": 1,
+        "593x844": 1,
+        "593x845": 2,
+        "594x840": 3,
+        "594x841": 9,
+        "594x842": 6,
+        "594x843": 11,
+        "594x844": 8,
+        "594x845": 1,
+        "595x841": 1,
+        "841x594": 2,
+        "843x594": 1,
+        "844x594": 1
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 19,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_49a37dba115beb38",
+      "source_name": "VIB_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/VIB_23CN_BCTN.pdf",
+      "source_sha256": "49a37dba115beb38cd9025c6379b33d91fbfe6718d9c73404213ad8e93392410",
+      "company_key": "development-company-0a85e05a413bcf02",
+      "pages": 99,
+      "layout_family": "scanned_image_dominant",
+      "native_text_page_ratio": 0.010101,
+      "scanned_image_page_ratio": 0.989899,
+      "landscape_page_ratio": 0.0,
+      "median_text_characters_per_page": 0,
+      "page_modes": {
+        "native_text": 1,
+        "scanned_image": 98
+      },
+      "page_size_profiles": {
+        "595x842": 99
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 10,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_39d9fa177669d89a",
+      "source_name": "VID_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/VID_23CN_BCTN.pdf",
+      "source_sha256": "39d9fa177669d89a0595acb9938fc0d1e57958970473ff07fb03d3ae815b9b20",
+      "company_key": "development-company-1ff838dc6ca9680d",
+      "pages": 64,
+      "layout_family": "hybrid_scan_text",
+      "native_text_page_ratio": 0.59375,
+      "scanned_image_page_ratio": 0.0,
+      "landscape_page_ratio": 0.96875,
+      "median_text_characters_per_page": 292.0,
+      "page_modes": {
+        "native_text": 38,
+        "sparse_or_vector": 26
+      },
+      "page_size_profiles": {
+        "1191x842": 62,
+        "578x824": 1,
+        "595x842": 1
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [
+        24
+      ],
+      "representative_page": 24,
+      "representative_page_reason": "balance_terms"
+    },
+    {
+      "source_key": "DEVPDF_d6f8aa53db1732b5",
+      "source_name": "VIG_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/VIG_23CN_BCTN.pdf",
+      "source_sha256": "d6f8aa53db1732b56c45bd2272ee3df916ac8c4b37b57506285dd4bf3e038254",
+      "company_key": "development-company-21df76478c63f536",
+      "pages": 29,
+      "layout_family": "scanned_image_dominant",
+      "native_text_page_ratio": 0.034483,
+      "scanned_image_page_ratio": 0.965517,
+      "landscape_page_ratio": 0.0,
+      "median_text_characters_per_page": 0,
+      "page_modes": {
+        "native_text": 1,
+        "scanned_image": 28
+      },
+      "page_size_profiles": {
+        "595x842": 29
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 1,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_5805ab297d3d530c",
+      "source_name": "VIM_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/VIM_23CN_BCTN.pdf",
+      "source_sha256": "5805ab297d3d530cbe00643298cd40b9a2e91cee836e2a1a6e5d34821f1c194b",
+      "company_key": "development-company-0f2ed9e33d29ff4f",
+      "pages": 14,
+      "layout_family": "scanned_image_dominant",
+      "native_text_page_ratio": 0.0,
+      "scanned_image_page_ratio": 1.0,
+      "landscape_page_ratio": 0.0,
+      "median_text_characters_per_page": 0.0,
+      "page_modes": {
+        "scanned_image": 14
+      },
+      "page_size_profiles": {
+        "612x792": 14
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 1,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_32f78e8719374156",
+      "source_name": "VIT_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/VIT_23CN_BCTN.pdf",
+      "source_sha256": "32f78e8719374156e285cfd9969eab55de46c8370905789bd92fd943d586f1fa",
+      "company_key": "development-company-00352181b013eb3c",
+      "pages": 22,
+      "layout_family": "scanned_image_dominant",
+      "native_text_page_ratio": 0.0,
+      "scanned_image_page_ratio": 1.0,
+      "landscape_page_ratio": 0.0,
+      "median_text_characters_per_page": 0.0,
+      "page_modes": {
+        "scanned_image": 22
+      },
+      "page_size_profiles": {
+        "595x842": 22
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 1,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_5bff92d748dae70e",
+      "source_name": "VLW_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/VLW_23CN_BCTN.pdf",
+      "source_sha256": "5bff92d748dae70e2de7309a900bf9b79c7fca893a40a55791de4ad369d69c5f",
+      "company_key": "development-company-035456962822e6bf",
+      "pages": 33,
+      "layout_family": "native_text_portrait",
+      "native_text_page_ratio": 1.0,
+      "scanned_image_page_ratio": 0.0,
+      "landscape_page_ratio": 0.0,
+      "median_text_characters_per_page": 2213,
+      "page_modes": {
+        "native_text": 33
+      },
+      "page_size_profiles": {
+        "593x834": 1,
+        "593x835": 7,
+        "593x836": 4,
+        "593x837": 2,
+        "594x833": 1,
+        "594x834": 1,
+        "594x835": 3,
+        "594x836": 3,
+        "594x837": 3,
+        "594x838": 3,
+        "594x839": 1,
+        "594x840": 1,
+        "594x841": 1,
+        "595x836": 1,
+        "595x837": 1
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 6,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_c1f20dffb1a4ed81",
+      "source_name": "VNL_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/VNL_23CN_BCTN.pdf",
+      "source_sha256": "c1f20dffb1a4ed818cd4d3d78f5d47ce2e1517b8a78e6c8e9eee1aaafca51c2b",
+      "company_key": "development-company-0d2016d24a4bb0bd",
+      "pages": 93,
+      "layout_family": "hybrid_scan_text",
+      "native_text_page_ratio": 0.537634,
+      "scanned_image_page_ratio": 0.451613,
+      "landscape_page_ratio": 0.075269,
+      "median_text_characters_per_page": 823,
+      "page_modes": {
+        "native_text": 50,
+        "scanned_image": 42,
+        "sparse_or_vector": 1
+      },
+      "page_size_profiles": {
+        "595x842": 50,
+        "599x842": 36,
+        "842x599": 7
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 2,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_fbfeb1f417caf064",
+      "source_name": "VNT_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/VNT_23CN_BCTN.pdf",
+      "source_sha256": "fbfeb1f417caf064c11c007ea3a1c5ee04423afc1db0f6e8cf61d897fa203cc0",
+      "company_key": "development-company-094f686e92c888ae",
+      "pages": 61,
+      "layout_family": "scanned_image_dominant",
+      "native_text_page_ratio": 0.327869,
+      "scanned_image_page_ratio": 0.672131,
+      "landscape_page_ratio": 0.262295,
+      "median_text_characters_per_page": 0,
+      "page_modes": {
+        "native_text": 20,
+        "scanned_image": 41
+      },
+      "page_size_profiles": {
+        "1191x842": 16,
+        "595x842": 3,
+        "612x792": 42
+      },
+      "statement_keyword_pages": [
+        2
+      ],
+      "balance_term_pages": [],
+      "representative_page": 2,
+      "representative_page_reason": "statement_keyword"
+    },
+    {
+      "source_key": "DEVPDF_38481abd65e313b3",
+      "source_name": "VRE_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/VRE_23CN_BCTN.pdf",
+      "source_sha256": "38481abd65e313b3d90a6d7f9df5b9e66771c94215027ee5b425e35a10ccd27c",
+      "company_key": "development-company-0a5b3e98c2ea32da",
+      "pages": 76,
+      "layout_family": "native_text_mixed_orientation",
+      "native_text_page_ratio": 0.986842,
+      "scanned_image_page_ratio": 0.013158,
+      "landscape_page_ratio": 0.973684,
+      "median_text_characters_per_page": 2930.5,
+      "page_modes": {
+        "native_text": 75,
+        "scanned_image": 1
+      },
+      "page_size_profiles": {
+        "1191x842": 74,
+        "595x842": 2
+      },
+      "statement_keyword_pages": [
+        3,
+        48,
+        51,
+        52,
+        53,
+        57,
+        58,
+        59,
+        71,
+        72,
+        76
+      ],
+      "balance_term_pages": [
+        29,
+        30,
+        52
+      ],
+      "representative_page": 29,
+      "representative_page_reason": "balance_terms"
+    },
+    {
+      "source_key": "DEVPDF_b9c7cd11cf505ea8",
+      "source_name": "VSN_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/VSN_23CN_BCTN.pdf",
+      "source_sha256": "b9c7cd11cf505ea85ea72c7533faf096e01c421cd9b1d554cc9b5e3ab73d0dd5",
+      "company_key": "development-company-18b5487f02e71dfd",
+      "pages": 72,
+      "layout_family": "native_text_mixed_orientation",
+      "native_text_page_ratio": 0.694444,
+      "scanned_image_page_ratio": 0.013889,
+      "landscape_page_ratio": 0.986111,
+      "median_text_characters_per_page": 1054.0,
+      "page_modes": {
+        "native_text": 50,
+        "scanned_image": 1,
+        "sparse_or_vector": 21
+      },
+      "page_size_profiles": {
+        "1191x842": 71,
+        "595x842": 1
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [
+        35
+      ],
+      "representative_page": 35,
+      "representative_page_reason": "balance_terms"
+    },
+    {
+      "source_key": "DEVPDF_bc5995492201dbf3",
+      "source_name": "VTM_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/VTM_23CN_BCTN.pdf",
+      "source_sha256": "bc5995492201dbf33f2e216a4b1e10cddec1889525163064e380e990ea04801c",
+      "company_key": "development-company-189e377bafb9ffd6",
+      "pages": 30,
+      "layout_family": "scanned_image_dominant",
+      "native_text_page_ratio": 0.0,
+      "scanned_image_page_ratio": 1.0,
+      "landscape_page_ratio": 0.033333,
+      "median_text_characters_per_page": 0.0,
+      "page_modes": {
+        "scanned_image": 30
+      },
+      "page_size_profiles": {
+        "595x842": 29,
+        "842x595": 1
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 1,
+      "representative_page_reason": "maximum_native_text"
+    },
+    {
+      "source_key": "DEVPDF_068d3eb11fbb857c",
+      "source_name": "VTZ_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/VTZ_23CN_BCTN.pdf",
+      "source_sha256": "068d3eb11fbb857c757968c6d12c0352ab0b313f6797ed8651c9ad18fb38ce1b",
+      "company_key": "development-company-1b6dee1ef0abdc31",
+      "pages": 34,
+      "layout_family": "scanned_image_dominant",
+      "native_text_page_ratio": 0.029412,
+      "scanned_image_page_ratio": 0.970588,
+      "landscape_page_ratio": 0.0,
+      "median_text_characters_per_page": 0.0,
+      "page_modes": {
+        "native_text": 1,
+        "scanned_image": 33
+      },
+      "page_size_profiles": {
+        "595x842": 34
+      },
+      "statement_keyword_pages": [],
+      "balance_term_pages": [],
+      "representative_page": 33,
+      "representative_page_reason": "maximum_native_text"
+    }
+  ],
+  "invariants": {
+    "protected_evaluation_loaded": false,
+    "abw_admitted": false,
+    "runtime_changed": false,
+    "model_checkpoint_or_threshold_changed": false,
+    "selection_used_filename_company_page_year_value_or_question_literal": false
+  }
+}

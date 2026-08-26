@@ -1,0 +1,94 @@
+{
+  "schema": "finhrm.qp4.post_question_surface.post_cache.residual_coverage.post_source_protocol.semantic_trace_reclosure.lock.v1",
+  "created_at": "2026-08-24T09:17:17+07:00",
+  "classification": "development_only_evaluator_or_oracle_defect_no_runtime_no_trace_replay_lock",
+  "status": "LOCKED_FAIL",
+  "outcome": "EVALUATOR_OR_ORACLE_DEFECT",
+  "artifacts": {
+    "final_json": {
+      "path": "reports/finhrm_qp4_post_question_surface_post_cache_residual_coverage_post_source_protocol_semantic_trace_reclosure_v1.json",
+      "size_bytes": 7541,
+      "sha256": "00b9502fd458dfc90c512bccea956953d67d00c6931b272cef5e4242277d7217"
+    },
+    "final_markdown": {
+      "path": "reports/finhrm_qp4_post_question_surface_post_cache_residual_coverage_post_source_protocol_semantic_trace_reclosure_v1.md",
+      "size_bytes": 3644,
+      "sha256": "f195746ba9f8eee96797a2c1759e5b64d06fe7c1d76fc5f108265819d4665d72"
+    }
+  },
+  "parents": {
+    "semantic_trace_precommit": {
+      "path": "config/finhrm_qp4_post_question_surface_post_cache_residual_coverage_post_source_protocol_semantic_trace_reclosure_precommit_v1.json",
+      "size_bytes": 21441,
+      "sha256": "bc693cc118fef8238d189c74c7099a1e262e5deb77c3ff04c4f78e31f555634c"
+    },
+    "semantic_trace_precommit_markdown": {
+      "path": "reports/finhrm_qp4_post_question_surface_post_cache_residual_coverage_post_source_protocol_semantic_trace_reclosure_precommit_v1.md",
+      "size_bytes": 3547,
+      "sha256": "1dece962bcd91ab92c80e36f02c9e9cd7ce5a0beda3a2865aab59489cc3e137c"
+    },
+    "semantic_trace_precommit_lock": {
+      "path": "reports/finhrm_qp4_post_question_surface_post_cache_residual_coverage_post_source_protocol_semantic_trace_reclosure_precommit_lock_v1.json",
+      "size_bytes": 12076,
+      "sha256": "63214991bb745b2647470532fd74cdd8c7ef2942039594d47726517cd32914f1"
+    },
+    "frozen_source_protocol_reclosure": {
+      "path": "reports/finhrm_qp4_post_question_surface_post_cache_residual_coverage_source_protocol_reclosure_v1.json",
+      "size_bytes": 764361,
+      "sha256": "88907efcf7764217c5aa1d5219e5ef2c997d34cbf45d1f300dd68190b8ae84eb"
+    }
+  },
+  "locked_findings": {
+    "selected_rows": 42,
+    "primary_rows": 42,
+    "permutation_rows": 42,
+    "primary_rows_missing_program_dag": 42,
+    "primary_rows_missing_proof_obligations": 42,
+    "primary_rows_missing_verification_reasons": 42,
+    "permutation_rows_missing_program_dag": 42,
+    "permutation_rows_missing_proof_obligations": 42,
+    "permutation_rows_missing_verification_reasons": 42,
+    "candidate_permutation_recipe_frozen": false,
+    "primary_trace_rows_executed": 0,
+    "permutation_trace_rows_executed": 0,
+    "baseline_primary_permutation_exact_retained": "20/42",
+    "model_parameter_count": 843097,
+    "model_capacity_failure_confirmed": false
+  },
+  "failed_gates": [
+    "frozen_parent_required_semantic_fields_available",
+    "deterministic_candidate_permutation_recipe_frozen",
+    "no_interference_comparison_executable",
+    "complete_primary_and_permutation_trace"
+  ],
+  "integrity": {
+    "parent_hashes_exact": true,
+    "all_frozen_runtime_hashes_exact_before": true,
+    "all_frozen_runtime_hashes_exact_after": true,
+    "checkpoint_sha256": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de",
+    "checkpoint_hash_exact_before_after": true,
+    "runtime_changed": false,
+    "model_checkpoint_or_threshold_changed": false,
+    "temporary_files_remaining": 0,
+    "protected_split_read": false,
+    "new_ocr_generation": false,
+    "abw_used": false,
+    "metric_beautification_performed": false
+  },
+  "authorization": {
+    "runtime_edit_authorized": false,
+    "runtime_file_whitelist": [],
+    "implementation_precommit_authorized": false,
+    "next_allowed_action": "QP4-POST-QUESTION-SURFACE-POST-CACHE-RESIDUAL-COVERAGE-POST-SOURCE-PROTOCOL-SEMANTIC-TRACE-EVALUATOR-CONTRACT-RECLOSURE-PRECOMMIT",
+    "qp4_complete": false,
+    "qp5_authorized": false,
+    "phase_d_unlocked": false
+  },
+  "artifact_policy": {
+    "final_json": 1,
+    "final_markdown": 1,
+    "lock_manifest": 1,
+    "temporary_files_deleted": true,
+    "persistent_runtime_test_or_evaluator_files_added": 0
+  }
+}

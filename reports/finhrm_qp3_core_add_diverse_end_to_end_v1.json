@@ -1,0 +1,1136 @@
+{
+  "schema": "finhrm-qp3-core-add-diverse-end-to-end-v1",
+  "classification": "development_only_frozen_pdf_question_end_to_end_replay",
+  "status": "coverage_confirmed_with_safe_residual_abstention",
+  "gate_passed": true,
+  "inputs": {
+    "precommit": "config/finhrm_qp3_core_add_diverse_development_cohort_precommit_v1.json",
+    "cohort": "data/finhrm_qp3_core_add_diverse_development_reviewed_cohort_v1.jsonl",
+    "cohort_report": "reports/finhrm_qp3_core_add_diverse_development_reviewed_cohort_v1.json",
+    "checkpoint": "models/document_hrm_V8_candidate.pt",
+    "checkpoint_sha256": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de"
+  },
+  "inference_boundary": {
+    "engine_inputs": [
+      "question",
+      "source_pdf_path"
+    ],
+    "gold_candidates_or_program_passed_to_engine": false,
+    "engine_defaults_overridden": false,
+    "checkpoint_or_threshold_changed": false
+  },
+  "metrics": {
+    "full_cohort_run": true,
+    "examples": 8,
+    "passed": 6,
+    "failed": 2,
+    "examples_by_layout": {
+      "NATIVE_TEXT_TABLE": 4,
+      "OCR_OR_HYBRID_TABLE": 4
+    },
+    "passed_by_layout": {
+      "NATIVE_TEXT_TABLE": 3,
+      "OCR_OR_HYBRID_TABLE": 3
+    },
+    "passed_layout_families": [
+      "hybrid_scan_text",
+      "native_text_mixed_orientation",
+      "native_text_portrait",
+      "scanned_image_dominant"
+    ],
+    "passed_layout_family_count": 4,
+    "passed_companies_by_layout": {
+      "NATIVE_TEXT_TABLE": [
+        "development-company-02d5d0522a76608d",
+        "development-company-0a3c720ab489e28b",
+        "development-company-171130f90d122e5d"
+      ],
+      "OCR_OR_HYBRID_TABLE": [
+        "development-company-02cee318d68057bf",
+        "development-company-03",
+        "development-company-1ff838dc6ca9680d"
+      ]
+    },
+    "passed_sources_by_layout": {
+      "NATIVE_TEXT_TABLE": [
+        "0512d6848014459b74a4293f9ed98a3d0c98c5af54aa21e12e5949df89ce1cf6",
+        "05982d532c7771e90133c6f5ff49d21309249b7f04a60b2c211d06305480f9c3",
+        "3e5568ee0dd44c454ae98ab588e74c86cbb4421daed72d17cd45d1e5e59af11c"
+      ],
+      "OCR_OR_HYBRID_TABLE": [
+        "156945b3a6df780a56d1474ae43ee74c4baf78fd38fc07be5f305ebf001bbf77",
+        "39d9fa177669d89a0595acb9938fc0d1e57958970473ff07fb03d3ae815b9b20",
+        "519da08c72bedfc2b4338356edff2f2d5e62d38d82fc897c5e30bfff14682687"
+      ]
+    },
+    "minimum_companies_per_layout": 3,
+    "layout_minimum_checks": {
+      "NATIVE_TEXT_TABLE": true,
+      "OCR_OR_HYBRID_TABLE": true
+    },
+    "unsafe_false_accepts": 0,
+    "errors": 0
+  },
+  "results": [
+    {
+      "example_id": "synthetic-document-000005",
+      "company_key": "development-company-02d5d0522a76608d",
+      "layout_stratum": "NATIVE_TEXT_TABLE",
+      "layout_family": "native_text_portrait",
+      "source_path": "pdf/PDF_23/LAS_23CN_BCTN.pdf",
+      "source_sha256": "0512d6848014459b74a4293f9ed98a3d0c98c5af54aa21e12e5949df89ce1cf6",
+      "question": "Tổng A- TÀI SẢN NGẮN HẠN và I. Tiền và các khoản tương đương tiền tại cuoi ky là bao nhiêu?",
+      "checks": {
+        "document_discovery_ran": true,
+        "native_or_ocr_retrieval_ran": true,
+        "chunk_retrieval_nonempty": true,
+        "gold_page_retrieved": true,
+        "candidate_materialization_nonempty": true,
+        "neural_prediction_ran": true,
+        "operation_add": true,
+        "selected_arity_two": true,
+        "operand_values_exact": true,
+        "operand_roles_and_physical_page_exact": true,
+        "source_spans_present": true,
+        "source_spans_exact_diagnostic": false,
+        "provenance_complete": true,
+        "gold_execution_exact": true,
+        "accepted": true
+      },
+      "end_to_end_positive_passed": true,
+      "observed": {
+        "abstained": false,
+        "value": "2071654205305",
+        "unit": "VND",
+        "operation": "ADD",
+        "operands": [
+          3,
+          28
+        ],
+        "confidence": 0.9041856343806564,
+        "operation_confidence": 0.9438763856887817,
+        "confidence_threshold": 0.5220309066033059,
+        "candidate_count": 64,
+        "retrieved_pages": [
+          23,
+          24,
+          58,
+          59,
+          60,
+          89,
+          90,
+          91,
+          93
+        ],
+        "evidence": [
+          {
+            "value": "22645161919",
+            "source_name": "LAS_23CN_BCTN.pdf",
+            "page": 90,
+            "row_label": "I. Tiền và các khoản tương đương tiền",
+            "column_label": "so cuoi ky",
+            "period": "cuoi ky",
+            "source_span": [
+              42,
+              57
+            ],
+            "extraction_method": "native",
+            "table_id": "",
+            "subtable_id": ""
+          },
+          {
+            "value": "2049009043386",
+            "source_name": "LAS_23CN_BCTN.pdf",
+            "page": 90,
+            "row_label": "A- TÀI SẢN NGẮN HẠN",
+            "column_label": "so cuoi ky",
+            "period": "cuoi ky",
+            "source_span": [
+              24,
+              42
+            ],
+            "extraction_method": "native",
+            "table_id": "",
+            "subtable_id": ""
+          }
+        ],
+        "grounding_constraints_applied": [
+          "operand_role"
+        ],
+        "warnings": [],
+        "stage_timings": {
+          "document_discovery": 0.020073878999994577,
+          "native_retrieval": 0.2134590069999831,
+          "native_chunk_ranking": 0.003333538999982011,
+          "native_candidate_extraction": 0.7023975159999907,
+          "native_prediction": 5.565078841000002,
+          "native_execution": 9.578999993209436e-06,
+          "total": 6.623042902999998
+        }
+      },
+      "gold_for_scoring_only": {
+        "answer_value": "2071654205305",
+        "operation": "ADD",
+        "physical_pages": [
+          90
+        ],
+        "selected_candidates": [
+          {
+            "value": "2049009043386",
+            "source_name": "LAS_23CN_BCTN.pdf",
+            "page": 90,
+            "row_label": "A- TÀI SẢN NGẮN HẠN",
+            "column_label": "Số cuối kỳ",
+            "period": "cuoi ky",
+            "source_span": [
+              30,
+              48
+            ]
+          },
+          {
+            "value": "22645161919",
+            "source_name": "LAS_23CN_BCTN.pdf",
+            "page": 90,
+            "row_label": "I. Tiền và các khoản tương đương tiền",
+            "column_label": "Số cuối kỳ",
+            "period": "cuoi ky",
+            "source_span": [
+              48,
+              63
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "example_id": "synthetic-document-000012",
+      "company_key": "development-company-171130f90d122e5d",
+      "layout_stratum": "NATIVE_TEXT_TABLE",
+      "layout_family": "native_text_mixed_orientation",
+      "source_path": "pdf/PDF_23/TNA_23CN_BCTN.pdf",
+      "source_sha256": "05982d532c7771e90133c6f5ff49d21309249b7f04a60b2c211d06305480f9c3",
+      "question": "Tổng Tài sản ngắn hạn và Tài sản dài hạn tại 2022 là bao nhiêu?",
+      "checks": {
+        "document_discovery_ran": true,
+        "native_or_ocr_retrieval_ran": true,
+        "chunk_retrieval_nonempty": true,
+        "gold_page_retrieved": true,
+        "candidate_materialization_nonempty": true,
+        "neural_prediction_ran": true,
+        "operation_add": true,
+        "selected_arity_two": true,
+        "operand_values_exact": true,
+        "operand_roles_and_physical_page_exact": true,
+        "source_spans_present": true,
+        "source_spans_exact_diagnostic": false,
+        "provenance_complete": true,
+        "gold_execution_exact": true,
+        "accepted": true
+      },
+      "end_to_end_positive_passed": true,
+      "observed": {
+        "abstained": false,
+        "value": "2669702",
+        "unit": "VND",
+        "operation": "ADD",
+        "operands": [
+          3,
+          6
+        ],
+        "confidence": 0.954935612984022,
+        "operation_confidence": 0.9827308058738708,
+        "confidence_threshold": 0.5220309066033059,
+        "candidate_count": 64,
+        "retrieved_pages": [
+          11,
+          24,
+          25,
+          32,
+          33,
+          34
+        ],
+        "evidence": [
+          {
+            "value": "2285865",
+            "source_name": "TNA_23CN_BCTN.pdf",
+            "page": 33,
+            "row_label": "Tài sản ngắn hạn",
+            "column_label": "nam 2022",
+            "period": "2022",
+            "source_span": [
+              17,
+              27
+            ],
+            "extraction_method": "native",
+            "table_id": "",
+            "subtable_id": ""
+          },
+          {
+            "value": "383837",
+            "source_name": "TNA_23CN_BCTN.pdf",
+            "page": 33,
+            "row_label": "Tài sản dài hạn",
+            "column_label": "nam 2022",
+            "period": "2022",
+            "source_span": [
+              16,
+              24
+            ],
+            "extraction_method": "native",
+            "table_id": "",
+            "subtable_id": ""
+          }
+        ],
+        "grounding_constraints_applied": [
+          "period",
+          "operand_role"
+        ],
+        "warnings": [],
+        "stage_timings": {
+          "document_discovery": 0.0061987189999967995,
+          "native_retrieval": 0.05664166600001863,
+          "native_chunk_ranking": 0.0032471590000113792,
+          "native_candidate_extraction": 0.31269741400001294,
+          "native_prediction": 2.2091663530000005,
+          "native_execution": 9.498999986590206e-06,
+          "total": 2.7588049199999887
+        }
+      },
+      "gold_for_scoring_only": {
+        "answer_value": "2669702",
+        "operation": "ADD",
+        "physical_pages": [
+          33
+        ],
+        "selected_candidates": [
+          {
+            "value": "2285865",
+            "source_name": "TNA_23CN_BCTN.pdf",
+            "page": 33,
+            "row_label": "Tài sản ngắn hạn",
+            "column_label": "Năm 2022",
+            "period": "2022",
+            "source_span": [
+              21,
+              31
+            ]
+          },
+          {
+            "value": "383837",
+            "source_name": "TNA_23CN_BCTN.pdf",
+            "page": 33,
+            "row_label": "Tài sản dài hạn",
+            "column_label": "Năm 2022",
+            "period": "2022",
+            "source_span": [
+              20,
+              28
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "example_id": "synthetic-document-000021",
+      "company_key": "development-company-1ae2af0e40480754",
+      "layout_stratum": "NATIVE_TEXT_TABLE",
+      "layout_family": "native_text_portrait",
+      "source_path": "pdf/PDF_23/CMG_23CN_BCTN.pdf",
+      "source_sha256": "1151a65a8d1028834a84179543d7b721df57e9c6c8f539e419ecbd8d978fd65f",
+      "question": "Tổng Tiền và các khoản tương đương tiền và Tiền tại cuoi nam là bao nhiêu?",
+      "checks": {
+        "document_discovery_ran": true,
+        "native_or_ocr_retrieval_ran": true,
+        "chunk_retrieval_nonempty": true,
+        "gold_page_retrieved": true,
+        "candidate_materialization_nonempty": true,
+        "neural_prediction_ran": true,
+        "operation_add": true,
+        "selected_arity_two": true,
+        "operand_values_exact": false,
+        "operand_roles_and_physical_page_exact": false,
+        "source_spans_present": true,
+        "source_spans_exact_diagnostic": false,
+        "provenance_complete": false,
+        "gold_execution_exact": false,
+        "accepted": false
+      },
+      "end_to_end_positive_passed": false,
+      "observed": {
+        "abstained": true,
+        "value": "3522024355046",
+        "unit": "VND",
+        "operation": "ADD",
+        "operands": [
+          8,
+          55
+        ],
+        "confidence": 0.10117833577463616,
+        "operation_confidence": 0.9825795888900757,
+        "confidence_threshold": 0.5220309066033059,
+        "candidate_count": 64,
+        "retrieved_pages": [
+          58,
+          59,
+          62,
+          65,
+          66,
+          69
+        ],
+        "evidence": [
+          {
+            "value": "12399440394",
+            "source_name": "CMG_23CN_BCTN.pdf",
+            "page": 62,
+            "row_label": "Tiền và tương đương tiền cuối năm",
+            "column_label": "",
+            "period": "",
+            "source_span": [
+              37,
+              52
+            ],
+            "extraction_method": "native",
+            "table_id": "",
+            "subtable_id": ""
+          },
+          {
+            "value": "3509624914652",
+            "source_name": "CMG_23CN_BCTN.pdf",
+            "page": 67,
+            "row_label": "C. NỢ PHẢI TRẢ",
+            "column_label": "so cuoi nam",
+            "period": "cuoi nam",
+            "source_span": [
+              19,
+              37
+            ],
+            "extraction_method": "native",
+            "table_id": "",
+            "subtable_id": ""
+          }
+        ],
+        "grounding_constraints_applied": [],
+        "warnings": [
+          "ABSTAIN: program confidence is below the validation-calibrated threshold (0.101 < 0.522).",
+          "ABSTAIN: grounding gate rejected the selected evidence: missing_requested_operand_roles, operand_roles, add_grounding, required_proof_invalid:add_grounding."
+        ],
+        "stage_timings": {
+          "document_discovery": 0.008018711000005396,
+          "native_retrieval": 0.07668201199999203,
+          "native_chunk_ranking": 0.004286799999988489,
+          "native_candidate_extraction": 0.5163591780000161,
+          "native_prediction": 0.3037643870000011,
+          "native_execution": 1.1668000013287383e-05,
+          "total": 0.991434881999993
+        }
+      },
+      "gold_for_scoring_only": {
+        "answer_value": "24798880788",
+        "operation": "ADD",
+        "physical_pages": [
+          59
+        ],
+        "selected_candidates": [
+          {
+            "value": "12399440394",
+            "source_name": "CMG_23CN_BCTN.pdf",
+            "page": 59,
+            "row_label": "Tiền và các khoản tương đương tiền",
+            "column_label": "Số cuối năm",
+            "period": "cuoi nam",
+            "source_span": [
+              54,
+              69
+            ]
+          },
+          {
+            "value": "12399440394",
+            "source_name": "CMG_23CN_BCTN.pdf",
+            "page": 59,
+            "row_label": "Tiền",
+            "column_label": "Số cuối năm",
+            "period": "cuoi nam",
+            "source_span": [
+              20,
+              35
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "example_id": "synthetic-document-000066",
+      "company_key": "development-company-0a3c720ab489e28b",
+      "layout_stratum": "NATIVE_TEXT_TABLE",
+      "layout_family": "native_text_portrait",
+      "source_path": "pdf/PDF_23/VCE_23CN_BCTN.pdf",
+      "source_sha256": "3e5568ee0dd44c454ae98ab588e74c86cbb4421daed72d17cd45d1e5e59af11c",
+      "question": "Tổng I. Tài sản ngắn hạn và 1. Tiền và các khoản tương đương tiền tại dau nam là bao nhiêu?",
+      "checks": {
+        "document_discovery_ran": true,
+        "native_or_ocr_retrieval_ran": true,
+        "chunk_retrieval_nonempty": true,
+        "gold_page_retrieved": true,
+        "candidate_materialization_nonempty": true,
+        "neural_prediction_ran": true,
+        "operation_add": true,
+        "selected_arity_two": true,
+        "operand_values_exact": true,
+        "operand_roles_and_physical_page_exact": true,
+        "source_spans_present": true,
+        "source_spans_exact_diagnostic": false,
+        "provenance_complete": true,
+        "gold_execution_exact": true,
+        "accepted": true
+      },
+      "end_to_end_positive_passed": true,
+      "observed": {
+        "abstained": false,
+        "value": "80246914720",
+        "unit": "VND",
+        "operation": "ADD",
+        "operands": [
+          0,
+          15
+        ],
+        "confidence": 0.9921746638707652,
+        "operation_confidence": 0.9767072200775146,
+        "confidence_threshold": 0.5220309066033059,
+        "candidate_count": 64,
+        "retrieved_pages": [
+          3,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "evidence": [
+          {
+            "value": "205501621",
+            "source_name": "VCE_23CN_BCTN.pdf",
+            "page": 9,
+            "row_label": "Tiền và các khoản tương đương tiền",
+            "column_label": "so dau nam",
+            "period": "dau nam",
+            "source_span": [
+              38,
+              50
+            ],
+            "extraction_method": "native",
+            "table_id": "",
+            "subtable_id": ""
+          },
+          {
+            "value": "80041413099",
+            "source_name": "VCE_23CN_BCTN.pdf",
+            "page": 9,
+            "row_label": "I. Tài sản ngắn hạn",
+            "column_label": "so dau nam",
+            "period": "dau nam",
+            "source_span": [
+              20,
+              35
+            ],
+            "extraction_method": "native",
+            "table_id": "",
+            "subtable_id": ""
+          }
+        ],
+        "grounding_constraints_applied": [
+          "operand_role"
+        ],
+        "warnings": [],
+        "stage_timings": {
+          "document_discovery": 0.01357068699999786,
+          "native_retrieval": 0.055126829999977645,
+          "native_chunk_ranking": 0.003199090000009619,
+          "native_candidate_extraction": 0.6017418940000141,
+          "native_prediction": 0.9520737809999957,
+          "native_execution": 1.2690000005477486e-05,
+          "total": 1.7309567670000092
+        }
+      },
+      "gold_for_scoring_only": {
+        "answer_value": "80246914720",
+        "operation": "ADD",
+        "physical_pages": [
+          9
+        ],
+        "selected_candidates": [
+          {
+            "value": "80041413099",
+            "source_name": "VCE_23CN_BCTN.pdf",
+            "page": 9,
+            "row_label": "I. Tài sản ngắn hạn",
+            "column_label": "Số đầu năm",
+            "period": "dau nam",
+            "source_span": [
+              24,
+              39
+            ]
+          },
+          {
+            "value": "205501621",
+            "source_name": "VCE_23CN_BCTN.pdf",
+            "page": 9,
+            "row_label": "1. Tiền và các khoản tương đương tiền",
+            "column_label": "Số đầu năm",
+            "period": "dau nam",
+            "source_span": [
+              42,
+              54
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "example_id": "synthetic-document-000014",
+      "company_key": "development-company-02cee318d68057bf",
+      "layout_stratum": "OCR_OR_HYBRID_TABLE",
+      "layout_family": "scanned_image_dominant",
+      "source_path": "pdf/PDF_23/PCT_23CN_BCTN.pdf",
+      "source_sha256": "156945b3a6df780a56d1474ae43ee74c4baf78fd38fc07be5f305ebf001bbf77",
+      "question": "Tổng Giá vốn hàng bán và Chi phí tài chính tại nam nay là bao nhiêu?",
+      "checks": {
+        "document_discovery_ran": true,
+        "native_or_ocr_retrieval_ran": true,
+        "chunk_retrieval_nonempty": true,
+        "gold_page_retrieved": true,
+        "candidate_materialization_nonempty": true,
+        "neural_prediction_ran": true,
+        "operation_add": true,
+        "selected_arity_two": true,
+        "operand_values_exact": true,
+        "operand_roles_and_physical_page_exact": true,
+        "source_spans_present": true,
+        "source_spans_exact_diagnostic": true,
+        "provenance_complete": true,
+        "gold_execution_exact": true,
+        "accepted": true
+      },
+      "end_to_end_positive_passed": true,
+      "observed": {
+        "abstained": false,
+        "value": "354517150433",
+        "unit": "VND",
+        "operation": "ADD",
+        "operands": [
+          19,
+          40
+        ],
+        "confidence": 0.99163714550423,
+        "operation_confidence": 0.9751206636428833,
+        "confidence_threshold": 0.5220309066033059,
+        "candidate_count": 64,
+        "retrieved_pages": [
+          21,
+          22,
+          26,
+          27,
+          28,
+          29,
+          40,
+          41
+        ],
+        "evidence": [
+          {
+            "value": "285696199162",
+            "source_name": "PCT_23CN_BCTN.pdf",
+            "page": 22,
+            "row_label": "Giá vốn hàng bán",
+            "column_label": "Năm nay",
+            "period": "nam nay",
+            "source_span": [
+              37,
+              53
+            ],
+            "extraction_method": "ocr",
+            "table_id": "table-13-18",
+            "subtable_id": "table-13-18/whole-table"
+          },
+          {
+            "value": "68820951271",
+            "source_name": "PCT_23CN_BCTN.pdf",
+            "page": 22,
+            "row_label": "Chi phí tài chính",
+            "column_label": "Năm nay",
+            "period": "nam nay",
+            "source_span": [
+              40,
+              55
+            ],
+            "extraction_method": "ocr",
+            "table_id": "table-13-18",
+            "subtable_id": "table-13-18/whole-table"
+          }
+        ],
+        "grounding_constraints_applied": [
+          "operand_role"
+        ],
+        "warnings": [
+          "Native evidence was insufficient; retried with MinerU-enabled index (native evidence did not cover both requested operand roles).",
+          "OCR-derived evidence was used. Verify every selected digit against the scan."
+        ],
+        "stage_timings": {
+          "document_discovery": 0.016243060999983072,
+          "native_retrieval": 0.04855874500000823,
+          "native_chunk_ranking": 9.757400002285976e-05,
+          "native_candidate_extraction": 0.005659042999980102,
+          "mineru_retrieval": 0.05344574899999088,
+          "mineru_chunk_ranking": 0.0045557060000191996,
+          "mineru_candidate_extraction": 0.6659571200000016,
+          "mineru_prediction": 2.2527348300000085,
+          "mineru_execution": 1.161400001592483e-05,
+          "total": 3.2823399130000155
+        }
+      },
+      "gold_for_scoring_only": {
+        "answer_value": "354517150433",
+        "operation": "ADD",
+        "physical_pages": [
+          22
+        ],
+        "selected_candidates": [
+          {
+            "value": "285696199162",
+            "source_name": "PCT_23CN_BCTN.pdf",
+            "page": 22,
+            "row_label": "Giá vốn hàng bán",
+            "column_label": "Năm nay",
+            "period": "nam nay",
+            "source_span": [
+              37,
+              53
+            ]
+          },
+          {
+            "value": "68820951271",
+            "source_name": "PCT_23CN_BCTN.pdf",
+            "page": 22,
+            "row_label": "Chi phí tài chính",
+            "column_label": "Năm nay",
+            "period": "nam nay",
+            "source_span": [
+              40,
+              55
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "example_id": "synthetic-document-000054",
+      "company_key": "development-company-0cf6c2d4d5bab184",
+      "layout_stratum": "OCR_OR_HYBRID_TABLE",
+      "layout_family": "scanned_image_dominant",
+      "source_path": "pdf/PDF_23/TMC_23CN_BCTN.pdf",
+      "source_sha256": "19e535558fac5d289d91c94a551ed686e97045726e1666e231caaf7b360883ce",
+      "question": "Tổng Tiền và các khoản tương đương tiền và II. Các khoản phái thu ngắn hạn tại 2023 là bao nhiêu?",
+      "checks": {
+        "document_discovery_ran": true,
+        "native_or_ocr_retrieval_ran": true,
+        "chunk_retrieval_nonempty": true,
+        "gold_page_retrieved": true,
+        "candidate_materialization_nonempty": true,
+        "neural_prediction_ran": true,
+        "operation_add": true,
+        "selected_arity_two": true,
+        "operand_values_exact": false,
+        "operand_roles_and_physical_page_exact": false,
+        "source_spans_present": true,
+        "source_spans_exact_diagnostic": false,
+        "provenance_complete": true,
+        "gold_execution_exact": false,
+        "accepted": false
+      },
+      "end_to_end_positive_passed": false,
+      "observed": {
+        "abstained": true,
+        "value": "121531452485",
+        "unit": "",
+        "operation": "ADD",
+        "operands": [
+          0,
+          3
+        ],
+        "confidence": 0.7442663316679553,
+        "operation_confidence": 0.9747047424316406,
+        "confidence_threshold": 0.5220309066033059,
+        "candidate_count": 64,
+        "retrieved_pages": [
+          39,
+          40,
+          45,
+          46,
+          65,
+          66,
+          67,
+          68
+        ],
+        "evidence": [
+          {
+            "value": "69227774831",
+            "source_name": "TMC_23CN_BCTN.pdf",
+            "page": 40,
+            "row_label": "II. Các khoản phái thu ngắn hạn",
+            "column_label": "31/12/2023",
+            "period": "2023",
+            "source_span": [
+              42,
+              57
+            ],
+            "extraction_method": "ocr",
+            "table_id": "table-10-19",
+            "subtable_id": "table-10-19/whole-table"
+          },
+          {
+            "value": "52303677654",
+            "source_name": "TMC_23CN_BCTN.pdf",
+            "page": 40,
+            "row_label": "Tiền và các khoản tương đương tiền",
+            "column_label": "01/01/2023",
+            "period": "2023",
+            "source_span": [
+              66,
+              81
+            ],
+            "extraction_method": "ocr",
+            "table_id": "table-10-19",
+            "subtable_id": "table-10-19/whole-table"
+          }
+        ],
+        "grounding_constraints_applied": [
+          "period",
+          "operand_role"
+        ],
+        "warnings": [
+          "Native evidence was insufficient; retried with MinerU-enabled index (native evidence did not cover requested period(s): 2023).",
+          "ABSTAIN: grounding gate rejected the selected evidence: required_proof_unknown:add_grounding.",
+          "OCR-derived evidence was used. Verify every selected digit against the scan."
+        ],
+        "stage_timings": {
+          "document_discovery": 0.004765990000009879,
+          "native_retrieval": 0.0720310669999833,
+          "native_chunk_ranking": 0.00020223199999236385,
+          "native_candidate_extraction": 0.009779086999998299,
+          "mineru_retrieval": 0.06870540500000288,
+          "mineru_chunk_ranking": 0.004466355000005251,
+          "mineru_candidate_extraction": 1.0353724140000224,
+          "mineru_prediction": 2.459221686999996,
+          "mineru_execution": 1.4034000002993707e-05,
+          "total": 3.9689226129999895
+        }
+      },
+      "gold_for_scoring_only": {
+        "answer_value": "103473187923",
+        "operation": "ADD",
+        "physical_pages": [
+          40
+        ],
+        "selected_candidates": [
+          {
+            "value": "34245413092",
+            "source_name": "TMC_23CN_BCTN.pdf",
+            "page": 40,
+            "row_label": "Tiền và các khoản tương đương tiền",
+            "column_label": "31/12/2023",
+            "period": "2023",
+            "source_span": [
+              49,
+              64
+            ]
+          },
+          {
+            "value": "69227774831",
+            "source_name": "TMC_23CN_BCTN.pdf",
+            "page": 40,
+            "row_label": "II. Các khoản phái thu ngắn hạn",
+            "column_label": "31/12/2023",
+            "period": "2023",
+            "source_span": [
+              42,
+              57
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "example_id": "synthetic-document-000087",
+      "company_key": "development-company-1ff838dc6ca9680d",
+      "layout_stratum": "OCR_OR_HYBRID_TABLE",
+      "layout_family": "hybrid_scan_text",
+      "source_path": "pdf/PDF_23/VID_23CN_BCTN.pdf",
+      "source_sha256": "39d9fa177669d89a0595acb9938fc0d1e57958970473ff07fb03d3ae815b9b20",
+      "question": "Tổng Tài sản ngắn hạn và Tai san dai han tại 2022 là bao nhiêu?",
+      "checks": {
+        "document_discovery_ran": true,
+        "native_or_ocr_retrieval_ran": true,
+        "chunk_retrieval_nonempty": true,
+        "gold_page_retrieved": true,
+        "candidate_materialization_nonempty": true,
+        "neural_prediction_ran": true,
+        "operation_add": true,
+        "selected_arity_two": true,
+        "operand_values_exact": true,
+        "operand_roles_and_physical_page_exact": true,
+        "source_spans_present": true,
+        "source_spans_exact_diagnostic": false,
+        "provenance_complete": true,
+        "gold_execution_exact": true,
+        "accepted": true
+      },
+      "end_to_end_positive_passed": true,
+      "observed": {
+        "abstained": false,
+        "value": "1211710",
+        "unit": "",
+        "operation": "ADD",
+        "operands": [
+          0,
+          1
+        ],
+        "confidence": 0.9934548848896104,
+        "operation_confidence": 0.980492889881134,
+        "confidence_threshold": 0.5220309066033059,
+        "candidate_count": 64,
+        "retrieved_pages": [
+          9,
+          17,
+          19,
+          20,
+          23,
+          24,
+          25
+        ],
+        "evidence": [
+          {
+            "value": "731624",
+            "source_name": "VID_23CN_BCTN.pdf",
+            "page": 24,
+            "row_label": "Tài sản ngắn hạn",
+            "column_label": "31/12/2022",
+            "period": "2022",
+            "source_span": [
+              17,
+              25
+            ],
+            "extraction_method": "native",
+            "table_id": "",
+            "subtable_id": ""
+          },
+          {
+            "value": "480086",
+            "source_name": "VID_23CN_BCTN.pdf",
+            "page": 24,
+            "row_label": "Tài sản dài hạn",
+            "column_label": "31/12/2022",
+            "period": "2022",
+            "source_span": [
+              16,
+              24
+            ],
+            "extraction_method": "native",
+            "table_id": "",
+            "subtable_id": ""
+          }
+        ],
+        "grounding_constraints_applied": [
+          "period",
+          "operand_role"
+        ],
+        "warnings": [],
+        "stage_timings": {
+          "document_discovery": 0.005151908000016192,
+          "native_retrieval": 0.06403693400000066,
+          "native_chunk_ranking": 0.005788645999984965,
+          "native_candidate_extraction": 0.633748761000021,
+          "native_prediction": 1.52182788799999,
+          "native_execution": 1.3080000002219094e-05,
+          "total": 2.3928906509999877
+        }
+      },
+      "gold_for_scoring_only": {
+        "answer_value": "1211710",
+        "operation": "ADD",
+        "physical_pages": [
+          24
+        ],
+        "selected_candidates": [
+          {
+            "value": "731624",
+            "source_name": "VID_23CN_BCTN.pdf",
+            "page": 24,
+            "row_label": "Tài sản ngắn hạn",
+            "column_label": "31/12/2022 Giá trị",
+            "period": "2022",
+            "source_span": [
+              21,
+              29
+            ]
+          },
+          {
+            "value": "480086",
+            "source_name": "VID_23CN_BCTN.pdf",
+            "page": 24,
+            "row_label": "Tai san dai han",
+            "column_label": "31/12/2022 Giá trị",
+            "period": "2022",
+            "source_span": [
+              20,
+              28
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "example_id": "synthetic-document-000106",
+      "company_key": "development-company-03",
+      "layout_stratum": "OCR_OR_HYBRID_TABLE",
+      "layout_family": "scanned_image_dominant",
+      "source_path": "pdf/PDF_23/AGP_23CN_BCTN.pdf",
+      "source_sha256": "519da08c72bedfc2b4338356edff2f2d5e62d38d82fc897c5e30bfff14682687",
+      "question": "Tổng Chi phi ban hang và Chi phi quan ly doanh nghiép tại nam nay là bao nhiêu?",
+      "checks": {
+        "document_discovery_ran": true,
+        "native_or_ocr_retrieval_ran": true,
+        "chunk_retrieval_nonempty": true,
+        "gold_page_retrieved": true,
+        "candidate_materialization_nonempty": true,
+        "neural_prediction_ran": true,
+        "operation_add": true,
+        "selected_arity_two": true,
+        "operand_values_exact": true,
+        "operand_roles_and_physical_page_exact": true,
+        "source_spans_present": true,
+        "source_spans_exact_diagnostic": true,
+        "provenance_complete": true,
+        "gold_execution_exact": true,
+        "accepted": true
+      },
+      "end_to_end_positive_passed": true,
+      "observed": {
+        "abstained": false,
+        "value": "122337565459",
+        "unit": "VND",
+        "operation": "ADD",
+        "operands": [
+          0,
+          2
+        ],
+        "confidence": 0.9947010123806671,
+        "operation_confidence": 0.984187126159668,
+        "confidence_threshold": 0.5220309066033059,
+        "candidate_count": 64,
+        "retrieved_pages": [
+          7,
+          8,
+          37,
+          38,
+          43,
+          44,
+          45,
+          59
+        ],
+        "evidence": [
+          {
+            "value": "39692723111",
+            "source_name": "AGP_23CN_BCTN.pdf",
+            "page": 38,
+            "row_label": "Chi phi quan ly doanh nghiép",
+            "column_label": "Nam nay",
+            "period": "nam nay",
+            "source_span": [
+              50,
+              65
+            ],
+            "extraction_method": "ocr",
+            "table_id": "table-13-20",
+            "subtable_id": "table-13-20/whole-table"
+          },
+          {
+            "value": "82644842348",
+            "source_name": "AGP_23CN_BCTN.pdf",
+            "page": 38,
+            "row_label": "Chi phi ban hang",
+            "column_label": "Nam nay",
+            "period": "nam nay",
+            "source_span": [
+              38,
+              53
+            ],
+            "extraction_method": "ocr",
+            "table_id": "table-13-20",
+            "subtable_id": "table-13-20/whole-table"
+          }
+        ],
+        "grounding_constraints_applied": [
+          "operand_role"
+        ],
+        "warnings": [
+          "Native evidence was insufficient; retried with MinerU-enabled index (no native source chunk matched the question).",
+          "OCR-derived evidence was used. Verify every selected digit against the scan."
+        ],
+        "stage_timings": {
+          "document_discovery": 0.010131954000001997,
+          "native_retrieval": 0.05366771199999221,
+          "native_chunk_ranking": 5.632899998886387e-05,
+          "mineru_retrieval": 0.06562198699998589,
+          "mineru_chunk_ranking": 0.005765808999996125,
+          "mineru_candidate_extraction": 0.7312968839999883,
+          "mineru_prediction": 1.7064093360000072,
+          "mineru_execution": 1.1474999979554923e-05,
+          "total": 2.771475978000012
+        }
+      },
+      "gold_for_scoring_only": {
+        "answer_value": "122337565459",
+        "operation": "ADD",
+        "physical_pages": [
+          38
+        ],
+        "selected_candidates": [
+          {
+            "value": "82644842348",
+            "source_name": "AGP_23CN_BCTN.pdf",
+            "page": 38,
+            "row_label": "Chi phi ban hang",
+            "column_label": "Nam nay",
+            "period": "nam nay",
+            "source_span": [
+              38,
+              53
+            ]
+          },
+          {
+            "value": "39692723111",
+            "source_name": "AGP_23CN_BCTN.pdf",
+            "page": 38,
+            "row_label": "Chi phi quan ly doanh nghiép",
+            "column_label": "Nam nay",
+            "period": "nam nay",
+            "source_span": [
+              50,
+              65
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "invariants": {
+    "protected_evaluation_loaded": false,
+    "abw_loaded": false,
+    "synthetic_layout_counted": false,
+    "gold_used_for_inference": false,
+    "candidate_rank_score_or_confidence_used_as_semantic_proof": false,
+    "answer_presentation_unlocked": false,
+    "qp4_or_phase_d_unlocked": false
+  }
+}

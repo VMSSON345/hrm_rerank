@@ -1,0 +1,81 @@
+{
+  "schema": "finhrm-thesis-core-precommit-validation-v1",
+  "classification": "development_only_contract_validation",
+  "contract": "config/finhrm_thesis_core_v1.json",
+  "contract_sha256": "a9f2f3088f7622c6c8912086eac16252f154fcae1164a3fe7ba75107a0ece502",
+  "valid": true,
+  "errors": [],
+  "warnings": [],
+  "counts": {
+    "research_questions": 3,
+    "families": 16,
+    "answer_families": 13,
+    "abstain_families": 3,
+    "multi_step_families": 3,
+    "hard_negative_types": 10
+  },
+  "family_ids": [
+    "PA01",
+    "PA02",
+    "PA03",
+    "PA04",
+    "PA05",
+    "PA06",
+    "PA07",
+    "PA08",
+    "PA09",
+    "TY01",
+    "TY02",
+    "TY04",
+    "IBDS01",
+    "C13",
+    "C14",
+    "C15"
+  ],
+  "catalog_alignment": {
+    "PA01": true,
+    "PA02": true,
+    "PA03": true,
+    "PA04": true,
+    "PA05": true,
+    "PA06": true,
+    "PA07": true,
+    "PA08": true,
+    "PA09": true,
+    "TY01": true,
+    "TY02": true,
+    "TY04": true,
+    "C13": true,
+    "C14": true,
+    "C15": true
+  },
+  "frozen_hash_results": {
+    "question_family_catalog": {
+      "path": "config/question_family_catalog_plan_actual_v1.jsonl",
+      "expected_sha256": "69c4017afec7731f63407339ae0c3d717ac38690807b17908b77fb1892d8e31b",
+      "actual_sha256": "69c4017afec7731f63407339ae0c3d717ac38690807b17908b77fb1892d8e31b",
+      "matches": true
+    },
+    "financial_identity_catalog": {
+      "path": "config/financial_identities.yaml",
+      "expected_sha256": "cc566b3093060ac7b98badbbd38b6ab8ae51004046d49ca4ee33619e6cbf1aa5",
+      "actual_sha256": "cc566b3093060ac7b98badbbd38b6ab8ae51004046d49ca4ee33619e6cbf1aa5",
+      "matches": true
+    },
+    "checkpoint": {
+      "path": "models/document_hrm_V8_candidate.pt",
+      "expected_sha256": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de",
+      "actual_sha256": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de",
+      "matches": true
+    }
+  },
+  "invariants": {
+    "model_loaded": false,
+    "pdf_loaded": false,
+    "validation_loaded": false,
+    "blind_test_loaded": false,
+    "fine_tuning_performed": false,
+    "threshold_changed": false,
+    "runtime_changed": false
+  }
+}

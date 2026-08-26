@@ -1,0 +1,449 @@
+{
+  "schema": "finhrm-qp4-post-question-surface-post-cache-residual-coverage-post-source-protocol-diagnostic-review-precommit-v1",
+  "created_at": "2026-08-24",
+  "classification": "development_only_qp4_artifact_only_value_prioritized_diagnostic_review_precommit_no_runtime_or_source_execution",
+  "status": "precommit_contract",
+  "step": "QP4-POST-QUESTION-SURFACE-POST-CACHE-RESIDUAL-COVERAGE-POST-SOURCE-PROTOCOL-DIAGNOSTIC-REVIEW-PRECOMMIT",
+  "parents": {
+    "source_protocol_reclosure_report": {
+      "path": "reports/finhrm_qp4_post_question_surface_post_cache_residual_coverage_source_protocol_reclosure_v1.json",
+      "size_bytes": 764361,
+      "sha256": "88907efcf7764217c5aa1d5219e5ef2c997d34cbf45d1f300dd68190b8ae84eb"
+    },
+    "source_protocol_reclosure_markdown": {
+      "path": "reports/finhrm_qp4_post_question_surface_post_cache_residual_coverage_source_protocol_reclosure_v1.md",
+      "size_bytes": 1453,
+      "sha256": "542c0f9ec30f20ce6400ec73d9d61b9e70427c0ebb762b83284dae862498442b"
+    },
+    "source_protocol_reclosure_lock": {
+      "path": "reports/finhrm_qp4_post_question_surface_post_cache_residual_coverage_source_protocol_reclosure_lock_v1.json",
+      "size_bytes": 28633,
+      "sha256": "e3edc7103c3a366d7ce57e62df2a7e1f7dc1af8affa20ef59f46533e947fdf95"
+    },
+    "claude_md": {
+      "path": "CLAUDE.md",
+      "size_bytes": 2356,
+      "sha256": "35a0f66a6531e61b35dc7288884da35eeef79ad1039f5ffdfd29295cee8d566e"
+    },
+    "thesis_core": {
+      "path": "config/finhrm_thesis_core_v1.json",
+      "size_bytes": 24625,
+      "sha256": "a9f2f3088f7622c6c8912086eac16252f154fcae1164a3fe7ba75107a0ece502"
+    },
+    "generalization_invariant": {
+      "path": "config/finhrm_report_generalization_invariant_v1.json",
+      "size_bytes": 2512,
+      "sha256": "7a8c6e58a47314d522adb782277f6d5bf0cbf761faf681d848e2e9ae4e861846"
+    }
+  },
+  "authorization_basis": {
+    "parent_gate_passed": true,
+    "parent_failed_gates": [],
+    "parent_next_allowed_action_exact": "QP4-POST-QUESTION-SURFACE-POST-CACHE-RESIDUAL-COVERAGE-POST-SOURCE-PROTOCOL-DIAGNOSTIC-REVIEW-PRECOMMIT",
+    "runtime_edit_authorized": false,
+    "runtime_file_whitelist": [],
+    "qp5_authorized": false,
+    "phase_d_unlocked": false
+  },
+  "frozen_observation_universe": {
+    "logical_primary_rows": 90,
+    "nested_candidate_permutation_rows": 90,
+    "companies": 6,
+    "source_documents": 6,
+    "real_document_layout_families": 3,
+    "real_table_layout_families": 6,
+    "extraction_families": 2,
+    "expected_answer_rows": 72,
+    "expected_non_answer_rows": 18,
+    "exact_oracle_pass_rows": 8,
+    "primary_first_failing_layer": {
+      "QUESTION_PLAN": 19,
+      "CANDIDATE_POPULATION_OR_RETRIEVAL": 39,
+      "SEMANTIC_BINDING_OR_PROGRAM_SYNTHESIS": 13,
+      "SYMBOLIC_PROOF_OR_ACTION": 11,
+      "PASS": 8
+    },
+    "source_errors": 0,
+    "cache_reusable_with_auto_generation_disabled": 90,
+    "accepted_wrong": 0,
+    "reference_base_old_winner_false_accepts": 0,
+    "semantic_control_false_accepts": 0,
+    "hard_negative_answers": 0
+  },
+  "honest_problem_frame": {
+    "source_protocol_and_safety_are_closed": {
+      "materialization": "90/90",
+      "primary_replay": "90/90",
+      "candidate_permutation_replay": "90/90",
+      "pre_ranking_ocr_generation_attempts": 0,
+      "unselected_ocr_generation_attempts": 0,
+      "whole_document_ocr_jobs": 0,
+      "accepted_wrong": 0,
+      "semantic_control_false_accepts": 0
+    },
+    "core_utility_is_not_closed": {
+      "proof_complete_exact_target_answers": "0/60",
+      "all_expected_answer_rows_answered": "0/72",
+      "canonical_positive_rows_passing": "0/12",
+      "surface_equivalence_groups": "0/12",
+      "source_candidate_permutation_exact": "37/90"
+    },
+    "negative_control_interpretation": {
+      "exact_non_answer_oracle_pass": "8/18",
+      "safe_fail_closed_without_answer": "18/18",
+      "missing_proof_rows_observed_as_reject_instead_of_abstain": 10,
+      "note": "Safe rejection is not accepted-wrong, but it is not contract-equivalent to UNKNOWN to ABSTAIN and must not be counted as an exact pass."
+    },
+    "claim_boundary": "This is development-only evidence across six companies and three real document layout families. It does not prove universal or unseen generalization."
+  },
+  "priority_policy": {
+    "principle": "Only diagnose or later repair failures that protect the thesis proof contract or materially restore generic verified-answer utility. Do not optimize every residual or metric independently.",
+    "tiers": [
+      {
+        "tier": "P0_PROOF_AND_SAFETY_CONTRACT",
+        "required": true,
+        "scope": [
+          "Any accepted-wrong or false accept; currently zero and therefore a no-regression obligation, not an implementation target.",
+          "Missing proof classified as INVALID/REJECT instead of UNKNOWN/ABSTAIN in ambiguity_control or minimal_pair_year_shift.",
+          "Any source-protocol regression; currently zero and therefore frozen."
+        ],
+        "repair_admission": "A later edit requires one coherent category-specific root signature with direct frozen evidence across the generic minimum. Safety counts may not be pooled across categories."
+      },
+      {
+        "tier": "P1_CORE_VERIFIED_ANSWER_UTILITY",
+        "required": true,
+        "scope": [
+          "Canonical base_target and reference_base_mutation_target positives.",
+          "Meaning-changing positive controls minimal_pair_role_swap and PA07_operation_contrast.",
+          "Meaning-preserving clause_reordered and reference-base paraphrase planning failures when the exact semantic projection is preserved."
+        ],
+        "repair_order": [
+          "Canonical positive candidate/retrieval and binding root causes.",
+          "Positive semantic-control root causes.",
+          "Question-surface planner root causes that are generic within the same semantic category."
+        ],
+        "reason": "Zero of 72 expected ANSWER rows are answered, including zero of 12 canonical positives; this is a material system-utility gap rather than cosmetic coverage."
+      },
+      {
+        "tier": "P2_DEPENDENT_GENERALIZATION_METRICS",
+        "required": "measure_after_P0_and_P1_only",
+        "scope": [
+          "Surface-equivalence group pass rate.",
+          "Source candidate-permutation exactness.",
+          "No-diacritics, long-clause, and paraphrase residuals whose earliest failure is shared with canonical candidate/binding failure."
+        ],
+        "repair_admission": "Do not open a standalone runtime patch. Re-measure after an admitted P0/P1 generic repair and only escalate a residual if it retains a distinct generic root cause."
+      },
+      {
+        "tier": "P3_NONESSENTIAL_OR_NON_GENERIC",
+        "required": false,
+        "scope": [
+          "Single-company or single-layout exceptions.",
+          "Rank, neural score, confidence, or timeout-only changes without semantic proof impact.",
+          "Action wording or reporting cosmetics that do not change the typed proof contract.",
+          "Any patch selected by company, filename, page, year, value, example ID, anchor ID, or question literal."
+        ],
+        "disposition": "Retain honestly in the denominator/report, but do not authorize a runtime edit."
+      }
+    ]
+  },
+  "frozen_diagnostic_inventory": {
+    "canonical_positive": [
+      {
+        "category": "base_target",
+        "layer": "CANDIDATE_POPULATION_OR_RETRIEVAL",
+        "rows": 5,
+        "companies": 5,
+        "document_layouts": 3,
+        "table_layouts": 5,
+        "extraction_families": 2,
+        "priority": "P1"
+      },
+      {
+        "category": "base_target",
+        "layer": "SEMANTIC_BINDING_OR_PROGRAM_SYNTHESIS",
+        "rows": 1,
+        "companies": 1,
+        "document_layouts": 1,
+        "table_layouts": 1,
+        "extraction_families": 1,
+        "priority": "P3_NON_GENERIC"
+      },
+      {
+        "category": "reference_base_mutation_target",
+        "layer": "CANDIDATE_POPULATION_OR_RETRIEVAL",
+        "rows": 3,
+        "companies": 3,
+        "document_layouts": 2,
+        "table_layouts": 3,
+        "extraction_families": 2,
+        "priority": "P1"
+      },
+      {
+        "category": "reference_base_mutation_target",
+        "layer": "SEMANTIC_BINDING_OR_PROGRAM_SYNTHESIS",
+        "rows": 3,
+        "companies": 3,
+        "document_layouts": 2,
+        "table_layouts": 3,
+        "extraction_families": 1,
+        "priority": "P1"
+      }
+    ],
+    "question_surface_planner": [
+      {
+        "category": "base_target",
+        "surface": "clause_reordered",
+        "rows": 6,
+        "companies": 6,
+        "document_layouts": 3,
+        "priority": "P1"
+      },
+      {
+        "category": "reference_base_mutation_target",
+        "surface": "clause_reordered",
+        "rows": 6,
+        "companies": 6,
+        "document_layouts": 3,
+        "priority": "P1"
+      },
+      {
+        "category": "reference_base_mutation_target",
+        "surface": "paraphrase_1",
+        "rows": 6,
+        "companies": 6,
+        "document_layouts": 3,
+        "priority": "P1"
+      },
+      {
+        "category": "reference_base_mutation_target",
+        "surface": "long_clause",
+        "rows": 1,
+        "companies": 1,
+        "document_layouts": 1,
+        "priority": "P3_NON_GENERIC"
+      }
+    ],
+    "positive_semantic_controls": [
+      {
+        "category": "minimal_pair_role_swap",
+        "expected": "ANSWER/VALID",
+        "rows": 6,
+        "passed": 0,
+        "generic_candidate_or_retrieval_failures": 5,
+        "non_generic_binding_failures": 1,
+        "priority": "P1"
+      },
+      {
+        "category": "PA07_operation_contrast",
+        "expected": "ANSWER/VALID",
+        "rows": 6,
+        "passed": 0,
+        "generic_candidate_or_retrieval_failures": 5,
+        "non_generic_proof_or_action_failures": 1,
+        "priority": "P1"
+      }
+    ],
+    "negative_controls": [
+      {
+        "category": "hard_negative_missing_role",
+        "expected": "ABSTAIN/UNKNOWN",
+        "rows": 6,
+        "exact_pass": 6,
+        "priority": "NO_REGRESSION"
+      },
+      {
+        "category": "ambiguity_control",
+        "expected": "ABSTAIN/UNKNOWN",
+        "rows": 6,
+        "exact_pass": 2,
+        "reject_invalid_mismatch": 4,
+        "companies_in_mismatch": 4,
+        "document_layouts_in_mismatch": 3,
+        "priority": "P0"
+      },
+      {
+        "category": "minimal_pair_year_shift",
+        "expected": "ABSTAIN/UNKNOWN",
+        "rows": 6,
+        "exact_pass": 0,
+        "reject_invalid_mismatch": 6,
+        "companies_in_mismatch": 6,
+        "document_layouts_in_mismatch": 3,
+        "priority": "P0"
+      }
+    ]
+  },
+  "diagnostic_contract": {
+    "stage": "artifact_only_frozen_row_value_and_root_cause_review",
+    "runtime_file_whitelist": [],
+    "source_pdf_read": false,
+    "cached_ocr_content_read": false,
+    "ocr_or_mineru_run": false,
+    "source_replay_run": false,
+    "candidate_or_model_inference_run": false,
+    "new_question_or_cohort_generation": false,
+    "historical_artifacts_immutable": true,
+    "review_unit": "one frozen logical row with its frozen primary and candidate-permutation result",
+    "layer_order": [
+      "QUESTION_PLAN",
+      "CANDIDATE_POPULATION_OR_RETRIEVAL",
+      "SEMANTIC_BINDING_OR_PROGRAM_SYNTHESIS",
+      "SYMBOLIC_PROOF_OR_ACTION",
+      "PASS"
+    ],
+    "required_row_disposition": [
+      "EXACT_PASS_CONTROL",
+      "P0_CONTRACT_ROOT_CANDIDATE",
+      "P1_CORE_ROOT_CANDIDATE",
+      "P2_DEPENDENT_METRIC",
+      "P3_NON_GENERIC_OR_NONESSENTIAL",
+      "UPSTREAM_CONSEQUENCE",
+      "EVALUATOR_OR_ORACLE_DEFECT"
+    ],
+    "required_review_questions": [
+      "Is the expected action ANSWER or a fail-closed control?",
+      "Does the mismatch violate proof semantics/safety, restore verified-answer utility, or only change a dependent metric?",
+      "Is this the earliest failing layer, rather than a downstream symptom?",
+      "Does one exact category-specific root signature recur across enough companies and real layouts without cross-category pooling?",
+      "Can the root be mapped to the smallest generic symbol group without report-specific features?",
+      "Would leaving the residual unfixed prevent the QP4 thesis contract, or merely reduce optional coverage?"
+    ],
+    "generic_admission_minimum": {
+      "same_category": true,
+      "same_earliest_layer": true,
+      "same_exact_root_signature": true,
+      "minimum_companies": 3,
+      "minimum_source_documents": 3,
+      "minimum_real_document_layouts": 2,
+      "minimum_real_table_layouts_when_source_or_layout_relevant": 3,
+      "minimum_extraction_families_when_source_or_retrieval_relevant": 2,
+      "cross_category_pooling_forbidden": true,
+      "synthetic_layout_confirmation_forbidden": true
+    },
+    "selection_may_use": [
+      "frozen semantic category",
+      "frozen surface family label",
+      "frozen expected action and proof state",
+      "frozen earliest failing layer",
+      "frozen typed candidate-support and binding/proof signatures",
+      "aggregate company/source/layout/extraction diversity"
+    ],
+    "selection_must_not_use": [
+      "company identity",
+      "report filename",
+      "page number",
+      "year",
+      "numeric value",
+      "example or anchor identity",
+      "question literal",
+      "candidate rank",
+      "neural score",
+      "confidence"
+    ],
+    "gold_use": {
+      "passed_to_runtime": false,
+      "changes_candidate_or_winner": false,
+      "post_hoc_comparison_only": true
+    }
+  },
+  "nonessential_fix_guard": {
+    "standalone_runtime_patch_for_surface_group_rate_forbidden": true,
+    "standalone_runtime_patch_for_source_permutation_exactness_forbidden": true,
+    "single_row_or_single_company_patch_forbidden": true,
+    "score_rank_or_confidence_tuning_forbidden": true,
+    "downstream_patch_before_upstream_root_isolated_forbidden": true,
+    "force_answer_to_raise_coverage_forbidden": true,
+    "all_residuals_still_reported": true
+  },
+  "decision_policy": {
+    "if_p0_or_p1_generic_root_confirmed": "The diagnostic review may authorize only a separate implementation precommit naming the smallest generic runtime symbol whitelist and exact regression, candidate-permutation, counterfactual, safe-replay, and source-backed replay obligations.",
+    "if_only_p2_metric_remains": "Re-measure after admitted P0/P1 work; do not authorize an independent patch unless a distinct generic thesis-relevant root cause remains.",
+    "if_p3_or_non_generic": "Retain the failure honestly, keep fail-closed behavior, and do not authorize runtime work.",
+    "if_evaluator_or_oracle_defect": "Reclose the evaluator contract before runtime changes.",
+    "missing_proof": "UNKNOWN to ABSTAIN",
+    "conflict_or_contradiction": "INVALID to REJECT"
+  },
+  "precommit_gates": {
+    "parent_hashes_exact": true,
+    "parent_gate_passed": true,
+    "all_90_rows_retained": true,
+    "expected_answer_and_non_answer_partition_72_plus_18": true,
+    "first_failing_layer_partition_exact": true,
+    "safety_and_utility_reported_separately": true,
+    "all_12_canonical_positive_failures_retained": true,
+    "all_19_question_plan_failures_retained": true,
+    "all_10_negative_action_contract_mismatches_retained": true,
+    "dependent_metrics_not_used_as_standalone_patch_authorization": true,
+    "non_generic_failures_not_hidden": true,
+    "runtime_changed": false,
+    "source_or_ocr_execution_performed": false,
+    "runtime_edit_authorized": false,
+    "qp4_complete": false,
+    "qp5_authorized": false,
+    "phase_d_unlocked": false
+  },
+  "frozen_controls": {
+    "compiler": "242/242",
+    "regression": "360/360",
+    "safe_replay_gate": true,
+    "actions": {
+      "ABSTAIN": 92,
+      "ANSWER": 257,
+      "REJECT": 14
+    },
+    "execution": "363/363",
+    "permutation": "363/363",
+    "counterfactuals": 141,
+    "counterfactual_false_accepts": 0
+  },
+  "checkpoint": {
+    "path": "models/document_hrm_V8_candidate.pt",
+    "sha256": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de"
+  },
+  "frozen_runtime_hashes": {
+    "src/hrm_finance_qa/question_planner.py": "334ab6bfb57b883ff2022cdcb39614d7e7a8d3269c14f4bea188640d53111bf4",
+    "src/hrm_finance_qa/symbolic_verifier.py": "2679b1ce55cc070697438c806f19e3e888bfc19bc1a9ae3686a0b7fd7ffb0087",
+    "src/hrm_finance_qa/program_synthesis.py": "e4acc4878d0dfd465ba66ab91f3aaf8be71db5591aa1358fb8cb81f3c7bff550",
+    "src/hrm_finance_qa/evidence_schema.py": "2f16fabf932dc9dabc8203d9642d2503bb2dab43e0e1ee0f78755dd4fb00825d",
+    "src/hrm_finance_qa/document_hrm.py": "b5951bcde79583950b672f7fb6b199b3e5b9904e6784daae7c4c5be0eba65d21",
+    "src/hrm_finance_qa/document_reasoning_engine.py": "3883500011472716bc01f8e04a6d6f925173b35a14bbedd945c5ca4fb0063fa2",
+    "src/hrm_finance_qa/program_data.py": "5199434fc0628b7d270ce62b12657366cbe118901065edd9f1e1f6ca0f1f8d54",
+    "src/hrm_finance_qa/direction_contract.py": "a18aa130419fc74ce647bd92dc9c1b1217007738e636aad0f28c7f78396be937",
+    "src/hrm_finance_qa/answer_presentation.py": "c40bd4a8dff39162b44cf11ef2da12e7b153d907f7254e5d1856157b3ac56d36",
+    "src/hrm_finance_qa/document_sources.py": "e9eb7b3ddcc2ed13060a573a6a0101a216fa49ff21dd65cd5fc2629b92f5fc0b",
+    "src/hrm_finance_qa/document_page_index.py": "d531f47a22ed051863b41b3de031bb3e9d4bbf60ef71f825217559b7035386b4"
+  },
+  "future_diagnostic_outputs": {
+    "final_json": "reports/finhrm_qp4_post_question_surface_post_cache_residual_coverage_post_source_protocol_diagnostic_review_v1.json",
+    "final_markdown": "reports/finhrm_qp4_post_question_surface_post_cache_residual_coverage_post_source_protocol_diagnostic_review_v1.md",
+    "lock": "reports/finhrm_qp4_post_question_surface_post_cache_residual_coverage_post_source_protocol_diagnostic_review_lock_v1.json"
+  },
+  "artifact_policy": {
+    "maximum_final_json": 1,
+    "maximum_final_markdown": 1,
+    "maximum_lock_or_manifest": 1,
+    "raw_or_intermediate_artifacts_persisted": false,
+    "temporary_artifacts_deleted_after_verification": true
+  },
+  "invariants": {
+    "abw_used": false,
+    "protected_evaluation_loaded": false,
+    "validation_loaded": false,
+    "blind_loaded": false,
+    "test_data_loaded": false,
+    "sealed_or_holdout_loaded": false,
+    "fine_tuning_performed": false,
+    "threshold_changed": false,
+    "checkpoint_changed": false,
+    "model_changed": false,
+    "synthetic_layout_counted_as_confirmation": false,
+    "candidate_rank_score_or_confidence_used_as_semantic_proof": false,
+    "nearby_context_or_absence_used_to_infer_period_or_provenance": false,
+    "runtime_changed": false,
+    "source_or_ocr_execution_performed": false,
+    "qp4_complete": false,
+    "qp5_authorized": false,
+    "phase_d_unlocked": false
+  }
+}

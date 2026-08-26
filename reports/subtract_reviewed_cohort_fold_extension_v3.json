@@ -1,0 +1,121 @@
+{
+  "schema": "subtract-reviewed-cohort-fold-extension-audit-v1",
+  "classification": "development_only_company_report_disjoint",
+  "blind_test_used": false,
+  "validation_loaded": false,
+  "fine_tuning_performed": false,
+  "threshold_changed": false,
+  "inputs": {
+    "base_fold_manifest_sha256": "c808e3d181092881cd80b6a24b5cef5c7562532aa764c68e138c956a9cf896cd",
+    "base_phase_c_manifest_sha256": "7479d3eb25b28ca5d7453dab3c98c429f989d50c2128b07ba81487fc5db082f7",
+    "reviewed_cohorts": [
+      {
+        "path": "/mnt/d/reasoning_model_V4/reasoning_model/data/subtract_new_company_development_reviewed_v1.jsonl",
+        "sha256": "08d47314f93314c93e1f08bc507a5b0b9a4ade46619c36241cd92b5652f1d71e"
+      },
+      {
+        "path": "/mnt/d/reasoning_model_V4/reasoning_model/data/subtract_native_development_reviewed_v1.jsonl",
+        "sha256": "75b31fc20660d9d6c8e9babdc725e927018cacf7a432b6fbeab5bca5ffba9c07"
+      },
+      {
+        "path": "/mnt/d/reasoning_model_V4/reasoning_model/data/subtract_native_development_reviewed_batch2_v1.jsonl",
+        "sha256": "10dd939a827b353b58ae87308e2deab3303bdd7a56c70c9cce8f3a40e49cd91f"
+      }
+    ]
+  },
+  "metrics": {
+    "base_development_examples": 1200,
+    "new_examples": 46,
+    "new_company_groups": 46,
+    "new_composite_groups": 46,
+    "company_overlap": 0,
+    "report_overlap": 0,
+    "fold_disjointness": [
+      {
+        "fold": 0,
+        "company_overlap": 0,
+        "report_overlap": 0,
+        "group_overlap": 0,
+        "train_examples": 1001,
+        "validation_examples": 245
+      },
+      {
+        "fold": 1,
+        "company_overlap": 0,
+        "report_overlap": 0,
+        "group_overlap": 0,
+        "train_examples": 997,
+        "validation_examples": 249
+      },
+      {
+        "fold": 2,
+        "company_overlap": 0,
+        "report_overlap": 0,
+        "group_overlap": 0,
+        "train_examples": 997,
+        "validation_examples": 249
+      },
+      {
+        "fold": 3,
+        "company_overlap": 0,
+        "report_overlap": 0,
+        "group_overlap": 0,
+        "train_examples": 997,
+        "validation_examples": 249
+      },
+      {
+        "fold": 4,
+        "company_overlap": 0,
+        "report_overlap": 0,
+        "group_overlap": 0,
+        "train_examples": 992,
+        "validation_examples": 254
+      }
+    ],
+    "base_subtract_train_groups": [
+      24,
+      28,
+      29,
+      29,
+      34
+    ],
+    "base_subtract_calibration_groups": [
+      12,
+      8,
+      7,
+      7,
+      2
+    ],
+    "new_calibration_groups_by_fold": [
+      5,
+      9,
+      9,
+      9,
+      14
+    ],
+    "final_subtract_train_groups": [
+      65,
+      65,
+      66,
+      66,
+      66
+    ],
+    "final_subtract_calibration_groups": [
+      17,
+      17,
+      16,
+      16,
+      16
+    ]
+  },
+  "gates": {
+    "company_report_disjoint": true,
+    "subtract_groups_30_train_15_calibration_all_folds": true
+  },
+  "outputs": {
+    "development": "/mnt/d/reasoning_model_V4/reasoning_model/data/document_hrm_v12b2_development_plus_subtract_v3.jsonl",
+    "development_sha256": "c6e119519d2dae59933edc5e493de7aef885154c037b95be54a1290b7f529d26",
+    "fold_manifest": "/mnt/d/reasoning_model_V4/reasoning_model/data/document_hrm_v12b2_reranker_disjoint_folds_subtract_v4.json",
+    "fold_manifest_sha256": "faf4f0322e87bcb21141d505d417afd1f13f594062a917866b7c88dbae543459"
+  }
+}

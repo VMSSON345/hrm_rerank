@@ -1,0 +1,175 @@
+{
+  "schema": "finhrm.qp4.post_question_surface.post_cache.residual_coverage.post_source_protocol.semantic_trace_reclosure.v1",
+  "created_at": "2026-08-24T09:17:17+07:00",
+  "classification": "development_only_evaluator_or_oracle_defect_no_runtime_no_trace_replay",
+  "status": "FAIL",
+  "semantic_trace_gate_passed": false,
+  "outcome": "EVALUATOR_OR_ORACLE_DEFECT",
+  "failed_gates": [
+    "frozen_parent_required_semantic_fields_available",
+    "deterministic_candidate_permutation_recipe_frozen",
+    "no_interference_comparison_executable",
+    "logical_rows_with_complete_primary_trace_42_of_42",
+    "logical_rows_with_complete_permutation_trace_42_of_42"
+  ],
+  "parents": {
+    "semantic_trace_precommit": {
+      "path": "config/finhrm_qp4_post_question_surface_post_cache_residual_coverage_post_source_protocol_semantic_trace_reclosure_precommit_v1.json",
+      "size_bytes": 21441,
+      "sha256": "bc693cc118fef8238d189c74c7099a1e262e5deb77c3ff04c4f78e31f555634c"
+    },
+    "semantic_trace_precommit_markdown": {
+      "path": "reports/finhrm_qp4_post_question_surface_post_cache_residual_coverage_post_source_protocol_semantic_trace_reclosure_precommit_v1.md",
+      "size_bytes": 3547,
+      "sha256": "1dece962bcd91ab92c80e36f02c9e9cd7ce5a0beda3a2865aab59489cc3e137c"
+    },
+    "semantic_trace_precommit_lock": {
+      "path": "reports/finhrm_qp4_post_question_surface_post_cache_residual_coverage_post_source_protocol_semantic_trace_reclosure_precommit_lock_v1.json",
+      "size_bytes": 12076,
+      "sha256": "63214991bb745b2647470532fd74cdd8c7ef2942039594d47726517cd32914f1"
+    },
+    "frozen_source_protocol_reclosure": {
+      "path": "reports/finhrm_qp4_post_question_surface_post_cache_residual_coverage_source_protocol_reclosure_v1.json",
+      "size_bytes": 764361,
+      "sha256": "88907efcf7764217c5aa1d5219e5ef2c997d34cbf45d1f300dd68190b8ae84eb"
+    }
+  },
+  "preflight_audit": {
+    "selection": {
+      "logical_rows": 42,
+      "categories": 7,
+      "rows_per_category": 6,
+      "selection_exact": true
+    },
+    "frozen_parent_field_inventory": {
+      "primary_rows": 42,
+      "permutation_rows": 42,
+      "primary_rows_missing_program_dag": 42,
+      "primary_rows_missing_proof_obligations": 42,
+      "primary_rows_missing_verification_reasons": 42,
+      "primary_rows_missing_acceptance_basis": 42,
+      "permutation_rows_missing_program_dag": 42,
+      "permutation_rows_missing_proof_obligations": 42,
+      "permutation_rows_missing_verification_reasons": 42,
+      "permutation_rows_missing_acceptance_basis": 42
+    },
+    "contract_conflict": {
+      "required_by_precommit": [
+        "selected operation and program DAG must match the frozen parent",
+        "proof obligations and verification reasons must match the frozen parent"
+      ],
+      "available_in_frozen_parent": [
+        "source outcome",
+        "source action",
+        "verification state",
+        "observed operation",
+        "candidate count",
+        "selected physical evidence"
+      ],
+      "comparison_possible": false,
+      "missing_field_policy_applied": "TRACE_INCOMPLETE_AND_FAIL_WITHOUT_INFERENCE"
+    },
+    "candidate_permutation_recipe": {
+      "recipe_or_transform_id_persisted": false,
+      "deterministic_seed_or_order_persisted": false,
+      "program_pointer_remapping_contract_persisted": false,
+      "frozen_output_only": true,
+      "baseline_exactness_in_selected_parent": "20/42",
+      "exact_reproduction_provable": false
+    },
+    "execution_disposition": {
+      "primary_trace_rows_executed": 0,
+      "permutation_trace_rows_executed": 0,
+      "reason": "The mandatory frozen-parent equivalence oracle is incomplete before model execution. Running the rows cannot satisfy the locked no-interference gates and would produce unverifiable trace metrics.",
+      "timeout_or_source_failures": 0,
+      "new_ocr_generation": false,
+      "protected_split_read": false,
+      "gold_passed_to_runtime": false
+    }
+  },
+  "frozen_selected_baseline": {
+    "logical_rows": 42,
+    "primary_first_failing_layer": {
+      "CANDIDATE_POPULATION_OR_RETRIEVAL": 18,
+      "SEMANTIC_BINDING_OR_PROGRAM_SYNTHESIS": 5,
+      "SYMBOLIC_PROOF_OR_ACTION": 11,
+      "PASS": 8
+    },
+    "primary_actions": {
+      "ANSWER": 0,
+      "ABSTAIN": 15,
+      "REJECT": 27
+    },
+    "permutation_actions": {
+      "ANSWER": 0,
+      "ABSTAIN": 18,
+      "REJECT": 24
+    },
+    "primary_permutation_exact": "20/42",
+    "baseline_changed": false
+  },
+  "model_capacity_audit": {
+    "checkpoint": {
+      "path": "models/document_hrm_V8_candidate.pt",
+      "size_bytes": 3413128,
+      "sha256": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de"
+    },
+    "bundle_parameter_count": 843097,
+    "primary_model_parameter_count": 843097,
+    "pointer_bundle_parameter_count": 0,
+    "secondary_pointer_bundle_parameter_count": 0,
+    "attribution": "NOT_CONFIRMED_AS_MODEL_CAPACITY_FAILURE",
+    "evidence": {
+      "pre_model_candidate_population_or_retrieval_failures": 18,
+      "mixed_neural_or_symbolic_binding_failures": 5,
+      "post_proposal_symbolic_proof_or_action_failures": 11,
+      "passed_rows": 8
+    },
+    "interpretation": "Parameter count alone is not a causal diagnostic in this neuro-symbolic pipeline. Only the mixed binding/program-synthesis stratum could currently contain a model-proposal contribution, and the frozen artifacts do not isolate it from symbolic synthesis. No model-size, checkpoint, threshold or fine-tuning action is authorized."
+  },
+  "runtime_integrity": {
+    "all_frozen_runtime_hashes_exact_before": true,
+    "all_frozen_runtime_hashes_exact_after": true,
+    "checkpoint_hash_exact_before": true,
+    "checkpoint_hash_exact_after": true,
+    "runtime_changed": false,
+    "model_changed": false,
+    "checkpoint_changed": false,
+    "threshold_changed": false,
+    "persistent_trace_harness_created": false,
+    "temporary_files_remaining": 0
+  },
+  "decision": {
+    "semantic_runtime_root_confirmed": false,
+    "runtime_edit_authorized": false,
+    "implementation_precommit_authorized": false,
+    "next_allowed_action": "QP4-POST-QUESTION-SURFACE-POST-CACHE-RESIDUAL-COVERAGE-POST-SOURCE-PROTOCOL-SEMANTIC-TRACE-EVALUATOR-CONTRACT-RECLOSURE-PRECOMMIT",
+    "required_next_contract_fixes": [
+      "Freeze a baseline semantic envelope for all 42 primary and 42 permutation rows containing program DAG, proof obligations, verification reasons and acceptance basis.",
+      "Freeze the exact deterministic candidate permutation transform, transform identifier and program-pointer remapping semantics.",
+      "Require an unobserved baseline replay and an observed identity-preserving replay to match on the complete semantic envelope before root attribution."
+    ],
+    "qp4_complete": false,
+    "qp5_authorized": false,
+    "phase_d_unlocked": false
+  },
+  "artifact_policy": {
+    "final_json": 1,
+    "final_markdown": 1,
+    "lock_manifest": 1,
+    "temporary_files_deleted": true,
+    "runtime_or_test_artifacts_added": 0
+  },
+  "invariants": {
+    "development_only": true,
+    "company_layout_disjoint_claim_made": false,
+    "unseen_confirmation_claim_made": false,
+    "abw_used": false,
+    "protected_evaluation_read": false,
+    "fine_tuning_performed": false,
+    "candidate_rank_score_or_confidence_used_as_semantic_proof": false,
+    "missing_period_or_role_inferred_from_absence_or_question": false,
+    "metric_beautification_performed": false,
+    "runtime_failure_reclassified_as_model_failure": false
+  }
+}

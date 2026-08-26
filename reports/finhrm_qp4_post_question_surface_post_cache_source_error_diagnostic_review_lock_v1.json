@@ -1,0 +1,176 @@
+{
+  "schema": "finhrm-qp4-post-question-surface-post-cache-source-error-diagnostic-review-lock-v1",
+  "created_at": "2026-08-23",
+  "classification": "development_only_qp4_post_cache_source_error_diagnostic_review_runtime_unchanged",
+  "status": "complete",
+  "diagnostic_gate_passed": true,
+  "failed_gates": [],
+  "residual_strata": [
+    {
+      "first_failing_layer": "CANDIDATE_POPULATION_OR_RETRIEVAL",
+      "queries": 2,
+      "companies": 2,
+      "sources": 2,
+      "real_layouts": 2,
+      "source_actions": {
+        "ABSTAIN": 1,
+        "REJECT": 1
+      },
+      "verification_states": {
+        "INVALID": 1,
+        "UNKNOWN": 1
+      },
+      "missing_generic_dimensions": [
+        "companies",
+        "sources",
+        "real_layouts"
+      ],
+      "generic_evidence": false,
+      "runtime_candidate": false
+    },
+    {
+      "first_failing_layer": "SEMANTIC_BINDING_OR_PROGRAM_SYNTHESIS",
+      "queries": 4,
+      "companies": 3,
+      "sources": 3,
+      "real_layouts": 2,
+      "source_actions": {
+        "ABSTAIN": 1,
+        "REJECT": 3
+      },
+      "verification_states": {
+        "INVALID": 2,
+        "UNKNOWN": 2
+      },
+      "missing_generic_dimensions": [
+        "real_layouts"
+      ],
+      "generic_evidence": false,
+      "runtime_candidate": false
+    },
+    {
+      "first_failing_layer": "SOURCE_LOAD_OR_EXTRACTION",
+      "queries": 2,
+      "companies": 1,
+      "sources": 1,
+      "real_layouts": 1,
+      "source_actions": {
+        "NO_ACTION": 2
+      },
+      "verification_states": {
+        "NO_STATE": 2
+      },
+      "missing_generic_dimensions": [
+        "companies",
+        "sources",
+        "real_layouts"
+      ],
+      "generic_evidence": false,
+      "runtime_candidate": false
+    }
+  ],
+  "generic_residual_strata": [],
+  "source_error_diagnostic": {
+    "queries": 2,
+    "companies": 1,
+    "sources": 1,
+    "real_layouts": 1,
+    "variants": [
+      "base",
+      "mutated"
+    ],
+    "error_types": {
+      "DocumentSourceError": 2
+    },
+    "terminal_stages": {
+      "mineru_retrieval": 2
+    },
+    "observed_signature": "MINERU_WORKER_DISCONNECT_AFTER_RETRIEVAL_STAGE",
+    "repeatable_within_one_source": true,
+    "generic_across_company_source_layout": false,
+    "root_cause_established": false,
+    "interpretation": "The wrapper error and worker-disconnect signature are reproducible for two variants of one development source. This is insufficient to attribute a generic OCR, page-selection, source-loader, retrieval, or layout defect.",
+    "fail_closed_policy": "Retain both failures in the denominator with no ANSWER action; do not infer period, provenance, or intended pages from the question or nearby context."
+  },
+  "decision": {
+    "attribution": "POST_CACHE_RESIDUAL_NOT_YET_GENERIC",
+    "generic_runtime_evidence_sufficient": false,
+    "runtime_changed": false,
+    "runtime_edit_authorized": false,
+    "runtime_file_whitelist": [],
+    "implementation_precommit_authorized": false,
+    "development_coverage_cohort_precommit_authorized": true
+  },
+  "retained_controls": {
+    "compiler": "242/242",
+    "regression": "360/360",
+    "safe_replay_gate": true,
+    "actions": {
+      "ABSTAIN": 92,
+      "ANSWER": 257,
+      "REJECT": 14
+    },
+    "execution": "363/363",
+    "permutation": "363/363",
+    "counterfactuals": 141,
+    "counterfactual_false_accepts": 0,
+    "accepted_wrong": 0
+  },
+  "runtime_changed": false,
+  "runtime_edit_authorized": false,
+  "runtime_file_whitelist": [],
+  "ocr_rerun_performed": false,
+  "source_replay_rerun_performed": false,
+  "runtime_hashes": {
+    "src/hrm_finance_qa/question_planner.py": "334ab6bfb57b883ff2022cdcb39614d7e7a8d3269c14f4bea188640d53111bf4",
+    "src/hrm_finance_qa/symbolic_verifier.py": "2679b1ce55cc070697438c806f19e3e888bfc19bc1a9ae3686a0b7fd7ffb0087",
+    "src/hrm_finance_qa/program_synthesis.py": "e4acc4878d0dfd465ba66ab91f3aaf8be71db5591aa1358fb8cb81f3c7bff550",
+    "src/hrm_finance_qa/evidence_schema.py": "2f16fabf932dc9dabc8203d9642d2503bb2dab43e0e1ee0f78755dd4fb00825d",
+    "src/hrm_finance_qa/document_hrm.py": "b5951bcde79583950b672f7fb6b199b3e5b9904e6784daae7c4c5be0eba65d21",
+    "src/hrm_finance_qa/document_reasoning_engine.py": "3883500011472716bc01f8e04a6d6f925173b35a14bbedd945c5ca4fb0063fa2",
+    "src/hrm_finance_qa/program_data.py": "5199434fc0628b7d270ce62b12657366cbe118901065edd9f1e1f6ca0f1f8d54",
+    "src/hrm_finance_qa/direction_contract.py": "a18aa130419fc74ce647bd92dc9c1b1217007738e636aad0f28c7f78396be937",
+    "src/hrm_finance_qa/answer_presentation.py": "c40bd4a8dff39162b44cf11ef2da12e7b153d907f7254e5d1856157b3ac56d36",
+    "src/hrm_finance_qa/document_sources.py": "e9eb7b3ddcc2ed13060a573a6a0101a216fa49ff21dd65cd5fc2629b92f5fc0b",
+    "src/hrm_finance_qa/document_page_index.py": "c99e011175afef21f302be42ba9454b948caa549d4d445d6bb35c5b974b81f85"
+  },
+  "checkpoint_sha256": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de",
+  "artifact_policy": {
+    "maximum_final_json": 1,
+    "maximum_final_markdown": 1,
+    "maximum_lock_or_manifest": 1,
+    "raw_or_intermediate_artifacts_persisted": false,
+    "temporary_artifacts_deleted_after_verification": true
+  },
+  "artifacts": [
+    {
+      "path": "config/finhrm_qp4_post_question_surface_post_cache_source_error_diagnostic_review_precommit_v1.json",
+      "size_bytes": 9336,
+      "sha256": "0664c4f9a66f0e995c12dfac9409f937333f6eb11e3795ebcbc23ee254c530e4"
+    },
+    {
+      "path": "reports/finhrm_qp4_post_question_surface_post_cache_source_error_diagnostic_review_precommit_lock_v1.json",
+      "size_bytes": 3673,
+      "sha256": "1c2a4621387e83abf86da21493107d947ad33b2df654c90a0ccca8c193e5d1cd"
+    },
+    {
+      "path": "scripts/evaluate_qp4_post_question_surface_post_cache_source_error_diagnostic_review.py",
+      "size_bytes": 21494,
+      "sha256": "5010c4419a5bd4c3b0566baaf4c5dfda9efa60143a8ca4f35aa752d4932b47f9"
+    },
+    {
+      "path": "reports/finhrm_qp4_post_question_surface_post_cache_source_error_diagnostic_review_v1.json",
+      "size_bytes": 7541,
+      "sha256": "22258f523aa408467474d098a4a72981c03cc4fb0a99434b89d51a75f8969e69"
+    },
+    {
+      "path": "reports/finhrm_qp4_post_question_surface_post_cache_source_error_diagnostic_review_v1.md",
+      "size_bytes": 806,
+      "sha256": "c65b70d2d0f86c5497cbd16624d0447f52162d94c981aa21f3d038848cdd9dac"
+    }
+  ],
+  "qp4_complete": false,
+  "qp5_authorized": false,
+  "phase_d": "locked",
+  "authorized_next_step": "QP4-POST-QUESTION-SURFACE-POST-CACHE-RESIDUAL-COVERAGE-COHORT-PRECOMMIT: freeze a development-safe, semantically coherent company/source/layout-disjoint cohort before any further OCR, source replay, or runtime proposal."
+}

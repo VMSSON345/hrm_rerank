@@ -1,0 +1,496 @@
+{
+  "schema": "finhrm-qp4-precommit-v1",
+  "created_at": "2026-08-21",
+  "classification": "development_only_counterfactual_long_question_contract_runtime_unchanged",
+  "status": "precommitted_runtime_unchanged_exact_scope_only",
+  "claude_md": {
+    "path": "CLAUDE.md",
+    "sha256": "35a0f66a6531e61b35dc7288884da35eeef79ad1039f5ffdfd29295cee8d566e",
+    "read_before_scope_design": true
+  },
+  "parents": {
+    "qp3_answer_presentation_implementation_lock": {
+      "path": "reports/finhrm_qp3_answer_presentation_implementation_lock_v1.json",
+      "sha256": "0191902a7b699d6899b725014377466a0854079157bf0c9007da90b80955f45c"
+    },
+    "qp3_answer_presentation_implementation_report": {
+      "path": "reports/finhrm_qp3_answer_presentation_implementation_v1.json",
+      "sha256": "e7d4f6719ac10c6e9b9d36827128048c48b1862cb44d4937f83ff8da259e0ae3"
+    },
+    "thesis_core": {
+      "path": "config/finhrm_thesis_core_v1.json",
+      "sha256": "a9f2f3088f7622c6c8912086eac16252f154fcae1164a3fe7ba75107a0ece502"
+    },
+    "report_generalization_invariant": {
+      "path": "config/finhrm_report_generalization_invariant_v1.json",
+      "sha256": "7a8c6e58a47314d522adb782277f6d5bf0cbf761faf681d848e2e9ae4e861846"
+    },
+    "frozen_question_family_catalog": {
+      "path": "config/question_family_catalog_plan_actual_v1.jsonl",
+      "sha256": "69c4017afec7731f63407339ae0c3d717ac38690807b17908b77fb1892d8e31b"
+    },
+    "qp2e_surface_baseline": {
+      "path": "reports/finhrm_qp2e_surface_robustness_development_v1.json",
+      "sha256": "d1a6daba40f4b0f941c8ebcc2f5aa5b38513755c1e7c5416099670eeba66c2a2"
+    },
+    "frozen_safe_replay": {
+      "path": "reports/finhrm_qp3_core_s4_safe_replay_post_add_diverse_end_to_end_final_v1.json",
+      "sha256": "708201c05a25df3d0e00b9d9f3d43a2948614416aaa8c4b60fb33d3a925d978a"
+    }
+  },
+  "entry_condition": {
+    "qp3_complete": true,
+    "qp3_implementation_gate_passed": true,
+    "qp3_failed_gates": [],
+    "qp4_precommit_authorized_by_parent": true,
+    "qp4_runtime_change_authorized_by_parent": false,
+    "authorized_parent_next_step_contains": "QP4-PRECOMMIT only",
+    "checkpoint_sha256": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de",
+    "phase_d_must_remain_locked": true
+  },
+  "allowed_evidence": {
+    "split": "development_only",
+    "abw_allowed": false,
+    "protected_validation_blind_test_sealed_holdout_final_access_allowed": false,
+    "synthetic_question_variants_allowed_for_compiler_contract": true,
+    "synthetic_layout_allowed_as_generalization_confirmation": false,
+    "source_backed_real_pdf_required_for_end_to_end_confirmation": true,
+    "safe_abstention_counts_as_answered": false,
+    "diagnosis_document_policy": "Any document used to discover or repair a failure is excluded from the confirmation groups for that repair.",
+    "question_only_policy": "Question-only variants may close compiler invariance gates but never company/layout/source-backed gates."
+  },
+  "qp4_scope": {
+    "purpose": "Stress the frozen financial-report QA core with meaning-preserving long/surface variants and meaning-changing minimal pairs without expanding the system into general KG completion.",
+    "supported_task_boundary": [
+      "financial report search and question answering",
+      "typed numerical lookup and computation",
+      "verified answer presentation",
+      "verified partial or complete summary audit"
+    ],
+    "out_of_scope": [
+      "enterprise knowledge graph construction",
+      "general knowledge graph completion",
+      "free-form causal generation without cited evidence",
+      "cross-document reasoning without an explicit separately precommitted protocol",
+      "conversation-state inference without explicit state proof"
+    ],
+    "core_answer_families": [
+      "PA01",
+      "PA02",
+      "PA03",
+      "PA04",
+      "PA05",
+      "PA06",
+      "PA07",
+      "PA08",
+      "PA09",
+      "TY01",
+      "TY02",
+      "TY04",
+      "IBDS01"
+    ],
+    "ambiguity_control_families": [
+      "C13",
+      "C14",
+      "C15"
+    ]
+  },
+  "semantic_projection_v1": {
+    "question_plan_fields": [
+      "operation",
+      "operation_candidates",
+      "answer_mode",
+      "requested_output_count",
+      "requested_years",
+      "from_year",
+      "to_year",
+      "entity_mode",
+      "entity_text",
+      "requested_unit_family",
+      "direction_intent",
+      "reference_base",
+      "abstention_reason"
+    ],
+    "operand_slot_fields": [
+      "id",
+      "metric",
+      "year",
+      "column_role",
+      "entity_scope",
+      "unit_family"
+    ],
+    "program_node_fields": [
+      "id",
+      "operation",
+      "inputs",
+      "output_unit_family"
+    ],
+    "excluded_surface_fields": [
+      "question",
+      "normalized",
+      "intent_sources"
+    ],
+    "eligible_program_signature_fields": [
+      "operation",
+      "ordered_typed_operand_slots",
+      "logical_cell_ids",
+      "physical_provenance_ids",
+      "program_dag",
+      "required_proof_states"
+    ],
+    "winner_signature_fields": [
+      "action",
+      "typed_program_signature",
+      "selected_logical_cell_ids",
+      "selected_physical_provenance_ids",
+      "exact_executed_value",
+      "unit_and_scale",
+      "verification_state"
+    ],
+    "forbidden_projection_fields": [
+      "candidate_rank",
+      "candidate_order",
+      "neural_score",
+      "confidence",
+      "warning_text",
+      "report_filename",
+      "example_id"
+    ],
+    "commutative_policy": "Canonicalize operand order only for an operation declared commutative by the frozen typed program contract; preserve order for subtraction, division, percent change and every direction/reference-base-sensitive DAG.",
+    "equivalence_rule": "Equivalent surfaces must have identical semantic QuestionPlan projection, eligible_program_set signature and winner signature. A baseline ABSTAIN or REJECT must retain the same fail-closed semantic outcome and may never be promoted."
+  },
+  "minimal_pair_counterfactual_contract": {
+    "construction_rule": "Change exactly one declared semantic dimension while keeping metric identity and every unrelated qualifier fixed. Record the changed slot and retain both source questions.",
+    "required_dimensions": [
+      "COLUMN_ROLE",
+      "OPERAND_YEAR",
+      "ENTITY_SCOPE",
+      "UNIT_SCALE",
+      "DIRECTION",
+      "REFERENCE_BASE"
+    ],
+    "old_program_rule": "The pre-mutation typed program may not remain an ANSWER for the mutated question. An explicit semantic mismatch must make its applicable proof INVALID; removal or absence of required proof must be UNKNOWN and ABSTAIN.",
+    "new_program_rule": "A semantically changed question may compile to and verify a different typed program only when every new slot and proof obligation is explicit and VALID.",
+    "score_only_rejection_allowed": false,
+    "same_numeric_result_counts_as_correct_old_program": false,
+    "candidate_rank_neural_score_confidence_as_semantic_proof_allowed": false,
+    "mutation_taxonomy": [
+      {
+        "id": "QP4_CF_COLUMN_ROLE",
+        "dimension": "COLUMN_ROLE",
+        "mutation": "Change exactly one ACTUAL/PLAN/REVISED_PLAN/FORECAST role while preserving metric, year, entity and unit.",
+        "expected_old_program": "INVALID when the old role is contradicted; UNKNOWN then ABSTAIN when the role is removed.",
+        "required_control": "Swapped-role and missing-role are separate records."
+      },
+      {
+        "id": "QP4_CF_OPERAND_YEAR",
+        "dimension": "OPERAND_YEAR",
+        "mutation": "Change exactly one operand period/year and preserve the other operand identities.",
+        "expected_old_program": "INVALID period proof; no acceptance because execution happens to match.",
+        "required_control": "Cover both same-role two-year and mixed role/year programs when applicable."
+      },
+      {
+        "id": "QP4_CF_ENTITY_SCOPE",
+        "dimension": "ENTITY_SCOPE",
+        "mutation": "Change one reporting/consolidated/separate/parent/named-entity scope.",
+        "expected_old_program": "INVALID entity/scope proof, or UNKNOWN then ABSTAIN when requested scope lacks evidence.",
+        "required_control": "Cross-scope comparison is valid only when explicitly requested and separately typed."
+      },
+      {
+        "id": "QP4_CF_UNIT_SCALE",
+        "dimension": "UNIT_SCALE",
+        "mutation": "Change requested unit family or scale without changing the underlying metric.",
+        "expected_old_program": "Old unit/scale output is invalid; a new answer requires explicit proof-backed exact conversion, otherwise UNKNOWN/ABSTAIN or contradiction/REJECT.",
+        "required_control": "Display scale never feeds execution and an unproved x1000 mutation never passes."
+      },
+      {
+        "id": "QP4_CF_DIRECTION",
+        "dimension": "DIRECTION",
+        "mutation": "Reverse signed direction or change increase/exceed to decrease/shortfall while holding operands fixed.",
+        "expected_old_program": "INVALID ordered-operand/direction proof.",
+        "required_control": "Do not use ADD as a swapped-operand negative because ADD is commutative."
+      },
+      {
+        "id": "QP4_CF_REFERENCE_BASE",
+        "dimension": "REFERENCE_BASE",
+        "mutation": "Change or remove the denominator/reference base of a ratio or percent-change question.",
+        "expected_old_program": "INVALID for an explicit different base; UNKNOWN and ABSTAIN when the base is missing.",
+        "required_control": "Reference-base mutations apply only to denominator-sensitive programs."
+      }
+    ],
+    "oracle_outcomes": {
+      "explicit_contradiction": "REJECT",
+      "missing_required_semantics_or_proof": "ABSTAIN",
+      "different_complete_typed_program": "ANSWER only for the new program; old program remains non-answerable",
+      "coincidental_numeric_equality": "old program remains incorrect"
+    }
+  },
+  "long_question_and_surface_contract": {
+    "meaning_preserving_categories": [
+      "SHORT_LONG_EQUIVALENT",
+      "DISCOURSE_PREFIX_SUFFIX",
+      "CLAUSE_PERMUTATION",
+      "PUNCTUATION_VARIANT",
+      "NO_DIACRITICS",
+      "BILINGUAL_PARENTHETICAL",
+      "IRRELEVANT_DISTRACTOR_CLAUSE"
+    ],
+    "category_rules": {
+      "SHORT_LONG_EQUIVALENT": "Add report/table discourse and restate every original qualifier without adding or removing semantic slots.",
+      "DISCOURSE_PREFIX_SUFFIX": "Ignore discourse framing only; preserve metric, role, period, entity, unit, direction and reference base.",
+      "CLAUSE_PERMUTATION": "Permute clauses only when operand attachment remains explicit; otherwise classify as semantic change or ambiguity, not equivalence.",
+      "PUNCTUATION_VARIANT": "Change punctuation and spacing only.",
+      "NO_DIACRITICS": "Remove Vietnamese diacritics without changing tokens or numbers.",
+      "BILINGUAL_PARENTHETICAL": "Add a verified metric alias or unit gloss in parentheses; a non-equivalent translation is not a positive.",
+      "IRRELEVANT_DISTRACTOR_CLAUSE": "Add a clause explicitly outside the requested calculation and containing no competing requested qualifier."
+    },
+    "required_invariance": {
+      "semantic_ir_exact_rate": 1.0,
+      "eligible_program_set_exact_rate": 1.0,
+      "winner_signature_exact_rate": 1.0,
+      "action_and_abstention_reason_exact_rate": 1.0,
+      "selected_provenance_exact_rate": 1.0,
+      "exact_execution_value_rate": 1.0
+    },
+    "surface_length_as_proof_or_acceptance_feature_allowed": false,
+    "question_text_may_fill_missing_period_provenance_or_evidence_role": false
+  },
+  "evidence_stress_contract": {
+    "categories": [
+      "REPEATED_METRIC",
+      "CONFLICTING_CELL",
+      "COMPETING_LOGICAL_CELL",
+      "PERCENT_NEAR_ABSOLUTE",
+      "DISTRACTOR_TABLE_OR_SUBTABLE",
+      "CANDIDATE_PERMUTATION"
+    ],
+    "rules": {
+      "REPEATED_METRIC": "Answer only when typed qualifiers and provenance select one logical cell; otherwise UNKNOWN/ABSTAIN.",
+      "CONFLICTING_CELL": "Explicit contradiction is INVALID and REJECT; never choose by score.",
+      "COMPETING_LOGICAL_CELL": "Same numeric value is not equivalent without proven semantic and provenance equivalence.",
+      "PERCENT_NEAR_ABSOLUTE": "Unit and role proof must reject an adjacent percent/absolute substitution.",
+      "DISTRACTOR_TABLE_OR_SUBTABLE": "A different table/subtable may bind only with explicit lineage and scope proof.",
+      "CANDIDATE_PERMUTATION": "Eligible set, winner, action and proof snapshot are invariant to candidate input order."
+    },
+    "missing_proof_action": "ABSTAIN",
+    "contradiction_action": "REJECT",
+    "rank_score_confidence_tiebreak_as_semantic_proof_allowed": false
+  },
+  "separate_audit_tracks": {
+    "MULTI_OUTPUT": {
+      "contract": "Decompose to an explicit requested-output inventory with answer_mode_complete proof, or ABSTAIN with multi_answer_not_supported/incomplete reason.",
+      "answered_definition": "All requested outputs independently verified; partial verified rows do not count as a complete answer."
+    },
+    "QUALITATIVE_FOLLOW_UP": {
+      "contract": "Render a qualitative claim only from a direct cited text span; a verified numeric answer does not license an uncited cause.",
+      "answered_definition": "Both requested numeric and qualitative parts verified, otherwise explicit partial coverage or ABSTAIN."
+    },
+    "ANAPHORA": {
+      "contract": "Require explicit conversation-state proof for references such as this metric/that year/the company above; never infer from nearby text or absence.",
+      "answered_definition": "Resolved state identity and all downstream proof VALID; otherwise ABSTAIN."
+    },
+    "CROSS_DOCUMENT": {
+      "contract": "Outside the current single-document contract unless a separate protocol explicitly binds both document identities, scopes, periods, units and provenance.",
+      "answered_definition": "No current QP4 coverage claim; expected safe ABSTAIN unless a later separately precommitted protocol is opened."
+    }
+  },
+  "development_cohort_contract": {
+    "compiler_stress": {
+      "classification": "development_only_synthetic_question_contract_no_document_values",
+      "evaluate_all_core_answer_families": true,
+      "minimum_answer_family_count": 13,
+      "evaluate_all_ambiguity_controls": true,
+      "minimum_ambiguity_family_count": 3,
+      "each_applicable_answer_family_requires_short_long_pair": true,
+      "each_required_counterfactual_dimension_must_be_covered": true,
+      "each_meaning_preserving_category_must_be_covered": true,
+      "company_or_layout_coverage_claim_allowed": false
+    },
+    "source_backed_end_to_end": {
+      "classification": "development_only_real_pdf_company_layout_disjoint",
+      "evaluate_all_eligible_records": true,
+      "minimum_positive_anchors_per_applicable_counterfactual_dimension": 3,
+      "minimum_distinct_companies_per_applicable_counterfactual_dimension": 3,
+      "minimum_distinct_source_documents_per_applicable_counterfactual_dimension": 3,
+      "minimum_distinct_real_layout_families_per_applicable_counterfactual_dimension": 3,
+      "minimum_distinct_companies_for_long_surface_stress": 3,
+      "minimum_distinct_source_documents_for_long_surface_stress": 3,
+      "minimum_distinct_real_layout_families_for_long_surface_stress": 3,
+      "company_disjoint_from_diagnosis": true,
+      "layout_disjoint_confirmation_required_for_layout_repairs": true,
+      "independent_review_required": true,
+      "real_source_hash_and_provenance_required": true,
+      "synthetic_fixture_counts_toward_coverage": false,
+      "safe_abstention_counts_as_answer": false,
+      "existing_qp3_cohort_policy": "May seed source eligibility only; it does not count for a QP4 dimension unless the required question pair, oracle, proof and end-to-end replay are independently reviewed."
+    },
+    "forbidden_selection_inputs": [
+      "company identity as a preferred rule",
+      "report filename",
+      "page number",
+      "year literal",
+      "numeric value or answer",
+      "example or family id as runtime logic",
+      "question literal",
+      "candidate rank or order",
+      "neural score",
+      "confidence"
+    ],
+    "required_reporting_groups": [
+      "family",
+      "operation",
+      "counterfactual dimension",
+      "surface category",
+      "company",
+      "source document",
+      "real layout family",
+      "extraction method"
+    ],
+    "worst_group_required": true,
+    "unseen_company_and_layout_claim_policy": "Report only groups explicitly reserved as development confirmation; never claim universal or sealed unseen performance."
+  },
+  "implementation_replay_gates": {
+    "semantic_counterfactual_old_program_false_accept_count": 0,
+    "swapped_role_false_accept_count": 0,
+    "swapped_year_false_accept_count": 0,
+    "entity_scope_false_accept_count": 0,
+    "unit_scale_false_accept_count": 0,
+    "direction_false_accept_count": 0,
+    "reference_base_false_accept_count": 0,
+    "short_long_semantic_ir_exact_rate": 1.0,
+    "short_long_eligible_program_set_exact_rate": 1.0,
+    "short_long_winner_exact_rate": 1.0,
+    "surface_category_semantic_ir_exact_rate": 1.0,
+    "surface_category_winner_exact_rate": 1.0,
+    "candidate_permutation_exact_rate": 1.0,
+    "hash_seed_invariant": true,
+    "conflicting_cell_false_accept_count": 0,
+    "unsupported_qualitative_claim_count": 0,
+    "multi_output_complete_false_claim_count": 0,
+    "safe_abstention_counted_as_answered": false,
+    "frozen_safe_replay_gold_execution": "363/363",
+    "frozen_safe_replay_candidate_permutation": "363/363",
+    "frozen_safe_replay_counterfactual_false_accepts": 0,
+    "retain_core_actions": {
+      "ANSWER": 259,
+      "ABSTAIN": 90,
+      "REJECT": 14
+    },
+    "checkpoint_sha256_unchanged": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de",
+    "company_macro_and_worst_group_reported": true,
+    "layout_macro_and_worst_group_reported": true,
+    "latency_p95_increase_fraction_max_without_ablation": 0.1,
+    "unseen_or_universal_claim_allowed": false
+  },
+  "runtime_change_admission": {
+    "baseline_diagnostic_required_before_any_runtime_edit": true,
+    "generic_evidence_required": "A failure cluster must recur across at least 3 development companies, 3 source documents and 3 real layout families, or be a pure compiler-only semantic invariance failure independent of document layout.",
+    "literal_rule_forbidden": true,
+    "conditional_scope_rule": "Edit only the smallest whitelisted symbol group directly responsible for a failed frozen oracle. Passing layers remain byte-frozen.",
+    "post_change_required_replays": [
+      "affected functional regression",
+      "short/long and surface equivalence",
+      "semantic minimal-pair counterfactuals",
+      "candidate permutation and hash-seed",
+      "source-backed company/layout cohort",
+      "full frozen safe replay"
+    ]
+  },
+  "exact_runtime_edit_scope_for_qp4_implementation": {
+    "src/hrm_finance_qa/question_planner.py": {
+      "symbols": [
+        "compile_question_plan",
+        "compile_question_proof_contract",
+        "direct private compiler helpers called by those symbols"
+      ],
+      "allowed_change": "Generic semantic normalization and typed intent compilation needed to satisfy frozen meaning-preserving and meaning-changing question oracles. No question literal, family ID, fixed year/value or evidence inference."
+    },
+    "src/hrm_finance_qa/program_synthesis.py": {
+      "symbols": [
+        "synthesize_typed_programs",
+        "_typed_operand_slot_dag_proposals",
+        "_slot_candidates",
+        "_pair_compatible"
+      ],
+      "allowed_change": "Only if the baseline proves a typed eligible-program-set failure after the compiler projection is correct; bind generic typed slots and provenance without rank/score as proof."
+    },
+    "src/hrm_finance_qa/symbolic_verifier.py": {
+      "symbols": [
+        "verify_program",
+        "_slot_binding_state",
+        "_reference_base_state",
+        "_unit_compatibility_state"
+      ],
+      "allowed_change": "Only if old-program INVALID/UNKNOWN proof states are wrong despite correct typed intent and candidate binding; preserve tri-state fail-closed semantics."
+    },
+    "src/hrm_finance_qa/direction_contract.py": {
+      "symbols": [
+        "assess_program_direction",
+        "_assess_named_roles",
+        "_assess_temporal"
+      ],
+      "allowed_change": "Only for a generic ordered-operand direction failure reproduced across the frozen direction taxonomy; ADD commutativity is not a direction negative."
+    }
+  },
+  "runtime_files_explicitly_frozen": [
+    "src/hrm_finance_qa/document_hrm.py",
+    "src/hrm_finance_qa/document_reasoning_engine.py",
+    "src/hrm_finance_qa/answer_presentation.py",
+    "src/hrm_finance_qa/evidence_schema.py",
+    "src/hrm_finance_qa/program_data.py",
+    "src/hrm_finance_qa/document_page_index.py",
+    "src/hrm_finance_qa/document_sources.py",
+    "src/hrm_finance_qa/financial_identities.py"
+  ],
+  "runtime_hashes_at_precommit": {
+    "src/hrm_finance_qa/question_planner.py": "58404c5a04ffced2c00056a10e470730a8fb9ef723d3e8c5668f13b0a65571a6",
+    "src/hrm_finance_qa/program_synthesis.py": "e4acc4878d0dfd465ba66ab91f3aaf8be71db5591aa1358fb8cb81f3c7bff550",
+    "src/hrm_finance_qa/symbolic_verifier.py": "e9efa8d2fa9ce1aedd460cdd11c1eb9321aab7122b0908fc5017687c1491ed88",
+    "src/hrm_finance_qa/direction_contract.py": "a18aa130419fc74ce647bd92dc9c1b1217007738e636aad0f28c7f78396be937",
+    "src/hrm_finance_qa/document_hrm.py": "b5951bcde79583950b672f7fb6b199b3e5b9904e6784daae7c4c5be0eba65d21",
+    "src/hrm_finance_qa/document_reasoning_engine.py": "3883500011472716bc01f8e04a6d6f925173b35a14bbedd945c5ca4fb0063fa2",
+    "src/hrm_finance_qa/answer_presentation.py": "c40bd4a8dff39162b44cf11ef2da12e7b153d907f7254e5d1856157b3ac56d36",
+    "src/hrm_finance_qa/evidence_schema.py": "2f16fabf932dc9dabc8203d9642d2503bb2dab43e0e1ee0f78755dd4fb00825d",
+    "src/hrm_finance_qa/program_data.py": "5199434fc0628b7d270ce62b12657366cbe118901065edd9f1e1f6ca0f1f8d54"
+  },
+  "implementation_artifact_scope": {
+    "new_development_cohort_config": "config/finhrm_qp4_development_cohort_v1.json",
+    "new_evaluator": "scripts/evaluate_qp4_implementation.py",
+    "new_functional_test": "tests/test_qp4_implementation.py",
+    "new_report_test": "tests/test_qp4_implementation_report.py",
+    "new_report": "reports/finhrm_qp4_implementation_v1.json",
+    "new_lock": "reports/finhrm_qp4_implementation_lock_v1.json"
+  },
+  "forbidden_implementation_actions": [
+    "edit runtime before a frozen QP4 baseline diagnostic and explicit implementation authorization",
+    "edit a runtime file or symbol outside the exact conditional whitelist",
+    "change retrieval model, checkpoint, threshold, confidence calibration or acceptance operating point",
+    "fine-tune any model",
+    "use company, report, filename, page, year, value, example ID, family ID or question literal as runtime logic",
+    "use candidate rank, neural score, confidence, absence or nearby context as semantic proof",
+    "infer period, role, entity, unit or provenance from missing metadata",
+    "count score decrease as counterfactual rejection",
+    "count safe abstention as answered",
+    "count synthetic layout or question variants as source-backed confirmation",
+    "use ABW as confirmation or gate",
+    "read validation, blind, test, sealed, holdout or final evaluation",
+    "open cross-document or anaphora support without a separate precommit",
+    "change answer presentation runtime",
+    "open QP5, Phase D or any later roadmap phase"
+  ],
+  "frozen_invariants": {
+    "runtime_changed_by_this_precommit": false,
+    "threshold_changed": false,
+    "checkpoint_changed": false,
+    "model_changed": false,
+    "fine_tuning_performed": false,
+    "abw_used_as_confirmation": false,
+    "protected_evaluation_loaded": false,
+    "synthetic_layout_counted_as_confirmation": false,
+    "safe_abstention_counted_as_answer": false,
+    "qp4_runtime_change_authorized_in_this_step": false,
+    "qp5_authorized": false,
+    "phase_d_unlocked": false
+  },
+  "authorized_next_step": "QP4-IMPLEMENTATION may be requested only after this precommit closes: first build and freeze the development-only counterfactual/long-question cohorts and baseline diagnostic, then edit only the smallest failed symbol group inside the exact four-file conditional whitelist and replay every frozen gate. No QP4 runtime change is authorized or performed by this precommit; QP5 and Phase D remain locked."
+}

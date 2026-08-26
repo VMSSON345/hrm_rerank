@@ -1,0 +1,437 @@
+schema_version: 1
+
+# Active identities are one-step formulas supported by the current executable
+# DSL. Conditional identities remain auditable but are never synthesized until
+# their stated prerequisites are implemented and validated.
+identities:
+  - id: balance.total_liabilities
+    target:
+      key: total_liabilities
+      aliases: [tong no phai tra, no phai tra, cong no phai tra]
+    operation: ADD
+    operands:
+      - key: current_liabilities
+        aliases: [no ngan han, tong no ngan han]
+        unit_family: currency
+      - key: non_current_liabilities
+        aliases: [no dai han, tong no dai han]
+        unit_family: currency
+    result_unit_family: currency
+    status: active
+    prefer_direct_value: true
+    description: Total liabilities = current liabilities + non-current liabilities.
+
+  - id: balance.financial_debt
+    target:
+      key: financial_debt
+      aliases:
+        [tong no vay chiu lai, no vay chiu lai, tong vay va no thue tai chinh]
+    operation: ADD
+    operands:
+      - key: short_term_debt
+        aliases: [vay va no thue tai chinh ngan han, no vay ngan han]
+        unit_family: currency
+      - key: long_term_debt
+        aliases: [vay va no thue tai chinh dai han, no vay dai han]
+        unit_family: currency
+    result_unit_family: currency
+    status: active
+    prefer_direct_value: true
+    description: Interest-bearing debt = short-term debt + long-term debt.
+
+  - id: balance.total_assets.by_term
+    target:
+      key: total_assets
+      aliases: [tong tai san, tong cong tai san, tong gia tri tai san]
+    operation: ADD
+    operands:
+      - key: current_assets
+        aliases: [tai san ngan han, tong tai san ngan han]
+        unit_family: currency
+      - key: non_current_assets
+        aliases: [tai san dai han, tong tai san dai han]
+        unit_family: currency
+    result_unit_family: currency
+    status: active
+    prefer_direct_value: true
+    description: Total assets = current assets + non-current assets.
+
+  - id: balance.accounting_equation
+    target:
+      key: total_assets
+      aliases: [tong tai san, tong cong tai san, tong gia tri tai san]
+    operation: ADD
+    operands:
+      - key: total_liabilities
+        aliases: [tong no phai tra, no phai tra]
+        unit_family: currency
+      - key: total_equity
+        aliases: [von chu so huu, tong von chu so huu]
+        unit_family: currency
+    result_unit_family: currency
+    status: active
+    prefer_direct_value: true
+    description: Total assets = liabilities + owners' equity.
+
+  - id: balance.total_sources
+    target:
+      key: total_sources
+      aliases: [tong nguon von, tong cong nguon von]
+    operation: ADD
+    operands:
+      - key: total_liabilities
+        aliases: [tong no phai tra, no phai tra]
+        unit_family: currency
+      - key: total_equity
+        aliases: [von chu so huu, tong von chu so huu]
+        unit_family: currency
+    result_unit_family: currency
+    status: active
+    prefer_direct_value: true
+    description: Total sources = liabilities + owners' equity.
+
+  - id: balance.net_working_capital
+    target:
+      key: net_working_capital
+      aliases: [von luu dong thuan, von luu dong rong]
+    operation: SUBTRACT
+    operands:
+      - key: current_assets
+        aliases: [tai san ngan han, tong tai san ngan han]
+        unit_family: currency
+      - key: current_liabilities
+        aliases: [no ngan han, tong no ngan han]
+        unit_family: currency
+    result_unit_family: currency
+    status: active
+    prefer_direct_value: true
+    description: Net working capital = current assets - current liabilities.
+
+  - id: income.net_revenue
+    target:
+      key: net_revenue
+      aliases: [doanh thu thuan, doanh thu thuan ve ban hang va cung cap dich vu]
+    operation: SUBTRACT
+    operands:
+      - key: gross_revenue
+        aliases: [doanh thu ban hang va cung cap dich vu, doanh thu ban hang]
+        unit_family: currency
+      - key: revenue_deductions
+        aliases: [cac khoan giam tru doanh thu]
+        unit_family: currency
+    result_unit_family: currency
+    status: active
+    prefer_direct_value: true
+    description: Net revenue = gross revenue - revenue deductions.
+
+  - id: income.gross_profit
+    target:
+      key: gross_profit
+      aliases: [loi nhuan gop, loi nhuan gop ve ban hang va cung cap dich vu]
+    operation: SUBTRACT
+    operands:
+      - key: net_revenue
+        aliases: [doanh thu thuan]
+        unit_family: currency
+      - key: cost_of_goods_sold
+        aliases: [gia von hang ban, gia von]
+        unit_family: currency
+    result_unit_family: currency
+    status: active
+    prefer_direct_value: true
+    description: Gross profit = net revenue - cost of goods sold.
+
+  - id: income.other_profit
+    target:
+      key: other_profit
+      aliases: [loi nhuan khac]
+    operation: SUBTRACT
+    operands:
+      - key: other_income
+        aliases: [thu nhap khac]
+        unit_family: currency
+      - key: other_expense
+        aliases: [chi phi khac]
+        unit_family: currency
+    result_unit_family: currency
+    status: active
+    prefer_direct_value: true
+    description: Other profit = other income - other expense.
+
+  - id: income.profit_before_tax
+    target:
+      key: profit_before_tax
+      aliases: [loi nhuan truoc thue, tong loi nhuan ke toan truoc thue]
+    operation: ADD
+    operands:
+      - key: operating_profit
+        aliases: [loi nhuan thuan tu hoat dong kinh doanh, loi nhuan tu hoat dong kinh doanh]
+        unit_family: currency
+      - key: other_profit
+        aliases: [loi nhuan khac]
+        unit_family: currency
+    result_unit_family: currency
+    status: active
+    prefer_direct_value: true
+    description: Profit before tax = operating profit + other profit.
+
+  - id: cashflow.net_change
+    target:
+      key: net_cash_change
+      aliases: [luu chuyen tien thuan trong ky, luu chuyen tien thuan]
+    operation: SUM3
+    operands:
+      - key: operating_cash_flow
+        aliases: [luu chuyen tien thuan tu hoat dong kinh doanh]
+        unit_family: currency
+      - key: investing_cash_flow
+        aliases: [luu chuyen tien thuan tu hoat dong dau tu]
+        unit_family: currency
+      - key: financing_cash_flow
+        aliases: [luu chuyen tien thuan tu hoat dong tai chinh]
+        unit_family: currency
+    result_unit_family: currency
+    status: active
+    prefer_direct_value: true
+    description: Net cash change = CFO + CFI + CFF.
+
+  - id: shares.par_value
+    target:
+      key: par_value
+      aliases: [menh gia co phieu, menh gia co phan, menh gia]
+    operation: DIVIDE
+    operands:
+      - key: charter_capital
+        aliases: [von dieu le]
+        unit_family: currency
+      - key: issued_shares
+        aliases: [so luong co phieu da phat hanh, so luong co phan da phat hanh]
+        unit_family: share_count
+    result_unit_family: currency_per_share
+    status: active
+    prefer_direct_value: true
+    description: Par value = charter capital / issued shares.
+
+  - id: shares.outstanding
+    target:
+      key: outstanding_shares
+      aliases: [so co phieu dang luu hanh, so co phan dang luu hanh]
+    operation: SUBTRACT
+    operands:
+      - key: issued_shares
+        aliases: [so luong co phieu da phat hanh, so luong co phan da phat hanh]
+        unit_family: share_count
+      - key: treasury_shares
+        aliases: [co phieu quy, co phan mua lai]
+        unit_family: share_count
+    result_unit_family: share_count
+    status: active
+    prefer_direct_value: true
+    description: Outstanding shares = issued shares - treasury shares.
+
+  - id: ratio.debt_to_assets
+    target:
+      key: debt_to_assets
+      aliases: [he so no tren tong tai san, he so no tren tai san]
+    operation: DIVIDE
+    operands:
+      - key: total_liabilities
+        aliases: [tong no phai tra, no phai tra]
+        unit_family: currency
+      - key: total_assets
+        aliases: [tong tai san, tong cong tai san]
+        unit_family: currency
+    result_unit_family: ratio
+    status: active
+    prefer_direct_value: true
+    description: Debt-to-assets coefficient.
+
+  - id: ratio.debt_to_equity
+    target:
+      key: debt_to_equity
+      aliases: [he so no tren von chu so huu, he so no tren von]
+    operation: DIVIDE
+    operands:
+      - key: total_liabilities
+        aliases: [tong no phai tra, no phai tra]
+        unit_family: currency
+      - key: total_equity
+        aliases: [von chu so huu, tong von chu so huu]
+        unit_family: currency
+    result_unit_family: ratio
+    status: active
+    prefer_direct_value: true
+    description: Debt-to-equity coefficient.
+
+  - id: ratio.current
+    target:
+      key: current_ratio
+      aliases: [he so thanh toan hien hanh, kha nang thanh toan hien hanh, current ratio]
+    operation: DIVIDE
+    operands:
+      - key: current_assets
+        aliases: [tai san ngan han, tong tai san ngan han]
+        unit_family: currency
+      - key: current_liabilities
+        aliases: [no ngan han, tong no ngan han]
+        unit_family: currency
+    result_unit_family: ratio
+    status: active
+    prefer_direct_value: true
+    description: Current ratio = current assets / current liabilities.
+
+  - id: margin.gross
+    target:
+      key: gross_margin
+      aliases: [bien loi nhuan gop, ty suat loi nhuan gop]
+    operation: RATIO_PERCENT
+    operands:
+      - key: gross_profit
+        aliases: [loi nhuan gop]
+        unit_family: currency
+      - key: net_revenue
+        aliases: [doanh thu thuan]
+        unit_family: currency
+    result_unit_family: percent
+    status: active
+    prefer_direct_value: true
+    description: Gross margin = gross profit / net revenue * 100.
+
+  - id: margin.net
+    target:
+      key: net_margin
+      aliases: [bien loi nhuan rong, ty suat loi nhuan rong]
+    operation: RATIO_PERCENT
+    operands:
+      - key: profit_after_tax
+        aliases: [loi nhuan sau thue]
+        unit_family: currency
+      - key: net_revenue
+        aliases: [doanh thu thuan]
+        unit_family: currency
+    result_unit_family: percent
+    status: active
+    prefer_direct_value: true
+    description: Net margin = profit after tax / net revenue * 100.
+
+  - id: conditional.profit_after_tax
+    target:
+      key: profit_after_tax
+      aliases: [loi nhuan sau thue]
+    operation: SUM3
+    operands:
+      - key: profit_before_tax
+        aliases: [loi nhuan truoc thue]
+        unit_family: currency
+      - key: current_tax
+        aliases: [chi phi thue thu nhap doanh nghiep hien hanh]
+        unit_family: currency
+      - key: deferred_tax
+        aliases: [chi phi thue thu nhap doanh nghiep hoan lai]
+        unit_family: currency
+    result_unit_family: currency
+    status: conditional
+    prefer_direct_value: true
+    description: Requires sign-aware multi-step subtraction.
+
+  - id: conditional.return_on_assets
+    target:
+      key: return_on_assets
+      aliases: [roa, ty suat sinh loi tren tong tai san]
+    operation: RATIO_PERCENT
+    operands:
+      - key: profit_after_tax
+        aliases: [loi nhuan sau thue]
+        unit_family: currency
+      - key: average_assets
+        aliases: [tong tai san binh quan]
+        unit_family: currency
+    result_unit_family: percent
+    status: conditional
+    prefer_direct_value: true
+    description: Requires an explicitly disclosed or verified average asset value.
+
+  - id: conditional.return_on_equity
+    target:
+      key: return_on_equity
+      aliases: [roe, ty suat sinh loi tren von chu so huu]
+    operation: RATIO_PERCENT
+    operands:
+      - key: profit_after_tax
+        aliases: [loi nhuan sau thue]
+        unit_family: currency
+      - key: average_equity
+        aliases: [von chu so huu binh quan]
+        unit_family: currency
+    result_unit_family: percent
+    status: conditional
+    prefer_direct_value: true
+    description: Requires an explicitly disclosed or verified average equity value.
+
+  - id: conditional.financial_debt_to_equity
+    target:
+      key: financial_debt_to_equity
+      aliases: [he so no vay tren von chu so huu, no vay tren von chu so huu]
+    operation: DIVIDE
+    operands:
+      - key: financial_debt
+        aliases: [tong no vay chiu lai, no vay chiu lai]
+        unit_family: currency
+      - key: total_equity
+        aliases: [von chu so huu, tong von chu so huu]
+        unit_family: currency
+    result_unit_family: ratio
+    status: conditional
+    prefer_direct_value: true
+    description: Requires directly disclosed or separately verified financial debt.
+
+  - id: conditional.interest_coverage
+    target:
+      key: interest_coverage_ratio
+      aliases: [he so kha nang tra lai vay, he so bao phu lai vay, icr]
+    operation: DIVIDE
+    operands:
+      - key: operating_profit
+        aliases: [loi nhuan thuan tu hoat dong kinh doanh, ebit]
+        unit_family: currency
+      - key: interest_expense
+        aliases: [chi phi lai vay]
+        unit_family: currency
+    result_unit_family: ratio
+    status: conditional
+    prefer_direct_value: true
+    description: Requires a report-consistent EBIT definition and expense sign policy.
+
+  - id: conditional.cfo_to_net_income
+    target:
+      key: cfo_to_net_income
+      aliases: [ty le dong tien kinh doanh tren loi nhuan, chat luong loi nhuan]
+    operation: DIVIDE
+    operands:
+      - key: operating_cash_flow
+        aliases: [luu chuyen tien thuan tu hoat dong kinh doanh, cfo]
+        unit_family: currency
+      - key: profit_after_tax
+        aliases: [loi nhuan sau thue]
+        unit_family: currency
+    result_unit_family: ratio
+    status: conditional
+    prefer_direct_value: true
+    description: Requires non-zero net income and explicit cross-statement period alignment.
+
+  - id: conditional.cfo_to_current_liabilities
+    target:
+      key: cfo_to_current_liabilities
+      aliases: [he so thanh toan ngan han tu dong tien kinh doanh]
+    operation: DIVIDE
+    operands:
+      - key: operating_cash_flow
+        aliases: [luu chuyen tien thuan tu hoat dong kinh doanh, cfo]
+        unit_family: currency
+      - key: current_liabilities
+        aliases: [no ngan han, tong no ngan han]
+        unit_family: currency
+    result_unit_family: ratio
+    status: conditional
+    prefer_direct_value: true
+    description: Requires an explicit ending-versus-average liability policy.

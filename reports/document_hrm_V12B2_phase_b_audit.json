@@ -1,0 +1,90 @@
+{
+  "schema": "document-hrm-v12b2-phase-b-audit-v1",
+  "status": "phase_b_candidate_survival_gate_passed",
+  "scope": "reranker-disjoint-not-end-to-end-unseen-generator",
+  "blind_test_used": false,
+  "test_jsonl_used": false,
+  "sealed_validation_evaluated": false,
+  "reranker_training_started": false,
+  "development_examples": 1200,
+  "companies": 154,
+  "fold_count": 5,
+  "group_schema": [
+    "company",
+    "report",
+    "source",
+    "layout_family",
+    "period"
+  ],
+  "company_overlap": 0,
+  "report_overlap": 0,
+  "composite_group_overlap": 0,
+  "fold_manifest": "data/document_hrm_v12b2_reranker_disjoint_folds_v1.json",
+  "fold_manifest_sha256": "c808e3d181092881cd80b6a24b5cef5c7562532aa764c68e138c956a9cf896cd",
+  "candidate_cache_manifest": "cache/v12b2_phase_b_candidate_recall/manifest.json",
+  "candidate_cache_manifest_sha256": "66285568a204a5529f77f1956d2859cb2ac1e184757467448bd1f65c2870f8c2",
+  "candidate_pipeline_sha256": "1df1354fc91763c41a27f4963511118b41432c84909d7432d39795516b475383",
+  "base_model_sha256": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de",
+  "fold_cache_index": "cache/v12b2_folds_candidate_recall/manifest.json",
+  "fold_cache_index_sha256": "236f52734375a8c91f7daedd0ba5dd1fee4480e09e6fde416d4549ec738f4caf",
+  "before_candidate_recall_fix": {
+    "raw_gold_programs": 934,
+    "reranker_operation_examples": 960,
+    "raw_gold_program_recall": 0.9729166666666667,
+    "minimum_fold_raw_gold_program_recall": 0.9431818181818182,
+    "raw_recall_gate_95": false
+  },
+  "after_candidate_recall_fix": {
+    "raw_gold_programs": 953,
+    "reranker_operation_examples": 960,
+    "raw_gold_program_recall": 0.9927083333333333,
+    "minimum_fold_raw_gold_program_recall": 0.9846153846153847,
+    "mean_fold_raw_gold_program_recall": 0.9926198927975578,
+    "minimum_fold_verifier_gold_retention": 0.9942528735632183,
+    "mean_fold_verifier_gold_retention": 0.9988505747126437,
+    "raw_recall_gate_95": true,
+    "verifier_retention_gate_95": true,
+    "pruning_gold_loss_count": 0
+  },
+  "fold_validation": [
+    {"fold": 0, "raw_gold_program_recall": 0.9846153846153847, "verifier_gold_retention": 1.0},
+    {"fold": 1, "raw_gold_program_recall": 1.0, "verifier_gold_retention": 1.0},
+    {"fold": 2, "raw_gold_program_recall": 0.9898477157360406, "verifier_gold_retention": 1.0},
+    {"fold": 3, "raw_gold_program_recall": 1.0, "verifier_gold_retention": 1.0},
+    {"fold": 4, "raw_gold_program_recall": 0.9886363636363636, "verifier_gold_retention": 0.9942528735632183}
+  ],
+  "per_operation_raw_recall": {
+    "ADD": {"before": 0.925, "after": 1.0, "delta": 0.075},
+    "AVERAGE": {"before": 1.0, "after": 1.0, "delta": 0.0},
+    "DIVIDE": {"before": 1.0, "after": 1.0, "delta": 0.0},
+    "MULTIPLY": {"before": 0.9083333333333333, "after": 0.9916666666666667, "delta": 0.08333333333333337},
+    "PERCENT_CHANGE": {"before": 0.9833333333333333, "after": 0.9833333333333333, "delta": 0.0},
+    "RATIO_PERCENT": {"before": 1.0, "after": 1.0, "delta": 0.0},
+    "SELECT": {"before": 1.0, "after": 1.0, "delta": 0.0},
+    "SUBTRACT": {"before": 0.9666666666666667, "after": 0.9666666666666667, "delta": 0.0}
+  },
+  "candidate_recall_changes": [
+    "Binary ADD uses full row-label anchors when punctuation and internal conjunctions make list arity ambiguous.",
+    "The period suffix parser no longer splits the metric phrase tai san at the word tai.",
+    "Par-value MULTIPLY slots require share_count times currency_per_share and repair noisy inherited share units.",
+    "Candidate pipeline fingerprints now include program_synthesis.py."
+  ],
+  "semantic_deduplication": {
+    "schema": "operation+typed-cell-signatures-v1",
+    "semantic_duplicate_programs_dropped": 333,
+    "execution_only_candidates": 784,
+    "execution_only_promoted_to_positive": 0
+  },
+  "known_data_issue": {
+    "gold_false_rejections": 1,
+    "example_id": "synthetic-train-select-0096",
+    "constraint": "period_coverage",
+    "reason": "The synthetic question requests 31/12/2025 while its annotated cell is labelled So dau nam; retained as a conservative false rejection."
+  },
+  "external_unseen_development_set": {
+    "available_in_workspace": false,
+    "impact": "Phase B folds remain reranker-disjoint only; no end-to-end unseen-generator claim is permitted."
+  },
+  "phase_b_gate": true,
+  "next_allowed_step": "phase_c_canonical_multi_positive_supervision"
+}

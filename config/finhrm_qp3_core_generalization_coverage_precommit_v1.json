@@ -1,0 +1,165 @@
+{
+  "schema": "finhrm-qp3-core-generalization-coverage-precommit-v1",
+  "created_at": "2026-08-14",
+  "classification": "development_only_report_agnostic_proof_coverage_precommit",
+  "status": "precommitted_runtime_change_not_yet_authorized",
+  "objective": "Increase proof-complete answer coverage through generic typed semantics while preserving fail-closed rejection, permutation invariance, and company/layout independence.",
+  "parents": {
+    "thesis_core": {
+      "path": "config/finhrm_thesis_core_v1.json",
+      "sha256": "a9f2f3088f7622c6c8912086eac16252f154fcae1164a3fe7ba75107a0ece502"
+    },
+    "generalization_invariant": {
+      "path": "config/finhrm_report_generalization_invariant_v1.json",
+      "sha256": "7a8c6e58a47314d522adb782277f6d5bf0cbf761faf681d848e2e9ae4e861846"
+    },
+    "safe_replay": {
+      "path": "reports/finhrm_qp3_core_s4_safe_replay_v1.json",
+      "sha256": "cb0dbbc27de5c9254fd3fa4634183f91bfcbf2b93e96f1703984aaf4d9f146f0"
+    },
+    "safe_replay_lock": {
+      "path": "reports/finhrm_qp3_core_s4_safe_replay_lock_v1.json",
+      "sha256": "b074a2db39757c3005ec4ecdce156ec5e6a6b77748548f6db67c9f1de4ec35b3"
+    },
+    "postimplementation_lock": {
+      "path": "reports/finhrm_qp3_core_postimplementation_replay_lock_v1.json",
+      "sha256": "5b56821f0d12e03c27863998110de006b4a34fa382346dbc46eb82ae45c4dd00"
+    }
+  },
+  "allowed_evidence": {
+    "split": "development_train_only",
+    "source_path": "data/document_hrm_development_v1_train.jsonl",
+    "source_sha256": "8d445cbc776ec10ffb9b94bf4fd0693eb1ab3857837d6cd509e49b6f4a1a5bb0",
+    "safe_replay_examples": 363,
+    "company_groups": 121,
+    "layout_families": 6,
+    "abw_allowed": false,
+    "protected_validation_blind_test_access_allowed": false
+  },
+  "runtime_hashes_at_precommit": {
+    "src/hrm_finance_qa/question_planner.py": "76ddcd2cb64ced25e3f7737552cc8b93e69e0048a1d6a6499f15f9d8059e2b56",
+    "src/hrm_finance_qa/program_synthesis.py": "3dd00b6633136b7d3d4edc6eb6763747263330f8ed3c570e9720ba22cb51b592",
+    "src/hrm_finance_qa/symbolic_verifier.py": "2436bae3895146044c1f40158426545363df50ade1ba2d1fcc977b346435e1a2",
+    "src/hrm_finance_qa/direction_contract.py": "a18aa130419fc74ce647bd92dc9c1b1217007738e636aad0f28c7f78396be937",
+    "src/hrm_finance_qa/document_hrm.py": "f40345b8696063cd41a5d2c69daa816ffae3db926900e3af3de2becbae03e91e",
+    "src/hrm_finance_qa/document_reasoning_engine.py": "f01865c508241b27f459cc14ba47bea17e040ff0ebad8b437fb97c2b42e3a762"
+  },
+  "baseline": {
+    "gold_answer": 187,
+    "gold_abstain": 162,
+    "gold_reject": 14,
+    "gold_execution_correct": 363,
+    "permutation_exact": 363,
+    "counterfactual_generated": 123,
+    "counterfactual_false_accepts": 0,
+    "company_macro_answer_rate": 0.346517119244392,
+    "company_worst_answer_rate": 0.0,
+    "layout_macro_answer_rate": 0.5013783496313929,
+    "layout_worst_answer_rate": 0.0
+  },
+  "target_tracks": {
+    "period_and_provenance": {
+      "operations": ["SELECT"],
+      "unknown_obligations": [
+        "period_coverage"
+      ],
+      "no_regression_obligations": [
+        "logical_cell_unique",
+        "source_provenance_complete",
+        "reference_base_match"
+      ],
+      "unknown_examples": 74,
+      "distinct_companies": 73,
+      "distinct_layout_families": 2,
+      "admission": "BLOCKED_UNTIL_THIRD_DEVELOPMENT_LAYOUT_DIAGNOSTIC_EXISTS",
+      "generic_repair_boundary": [
+        "propagate typed numeric year, exact date endpoint, relative period role, and column qualifier from question plan to evidence cells",
+        "prove period compatibility from normalized header semantics and evidence lineage",
+        "preserve logical and physical cell provenance through every graph edge"
+      ],
+      "forbidden_shortcuts": [
+        "infer period from candidate order",
+        "infer period from fixed page or fixed year",
+        "treat missing provenance as valid",
+        "encode a report or question literal"
+      ]
+    },
+    "operation_and_add_grounding": {
+      "operations": ["ADD"],
+      "unknown_obligations": [
+        "operation_match",
+        "add_grounding"
+      ],
+      "unknown_examples": 67,
+      "distinct_companies": 47,
+      "distinct_layout_families": 3,
+      "admission": "DIAGNOSIS_DIVERSITY_GATE_SATISFIED_IMPLEMENTATION_STILL_LOCKED",
+      "generic_repair_boundary": [
+        "derive ADD only from typed compositional intent",
+        "bind two independently evidenced operand roles",
+        "require compatible entity, period, unit, and provenance before execution"
+      ],
+      "forbidden_shortcuts": [
+        "fixed financial row vocabulary as sole operation proof",
+        "candidate rank or score as operand-role proof",
+        "single-example phrase rule",
+        "confidence bypass of UNKNOWN proof"
+      ]
+    },
+    "query_metric": {
+      "operations": ["SELECT"],
+      "unknown_obligations": [
+        "query_metric"
+      ],
+      "unknown_examples": 33,
+      "distinct_companies": 26,
+      "distinct_layout_families": 6,
+      "admission": "DIAGNOSIS_DIVERSITY_GATE_SATISFIED_IMPLEMENTATION_STILL_LOCKED",
+      "generic_repair_boundary": [
+        "compile metric intent into normalized semantic concepts and compositional qualifiers",
+        "match metric aliases symmetrically against row, header, and graph context",
+        "retain ambiguity when multiple logical cells remain semantically compatible"
+      ],
+      "forbidden_shortcuts": [
+        "company-specific metric alias",
+        "single question or answer literal",
+        "winner-only alias acceptance",
+        "candidate score as semantic proof"
+      ]
+    }
+  },
+  "diagnostic_matrix_gate": {
+    "required_before_any_runtime_edit": true,
+    "minimum_distinct_companies_per_repair": 3,
+    "minimum_distinct_layout_families_per_repair": 3,
+    "positive_cases_required": true,
+    "hard_negative_cases_required": true,
+    "explicit_counterfactuals_required": true,
+    "candidate_permutation_required": true,
+    "layout_transformations_must_preserve_semantics": true,
+    "individual_company_or_example_identifiers_may_be_encoded": false
+  },
+  "postrepair_acceptance_gates": {
+    "all_preexisting_gold_answers_retained": true,
+    "gold_execution_regressions": 0,
+    "candidate_permutation_exact_rate": 1.0,
+    "counterfactual_false_accepts": 0,
+    "new_answer_requires_all_required_proofs_valid": true,
+    "targeted_unknown_count_must_strictly_decrease_in_at_least_three_companies_and_three_layouts": true,
+    "company_macro_and_worst_group_must_be_reported": true,
+    "layout_macro_and_worst_group_must_be_reported": true,
+    "safe_abstention_counted_as_answered": false,
+    "unseen_or_universal_generalization_claim_allowed": false
+  },
+  "frozen_invariants": {
+    "runtime_changed_by_this_precommit": false,
+    "checkpoint_changed": false,
+    "threshold_changed": false,
+    "fine_tuning_performed": false,
+    "abw_used_as_confirmation": false,
+    "protected_evaluation_loaded": false,
+    "phase_d_unlocked": false,
+    "qp4_authorized": false
+  },
+  "authorized_next_step": "QP3-CORE-GENERALIZATION-COVERAGE-DIAGNOSTIC-MATRIX only: construct report-agnostic positive, hard-negative, counterfactual, and permutation controls for at least three company and three layout groups per repair track; no runtime edit yet."
+}

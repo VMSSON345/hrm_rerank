@@ -1,0 +1,97 @@
+{
+  "schema": "finhrm-qp3-answer-presentation-implementation-lock-v1",
+  "created_at": "2026-08-21",
+  "classification": "development_only_source_backed_presentation_confirmation",
+  "status": "complete",
+  "implementation_gate_passed": true,
+  "failed_gates": [],
+  "runtime_hashes": {
+    "src/hrm_finance_qa/answer_presentation.py": "c40bd4a8dff39162b44cf11ef2da12e7b153d907f7254e5d1856157b3ac56d36",
+    "src/hrm_finance_qa/document_reasoning_engine.py": "3883500011472716bc01f8e04a6d6f925173b35a14bbedd945c5ca4fb0063fa2"
+  },
+  "frozen_runtime_hashes": {
+    "src/hrm_finance_qa/document_hrm.py": "b5951bcde79583950b672f7fb6b199b3e5b9904e6784daae7c4c5be0eba65d21",
+    "src/hrm_finance_qa/question_planner.py": "58404c5a04ffced2c00056a10e470730a8fb9ef723d3e8c5668f13b0a65571a6",
+    "src/hrm_finance_qa/program_synthesis.py": "e4acc4878d0dfd465ba66ab91f3aaf8be71db5591aa1358fb8cb81f3c7bff550",
+    "src/hrm_finance_qa/symbolic_verifier.py": "e9efa8d2fa9ce1aedd460cdd11c1eb9321aab7122b0908fc5017687c1491ed88",
+    "src/hrm_finance_qa/evidence_schema.py": "2f16fabf932dc9dabc8203d9642d2503bb2dab43e0e1ee0f78755dd4fb00825d",
+    "src/hrm_finance_qa/program_data.py": "5199434fc0628b7d270ce62b12657366cbe118901065edd9f1e1f6ca0f1f8d54",
+    "src/hrm_finance_qa/document_page_index.py": "c99e011175afef21f302be42ba9454b948caa549d4d445d6bb35c5b974b81f85",
+    "src/hrm_finance_qa/document_sources.py": "e9eb7b3ddcc2ed13060a573a6a0101a216fa49ff21dd65cd5fc2629b92f5fc0b",
+    "src/hrm_finance_qa/financial_identities.py": "ee7347885f561d5f5d9c404964ecb7a46f1275186e100f2236e53114aeacd2ee",
+    "src/hrm_finance_qa/direction_contract.py": "a18aa130419fc74ce647bd92dc9c1b1217007738e636aad0f28c7f78396be937"
+  },
+  "checkpoint_sha256": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de",
+  "artifacts": [
+    {
+      "path": "config/finhrm_qp3_answer_presentation_development_cohort_v1.json",
+      "size_bytes": 5808,
+      "sha256": "a1ebca3880990e9857372470e6579cc60ffecf7ada7772d83a90c85de4b32c93"
+    },
+    {
+      "path": "scripts/evaluate_qp3_answer_presentation_implementation.py",
+      "size_bytes": 30899,
+      "sha256": "14de097d098cd8ce8beaca44b86ce048dabe9f715c7ad8992a2150ef01d65b2d"
+    },
+    {
+      "path": "tests/test_qp3_answer_presentation_implementation.py",
+      "size_bytes": 18555,
+      "sha256": "6c5b320c8efa9f20ad7eb7c24bc6093ff178ff9b4d8df1b9ac0ce119cbc7006a"
+    },
+    {
+      "path": "tests/test_qp3_answer_presentation_implementation_report.py",
+      "size_bytes": 5783,
+      "sha256": "b57038dd0335368170f922078521e6dd0b26a39c64abaec6ddb0a5432ee76a01"
+    },
+    {
+      "path": "src/hrm_finance_qa/answer_presentation.py",
+      "size_bytes": 31970,
+      "sha256": "c40bd4a8dff39162b44cf11ef2da12e7b153d907f7254e5d1856157b3ac56d36"
+    },
+    {
+      "path": "src/hrm_finance_qa/document_reasoning_engine.py",
+      "size_bytes": 53059,
+      "sha256": "3883500011472716bc01f8e04a6d6f925173b35a14bbedd945c5ca4fb0063fa2"
+    },
+    {
+      "path": "reports/finhrm_qp3_answer_presentation_implementation_v1.json",
+      "size_bytes": 12972,
+      "sha256": "e7d4f6719ac10c6e9b9d36827128048c48b1862cb44d4937f83ff8da259e0ae3"
+    },
+    {
+      "path": "reports/finhrm_qp3_answer_presentation_implementation_v1.md",
+      "size_bytes": 1066,
+      "sha256": "e7261e2e4ea400e39f813e3d3e5976ef7c41d2db9e18b3353f619e9366e15f54"
+    },
+    {
+      "path": "strategy.md",
+      "size_bytes": 246699,
+      "sha256": "0a75e465db96e1622b701d65579de7f0bc007d539be104ffb0e7ff23e778ef0e"
+    },
+    {
+      "path": "FINHRM_THESIS_PUBLICATION_ROADMAP.md",
+      "size_bytes": 35854,
+      "sha256": "f18aae41caf21e22a6faa5411491c144da1d1673ea2f9a15845ba986b8d31e7a"
+    }
+  ],
+  "invariants": {
+    "company_or_report_specific_runtime_rule_added": false,
+    "candidate_rank_score_or_confidence_used_as_proof": false,
+    "renderer_invented_claim_or_provenance": false,
+    "threshold_changed": false,
+    "checkpoint_changed": false,
+    "model_changed": false,
+    "fine_tuning_performed": false,
+    "abw_used": false,
+    "protected_evaluation_loaded": false,
+    "synthetic_layout_counted_as_confirmation": false,
+    "unseen_or_universal_claim_made": false,
+    "qp4_authorized": false,
+    "phase_d_unlocked": false
+  },
+  "qp3_complete": true,
+  "qp4_precommit_authorized": true,
+  "qp4_runtime_change_authorized": false,
+  "phase_d": "locked",
+  "authorized_next_step": "QP4-PRECOMMIT only: freeze counterfactual and long-question stress cohorts, minimal-pair mutations, invariance gates and exact runtime scope before any QP4 runtime edit. Phase D remains locked."
+}

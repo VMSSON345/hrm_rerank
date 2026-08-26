@@ -1,0 +1,895 @@
+{
+  "schema": "finhrm-qp4-actual-plan-source-baseline-v1",
+  "created_at": "2026-08-21",
+  "classification": "development_only_real_pdf_qp4_baseline_runtime_unchanged",
+  "inputs": {
+    "config": "config/finhrm_qp4_actual_plan_ratio_direction_source_cohort_v1.json",
+    "config_sha256": "20ba00740ffe9ba2686c08bc01d07b8f345847d7ddbc5b8780c157bd7ef8d11f",
+    "checkpoint_sha256": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de"
+  },
+  "results": [
+    {
+      "anchor_id": "qp4-aprd-vns-revenue",
+      "company_key": "development-company-388d036c98c1ea95",
+      "source_name": "VNS_23CN_BCTN.pdf",
+      "source_sha256": "5e68d6ae9536f9f7ebe3f9e61165dbcecbcc020349816f6a07b557497bc5380b",
+      "document_layout_family": "native_text_mixed_orientation",
+      "table_layout_family": "two_page_spread_bottom_actual_plan_ratio",
+      "dimension": "COLUMN_ROLE",
+      "base_question": "Doanh thu thuần thực hiện năm 2023 là bao nhiêu?",
+      "mutated_question": "Doanh thu thuần kế hoạch năm 2023 là bao nhiêu?",
+      "base": {
+        "signature": {
+          "action": "ABSTAIN",
+          "operation": "SELECT",
+          "value": "1218800",
+          "unit": "VND",
+          "evidence": [
+            [
+              "VNS_23CN_BCTN.pdf",
+              15,
+              "Doanh thu thuần",
+              "nam 2023",
+              "2023",
+              [
+                16,
+                26
+              ],
+              "1218800",
+              "native"
+            ]
+          ],
+          "verification_state": "UNKNOWN"
+        },
+        "expected_base": {
+          "operation": "SELECT",
+          "value": "1218800",
+          "operands": [
+            "actual_2023"
+          ]
+        },
+        "gold_answer_match": false
+      },
+      "mutated": {
+        "signature": {
+          "action": "ABSTAIN",
+          "operation": "SELECT",
+          "value": "1218800",
+          "unit": "VND",
+          "evidence": [
+            [
+              "VNS_23CN_BCTN.pdf",
+              15,
+              "Doanh thu thuần",
+              "nam 2023",
+              "2023",
+              [
+                16,
+                26
+              ],
+              "1218800",
+              "native"
+            ]
+          ],
+          "verification_state": "UNKNOWN"
+        },
+        "expected_mutated": {
+          "operation": "SELECT",
+          "value": "1345000",
+          "operands": [
+            "plan_2023"
+          ]
+        },
+        "gold_answer_match": false
+      },
+      "same_observed_winner": true,
+      "old_winner_false_accept": false,
+      "paired_gold_answer": false
+    },
+    {
+      "anchor_id": "qp4-aprd-vns-revenue",
+      "company_key": "development-company-388d036c98c1ea95",
+      "source_name": "VNS_23CN_BCTN.pdf",
+      "source_sha256": "5e68d6ae9536f9f7ebe3f9e61165dbcecbcc020349816f6a07b557497bc5380b",
+      "document_layout_family": "native_text_mixed_orientation",
+      "table_layout_family": "two_page_spread_bottom_actual_plan_ratio",
+      "dimension": "DIRECTION",
+      "base_question": "Doanh thu thuần thực hiện năm 2023 trừ kế hoạch năm 2023 là bao nhiêu?",
+      "mutated_question": "Doanh thu thuần kế hoạch năm 2023 trừ thực hiện năm 2023 là bao nhiêu?",
+      "base": {
+        "error": {
+          "type": "DocumentSourceError",
+          "message": "MinerU OCR is required but no compatible cached artifact exists and auto-generation is disabled"
+        },
+        "expected_base": {
+          "operation": "SUBTRACT",
+          "value": "-126200",
+          "operands": [
+            "actual_2023",
+            "plan_2023"
+          ]
+        },
+        "gold_answer_match": false
+      },
+      "mutated": {
+        "error": {
+          "type": "DocumentSourceError",
+          "message": "MinerU OCR is required but no compatible cached artifact exists and auto-generation is disabled"
+        },
+        "expected_mutated": {
+          "operation": "SUBTRACT",
+          "value": "126200",
+          "operands": [
+            "plan_2023",
+            "actual_2023"
+          ]
+        },
+        "gold_answer_match": false
+      },
+      "same_observed_winner": false,
+      "old_winner_false_accept": false,
+      "paired_gold_answer": false
+    },
+    {
+      "anchor_id": "qp4-aprd-vns-revenue",
+      "company_key": "development-company-388d036c98c1ea95",
+      "source_name": "VNS_23CN_BCTN.pdf",
+      "source_sha256": "5e68d6ae9536f9f7ebe3f9e61165dbcecbcc020349816f6a07b557497bc5380b",
+      "document_layout_family": "native_text_mixed_orientation",
+      "table_layout_family": "two_page_spread_bottom_actual_plan_ratio",
+      "dimension": "REFERENCE_BASE",
+      "base_question": "Doanh thu thuần thực hiện năm 2023 đạt bao nhiêu phần trăm kế hoạch năm 2023?",
+      "mutated_question": "Doanh thu thuần thực hiện năm 2023 bằng bao nhiêu phần trăm thực hiện năm 2022?",
+      "base": {
+        "error": {
+          "type": "DocumentSourceError",
+          "message": "MinerU OCR is required but no compatible cached artifact exists and auto-generation is disabled"
+        },
+        "expected_base": {
+          "operation": "RATIO_PERCENT",
+          "value": "90.61710037174721189591078067",
+          "operands": [
+            "actual_2023",
+            "plan_2023"
+          ]
+        },
+        "gold_answer_match": false
+      },
+      "mutated": {
+        "signature": {
+          "action": "REJECT",
+          "operation": "SELECT",
+          "value": "1218800",
+          "unit": "VND",
+          "evidence": [
+            [
+              "VNS_23CN_BCTN.pdf",
+              15,
+              "Doanh thu thuần",
+              "Thực hiện 2022",
+              "2022",
+              [
+                16,
+                26
+              ],
+              "1218800",
+              "native"
+            ]
+          ],
+          "verification_state": "INVALID"
+        },
+        "expected_mutated": {
+          "operation": "RATIO_PERCENT",
+          "value": "111.9012096311428374687263296",
+          "operands": [
+            "actual_2023",
+            "actual_2022"
+          ]
+        },
+        "gold_answer_match": false
+      },
+      "same_observed_winner": false,
+      "old_winner_false_accept": false,
+      "paired_gold_answer": false
+    },
+    {
+      "anchor_id": "qp4-aprd-vsc-revenue",
+      "company_key": "development-company-3a6490b72b5ad015",
+      "source_name": "VSC_23CN_BCTN.pdf",
+      "source_sha256": "879f2814fb4dc02f40fa0155dfab4fdfc1a8ca217d6103fe9fce66950c36e796",
+      "document_layout_family": "native_text_portrait",
+      "table_layout_family": "hierarchical_spanning_header_plan_and_prior_blocks",
+      "dimension": "COLUMN_ROLE",
+      "base_question": "Tổng doanh thu thực hiện năm 2023 là bao nhiêu?",
+      "mutated_question": "Tổng doanh thu kế hoạch năm 2023 là bao nhiêu?",
+      "base": {
+        "signature": {
+          "action": "ABSTAIN",
+          "operation": "SELECT",
+          "value": "2180.94",
+          "unit": "VND",
+          "evidence": [
+            [
+              "VSC_23CN_BCTN.pdf",
+              7,
+              "Tổng doanh thu",
+              "",
+              "",
+              [
+                15,
+                24
+              ],
+              "2180.94",
+              "native"
+            ]
+          ],
+          "verification_state": "UNKNOWN"
+        },
+        "expected_base": {
+          "operation": "SELECT",
+          "value": "2180.94",
+          "operands": [
+            "actual_2023"
+          ]
+        },
+        "gold_answer_match": false
+      },
+      "mutated": {
+        "signature": {
+          "action": "ABSTAIN",
+          "operation": "SELECT",
+          "value": "2180.94",
+          "unit": "VND",
+          "evidence": [
+            [
+              "VSC_23CN_BCTN.pdf",
+              7,
+              "Tổng doanh thu",
+              "",
+              "",
+              [
+                15,
+                24
+              ],
+              "2180.94",
+              "native"
+            ]
+          ],
+          "verification_state": "UNKNOWN"
+        },
+        "expected_mutated": {
+          "operation": "SELECT",
+          "value": "2250",
+          "operands": [
+            "plan_2023"
+          ]
+        },
+        "gold_answer_match": false
+      },
+      "same_observed_winner": true,
+      "old_winner_false_accept": false,
+      "paired_gold_answer": false
+    },
+    {
+      "anchor_id": "qp4-aprd-vsc-revenue",
+      "company_key": "development-company-3a6490b72b5ad015",
+      "source_name": "VSC_23CN_BCTN.pdf",
+      "source_sha256": "879f2814fb4dc02f40fa0155dfab4fdfc1a8ca217d6103fe9fce66950c36e796",
+      "document_layout_family": "native_text_portrait",
+      "table_layout_family": "hierarchical_spanning_header_plan_and_prior_blocks",
+      "dimension": "DIRECTION",
+      "base_question": "Tổng doanh thu thực hiện năm 2023 trừ kế hoạch năm 2023 là bao nhiêu?",
+      "mutated_question": "Tổng doanh thu kế hoạch năm 2023 trừ thực hiện năm 2023 là bao nhiêu?",
+      "base": {
+        "signature": {
+          "action": "ABSTAIN",
+          "operation": "SUBTRACT",
+          "value": "69.06",
+          "unit": "VND",
+          "evidence": [
+            [
+              "VSC_23CN_BCTN.pdf",
+              7,
+              "Tổng doanh thu",
+              "",
+              "",
+              [
+                15,
+                24
+              ],
+              "2180.94",
+              "native"
+            ],
+            [
+              "VSC_23CN_BCTN.pdf",
+              7,
+              "Tổng doanh thu",
+              "",
+              "",
+              [
+                24,
+                30
+              ],
+              "2250",
+              "native"
+            ]
+          ],
+          "verification_state": "UNKNOWN"
+        },
+        "expected_base": {
+          "operation": "SUBTRACT",
+          "value": "-69.06",
+          "operands": [
+            "actual_2023",
+            "plan_2023"
+          ]
+        },
+        "gold_answer_match": false
+      },
+      "mutated": {
+        "signature": {
+          "action": "ABSTAIN",
+          "operation": "SUBTRACT",
+          "value": "69.06",
+          "unit": "VND",
+          "evidence": [
+            [
+              "VSC_23CN_BCTN.pdf",
+              7,
+              "Tổng doanh thu",
+              "",
+              "",
+              [
+                15,
+                24
+              ],
+              "2180.94",
+              "native"
+            ],
+            [
+              "VSC_23CN_BCTN.pdf",
+              7,
+              "Tổng doanh thu",
+              "",
+              "",
+              [
+                24,
+                30
+              ],
+              "2250",
+              "native"
+            ]
+          ],
+          "verification_state": "UNKNOWN"
+        },
+        "expected_mutated": {
+          "operation": "SUBTRACT",
+          "value": "69.06",
+          "operands": [
+            "plan_2023",
+            "actual_2023"
+          ]
+        },
+        "gold_answer_match": false
+      },
+      "same_observed_winner": true,
+      "old_winner_false_accept": false,
+      "paired_gold_answer": false
+    },
+    {
+      "anchor_id": "qp4-aprd-vsc-revenue",
+      "company_key": "development-company-3a6490b72b5ad015",
+      "source_name": "VSC_23CN_BCTN.pdf",
+      "source_sha256": "879f2814fb4dc02f40fa0155dfab4fdfc1a8ca217d6103fe9fce66950c36e796",
+      "document_layout_family": "native_text_portrait",
+      "table_layout_family": "hierarchical_spanning_header_plan_and_prior_blocks",
+      "dimension": "REFERENCE_BASE",
+      "base_question": "Tổng doanh thu thực hiện năm 2023 đạt bao nhiêu phần trăm kế hoạch năm 2023?",
+      "mutated_question": "Tổng doanh thu thực hiện năm 2023 bằng bao nhiêu phần trăm thực hiện năm 2022?",
+      "base": {
+        "error": {
+          "type": "DocumentSourceError",
+          "message": "MinerU OCR is required but no compatible cached artifact exists and auto-generation is disabled"
+        },
+        "expected_base": {
+          "operation": "RATIO_PERCENT",
+          "value": "96.93066666666666666666666667",
+          "operands": [
+            "actual_2023",
+            "plan_2023"
+          ]
+        },
+        "gold_answer_match": false
+      },
+      "mutated": {
+        "signature": {
+          "action": "REJECT",
+          "operation": "SELECT",
+          "value": "2180.94",
+          "unit": "VND",
+          "evidence": [
+            [
+              "VSC_23CN_BCTN.pdf",
+              7,
+              "Tổng doanh thu thuần đạt",
+              "2022",
+              "2022",
+              [
+                27,
+                36
+              ],
+              "2180.94",
+              "native"
+            ]
+          ],
+          "verification_state": "INVALID"
+        },
+        "expected_mutated": {
+          "operation": "RATIO_PERCENT",
+          "value": "108.6450134502341337052904254",
+          "operands": [
+            "actual_2023",
+            "actual_2022"
+          ]
+        },
+        "gold_answer_match": false
+      },
+      "same_observed_winner": false,
+      "old_winner_false_accept": false,
+      "paired_gold_answer": false
+    },
+    {
+      "anchor_id": "qp4-aprd-ceo-revenue",
+      "company_key": "development-company-31d123108dba5fd3",
+      "source_name": "CEO_23CN_BCTN.pdf",
+      "source_sha256": "cc5361a6b356f1f5ff1a7cb5607bfa0abf36ec527a3fc787f1c73328cbadfaaf",
+      "document_layout_family": "hybrid_scan_text",
+      "table_layout_family": "multi_panel_landscape_plan_actual_prior_delta",
+      "dimension": "COLUMN_ROLE",
+      "base_question": "Tổng doanh thu thực hiện năm 2023 là bao nhiêu?",
+      "mutated_question": "Tổng doanh thu kế hoạch năm 2023 là bao nhiêu?",
+      "base": {
+        "signature": {
+          "action": "ABSTAIN",
+          "operation": "SELECT",
+          "value": "1439",
+          "unit": "VND",
+          "evidence": [
+            [
+              "CEO_23CN_BCTN.pdf",
+              37,
+              "Tổng doanh thu hợp nhất năm",
+              "",
+              "",
+              [
+                38,
+                43
+              ],
+              "1439",
+              "native"
+            ]
+          ],
+          "verification_state": "UNKNOWN"
+        },
+        "expected_base": {
+          "operation": "SELECT",
+          "value": "1439164",
+          "operands": [
+            "actual_2023"
+          ]
+        },
+        "gold_answer_match": false
+      },
+      "mutated": {
+        "signature": {
+          "action": "ABSTAIN",
+          "operation": "SELECT",
+          "value": "1439",
+          "unit": "VND",
+          "evidence": [
+            [
+              "CEO_23CN_BCTN.pdf",
+              37,
+              "Tổng doanh thu hợp nhất năm",
+              "",
+              "",
+              [
+                38,
+                43
+              ],
+              "1439",
+              "native"
+            ]
+          ],
+          "verification_state": "UNKNOWN"
+        },
+        "expected_mutated": {
+          "operation": "SELECT",
+          "value": "3000000",
+          "operands": [
+            "plan_2023"
+          ]
+        },
+        "gold_answer_match": false
+      },
+      "same_observed_winner": true,
+      "old_winner_false_accept": false,
+      "paired_gold_answer": false
+    },
+    {
+      "anchor_id": "qp4-aprd-ceo-revenue",
+      "company_key": "development-company-31d123108dba5fd3",
+      "source_name": "CEO_23CN_BCTN.pdf",
+      "source_sha256": "cc5361a6b356f1f5ff1a7cb5607bfa0abf36ec527a3fc787f1c73328cbadfaaf",
+      "document_layout_family": "hybrid_scan_text",
+      "table_layout_family": "multi_panel_landscape_plan_actual_prior_delta",
+      "dimension": "DIRECTION",
+      "base_question": "Tổng doanh thu thực hiện năm 2023 trừ kế hoạch năm 2023 là bao nhiêu?",
+      "mutated_question": "Tổng doanh thu kế hoạch năm 2023 trừ thực hiện năm 2023 là bao nhiêu?",
+      "base": {
+        "error": {
+          "type": "DocumentSourceError",
+          "message": "MinerU OCR is required but no compatible cached artifact exists and auto-generation is disabled"
+        },
+        "expected_base": {
+          "operation": "SUBTRACT",
+          "value": "-1560836",
+          "operands": [
+            "actual_2023",
+            "plan_2023"
+          ]
+        },
+        "gold_answer_match": false
+      },
+      "mutated": {
+        "error": {
+          "type": "DocumentSourceError",
+          "message": "MinerU OCR is required but no compatible cached artifact exists and auto-generation is disabled"
+        },
+        "expected_mutated": {
+          "operation": "SUBTRACT",
+          "value": "1560836",
+          "operands": [
+            "plan_2023",
+            "actual_2023"
+          ]
+        },
+        "gold_answer_match": false
+      },
+      "same_observed_winner": false,
+      "old_winner_false_accept": false,
+      "paired_gold_answer": false
+    },
+    {
+      "anchor_id": "qp4-aprd-ceo-revenue",
+      "company_key": "development-company-31d123108dba5fd3",
+      "source_name": "CEO_23CN_BCTN.pdf",
+      "source_sha256": "cc5361a6b356f1f5ff1a7cb5607bfa0abf36ec527a3fc787f1c73328cbadfaaf",
+      "document_layout_family": "hybrid_scan_text",
+      "table_layout_family": "multi_panel_landscape_plan_actual_prior_delta",
+      "dimension": "REFERENCE_BASE",
+      "base_question": "Tổng doanh thu thực hiện năm 2023 đạt bao nhiêu phần trăm kế hoạch năm 2023?",
+      "mutated_question": "Tổng doanh thu thực hiện năm 2023 bằng bao nhiêu phần trăm thực hiện năm 2022?",
+      "base": {
+        "error": {
+          "type": "DocumentSourceError",
+          "message": "MinerU OCR is required but no compatible cached artifact exists and auto-generation is disabled"
+        },
+        "expected_base": {
+          "operation": "RATIO_PERCENT",
+          "value": "47.97213333333333333333333333",
+          "operands": [
+            "actual_2023",
+            "plan_2023"
+          ]
+        },
+        "gold_answer_match": false
+      },
+      "mutated": {
+        "signature": {
+          "action": "ABSTAIN",
+          "operation": "SELECT",
+          "value": "1439",
+          "unit": "VND",
+          "evidence": [
+            [
+              "CEO_23CN_BCTN.pdf",
+              37,
+              "Tổng doanh thu hợp nhất năm",
+              "",
+              "",
+              [
+                38,
+                43
+              ],
+              "1439",
+              "native"
+            ]
+          ],
+          "verification_state": "UNKNOWN"
+        },
+        "expected_mutated": {
+          "operation": "RATIO_PERCENT",
+          "value": "56.45996722635042226379845579",
+          "operands": [
+            "actual_2023",
+            "actual_2022"
+          ]
+        },
+        "gold_answer_match": false
+      },
+      "same_observed_winner": false,
+      "old_winner_false_accept": false,
+      "paired_gold_answer": false
+    },
+    {
+      "anchor_id": "qp4-aprd-szb-revenue",
+      "company_key": "development-company-340e65eda2932452",
+      "source_name": "SZB_23CN_BCTN.pdf",
+      "source_sha256": "1c1b38b4e8705cd75a33c8d14ebadfdfc1fb7ab066f5d45955c8b000d461aec1",
+      "document_layout_family": "native_text_mixed_orientation",
+      "table_layout_family": "dense_actual_prior_plan_actual_dual_ratio_matrix",
+      "dimension": "COLUMN_ROLE",
+      "base_question": "Tổng doanh thu thực hiện năm 2023 là bao nhiêu?",
+      "mutated_question": "Tổng doanh thu kế hoạch năm 2023 là bao nhiêu?",
+      "base": {
+        "signature": {
+          "action": "ABSTAIN",
+          "operation": "SELECT",
+          "value": "402314",
+          "unit": "VND",
+          "evidence": [
+            [
+              "SZB_23CN_BCTN.pdf",
+              36,
+              "Tổng doanh thu",
+              "2023",
+              "2023",
+              [
+                49,
+                56
+              ],
+              "402314",
+              "native"
+            ]
+          ],
+          "verification_state": "UNKNOWN"
+        },
+        "expected_base": {
+          "operation": "SELECT",
+          "value": "402314",
+          "operands": [
+            "actual_2023"
+          ]
+        },
+        "gold_answer_match": false
+      },
+      "mutated": {
+        "signature": {
+          "action": "ABSTAIN",
+          "operation": "SELECT",
+          "value": "402314",
+          "unit": "VND",
+          "evidence": [
+            [
+              "SZB_23CN_BCTN.pdf",
+              36,
+              "Tổng doanh thu",
+              "2023",
+              "2023",
+              [
+                49,
+                56
+              ],
+              "402314",
+              "native"
+            ]
+          ],
+          "verification_state": "UNKNOWN"
+        },
+        "expected_mutated": {
+          "operation": "SELECT",
+          "value": "389579",
+          "operands": [
+            "plan_2023"
+          ]
+        },
+        "gold_answer_match": false
+      },
+      "same_observed_winner": true,
+      "old_winner_false_accept": false,
+      "paired_gold_answer": false
+    },
+    {
+      "anchor_id": "qp4-aprd-szb-revenue",
+      "company_key": "development-company-340e65eda2932452",
+      "source_name": "SZB_23CN_BCTN.pdf",
+      "source_sha256": "1c1b38b4e8705cd75a33c8d14ebadfdfc1fb7ab066f5d45955c8b000d461aec1",
+      "document_layout_family": "native_text_mixed_orientation",
+      "table_layout_family": "dense_actual_prior_plan_actual_dual_ratio_matrix",
+      "dimension": "DIRECTION",
+      "base_question": "Tổng doanh thu thực hiện năm 2023 trừ kế hoạch năm 2023 là bao nhiêu?",
+      "mutated_question": "Tổng doanh thu kế hoạch năm 2023 trừ thực hiện năm 2023 là bao nhiêu?",
+      "base": {
+        "signature": {
+          "action": "REJECT",
+          "operation": "SUBTRACT",
+          "value": "402205.02",
+          "unit": "",
+          "evidence": [
+            [
+              "SZB_23CN_BCTN.pdf",
+              16,
+              "Tổng Doanh thu",
+              "",
+              "",
+              [
+                41,
+                48
+              ],
+              "108.98",
+              "native"
+            ],
+            [
+              "SZB_23CN_BCTN.pdf",
+              36,
+              "Tổng doanh thu",
+              "2023",
+              "2023",
+              [
+                49,
+                56
+              ],
+              "402314",
+              "native"
+            ]
+          ],
+          "verification_state": "INVALID"
+        },
+        "expected_base": {
+          "operation": "SUBTRACT",
+          "value": "12735",
+          "operands": [
+            "actual_2023",
+            "plan_2023"
+          ]
+        },
+        "gold_answer_match": false
+      },
+      "mutated": {
+        "signature": {
+          "action": "REJECT",
+          "operation": "SUBTRACT",
+          "value": "402205.02",
+          "unit": "",
+          "evidence": [
+            [
+              "SZB_23CN_BCTN.pdf",
+              16,
+              "Tổng Doanh thu",
+              "",
+              "",
+              [
+                41,
+                48
+              ],
+              "108.98",
+              "native"
+            ],
+            [
+              "SZB_23CN_BCTN.pdf",
+              36,
+              "Tổng doanh thu",
+              "2023",
+              "2023",
+              [
+                49,
+                56
+              ],
+              "402314",
+              "native"
+            ]
+          ],
+          "verification_state": "INVALID"
+        },
+        "expected_mutated": {
+          "operation": "SUBTRACT",
+          "value": "-12735",
+          "operands": [
+            "plan_2023",
+            "actual_2023"
+          ]
+        },
+        "gold_answer_match": false
+      },
+      "same_observed_winner": true,
+      "old_winner_false_accept": false,
+      "paired_gold_answer": false
+    },
+    {
+      "anchor_id": "qp4-aprd-szb-revenue",
+      "company_key": "development-company-340e65eda2932452",
+      "source_name": "SZB_23CN_BCTN.pdf",
+      "source_sha256": "1c1b38b4e8705cd75a33c8d14ebadfdfc1fb7ab066f5d45955c8b000d461aec1",
+      "document_layout_family": "native_text_mixed_orientation",
+      "table_layout_family": "dense_actual_prior_plan_actual_dual_ratio_matrix",
+      "dimension": "REFERENCE_BASE",
+      "base_question": "Tổng doanh thu thực hiện năm 2023 đạt bao nhiêu phần trăm kế hoạch năm 2023?",
+      "mutated_question": "Tổng doanh thu thực hiện năm 2023 bằng bao nhiêu phần trăm thực hiện năm 2022?",
+      "base": {
+        "error": {
+          "type": "DocumentSourceError",
+          "message": "MinerU OCR is required but no compatible cached artifact exists and auto-generation is disabled"
+        },
+        "expected_base": {
+          "operation": "RATIO_PERCENT",
+          "value": "103.2689133654534767017729395",
+          "operands": [
+            "actual_2023",
+            "plan_2023"
+          ]
+        },
+        "gold_answer_match": false
+      },
+      "mutated": {
+        "signature": {
+          "action": "REJECT",
+          "operation": "SELECT",
+          "value": "369158",
+          "unit": "VND",
+          "evidence": [
+            [
+              "SZB_23CN_BCTN.pdf",
+              36,
+              "Tổng doanh thu",
+              "2022",
+              "2022",
+              [
+                41,
+                49
+              ],
+              "369158",
+              "native"
+            ]
+          ],
+          "verification_state": "INVALID"
+        },
+        "expected_mutated": {
+          "operation": "RATIO_PERCENT",
+          "value": "108.9815201079212694835273785",
+          "operands": [
+            "actual_2023",
+            "actual_2022"
+          ]
+        },
+        "gold_answer_match": false
+      },
+      "same_observed_winner": false,
+      "old_winner_false_accept": false,
+      "paired_gold_answer": false
+    }
+  ],
+  "runtime_hashes": {
+    "src/hrm_finance_qa/question_planner.py": "0973e72711fccdac6fd8615e5dd5afc8f47fb98024c9080063cd6bac46bd66a2",
+    "src/hrm_finance_qa/program_synthesis.py": "e4acc4878d0dfd465ba66ab91f3aaf8be71db5591aa1358fb8cb81f3c7bff550",
+    "src/hrm_finance_qa/symbolic_verifier.py": "2679b1ce55cc070697438c806f19e3e888bfc19bc1a9ae3686a0b7fd7ffb0087",
+    "src/hrm_finance_qa/direction_contract.py": "a18aa130419fc74ce647bd92dc9c1b1217007738e636aad0f28c7f78396be937",
+    "src/hrm_finance_qa/document_hrm.py": "b5951bcde79583950b672f7fb6b199b3e5b9904e6784daae7c4c5be0eba65d21",
+    "src/hrm_finance_qa/document_reasoning_engine.py": "3883500011472716bc01f8e04a6d6f925173b35a14bbedd945c5ca4fb0063fa2",
+    "src/hrm_finance_qa/answer_presentation.py": "c40bd4a8dff39162b44cf11ef2da12e7b153d907f7254e5d1856157b3ac56d36"
+  },
+  "invariants": {
+    "runtime_changed": false,
+    "threshold_changed": false,
+    "checkpoint_changed": false,
+    "model_changed": false,
+    "fine_tuning_performed": false,
+    "abw_used": false,
+    "protected_evaluation_loaded": false,
+    "synthetic_layout_counted": false,
+    "safe_abstention_counted_as_answer": false,
+    "qp4_runtime_change_authorized": false,
+    "qp5_authorized": false,
+    "phase_d_unlocked": false
+  }
+}

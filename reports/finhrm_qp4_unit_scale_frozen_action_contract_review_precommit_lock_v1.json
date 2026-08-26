@@ -1,0 +1,64 @@
+{
+  "schema": "finhrm-qp4-unit-scale-frozen-action-contract-review-precommit-lock-v1",
+  "created_at": "2026-08-21",
+  "classification": "development_only_qp4_versioned_action_contract_review",
+  "status": "complete",
+  "precommit_gate_passed": true,
+  "runtime_changed": false,
+  "runtime_hashes": {
+    "src/hrm_finance_qa/question_planner.py": "0973e72711fccdac6fd8615e5dd5afc8f47fb98024c9080063cd6bac46bd66a2",
+    "src/hrm_finance_qa/symbolic_verifier.py": "2679b1ce55cc070697438c806f19e3e888bfc19bc1a9ae3686a0b7fd7ffb0087",
+    "src/hrm_finance_qa/program_synthesis.py": "e4acc4878d0dfd465ba66ab91f3aaf8be71db5591aa1358fb8cb81f3c7bff550",
+    "src/hrm_finance_qa/evidence_schema.py": "2f16fabf932dc9dabc8203d9642d2503bb2dab43e0e1ee0f78755dd4fb00825d",
+    "src/hrm_finance_qa/document_hrm.py": "b5951bcde79583950b672f7fb6b199b3e5b9904e6784daae7c4c5be0eba65d21",
+    "src/hrm_finance_qa/document_reasoning_engine.py": "3883500011472716bc01f8e04a6d6f925173b35a14bbedd945c5ca4fb0063fa2",
+    "src/hrm_finance_qa/program_data.py": "5199434fc0628b7d270ce62b12657366cbe118901065edd9f1e1f6ca0f1f8d54",
+    "src/hrm_finance_qa/direction_contract.py": "a18aa130419fc74ce647bd92dc9c1b1217007738e636aad0f28c7f78396be937",
+    "src/hrm_finance_qa/answer_presentation.py": "c40bd4a8dff39162b44cf11ef2da12e7b153d907f7254e5d1856157b3ac56d36"
+  },
+  "checkpoint_sha256": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de",
+  "historical_artifact_overwritten": false,
+  "runtime_file_whitelist_for_next_step": [],
+  "downstream_runtime_change_authorized_in_same_step": false,
+  "artifacts": [
+    {
+      "path": "config/finhrm_qp4_unit_scale_frozen_action_contract_review_precommit_v1.json",
+      "size_bytes": 5977,
+      "sha256": "9eab6c32b8388bfa1cb1a7b3aa11af77069605327d875a3b9731135e9144c414"
+    },
+    {
+      "path": "scripts/audit_qp4_unit_scale_frozen_action_contract_review.py",
+      "size_bytes": 10906,
+      "sha256": "fb5f3da34f2c41eef32c41edaa377632e580dad2ba9ff0b9e34d1d4b43f060ae"
+    },
+    {
+      "path": "reports/finhrm_qp4_unit_scale_frozen_action_contract_review_audit_v1.json",
+      "size_bytes": 4202,
+      "sha256": "59987dcb18eb4988804fab123a8adcfbcfa90e0c996312ef5be17998c284c725"
+    },
+    {
+      "path": "scripts/validate_qp4_unit_scale_frozen_action_contract_review_precommit.py",
+      "size_bytes": 11772,
+      "sha256": "7d18566ede1d7fa65cc034eded21f88a9b2dad954eeb13d73c97178700caa88e"
+    },
+    {
+      "path": "tests/test_qp4_unit_scale_frozen_action_contract_review_precommit.py",
+      "size_bytes": 6455,
+      "sha256": "a99cd74bcf8b74f425f922c59824954ab74c1dd0195e7f7a511d8158abc99215"
+    },
+    {
+      "path": "reports/finhrm_qp4_unit_scale_frozen_action_contract_review_precommit_v1.json",
+      "size_bytes": 3960,
+      "sha256": "2fd34008777089e6294401f2364ac1627687ad8a5784548120bb4fd9a67bc4a5"
+    },
+    {
+      "path": "reports/finhrm_qp4_unit_scale_frozen_action_contract_review_precommit_v1.md",
+      "size_bytes": 926,
+      "sha256": "d9ac7cdb8b4da8e7b8ed9a788c869ccf595b7305e032908be5056e108a3bbbc3"
+    }
+  ],
+  "qp4_complete": false,
+  "qp5_authorized": false,
+  "phase_d": "locked",
+  "authorized_next_step": "QP4-UNIT-SCALE-PROOF-CONTRACT-GATE-RECLOSURE: re-evaluate the existing implementation against this reviewed versioned action contract; make no runtime changes."
+}

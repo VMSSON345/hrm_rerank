@@ -1,0 +1,125 @@
+{
+  "schema": "finhrm-qp3-core-add-diverse-development-cohort-precommit-v1",
+  "created_at": "2026-08-20",
+  "classification": "development_only_company_layout_disjoint_real_pdf_add_cohort_precommit",
+  "status": "frozen_before_source_discovery_and_cohort_materialization",
+  "parents": {
+    "diversity_contract": {
+      "path": "config/finhrm_qp3_core_add_diversity_confirmation_precommit_v1.json"
+    },
+    "development_company_catalog": {
+      "path": "data/pdf_development_company_catalog_v3.json",
+      "sha256": "17f74e49fe1894871453dd0c2b2ec8f13fa3650c4294c324d90bc7e47dd8bb2b"
+    },
+    "frozen_generic_program_generator": {
+      "path": "archive/pre_v12_cleanup_20260802/scripts/generate_document_derived_programs.py",
+      "sha256": "a8cf17d04931c5517bd2218da718576a27ac9f014159c6480b4dda0e38bc028f"
+    },
+    "frozen_checkpoint": {
+      "path": "models/document_hrm_V8_candidate.pt",
+      "sha256": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de"
+    }
+  },
+  "source_universe": {
+    "classification_required": "development_only",
+    "catalog_documents": 169,
+    "catalog_company_groups": 150,
+    "allowed_report_years": [
+      2023,
+      2024
+    ],
+    "excluded_markers": [
+      "abw",
+      "validation",
+      "blind",
+      "test",
+      "sealed",
+      "holdout",
+      "final",
+      "evaluation",
+      "unseen"
+    ],
+    "content_or_lineage_with_protected_marker_policy": "EXCLUDE_ENTIRE_SOURCE_FILE",
+    "source_pdf_sha256_must_match_catalog": true
+  },
+  "deterministic_selection": {
+    "order": "ascending source_sha256 within layout stratum",
+    "source_eligibility": "at least one native-extractable page containing balance-sheet terms or a financial-statement heading",
+    "eligible_page_order": "ascending physical PDF page",
+    "maximum_keyword_pages_per_source": 8,
+    "ocr_or_hybrid_page_discovery": "score every physical page with the frozen generic financial-page scorer; retain only financial_summary pages in ascending page order",
+    "ocr_or_hybrid_page_discovery_uses_question_or_add_result": false,
+    "filename_company_page_year_value_question_literal_used_for_priority": false,
+    "layout_strata": {
+      "NATIVE_TEXT_TABLE": [
+        "native_text_portrait",
+        "native_text_mixed_orientation"
+      ],
+      "OCR_OR_HYBRID_TABLE": [
+        "scanned_image_dominant",
+        "hybrid_scan_text"
+      ]
+    },
+    "minimum_companies_per_layout": 3,
+    "target_companies_per_layout": 4,
+    "maximum_positive_examples_per_company": 1,
+    "company_disjoint_between_layout_strata": true,
+    "company_disjoint_from_diagnosis_abw": true,
+    "continue_scan_after_rejection": true,
+    "stop_when_each_layout_reaches_target": true
+  },
+  "positive_contract": {
+    "operation": "ADD",
+    "explicit_two_role_question_required": true,
+    "exactly_two_selected_operands_required": true,
+    "same_requested_period_required": true,
+    "distinct_logical_and_physical_cells_required": true,
+    "source_page_row_column_period_table_span_required": true,
+    "unit_compatibility_required": true,
+    "gold_execution_required": true,
+    "generic_generator_hard_negative_required": true,
+    "independent_visual_and_structural_review_required": true,
+    "accepted_review_status": "independently_reviewed_approved",
+    "candidate_permutation_exact_required": true,
+    "semantic_counterfactual_required": true,
+    "counterfactual_false_accepts": 0
+  },
+  "end_to_end_contract": {
+    "input": "real PDF plus question",
+    "required_stages": [
+      "document_discovery",
+      "native_or_ocr_extraction",
+      "chunk_retrieval",
+      "numeric_candidate_materialization",
+      "neural_operation_and_operand_proposal",
+      "symbolic_binding_and_grounding",
+      "deterministic_verification_and_execution"
+    ],
+    "checkpoint_change_allowed": false,
+    "threshold_change_allowed": false,
+    "accepted_answer_required_for_positive": true,
+    "wrong_operation_or_operand_policy": "FAIL_OR_SAFE_ABSTAIN_NOT_POSITIVE",
+    "missing_proof_policy": "UNKNOWN_TO_ABSTAIN",
+    "contradiction_policy": "REJECT"
+  },
+  "development_ocr_contract": {
+    "engine": "Tesseract 5 with vie+eng language packs",
+    "scope": "only the precommitted physical pages of OCR_OR_HYBRID_TABLE development sources",
+    "ocr_text_is_provenance_not_semantic_proof": true,
+    "physical source page and PDF hash remain mandatory": true,
+    "visual review_required_before_confirmation": true
+  },
+  "forbidden": {
+    "runtime_change_before_generic_gap_evidence": true,
+    "company_report_filename_page_year_value_example_id_question_literal_rule": true,
+    "candidate_rank_score_or_confidence_as_semantic_proof": true,
+    "abw_confirmation": true,
+    "protected_evaluation_access": true,
+    "synthetic_layout_as_real_confirmation": true,
+    "fine_tuning": true,
+    "model_checkpoint_or_threshold_change": true,
+    "qp3_answer_presentation_runtime_change": true,
+    "qp4_or_phase_d_unlock": true
+  },
+  "authorized_next_step": "Audit the full hash-locked development catalog, materialize the deterministic ADD candidate pool, independently review selected PDF pages, and run the frozen end-to-end engine plus permutation, counterfactual and safe replay."
+}

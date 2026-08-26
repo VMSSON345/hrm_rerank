@@ -1,0 +1,117 @@
+{
+  "schema": "finhrm-qp4-unit-scale-proof-contract-implementation-v1",
+  "created_at": "2026-08-21",
+  "classification": "development_only_qp4_generic_unit_scale_proof_contract_implementation",
+  "status": "implemented_pending_postimplementation_replay",
+  "parents": {
+    "residual_precommit_config": {
+      "path": "config/finhrm_qp4_unit_scale_source_residual_isolation_precommit_v1.json",
+      "sha256": "7b3f6572bc485422ae42c4d508f80a5da8d6bde92de2aee2a868a52f4f64f1fc"
+    },
+    "residual_precommit_report": {
+      "path": "reports/finhrm_qp4_unit_scale_source_residual_isolation_precommit_v1.json",
+      "sha256": "f0554b98b9e77e27c3f34f0939d184467f859cfe88ff09e2bc350494fdfd0eaa"
+    },
+    "residual_precommit_lock": {
+      "path": "reports/finhrm_qp4_unit_scale_source_residual_isolation_precommit_lock_v1.json",
+      "sha256": "e8c0e771e6c195ccc8cb6caa6e2a002b8834795517de3735b83002e4ddd12b8f"
+    },
+    "source_trace_before_implementation": {
+      "path": "reports/finhrm_qp4_unit_scale_source_residual_trace_v1.json",
+      "sha256": "2ddb476dcf59305f995d840af351ad3ddde4a083a447c4cd6e7ffe42f7da2c85"
+    }
+  },
+  "checkpoint": {
+    "path": "models/document_hrm_V8_candidate.pt",
+    "sha256": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de"
+  },
+  "runtime_changes": {
+    "src/hrm_finance_qa/question_planner.py": {
+      "before_sha256": "e64c9140ed62cc7289941edf04b58c9748b13bf6bf98edd5699ef1d4ffb38a03",
+      "after_sha256": "0973e72711fccdac6fd8615e5dd5afc8f47fb98024c9080063cd6bac46bd66a2",
+      "symbols": [
+        "_PROOF_CONSTRAINTS",
+        "compile_question_proof_contract"
+      ]
+    },
+    "src/hrm_finance_qa/symbolic_verifier.py": {
+      "before_sha256": "e9efa8d2fa9ce1aedd460cdd11c1eb9321aab7122b0908fc5017687c1491ed88",
+      "after_sha256": "2679b1ce55cc070697438c806f19e3e888bfc19bc1a9ae3686a0b7fd7ffb0087",
+      "symbols": [
+        "currency_unit_scale import",
+        "_unit_scale_match_state",
+        "verify_program"
+      ]
+    }
+  },
+  "frozen_runtime_hashes": {
+    "src/hrm_finance_qa/program_synthesis.py": "e4acc4878d0dfd465ba66ab91f3aaf8be71db5591aa1358fb8cb81f3c7bff550",
+    "src/hrm_finance_qa/evidence_schema.py": "2f16fabf932dc9dabc8203d9642d2503bb2dab43e0e1ee0f78755dd4fb00825d",
+    "src/hrm_finance_qa/document_hrm.py": "b5951bcde79583950b672f7fb6b199b3e5b9904e6784daae7c4c5be0eba65d21",
+    "src/hrm_finance_qa/document_reasoning_engine.py": "3883500011472716bc01f8e04a6d6f925173b35a14bbedd945c5ca4fb0063fa2",
+    "src/hrm_finance_qa/program_data.py": "5199434fc0628b7d270ce62b12657366cbe118901065edd9f1e1f6ca0f1f8d54",
+    "src/hrm_finance_qa/direction_contract.py": "a18aa130419fc74ce647bd92dc9c1b1217007738e636aad0f28c7f78396be937",
+    "src/hrm_finance_qa/answer_presentation.py": "c40bd4a8dff39162b44cf11ef2da12e7b153d907f7254e5d1856157b3ac56d36"
+  },
+  "implementation_contract": {
+    "new_proof_obligation": "unit_scale_match",
+    "explicit_scale_required": true,
+    "no_scale_not_applicable": true,
+    "matching_explicit_scale_state": "VALID",
+    "missing_raw_scale_state": "UNKNOWN",
+    "different_convertible_unconverted_scale_state": "UNKNOWN",
+    "mixed_explicit_operand_scales_state": "INVALID",
+    "conflicting_requested_scales_state": "INVALID",
+    "monetary_scale_with_percent_or_ratio_state": "INVALID",
+    "conversion_execution_added": false,
+    "candidate_value_rescaling_added": false
+  },
+  "post_implementation_gates": {
+    "source_runs": 5,
+    "source_companies": 5,
+    "source_sources": 5,
+    "source_real_layouts": 3,
+    "source_old_winner_false_accept_target": 0,
+    "prior_four_answers_expected_action": "ABSTAIN",
+    "prior_four_operation_value_unit_evidence_retained": "4/4",
+    "prior_four_unit_scale_obligation": "required",
+    "prior_four_unit_scale_state": "UNKNOWN",
+    "matching_scale_valid_cases": "all pass",
+    "missing_scale_unknown_cases": "all pass",
+    "mismatched_unconverted_scale_unknown_cases": "all pass",
+    "mixed_scale_invalid_cases": "all pass",
+    "conflict_invalid_cases": "all pass",
+    "incompatible_output_invalid_cases": "all pass",
+    "no_requested_scale_retention": "100%",
+    "candidate_permutation_exact_rate": 1.0,
+    "frozen_safe_replay_actions": {
+      "ANSWER": 259,
+      "ABSTAIN": 90,
+      "REJECT": 14
+    },
+    "frozen_safe_replay_execution": "363/363",
+    "frozen_safe_replay_permutation": "363/363",
+    "frozen_safe_replay_counterfactuals": 141,
+    "frozen_safe_replay_counterfactual_false_accepts": 0
+  },
+  "invariants": {
+    "threshold_changed": false,
+    "checkpoint_changed": false,
+    "model_changed": false,
+    "fine_tuning_performed": false,
+    "abw_used": false,
+    "protected_evaluation_loaded": false,
+    "synthetic_layout_counted": false,
+    "safe_abstention_counted_as_answer": false,
+    "unit_conversion_added": false,
+    "candidate_rescaling_added": false,
+    "retrieval_or_binding_changed": false,
+    "program_synthesis_changed": false,
+    "evidence_schema_changed": false,
+    "document_reasoning_engine_changed": false,
+    "answer_renderer_changed": false,
+    "qp4_complete": false,
+    "qp5_authorized": false,
+    "phase_d_unlocked": false
+  }
+}

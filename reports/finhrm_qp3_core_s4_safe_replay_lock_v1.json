@@ -1,0 +1,863 @@
+{
+  "schema": "finhrm-qp3-core-s4-safe-replay-lock-v1",
+  "created_at": "2026-08-14",
+  "classification": "development_train_only_report_agnostic_s4_stress_lock",
+  "status": "complete",
+  "safe_replay_gate_passed": true,
+  "results": {
+    "operations": {
+      "ADD": 123,
+      "SELECT": 240
+    },
+    "gold_actions": {
+      "ABSTAIN": 162,
+      "ANSWER": 187,
+      "REJECT": 14
+    },
+    "gold_answered": 187,
+    "gold_total": 363,
+    "gold_execution_correct": 363,
+    "permutation_exact": 363,
+    "permutation_total": 363,
+    "counterfactual_generated": 123,
+    "counterfactual_mutations": {
+      "WRONG_ENTITY_SCOPE": 3,
+      "WRONG_METRIC": 48,
+      "WRONG_YEAR": 72
+    },
+    "counterfactual_false_accepts": 0,
+    "company": {
+      "groups": 121,
+      "by_group": {
+        "DEVCO_0355e8224259": {
+          "examples": 1,
+          "gold_answer_rate": 0.0,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": null
+        },
+        "DEVCO_0a34b5c5997a": {
+          "examples": 1,
+          "gold_answer_rate": 1.0,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": 0.0
+        },
+        "DEVCO_0b75ef463f83": {
+          "examples": 3,
+          "gold_answer_rate": 0.6666666666666666,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": 0.0
+        },
+        "DEVCO_0be3bff5fceb": {
+          "examples": 3,
+          "gold_answer_rate": 0.3333333333333333,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": 0.0
+        },
+        "DEVCO_0c0cc37d737b": {
+          "examples": 1,
+          "gold_answer_rate": 0.0,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": null
+        },
+        "DEVCO_0e12054f173f": {
+          "examples": 112,
+          "gold_answer_rate": 0.9285714285714286,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": 0.0
+        },
+        "DEVCO_0f3847ce0ffa": {
+          "examples": 3,
+          "gold_answer_rate": 0.3333333333333333,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": 0.0
+        },
+        "DEVCO_1068c0c3c516": {
+          "examples": 3,
+          "gold_answer_rate": 0.0,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": null
+        },
+        "DEVCO_11db5e2d8597": {
+          "examples": 3,
+          "gold_answer_rate": 0.6666666666666666,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": 0.0
+        },
+        "DEVCO_152532dab3e8": {
+          "examples": 3,
+          "gold_answer_rate": 0.0,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": null
+        },
+        "DEVCO_17090c0b593a": {
+          "examples": 1,
+          "gold_answer_rate": 0.0,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": null
+        },
+        "DEVCO_1b16c2652575": {
+          "examples": 1,
+          "gold_answer_rate": 1.0,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": 0.0
+        },
+        "DEVCO_1d28dd6221d2": {
+          "examples": 3,
+          "gold_answer_rate": 0.6666666666666666,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": 0.0
+        },
+        "DEVCO_1d5d6b8568b4": {
+          "examples": 3,
+          "gold_answer_rate": 0.3333333333333333,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": 0.0
+        },
+        "DEVCO_1e6ccc70c09f": {
+          "examples": 3,
+          "gold_answer_rate": 0.3333333333333333,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": 0.0
+        },
+        "DEVCO_20510aca668a": {
+          "examples": 1,
+          "gold_answer_rate": 0.0,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": null
+        },
+        "DEVCO_2315dff289f3": {
+          "examples": 1,
+          "gold_answer_rate": 1.0,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": null
+        },
+        "DEVCO_236784753482": {
+          "examples": 3,
+          "gold_answer_rate": 0.0,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": null
+        },
+        "DEVCO_26eec3c8d1e9": {
+          "examples": 3,
+          "gold_answer_rate": 0.0,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": null
+        },
+        "DEVCO_27158ee92e5d": {
+          "examples": 3,
+          "gold_answer_rate": 0.0,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": null
+        },
+        "DEVCO_275c8f39a494": {
+          "examples": 2,
+          "gold_answer_rate": 0.0,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": 0.0
+        },
+        "DEVCO_2864419b1834": {
+          "examples": 1,
+          "gold_answer_rate": 0.0,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": null
+        },
+        "DEVCO_2cbccdb6f820": {
+          "examples": 1,
+          "gold_answer_rate": 0.0,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": null
+        },
+        "DEVCO_2f20af6d99d1": {
+          "examples": 3,
+          "gold_answer_rate": 0.0,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": null
+        },
+        "DEVCO_3030867a147c": {
+          "examples": 1,
+          "gold_answer_rate": 0.0,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": 0.0
+        },
+        "DEVCO_36bcab029c5f": {
+          "examples": 1,
+          "gold_answer_rate": 1.0,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": null
+        },
+        "DEVCO_37f05ed035af": {
+          "examples": 3,
+          "gold_answer_rate": 0.3333333333333333,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": 0.0
+        },
+        "DEVCO_3d774723ba2a": {
+          "examples": 3,
+          "gold_answer_rate": 0.0,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": null
+        },
+        "DEVCO_4034060411a5": {
+          "examples": 1,
+          "gold_answer_rate": 0.0,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": null
+        },
+        "DEVCO_49f7c1fcf160": {
+          "examples": 1,
+          "gold_answer_rate": 0.0,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": 0.0
+        },
+        "DEVCO_4b01b690cd8b": {
+          "examples": 1,
+          "gold_answer_rate": 1.0,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": null
+        },
+        "DEVCO_4b9e1418ca19": {
+          "examples": 2,
+          "gold_answer_rate": 0.5,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": 0.0
+        },
+        "DEVCO_4bbe4e8191c2": {
+          "examples": 3,
+          "gold_answer_rate": 0.6666666666666666,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": 0.0
+        },
+        "DEVCO_4da203b7ad1a": {
+          "examples": 3,
+          "gold_answer_rate": 0.0,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": null
+        },
+        "DEVCO_4dc6064af3e6": {
+          "examples": 3,
+          "gold_answer_rate": 0.6666666666666666,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": 0.0
+        },
+        "DEVCO_4e050cf45301": {
+          "examples": 3,
+          "gold_answer_rate": 0.6666666666666666,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": 0.0
+        },
+        "DEVCO_4ee48261eb58": {
+          "examples": 1,
+          "gold_answer_rate": 1.0,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": 0.0
+        },
+        "DEVCO_527c5fcf3eb1": {
+          "examples": 2,
+          "gold_answer_rate": 1.0,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": null
+        },
+        "DEVCO_5307a5cac4d9": {
+          "examples": 1,
+          "gold_answer_rate": 0.0,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": null
+        },
+        "DEVCO_53df5e2df245": {
+          "examples": 3,
+          "gold_answer_rate": 0.6666666666666666,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": 0.0
+        },
+        "DEVCO_5522be2e3033": {
+          "examples": 1,
+          "gold_answer_rate": 0.0,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": 0.0
+        },
+        "DEVCO_55a201c6a36b": {
+          "examples": 3,
+          "gold_answer_rate": 0.0,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": null
+        },
+        "DEVCO_55efaa04fbd3": {
+          "examples": 1,
+          "gold_answer_rate": 0.0,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": null
+        },
+        "DEVCO_58f86c090a6d": {
+          "examples": 3,
+          "gold_answer_rate": 0.0,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": null
+        },
+        "DEVCO_59e8df54fe23": {
+          "examples": 3,
+          "gold_answer_rate": 0.0,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": null
+        },
+        "DEVCO_5a21918c98f0": {
+          "examples": 3,
+          "gold_answer_rate": 0.0,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": null
+        },
+        "DEVCO_5a63a496c611": {
+          "examples": 2,
+          "gold_answer_rate": 0.0,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": null
+        },
+        "DEVCO_64445e0c0c6f": {
+          "examples": 1,
+          "gold_answer_rate": 1.0,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": 0.0
+        },
+        "DEVCO_64e87d63b34a": {
+          "examples": 2,
+          "gold_answer_rate": 0.5,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": 0.0
+        },
+        "DEVCO_6856691372aa": {
+          "examples": 3,
+          "gold_answer_rate": 0.3333333333333333,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": 0.0
+        },
+        "DEVCO_6983866a80b0": {
+          "examples": 1,
+          "gold_answer_rate": 0.0,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": null
+        },
+        "DEVCO_6ce621847686": {
+          "examples": 3,
+          "gold_answer_rate": 0.0,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": null
+        },
+        "DEVCO_6e7d11fcd7b0": {
+          "examples": 1,
+          "gold_answer_rate": 0.0,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": null
+        },
+        "DEVCO_6f853869ec2b": {
+          "examples": 3,
+          "gold_answer_rate": 0.0,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": null
+        },
+        "DEVCO_71b97baa452c": {
+          "examples": 1,
+          "gold_answer_rate": 1.0,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": null
+        },
+        "DEVCO_7233d5110606": {
+          "examples": 3,
+          "gold_answer_rate": 0.6666666666666666,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": 0.0
+        },
+        "DEVCO_73ea39c48234": {
+          "examples": 1,
+          "gold_answer_rate": 1.0,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": 0.0
+        },
+        "DEVCO_7561ddec77ee": {
+          "examples": 3,
+          "gold_answer_rate": 0.3333333333333333,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": 0.0
+        },
+        "DEVCO_759a61173f5f": {
+          "examples": 1,
+          "gold_answer_rate": 0.0,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": 0.0
+        },
+        "DEVCO_76e8b9685aa9": {
+          "examples": 1,
+          "gold_answer_rate": 1.0,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": 0.0
+        },
+        "DEVCO_7b096925fb50": {
+          "examples": 3,
+          "gold_answer_rate": 0.3333333333333333,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": 0.0
+        },
+        "DEVCO_7b44c7f8e424": {
+          "examples": 1,
+          "gold_answer_rate": 0.0,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": null
+        },
+        "DEVCO_7c50776d142c": {
+          "examples": 3,
+          "gold_answer_rate": 0.3333333333333333,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": 0.0
+        },
+        "DEVCO_7c79d455f8db": {
+          "examples": 3,
+          "gold_answer_rate": 0.3333333333333333,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": 0.0
+        },
+        "DEVCO_7c8b9b4afec6": {
+          "examples": 2,
+          "gold_answer_rate": 1.0,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": null
+        },
+        "DEVCO_7d48074bd237": {
+          "examples": 1,
+          "gold_answer_rate": 0.0,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": 0.0
+        },
+        "DEVCO_7d70a4b018b7": {
+          "examples": 3,
+          "gold_answer_rate": 0.3333333333333333,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": 0.0
+        },
+        "DEVCO_7dab98f8228a": {
+          "examples": 1,
+          "gold_answer_rate": 0.0,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": 0.0
+        },
+        "DEVCO_7f38f81359e4": {
+          "examples": 2,
+          "gold_answer_rate": 0.5,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": 0.0
+        },
+        "DEVCO_8118120db344": {
+          "examples": 1,
+          "gold_answer_rate": 0.0,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": null
+        },
+        "DEVCO_82c3ebc15a50": {
+          "examples": 1,
+          "gold_answer_rate": 0.0,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": null
+        },
+        "DEVCO_83b9758afb0c": {
+          "examples": 3,
+          "gold_answer_rate": 0.0,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": null
+        },
+        "DEVCO_840ec9a26b06": {
+          "examples": 1,
+          "gold_answer_rate": 1.0,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": 0.0
+        },
+        "DEVCO_86bb0a417b80": {
+          "examples": 1,
+          "gold_answer_rate": 0.0,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": null
+        },
+        "DEVCO_86cbac6587e2": {
+          "examples": 1,
+          "gold_answer_rate": 1.0,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": null
+        },
+        "DEVCO_87d70dad4c32": {
+          "examples": 3,
+          "gold_answer_rate": 0.3333333333333333,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": 0.0
+        },
+        "DEVCO_89845b596b9b": {
+          "examples": 3,
+          "gold_answer_rate": 0.3333333333333333,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": 0.0
+        },
+        "DEVCO_8ade88d7cb39": {
+          "examples": 1,
+          "gold_answer_rate": 0.0,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": null
+        },
+        "DEVCO_8fbd5d6924a0": {
+          "examples": 3,
+          "gold_answer_rate": 0.6666666666666666,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": 0.0
+        },
+        "DEVCO_8ff73c57546d": {
+          "examples": 3,
+          "gold_answer_rate": 0.6666666666666666,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": 0.0
+        },
+        "DEVCO_92744737224c": {
+          "examples": 1,
+          "gold_answer_rate": 1.0,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": null
+        },
+        "DEVCO_96ce6b50c1ed": {
+          "examples": 1,
+          "gold_answer_rate": 0.0,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": null
+        },
+        "DEVCO_99158b4173f8": {
+          "examples": 2,
+          "gold_answer_rate": 0.0,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": null
+        },
+        "DEVCO_9984871bafaa": {
+          "examples": 1,
+          "gold_answer_rate": 0.0,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": null
+        },
+        "DEVCO_9aa4656faf80": {
+          "examples": 3,
+          "gold_answer_rate": 0.3333333333333333,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": 0.0
+        },
+        "DEVCO_9feecd03616d": {
+          "examples": 3,
+          "gold_answer_rate": 0.3333333333333333,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": 0.0
+        },
+        "DEVCO_a031ae6a5b8f": {
+          "examples": 3,
+          "gold_answer_rate": 0.6666666666666666,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": 0.0
+        },
+        "DEVCO_a41c1950628c": {
+          "examples": 3,
+          "gold_answer_rate": 0.0,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": null
+        },
+        "DEVCO_a521064de253": {
+          "examples": 3,
+          "gold_answer_rate": 0.0,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": null
+        },
+        "DEVCO_aa4cf2a3fb6d": {
+          "examples": 1,
+          "gold_answer_rate": 0.0,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": 0.0
+        },
+        "DEVCO_af93bd745d96": {
+          "examples": 3,
+          "gold_answer_rate": 0.3333333333333333,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": 0.0
+        },
+        "DEVCO_b38cbd3f7d5c": {
+          "examples": 3,
+          "gold_answer_rate": 0.3333333333333333,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": 0.0
+        },
+        "DEVCO_b46d0d134d88": {
+          "examples": 3,
+          "gold_answer_rate": 0.0,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": null
+        },
+        "DEVCO_b5180c63ac68": {
+          "examples": 3,
+          "gold_answer_rate": 0.3333333333333333,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": 0.0
+        },
+        "DEVCO_bacb2d7c2983": {
+          "examples": 1,
+          "gold_answer_rate": 0.0,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": 0.0
+        },
+        "DEVCO_bb94f8e0ddd2": {
+          "examples": 1,
+          "gold_answer_rate": 1.0,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": 0.0
+        },
+        "DEVCO_be32d28299c4": {
+          "examples": 3,
+          "gold_answer_rate": 0.0,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": null
+        },
+        "DEVCO_bf8046c2bb1c": {
+          "examples": 3,
+          "gold_answer_rate": 0.3333333333333333,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": 0.0
+        },
+        "DEVCO_c27b676be172": {
+          "examples": 1,
+          "gold_answer_rate": 0.0,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": null
+        },
+        "DEVCO_c6c3b337e670": {
+          "examples": 3,
+          "gold_answer_rate": 0.0,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": null
+        },
+        "DEVCO_c836c6b59065": {
+          "examples": 2,
+          "gold_answer_rate": 0.5,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": 0.0
+        },
+        "DEVCO_d04f30fa20d2": {
+          "examples": 3,
+          "gold_answer_rate": 0.6666666666666666,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": 0.0
+        },
+        "DEVCO_d12c09eabde8": {
+          "examples": 3,
+          "gold_answer_rate": 0.3333333333333333,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": 0.0
+        },
+        "DEVCO_d1ecf8c4d45e": {
+          "examples": 1,
+          "gold_answer_rate": 0.0,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": null
+        },
+        "DEVCO_d25307fb009f": {
+          "examples": 1,
+          "gold_answer_rate": 0.0,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": null
+        },
+        "DEVCO_d42ddc2ec546": {
+          "examples": 1,
+          "gold_answer_rate": 1.0,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": 0.0
+        },
+        "DEVCO_da1b02d68eb2": {
+          "examples": 3,
+          "gold_answer_rate": 0.6666666666666666,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": 0.0
+        },
+        "DEVCO_dafbd7713d2a": {
+          "examples": 1,
+          "gold_answer_rate": 1.0,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": 0.0
+        },
+        "DEVCO_e3f29ad9f463": {
+          "examples": 3,
+          "gold_answer_rate": 0.3333333333333333,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": 0.0
+        },
+        "DEVCO_e4d0b186d4ac": {
+          "examples": 3,
+          "gold_answer_rate": 0.6666666666666666,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": 0.0
+        },
+        "DEVCO_e576cda2a094": {
+          "examples": 1,
+          "gold_answer_rate": 1.0,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": 0.0
+        },
+        "DEVCO_e66796b2c350": {
+          "examples": 1,
+          "gold_answer_rate": 0.0,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": null
+        },
+        "DEVCO_e71443915c3c": {
+          "examples": 1,
+          "gold_answer_rate": 1.0,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": 0.0
+        },
+        "DEVCO_ebb453a6d420": {
+          "examples": 3,
+          "gold_answer_rate": 0.3333333333333333,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": 0.0
+        },
+        "DEVCO_ed84097742fd": {
+          "examples": 1,
+          "gold_answer_rate": 0.0,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": 0.0
+        },
+        "DEVCO_ee7601eb23b8": {
+          "examples": 3,
+          "gold_answer_rate": 0.3333333333333333,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": 0.0
+        },
+        "DEVCO_f25769b3da38": {
+          "examples": 3,
+          "gold_answer_rate": 0.3333333333333333,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": 0.0
+        },
+        "DEVCO_f6a14a9ed887": {
+          "examples": 3,
+          "gold_answer_rate": 0.3333333333333333,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": 0.0
+        },
+        "DEVCO_fde626b63d40": {
+          "examples": 1,
+          "gold_answer_rate": 0.0,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": 0.0
+        },
+        "DEVCO_fe747171c8e8": {
+          "examples": 3,
+          "gold_answer_rate": 0.6666666666666666,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": 0.0
+        },
+        "DEVCO_ffbd54651978": {
+          "examples": 3,
+          "gold_answer_rate": 0.6666666666666666,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": 0.0
+        }
+      },
+      "macro_gold_answer_rate": 0.346517119244392,
+      "worst_gold_answer_rate": 0.0,
+      "macro_permutation_exact_rate": 1.0,
+      "worst_permutation_exact_rate": 1.0,
+      "macro_counterfactual_false_accept_rate": 0.0,
+      "worst_counterfactual_false_accept_rate": 0.0
+    },
+    "layout": {
+      "groups": 6,
+      "by_group": {
+        "DEVELOPMENT_NATIVE_EXPLICIT_YEAR_TABLE": {
+          "examples": 17,
+          "gold_answer_rate": 0.6470588235294118,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": 0.0
+        },
+        "DEVELOPMENT_NATIVE_MULTI_TABLE": {
+          "examples": 70,
+          "gold_answer_rate": 0.6285714285714286,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": 0.0
+        },
+        "DEVELOPMENT_NATIVE_RELATIVE_PERIOD_TABLE": {
+          "examples": 8,
+          "gold_answer_rate": 0.5,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": 0.0
+        },
+        "DEVELOPMENT_NATIVE_STRUCTURED_SPARSE": {
+          "examples": 191,
+          "gold_answer_rate": 0.29842931937172773,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": 0.0
+        },
+        "DEVELOPMENT_OCR_OR_HYBRID_TABLE": {
+          "examples": 76,
+          "gold_answer_rate": 0.9342105263157895,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": 0.0
+        },
+        "DEVELOPMENT_PLAINTEXT_SPARSE": {
+          "examples": 1,
+          "gold_answer_rate": 0.0,
+          "permutation_exact_rate": 1.0,
+          "counterfactual_false_accept_rate": null
+        }
+      },
+      "macro_gold_answer_rate": 0.5013783496313929,
+      "worst_gold_answer_rate": 0.0,
+      "macro_permutation_exact_rate": 1.0,
+      "worst_permutation_exact_rate": 1.0,
+      "macro_counterfactual_false_accept_rate": 0.0,
+      "worst_counterfactual_false_accept_rate": 0.0
+    }
+  },
+  "runtime_hashes": {
+    "src/hrm_finance_qa/question_planner.py": "76ddcd2cb64ced25e3f7737552cc8b93e69e0048a1d6a6499f15f9d8059e2b56",
+    "src/hrm_finance_qa/program_synthesis.py": "3dd00b6633136b7d3d4edc6eb6763747263330f8ed3c570e9720ba22cb51b592",
+    "src/hrm_finance_qa/symbolic_verifier.py": "2436bae3895146044c1f40158426545363df50ade1ba2d1fcc977b346435e1a2",
+    "src/hrm_finance_qa/direction_contract.py": "a18aa130419fc74ce647bd92dc9c1b1217007738e636aad0f28c7f78396be937",
+    "src/hrm_finance_qa/document_hrm.py": "f40345b8696063cd41a5d2c69daa816ffae3db926900e3af3de2becbae03e91e",
+    "src/hrm_finance_qa/document_reasoning_engine.py": "f01865c508241b27f459cc14ba47bea17e040ff0ebad8b437fb97c2b42e3a762"
+  },
+  "checkpoint_sha256": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de",
+  "invariants": {
+    "abw_used": false,
+    "protected_evaluation_loaded": false,
+    "validation_loaded": false,
+    "blind_loaded": false,
+    "test_data_loaded": false,
+    "candidate_rank_or_score_used_as_semantic_proof": false,
+    "threshold_changed": false,
+    "checkpoint_changed": false,
+    "fine_tuning_performed": false,
+    "runtime_changed_by_replay": false,
+    "phase_d_unlocked": false,
+    "safe_abstention_counted_as_answered": false,
+    "unseen_confirmation_claim_made": false,
+    "universal_coverage_claim_made": false
+  },
+  "artifacts": [
+    {
+      "path": "config/finhrm_qp3_core_s4_safe_replay_precommit_v1.json",
+      "size_bytes": 2463,
+      "sha256": "71bd3a5e7748b9e3b0b5a676177dfddb602c52865d68727f8c7ebc2d8e246691"
+    },
+    {
+      "path": "scripts/evaluate_qp3_core_s4_safe_replay.py",
+      "size_bytes": 24511,
+      "sha256": "ce532ff3406727a8b024f39e80b40b58ca008efa780939e194f11051a981710c"
+    },
+    {
+      "path": "reports/finhrm_qp3_core_s4_safe_replay_v1.json",
+      "size_bytes": 261850,
+      "sha256": "cb0dbbc27de5c9254fd3fa4634183f91bfcbf2b93e96f1703984aaf4d9f146f0"
+    },
+    {
+      "path": "reports/finhrm_qp3_core_s4_safe_replay_v1.md",
+      "size_bytes": 616,
+      "sha256": "976837c6bad5ca1f427c75a15fe6f0fdc5263ba029fb7049fa0d97e5f527652d"
+    }
+  ],
+  "qp4_authorized": false,
+  "authorized_next_step": "If the gate passes, close the validation-free S4 stress replay only; keep empirical unseen generalization and any release claim locked."
+}

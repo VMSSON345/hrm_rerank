@@ -1,0 +1,1514 @@
+{
+  "schema": "subtract-direction-contract-development-audit-v1",
+  "classification": "development_only",
+  "protected_evaluation_sources_used": false,
+  "sources": [
+    {
+      "path": "/mnt/d/reasoning_model_V4/reasoning_model/data/train.jsonl",
+      "sha256": "03642bca3865f875a1aea0b7c95477b5ac8de20c9a2a72ae25f98119d32abd2b",
+      "all_examples": 1400,
+      "development_eligible_examples": 1200,
+      "protected_records_detected_and_excluded": 200,
+      "protected_record_reasons": {
+        "example_id:validation": 200
+      },
+      "protected_record_ids_first_100": [
+        "synthetic-validation-select-0001",
+        "synthetic-validation-select-0002",
+        "synthetic-validation-select-0003",
+        "synthetic-validation-select-0004",
+        "synthetic-validation-select-0005",
+        "synthetic-validation-select-0006",
+        "synthetic-validation-select-0007",
+        "synthetic-validation-select-0008",
+        "synthetic-validation-select-0009",
+        "synthetic-validation-select-0010",
+        "synthetic-validation-select-0011",
+        "synthetic-validation-select-0012",
+        "synthetic-validation-select-0013",
+        "synthetic-validation-select-0014",
+        "synthetic-validation-select-0015",
+        "synthetic-validation-select-0016",
+        "synthetic-validation-select-0017",
+        "synthetic-validation-select-0018",
+        "synthetic-validation-select-0019",
+        "synthetic-validation-select-0020",
+        "synthetic-validation-add-0001",
+        "synthetic-validation-add-0002",
+        "synthetic-validation-add-0003",
+        "synthetic-validation-add-0004",
+        "synthetic-validation-add-0005",
+        "synthetic-validation-add-0006",
+        "synthetic-validation-add-0007",
+        "synthetic-validation-add-0008",
+        "synthetic-validation-add-0009",
+        "synthetic-validation-add-0010",
+        "synthetic-validation-add-0011",
+        "synthetic-validation-add-0012",
+        "synthetic-validation-add-0013",
+        "synthetic-validation-add-0014",
+        "synthetic-validation-add-0015",
+        "synthetic-validation-add-0016",
+        "synthetic-validation-add-0017",
+        "synthetic-validation-add-0018",
+        "synthetic-validation-add-0019",
+        "synthetic-validation-add-0020",
+        "synthetic-validation-subtract-0001",
+        "synthetic-validation-subtract-0002",
+        "synthetic-validation-subtract-0003",
+        "synthetic-validation-subtract-0004",
+        "synthetic-validation-subtract-0005",
+        "synthetic-validation-subtract-0006",
+        "synthetic-validation-subtract-0007",
+        "synthetic-validation-subtract-0008",
+        "synthetic-validation-subtract-0009",
+        "synthetic-validation-subtract-0010",
+        "synthetic-validation-subtract-0011",
+        "synthetic-validation-subtract-0012",
+        "synthetic-validation-subtract-0013",
+        "synthetic-validation-subtract-0014",
+        "synthetic-validation-subtract-0015",
+        "synthetic-validation-subtract-0016",
+        "synthetic-validation-subtract-0017",
+        "synthetic-validation-subtract-0018",
+        "synthetic-validation-subtract-0019",
+        "synthetic-validation-subtract-0020",
+        "synthetic-validation-multiply-0001",
+        "synthetic-validation-multiply-0002",
+        "synthetic-validation-multiply-0003",
+        "synthetic-validation-multiply-0004",
+        "synthetic-validation-multiply-0005",
+        "synthetic-validation-multiply-0006",
+        "synthetic-validation-multiply-0007",
+        "synthetic-validation-multiply-0008",
+        "synthetic-validation-multiply-0009",
+        "synthetic-validation-multiply-0010",
+        "synthetic-validation-multiply-0011",
+        "synthetic-validation-multiply-0012",
+        "synthetic-validation-multiply-0013",
+        "synthetic-validation-multiply-0014",
+        "synthetic-validation-multiply-0015",
+        "synthetic-validation-multiply-0016",
+        "synthetic-validation-multiply-0017",
+        "synthetic-validation-multiply-0018",
+        "synthetic-validation-multiply-0019",
+        "synthetic-validation-multiply-0020",
+        "synthetic-validation-divide-0001",
+        "synthetic-validation-divide-0002",
+        "synthetic-validation-divide-0003",
+        "synthetic-validation-divide-0004",
+        "synthetic-validation-divide-0005",
+        "synthetic-validation-divide-0006",
+        "synthetic-validation-divide-0007",
+        "synthetic-validation-divide-0008",
+        "synthetic-validation-divide-0009",
+        "synthetic-validation-divide-0010",
+        "synthetic-validation-divide-0011",
+        "synthetic-validation-divide-0012",
+        "synthetic-validation-divide-0013",
+        "synthetic-validation-divide-0014",
+        "synthetic-validation-divide-0015",
+        "synthetic-validation-divide-0016",
+        "synthetic-validation-divide-0017",
+        "synthetic-validation-divide-0018",
+        "synthetic-validation-divide-0019",
+        "synthetic-validation-divide-0020"
+      ],
+      "directional_gold_examples": 240,
+      "operation_counts": {
+        "SUBTRACT": 120,
+        "PERCENT_CHANGE": 120
+      },
+      "direction_intent_counts": {
+        "AMBIGUOUS": 9,
+        "NEW_MINUS_OLD": 231
+      },
+      "direction_outcome_counts": {
+        "ambiguous_wording": 9,
+        "direction_supported": 229,
+        "direction_reversed": 1,
+        "direction_unknown": 1
+      },
+      "direction_supported_rate": 0.9541666666666667,
+      "direction_provable_coverage": 0.9583333333333334,
+      "direction_accuracy_when_provable": 0.9956521739130435,
+      "issue_signal_counts": {
+        "parenthesized_negative_presentation": 13,
+        "signed_negative_operand": 19,
+        "operation_mismatch:SUBTRACT->PERCENT_CHANGE": 3
+      },
+      "unique_source_names": 81,
+      "unique_company_keys": 81,
+      "non_supported_examples_first_100": [
+        {
+          "example_id": "synthetic-train-subtract-0001",
+          "gold_operation": "SUBTRACT",
+          "planner_operation": null,
+          "direction_intent": "AMBIGUOUS",
+          "outcome": "ambiguous_wording",
+          "expected": [],
+          "observed": []
+        },
+        {
+          "example_id": "synthetic-train-subtract-0067",
+          "gold_operation": "SUBTRACT",
+          "planner_operation": null,
+          "direction_intent": "AMBIGUOUS",
+          "outcome": "ambiguous_wording",
+          "expected": [],
+          "observed": []
+        },
+        {
+          "example_id": "synthetic-train-subtract-0088",
+          "gold_operation": "SUBTRACT",
+          "planner_operation": null,
+          "direction_intent": "AMBIGUOUS",
+          "outcome": "ambiguous_wording",
+          "expected": [],
+          "observed": []
+        },
+        {
+          "example_id": "synthetic-train-subtract-0090",
+          "gold_operation": "SUBTRACT",
+          "planner_operation": "SUBTRACT",
+          "direction_intent": "NEW_MINUS_OLD",
+          "outcome": "direction_reversed",
+          "expected": [
+            "current",
+            "prior"
+          ],
+          "observed": [
+            "prior",
+            "current"
+          ]
+        },
+        {
+          "example_id": "synthetic-train-subtract-0112",
+          "gold_operation": "SUBTRACT",
+          "planner_operation": null,
+          "direction_intent": "AMBIGUOUS",
+          "outcome": "ambiguous_wording",
+          "expected": [],
+          "observed": []
+        },
+        {
+          "example_id": "synthetic-train-subtract-0113",
+          "gold_operation": "SUBTRACT",
+          "planner_operation": null,
+          "direction_intent": "AMBIGUOUS",
+          "outcome": "ambiguous_wording",
+          "expected": [],
+          "observed": []
+        },
+        {
+          "example_id": "synthetic-train-percent_change-0006",
+          "gold_operation": "PERCENT_CHANGE",
+          "planner_operation": "PERCENT_CHANGE",
+          "direction_intent": "AMBIGUOUS",
+          "outcome": "ambiguous_wording",
+          "expected": [],
+          "observed": []
+        },
+        {
+          "example_id": "synthetic-train-percent_change-0030",
+          "gold_operation": "PERCENT_CHANGE",
+          "planner_operation": "PERCENT_CHANGE",
+          "direction_intent": "AMBIGUOUS",
+          "outcome": "ambiguous_wording",
+          "expected": [],
+          "observed": []
+        },
+        {
+          "example_id": "synthetic-train-percent_change-0031",
+          "gold_operation": "PERCENT_CHANGE",
+          "planner_operation": "PERCENT_CHANGE",
+          "direction_intent": "AMBIGUOUS",
+          "outcome": "ambiguous_wording",
+          "expected": [],
+          "observed": []
+        },
+        {
+          "example_id": "synthetic-train-percent_change-0071",
+          "gold_operation": "PERCENT_CHANGE",
+          "planner_operation": "PERCENT_CHANGE",
+          "direction_intent": "NEW_MINUS_OLD",
+          "outcome": "direction_unknown",
+          "expected": [
+            "current",
+            "prior"
+          ],
+          "observed": [
+            "prior",
+            "prior"
+          ]
+        },
+        {
+          "example_id": "synthetic-train-percent_change-0079",
+          "gold_operation": "PERCENT_CHANGE",
+          "planner_operation": "PERCENT_CHANGE",
+          "direction_intent": "AMBIGUOUS",
+          "outcome": "ambiguous_wording",
+          "expected": [],
+          "observed": []
+        }
+      ]
+    },
+    {
+      "path": "/mnt/d/reasoning_model_V4/reasoning_model/data/document_hrm_development_v1_train.jsonl",
+      "sha256": "8d445cbc776ec10ffb9b94bf4fd0693eb1ab3857837d6cd509e49b6f4a1a5bb0",
+      "all_examples": 1021,
+      "development_eligible_examples": 1021,
+      "protected_records_detected_and_excluded": 0,
+      "protected_record_reasons": {},
+      "protected_record_ids_first_100": [],
+      "directional_gold_examples": 239,
+      "operation_counts": {
+        "PERCENT_CHANGE": 96,
+        "SUBTRACT": 143
+      },
+      "direction_intent_counts": {
+        "NONE": 50,
+        "NEW_MINUS_OLD": 133,
+        "DECREASE_AMOUNT": 1,
+        "AMBIGUOUS": 35,
+        "LEFT_MINUS_RIGHT": 20
+      },
+      "direction_outcome_counts": {
+        "direction_unknown": 52,
+        "direction_reversed": 18,
+        "direction_supported": 94,
+        "missing_period": 40,
+        "ambiguous_wording": 35
+      },
+      "direction_supported_rate": 0.39330543933054396,
+      "direction_provable_coverage": 0.4686192468619247,
+      "direction_accuracy_when_provable": 0.8392857142857143,
+      "issue_signal_counts": {
+        "operation_mismatch:PERCENT_CHANGE->SUBTRACT": 2,
+        "verifier_direction_invalid": 2,
+        "signed_negative_operand": 3,
+        "wrong_metric": 37,
+        "parenthesized_negative_presentation": 2
+      },
+      "unique_source_names": 4,
+      "unique_company_keys": 0,
+      "non_supported_examples_first_100": [
+        {
+          "example_id": "2",
+          "gold_operation": "PERCENT_CHANGE",
+          "planner_operation": null,
+          "direction_intent": "NONE",
+          "outcome": "direction_unknown",
+          "expected": [],
+          "observed": []
+        },
+        {
+          "example_id": "15",
+          "gold_operation": "SUBTRACT",
+          "planner_operation": "SUBTRACT",
+          "direction_intent": "NEW_MINUS_OLD",
+          "outcome": "direction_reversed",
+          "expected": [
+            "current",
+            "prior"
+          ],
+          "observed": [
+            "prior",
+            "current"
+          ]
+        },
+        {
+          "example_id": "21",
+          "gold_operation": "SUBTRACT",
+          "planner_operation": null,
+          "direction_intent": "NONE",
+          "outcome": "direction_unknown",
+          "expected": [],
+          "observed": []
+        },
+        {
+          "example_id": "27",
+          "gold_operation": "SUBTRACT",
+          "planner_operation": null,
+          "direction_intent": "NONE",
+          "outcome": "direction_unknown",
+          "expected": [],
+          "observed": []
+        },
+        {
+          "example_id": "71",
+          "gold_operation": "SUBTRACT",
+          "planner_operation": "SUBTRACT",
+          "direction_intent": "NEW_MINUS_OLD",
+          "outcome": "direction_reversed",
+          "expected": [
+            "current",
+            "prior"
+          ],
+          "observed": [
+            "prior",
+            "current"
+          ]
+        },
+        {
+          "example_id": "106",
+          "gold_operation": "SUBTRACT",
+          "planner_operation": "SUBTRACT",
+          "direction_intent": "NEW_MINUS_OLD",
+          "outcome": "direction_reversed",
+          "expected": [
+            "current",
+            "prior"
+          ],
+          "observed": [
+            "prior",
+            "current"
+          ]
+        },
+        {
+          "example_id": "162",
+          "gold_operation": "PERCENT_CHANGE",
+          "planner_operation": null,
+          "direction_intent": "NONE",
+          "outcome": "direction_unknown",
+          "expected": [],
+          "observed": []
+        },
+        {
+          "example_id": "176",
+          "gold_operation": "SUBTRACT",
+          "planner_operation": "SUBTRACT",
+          "direction_intent": "NEW_MINUS_OLD",
+          "outcome": "direction_reversed",
+          "expected": [
+            "2024",
+            "2023"
+          ],
+          "observed": [
+            "2023",
+            "2024"
+          ]
+        },
+        {
+          "example_id": "186",
+          "gold_operation": "SUBTRACT",
+          "planner_operation": "SUBTRACT",
+          "direction_intent": "NEW_MINUS_OLD",
+          "outcome": "direction_reversed",
+          "expected": [
+            "2024",
+            "2023"
+          ],
+          "observed": [
+            "2023",
+            "2024"
+          ]
+        },
+        {
+          "example_id": "205",
+          "gold_operation": "SUBTRACT",
+          "planner_operation": null,
+          "direction_intent": "NONE",
+          "outcome": "direction_unknown",
+          "expected": [],
+          "observed": []
+        },
+        {
+          "example_id": "208",
+          "gold_operation": "SUBTRACT",
+          "planner_operation": null,
+          "direction_intent": "NONE",
+          "outcome": "direction_unknown",
+          "expected": [],
+          "observed": []
+        },
+        {
+          "example_id": "226",
+          "gold_operation": "SUBTRACT",
+          "planner_operation": null,
+          "direction_intent": "NONE",
+          "outcome": "direction_unknown",
+          "expected": [],
+          "observed": []
+        },
+        {
+          "example_id": "264",
+          "gold_operation": "SUBTRACT",
+          "planner_operation": null,
+          "direction_intent": "NONE",
+          "outcome": "direction_unknown",
+          "expected": [],
+          "observed": []
+        },
+        {
+          "example_id": "283",
+          "gold_operation": "SUBTRACT",
+          "planner_operation": "SUBTRACT",
+          "direction_intent": "NEW_MINUS_OLD",
+          "outcome": "direction_reversed",
+          "expected": [
+            "current",
+            "prior"
+          ],
+          "observed": [
+            "prior",
+            "current"
+          ]
+        },
+        {
+          "example_id": "284",
+          "gold_operation": "PERCENT_CHANGE",
+          "planner_operation": null,
+          "direction_intent": "NONE",
+          "outcome": "direction_unknown",
+          "expected": [],
+          "observed": []
+        },
+        {
+          "example_id": "314",
+          "gold_operation": "SUBTRACT",
+          "planner_operation": "SUBTRACT",
+          "direction_intent": "NEW_MINUS_OLD",
+          "outcome": "direction_reversed",
+          "expected": [
+            "current",
+            "prior"
+          ],
+          "observed": [
+            "prior",
+            "current"
+          ]
+        },
+        {
+          "example_id": "318",
+          "gold_operation": "SUBTRACT",
+          "planner_operation": "SUBTRACT",
+          "direction_intent": "NEW_MINUS_OLD",
+          "outcome": "missing_period",
+          "expected": [
+            "current",
+            "prior"
+          ],
+          "observed": [
+            "",
+            ""
+          ]
+        },
+        {
+          "example_id": "335",
+          "gold_operation": "PERCENT_CHANGE",
+          "planner_operation": null,
+          "direction_intent": "NONE",
+          "outcome": "direction_unknown",
+          "expected": [],
+          "observed": []
+        },
+        {
+          "example_id": "362",
+          "gold_operation": "SUBTRACT",
+          "planner_operation": "SUBTRACT",
+          "direction_intent": "NEW_MINUS_OLD",
+          "outcome": "direction_reversed",
+          "expected": [
+            "current",
+            "prior"
+          ],
+          "observed": [
+            "prior",
+            "current"
+          ]
+        },
+        {
+          "example_id": "375",
+          "gold_operation": "SUBTRACT",
+          "planner_operation": "SUBTRACT",
+          "direction_intent": "NEW_MINUS_OLD",
+          "outcome": "direction_reversed",
+          "expected": [
+            "current",
+            "prior"
+          ],
+          "observed": [
+            "prior",
+            "current"
+          ]
+        },
+        {
+          "example_id": "428",
+          "gold_operation": "SUBTRACT",
+          "planner_operation": "SUBTRACT",
+          "direction_intent": "NEW_MINUS_OLD",
+          "outcome": "missing_period",
+          "expected": [
+            "current",
+            "prior"
+          ],
+          "observed": [
+            "",
+            ""
+          ]
+        },
+        {
+          "example_id": "448",
+          "gold_operation": "SUBTRACT",
+          "planner_operation": "SUBTRACT",
+          "direction_intent": "NEW_MINUS_OLD",
+          "outcome": "direction_reversed",
+          "expected": [
+            "current",
+            "prior"
+          ],
+          "observed": [
+            "prior",
+            "current"
+          ]
+        },
+        {
+          "example_id": "485",
+          "gold_operation": "SUBTRACT",
+          "planner_operation": "SUBTRACT",
+          "direction_intent": "NEW_MINUS_OLD",
+          "outcome": "direction_reversed",
+          "expected": [
+            "current",
+            "prior"
+          ],
+          "observed": [
+            "prior",
+            "current"
+          ]
+        },
+        {
+          "example_id": "502",
+          "gold_operation": "SUBTRACT",
+          "planner_operation": "SUBTRACT",
+          "direction_intent": "NEW_MINUS_OLD",
+          "outcome": "missing_period",
+          "expected": [
+            "2024",
+            "2023"
+          ],
+          "observed": [
+            "2023",
+            ""
+          ]
+        },
+        {
+          "example_id": "520",
+          "gold_operation": "SUBTRACT",
+          "planner_operation": "SUBTRACT",
+          "direction_intent": "NEW_MINUS_OLD",
+          "outcome": "direction_reversed",
+          "expected": [
+            "current",
+            "prior"
+          ],
+          "observed": [
+            "prior",
+            "current"
+          ]
+        },
+        {
+          "example_id": "634",
+          "gold_operation": "SUBTRACT",
+          "planner_operation": null,
+          "direction_intent": "NONE",
+          "outcome": "direction_unknown",
+          "expected": [],
+          "observed": []
+        },
+        {
+          "example_id": "641",
+          "gold_operation": "SUBTRACT",
+          "planner_operation": "SUBTRACT",
+          "direction_intent": "NEW_MINUS_OLD",
+          "outcome": "direction_reversed",
+          "expected": [
+            "current",
+            "prior"
+          ],
+          "observed": [
+            "prior",
+            "current"
+          ]
+        },
+        {
+          "example_id": "660",
+          "gold_operation": "PERCENT_CHANGE",
+          "planner_operation": null,
+          "direction_intent": "NONE",
+          "outcome": "direction_unknown",
+          "expected": [],
+          "observed": []
+        },
+        {
+          "example_id": "671",
+          "gold_operation": "SUBTRACT",
+          "planner_operation": "SUBTRACT",
+          "direction_intent": "NEW_MINUS_OLD",
+          "outcome": "direction_reversed",
+          "expected": [
+            "current",
+            "prior"
+          ],
+          "observed": [
+            "prior",
+            "current"
+          ]
+        },
+        {
+          "example_id": "719",
+          "gold_operation": "SUBTRACT",
+          "planner_operation": "SUBTRACT",
+          "direction_intent": "NEW_MINUS_OLD",
+          "outcome": "direction_reversed",
+          "expected": [
+            "current",
+            "prior"
+          ],
+          "observed": [
+            "prior",
+            "current"
+          ]
+        },
+        {
+          "example_id": "725",
+          "gold_operation": "PERCENT_CHANGE",
+          "planner_operation": null,
+          "direction_intent": "NONE",
+          "outcome": "direction_unknown",
+          "expected": [],
+          "observed": []
+        },
+        {
+          "example_id": "734",
+          "gold_operation": "SUBTRACT",
+          "planner_operation": null,
+          "direction_intent": "NONE",
+          "outcome": "direction_unknown",
+          "expected": [],
+          "observed": []
+        },
+        {
+          "example_id": "737",
+          "gold_operation": "SUBTRACT",
+          "planner_operation": "SUBTRACT",
+          "direction_intent": "NEW_MINUS_OLD",
+          "outcome": "missing_period",
+          "expected": [
+            "current",
+            "prior"
+          ],
+          "observed": [
+            "",
+            ""
+          ]
+        },
+        {
+          "example_id": "754",
+          "gold_operation": "SUBTRACT",
+          "planner_operation": "SUBTRACT",
+          "direction_intent": "NEW_MINUS_OLD",
+          "outcome": "direction_reversed",
+          "expected": [
+            "current",
+            "prior"
+          ],
+          "observed": [
+            "prior",
+            "current"
+          ]
+        },
+        {
+          "example_id": "761",
+          "gold_operation": "SUBTRACT",
+          "planner_operation": null,
+          "direction_intent": "NONE",
+          "outcome": "direction_unknown",
+          "expected": [],
+          "observed": []
+        },
+        {
+          "example_id": "795",
+          "gold_operation": "SUBTRACT",
+          "planner_operation": "SUBTRACT",
+          "direction_intent": "NEW_MINUS_OLD",
+          "outcome": "direction_reversed",
+          "expected": [
+            "current",
+            "prior"
+          ],
+          "observed": [
+            "prior",
+            "current"
+          ]
+        },
+        {
+          "example_id": "810",
+          "gold_operation": "SUBTRACT",
+          "planner_operation": "SUBTRACT",
+          "direction_intent": "NEW_MINUS_OLD",
+          "outcome": "direction_reversed",
+          "expected": [
+            "current",
+            "prior"
+          ],
+          "observed": [
+            "prior",
+            "current"
+          ]
+        },
+        {
+          "example_id": "819",
+          "gold_operation": "SUBTRACT",
+          "planner_operation": null,
+          "direction_intent": "NONE",
+          "outcome": "direction_unknown",
+          "expected": [],
+          "observed": []
+        },
+        {
+          "example_id": "834",
+          "gold_operation": "SUBTRACT",
+          "planner_operation": "SUBTRACT",
+          "direction_intent": "NEW_MINUS_OLD",
+          "outcome": "missing_period",
+          "expected": [
+            "current",
+            "prior"
+          ],
+          "observed": [
+            "",
+            ""
+          ]
+        },
+        {
+          "example_id": "881",
+          "gold_operation": "SUBTRACT",
+          "planner_operation": null,
+          "direction_intent": "NONE",
+          "outcome": "direction_unknown",
+          "expected": [],
+          "observed": []
+        },
+        {
+          "example_id": "885",
+          "gold_operation": "SUBTRACT",
+          "planner_operation": null,
+          "direction_intent": "NONE",
+          "outcome": "direction_unknown",
+          "expected": [],
+          "observed": []
+        },
+        {
+          "example_id": "915",
+          "gold_operation": "SUBTRACT",
+          "planner_operation": null,
+          "direction_intent": "NONE",
+          "outcome": "direction_unknown",
+          "expected": [],
+          "observed": []
+        },
+        {
+          "example_id": "968",
+          "gold_operation": "SUBTRACT",
+          "planner_operation": null,
+          "direction_intent": "NONE",
+          "outcome": "direction_unknown",
+          "expected": [],
+          "observed": []
+        },
+        {
+          "example_id": "synthetic-subtract-0",
+          "gold_operation": "SUBTRACT",
+          "planner_operation": null,
+          "direction_intent": "AMBIGUOUS",
+          "outcome": "ambiguous_wording",
+          "expected": [],
+          "observed": []
+        },
+        {
+          "example_id": "synthetic-subtract-3",
+          "gold_operation": "SUBTRACT",
+          "planner_operation": null,
+          "direction_intent": "AMBIGUOUS",
+          "outcome": "ambiguous_wording",
+          "expected": [],
+          "observed": []
+        },
+        {
+          "example_id": "synthetic-subtract-4",
+          "gold_operation": "SUBTRACT",
+          "planner_operation": "SUBTRACT",
+          "direction_intent": "NEW_MINUS_OLD",
+          "outcome": "missing_period",
+          "expected": [
+            "current",
+            "prior"
+          ],
+          "observed": [
+            "",
+            ""
+          ]
+        },
+        {
+          "example_id": "synthetic-subtract-5",
+          "gold_operation": "SUBTRACT",
+          "planner_operation": "SUBTRACT",
+          "direction_intent": "NEW_MINUS_OLD",
+          "outcome": "missing_period",
+          "expected": [
+            "current",
+            "prior"
+          ],
+          "observed": [
+            "",
+            ""
+          ]
+        },
+        {
+          "example_id": "synthetic-subtract-6",
+          "gold_operation": "SUBTRACT",
+          "planner_operation": null,
+          "direction_intent": "AMBIGUOUS",
+          "outcome": "ambiguous_wording",
+          "expected": [],
+          "observed": []
+        },
+        {
+          "example_id": "synthetic-subtract-9",
+          "gold_operation": "SUBTRACT",
+          "planner_operation": null,
+          "direction_intent": "AMBIGUOUS",
+          "outcome": "ambiguous_wording",
+          "expected": [],
+          "observed": []
+        },
+        {
+          "example_id": "synthetic-subtract-10",
+          "gold_operation": "SUBTRACT",
+          "planner_operation": "SUBTRACT",
+          "direction_intent": "NEW_MINUS_OLD",
+          "outcome": "missing_period",
+          "expected": [
+            "current",
+            "prior"
+          ],
+          "observed": [
+            "",
+            ""
+          ]
+        },
+        {
+          "example_id": "synthetic-subtract-11",
+          "gold_operation": "SUBTRACT",
+          "planner_operation": "SUBTRACT",
+          "direction_intent": "NEW_MINUS_OLD",
+          "outcome": "missing_period",
+          "expected": [
+            "current",
+            "prior"
+          ],
+          "observed": [
+            "",
+            ""
+          ]
+        },
+        {
+          "example_id": "synthetic-subtract-12",
+          "gold_operation": "SUBTRACT",
+          "planner_operation": null,
+          "direction_intent": "AMBIGUOUS",
+          "outcome": "ambiguous_wording",
+          "expected": [],
+          "observed": []
+        },
+        {
+          "example_id": "synthetic-subtract-15",
+          "gold_operation": "SUBTRACT",
+          "planner_operation": null,
+          "direction_intent": "AMBIGUOUS",
+          "outcome": "ambiguous_wording",
+          "expected": [],
+          "observed": []
+        },
+        {
+          "example_id": "synthetic-subtract-16",
+          "gold_operation": "SUBTRACT",
+          "planner_operation": "SUBTRACT",
+          "direction_intent": "NEW_MINUS_OLD",
+          "outcome": "missing_period",
+          "expected": [
+            "current",
+            "prior"
+          ],
+          "observed": [
+            "",
+            ""
+          ]
+        },
+        {
+          "example_id": "synthetic-subtract-17",
+          "gold_operation": "SUBTRACT",
+          "planner_operation": "SUBTRACT",
+          "direction_intent": "NEW_MINUS_OLD",
+          "outcome": "missing_period",
+          "expected": [
+            "current",
+            "prior"
+          ],
+          "observed": [
+            "",
+            ""
+          ]
+        },
+        {
+          "example_id": "synthetic-subtract-18",
+          "gold_operation": "SUBTRACT",
+          "planner_operation": null,
+          "direction_intent": "AMBIGUOUS",
+          "outcome": "ambiguous_wording",
+          "expected": [],
+          "observed": []
+        },
+        {
+          "example_id": "synthetic-subtract-20",
+          "gold_operation": "SUBTRACT",
+          "planner_operation": null,
+          "direction_intent": "LEFT_MINUS_RIGHT",
+          "outcome": "direction_unknown",
+          "expected": [],
+          "observed": []
+        },
+        {
+          "example_id": "synthetic-subtract-21",
+          "gold_operation": "SUBTRACT",
+          "planner_operation": null,
+          "direction_intent": "AMBIGUOUS",
+          "outcome": "ambiguous_wording",
+          "expected": [],
+          "observed": []
+        },
+        {
+          "example_id": "synthetic-subtract-22",
+          "gold_operation": "SUBTRACT",
+          "planner_operation": "SUBTRACT",
+          "direction_intent": "NEW_MINUS_OLD",
+          "outcome": "missing_period",
+          "expected": [
+            "current",
+            "prior"
+          ],
+          "observed": [
+            "",
+            ""
+          ]
+        },
+        {
+          "example_id": "synthetic-subtract-23",
+          "gold_operation": "SUBTRACT",
+          "planner_operation": "SUBTRACT",
+          "direction_intent": "NEW_MINUS_OLD",
+          "outcome": "missing_period",
+          "expected": [
+            "current",
+            "prior"
+          ],
+          "observed": [
+            "",
+            ""
+          ]
+        },
+        {
+          "example_id": "synthetic-subtract-24",
+          "gold_operation": "SUBTRACT",
+          "planner_operation": null,
+          "direction_intent": "AMBIGUOUS",
+          "outcome": "ambiguous_wording",
+          "expected": [],
+          "observed": []
+        },
+        {
+          "example_id": "synthetic-subtract-27",
+          "gold_operation": "SUBTRACT",
+          "planner_operation": null,
+          "direction_intent": "AMBIGUOUS",
+          "outcome": "ambiguous_wording",
+          "expected": [],
+          "observed": []
+        },
+        {
+          "example_id": "synthetic-subtract-28",
+          "gold_operation": "SUBTRACT",
+          "planner_operation": "SUBTRACT",
+          "direction_intent": "NEW_MINUS_OLD",
+          "outcome": "missing_period",
+          "expected": [
+            "current",
+            "prior"
+          ],
+          "observed": [
+            "",
+            ""
+          ]
+        },
+        {
+          "example_id": "synthetic-subtract-29",
+          "gold_operation": "SUBTRACT",
+          "planner_operation": "SUBTRACT",
+          "direction_intent": "NEW_MINUS_OLD",
+          "outcome": "missing_period",
+          "expected": [
+            "current",
+            "prior"
+          ],
+          "observed": [
+            "",
+            ""
+          ]
+        },
+        {
+          "example_id": "synthetic-subtract-30",
+          "gold_operation": "SUBTRACT",
+          "planner_operation": null,
+          "direction_intent": "AMBIGUOUS",
+          "outcome": "ambiguous_wording",
+          "expected": [],
+          "observed": []
+        },
+        {
+          "example_id": "synthetic-subtract-33",
+          "gold_operation": "SUBTRACT",
+          "planner_operation": null,
+          "direction_intent": "AMBIGUOUS",
+          "outcome": "ambiguous_wording",
+          "expected": [],
+          "observed": []
+        },
+        {
+          "example_id": "synthetic-subtract-34",
+          "gold_operation": "SUBTRACT",
+          "planner_operation": "SUBTRACT",
+          "direction_intent": "NEW_MINUS_OLD",
+          "outcome": "missing_period",
+          "expected": [
+            "current",
+            "prior"
+          ],
+          "observed": [
+            "",
+            ""
+          ]
+        },
+        {
+          "example_id": "synthetic-subtract-35",
+          "gold_operation": "SUBTRACT",
+          "planner_operation": "SUBTRACT",
+          "direction_intent": "NEW_MINUS_OLD",
+          "outcome": "missing_period",
+          "expected": [
+            "current",
+            "prior"
+          ],
+          "observed": [
+            "",
+            ""
+          ]
+        },
+        {
+          "example_id": "synthetic-subtract-36",
+          "gold_operation": "SUBTRACT",
+          "planner_operation": null,
+          "direction_intent": "AMBIGUOUS",
+          "outcome": "ambiguous_wording",
+          "expected": [],
+          "observed": []
+        },
+        {
+          "example_id": "synthetic-subtract-39",
+          "gold_operation": "SUBTRACT",
+          "planner_operation": null,
+          "direction_intent": "AMBIGUOUS",
+          "outcome": "ambiguous_wording",
+          "expected": [],
+          "observed": []
+        },
+        {
+          "example_id": "synthetic-subtract-40",
+          "gold_operation": "SUBTRACT",
+          "planner_operation": "SUBTRACT",
+          "direction_intent": "NEW_MINUS_OLD",
+          "outcome": "missing_period",
+          "expected": [
+            "current",
+            "prior"
+          ],
+          "observed": [
+            "",
+            ""
+          ]
+        },
+        {
+          "example_id": "synthetic-subtract-41",
+          "gold_operation": "SUBTRACT",
+          "planner_operation": "SUBTRACT",
+          "direction_intent": "NEW_MINUS_OLD",
+          "outcome": "missing_period",
+          "expected": [
+            "current",
+            "prior"
+          ],
+          "observed": [
+            "",
+            ""
+          ]
+        },
+        {
+          "example_id": "synthetic-subtract-42",
+          "gold_operation": "SUBTRACT",
+          "planner_operation": null,
+          "direction_intent": "AMBIGUOUS",
+          "outcome": "ambiguous_wording",
+          "expected": [],
+          "observed": []
+        },
+        {
+          "example_id": "synthetic-subtract-45",
+          "gold_operation": "SUBTRACT",
+          "planner_operation": null,
+          "direction_intent": "AMBIGUOUS",
+          "outcome": "ambiguous_wording",
+          "expected": [],
+          "observed": []
+        },
+        {
+          "example_id": "synthetic-subtract-46",
+          "gold_operation": "SUBTRACT",
+          "planner_operation": "SUBTRACT",
+          "direction_intent": "NEW_MINUS_OLD",
+          "outcome": "missing_period",
+          "expected": [
+            "current",
+            "prior"
+          ],
+          "observed": [
+            "",
+            ""
+          ]
+        },
+        {
+          "example_id": "synthetic-subtract-47",
+          "gold_operation": "SUBTRACT",
+          "planner_operation": "SUBTRACT",
+          "direction_intent": "NEW_MINUS_OLD",
+          "outcome": "missing_period",
+          "expected": [
+            "current",
+            "prior"
+          ],
+          "observed": [
+            "",
+            ""
+          ]
+        },
+        {
+          "example_id": "synthetic-subtract-48",
+          "gold_operation": "SUBTRACT",
+          "planner_operation": null,
+          "direction_intent": "AMBIGUOUS",
+          "outcome": "ambiguous_wording",
+          "expected": [],
+          "observed": []
+        },
+        {
+          "example_id": "synthetic-subtract-49",
+          "gold_operation": "SUBTRACT",
+          "planner_operation": "SUBTRACT",
+          "direction_intent": "LEFT_MINUS_RIGHT",
+          "outcome": "direction_unknown",
+          "expected": [],
+          "observed": []
+        },
+        {
+          "example_id": "synthetic-subtract-51",
+          "gold_operation": "SUBTRACT",
+          "planner_operation": null,
+          "direction_intent": "AMBIGUOUS",
+          "outcome": "ambiguous_wording",
+          "expected": [],
+          "observed": []
+        },
+        {
+          "example_id": "synthetic-subtract-52",
+          "gold_operation": "SUBTRACT",
+          "planner_operation": "SUBTRACT",
+          "direction_intent": "NEW_MINUS_OLD",
+          "outcome": "missing_period",
+          "expected": [
+            "current",
+            "prior"
+          ],
+          "observed": [
+            "",
+            ""
+          ]
+        },
+        {
+          "example_id": "synthetic-subtract-53",
+          "gold_operation": "SUBTRACT",
+          "planner_operation": "SUBTRACT",
+          "direction_intent": "NEW_MINUS_OLD",
+          "outcome": "missing_period",
+          "expected": [
+            "current",
+            "prior"
+          ],
+          "observed": [
+            "",
+            ""
+          ]
+        },
+        {
+          "example_id": "synthetic-subtract-54",
+          "gold_operation": "SUBTRACT",
+          "planner_operation": null,
+          "direction_intent": "AMBIGUOUS",
+          "outcome": "ambiguous_wording",
+          "expected": [],
+          "observed": []
+        },
+        {
+          "example_id": "synthetic-subtract-57",
+          "gold_operation": "SUBTRACT",
+          "planner_operation": null,
+          "direction_intent": "AMBIGUOUS",
+          "outcome": "ambiguous_wording",
+          "expected": [],
+          "observed": []
+        },
+        {
+          "example_id": "synthetic-subtract-58",
+          "gold_operation": "SUBTRACT",
+          "planner_operation": "SUBTRACT",
+          "direction_intent": "NEW_MINUS_OLD",
+          "outcome": "missing_period",
+          "expected": [
+            "current",
+            "prior"
+          ],
+          "observed": [
+            "",
+            ""
+          ]
+        },
+        {
+          "example_id": "synthetic-subtract-59",
+          "gold_operation": "SUBTRACT",
+          "planner_operation": "SUBTRACT",
+          "direction_intent": "NEW_MINUS_OLD",
+          "outcome": "missing_period",
+          "expected": [
+            "current",
+            "prior"
+          ],
+          "observed": [
+            "",
+            ""
+          ]
+        },
+        {
+          "example_id": "synthetic-percent_change-0",
+          "gold_operation": "PERCENT_CHANGE",
+          "planner_operation": null,
+          "direction_intent": "NONE",
+          "outcome": "direction_unknown",
+          "expected": [],
+          "observed": []
+        },
+        {
+          "example_id": "synthetic-percent_change-1",
+          "gold_operation": "PERCENT_CHANGE",
+          "planner_operation": "PERCENT_CHANGE",
+          "direction_intent": "NEW_MINUS_OLD",
+          "outcome": "missing_period",
+          "expected": [
+            "2024",
+            "2023"
+          ],
+          "observed": [
+            "",
+            ""
+          ]
+        },
+        {
+          "example_id": "synthetic-percent_change-2",
+          "gold_operation": "PERCENT_CHANGE",
+          "planner_operation": "PERCENT_CHANGE",
+          "direction_intent": "AMBIGUOUS",
+          "outcome": "ambiguous_wording",
+          "expected": [],
+          "observed": []
+        },
+        {
+          "example_id": "synthetic-percent_change-3",
+          "gold_operation": "PERCENT_CHANGE",
+          "planner_operation": null,
+          "direction_intent": "NONE",
+          "outcome": "direction_unknown",
+          "expected": [],
+          "observed": []
+        },
+        {
+          "example_id": "synthetic-percent_change-4",
+          "gold_operation": "PERCENT_CHANGE",
+          "planner_operation": null,
+          "direction_intent": "NONE",
+          "outcome": "direction_unknown",
+          "expected": [],
+          "observed": []
+        },
+        {
+          "example_id": "synthetic-percent_change-5",
+          "gold_operation": "PERCENT_CHANGE",
+          "planner_operation": "PERCENT_CHANGE",
+          "direction_intent": "NEW_MINUS_OLD",
+          "outcome": "missing_period",
+          "expected": [
+            "2022",
+            "2021"
+          ],
+          "observed": [
+            "",
+            ""
+          ]
+        },
+        {
+          "example_id": "synthetic-percent_change-6",
+          "gold_operation": "PERCENT_CHANGE",
+          "planner_operation": "PERCENT_CHANGE",
+          "direction_intent": "AMBIGUOUS",
+          "outcome": "ambiguous_wording",
+          "expected": [],
+          "observed": []
+        },
+        {
+          "example_id": "synthetic-percent_change-7",
+          "gold_operation": "PERCENT_CHANGE",
+          "planner_operation": null,
+          "direction_intent": "NONE",
+          "outcome": "direction_unknown",
+          "expected": [],
+          "observed": []
+        },
+        {
+          "example_id": "synthetic-percent_change-8",
+          "gold_operation": "PERCENT_CHANGE",
+          "planner_operation": null,
+          "direction_intent": "NONE",
+          "outcome": "direction_unknown",
+          "expected": [],
+          "observed": []
+        },
+        {
+          "example_id": "synthetic-percent_change-9",
+          "gold_operation": "PERCENT_CHANGE",
+          "planner_operation": "PERCENT_CHANGE",
+          "direction_intent": "NEW_MINUS_OLD",
+          "outcome": "missing_period",
+          "expected": [
+            "2025",
+            "2024"
+          ],
+          "observed": [
+            "",
+            ""
+          ]
+        },
+        {
+          "example_id": "synthetic-percent_change-10",
+          "gold_operation": "PERCENT_CHANGE",
+          "planner_operation": "PERCENT_CHANGE",
+          "direction_intent": "AMBIGUOUS",
+          "outcome": "ambiguous_wording",
+          "expected": [],
+          "observed": []
+        },
+        {
+          "example_id": "synthetic-percent_change-11",
+          "gold_operation": "PERCENT_CHANGE",
+          "planner_operation": null,
+          "direction_intent": "NONE",
+          "outcome": "direction_unknown",
+          "expected": [],
+          "observed": []
+        },
+        {
+          "example_id": "synthetic-percent_change-12",
+          "gold_operation": "PERCENT_CHANGE",
+          "planner_operation": null,
+          "direction_intent": "NONE",
+          "outcome": "direction_unknown",
+          "expected": [],
+          "observed": []
+        },
+        {
+          "example_id": "synthetic-percent_change-13",
+          "gold_operation": "PERCENT_CHANGE",
+          "planner_operation": "PERCENT_CHANGE",
+          "direction_intent": "NEW_MINUS_OLD",
+          "outcome": "missing_period",
+          "expected": [
+            "2024",
+            "2023"
+          ],
+          "observed": [
+            "",
+            ""
+          ]
+        },
+        {
+          "example_id": "synthetic-percent_change-14",
+          "gold_operation": "PERCENT_CHANGE",
+          "planner_operation": "PERCENT_CHANGE",
+          "direction_intent": "AMBIGUOUS",
+          "outcome": "ambiguous_wording",
+          "expected": [],
+          "observed": []
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "protected_records_detected_and_excluded": 200,
+    "directional_gold_examples": 479,
+    "operation_counts": {
+      "SUBTRACT": 263,
+      "PERCENT_CHANGE": 216
+    },
+    "direction_intent_counts": {
+      "AMBIGUOUS": 44,
+      "NEW_MINUS_OLD": 364,
+      "NONE": 50,
+      "DECREASE_AMOUNT": 1,
+      "LEFT_MINUS_RIGHT": 20
+    },
+    "direction_outcome_counts": {
+      "ambiguous_wording": 44,
+      "direction_supported": 323,
+      "direction_reversed": 19,
+      "direction_unknown": 53,
+      "missing_period": 40
+    },
+    "direction_supported_rate": 0.6743215031315241,
+    "direction_provable_coverage": 0.7139874739039666,
+    "direction_accuracy_when_provable": 0.9444444444444444,
+    "issue_signal_counts": {
+      "parenthesized_negative_presentation": 15,
+      "signed_negative_operand": 22,
+      "operation_mismatch:SUBTRACT->PERCENT_CHANGE": 3,
+      "operation_mismatch:PERCENT_CHANGE->SUBTRACT": 2,
+      "verifier_direction_invalid": 2,
+      "wrong_metric": 37
+    }
+  }
+}

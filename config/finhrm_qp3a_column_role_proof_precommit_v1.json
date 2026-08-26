@@ -1,0 +1,175 @@
+{
+  "schema": "finhrm-qp3a-column-role-proof-precommit-v1",
+  "created_at": "2026-08-13",
+  "classification": "development_only_synthetic_evidence_precommit",
+  "status": "precommitted_before_qp3_runtime_changes",
+  "objective": "Resolve missing-column-role questions from evidence structure without forcing question-keyword abstention.",
+  "scope": {
+    "deferred_example_ids": [
+      "PA01-hard_negative_missing_role",
+      "PA02-hard_negative_missing_role",
+      "PA03-hard_negative_missing_role",
+      "PA04-hard_negative_missing_role",
+      "PA05-hard_negative_missing_role",
+      "PA06-hard_negative_missing_role",
+      "PA07-hard_negative_missing_role",
+      "PA08-hard_negative_missing_role",
+      "PA09-hard_negative_missing_role",
+      "TY01-hard_negative_missing_role",
+      "TY02-hard_negative_missing_role",
+      "TY04-hard_negative_missing_role"
+    ],
+    "generalization_specs": [
+      {
+        "family_id": "QP3G01",
+        "explicit_question": "Lợi nhuận thực hiện năm 2028 là bao nhiêu?",
+        "no_role_question": "Lợi nhuận năm 2028 là bao nhiêu?",
+        "operation": "SELECT",
+        "operands": [
+          {"metric": "lợi nhuận", "year": "2028", "column_role": "ACTUAL", "entity_scope": "reporting", "unit_family": "currency"}
+        ]
+      },
+      {
+        "family_id": "QP3G02",
+        "explicit_question": "Chi phí thực hiện năm 2027 đạt bao nhiêu phần trăm kế hoạch năm 2027?",
+        "no_role_question": "Chi phí năm 2027 đạt bao nhiêu phần trăm năm 2027?",
+        "operation": "RATIO_PERCENT",
+        "operands": [
+          {"metric": "chi phí", "year": "2027", "column_role": "ACTUAL", "entity_scope": "reporting", "unit_family": "currency"},
+          {"metric": "chi phí", "year": "2027", "column_role": "PLAN", "entity_scope": "reporting", "unit_family": "currency"}
+        ]
+      },
+      {
+        "family_id": "QP3G03",
+        "explicit_question": "Tài sản thực hiện năm 2029 tăng bao nhiêu phần trăm so với thực hiện năm 2027?",
+        "no_role_question": "Tài sản năm 2029 tăng bao nhiêu phần trăm so với năm 2027?",
+        "operation": "PERCENT_CHANGE",
+        "operands": [
+          {"metric": "tài sản", "year": "2029", "column_role": "ACTUAL", "entity_scope": "reporting", "unit_family": "currency"},
+          {"metric": "tài sản", "year": "2027", "column_role": "ACTUAL", "entity_scope": "reporting", "unit_family": "currency"}
+        ]
+      },
+      {
+        "family_id": "QP3G04",
+        "explicit_question": "Hàng tồn kho thực hiện năm 2030 còn thiếu bao nhiêu phần trăm để đạt kế hoạch năm 2030?",
+        "no_role_question": "Hàng tồn kho năm 2030 còn thiếu bao nhiêu phần trăm để đạt năm 2030?",
+        "operation": "RATIO_PERCENT",
+        "operands": [
+          {"metric": "hàng tồn kho", "year": "2030", "column_role": "PLAN", "entity_scope": "reporting", "unit_family": "currency"},
+          {"metric": "hàng tồn kho", "year": "2030", "column_role": "ACTUAL", "entity_scope": "reporting", "unit_family": "currency"}
+        ]
+      }
+    ],
+    "out_of_scope": [
+      "retrieval quality",
+      "numeric answer accuracy",
+      "threshold calibration",
+      "global or sealed validation",
+      "blind or test evaluation",
+      "model fine-tuning"
+    ]
+  },
+  "evidence_contract": {
+    "role_inventory_states": ["EXPLICIT_COMPLETE", "UNKNOWN"],
+    "proof_states": ["VALID", "UNKNOWN", "INVALID"],
+    "logical_role_group_key": [
+      "document_id", "table_id", "row_id", "metric", "period", "entity_scope", "unit_family"
+    ],
+    "physical_equivalence_key": [
+      "document_id", "page", "source_span", "extraction_value_token"
+    ],
+    "excluded_from_logical_role_group_key": ["column_role", "numeric_value", "candidate_score", "candidate_order"],
+    "rules": [
+      {
+        "id": "EXPLICIT_QUERY_ROLE_MATCH",
+        "when": "query names a column role and selected evidence has the same explicit role without conflict",
+        "state": "VALID"
+      },
+      {
+        "id": "EXPLICIT_QUERY_ROLE_MISMATCH",
+        "when": "query names a column role and selected evidence explicitly has a different role",
+        "state": "INVALID"
+      },
+      {
+        "id": "NO_ROLE_UNIQUE_COMPLETE",
+        "when": "query omits role, role inventory is EXPLICIT_COMPLETE, and every requested logical group has exactly one compatible role after physical deduplication",
+        "state": "VALID"
+      },
+      {
+        "id": "NO_ROLE_MULTIPLE_ROLES",
+        "when": "query omits role and any requested logical group contains two or more distinct explicit roles",
+        "state": "INVALID"
+      },
+      {
+        "id": "NO_ROLE_INVENTORY_UNKNOWN",
+        "when": "query omits role and table role inventory completeness is not proved",
+        "state": "UNKNOWN"
+      },
+      {
+        "id": "CROSS_EXTRACTOR_ROLE_CONFLICT",
+        "when": "physically equivalent renditions assign different roles",
+        "state": "INVALID"
+      }
+    ],
+    "same_value_policy": "Different logical cells with different roles remain a conflict even when extraction_value_token is equal.",
+    "candidate_order_policy": "Proof state and action must be permutation invariant.",
+    "unknown_policy": "UNKNOWN required evidence obligation implies ABSTAIN.",
+    "invalid_policy": "Role ambiguity INVALID implies ABSTAIN; explicit requested-role mismatch remains REJECT.",
+    "unique_role_scope": "VALID only for the column-role uniqueness obligation; overall answer eligibility still requires every other applicable proof obligation to be VALID."
+  },
+  "scenario_matrix": [
+    {"id": "explicit_role_positive_complete", "query_kind": "explicit_role", "inventory": "EXPLICIT_COMPLETE", "expected_state": "VALID", "expected_action": "DEFER_TO_OTHER_PROOFS"},
+    {"id": "explicit_role_swap_negative_complete", "query_kind": "explicit_role", "inventory": "EXPLICIT_COMPLETE", "expected_state": "INVALID", "expected_action": "REJECT"},
+    {"id": "no_role_unique_complete", "query_kind": "no_role", "inventory": "EXPLICIT_COMPLETE", "expected_state": "VALID", "expected_action": "DEFER_TO_OTHER_PROOFS"},
+    {"id": "no_role_multi_role_conflict_complete", "query_kind": "no_role", "inventory": "EXPLICIT_COMPLETE", "expected_state": "INVALID", "expected_action": "ABSTAIN"},
+    {"id": "no_role_same_value_multi_role_conflict_complete", "query_kind": "no_role", "inventory": "EXPLICIT_COMPLETE", "expected_state": "INVALID", "expected_action": "ABSTAIN"},
+    {"id": "no_role_conflict_permuted_complete", "query_kind": "no_role", "inventory": "EXPLICIT_COMPLETE", "expected_state": "INVALID", "expected_action": "ABSTAIN"},
+    {"id": "no_role_unique_inventory_unknown", "query_kind": "no_role", "inventory": "UNKNOWN", "expected_state": "UNKNOWN", "expected_action": "ABSTAIN"},
+    {"id": "no_role_cross_extractor_role_conflict_complete", "query_kind": "no_role", "inventory": "EXPLICIT_COMPLETE", "expected_state": "INVALID", "expected_action": "ABSTAIN"}
+  ],
+  "quota": {
+    "deferred_family_groups": 12,
+    "generalization_groups": 4,
+    "scenarios_per_group": 8,
+    "total_examples": 128,
+    "minimum_distinct_metrics": 5,
+    "minimum_distinct_years": 7
+  },
+  "gate": {
+    "cohort_schema_valid": true,
+    "exact_examples_required": 128,
+    "scenario_balance_required": 16,
+    "deferred_family_coverage_required": 12,
+    "generalization_group_coverage_required": 4,
+    "same_value_conflict_required": 16,
+    "permutation_pairs_required": 16,
+    "unknown_inventory_controls_required": 16,
+    "numeric_values_forbidden": true,
+    "candidate_scores_forbidden": true,
+    "runtime_source_changes_allowed": false,
+    "threshold_change_allowed": false
+  },
+  "frozen_inputs": {
+    "thesis_core_contract": {
+      "path": "config/finhrm_thesis_core_v1.json",
+      "sha256": "a9f2f3088f7622c6c8912086eac16252f154fcae1164a3fe7ba75107a0ece502"
+    },
+    "question_family_catalog": {
+      "path": "config/question_family_catalog_plan_actual_v1.jsonl",
+      "sha256": "69c4017afec7731f63407339ae0c3d717ac38690807b17908b77fb1892d8e31b"
+    },
+    "qp2e_lock": {
+      "path": "reports/finhrm_qp2e_surface_robustness_lock_v1.json",
+      "sha256": "624f3e0b74bb3f0dfdb17eb0aae9d9b10f6ddb4d70fff3302d906887b682edac"
+    }
+  },
+  "runtime_baseline": {
+    "question_planner.py": "6870080033a3190c8a7c2f8772438ada2a3abac2679015c12d0ff0dfdb9ace62",
+    "program_synthesis.py": "a37470ad307c04744a5db794258f8bff2f6439ef6a689f8a9b8db67f91a17761",
+    "symbolic_verifier.py": "6e95d13261c43f16e7c0118ddbb288adb427f8212831df56bf8b25102b5db7e6",
+    "document_hrm.py": "52d37630d1797176df06245171dc59131b89f73e1aa552b270297e6154e2c054",
+    "document_reasoning_engine.py": "ee2ce9e2d8cea6fc87d307450297dace74727bdf915ba29e22cab67c7da6212f",
+    "program_data.py": "769fb033fdd74a3b20da4b6e96fb380cc4d8a08280736cf708979db02a3a3a41"
+  },
+  "authorized_next_step_after_precommit": "QP3B implement the precommitted evidence-conditioned role proof on this frozen cohort; no threshold change."
+}

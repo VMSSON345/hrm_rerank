@@ -1,0 +1,96 @@
+{
+  "schema": "finhrm-qp3-core-add-diversity-confirmation-v1",
+  "created_at": "2026-08-20",
+  "classification": "development_only_candidate_evidence_diversity_gap_audit",
+  "status": "diversity_gate_not_closed",
+  "diversity_gate_passed": false,
+  "failed_gates": [
+    "minimum_three_companies_in_every_additional_layout",
+    "minimum_three_source_pdfs_in_every_additional_layout",
+    "independent_review_complete_in_every_company_layout",
+    "all_required_end_to_end_stages_exercised",
+    "company_layout_disjoint_confirmation_available"
+  ],
+  "parents": {
+    "generalization_invariant": {
+      "path": "config/finhrm_report_generalization_invariant_v1.json",
+      "sha256": "7a8c6e58a47314d522adb782277f6d5bf0cbf761faf681d848e2e9ae4e861846"
+    },
+    "implementation_precommit": {
+      "path": "config/finhrm_qp3_core_generalization_coverage_implementation_precommit_v1.json",
+      "sha256": "6c0291e127a8defad97b2db13785885bbfb08fea31a0c29fbd3ae1683065b995"
+    },
+    "candidate_level_confirmation": {
+      "path": "reports/finhrm_qp3_core_add_real_layout_confirmation_v1.json",
+      "sha256": "ba7e89f41ee5da1ef26f634048a24987cf5d37133fc86ca80d57ba120f193740"
+    }
+  },
+  "current_evidence": {
+    "role": "SUPPORTING_ONLY_NOT_GATE_CLOSING",
+    "positive_examples": 10,
+    "distinct_companies": 5,
+    "distinct_source_pdfs": 5,
+    "additional_real_layouts": 2,
+    "layout_coverage": {
+      "DEVELOPMENT_NATIVE_MULTI_TABLE": {
+        "positive_examples": 6,
+        "distinct_companies": 3,
+        "distinct_source_pdfs": 3,
+        "company_source_pairs": 3,
+        "independently_reviewed_company_source_pairs": 0,
+        "all_company_source_pairs_independently_reviewed": false
+      },
+      "DEVELOPMENT_OCR_OR_HYBRID_TABLE": {
+        "positive_examples": 4,
+        "distinct_companies": 2,
+        "distinct_source_pdfs": 2,
+        "company_source_pairs": 2,
+        "independently_reviewed_company_source_pairs": 0,
+        "all_company_source_pairs_independently_reviewed": false
+      }
+    },
+    "supervision_classifications": {
+      "mechanically_derived_development": 10
+    },
+    "review_statuses": {
+      "pending_independent_review": 10
+    },
+    "independently_reviewed_positives": 0,
+    "pipeline_stage_evidence": {
+      "real_pdf_source": true,
+      "extraction_or_table_reconstruction": false,
+      "typed_evidence_graph": true,
+      "retrieval_or_intent_proposal": false,
+      "symbolic_binding": false,
+      "deterministic_verification_and_execution": true
+    },
+    "starts_from_pre_materialized_candidates": true
+  },
+  "gate_checks": {
+    "parent_hashes_exact": true,
+    "candidate_level_confirmation_safety_clean": true,
+    "minimum_two_additional_real_layouts": true,
+    "minimum_three_companies_in_every_additional_layout": false,
+    "minimum_three_source_pdfs_in_every_additional_layout": false,
+    "independent_review_complete_in_every_company_layout": false,
+    "all_required_end_to_end_stages_exercised": false,
+    "company_layout_disjoint_confirmation_available": false,
+    "candidate_permutation_exact": true,
+    "counterfactual_false_accepts_zero": true,
+    "company_layout_macro_and_worst_reported": true
+  },
+  "invariants": {
+    "runtime_changed": false,
+    "threshold_checkpoint_or_model_changed": false,
+    "fine_tuning_performed": false,
+    "abw_used_as_confirmation": false,
+    "protected_evaluation_loaded": false,
+    "synthetic_projection_counted_as_confirmation": false,
+    "candidate_rank_score_or_confidence_used_as_proof": false,
+    "qp3_answer_presentation_unlocked": false,
+    "qp4_authorized": false,
+    "phase_d_unlocked": false
+  },
+  "interpretation": "The 10 source-backed positives remain valid supporting evidence that the frozen ADD proof contract behaves safely on materialized candidates. They do not close diverse system operation: OCR/hybrid has only two companies/sources, all positives remain pending independent review, and extraction, retrieval/intent proposal and symbolic binding were not replayed end to end.",
+  "authorized_next_step": "Remain in QP3-CORE-GENERALIZATION-COVERAGE-IMPLEMENTATION. Build or identify development-safe independently reviewed ADD cases that satisfy the per-layout company/source minima and exercise the required end-to-end stages, then run permutation, counterfactual and frozen safe replay. QP3 answer presentation, QP4 and Phase D remain locked."
+}

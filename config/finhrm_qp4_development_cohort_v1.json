@@ -1,0 +1,269 @@
+{
+  "schema": "finhrm-qp4-development-cohort-v1",
+  "created_at": "2026-08-21",
+  "classification": "development_only_compiler_and_real_pdf_qp4_baseline",
+  "status": "cohort_frozen_before_qp4_runtime_implementation",
+  "parents": {
+    "qp4_precommit": {
+      "path": "config/finhrm_qp4_precommit_v1.json",
+      "sha256": "c0fe91086396b63eed46fef15c1bd352d4a701ff76b43887e244f0c324e07c6b"
+    },
+    "qp4_precommit_lock": {
+      "path": "reports/finhrm_qp4_precommit_lock_v1.json",
+      "sha256": "de5432f62cee5d8dbce854e40756a5ab7435723f465c93587cd9459dd148a7e7"
+    },
+    "thesis_core": {
+      "path": "config/finhrm_thesis_core_v1.json",
+      "sha256": "a9f2f3088f7622c6c8912086eac16252f154fcae1164a3fe7ba75107a0ece502"
+    },
+    "question_family_catalog": {
+      "path": "config/question_family_catalog_plan_actual_v1.jsonl",
+      "sha256": "69c4017afec7731f63407339ae0c3d717ac38690807b17908b77fb1892d8e31b"
+    },
+    "reviewed_real_pdf_cohort": {
+      "path": "reports/finhrm_qp3_core_add_diverse_development_reviewed_cohort_v1.json",
+      "sha256": "f187e5966f47069717cbdc1cdf9fd063ef74d2418a1b5e1850a89bb3cdbca28f"
+    },
+    "frozen_real_pdf_end_to_end": {
+      "path": "reports/finhrm_qp3_core_add_diverse_end_to_end_v1.json",
+      "sha256": "774e174610137a9be134497259c30f075ca9ab1dd3df3f6f0bfe9ce00d77a53d"
+    },
+    "frozen_safe_replay": {
+      "path": "reports/finhrm_qp3_core_s4_safe_replay_post_add_diverse_end_to_end_final_v1.json",
+      "sha256": "708201c05a25df3d0e00b9d9f3d43a2948614416aaa8c4b60fb33d3a925d978a"
+    }
+  },
+  "checkpoint": {
+    "path": "models/document_hrm_V8_candidate.pt",
+    "sha256": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de"
+  },
+  "compiler_cohort": {
+    "core_answer_families": [
+      "PA01",
+      "PA02",
+      "PA03",
+      "PA04",
+      "PA05",
+      "PA06",
+      "PA07",
+      "PA08",
+      "PA09",
+      "TY01",
+      "TY02",
+      "TY04",
+      "IBDS01"
+    ],
+    "ambiguity_controls": [
+      "C13",
+      "C14",
+      "C15"
+    ],
+    "catalog_canonical_and_surface_variants": [
+      "canonical",
+      "long_clause",
+      "clause_reordered",
+      "no_diacritics"
+    ],
+    "catalog_counterfactual_variants": [
+      "minimal_pair_role_swap"
+    ],
+    "generated_meaning_preserving_categories": [
+      "DISCOURSE_PREFIX_SUFFIX",
+      "PUNCTUATION_VARIANT",
+      "BILINGUAL_PARENTHETICAL",
+      "IRRELEVANT_DISTRACTOR_CLAUSE"
+    ],
+    "generated_counterfactual_dimensions": [
+      "OPERAND_YEAR",
+      "ENTITY_SCOPE",
+      "UNIT_SCALE"
+    ],
+    "generated_counterfactual_rules": {
+      "OPERAND_YEAR": "Increment only the first explicit four-digit year; leave every later year and qualifier unchanged.",
+      "ENTITY_SCOPE": "Add exactly one explicit parent-company scope qualifier.",
+      "UNIT_SCALE": "Add exactly one explicit million-VND output-scale qualifier."
+    },
+    "supplemental_ibds_surface_questions": {
+      "canonical": "Nợ vay ngắn hạn và nợ vay dài hạn chịu lãi năm 2023 chiếm bao nhiêu phần trăm tổng nguồn vốn năm 2023?",
+      "SHORT_LONG_EQUIVALENT": "Căn cứ đúng bảng số liệu tài chính trong báo cáo và giữ nguyên năm, đơn vị, phạm vi cùng vai trò của từng khoản mục, hãy xác định: nợ vay ngắn hạn và nợ vay dài hạn chịu lãi năm 2023 chiếm bao nhiêu phần trăm tổng nguồn vốn năm 2023?",
+      "DISCOURSE_PREFIX_SUFFIX": "Theo số liệu đã công bố trong cùng báo cáo, nợ vay ngắn hạn và nợ vay dài hạn chịu lãi năm 2023 chiếm bao nhiêu phần trăm tổng nguồn vốn năm 2023?",
+      "CLAUSE_PERMUTATION": "Trong năm 2023, nợ vay ngắn hạn và nợ vay dài hạn chịu lãi chiếm bao nhiêu phần trăm tổng nguồn vốn của cùng năm?",
+      "PUNCTUATION_VARIANT": "Nợ vay ngắn hạn, và nợ vay dài hạn chịu lãi năm 2023, chiếm bao nhiêu phần trăm tổng nguồn vốn năm 2023?",
+      "NO_DIACRITICS": "No vay ngan han va no vay dai han chiu lai nam 2023 chiem bao nhieu phan tram tong nguon von nam 2023?",
+      "BILINGUAL_PARENTHETICAL": "Nợ vay ngắn hạn và nợ vay dài hạn chịu lãi (interest-bearing debt) năm 2023 chiếm bao nhiêu phần trăm tổng nguồn vốn (total capital) năm 2023?",
+      "IRRELEVANT_DISTRACTOR_CLAUSE": "Nợ vay ngắn hạn và nợ vay dài hạn chịu lãi năm 2023 chiếm bao nhiêu phần trăm tổng nguồn vốn năm 2023, không yêu cầu phân tích nguyên nhân?"
+    },
+    "supplemental_semantic_pairs": [
+      {
+        "pair_id": "direction-pa04-reverse",
+        "family_id": "PA04",
+        "dimension": "DIRECTION",
+        "base_question": "Doanh thu hoạt động thực hiện năm 2023 trừ kế hoạch năm 2023 là bao nhiêu?",
+        "mutated_question": "Doanh thu hoạt động kế hoạch năm 2023 trừ thực hiện năm 2023 là bao nhiêu?",
+        "review_status": "development_contract_reviewed",
+        "changed_semantics": "ordered left and right operands only"
+      },
+      {
+        "pair_id": "direction-ty01-decrease",
+        "family_id": "TY01",
+        "dimension": "DIRECTION",
+        "base_question": "Doanh thu thực hiện năm 2023 tăng bao nhiêu so với thực hiện năm 2022?",
+        "mutated_question": "Doanh thu thực hiện năm 2023 giảm bao nhiêu so với thực hiện năm 2022?",
+        "review_status": "development_contract_reviewed",
+        "changed_semantics": "signed temporal direction only"
+      },
+      {
+        "pair_id": "direction-pa06-reverse",
+        "family_id": "PA06",
+        "dimension": "DIRECTION",
+        "base_question": "Doanh thu hoạt động thực hiện năm 2023 vượt kế hoạch năm 2023 bao nhiêu đồng?",
+        "mutated_question": "Doanh thu hoạt động kế hoạch năm 2023 vượt thực hiện năm 2023 bao nhiêu đồng?",
+        "review_status": "development_contract_reviewed",
+        "changed_semantics": "ordered exceed direction only"
+      },
+      {
+        "pair_id": "reference-pa03-prior-actual",
+        "family_id": "PA03",
+        "dimension": "REFERENCE_BASE",
+        "base_question": "Doanh thu hoạt động thực hiện năm 2023 đạt bao nhiêu phần trăm kế hoạch năm 2023?",
+        "mutated_question": "Doanh thu hoạt động thực hiện năm 2023 bằng bao nhiêu phần trăm thực hiện năm 2022?",
+        "review_status": "development_contract_reviewed",
+        "changed_semantics": "denominator/reference-base identity only"
+      },
+      {
+        "pair_id": "reference-pa07-prior-actual",
+        "family_id": "PA07",
+        "dimension": "REFERENCE_BASE",
+        "base_question": "Doanh thu hoạt động thực hiện năm 2023 thay đổi bao nhiêu phần trăm so với kế hoạch năm 2023?",
+        "mutated_question": "Doanh thu hoạt động thực hiện năm 2023 thay đổi bao nhiêu phần trăm so với thực hiện năm 2022?",
+        "review_status": "development_contract_reviewed",
+        "changed_semantics": "denominator/reference-base identity only"
+      },
+      {
+        "pair_id": "reference-ibds-total-assets",
+        "family_id": "IBDS01",
+        "dimension": "REFERENCE_BASE",
+        "base_question": "Nợ vay ngắn hạn và nợ vay dài hạn chịu lãi năm 2023 chiếm bao nhiêu phần trăm tổng nguồn vốn năm 2023?",
+        "mutated_question": "Nợ vay ngắn hạn và nợ vay dài hạn chịu lãi năm 2023 chiếm bao nhiêu phần trăm tổng tài sản năm 2023?",
+        "review_status": "development_contract_reviewed",
+        "changed_semantics": "denominator/reference-base identity only"
+      }
+    ],
+    "equivalence_oracle": "Compare the frozen semantic projection only; surface text and intent_sources are excluded.",
+    "counterfactual_oracle": "The dimension-specific projection must change. Identical semantic projection is a compiler false accept."
+  },
+  "source_backed_cohort": {
+    "selection_policy": {
+      "evaluate_all_eligible_records": true,
+      "required": [
+        "independently_reviewed_approved",
+        "real PDF source hash exact",
+        "frozen end-to-end positive passed",
+        "existing runtime action ANSWER",
+        "gold proof contract VALID",
+        "two distinct provenanced leaf cells",
+        "explicit non-empty result unit",
+        "source span and extraction method present"
+      ],
+      "forbidden_selection_inputs": [
+        "company identity",
+        "report filename",
+        "page number",
+        "year",
+        "numeric value",
+        "example id",
+        "question literal",
+        "candidate rank",
+        "neural score",
+        "confidence"
+      ]
+    },
+    "meaning_preserving_categories": [
+      "SHORT_LONG_EQUIVALENT",
+      "DISCOURSE_PREFIX_SUFFIX",
+      "CLAUSE_PERMUTATION",
+      "PUNCTUATION_VARIANT",
+      "NO_DIACRITICS",
+      "BILINGUAL_PARENTHETICAL",
+      "IRRELEVANT_DISTRACTOR_CLAUSE"
+    ],
+    "applicable_counterfactual_dimensions": [
+      "OPERAND_YEAR",
+      "ENTITY_SCOPE",
+      "UNIT_SCALE"
+    ],
+    "not_applicable_or_unconfirmed_dimensions": {
+      "COLUMN_ROLE": "Eligible real-PDF anchors are ADD rows without an explicit ACTUAL/PLAN contrast; no role-swap support claim is allowed.",
+      "DIRECTION": "ADD is commutative and cannot provide an ordered-direction counterfactual.",
+      "REFERENCE_BASE": "ADD has no denominator/reference base."
+    },
+    "mutation_rules": {
+      "OPERAND_YEAR": "Change the explicit period token generically: first numeric year +1, ending/opening role swap, or current/prior period swap.",
+      "ENTITY_SCOPE": "Add an explicit parent-company scope qualifier without changing metric, period or unit.",
+      "UNIT_SCALE": "Request an explicit million-VND output scale without changing metric, period or entity."
+    },
+    "minimum_positive_anchors_per_applicable_dimension": 3,
+    "minimum_distinct_companies_per_applicable_dimension": 3,
+    "minimum_distinct_sources_per_applicable_dimension": 3,
+    "minimum_distinct_real_layouts_per_applicable_dimension": 3,
+    "minimum_distinct_companies_for_surface": 3,
+    "minimum_distinct_sources_for_surface": 3,
+    "minimum_distinct_real_layouts_for_surface": 3,
+    "source_run_boundary": [
+      "question",
+      "source PDF path"
+    ],
+    "ocr_cache_policy": {
+      "existing_development_cache_allowed": true,
+      "mineru_auto_generate_during_baseline": false,
+      "reason": "Prevent a surface-stress question from creating new OCR artifacts; missing cached OCR fails closed and is reported as a baseline failure."
+    },
+    "per_query_timeout_seconds": 15,
+    "timeout_policy": "A timeout is a source-backed baseline failure and never an ANSWER or safe-abstention success.",
+    "gold_or_parent_winner_passed_to_engine": false,
+    "safe_abstention_counts_as_answer": false,
+    "synthetic_layout_counts_as_confirmation": false
+  },
+  "baseline_gates": {
+    "compiler_core_family_coverage": "13/13",
+    "compiler_ambiguity_controls": "3/3",
+    "compiler_surface_semantic_invariance_rate": 1.0,
+    "compiler_counterfactual_detection_rate": 1.0,
+    "source_surface_winner_invariance_rate": 1.0,
+    "source_counterfactual_old_winner_false_accepts": 0,
+    "candidate_permutation_exact_rate": 1.0,
+    "safe_abstention_counted_as_answer": false,
+    "source_company_layout_gates_required": true,
+    "frozen_safe_replay_actions": {
+      "ANSWER": 259,
+      "ABSTAIN": 90,
+      "REJECT": 14
+    },
+    "frozen_safe_replay_execution": "363/363",
+    "frozen_safe_replay_permutation": "363/363",
+    "frozen_safe_replay_counterfactual_false_accepts": 0
+  },
+  "runtime_hashes": {
+    "src/hrm_finance_qa/question_planner.py": "58404c5a04ffced2c00056a10e470730a8fb9ef723d3e8c5668f13b0a65571a6",
+    "src/hrm_finance_qa/program_synthesis.py": "e4acc4878d0dfd465ba66ab91f3aaf8be71db5591aa1358fb8cb81f3c7bff550",
+    "src/hrm_finance_qa/symbolic_verifier.py": "e9efa8d2fa9ce1aedd460cdd11c1eb9321aab7122b0908fc5017687c1491ed88",
+    "src/hrm_finance_qa/direction_contract.py": "a18aa130419fc74ce647bd92dc9c1b1217007738e636aad0f28c7f78396be937",
+    "src/hrm_finance_qa/document_hrm.py": "b5951bcde79583950b672f7fb6b199b3e5b9904e6784daae7c4c5be0eba65d21",
+    "src/hrm_finance_qa/document_reasoning_engine.py": "3883500011472716bc01f8e04a6d6f925173b35a14bbedd945c5ca4fb0063fa2",
+    "src/hrm_finance_qa/answer_presentation.py": "c40bd4a8dff39162b44cf11ef2da12e7b153d907f7254e5d1856157b3ac56d36"
+  },
+  "invariants": {
+    "runtime_changed_by_cohort_or_baseline": false,
+    "threshold_changed": false,
+    "checkpoint_changed": false,
+    "model_changed": false,
+    "fine_tuning_performed": false,
+    "abw_used": false,
+    "protected_evaluation_loaded": false,
+    "synthetic_layout_counted": false,
+    "safe_abstention_counted_as_answer": false,
+    "qp4_runtime_change_authorized": false,
+    "qp5_authorized": false,
+    "phase_d_unlocked": false
+  }
+}

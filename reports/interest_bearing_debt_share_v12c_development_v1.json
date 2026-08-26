@@ -1,0 +1,90 @@
+{
+  "protocol": "v12c-interest-bearing-debt-share-development-v1",
+  "date": "2026-08-09",
+  "classification": "development_only",
+  "scope": "(short-term interest-bearing borrowings + long-term interest-bearing borrowings) / total capital * 100",
+  "blind_test_used": false,
+  "test_jsonl_used": false,
+  "training_performed": false,
+  "threshold_changed": false,
+  "implementation": {
+    "checkpoint_compatibility": "The frozen model still selects the final flat RATIO_PERCENT operation; runtime lowers lineage-carrying derived evidence into an executable DAG.",
+    "dag_nodes": [
+      "interest_bearing_debt = ADD(short_term_borrowings, long_term_borrowings)",
+      "answer = SHARE_OF_TOTAL(interest_bearing_debt, total_capital)"
+    ],
+    "raw_evidence_leaves": 3,
+    "required_grounding": [
+      "one explicit requested period for every raw leaf",
+      "one source/table/entity/scope group",
+      "one unambiguous candidate per financial role",
+      "identical explicit currency scale",
+      "materialized intermediate equals re-executed ADD result",
+      "non-zero total-capital denominator"
+    ],
+    "unsafe_cases_abstain": true
+  },
+  "verification": {
+    "new_focused_tests": {
+      "passed": 9,
+      "failed": 0,
+      "covers": [
+        "DAG validation and execution",
+        "tampered intermediate rejection",
+        "wrong neural pair override",
+        "period mismatch rejection",
+        "currency-scale mismatch rejection",
+        "ambiguous-role rejection",
+        "year and candidate-order permutation",
+        "top-K quota reindexing",
+        "retrieval expansion for all three raw roles"
+      ]
+    },
+    "related_regression_tests": {
+      "passed": 281,
+      "failed": 0
+    },
+    "development_fixture": {
+      "path": "tests/fixtures/interest_bearing_debt_share_v1.txt",
+      "sha256": "382599a48eb7b8c95f1079c96694ec353af80420b378b4fd363117f8f90614dc",
+      "year": "2027",
+      "short_term_borrowings": "80",
+      "long_term_borrowings": "20",
+      "total_capital": "1000",
+      "expected_percent": "10"
+    },
+    "checkpoint_end_to_end": {
+      "selected_flat_program": "RATIO_PERCENT(4, 2)",
+      "materialized_dag": "interest_bearing_debt=ADD(candidate[1], candidate[0]) -> answer=SHARE_OF_TOTAL(interest_bearing_debt, candidate[2])",
+      "candidate_value_percent": "10",
+      "raw_evidence_leaves": 3,
+      "grounding_rejections": 0,
+      "status": "ABSTAIN",
+      "status_reason": "Confidence remained just below the unchanged validation-calibrated RATIO_PERCENT threshold."
+    },
+    "company_disjoint_cohort_discovery": {
+      "sources": 3,
+      "source_rows": 1342,
+      "unique_structural_cases": 0,
+      "unique_company_keys": 0,
+      "calibration_ready": false,
+      "report": "reports/interest_bearing_debt_share_v12c_cohort_discovery_v1.json",
+      "report_sha256": "51f4205fa48ac119d5ddcf212251ff00e0b89126b6f899b4cb9cbd536172f0fe"
+    }
+  },
+  "sha256": {
+    "src/hrm_finance_qa/program_data.py": "d123a8e43a6fcd6fff62cfe33f56dddc39ddc22da47028c10ff3033a297f8277",
+    "src/hrm_finance_qa/question_planner.py": "430db300af272cc856e22529144552476ae9e9464a2d9bdfddc79a562cb8afa6",
+    "src/hrm_finance_qa/document_hrm.py": "486ff33edd3df478bad3a3e3c843031d833e66a595484cd8ee8183938be5b958",
+    "src/hrm_finance_qa/document_reasoning_engine.py": "82b179fc85fbd8818f0e9e5a90adf04bdc3b97944b135732aa2f1162fc02e84a",
+    "scripts/audit_interest_bearing_debt_share_development.py": "43aa0364fb3bdd3f3bef09e546db5920cedfc0b5fd81c11883d1a2c3dd62eb0d"
+  },
+  "gates": {
+    "multi_step_dag_execution_gate": true,
+    "three_leaf_provenance_gate": true,
+    "structural_grounding_gate": true,
+    "no_regression_gate": true,
+    "accepted_answer_calibration_gate": false
+  },
+  "next_scoped_step": "The current development datasets contain zero eligible three-role cases. Add and independently annotate new company-disjoint PDF evidence containing all three raw roles before calibrating acceptance; do not lower the frozen RATIO_PERCENT threshold from the single fixture."
+}

@@ -1,0 +1,288 @@
+{
+  "schema": "finhrm-qp4-post-question-surface-post-cache-residual-coverage-source-replay-lock-v1",
+  "created_at": "2026-08-23",
+  "classification": "development_only_qp4_residual_coverage_question_triggered_page_selective_source_replay_runtime_unchanged",
+  "status": "complete",
+  "source_replay_gate_passed": false,
+  "failed_gates": [
+    "pre_ranking_ocr_generation_attempts_zero",
+    "source_load_or_extraction_failures_zero",
+    "cache_reuse_with_auto_generation_disabled_90",
+    "proof_complete_exact_target_answers_60",
+    "base_exact_answers_30",
+    "reference_base_mutation_exact_answers_30",
+    "surface_equivalence_groups_12",
+    "candidate_permutation_exact_90"
+  ],
+  "parents": {
+    "precommit": {
+      "path": "config/finhrm_qp4_post_question_surface_post_cache_residual_coverage_source_replay_precommit_v1.json",
+      "size_bytes": 19532,
+      "sha256": "9e9c158c2721a7fa610f88a7c2d27eb26f3f30e0c6aae2b6fc3456bf64f298f3"
+    },
+    "precommit_lock": {
+      "path": "reports/finhrm_qp4_post_question_surface_post_cache_residual_coverage_source_replay_precommit_lock_v1.json",
+      "size_bytes": 5878,
+      "sha256": "d1d03e133d9d276b702cf9c7a0e73d53c39fb71b873071ef555a52299a08b1ee"
+    }
+  },
+  "artifacts": {
+    "final_json": {
+      "path": "reports/finhrm_qp4_post_question_surface_post_cache_residual_coverage_source_replay_v1.json",
+      "size_bytes": 499770,
+      "sha256": "36cac34780d80f67bf82c21ffca0848eef68c9e0a4bb651df979a7da7bdfc7b8"
+    },
+    "final_markdown": {
+      "path": "reports/finhrm_qp4_post_question_surface_post_cache_residual_coverage_source_replay_v1.md",
+      "size_bytes": 1285,
+      "sha256": "97565f7565a91555168e53412d86cb53b398149899f301c478cddd7eb977a073"
+    }
+  },
+  "selection": {
+    "anchors": 6,
+    "companies": 6,
+    "sources": 6,
+    "real_document_layouts": 3,
+    "real_table_layouts": 6,
+    "extraction_families": 2,
+    "question_triggered": true,
+    "whole_corpus_ocr": false,
+    "diagnosis_company_overlap": 0,
+    "diagnosis_source_overlap": 0,
+    "diagnosis_layout_instance_overlap": 0
+  },
+  "source_replay": {
+    "primary_observations": 90,
+    "permutation_observations": 90,
+    "source_errors": 41,
+    "proof_complete_exact_target_answers": 0,
+    "surface_equivalence_groups_passed": 0,
+    "accepted_wrong": 0,
+    "reference_base_old_winner_false_accepts": 0,
+    "semantic_control_false_accepts": 0,
+    "hard_negative_answers": 0,
+    "candidate_permutation_exact": 67,
+    "by_first_failing_layer": {
+      "CANDIDATE_POPULATION_OR_RETRIEVAL": 12,
+      "PASS": 9,
+      "QUESTION_PLAN": 19,
+      "SEMANTIC_BINDING_OR_PROGRAM_SYNTHESIS": 7,
+      "SOURCE_LOAD_OR_EXTRACTION": 37,
+      "SYMBOLIC_PROOF_OR_ACTION": 6
+    },
+    "generic_residual_strata": [
+      {
+        "category": "PA07_operation_contrast",
+        "first_failing_layer": "CANDIDATE_POPULATION_OR_RETRIEVAL",
+        "observations": 4,
+        "companies": 4,
+        "sources": 4,
+        "real_document_layouts": 3,
+        "real_table_layouts": 4,
+        "extraction_families": 2,
+        "generic_evidence": true,
+        "runtime_edit_automatically_authorized": false
+      },
+      {
+        "category": "ambiguity_control",
+        "first_failing_layer": "SYMBOLIC_PROOF_OR_ACTION",
+        "observations": 4,
+        "companies": 4,
+        "sources": 4,
+        "real_document_layouts": 3,
+        "real_table_layouts": 4,
+        "extraction_families": 2,
+        "generic_evidence": true,
+        "runtime_edit_automatically_authorized": false
+      },
+      {
+        "category": "base_target",
+        "first_failing_layer": "QUESTION_PLAN",
+        "observations": 6,
+        "companies": 6,
+        "sources": 6,
+        "real_document_layouts": 3,
+        "real_table_layouts": 6,
+        "extraction_families": 2,
+        "generic_evidence": true,
+        "runtime_edit_automatically_authorized": false
+      },
+      {
+        "category": "base_target",
+        "first_failing_layer": "SOURCE_LOAD_OR_EXTRACTION",
+        "observations": 16,
+        "companies": 4,
+        "sources": 4,
+        "real_document_layouts": 3,
+        "real_table_layouts": 4,
+        "extraction_families": 2,
+        "generic_evidence": true,
+        "runtime_edit_automatically_authorized": false
+      },
+      {
+        "category": "minimal_pair_role_swap",
+        "first_failing_layer": "SOURCE_LOAD_OR_EXTRACTION",
+        "observations": 4,
+        "companies": 4,
+        "sources": 4,
+        "real_document_layouts": 3,
+        "real_table_layouts": 4,
+        "extraction_families": 2,
+        "generic_evidence": true,
+        "runtime_edit_automatically_authorized": false
+      },
+      {
+        "category": "minimal_pair_year_shift",
+        "first_failing_layer": "SOURCE_LOAD_OR_EXTRACTION",
+        "observations": 4,
+        "companies": 4,
+        "sources": 4,
+        "real_document_layouts": 3,
+        "real_table_layouts": 4,
+        "extraction_families": 2,
+        "generic_evidence": true,
+        "runtime_edit_automatically_authorized": false
+      },
+      {
+        "category": "reference_base_mutation_target",
+        "first_failing_layer": "QUESTION_PLAN",
+        "observations": 13,
+        "companies": 6,
+        "sources": 6,
+        "real_document_layouts": 3,
+        "real_table_layouts": 6,
+        "extraction_families": 2,
+        "generic_evidence": true,
+        "runtime_edit_automatically_authorized": false
+      },
+      {
+        "category": "reference_base_mutation_target",
+        "first_failing_layer": "SOURCE_LOAD_OR_EXTRACTION",
+        "observations": 12,
+        "companies": 4,
+        "sources": 4,
+        "real_document_layouts": 3,
+        "real_table_layouts": 4,
+        "extraction_families": 2,
+        "generic_evidence": true,
+        "runtime_edit_automatically_authorized": false
+      }
+    ]
+  },
+  "page_selective_ocr": {
+    "question_triggered": true,
+    "whole_corpus_ocr": false,
+    "ocr_requested_pages": 1714,
+    "newly_materialized_pages": 0,
+    "cache_hit_pages": 0,
+    "whole_document_ocr_jobs": 0,
+    "pre_ranking_generation_attempts": 571,
+    "unselected_ocr_requested_pages": 1142,
+    "unselected_ocr_generated_pages": 0,
+    "observations_with_policy_violation": 82,
+    "mineru_cli_timeout_seconds": 180
+  },
+  "cache_manifest": [
+    {
+      "anchor_id": "qp4-rcc-pic-total-revenue",
+      "source_sha256": "ae0d9aa6645251025f3f71572205f5ef0f93a6f136ae243c2f3cd0700befb96e",
+      "artifacts": []
+    },
+    {
+      "anchor_id": "qp4-rcc-agr-total-expense",
+      "source_sha256": "29cda4b451aa6e180334489db732ce77b94df32a8f19d6ee93afd234ce1a7d6e",
+      "artifacts": []
+    },
+    {
+      "anchor_id": "qp4-rcc-hub-parent-profit-after-tax",
+      "source_sha256": "daad4aaec36be97b5ae6f99d1d822fb9efe12d2b92110e81be7df150e991f695",
+      "artifacts": []
+    },
+    {
+      "anchor_id": "qp4-rcc-ict-total-revenue",
+      "source_sha256": "ee2061e29c1923da0e38ba33a7e25c7d0d2a2f6f22f045b8b30bd4c1bb539ac1",
+      "artifacts": []
+    },
+    {
+      "anchor_id": "qp4-rcc-scg-total-revenue",
+      "source_sha256": "fabcefdf81e9bf90abdfe4497a4b7ba7960d564e9ce525ecd7dfe8dd05c62ff1",
+      "artifacts": []
+    },
+    {
+      "anchor_id": "qp4-rcc-vnl-profit-before-tax",
+      "source_sha256": "c1f20dffb1a4ed818cd4d3d78f5d47ce2e1517b8a78e6c8e9eee1aaafca51c2b",
+      "artifacts": []
+    }
+  ],
+  "frozen_controls": {
+    "compiler": "242/242",
+    "regression": {
+      "expected": 360,
+      "observed": 360,
+      "passed": true,
+      "output_tail": "[cache train] 2/4 (saved)\n[cache train] 4/4 (saved)\n[cache train] 2/4 (reused)\n[cache train] 4/4 (reused)\n........................................................................................................................................................................................................................................................................................................................................................................\n----------------------------------------------------------------------\nRan 360 tests in 18.840s\n\nOK\n"
+    },
+    "safe_replay_gate": true,
+    "actions": {
+      "ABSTAIN": 92,
+      "ANSWER": 257,
+      "REJECT": 14
+    },
+    "execution": "363/363",
+    "permutation": "363/363",
+    "counterfactuals": 141,
+    "counterfactual_false_accepts": 0
+  },
+  "runtime_hashes": {
+    "src/hrm_finance_qa/question_planner.py": "334ab6bfb57b883ff2022cdcb39614d7e7a8d3269c14f4bea188640d53111bf4",
+    "src/hrm_finance_qa/symbolic_verifier.py": "2679b1ce55cc070697438c806f19e3e888bfc19bc1a9ae3686a0b7fd7ffb0087",
+    "src/hrm_finance_qa/program_synthesis.py": "e4acc4878d0dfd465ba66ab91f3aaf8be71db5591aa1358fb8cb81f3c7bff550",
+    "src/hrm_finance_qa/evidence_schema.py": "2f16fabf932dc9dabc8203d9642d2503bb2dab43e0e1ee0f78755dd4fb00825d",
+    "src/hrm_finance_qa/document_hrm.py": "b5951bcde79583950b672f7fb6b199b3e5b9904e6784daae7c4c5be0eba65d21",
+    "src/hrm_finance_qa/document_reasoning_engine.py": "3883500011472716bc01f8e04a6d6f925173b35a14bbedd945c5ca4fb0063fa2",
+    "src/hrm_finance_qa/program_data.py": "5199434fc0628b7d270ce62b12657366cbe118901065edd9f1e1f6ca0f1f8d54",
+    "src/hrm_finance_qa/direction_contract.py": "a18aa130419fc74ce647bd92dc9c1b1217007738e636aad0f28c7f78396be937",
+    "src/hrm_finance_qa/answer_presentation.py": "c40bd4a8dff39162b44cf11ef2da12e7b153d907f7254e5d1856157b3ac56d36",
+    "src/hrm_finance_qa/document_sources.py": "e9eb7b3ddcc2ed13060a573a6a0101a216fa49ff21dd65cd5fc2629b92f5fc0b",
+    "src/hrm_finance_qa/document_page_index.py": "c99e011175afef21f302be42ba9454b948caa549d4d445d6bb35c5b974b81f85"
+  },
+  "checkpoint_sha256": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de",
+  "runtime_changed": false,
+  "runtime_edit_authorized": false,
+  "artifact_policy": {
+    "maximum_final_json": 1,
+    "maximum_final_markdown": 1,
+    "maximum_lock_or_manifest": 1,
+    "raw_or_intermediate_artifacts_persisted": false,
+    "temporary_artifacts_deleted_after_verification": true
+  },
+  "authorization": {
+    "next_allowed_action": "QP4-POST-QUESTION-SURFACE-POST-CACHE-RESIDUAL-COVERAGE-SOURCE-REPLAY-DIAGNOSTIC-REVIEW-PRECOMMIT",
+    "runtime_edit_authorized": false,
+    "runtime_file_whitelist": [],
+    "qp4_complete": false,
+    "qp5_authorized": false,
+    "phase_d_unlocked": false
+  },
+  "invariants": {
+    "abw_used": false,
+    "protected_evaluation_loaded": false,
+    "validation_loaded": false,
+    "blind_loaded": false,
+    "test_data_loaded": false,
+    "sealed_or_holdout_loaded": false,
+    "fine_tuning_performed": false,
+    "threshold_changed": false,
+    "checkpoint_changed": false,
+    "model_changed": false,
+    "synthetic_layout_counted_as_confirmation": false,
+    "candidate_rank_score_or_confidence_used_as_semantic_proof": false,
+    "nearby_context_or_absence_used_to_infer_period_or_provenance": false,
+    "runtime_changed": false,
+    "ocr_run": false,
+    "source_replay_run": true,
+    "qp4_complete": false,
+    "qp5_authorized": false,
+    "phase_d_unlocked": false
+  }
+}

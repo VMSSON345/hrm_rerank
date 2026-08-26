@@ -1,0 +1,386 @@
+{
+  "schema": "finhrm.qp4.development_source_expansion.ocr_geometry_and_layout_family_contract_reclosure_precommit.v1",
+  "created_at": "2026-08-24T15:39:10+07:00",
+  "classification": "development_only_executable_logical_provenance_contract_reclosure_no_runtime_no_model_no_ocr",
+  "status": "PASS",
+  "step": "QP4-DEVELOPMENT-SOURCE-EXPANSION-OCR-GEOMETRY-AND-LAYOUT-FAMILY-CONTRACT-RECLOSURE-PRECOMMIT",
+  "precommit_gate_passed": true,
+  "cohort_reclosure_gate_passed": false,
+  "runtime_implementation_gate_passed": false,
+  "purpose": "Reclose the OCR evidence contract around content-correct, deterministic logical-cell provenance and complete citations. Per-cell pixel geometry is optional metadata rather than a semantic admission gate; missing or ambiguous logical binding still abstains and contradiction still rejects.",
+  "user_authorized_goal_alignment": {
+    "required_outcome": "find the correct information, answer with correct content, and provide complete reproducible evidence",
+    "mandatory_provenance_granularity": "source PDF hash + physical page + whole-table bbox + OCR artifact hash + exact table + logical row/column + header path + raw operand",
+    "per_cell_pixel_bbox_required": false,
+    "reason": "A pixel bbox for each cell is not required to replay content identity when the source, page, table, OCR artifact, row, column, headers and raw operands are exact and hash-bound.",
+    "safety_not_relaxed": [
+      "explicit period",
+      "explicit ACTUAL and PLAN roles",
+      "unique logical metric row",
+      "explicit unit and entity scope",
+      "distinct logical operands",
+      "artifact and source integrity",
+      "deterministic execution",
+      "UNKNOWN_TO_ABSTAIN",
+      "CONFLICT_TO_REJECT"
+    ]
+  },
+  "parent": {
+    "build_json": {
+      "path": "reports/finhrm_qp4_development_source_expansion_page_selective_ocr_cohort_build_v1.json",
+      "size_bytes": 14627,
+      "sha256": "57581e04486d265e0a1dc408c4be9b213f6a77d2931876cdbca3a1c3b5ec1142",
+      "status": "FAIL_CLOSED",
+      "authorized_next_action": "QP4-DEVELOPMENT-SOURCE-EXPANSION-OCR-GEOMETRY-AND-LAYOUT-FAMILY-CONTRACT-RECLOSURE-PRECOMMIT"
+    },
+    "build_lock": {
+      "path": "reports/finhrm_qp4_development_source_expansion_page_selective_ocr_cohort_build_lock_v1.json",
+      "size_bytes": 4047,
+      "sha256": "51a576fbe304f4fbaf75c20f765e899bf8cb9dfcecfcda1e1731293fc0cd6bcb"
+    },
+    "authorization_matches_exactly": true
+  },
+  "core_alignment": {
+    "thesis_core": {
+      "path": "config/finhrm_thesis_core_v1.json",
+      "size_bytes": 24625,
+      "sha256": "a9f2f3088f7622c6c8912086eac16252f154fcae1164a3fe7ba75107a0ece502"
+    },
+    "generalization_invariant": {
+      "path": "config/finhrm_report_generalization_invariant_v1.json",
+      "size_bytes": 2512,
+      "sha256": "7a8c6e58a47314d522adb782277f6d5bf0cbf761faf681d848e2e9ae4e861846"
+    },
+    "system_boundary": "financial-report search, QA, calculation and verified summarization; not general enterprise KG completion",
+    "report_agnostic": true,
+    "universal_every_pdf_claimed": false,
+    "unsupported_structure": "UNKNOWN_TO_ABSTAIN"
+  },
+  "contract_supersession": {
+    "new_core_signature": "PA07_VERIFIED_LOGICAL_TABLE_BINDING_V1",
+    "old_pixel_geometry_signatures_marked_pass": false,
+    "old_hierarchical_geometry_coverage": "1/1/1/1_UNCHANGED",
+    "old_fragmented_native_geometry_coverage": "0/0/0/0_UNCHANGED",
+    "old_geometry_track": "M7_OCR_ROBUSTNESS_EXTENSION_NON_BLOCKING",
+    "fragmented_failure_policy": "If a fragmented visual row cannot be reconstructed into one unique logical row with explicit headers and source provenance, ABSTAIN. Do not fabricate fragments or count the unsupported case as passed.",
+    "metric_beautification": false,
+    "interpretation": "This precommit creates a separately named content-correctness gate. It does not retroactively report the stricter per-cell pixel-bbox gate as passed."
+  },
+  "logical_provenance_transform": {
+    "transform_id": "FINHRM_OCR_LOGICAL_TABLE_PROVENANCE_V1",
+    "inputs": [
+      "source_path and exact source_sha256 from the frozen development catalog",
+      "physical page and page offset from the frozen page-selective OCR manifest",
+      "exact MinerU *_content_list.json path and sha256",
+      "table item JSON-order index, page_idx, bbox and table_body"
+    ],
+    "table_item_predicate": [
+      "type equals table",
+      "page_idx is a non-negative integer",
+      "bbox is four finite coordinates with right>left and bottom>top",
+      "table_body is a non-empty HTML string"
+    ],
+    "grid_projection": [
+      "parse table_body with html.parser.HTMLParser using convert_charrefs=true",
+      "preserve source cell text, source row, source column, rowspan, colspan and JSON-order-independent cell ordinal",
+      "place each source cell into every occupied logical grid coordinate implied by rowspan and colspan",
+      "reject overlapping spans, malformed rows, an empty grid or non-deterministic parse",
+      "cell_ordinal_span is the half-open [ordinal,ordinal+1] interval in table_body source-cell order"
+    ],
+    "normalization": {
+      "text": {
+        "path": "src/hrm_finance_qa/ontology.py",
+        "size_bytes": 9472,
+        "sha256": "47375f6a95057ddda75433fd40a8e9c2be3448165e288c2764d1d54bc83e400b",
+        "symbol": "normalize_text"
+      },
+      "decimal": {
+        "path": "src/hrm_finance_qa/program_data.py",
+        "size_bytes": 135728,
+        "sha256": "5199434fc0628b7d270ce62b12657366cbe118901065edd9f1e1f6ca0f1f8d54",
+        "symbol": "parse_decimal"
+      },
+      "mineru_html_parser": {
+        "path": "src/hrm_finance_qa/document_sources.py",
+        "size_bytes": 57613,
+        "sha256": "e9eb7b3ddcc2ed13060a573a6a0101a216fa49ff21dd65cd5fc2629b92f5fc0b",
+        "symbols": [
+          "_MinerUTableParser",
+          "_MinerUTableCell"
+        ]
+      }
+    },
+    "primary_role_binding": {
+      "PLAN": "normalize_text(cell) equals 'kh' or starts with 'ke hoach'",
+      "ACTUAL": "normalize_text(cell) equals 'th' or starts with 'thuc hien'",
+      "composite_header_exclusions": ["%", "/", "ty le", "hoan thanh", "so sanh"],
+      "requirement": "exactly one primary PLAN column and exactly one primary ACTUAL column on one header row",
+      "duplicate_or_conflicting_role": "REJECT"
+    },
+    "period_binding": {
+      "allowed": [
+        "one explicit YYYY token in a common ancestor header cell whose colspan covers both role columns",
+        "the same single explicit YYYY token present independently in both role header paths"
+      ],
+      "forbidden": [
+        "nearby prose or section title",
+        "question wording",
+        "filename",
+        "absence-based inference",
+        "numeric answer magnitude"
+      ],
+      "missing_or_multiple_periods": "UNKNOWN_TO_ABSTAIN"
+    },
+    "metric_row_binding": {
+      "row_predicate": "both role columns parse to one decimal each; operands occupy distinct source-cell ordinals",
+      "metric_label": "one unique non-numeric, non-unit alphabetic logical cell to the left of both operands after query metric normalization",
+      "unit": "one explicit currency unit cell in the same logical row or one conflict-free table_caption attached to the same table item",
+      "entity": "one source-hash-bound reporting entity or one explicit conflict-free panel/table scope",
+      "duplicate_metric_or_value_conflict": "REJECT",
+      "missing_metric_unit_entity_or_operand": "UNKNOWN_TO_ABSTAIN",
+      "rank_score_or_confidence_breaks_ties": false
+    },
+    "deterministic_ids": {
+      "canonical_json": "UTF-8 JSON, ensure_ascii=false, object keys sorted lexicographically, separators comma and colon without whitespace",
+      "table_html_sha256": "sha256(UTF-8 table_body)",
+      "table_id": "sha256(canonical_json({source_sha256,physical_page,content_list_sha256,table_bbox,table_html_sha256}))",
+      "logical_cell_id": "sha256(canonical_json({table_id,logical_row_index,logical_column_index,cell_ordinal_span,header_path,role,period,unit,entity_scope}))",
+      "layout_instance_fingerprint": "sha256(canonical_json({source_sha256,physical_page,table_id,table_bbox,canonical_layout_family_id}))"
+    }
+  },
+  "citation_contract": {
+    "required_fields_per_operand": [
+      "source_name",
+      "source_path",
+      "source_sha256",
+      "physical_page",
+      "table_bbox",
+      "content_list_path",
+      "content_list_sha256",
+      "table_html_sha256",
+      "table_id",
+      "logical_row_index",
+      "logical_column_index",
+      "cell_ordinal_span",
+      "logical_cell_id",
+      "raw_text",
+      "decimal_value",
+      "header_path",
+      "role",
+      "period",
+      "unit",
+      "metric_identity",
+      "entity_scope",
+      "extraction_method"
+    ],
+    "source_span_coordinate_space": "half-open table_body source-cell ordinal interval",
+    "whole_table_bbox_required": true,
+    "per_cell_pixel_bbox": "OPTIONAL_IF_EXTRACTOR_PROVIDES_IT; NEVER_SYNTHESIZE_OR_INFER",
+    "renderer_may_invent_fields": false,
+    "answer_replay": "Every displayed operand must resolve to the exact hash-bound logical cell; computation must replay from cited decimal values."
+  },
+  "canonical_layout_definition": {
+    "real_layout_required": true,
+    "family_descriptor_fields": [
+      "signature_id",
+      "header_level_count_bin",
+      "role_period_axis_topology",
+      "column_grouping_topology",
+      "metric_row_shape",
+      "page_span_class",
+      "page_orientation",
+      "table_representation"
+    ],
+    "allowed_bins": {
+      "header_level_count_bin": ["one", "two", "three_or_more"],
+      "role_period_axis_topology": ["same_cell", "nested_parent_child", "parallel_cells"],
+      "column_grouping_topology": ["paired_adjacent", "paired_under_spanner", "repeated_column_blocks"],
+      "metric_row_shape": ["single_line", "wrapped_same_row", "fragmented_same_row"],
+      "page_span_class": ["single_page", "continued_table"],
+      "page_orientation": ["portrait", "landscape"],
+      "table_representation": ["native_aligned", "native_flattened", "native_fragmented", "ocr_structured_html"]
+    },
+    "family_id": "sha256(canonical_json(family_descriptor_fields))",
+    "identity_excluded_from_family_id": [
+      "company_key",
+      "filename",
+      "source_sha256",
+      "page_number",
+      "year",
+      "metric_literal",
+      "numeric_value",
+      "question_literal",
+      "example_id"
+    ],
+    "reason_for_table_representation_field": "Represent the extraction carrier honestly across native and OCR tables; never relabel OCR as native.",
+    "field_added_to_split_observed_examples": false,
+    "minor_coordinate_difference_creates_family": false,
+    "synthetic_projection_creates_family": false
+  },
+  "frozen_reclosure_cohort": {
+    "selection_basis": "exactly the one previously admitted native hierarchical anchor and the two reviewed OCR proposals frozen by the parent build; no new source/page search",
+    "question_or_answer_outcome_used_for_selection": false,
+    "anchors": [
+      {
+        "anchor_id": "ad02bcfc694fa4ddf1cbef77d7c74074258353bc0c0df7de49ade21689604279",
+        "company_key": "development-company-10",
+        "source_path": "pdf/PDF_24/PDF_24/ABB_24CN_BCTN.pdf",
+        "source_sha256": "ad65914c63b5ff346e303d546f71c66ff15b51bb0ab38225dc2621456792c51c",
+        "physical_page": 34,
+        "representation": "native_aligned",
+        "canonical_layout_family_id": "5087511255758afb3acd36e1460fb652cc6631dc63d86dae64a5e3bd16cdb343",
+        "metric_row_shape": "single_line",
+        "page_orientation": "landscape",
+        "binding": {"metric": "Lợi nhuận trước thuế", "period": "2024", "unit": "tỷ đồng", "ACTUAL": "779", "PLAN": "1000"}
+      },
+      {
+        "anchor_id": "reviewed-proposal-THW-p9",
+        "company_key": "development-company-1d93fc6e0149715f",
+        "source_path": "pdf/PDF_24/PDF_24/THW_24CN_BCTN.pdf",
+        "source_sha256": "a67ba32e0f55f9da5d99181daf21caf2a2315b9b4df049e70d28a3e52900613c",
+        "physical_page": 9,
+        "content_list_path": "cache/mineru/THW_24CN_BCTN-d15d9ab8fbd76ca15a9b4ce8/THW_24CN_BCTN/hybrid_ocr/THW_24CN_BCTN_content_list.json",
+        "content_list_sha256": "4a24649228235bf4851244d16830f1bbcd035bf6ce2065492409f9ef274c13ff",
+        "table_bbox": [112, 192, 942, 936],
+        "table_html_sha256": "82991d8dd68e1fc9e4b77119c285a83c2d4a03990514a66d63dee1bc8054d6d3",
+        "table_id": "e4dfd3935f622f097566b24a648d53373e21da58cd529b4eb2a2620d757740a8",
+        "representation": "ocr_structured_html",
+        "canonical_layout_family_id": "3880fd0ee1a293947197af509389ef042b549122acf587529b9e2fc5acc740fd",
+        "metric_row_shape": "wrapped_same_row",
+        "page_orientation": "portrait",
+        "binding": {
+          "logical_row": 5,
+          "metric": "Doanh thu tiền nước theo chuẩn thu sau xử lý",
+          "period": "2024",
+          "unit": "Tr.đồng",
+          "PLAN": {"raw": "631.033", "decimal": "631033", "column": 3, "cell_ordinal_span": [27, 28]},
+          "ACTUAL": {"raw": "650.619", "decimal": "650619", "column": 4, "cell_ordinal_span": [28, 29]}
+        }
+      },
+      {
+        "anchor_id": "reviewed-proposal-TVA-p21",
+        "company_key": "development-company-15aa4ce43c3fc979",
+        "source_path": "pdf/PDF_24/PDF_24/TVA_24CN_BCTN.pdf",
+        "source_sha256": "2ab79ef997afa54449c0baa80c4ef09f389b10277abe6cb11f08e54c6ee5c23b",
+        "physical_page": 21,
+        "content_list_path": "cache/mineru/TVA_24CN_BCTN-7f99ad7f983f7bea7a1c2df8/TVA_24CN_BCTN/hybrid_ocr/TVA_24CN_BCTN_content_list.json",
+        "content_list_sha256": "145e9309fbdfadb6d7b18618a98f99ab17ea6cf5db4469c9591729a03fbf03d8",
+        "table_bbox": [93, 410, 892, 888],
+        "table_html_sha256": "6086f4aff9e3f9bb7fca2f36bd448c7981a4e13349deace98c621ca895f20670",
+        "table_id": "de812ba74d40b00e364739c8479f994d0844677cb3dcbc6fa9953e46c0455b36",
+        "representation": "ocr_structured_html",
+        "canonical_layout_family_id": "067dbb7865ad2df4b72baaefb61288bfd7a24354cbebfaf29b6de2ce87d070c4",
+        "metric_row_shape": "single_line",
+        "page_orientation": "portrait",
+        "binding": {
+          "logical_row": 4,
+          "metric": "Doanh thu",
+          "period": "2024",
+          "unit": "Tr.đ",
+          "PLAN": {"raw": "173.728", "decimal": "173728", "column": 4, "cell_ordinal_span": [29, 30]},
+          "ACTUAL": {"raw": "173.831", "decimal": "173831", "column": 5, "cell_ordinal_span": [30, 31]}
+        }
+      }
+    ],
+    "expected_if_exact_replay_passes": "3/3/3/3 companies/sources/real-layout-families/instances for PA07_VERIFIED_LOGICAL_TABLE_BINDING_V1",
+    "cross_company": true,
+    "cross_source": true,
+    "real_layouts": true,
+    "synthetic_layouts": 0
+  },
+  "schema_feasibility": {
+    "status": "PASS",
+    "clean_process_inputs_named_and_hash_locked": true,
+    "native_anchor_source_hash_verified": true,
+    "ocr_source_hashes_verified": "2/2",
+    "ocr_content_list_hashes_verified": "2/2",
+    "ocr_table_html_hashes_verified": "2/2",
+    "rowspan_colspan_grid_replay": "2/2",
+    "unique_role_period_unit_metric_operand_binding": "2/2",
+    "in_memory_negative_mutations": {
+      "MISSING_PERIOD": "2/2_ABSTAIN",
+      "DUPLICATE_ROLE": "2/2_REJECT",
+      "MISSING_UNIT": "2/2_ABSTAIN",
+      "total": "6/6"
+    },
+    "projected_distinct_companies_sources_layouts_instances": "3/3/3/3",
+    "hidden_temporary_state_required": false,
+    "new_ocr_required": false,
+    "per_cell_bbox_required": false
+  },
+  "next_execution_gates": {
+    "all_parent_and_input_hashes_exact": true,
+    "logical_binding_positive": "3/3 anchors",
+    "distinct_companies_sources_layouts_instances_minimum": "3/3/3/3",
+    "all_citations_complete": true,
+    "all_programs_replay_from_cited_operands": true,
+    "accepted_wrong": 0,
+    "logical_candidate_permutation": "all exact",
+    "negative_mutations": "all ABSTAIN or REJECT as frozen",
+    "gold_execution": "363/363",
+    "candidate_permutation": "363/363",
+    "counterfactuals": 141,
+    "counterfactual_false_accepts": 0,
+    "affected_regression": "360/360",
+    "temporary_files_after_verification": 0
+  },
+  "frozen_replay_observed_at_precommit": {
+    "safe_replay_gate_passed": true,
+    "gold_execution": "363/363",
+    "candidate_permutation": "363/363",
+    "counterfactuals": 141,
+    "counterfactual_false_accepts": 0,
+    "affected_regression": "360/360",
+    "checkpoint_sha256": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de"
+  },
+  "failure_behavior": {
+    "source_artifact_or_table_hash_mismatch": "SOURCE_ERROR",
+    "missing_period_role_unit_entity_metric_or_operand": "UNKNOWN_TO_ABSTAIN",
+    "duplicate_or_conflicting_logical_binding": "REJECT",
+    "incomplete_citation": "ABSTAIN",
+    "calculation_or_replay_mismatch": "REJECT",
+    "coverage_shortfall": "FAIL_CLOSED_WITH_EXACT_COUNTS",
+    "runtime_edit_on_failure": false
+  },
+  "runtime_authorization": {
+    "runtime_edit_authorized": false,
+    "runtime_file_whitelist": [],
+    "test_file_whitelist": [],
+    "model_or_checkpoint_change_authorized": false,
+    "threshold_change_authorized": false,
+    "fine_tuning_authorized": false,
+    "answer_renderer_edit_authorized": false
+  },
+  "invariants": {
+    "company_filename_page_year_value_example_or_question_literal_rule_added": false,
+    "candidate_rank_neural_score_or_confidence_used_as_semantic_proof": false,
+    "period_or_provenance_inferred_from_absence_nearby_context_or_question": false,
+    "ocr_relabelled_as_native": false,
+    "per_cell_bbox_invented": false,
+    "old_geometry_gate_misreported_as_pass": false,
+    "fragmented_coverage_fabricated": false,
+    "unknown_promoted_to_answer": false,
+    "conflict_promoted_to_answer": false,
+    "abw_used_as_confirmation_or_gate": false,
+    "protected_evaluation_loaded": false,
+    "synthetic_layout_counted_as_confirmation": false,
+    "metric_beautification_performed": false,
+    "runtime_model_checkpoint_threshold_changed": false,
+    "qp5_unlocked": false,
+    "phase_d_unlocked": false
+  },
+  "artifact_policy": {
+    "final_json": 1,
+    "final_markdown": 1,
+    "lock_manifest": 1,
+    "temporary_probe_persisted": false,
+    "temporary_files_after_verification": 0
+  },
+  "authorization": {
+    "next_allowed_action": "QP4-DEVELOPMENT-SOURCE-EXPANSION-OCR-LOGICAL-PROVENANCE-COHORT-RECLOSURE",
+    "next_action_scope": "Replay exactly the three frozen anchors under PA07_VERIFIED_LOGICAL_TABLE_BINDING_V1, materialize complete logical citations and negative controls, and run all frozen gates. No source search, OCR, runtime, model or renderer edit.",
+    "qp4_complete": false,
+    "qp5_authorized": false,
+    "phase_d_unlocked": false
+  }
+}

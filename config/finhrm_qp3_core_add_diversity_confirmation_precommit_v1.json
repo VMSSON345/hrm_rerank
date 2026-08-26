@@ -1,0 +1,68 @@
+{
+  "schema": "finhrm-qp3-core-add-diversity-confirmation-precommit-v1",
+  "created_at": "2026-08-20",
+  "classification": "development_only_multi_company_multi_layout_end_to_end_diversity_precommit",
+  "status": "precommitted_before_any_further_runtime_change",
+  "parents": {
+    "generalization_invariant": {
+      "path": "config/finhrm_report_generalization_invariant_v1.json",
+      "sha256": "7a8c6e58a47314d522adb782277f6d5bf0cbf761faf681d848e2e9ae4e861846"
+    },
+    "implementation_precommit": {
+      "path": "config/finhrm_qp3_core_generalization_coverage_implementation_precommit_v1.json",
+      "sha256": "6c0291e127a8defad97b2db13785885bbfb08fea31a0c29fbd3ae1683065b995"
+    },
+    "candidate_level_confirmation": {
+      "path": "reports/finhrm_qp3_core_add_real_layout_confirmation_v1.json",
+      "sha256": "ba7e89f41ee5da1ef26f634048a24987cf5d37133fc86ca80d57ba120f193740"
+    }
+  },
+  "correction": {
+    "superseded_claim": "candidate-level positives on two additional real layout labels are sufficient to close QP3 core generalization coverage",
+    "corrected_claim": "candidate-level source-backed replay is supporting proof-contract evidence only; it cannot by itself establish diverse end-to-end operation",
+    "runtime_rollback_required": false,
+    "reason": "the ADD runtime was unchanged, but the previous gate interpretation combined a one-layout frozen improvement with pre-materialized mechanically-derived candidates and therefore overclaimed system-level diversity"
+  },
+  "diversity_contract": {
+    "operation": "ADD",
+    "minimum_additional_real_layout_families": 2,
+    "minimum_distinct_companies_per_additional_layout": 3,
+    "minimum_distinct_source_pdfs_per_additional_layout": 3,
+    "minimum_independently_reviewed_positive_per_company_layout": 1,
+    "accepted_independent_review_statuses": [
+      "independently_reviewed_approved"
+    ],
+    "required_stages": [
+      "real_pdf_source",
+      "extraction_or_table_reconstruction",
+      "typed_evidence_graph",
+      "retrieval_or_intent_proposal",
+      "symbolic_binding",
+      "deterministic_verification_and_execution"
+    ],
+    "pre_materialized_candidate_replay_counts_as_end_to_end": false,
+    "pending_independent_review_counts_as_confirmation": false,
+    "mechanically_derived_question_may_enter_after_independent_review": true,
+    "positive_requires_explicit_two_role_add_evidence": true,
+    "candidate_permutation_exact_required": true,
+    "semantic_counterfactual_required_per_positive": true,
+    "counterfactual_false_accepts": 0,
+    "physical_or_semantic_conflict_policy": "REJECT",
+    "missing_required_proof_policy": "UNKNOWN_TO_ABSTAIN",
+    "company_layout_macro_and_worst_group_metrics_required": true,
+    "frozen_safe_replay_required_after_every_runtime_change": true
+  },
+  "genericity_and_split_invariants": {
+    "company_layout_disjoint_required": true,
+    "company_or_report_specific_rule_allowed": false,
+    "filename_page_year_value_example_id_question_literal_rule_allowed": false,
+    "abw_confirmation_allowed": false,
+    "protected_validation_blind_test_sealed_holdout_final_access_allowed": false,
+    "synthetic_layout_projection_confirmation_allowed": false,
+    "candidate_rank_score_or_confidence_as_semantic_proof_allowed": false,
+    "threshold_checkpoint_or_model_change_allowed": false,
+    "fine_tuning_allowed": false
+  },
+  "current_candidate_evidence_role": "SUPPORTING_ONLY_NOT_GATE_CLOSING",
+  "authorized_next_step": "Remain in QP3-CORE-GENERALIZATION-COVERAGE-IMPLEMENTATION. Build or identify development-safe independently reviewed ADD cases that satisfy the per-layout company/source minima and exercise the required end-to-end stages, then run permutation, counterfactual and frozen safe replay. QP3 answer presentation, QP4 and Phase D remain locked."
+}

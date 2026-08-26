@@ -1,0 +1,81 @@
+{
+  "schema": "finhrm-qp3-core-add-real-layout-confirmation-precommit-v1",
+  "created_at": "2026-08-20",
+  "classification": "development_only_source_backed_real_layout_confirmation_precommit",
+  "status": "precommitted_before_confirmation_evaluator_runtime_unchanged",
+  "parent": {
+    "implementation_precommit": {
+      "path": "config/finhrm_qp3_core_generalization_coverage_implementation_precommit_v1.json",
+      "sha256": "6c0291e127a8defad97b2db13785885bbfb08fea31a0c29fbd3ae1683065b995"
+    },
+    "frozen_safe_replay": {
+      "path": "reports/finhrm_qp3_core_s4_safe_replay_v1.json",
+      "sha256": "cb0dbbc27de5c9254fd3fa4634183f91bfcbf2b93e96f1703984aaf4d9f146f0"
+    }
+  },
+  "source": {
+    "path": "data/document_pointer_common_development_semantic_canonical_v5.jsonl",
+    "size_bytes": 6087465,
+    "sha256": "a7e27ab226b824b412de2d661eb856d9ba8fbd3b12a1a4de0f44ed6ae71d2396",
+    "allowed_classification": "mechanically_derived_development",
+    "selection": "all ADD records whose selected evidence is non-ABW, non-protected, source-backed PDF evidence",
+    "source_contains_diagnosis_records_outside_selection": true,
+    "diagnosis_records_may_enter_confirmation": false,
+    "protected_validation_blind_test_access_allowed": false
+  },
+  "confirmation_contract": {
+    "operation": "ADD",
+    "required_question_evidence": "explicit structural two-role addition syntax",
+    "required_selected_operands": 2,
+    "distinct_logical_cells_required": true,
+    "same_requested_period_required": true,
+    "source_provenance_complete_required": true,
+    "gold_execution_required": true,
+    "proof_complete_answer_required": true,
+    "candidate_permutation_exact_required": true,
+    "semantic_counterfactual_required": true,
+    "counterfactual_answer_count": 0,
+    "supervision_hard_negative_required": true,
+    "physical_source_span_collision_policy": "REJECT_AND_RETAIN_AS_HARD_NEGATIVE_CONTROL",
+    "minimum_distinct_companies": 3,
+    "minimum_additional_real_layout_families": 2,
+    "required_additional_real_layout_families": [
+      "DEVELOPMENT_NATIVE_MULTI_TABLE",
+      "DEVELOPMENT_OCR_OR_HYBRID_TABLE"
+    ],
+    "baseline_real_layout_family": "DEVELOPMENT_NATIVE_STRUCTURED_SPARSE",
+    "minimum_union_real_layout_families": 3,
+    "real_pdf_file_must_exist": true,
+    "synthetic_layout_projection_allowed": false,
+    "mechanically_derived_question_counts_as_synthetic_layout": false
+  },
+  "genericity_evidence": [
+    "selection uses operation, typed question intent, evidence provenance and extraction/layout metadata only",
+    "no company, filename, page, fixed year, numeric value, answer, example id or question literal is a runtime rule",
+    "the confirmation exercises the already-authorized structural ADD contract without changing runtime",
+    "candidate rank, neural score and confidence are not semantic proof",
+    "missing proof remains UNKNOWN to ABSTAIN and contradiction remains INVALID to REJECT"
+  ],
+  "runtime_hashes_frozen": {
+    "src/hrm_finance_qa/question_planner.py": "58404c5a04ffced2c00056a10e470730a8fb9ef723d3e8c5668f13b0a65571a6",
+    "src/hrm_finance_qa/program_synthesis.py": "e4acc4878d0dfd465ba66ab91f3aaf8be71db5591aa1358fb8cb81f3c7bff550",
+    "src/hrm_finance_qa/symbolic_verifier.py": "ff667034737ab8603032a3fdb17e808fb0fc8023c17f941bfcb51276078d77f7",
+    "src/hrm_finance_qa/direction_contract.py": "a18aa130419fc74ce647bd92dc9c1b1217007738e636aad0f28c7f78396be937",
+    "src/hrm_finance_qa/document_hrm.py": "b5951bcde79583950b672f7fb6b199b3e5b9904e6784daae7c4c5be0eba65d21",
+    "src/hrm_finance_qa/document_reasoning_engine.py": "f01865c508241b27f459cc14ba47bea17e040ff0ebad8b437fb97c2b42e3a762",
+    "src/hrm_finance_qa/evidence_schema.py": "2f16fabf932dc9dabc8203d9642d2503bb2dab43e0e1ee0f78755dd4fb00825d",
+    "src/hrm_finance_qa/financial_identities.py": "ee7347885f561d5f5d9c404964ecb7a46f1275186e100f2236e53114aeacd2ee"
+  },
+  "invariants": {
+    "runtime_change_authorized": false,
+    "threshold_change_allowed": false,
+    "checkpoint_change_allowed": false,
+    "fine_tuning_allowed": false,
+    "abw_confirmation_allowed": false,
+    "protected_evaluation_access_allowed": false,
+    "synthetic_projection_confirmation_allowed": false,
+    "qp4_authorized": false,
+    "phase_d_unlocked": false
+  },
+  "authorized_next_step": "Evaluate the unchanged QP3 ADD implementation on every selected source-backed development record, then replay all frozen implementation gates."
+}

@@ -1,0 +1,84 @@
+{
+  "schema": "column-role-runtime-priority-qp2-lock-v1",
+  "created_at": "2026-08-13",
+  "status": "qp2_priority_lane_complete_full_qp2_incomplete",
+  "scope": {
+    "classification": "development_only_with_abw_diagnosis_only",
+    "validation_loaded": false,
+    "blind_test_loaded": false,
+    "fine_tuning_performed": false,
+    "threshold_changed": false,
+    "phase_d_locked": true
+  },
+  "runtime_policy": {
+    "explicit_column_role_grounding_enabled": true,
+    "column_role_match_required_in_proof_contract": true,
+    "proof_conditioned_select_acceptance_enabled": false,
+    "reason": "Frozen S4 contains only two accepted explicit-role SELECT examples; precision and 9F-T release gates fail."
+  },
+  "compiler_audit": {
+    "examples": 299,
+    "exact": 93,
+    "exact_rate": 0.3110367892976589,
+    "column_role_pass": 212,
+    "column_role_pass_rate": 0.7090301003344481,
+    "operation_pass": 213,
+    "operation_pass_rate": 0.7123745819397993,
+    "plan_actual_exact": 42,
+    "plan_actual_total": 132,
+    "two_year_exact": 36,
+    "two_year_total": 132
+  },
+  "abw_diagnosis_only": {
+    "confirmation_eligible": false,
+    "question": "Doanh thu hoạt động thực hiện năm 2023 là bao nhiêu?",
+    "selected_value": "304912639828",
+    "selected_column": "Thực hiện 2023",
+    "selected_column_role": "actual",
+    "proof_contract_state": "VALID",
+    "required_valid_fraction": 1.0,
+    "confidence": 0.5169923958522814,
+    "threshold": 0.8456929061750275,
+    "status": "ABSTAIN"
+  },
+  "frozen_s4_audit": {
+    "explicit_role_accepted_select_examples": 2,
+    "false_accept_removed_F": 1,
+    "true_accept_removed_T": 0,
+    "gold_role_retained": 2,
+    "gold_role_total": 2,
+    "conservative_examples": 976,
+    "conservative_accepted": 936,
+    "conservative_correct": 829,
+    "conservative_false_accept": 107,
+    "coverage": 0.9590163934426229,
+    "accepted_precision": 0.8856837606837606,
+    "nine_F_minus_T": 9,
+    "release_gates_all_pass": false
+  },
+  "verification": {
+    "tests_run": 264,
+    "tests_passed": 264,
+    "compileall_passed": true
+  },
+  "artifact_sha256": {
+    "strategy": "19128aed96e77185e95055897d140669847865e1a7f00167784b4c4062df1948",
+    "report": "13e267a85dd2c36ce3054cd712a1c3c1b5067fc4f2bf8ba8237c29d26b565680",
+    "compiler_audit": "b679bcb21bf702f92d9508d1607bd31291c6c2e87663aa2204f1a04516e690f7",
+    "abw_diagnosis": "581587897b956cfb0e2d35f3e200ae22e2aaf92a06bf82d23b98dc9e631661f5",
+    "s4_column_role_audit": "e039c120c8a31112fd8c20b8b57ee84ec8dbc6bd0e9acef9e3640e750848f0b0",
+    "question_plan_catalog": "69c4017afec7731f63407339ae0c3d717ac38690807b17908b77fb1892d8e31b",
+    "frozen_s4_baseline": "8b3382a33ac55531a43b8c4e2d0bb522fee427ca3be2b0a7f26c79ea973b8b0e",
+    "development_data": "c6e119519d2dae59933edc5e493de7aef885154c037b95be54a1290b7f529d26",
+    "question_planner": "a61d9871ca7f75932a081cadb6c17d998bae8e12991bbb60d83f774287e9d323",
+    "program_synthesis": "a37470ad307c04744a5db794258f8bff2f6439ef6a689f8a9b8db67f91a17761",
+    "symbolic_verifier": "6e95d13261c43f16e7c0118ddbb288adb427f8212831df56bf8b25102b5db7e6",
+    "document_hrm": "52d37630d1797176df06245171dc59131b89f73e1aa552b270297e6154e2c054",
+    "runtime_diagnosis_script": "54a1aab07254530ad34c2344281a2165058795d3bb1a2c31eb96d5eca0d8978a",
+    "s4_audit_script": "da8f990cbcded7203d81d372d6c72b7d69a96fc98bfb37a1a8ec7c600ea1dc74",
+    "runtime_test": "6ac79ea0b4f583008cf74e0afa71c559f8a367875eeadf4ab43600a85734d989",
+    "checkpoint": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de",
+    "abw_document": "9bf280c111ef24985a4fe998fa7c90ea8d9cc7626b42135fa9ff2d3aea0b48be"
+  },
+  "next_allowed_step": "Continue QP2 for PA04-PA12/TY, answer mode, long and multi-output questions, and document-conditioned ambiguity; build or reuse a sufficiently large development-only company-disjoint explicit-role positive and hard-negative cohort before reconsidering proof-conditioned SELECT acceptance."
+}

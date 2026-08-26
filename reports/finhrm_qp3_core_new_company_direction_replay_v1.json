@@ -1,0 +1,58 @@
+{
+  "schema": "subtract-direction-contract-development-audit-v1",
+  "classification": "development_only",
+  "protected_evaluation_sources_used": false,
+  "sources": [
+    {
+      "path": "/mnt/d/reasoning_model_V4/reasoning_model/data/subtract_new_company_development_reviewed_v1.jsonl",
+      "sha256": "08d47314f93314c93e1f08bc507a5b0b9a4ade46619c36241cd92b5652f1d71e",
+      "all_examples": 19,
+      "development_eligible_examples": 19,
+      "protected_records_detected_and_excluded": 0,
+      "protected_record_reasons": {},
+      "protected_record_ids_first_100": [],
+      "directional_gold_examples": 19,
+      "operation_counts": {
+        "SUBTRACT": 19
+      },
+      "direction_intent_counts": {
+        "NEW_MINUS_OLD": 19
+      },
+      "direction_outcome_counts": {
+        "direction_supported": 19
+      },
+      "direction_supported_rate": 1.0,
+      "direction_provable_coverage": 1.0,
+      "direction_accuracy_when_provable": 1.0,
+      "issue_signal_counts": {},
+      "verifier_state_counts": {
+        "UNKNOWN": 19
+      },
+      "verifier_direction_invalid_outcomes": {},
+      "unique_source_names": 19,
+      "unique_company_keys": 19,
+      "non_supported_examples_first_100": []
+    }
+  ],
+  "summary": {
+    "protected_records_detected_and_excluded": 0,
+    "directional_gold_examples": 19,
+    "operation_counts": {
+      "SUBTRACT": 19
+    },
+    "direction_intent_counts": {
+      "NEW_MINUS_OLD": 19
+    },
+    "direction_outcome_counts": {
+      "direction_supported": 19
+    },
+    "direction_supported_rate": 1.0,
+    "direction_provable_coverage": 1.0,
+    "direction_accuracy_when_provable": 1.0,
+    "issue_signal_counts": {},
+    "verifier_state_counts": {
+      "UNKNOWN": 19
+    },
+    "verifier_direction_invalid_outcomes": {}
+  }
+}

@@ -1,0 +1,307 @@
+{
+  "schema": "v12b2-phase-c-supervision-index-v2",
+  "phase_c_schema": "v12b2-canonical-multi-positive-v3",
+  "status": "phase_c_supervision_ready_limited_coverage",
+  "fold_count": 5,
+  "fold_manifest": "/mnt/d/reasoning_model_V4/reasoning_model/data/document_hrm_v12b2_reranker_disjoint_folds_subtract_v4.json",
+  "fold_manifest_sha256": "faf4f0322e87bcb21141d505d417afd1f13f594062a917866b7c88dbae543459",
+  "phase_b_fold_root": "/mnt/d/reasoning_model_V4/reasoning_model/cache/v12b2_folds_subtract_v4",
+  "blind_test_used": false,
+  "test_jsonl_used": false,
+  "sealed_validation_evaluated": false,
+  "sealed_validation_loaded": false,
+  "development_manifest_examples": 1246,
+  "protected_or_untracked_input_records_excluded": 0,
+  "reranker_training_started": false,
+  "train_group_minimum": 30,
+  "calibration_group_minimum": 15,
+  "positive_policy": [
+    "canonical_gold",
+    "commutative_equivalent",
+    "grounded_semantic_equivalent"
+  ],
+  "execution_only_is_positive": false,
+  "label_contradictions": 0,
+  "execution_only_promoted_to_positive": 0,
+  "reversed_pair_negatives_withheld": 0,
+  "supervision_integrity_excluded_records": 95,
+  "supervision_integrity_issues": {
+    "multiply_par_value_unit_algebra_unproven": 85,
+    "gold_verifier:missing_requested_period": 5,
+    "gold_direction_reversed": 5
+  },
+  "multi_positive_records_fold_expanded": 5,
+  "multi_positive_examples_unique": 1,
+  "multi_positive_example_ids": [
+    "synthetic-train-average-0024"
+  ],
+  "positive_classes": {
+    "canonical_exact": 3815,
+    "grounded_equivalent": 5
+  },
+  "hard_negative_types": {
+    "wrong_metric_same_table": 59565,
+    "wrong_period": 45875,
+    "high_neural_incomplete_proof": 14165,
+    "wrong_entity_or_scope": 7075,
+    "wrong_metric": 5740,
+    "wrong_unit_or_constant": 22055,
+    "execution_only_same_result": 3815,
+    "other_incorrect": 2800,
+    "wrong_operation": 70
+  },
+  "enabled_operations_all_folds": [
+    "RATIO_PERCENT"
+  ],
+  "fallback_operations": [
+    "ADD",
+    "AVERAGE",
+    "DIVIDE",
+    "MULTIPLY",
+    "PERCENT_CHANGE",
+    "SELECT",
+    "SUBTRACT"
+  ],
+  "phase_c_gate": true,
+  "folds": [
+    {
+      "fold": 0,
+      "manifest": "/mnt/d/reasoning_model_V4/reasoning_model/cache/v12b2_phase_c_subtract_v4/fold_0/manifest.json",
+      "manifest_sha256": "59c0c5b2c6e5cf9ff10c7da704517f49339ba1f5486e729901d3844a8efe0618",
+      "operation_eligibility": {
+        "ADD": {
+          "train_groups": 59,
+          "calibration_groups": 16,
+          "enabled": true
+        },
+        "AVERAGE": {
+          "train_groups": 67,
+          "calibration_groups": 16,
+          "enabled": true
+        },
+        "DIVIDE": {
+          "train_groups": 68,
+          "calibration_groups": 23,
+          "enabled": true
+        },
+        "MULTIPLY": {
+          "train_groups": 46,
+          "calibration_groups": 10,
+          "enabled": false
+        },
+        "PERCENT_CHANGE": {
+          "train_groups": 43,
+          "calibration_groups": 11,
+          "enabled": false
+        },
+        "RATIO_PERCENT": {
+          "train_groups": 72,
+          "calibration_groups": 24,
+          "enabled": true
+        },
+        "SELECT": {
+          "train_groups": 80,
+          "calibration_groups": 17,
+          "enabled": true
+        },
+        "SUBTRACT": {
+          "train_groups": 25,
+          "calibration_groups": 12,
+          "enabled": false
+        }
+      }
+    },
+    {
+      "fold": 1,
+      "manifest": "/mnt/d/reasoning_model_V4/reasoning_model/cache/v12b2_phase_c_subtract_v4/fold_1/manifest.json",
+      "manifest_sha256": "18d26231da18fcc4b89df32fdc106c3c5af90be685e5ab74f51ec3769a43b2ac",
+      "operation_eligibility": {
+        "ADD": {
+          "train_groups": 62,
+          "calibration_groups": 13,
+          "enabled": false
+        },
+        "AVERAGE": {
+          "train_groups": 67,
+          "calibration_groups": 16,
+          "enabled": true
+        },
+        "DIVIDE": {
+          "train_groups": 74,
+          "calibration_groups": 17,
+          "enabled": true
+        },
+        "MULTIPLY": {
+          "train_groups": 44,
+          "calibration_groups": 12,
+          "enabled": false
+        },
+        "PERCENT_CHANGE": {
+          "train_groups": 42,
+          "calibration_groups": 12,
+          "enabled": false
+        },
+        "RATIO_PERCENT": {
+          "train_groups": 78,
+          "calibration_groups": 18,
+          "enabled": true
+        },
+        "SELECT": {
+          "train_groups": 76,
+          "calibration_groups": 21,
+          "enabled": true
+        },
+        "SUBTRACT": {
+          "train_groups": 29,
+          "calibration_groups": 8,
+          "enabled": false
+        }
+      }
+    },
+    {
+      "fold": 2,
+      "manifest": "/mnt/d/reasoning_model_V4/reasoning_model/cache/v12b2_phase_c_subtract_v4/fold_2/manifest.json",
+      "manifest_sha256": "cd3c035d0ad255cecd043ec8594be9a21c9ebe72d1916f97f4a797d624470532",
+      "operation_eligibility": {
+        "ADD": {
+          "train_groups": 58,
+          "calibration_groups": 17,
+          "enabled": true
+        },
+        "AVERAGE": {
+          "train_groups": 64,
+          "calibration_groups": 19,
+          "enabled": true
+        },
+        "DIVIDE": {
+          "train_groups": 78,
+          "calibration_groups": 13,
+          "enabled": false
+        },
+        "MULTIPLY": {
+          "train_groups": 46,
+          "calibration_groups": 10,
+          "enabled": false
+        },
+        "PERCENT_CHANGE": {
+          "train_groups": 45,
+          "calibration_groups": 9,
+          "enabled": false
+        },
+        "RATIO_PERCENT": {
+          "train_groups": 80,
+          "calibration_groups": 16,
+          "enabled": true
+        },
+        "SELECT": {
+          "train_groups": 74,
+          "calibration_groups": 23,
+          "enabled": true
+        },
+        "SUBTRACT": {
+          "train_groups": 30,
+          "calibration_groups": 7,
+          "enabled": false
+        }
+      }
+    },
+    {
+      "fold": 3,
+      "manifest": "/mnt/d/reasoning_model_V4/reasoning_model/cache/v12b2_phase_c_subtract_v4/fold_3/manifest.json",
+      "manifest_sha256": "5d7f2f8e36d6178fb1ad0452d3dfc7db549e1f9f8bc3203199004dbdbc7b54b4",
+      "operation_eligibility": {
+        "ADD": {
+          "train_groups": 61,
+          "calibration_groups": 14,
+          "enabled": false
+        },
+        "AVERAGE": {
+          "train_groups": 64,
+          "calibration_groups": 19,
+          "enabled": true
+        },
+        "DIVIDE": {
+          "train_groups": 75,
+          "calibration_groups": 16,
+          "enabled": true
+        },
+        "MULTIPLY": {
+          "train_groups": 40,
+          "calibration_groups": 16,
+          "enabled": true
+        },
+        "PERCENT_CHANGE": {
+          "train_groups": 41,
+          "calibration_groups": 13,
+          "enabled": false
+        },
+        "RATIO_PERCENT": {
+          "train_groups": 80,
+          "calibration_groups": 16,
+          "enabled": true
+        },
+        "SELECT": {
+          "train_groups": 72,
+          "calibration_groups": 25,
+          "enabled": true
+        },
+        "SUBTRACT": {
+          "train_groups": 29,
+          "calibration_groups": 8,
+          "enabled": false
+        }
+      }
+    },
+    {
+      "fold": 4,
+      "manifest": "/mnt/d/reasoning_model_V4/reasoning_model/cache/v12b2_phase_c_subtract_v4/fold_4/manifest.json",
+      "manifest_sha256": "472a0530ad708b7d432a8a3fe812dd80da4f453fe9bcb8298d4c242eaf010dfe",
+      "operation_eligibility": {
+        "ADD": {
+          "train_groups": 60,
+          "calibration_groups": 15,
+          "enabled": true
+        },
+        "AVERAGE": {
+          "train_groups": 70,
+          "calibration_groups": 13,
+          "enabled": false
+        },
+        "DIVIDE": {
+          "train_groups": 69,
+          "calibration_groups": 22,
+          "enabled": true
+        },
+        "MULTIPLY": {
+          "train_groups": 48,
+          "calibration_groups": 8,
+          "enabled": false
+        },
+        "PERCENT_CHANGE": {
+          "train_groups": 45,
+          "calibration_groups": 9,
+          "enabled": false
+        },
+        "RATIO_PERCENT": {
+          "train_groups": 74,
+          "calibration_groups": 22,
+          "enabled": true
+        },
+        "SELECT": {
+          "train_groups": 86,
+          "calibration_groups": 11,
+          "enabled": false
+        },
+        "SUBTRACT": {
+          "train_groups": 35,
+          "calibration_groups": 2,
+          "enabled": false
+        }
+      }
+    }
+  ],
+  "phase_c_manifest": "/mnt/d/reasoning_model_V4/reasoning_model/cache/v12b2_phase_c_subtract_v4/manifest.json",
+  "phase_c_manifest_sha256": "ee06b58ef24be990b58364c08423425fe33646f15b1c749f9612fd0ba054fd75",
+  "known_limitation": "Operations below 30 train groups or 15 calibration groups in any fold remain on frozen V12.4 fallback; oversampling is forbidden.",
+  "next_allowed_step": "phase_d_enabled_operations_only"
+}

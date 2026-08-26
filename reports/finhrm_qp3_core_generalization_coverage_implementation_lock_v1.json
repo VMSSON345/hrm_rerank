@@ -1,0 +1,208 @@
+{
+  "schema": "finhrm-qp3-core-generalization-coverage-implementation-lock-v1",
+  "created_at": "2026-08-20",
+  "classification": "development_train_only_report_agnostic_typed_semantics_implementation",
+  "status": "complete",
+  "implementation_gate_passed": true,
+  "failed_gates": [],
+  "runtime_hashes": {
+    "src/hrm_finance_qa/question_planner.py": "58404c5a04ffced2c00056a10e470730a8fb9ef723d3e8c5668f13b0a65571a6",
+    "src/hrm_finance_qa/program_synthesis.py": "e4acc4878d0dfd465ba66ab91f3aaf8be71db5591aa1358fb8cb81f3c7bff550",
+    "src/hrm_finance_qa/symbolic_verifier.py": "e9efa8d2fa9ce1aedd460cdd11c1eb9321aab7122b0908fc5017687c1491ed88",
+    "src/hrm_finance_qa/direction_contract.py": "a18aa130419fc74ce647bd92dc9c1b1217007738e636aad0f28c7f78396be937",
+    "src/hrm_finance_qa/document_hrm.py": "b5951bcde79583950b672f7fb6b199b3e5b9904e6784daae7c4c5be0eba65d21",
+    "src/hrm_finance_qa/document_reasoning_engine.py": "0e6eabaa4fd00829d0a21091b74e5104cce0675cf69eed9ddd2fa99785208dac",
+    "src/hrm_finance_qa/document_page_index.py": "c99e011175afef21f302be42ba9454b948caa549d4d445d6bb35c5b974b81f85",
+    "src/hrm_finance_qa/program_data.py": "5199434fc0628b7d270ce62b12657366cbe118901065edd9f1e1f6ca0f1f8d54",
+    "src/hrm_finance_qa/document_sources.py": "e9eb7b3ddcc2ed13060a573a6a0101a216fa49ff21dd65cd5fc2629b92f5fc0b"
+  },
+  "checkpoint_sha256": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de",
+  "invariants": {
+    "abw_used_as_confirmation": false,
+    "protected_evaluation_loaded": false,
+    "threshold_changed": false,
+    "checkpoint_changed": false,
+    "fine_tuning_performed": false,
+    "company_or_report_specific_rule_added": false,
+    "candidate_rank_or_score_used_as_semantic_proof": false,
+    "synthetic_projection_counted_as_unseen_confirmation": false,
+    "unseen_or_universal_claim_made": false,
+    "qp4_authorized": false,
+    "phase_d_unlocked": false
+  },
+  "artifacts": [
+    {
+      "path": "CLAUDE.md",
+      "size_bytes": 2356,
+      "sha256": "35a0f66a6531e61b35dc7288884da35eeef79ad1039f5ffdfd29295cee8d566e"
+    },
+    {
+      "path": "config/finhrm_qp3_core_generalization_coverage_implementation_precommit_v1.json",
+      "size_bytes": 10501,
+      "sha256": "6c0291e127a8defad97b2db13785885bbfb08fea31a0c29fbd3ae1683065b995"
+    },
+    {
+      "path": "scripts/evaluate_qp3_core_generalization_coverage_implementation.py",
+      "size_bytes": 20340,
+      "sha256": "fe2d77e82afc37534f7099f475205d49cab55771bb7e8c748f67e54dc0d712cf"
+    },
+    {
+      "path": "tests/test_qp3_core_generalization_coverage_implementation.py",
+      "size_bytes": 22028,
+      "sha256": "d6a00ca345fe26f6437cfc477ed46ecab6e6defa256ad54f10e8fc5932786658"
+    },
+    {
+      "path": "tests/test_qp3_core_generalization_coverage_implementation_report.py",
+      "size_bytes": 4868,
+      "sha256": "af2c538033fe22b325bb125c8aa80840fff5d832b8ed10ee4868ef3b4f1c7298"
+    },
+    {
+      "path": "reports/finhrm_qp3_core_s4_safe_replay_post_add_diverse_end_to_end_final_v1.json",
+      "size_bytes": 256869,
+      "sha256": "708201c05a25df3d0e00b9d9f3d43a2948614416aaa8c4b60fb33d3a925d978a"
+    },
+    {
+      "path": "reports/finhrm_qp3_core_add_real_layout_confirmation_v1.json",
+      "size_bytes": 24207,
+      "sha256": "ba7e89f41ee5da1ef26f634048a24987cf5d37133fc86ca80d57ba120f193740"
+    },
+    {
+      "path": "reports/finhrm_qp3_core_add_real_layout_confirmation_lock_v1.json",
+      "size_bytes": 2721,
+      "sha256": "ba49cd41b4b71af5403142f42243058b5efb40072a7ce4004cdb18c81b4ccebe"
+    },
+    {
+      "path": "config/finhrm_qp3_core_add_diversity_confirmation_precommit_v1.json",
+      "size_bytes": 3824,
+      "sha256": "4383ebdc8f3a788ffd71a482b7ac0207ab3c482071ed181c8b40e3785a11179a"
+    },
+    {
+      "path": "scripts/evaluate_qp3_core_add_diversity_confirmation.py",
+      "size_bytes": 12135,
+      "sha256": "1c9601662ae0919008f2b1841598a44106aab300780bb899b2339c75affeb02d"
+    },
+    {
+      "path": "tests/test_qp3_core_add_diversity_confirmation.py",
+      "size_bytes": 3349,
+      "sha256": "5c7ed986d819d708766ec850d0b00b563e89469434bbabdeefed7f5391880b22"
+    },
+    {
+      "path": "reports/finhrm_qp3_core_add_diversity_confirmation_v1.json",
+      "size_bytes": 4415,
+      "sha256": "53a16c90f8b7ebf05a1c1a676b434cc8f099775c1c65327f28b1011a5859c709"
+    },
+    {
+      "path": "reports/finhrm_qp3_core_add_diversity_confirmation_v1.md",
+      "size_bytes": 1331,
+      "sha256": "d3a7fcc00ec10d8a4f1e9577be3e04040062f6cddd44a8a321cd95cb65d643f3"
+    },
+    {
+      "path": "reports/finhrm_qp3_core_add_diversity_confirmation_lock_v1.json",
+      "size_bytes": 2381,
+      "sha256": "f279ae373afafd0221acae8d6a18347acf6e9abf76f2f047eed5b70d2a09a249"
+    },
+    {
+      "path": "config/finhrm_qp3_core_add_diverse_development_cohort_precommit_v1.json",
+      "size_bytes": 5238,
+      "sha256": "7b9d0bc6e7ad75a80aead0015d62f8a448f2f945b93413fdb3740ce0cfb52820"
+    },
+    {
+      "path": "reports/finhrm_qp3_core_add_diverse_development_reviewed_cohort_v1.json",
+      "size_bytes": 20350,
+      "sha256": "f187e5966f47069717cbdc1cdf9fd063ef74d2418a1b5e1850a89bb3cdbca28f"
+    },
+    {
+      "path": "reports/finhrm_qp3_core_add_diverse_development_reviewed_cohort_lock_v1.json",
+      "size_bytes": 3263,
+      "sha256": "545bc2882597109e93b9b6c188f404f3a4c87d789b4b2d27dd42de3515b30bc1"
+    },
+    {
+      "path": "config/finhrm_qp3_core_add_diverse_full_page_ocr_index_precommit_v1.json",
+      "size_bytes": 2495,
+      "sha256": "d7810afa9772a892b7314cdd63906d7563077a45e178aa4dad57ee1df59a403d"
+    },
+    {
+      "path": "reports/finhrm_qp3_core_add_diverse_full_page_ocr_index_v1.json",
+      "size_bytes": 3060,
+      "sha256": "ee8007dc435c3c296da8195c4dddafe98191d11b86280ce787b2b93941c7622f"
+    },
+    {
+      "path": "config/finhrm_qp3_core_add_diverse_ocr_table_context_precommit_v1.json",
+      "size_bytes": 1674,
+      "sha256": "96d4acfcad7c99eb0d212328327148e9c2fadc242345a546902d3150d53a3f7d"
+    },
+    {
+      "path": "reports/finhrm_qp3_core_add_diverse_ocr_table_context_v1.json",
+      "size_bytes": 2606,
+      "sha256": "284c54a5feaf66efb8b7c9b4858bb35fc5eb32684f07e32c498fdd833ecd6aae"
+    },
+    {
+      "path": "scripts/evaluate_qp3_core_add_diverse_end_to_end.py",
+      "size_bytes": 19460,
+      "sha256": "7565aa8a28551869c5716a0d61bc0851b6a93ea11de9bae611f349b9a63dc99a"
+    },
+    {
+      "path": "tests/test_qp3_core_add_diverse_end_to_end.py",
+      "size_bytes": 4260,
+      "sha256": "b1629daaf1d869f802c2933cf0406635946f86b8bedb8135a7fa8d821ecccf35"
+    },
+    {
+      "path": "reports/finhrm_qp3_core_add_diverse_end_to_end_v1.json",
+      "size_bytes": 36506,
+      "sha256": "774e174610137a9be134497259c30f075ca9ab1dd3df3f6f0bfe9ce00d77a53d"
+    },
+    {
+      "path": "reports/finhrm_qp3_core_s4_safe_replay_post_add_diverse_end_to_end_final_v1.json",
+      "size_bytes": 256869,
+      "sha256": "708201c05a25df3d0e00b9d9f3d43a2948614416aaa8c4b60fb33d3a925d978a"
+    },
+    {
+      "path": "reports/finhrm_qp3_core_s4_safe_replay_post_add_diverse_end_to_end_final_v1.md",
+      "size_bytes": 615,
+      "sha256": "b8fa8bb372a67bd49682ff1403ed62242ed813231ed615de38418b1f226785d3"
+    },
+    {
+      "path": "reports/finhrm_qp3_core_s4_safe_replay_post_add_diverse_end_to_end_final_lock_v1.json",
+      "size_bytes": 29596,
+      "sha256": "7a79b63058766a91ffc14f0e21c4f0b51b96e47065fa988b547cff72dc31afa9"
+    },
+    {
+      "path": "src/hrm_finance_qa/document_page_index.py",
+      "size_bytes": 24578,
+      "sha256": "c99e011175afef21f302be42ba9454b948caa549d4d445d6bb35c5b974b81f85"
+    },
+    {
+      "path": "src/hrm_finance_qa/document_sources.py",
+      "size_bytes": 57613,
+      "sha256": "e9eb7b3ddcc2ed13060a573a6a0101a216fa49ff21dd65cd5fc2629b92f5fc0b"
+    },
+    {
+      "path": "src/hrm_finance_qa/program_data.py",
+      "size_bytes": 135728,
+      "sha256": "5199434fc0628b7d270ce62b12657366cbe118901065edd9f1e1f6ca0f1f8d54"
+    },
+    {
+      "path": "reports/finhrm_qp3_core_generalization_coverage_implementation_v1.json",
+      "size_bytes": 43657,
+      "sha256": "af3437882c9ba8bdc13fb61da3c0ed9aa4e0a7ec67f3cf1d2e839461c1a7d0d2"
+    },
+    {
+      "path": "reports/finhrm_qp3_core_generalization_coverage_implementation_v1.md",
+      "size_bytes": 1517,
+      "sha256": "20c52983cd33648e53dd6e1856840e94e54d075072e982b4dea042404eb4a761"
+    },
+    {
+      "path": "strategy.md",
+      "size_bytes": 236246,
+      "sha256": "7c1174e14924fc4dd887ceda3612d9e6fc554297729da31d061e150cbfdc082b"
+    },
+    {
+      "path": "FINHRM_THESIS_PUBLICATION_ROADMAP.md",
+      "size_bytes": 31031,
+      "sha256": "6259343003f10ae63f5ecd6ec78c5c7eb712c323a0150de4e8e5dc2dadf83080"
+    }
+  ],
+  "qp4_authorized": false,
+  "phase_d": "locked",
+  "authorized_next_step": "Open QP3-ANSWER-PRESENTATION-PRECOMMIT only: freeze Verified Answer Envelope v1, FACT/COMPUTATION/VERIFIED_SUMMARY modes, citation and derivation replay, unsupported-claim controls and answer_mode_complete before any renderer runtime edit. QP4 and Phase D remain locked."
+}

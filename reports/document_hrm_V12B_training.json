@@ -1,0 +1,3953 @@
+{
+  "architecture": "v12b-tristate-pruned-safe-residual-reranker",
+  "base_model": "/mnt/d/reasoning_model_V4/reasoning_model/models/document_hrm_V8_candidate.pt",
+  "base_model_sha256_before": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de",
+  "base_model_sha256_after": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de",
+  "base_model_unchanged": true,
+  "sidecar": "/mnt/d/reasoning_model_V4/reasoning_model/models/document_hrm_V12B_program_reranker.pt",
+  "sidecar_sha256": "3ca0d45a902650ed416acce6e04d4cc391f21aee3a2861c8886d7117fc2aadd7",
+  "blind_test_used": false,
+  "test_jsonl_used": false,
+  "validation_labels_used_for_training": false,
+  "split": {
+    "input_examples": 1600,
+    "validation_ids_excluded": 200,
+    "validation_groups_excluded": 7,
+    "validation_group_examples_excluded": 400,
+    "development_examples": 1200,
+    "reranker_train_examples": 920,
+    "calibration_examples": 280,
+    "reranker_train_groups": 138,
+    "calibration_groups": 20,
+    "group_overlap": 0,
+    "train_operation_counts": {
+      "SELECT": 96,
+      "ADD": 87,
+      "SUBTRACT": 94,
+      "MULTIPLY": 96,
+      "PERCENT_CHANGE": 96,
+      "AVERAGE": 95,
+      "SUM3": 82,
+      "SUM4": 82,
+      "DIVIDE": 96,
+      "RATIO_PERCENT": 96
+    },
+    "calibration_operation_counts": {
+      "SELECT": 24,
+      "ADD": 33,
+      "SUBTRACT": 26,
+      "MULTIPLY": 24,
+      "DIVIDE": 24,
+      "RATIO_PERCENT": 24,
+      "PERCENT_CHANGE": 24,
+      "AVERAGE": 25,
+      "SUM3": 38,
+      "SUM4": 38
+    }
+  },
+  "cache_reused": true,
+  "cache_seconds": 0.0,
+  "training_seconds": 42.177500819000215,
+  "cache_manifest": {
+    "cache_schema": "v12b-tristate-pruned-candidate-cache-v1",
+    "feature_schema": "typed-evidence-safe-residual-v2",
+    "base_model_sha256": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de",
+    "train_dataset_sha256": "03642bca3865f875a1aea0b7c95477b5ac8de20c9a2a72ae25f98119d32abd2b",
+    "validation_dataset_sha256": "87bf973de7c8694524ec2d7d712a208ecee62e1a565eb61ec2fddc4c57e02712",
+    "top_k": 64,
+    "shard_size": 64,
+    "typed_program_synthesis_enabled": true,
+    "financial_identity_catalog_enabled": true,
+    "candidate_recall_v12_4_enabled": true,
+    "training_state_policy": "hard-invalid-drop-unknown-retain-v1",
+    "split_audit": {
+      "input_examples": 1600,
+      "validation_ids_excluded": 200,
+      "validation_groups_excluded": 7,
+      "validation_group_examples_excluded": 400,
+      "development_examples": 1200,
+      "reranker_train_examples": 920,
+      "calibration_examples": 280,
+      "reranker_train_groups": 138,
+      "calibration_groups": 20,
+      "group_overlap": 0,
+      "train_operation_counts": {
+        "SELECT": 96,
+        "ADD": 87,
+        "SUBTRACT": 94,
+        "MULTIPLY": 96,
+        "PERCENT_CHANGE": 96,
+        "AVERAGE": 95,
+        "SUM3": 82,
+        "SUM4": 82,
+        "DIVIDE": 96,
+        "RATIO_PERCENT": 96
+      },
+      "calibration_operation_counts": {
+        "SELECT": 24,
+        "ADD": 33,
+        "SUBTRACT": 26,
+        "PERCENT_CHANGE": 24,
+        "AVERAGE": 25,
+        "SUM3": 38,
+        "SUM4": 38,
+        "MULTIPLY": 24,
+        "DIVIDE": 24,
+        "RATIO_PERCENT": 24
+      }
+    },
+    "blind_test_used": false,
+    "test_jsonl_used": false,
+    "train_cache": "/mnt/d/reasoning_model_V4/reasoning_model/cache/v12b_reranker/train_candidates.jsonl",
+    "calibration_cache": "/mnt/d/reasoning_model_V4/reasoning_model/cache/v12b_reranker/calibration_candidates.jsonl",
+    "train_cache_sha256": "8b70cf58a215dde68514f925d924e5652ea75efd8f061213a5a7b8926ec287f2",
+    "calibration_cache_sha256": "258dcc5b787fea43b01ef38c111ef2f46e5d5816ff8c732b8b77513cb31bfdbf",
+    "train_records": 613,
+    "calibration_records": 163,
+    "cache_identity": "aaa2a821dc1808737f7b93ad75d61cbbbec4c19cb966b8cd01a1c542b9bd1b6d",
+    "train_shards": [
+      {
+        "path": "/mnt/d/reasoning_model_V4/reasoning_model/cache/v12b_reranker/shards/train_00000_00064.jsonl",
+        "audit_path": "/mnt/d/reasoning_model_V4/reasoning_model/cache/v12b_reranker/shards/train_00000_00064.json",
+        "records": 38,
+        "reused": false
+      },
+      {
+        "path": "/mnt/d/reasoning_model_V4/reasoning_model/cache/v12b_reranker/shards/train_00064_00128.jsonl",
+        "audit_path": "/mnt/d/reasoning_model_V4/reasoning_model/cache/v12b_reranker/shards/train_00064_00128.json",
+        "records": 46,
+        "reused": false
+      },
+      {
+        "path": "/mnt/d/reasoning_model_V4/reasoning_model/cache/v12b_reranker/shards/train_00128_00192.jsonl",
+        "audit_path": "/mnt/d/reasoning_model_V4/reasoning_model/cache/v12b_reranker/shards/train_00128_00192.json",
+        "records": 47,
+        "reused": false
+      },
+      {
+        "path": "/mnt/d/reasoning_model_V4/reasoning_model/cache/v12b_reranker/shards/train_00192_00256.jsonl",
+        "audit_path": "/mnt/d/reasoning_model_V4/reasoning_model/cache/v12b_reranker/shards/train_00192_00256.json",
+        "records": 40,
+        "reused": false
+      },
+      {
+        "path": "/mnt/d/reasoning_model_V4/reasoning_model/cache/v12b_reranker/shards/train_00256_00320.jsonl",
+        "audit_path": "/mnt/d/reasoning_model_V4/reasoning_model/cache/v12b_reranker/shards/train_00256_00320.json",
+        "records": 45,
+        "reused": false
+      },
+      {
+        "path": "/mnt/d/reasoning_model_V4/reasoning_model/cache/v12b_reranker/shards/train_00320_00384.jsonl",
+        "audit_path": "/mnt/d/reasoning_model_V4/reasoning_model/cache/v12b_reranker/shards/train_00320_00384.json",
+        "records": 41,
+        "reused": false
+      },
+      {
+        "path": "/mnt/d/reasoning_model_V4/reasoning_model/cache/v12b_reranker/shards/train_00384_00448.jsonl",
+        "audit_path": "/mnt/d/reasoning_model_V4/reasoning_model/cache/v12b_reranker/shards/train_00384_00448.json",
+        "records": 43,
+        "reused": false
+      },
+      {
+        "path": "/mnt/d/reasoning_model_V4/reasoning_model/cache/v12b_reranker/shards/train_00448_00512.jsonl",
+        "audit_path": "/mnt/d/reasoning_model_V4/reasoning_model/cache/v12b_reranker/shards/train_00448_00512.json",
+        "records": 43,
+        "reused": false
+      },
+      {
+        "path": "/mnt/d/reasoning_model_V4/reasoning_model/cache/v12b_reranker/shards/train_00512_00576.jsonl",
+        "audit_path": "/mnt/d/reasoning_model_V4/reasoning_model/cache/v12b_reranker/shards/train_00512_00576.json",
+        "records": 43,
+        "reused": false
+      },
+      {
+        "path": "/mnt/d/reasoning_model_V4/reasoning_model/cache/v12b_reranker/shards/train_00576_00640.jsonl",
+        "audit_path": "/mnt/d/reasoning_model_V4/reasoning_model/cache/v12b_reranker/shards/train_00576_00640.json",
+        "records": 41,
+        "reused": false
+      },
+      {
+        "path": "/mnt/d/reasoning_model_V4/reasoning_model/cache/v12b_reranker/shards/train_00640_00704.jsonl",
+        "audit_path": "/mnt/d/reasoning_model_V4/reasoning_model/cache/v12b_reranker/shards/train_00640_00704.json",
+        "records": 43,
+        "reused": false
+      },
+      {
+        "path": "/mnt/d/reasoning_model_V4/reasoning_model/cache/v12b_reranker/shards/train_00704_00768.jsonl",
+        "audit_path": "/mnt/d/reasoning_model_V4/reasoning_model/cache/v12b_reranker/shards/train_00704_00768.json",
+        "records": 45,
+        "reused": false
+      },
+      {
+        "path": "/mnt/d/reasoning_model_V4/reasoning_model/cache/v12b_reranker/shards/train_00768_00832.jsonl",
+        "audit_path": "/mnt/d/reasoning_model_V4/reasoning_model/cache/v12b_reranker/shards/train_00768_00832.json",
+        "records": 39,
+        "reused": false
+      },
+      {
+        "path": "/mnt/d/reasoning_model_V4/reasoning_model/cache/v12b_reranker/shards/train_00832_00896.jsonl",
+        "audit_path": "/mnt/d/reasoning_model_V4/reasoning_model/cache/v12b_reranker/shards/train_00832_00896.json",
+        "records": 44,
+        "reused": false
+      },
+      {
+        "path": "/mnt/d/reasoning_model_V4/reasoning_model/cache/v12b_reranker/shards/train_00896_00920.jsonl",
+        "audit_path": "/mnt/d/reasoning_model_V4/reasoning_model/cache/v12b_reranker/shards/train_00896_00920.json",
+        "records": 15,
+        "reused": false
+      }
+    ],
+    "calibration_shards": [
+      {
+        "path": "/mnt/d/reasoning_model_V4/reasoning_model/cache/v12b_reranker/shards/calibration_00000_00064.jsonl",
+        "audit_path": "/mnt/d/reasoning_model_V4/reasoning_model/cache/v12b_reranker/shards/calibration_00000_00064.json",
+        "records": 46,
+        "reused": false
+      },
+      {
+        "path": "/mnt/d/reasoning_model_V4/reasoning_model/cache/v12b_reranker/shards/calibration_00064_00128.jsonl",
+        "audit_path": "/mnt/d/reasoning_model_V4/reasoning_model/cache/v12b_reranker/shards/calibration_00064_00128.json",
+        "records": 33,
+        "reused": false
+      },
+      {
+        "path": "/mnt/d/reasoning_model_V4/reasoning_model/cache/v12b_reranker/shards/calibration_00128_00192.jsonl",
+        "audit_path": "/mnt/d/reasoning_model_V4/reasoning_model/cache/v12b_reranker/shards/calibration_00128_00192.json",
+        "records": 31,
+        "reused": false
+      },
+      {
+        "path": "/mnt/d/reasoning_model_V4/reasoning_model/cache/v12b_reranker/shards/calibration_00192_00256.jsonl",
+        "audit_path": "/mnt/d/reasoning_model_V4/reasoning_model/cache/v12b_reranker/shards/calibration_00192_00256.json",
+        "records": 39,
+        "reused": false
+      },
+      {
+        "path": "/mnt/d/reasoning_model_V4/reasoning_model/cache/v12b_reranker/shards/calibration_00256_00280.jsonl",
+        "audit_path": "/mnt/d/reasoning_model_V4/reasoning_model/cache/v12b_reranker/shards/calibration_00256_00280.json",
+        "records": 14,
+        "reused": false
+      }
+    ],
+    "train_audit": {
+      "examples": 920,
+      "records": 613,
+      "candidate_sets": 728,
+      "no_trace": 28,
+      "typed_candidates": 5956,
+      "typed_gold_candidates": 602,
+      "hard_invalid_candidates_dropped": 43321,
+      "soft_unknown_candidates_retained": 19726,
+      "pre_prune_candidates": 27470,
+      "post_prune_candidates": 19726,
+      "training_trace_sets": 756,
+      "pruning_gold_loss_count": 0,
+      "top_k": 64,
+      "invalid_candidates_retained": 0,
+      "unknown_as_negative": false,
+      "training_state_policy": "hard-invalid-drop-unknown-retain-v1",
+      "positive_classes": {
+        "canonical_exact": 706,
+        "negative": 18279,
+        "execution_only": 741
+      },
+      "typed_synthesis_statuses": {
+        "ADD:unresolved:missing_operand_roles:0": 28,
+        "SUM3:explicit_operand_roles:ok:1": 4,
+        "PERCENT_CHANGE:temporal_same_metric_pair:ok:1": 50,
+        "SUBTRACT:temporal_same_metric_pair:ok:1": 52,
+        "ADD:explicit_operand_roles:ok:10": 13,
+        "SUM3:explicit_operand_roles:ok:9": 2,
+        "AVERAGE:temporal_same_metric_pair:ok:77": 1,
+        "AVERAGE:temporal_same_metric_pair:ok:5": 3,
+        "ADD:explicit_operand_roles:ok:30": 5,
+        "SUM3:explicit_operand_roles:ok:28": 3,
+        "RATIO_PERCENT:explicit_operand_roles:ok:5": 14,
+        "SUM4:explicit_operand_roles:ok:6": 4,
+        "MULTIPLY:explicit_operand_roles:ok:73": 2,
+        "ADD:explicit_operand_roles:ok:16": 7,
+        "SUBTRACT:temporal_same_metric_pair:ok:6": 2,
+        "RATIO_PERCENT:explicit_operand_roles:ok:21": 1,
+        "AVERAGE:temporal_same_metric_pair:ok:4": 10,
+        "AVERAGE:temporal_same_metric_pair:ok:3": 14,
+        "DIVIDE:explicit_operand_roles:ok:4": 23,
+        "DIVIDE:explicit_operand_roles:ok:10": 2,
+        "SUBTRACT:temporal_same_metric_pair:ok:3": 14,
+        "MULTIPLY:explicit_operand_roles:ok:12": 5,
+        "SELECT:typed_lookup:ok:4": 10,
+        "ADD:explicit_operand_roles:ok:6": 8,
+        "PERCENT_CHANGE:temporal_same_metric_pair:ok:4": 7,
+        "AVERAGE:temporal_same_metric_pair:ok:15": 2,
+        "MULTIPLY:explicit_operand_roles:ok:120": 2,
+        "SUM4:explicit_operand_roles:ok:2": 6,
+        "SUM4:explicit_operand_roles:ok:128": 15,
+        "ADD:explicit_operand_roles:ok:96": 2,
+        "MULTIPLY:explicit_operand_roles:ok:122": 4,
+        "SELECT:typed_lookup:ok:2": 30,
+        "ADD:financial_identity:balance.total_assets.by_term:ok:1": 3,
+        "ADD:financial_identity:balance.accounting_equation:ok:48": 2,
+        "AVERAGE:temporal_same_metric_pair:ok:11": 1,
+        "SUBTRACT:temporal_same_metric_pair:ok:18": 1,
+        "SELECT:typed_lookup:ok:8": 4,
+        "MULTIPLY:explicit_operand_roles:empty_typed_slot:0": 11,
+        "SUBTRACT:temporal_same_metric_pair:ok:5": 3,
+        "PERCENT_CHANGE:temporal_same_metric_pair:ok:34": 1,
+        "MULTIPLY:explicit_operand_roles:ok:92": 2,
+        "MULTIPLY:explicit_operand_roles:ok:113": 2,
+        "SUM3:explicit_operand_roles:ok:24": 1,
+        "SUM3:explicit_operand_roles:ok:8": 12,
+        "SUM4:unresolved:missing_operand_roles:0": 15,
+        "ADD:explicit_operand_roles:ok:15": 3,
+        "SUM4:explicit_operand_roles:ok:12": 2,
+        "PERCENT_CHANGE:temporal_same_metric_pair:ok:5": 4,
+        "ADD:explicit_operand_roles:ok:5": 7,
+        "SUBTRACT:unresolved:missing_operand_roles:0": 8,
+        "SUBTRACT:financial_identity:income.net_revenue:ok:1": 2,
+        "DIVIDE:explicit_operand_roles:ok:16": 7,
+        "MULTIPLY:explicit_operand_roles:ok:100": 5,
+        "MULTIPLY:explicit_operand_roles:ok:9": 2,
+        "SUM4:explicit_operand_roles:ok:64": 2,
+        "ADD:explicit_operand_roles:ok:4": 20,
+        "SUM4:explicit_operand_roles:ok:4": 5,
+        "ADD:explicit_operand_roles:ok:12": 7,
+        "SUM3:explicit_operand_roles:ok:18": 3,
+        "MULTIPLY:explicit_operand_roles:ok:75": 1,
+        "SUM4:explicit_operand_roles:ok:75": 1,
+        "SUM3:explicit_operand_roles:ok:72": 2,
+        "MULTIPLY:explicit_operand_roles:ok:125": 1,
+        "ADD:explicit_operand_roles:ok:8": 7,
+        "ADD:financial_identity:income.profit_before_tax:ok:5": 1,
+        "DIVIDE:explicit_operand_roles:ok:2": 8,
+        "RATIO_PERCENT:explicit_operand_roles:ok:2": 22,
+        "PERCENT_CHANGE:temporal_same_metric_pair:ok:13": 1,
+        "SUBTRACT:temporal_same_metric_pair:ok:7": 5,
+        "ADD:financial_identity:balance.accounting_equation:ok:8": 1,
+        "MULTIPLY:explicit_operand_roles:ok:114": 2,
+        "RATIO_PERCENT:explicit_operand_roles:ok:12": 4,
+        "RATIO_PERCENT:explicit_operand_roles:ok:40": 3,
+        "SUBTRACT:temporal_same_metric_pair:ok:2": 2,
+        "PERCENT_CHANGE:temporal_same_metric_pair:ok:7": 8,
+        "AVERAGE:temporal_same_metric_pair:ok:1": 37,
+        "MULTIPLY:explicit_operand_roles:ok:33": 1,
+        "SUM3:explicit_operand_roles:ok:96": 3,
+        "RATIO_PERCENT:explicit_operand_roles:ok:24": 2,
+        "RATIO_PERCENT:explicit_operand_roles:ok:10": 5,
+        "SUM3:explicit_operand_roles:ok:40": 2,
+        "ADD:explicit_operand_roles:ok:2": 16,
+        "AVERAGE:temporal_same_metric_pair:ok:2": 9,
+        "SUM4:explicit_operand_roles:ok:82": 3,
+        "RATIO_PERCENT:explicit_operand_roles:ok:1": 17,
+        "PERCENT_CHANGE:temporal_same_metric_pair:ok:3": 12,
+        "DIVIDE:explicit_operand_roles:ok:1": 12,
+        "RATIO_PERCENT:explicit_operand_roles:ok:8": 5,
+        "RATIO_PERCENT:explicit_operand_roles:ok:13": 1,
+        "RATIO_PERCENT:explicit_operand_roles:ok:3": 4,
+        "SUM4:explicit_operand_roles:ok:1": 1,
+        "ADD:explicit_operand_roles:ok:38": 1,
+        "ADD:explicit_operand_roles:ok:92": 1,
+        "SELECT:typed_lookup:ok:3": 13,
+        "DIVIDE:explicit_operand_roles:ok:66": 1,
+        "DIVIDE:explicit_operand_roles:ok:8": 4,
+        "DIVIDE:explicit_operand_roles:ok:9": 7,
+        "AVERAGE:temporal_same_metric_pair:ok:6": 6,
+        "DIVIDE:explicit_operand_roles:ok:5": 2,
+        "SELECT:typed_lookup:ok:1": 25,
+        "SUM3:explicit_operand_roles:ok:30": 2,
+        "MULTIPLY:explicit_operand_roles:ok:66": 1,
+        "SUBTRACT:temporal_same_metric_pair:ok:34": 2,
+        "SUM3:explicit_operand_roles:ok:54": 1,
+        "DIVIDE:explicit_operand_roles:ok:6": 3,
+        "RATIO_PERCENT:explicit_operand_roles:ok:32": 4,
+        "MULTIPLY:explicit_operand_roles:ok:24": 2,
+        "RATIO_PERCENT:explicit_operand_roles:ok:4": 6,
+        "MULTIPLY:explicit_operand_roles:ok:63": 2,
+        "DIVIDE:explicit_operand_roles:ok:24": 6,
+        "MULTIPLY:explicit_operand_roles:ok:84": 1,
+        "SUM4:explicit_operand_roles:ok:32": 8,
+        "MULTIPLY:explicit_operand_roles:ok:83": 4,
+        "MULTIPLY:explicit_operand_roles:ok:107": 3,
+        "PERCENT_CHANGE:temporal_same_metric_pair:ok:16": 4,
+        "MULTIPLY:explicit_operand_roles:ok:77": 2,
+        "AVERAGE:temporal_same_metric_pair:ok:10": 3,
+        "SUM3:explicit_operand_roles:ok:32": 2,
+        "DIVIDE:explicit_operand_roles:ok:12": 1,
+        "SUBTRACT:temporal_same_metric_pair:ok:13": 1,
+        "AVERAGE:temporal_same_metric_pair:ok:18": 1,
+        "MULTIPLY:explicit_operand_roles:ok:78": 2,
+        "ADD:explicit_operand_roles:ok:32": 2,
+        "DIVIDE:explicit_operand_roles:ok:18": 1,
+        "SUM4:explicit_operand_roles:ok:10": 2,
+        "SUM4:explicit_operand_roles:ok:8": 2,
+        "ADD:explicit_operand_roles:ok:13": 1,
+        "ADD:financial_identity:income.profit_before_tax:ok:33": 1,
+        "MULTIPLY:explicit_operand_roles:ok:40": 1,
+        "MULTIPLY:explicit_operand_roles:ok:72": 1,
+        "ADD:explicit_operand_roles:ok:24": 6,
+        "ADD:explicit_operand_roles:ok:1": 11,
+        "DIVIDE:explicit_operand_roles:ok:64": 3,
+        "SUM4:explicit_operand_roles:ok:16": 9,
+        "SUM3:explicit_operand_roles:ok:36": 3,
+        "PERCENT_CHANGE:temporal_same_metric_pair:ok:6": 3,
+        "ADD:financial_identity:income.profit_before_tax:ok:1": 1,
+        "DIVIDE:explicit_operand_roles:ok:32": 3,
+        "SUM3:explicit_operand_roles:ok:4": 6,
+        "PERCENT_CHANGE:temporal_same_metric_pair:ok:9": 1,
+        "SELECT:typed_lookup:ok:6": 4,
+        "MULTIPLY:explicit_operand_roles:ok:30": 3,
+        "ADD:financial_identity:balance.total_liabilities:ok:1": 1,
+        "MULTIPLY:explicit_operand_roles:ok:87": 5,
+        "MULTIPLY:explicit_operand_roles:ok:44": 1,
+        "PERCENT_CHANGE:temporal_same_metric_pair:ok:10": 1,
+        "MULTIPLY:explicit_operand_roles:ok:110": 1,
+        "SUBTRACT:temporal_same_metric_pair:ok:4": 5,
+        "ADD:explicit_operand_roles:ok:25": 1,
+        "SUM3:explicit_operand_roles:ok:75": 1,
+        "AVERAGE:temporal_same_metric_pair:ok:7": 2,
+        "DIVIDE:explicit_operand_roles:ok:20": 2,
+        "MULTIPLY:explicit_operand_roles:ok:42": 1,
+        "ADD:explicit_operand_roles:ok:27": 1,
+        "MULTIPLY:explicit_operand_roles:ok:102": 1,
+        "SUM4:explicit_operand_roles:ok:19": 1,
+        "DIVIDE:explicit_operand_roles:ok:96": 1,
+        "MULTIPLY:unresolved:missing_operand_roles:0": 1,
+        "SELECT:typed_lookup:ok:10": 1,
+        "SUM4:explicit_operand_roles:ok:84": 1,
+        "DIVIDE:explicit_operand_roles:ok:72": 1,
+        "SELECT:typed_lookup:ok:7": 2,
+        "SUM3:unresolved:missing_operand_roles:0": 3,
+        "SUBTRACT:financial_identity:income.net_revenue:ok:6": 1,
+        "SUBTRACT:financial_identity:income.net_revenue:ok:4": 2,
+        "SUM3:explicit_operand_roles:ok:3": 3,
+        "SUBTRACT:temporal_same_metric_pair:ok:20": 1,
+        "SUM4:explicit_operand_roles:no_typed_assignment:0": 2,
+        "RATIO_PERCENT:explicit_operand_roles:ok:33": 1,
+        "SUM3:explicit_operand_roles:ok:2": 11,
+        "SUBTRACT:temporal_same_metric_pair:ok:16": 2,
+        "RATIO_PERCENT:explicit_operand_roles:ok:9": 1,
+        "SUBTRACT:temporal_same_metric_pair:ok:12": 1,
+        "RATIO_PERCENT:explicit_operand_roles:ok:6": 2,
+        "SUM4:explicit_operand_roles:ok:70": 1,
+        "MULTIPLY:explicit_operand_roles:ok:86": 1,
+        "ADD:financial_identity:balance.total_assets.by_term:no_typed_assignment:0": 3,
+        "ADD:financial_identity:balance.accounting_equation:empty_typed_slot:0": 2,
+        "AVERAGE:temporal_same_metric_pair:ok:14": 1,
+        "MULTIPLY:explicit_operand_roles:ok:108": 2,
+        "MULTIPLY:explicit_operand_roles:ok:54": 1,
+        "MULTIPLY:explicit_operand_roles:ok:89": 1,
+        "SUM4:explicit_operand_roles:ok:58": 1,
+        "MULTIPLY:explicit_operand_roles:ok:103": 2,
+        "MULTIPLY:explicit_operand_roles:ok:27": 2,
+        "RATIO_PERCENT:explicit_operand_roles:ok:96": 1,
+        "ADD:financial_identity:balance.accounting_equation:ok:15": 1,
+        "MULTIPLY:explicit_operand_roles:ok:118": 1,
+        "SUM3:explicit_operand_roles:ok:6": 3,
+        "DIVIDE:explicit_operand_roles:ok:80": 1,
+        "MULTIPLY:explicit_operand_roles:ok:119": 1,
+        "PERCENT_CHANGE:temporal_same_metric_pair:ok:102": 1,
+        "ADD:explicit_operand_roles:ok:45": 1,
+        "SUBTRACT:financial_identity:income.net_revenue:no_typed_assignment:0": 3,
+        "ADD:explicit_operand_roles:ok:9": 2,
+        "SUM3:explicit_operand_roles:ok:27": 3,
+        "SUM4:explicit_operand_roles:ok:66": 2,
+        "ADD:explicit_operand_roles:ok:23": 1,
+        "SUM3:explicit_operand_roles:ok:16": 2,
+        "RATIO_PERCENT:explicit_operand_roles:ok:128": 1,
+        "MULTIPLY:explicit_operand_roles:ok:80": 1,
+        "ADD:explicit_operand_roles:ok:20": 2,
+        "ADD:explicit_operand_roles:ok:18": 2,
+        "RATIO_PERCENT:explicit_operand_roles:ok:64": 1,
+        "ADD:explicit_operand_roles:ok:3": 3,
+        "SUM4:explicit_operand_roles:ok:3": 2,
+        "PERCENT_CHANGE:temporal_same_metric_pair:ok:2": 4,
+        "SELECT:typed_lookup:ok:5": 4,
+        "DIVIDE:explicit_operand_roles:ok:28": 2,
+        "SUM3:explicit_operand_roles:ok:48": 3,
+        "MULTIPLY:explicit_operand_roles:ok:28": 2,
+        "RATIO_PERCENT:explicit_operand_roles:ok:56": 1,
+        "DIVIDE:explicit_operand_roles:ok:128": 2,
+        "MULTIPLY:explicit_operand_roles:ok:22": 1,
+        "MULTIPLY:explicit_operand_roles:ok:99": 1,
+        "SUM3:explicit_operand_roles:ok:10": 1,
+        "AVERAGE:temporal_same_metric_pair:ok:12": 2,
+        "SELECT:typed_lookup:empty_typed_slot:0": 2,
+        "MULTIPLY:explicit_operand_roles:ok:128": 1,
+        "MULTIPLY:explicit_operand_roles:ok:21": 1,
+        "ADD:explicit_operand_roles:ok:36": 1,
+        "ADD:explicit_operand_roles:ok:48": 1,
+        "ADD:explicit_operand_roles:ok:54": 1,
+        "SUM3:explicit_operand_roles:ok:128": 2,
+        "MULTIPLY:explicit_operand_roles:ok:23": 1,
+        "PERCENT_CHANGE:temporal_same_metric_pair:ok:12": 1,
+        "DIVIDE:explicit_operand_roles:ok:3": 1,
+        "SELECT:typed_lookup:ok:21": 1,
+        "AVERAGE:temporal_same_metric_pair:ok:26": 1,
+        "AVERAGE:temporal_same_metric_pair:ok:17": 1,
+        "MULTIPLY:explicit_operand_roles:ok:11": 3,
+        "MULTIPLY:explicit_operand_roles:ok:74": 1,
+        "DIVIDE:explicit_operand_roles:ok:48": 1,
+        "MULTIPLY:explicit_operand_roles:ok:96": 1,
+        "SUM4:explicit_operand_roles:ok:24": 1,
+        "SUM4:explicit_operand_roles:ok:68": 1,
+        "DIVIDE:explicit_operand_roles:ok:22": 1,
+        "PERCENT_CHANGE:temporal_same_metric_pair:ok:15": 1,
+        "AVERAGE:temporal_same_metric_pair:ok:19": 1,
+        "MULTIPLY:explicit_operand_roles:ok:57": 1,
+        "DIVIDE:explicit_operand_roles:ok:30": 1,
+        "ADD:financial_identity:income.profit_before_tax:ok:9": 1,
+        "ADD:explicit_operand_roles:ok:7": 1,
+        "SUM4:explicit_operand_roles:ok:122": 1,
+        "SUM3:explicit_operand_roles:ok:5": 1,
+        "SUM4:explicit_operand_roles:ok:36": 1,
+        "SUM3:explicit_operand_roles:ok:84": 1
+      },
+      "candidate_failure_modes": {
+        "single_candidate_correct": 108,
+        "ranking_failure_with_gold_eligible": 91,
+        "gold_program_generated_but_ineligible": 69,
+        "gold_program_not_generated_with_operands_available": 17,
+        "trace_without_eligible_program": 28,
+        "single_candidate_wrong_gold_ineligible": 5,
+        "single_candidate_wrong_gold_not_generated": 2
+      },
+      "training_state_counts": {
+        "UNKNOWN": 28995,
+        "INVALID": 43321
+      },
+      "retained_training_state_counts": {
+        "UNKNOWN": 19726
+      },
+      "per_operation": {
+        "SELECT": {
+          "examples": 96,
+          "positive_class__canonical_exact": 94,
+          "typed_candidates": 287,
+          "typed_gold_candidates": 85,
+          "positive_class__negative": 1180,
+          "candidate_sets": 96,
+          "gold_in_top_k": 94,
+          "execution_in_top_k": 94,
+          "candidates": 1282,
+          "generated": 94,
+          "gold_program_generated_but_ineligible": 7,
+          "ranking_failure_with_gold_eligible": 18,
+          "positive_class__execution_only": 8,
+          "legacy_fallback_single_candidate": 2,
+          "single_candidate_correct": 2
+        },
+        "ADD": {
+          "examples": 87,
+          "positive_class__canonical_exact": 77,
+          "candidate_sets": 82,
+          "gold_in_top_k": 77,
+          "execution_in_top_k": 77,
+          "candidates": 3438,
+          "legacy_fallback_single_candidate": 17,
+          "single_candidate_correct": 16,
+          "gold_program_generated_but_ineligible": 16,
+          "typed_candidates": 669,
+          "typed_gold_candidates": 61,
+          "positive_class__negative": 3340,
+          "ranking_failure_with_gold_eligible": 13,
+          "generated": 65,
+          "positive_class__execution_only": 21,
+          "gold_program_not_generated_with_operands_available": 3,
+          "no_eligible_trace": 5,
+          "single_candidate_wrong_gold_not_generated": 1
+        },
+        "SUBTRACT": {
+          "examples": 94,
+          "positive_class__canonical_exact": 85,
+          "typed_candidates": 328,
+          "typed_gold_candidates": 85,
+          "positive_class__negative": 302,
+          "candidate_sets": 92,
+          "gold_in_top_k": 85,
+          "execution_in_top_k": 86,
+          "candidates": 389,
+          "generated": 44,
+          "gold_program_not_generated_with_operands_available": 3,
+          "legacy_fallback_single_candidate": 48,
+          "single_candidate_correct": 45,
+          "ranking_failure_with_gold_eligible": 7,
+          "gold_program_generated_but_ineligible": 6,
+          "positive_class__execution_only": 2,
+          "single_candidate_wrong_gold_ineligible": 2,
+          "no_eligible_trace": 2,
+          "single_candidate_wrong_gold_not_generated": 1
+        },
+        "MULTIPLY": {
+          "examples": 96,
+          "positive_class__negative": 4494,
+          "positive_class__canonical_exact": 80,
+          "typed_candidates": 2211,
+          "candidate_sets": 80,
+          "gold_in_top_k": 80,
+          "execution_in_top_k": 80,
+          "candidates": 4644,
+          "ranking_failure_with_gold_eligible": 13,
+          "generated": 80,
+          "positive_class__execution_only": 70,
+          "gold_program_not_generated_with_operands_available": 11,
+          "no_eligible_trace": 16,
+          "gold_program_generated_but_ineligible": 7,
+          "typed_gold_candidates": 1
+        },
+        "DIVIDE": {
+          "examples": 96,
+          "positive_class__canonical_exact": 91,
+          "typed_candidates": 943,
+          "typed_gold_candidates": 91,
+          "positive_class__negative": 4241,
+          "candidate_sets": 94,
+          "gold_in_top_k": 91,
+          "execution_in_top_k": 92,
+          "candidates": 4864,
+          "generated": 92,
+          "positive_class__execution_only": 532,
+          "gold_program_generated_but_ineligible": 16,
+          "ranking_failure_with_gold_eligible": 13,
+          "legacy_fallback_single_candidate": 2,
+          "single_candidate_correct": 1,
+          "no_eligible_trace": 2,
+          "single_candidate_wrong_gold_ineligible": 1
+        },
+        "RATIO_PERCENT": {
+          "examples": 96,
+          "positive_class__canonical_exact": 92,
+          "typed_candidates": 678,
+          "typed_gold_candidates": 92,
+          "positive_class__negative": 3723,
+          "candidate_sets": 94,
+          "gold_in_top_k": 92,
+          "execution_in_top_k": 92,
+          "candidates": 3904,
+          "generated": 93,
+          "positive_class__execution_only": 89,
+          "gold_program_generated_but_ineligible": 13,
+          "ranking_failure_with_gold_eligible": 11,
+          "no_eligible_trace": 2,
+          "legacy_fallback_single_candidate": 1,
+          "single_candidate_correct": 1
+        },
+        "PERCENT_CHANGE": {
+          "examples": 96,
+          "positive_class__canonical_exact": 92,
+          "typed_candidates": 393,
+          "typed_gold_candidates": 92,
+          "candidate_sets": 95,
+          "gold_in_top_k": 92,
+          "execution_in_top_k": 92,
+          "candidates": 474,
+          "legacy_fallback_single_candidate": 43,
+          "single_candidate_correct": 41,
+          "positive_class__execution_only": 11,
+          "generated": 52,
+          "positive_class__negative": 371,
+          "ranking_failure_with_gold_eligible": 4,
+          "gold_program_generated_but_ineligible": 4,
+          "no_eligible_trace": 1,
+          "single_candidate_wrong_gold_ineligible": 2
+        },
+        "AVERAGE": {
+          "examples": 95,
+          "positive_class__negative": 628,
+          "typed_candidates": 447,
+          "positive_class__canonical_exact": 95,
+          "typed_gold_candidates": 95,
+          "positive_class__execution_only": 8,
+          "candidate_sets": 95,
+          "gold_in_top_k": 95,
+          "execution_in_top_k": 95,
+          "candidates": 731,
+          "ranking_failure_with_gold_eligible": 12,
+          "generated": 93,
+          "legacy_fallback_single_candidate": 2,
+          "single_candidate_correct": 2
+        },
+        "SUM3": {
+          "examples": 82,
+          "excluded_from_reranker": 82
+        },
+        "SUM4": {
+          "examples": 82,
+          "excluded_from_reranker": 82
+        }
+      },
+      "failure_examples": {
+        "ranking_failure_with_gold_eligible": [
+          {
+            "example_id": "synthetic-train-average-0049",
+            "operation": "AVERAGE",
+            "question": "Giá trị bình quân của Tài sản dài hạn giữa Năm 2025 và Năm 2024 là bao nhiêu?",
+            "gold_program": "AVERAGE:22,17",
+            "candidate_program": "AVERAGE:17,22",
+            "rejection_reasons": [],
+            "unknown_reasons": [
+              "temporal_direction",
+              "reporting_entity"
+            ],
+            "generation_sources": [
+              "neural_operation_conditioned_beam",
+              "typed_slot_synthesis"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-multiply-0011",
+            "operation": "MULTIPLY",
+            "question": "Giá trị theo mệnh giá của Tổng số cổ phiếu đã phát hành: tại năm 2025 là bao nhiêu?",
+            "gold_program": "MULTIPLY:5,13",
+            "candidate_program": "MULTIPLY:5,13",
+            "rejection_reasons": [],
+            "unknown_reasons": [
+              "metric_match",
+              "same_row",
+              "temporal_direction",
+              "reporting_entity",
+              "graph_same_metric",
+              "graph_same_row",
+              "graph_same_unit"
+            ],
+            "generation_sources": [
+              "neural_operation_conditioned_beam"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-add-0079",
+            "operation": "ADD",
+            "question": "Tổng Phải trả người bán ngắn hạn và Thuế và các khoản phải nộp Nhà nước tại nam nay là bao nhiêu?",
+            "gold_program": "ADD:4,9",
+            "candidate_program": "ADD:4,9",
+            "rejection_reasons": [
+              "operand_role_mismatch"
+            ],
+            "unknown_reasons": [
+              "operation_match",
+              "metric_match",
+              "unit_match",
+              "same_row",
+              "period_coverage",
+              "temporal_direction",
+              "reporting_entity",
+              "graph_same_metric",
+              "graph_same_row",
+              "graph_same_unit"
+            ],
+            "generation_sources": [
+              "neural_operation_conditioned_beam",
+              "typed_slot_synthesis"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-average-0006",
+            "operation": "AVERAGE",
+            "question": "Giá trị bình quân của Lợi nhuận sau thuế giữa Năm 2025 và Năm 2024 là bao nhiêu?",
+            "gold_program": "AVERAGE:8,9",
+            "candidate_program": "AVERAGE:8,9",
+            "rejection_reasons": [],
+            "unknown_reasons": [
+              "unit_match",
+              "temporal_direction",
+              "reporting_entity",
+              "graph_same_unit"
+            ],
+            "generation_sources": [
+              "neural_baseline",
+              "neural_operation_conditioned_beam",
+              "typed_slot_synthesis"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-add-0072",
+            "operation": "ADD",
+            "question": "Tổng Phải trả người lao động và Chi phí phải trả dài hạn tại dau nam là bao nhiêu?",
+            "gold_program": "ADD:18,38",
+            "candidate_program": "ADD:18,38",
+            "rejection_reasons": [
+              "operand_role_mismatch"
+            ],
+            "unknown_reasons": [
+              "operation_match",
+              "metric_match",
+              "same_row",
+              "period_coverage",
+              "temporal_direction",
+              "reporting_entity",
+              "graph_same_metric",
+              "graph_same_row"
+            ],
+            "generation_sources": [
+              "neural_operation_conditioned_beam",
+              "typed_slot_synthesis"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-average-0007",
+            "operation": "AVERAGE",
+            "question": "Giá trị bình quân của Lợi nhuận sau thuế giữa Năm 2025 và Năm 2024 là bao nhiêu?",
+            "gold_program": "AVERAGE:15,14",
+            "candidate_program": "AVERAGE:14,15",
+            "rejection_reasons": [],
+            "unknown_reasons": [
+              "temporal_direction",
+              "reporting_entity"
+            ],
+            "generation_sources": [
+              "neural_operation_conditioned_beam",
+              "typed_slot_synthesis"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-add-0037",
+            "operation": "ADD",
+            "question": "Tổng Tiền và các khoản tương đương tiền và Đầu tư tài chính ngắn hạn tại dau nam là bao nhiêu?",
+            "gold_program": "ADD:2,15",
+            "candidate_program": "ADD:2,15",
+            "rejection_reasons": [],
+            "unknown_reasons": [
+              "operation_match",
+              "metric_match",
+              "same_row",
+              "period_coverage",
+              "temporal_direction",
+              "reporting_entity",
+              "graph_same_metric",
+              "graph_same_row"
+            ],
+            "generation_sources": [
+              "typed_slot_synthesis"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-subtract-0091",
+            "operation": "SUBTRACT",
+            "question": "Chênh lệch Tài sản dài hạn giữa Năm 2025 và Năm 2024 là bao nhiêu?",
+            "gold_program": "SUBTRACT:13,11",
+            "candidate_program": "SUBTRACT:13,11",
+            "rejection_reasons": [],
+            "unknown_reasons": [
+              "reporting_entity"
+            ],
+            "generation_sources": [
+              "neural_operation_conditioned_beam",
+              "typed_slot_synthesis"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-select-0104",
+            "operation": "SELECT",
+            "question": "Điều chỉnh cho các khoản: tại Năm nay là bao nhiêu?",
+            "gold_program": "SELECT:3",
+            "candidate_program": "SELECT:3",
+            "rejection_reasons": [
+              "unary_grounding_mismatch"
+            ],
+            "unknown_reasons": [
+              "operation_match",
+              "period_coverage",
+              "temporal_direction",
+              "reporting_entity"
+            ],
+            "generation_sources": [
+              "neural_operation_conditioned_beam",
+              "typed_slot_synthesis"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-add-0013",
+            "operation": "ADD",
+            "question": "Tổng Các khoản tương đương tiền và Đầu tư tài chính ngắn hạn tại dau nam là bao nhiêu?",
+            "gold_program": "ADD:6,8",
+            "candidate_program": "ADD:6,8",
+            "rejection_reasons": [],
+            "unknown_reasons": [
+              "operation_match",
+              "metric_match",
+              "unit_match",
+              "same_row",
+              "period_coverage",
+              "temporal_direction",
+              "reporting_entity",
+              "graph_same_metric",
+              "graph_same_row",
+              "graph_same_unit"
+            ],
+            "generation_sources": [
+              "neural_baseline",
+              "typed_slot_synthesis"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-select-0023",
+            "operation": "SELECT",
+            "question": "Tổng tài sản tại Năm 2024 là bao nhiêu?",
+            "gold_program": "SELECT:0",
+            "candidate_program": "SELECT:0",
+            "rejection_reasons": [
+              "unary_grounding_mismatch"
+            ],
+            "unknown_reasons": [
+              "temporal_direction",
+              "reporting_entity"
+            ],
+            "generation_sources": [
+              "financial_identity:direct",
+              "neural_operation_conditioned_beam",
+              "typed_slot_synthesis"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-multiply-0089",
+            "operation": "MULTIPLY",
+            "question": "Giá trị theo mệnh giá của Số lượng cổ phiếu quỹ tại năm 2025 là bao nhiêu?",
+            "gold_program": "MULTIPLY:20,35",
+            "candidate_program": "MULTIPLY:20,35",
+            "rejection_reasons": [],
+            "unknown_reasons": [
+              "metric_match",
+              "same_row",
+              "temporal_direction",
+              "reporting_entity",
+              "graph_same_metric",
+              "graph_same_row",
+              "graph_same_unit"
+            ],
+            "generation_sources": [
+              "neural_operation_conditioned_beam"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-average-0109",
+            "operation": "AVERAGE",
+            "question": "Giá trị bình quân của Việc tối ưu hóa chi phí không chỉ giúp phòng giữa Năm 2025 và Năm 2024 là bao nhiêu?",
+            "gold_program": "AVERAGE:27,26",
+            "candidate_program": "AVERAGE:26,27",
+            "rejection_reasons": [],
+            "unknown_reasons": [
+              "temporal_direction",
+              "reporting_entity"
+            ],
+            "generation_sources": [
+              "neural_baseline",
+              "neural_operation_conditioned_beam",
+              "typed_slot_synthesis",
+              "v12_3_reference_winner"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-ratio_percent-0100",
+            "operation": "RATIO_PERCENT",
+            "question": "Các khoản phải thu ngắn hạn chiếm bao nhiêu phần trăm TÀI SẢN NGẮN HẠN tại dau nam?",
+            "gold_program": "RATIO_PERCENT:16,2",
+            "candidate_program": "RATIO_PERCENT:16,2",
+            "rejection_reasons": [
+              "operand_role_mismatch"
+            ],
+            "unknown_reasons": [
+              "metric_match",
+              "same_row",
+              "period_coverage",
+              "temporal_direction",
+              "reporting_entity",
+              "graph_same_metric",
+              "graph_same_row"
+            ],
+            "generation_sources": [
+              "neural_operation_conditioned_beam",
+              "typed_slot_synthesis"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-ratio_percent-0080",
+            "operation": "RATIO_PERCENT",
+            "question": "Tiền và các khoản tương đương tiền chiếm bao nhiêu phần trăm TÀI SẢN NGẮN HẠN tại 2024?",
+            "gold_program": "RATIO_PERCENT:9,3",
+            "candidate_program": "RATIO_PERCENT:9,3",
+            "rejection_reasons": [],
+            "unknown_reasons": [
+              "metric_match",
+              "same_row",
+              "temporal_direction",
+              "reporting_entity",
+              "graph_same_metric",
+              "graph_same_row"
+            ],
+            "generation_sources": [
+              "neural_operation_conditioned_beam",
+              "typed_slot_synthesis"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-add-0058",
+            "operation": "ADD",
+            "question": "Tổng A. TÀI SẢN NGẮN HẠN và V. Tài sản ngắn hạn khác tại dau nam là bao nhiêu?",
+            "gold_program": "ADD:0,49",
+            "candidate_program": "ADD:0,49",
+            "rejection_reasons": [
+              "operand_role_mismatch"
+            ],
+            "unknown_reasons": [
+              "metric_match",
+              "same_row",
+              "period_coverage",
+              "temporal_direction",
+              "reporting_entity",
+              "graph_same_metric",
+              "graph_same_row"
+            ],
+            "generation_sources": [
+              "neural_operation_conditioned_beam",
+              "typed_slot_synthesis"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-select-0068",
+            "operation": "SELECT",
+            "question": "- Giá trị hao mòn lũy kế tại Số cuối năm Số đầu năm là bao nhiêu?",
+            "gold_program": "SELECT:3",
+            "candidate_program": "SELECT:3",
+            "rejection_reasons": [],
+            "unknown_reasons": [
+              "operation_match",
+              "period_coverage",
+              "temporal_direction",
+              "reporting_entity"
+            ],
+            "generation_sources": [
+              "neural_operation_conditioned_beam",
+              "typed_slot_synthesis"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-average-0050",
+            "operation": "AVERAGE",
+            "question": "Giá trị bình quân của Trong năm 2025, các chỉ số thanh toán của Công giữa Năm 2025 và Năm 2024 là bao nhiêu?",
+            "gold_program": "AVERAGE:4,3",
+            "candidate_program": "AVERAGE:3,4",
+            "rejection_reasons": [],
+            "unknown_reasons": [
+              "unit_match",
+              "temporal_direction",
+              "reporting_entity",
+              "graph_same_unit"
+            ],
+            "generation_sources": [
+              "neural_baseline",
+              "neural_operation_conditioned_beam",
+              "typed_slot_synthesis"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-divide-0018",
+            "operation": "DIVIDE",
+            "question": "Tiền và các khoản tương đương tiền chia cho TÀI SẢN NGẮN HẠN tại dau nam bằng bao nhiêu?",
+            "gold_program": "DIVIDE:4,1",
+            "candidate_program": "DIVIDE:4,1",
+            "rejection_reasons": [
+              "operand_role_mismatch"
+            ],
+            "unknown_reasons": [
+              "metric_match",
+              "same_row",
+              "period_coverage",
+              "temporal_direction",
+              "reporting_entity",
+              "graph_same_metric",
+              "graph_same_row"
+            ],
+            "generation_sources": [
+              "neural_operation_conditioned_beam",
+              "typed_slot_synthesis"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-ratio_percent-0087",
+            "operation": "RATIO_PERCENT",
+            "question": "Các khoản phải thu ngắn hạn chiếm bao nhiêu phần trăm TÀI SẢN NGẮN HẠN tại dau nam?",
+            "gold_program": "RATIO_PERCENT:25,0",
+            "candidate_program": "RATIO_PERCENT:25,0",
+            "rejection_reasons": [
+              "operand_role_mismatch"
+            ],
+            "unknown_reasons": [
+              "metric_match",
+              "same_row",
+              "period_coverage",
+              "temporal_direction",
+              "reporting_entity",
+              "graph_same_metric",
+              "graph_same_row"
+            ],
+            "generation_sources": [
+              "neural_operation_conditioned_beam",
+              "typed_slot_synthesis"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-multiply-0074",
+            "operation": "MULTIPLY",
+            "question": "Giá trị theo mệnh giá của Số lượng cổ phần chuyển nhượng tự do : 27.998.600 cổ tại năm 2025 là bao nhiêu?",
+            "gold_program": "MULTIPLY:2,6",
+            "candidate_program": "MULTIPLY:2,6",
+            "rejection_reasons": [],
+            "unknown_reasons": [
+              "metric_match",
+              "same_row",
+              "temporal_direction",
+              "reporting_entity",
+              "graph_same_metric",
+              "graph_same_row",
+              "graph_same_unit"
+            ],
+            "generation_sources": [
+              "neural_operation_conditioned_beam"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-add-0095",
+            "operation": "ADD",
+            "question": "Tổng Tiền và các khoản tương đương tiền và Các khoản đầu tư tài chính ngắn hạn tại 2025 là bao nhiêu?",
+            "gold_program": "ADD:2,4",
+            "candidate_program": "ADD:2,4",
+            "rejection_reasons": [
+              "operand_role_mismatch"
+            ],
+            "unknown_reasons": [
+              "operation_match",
+              "metric_match",
+              "same_row",
+              "temporal_direction",
+              "reporting_entity",
+              "graph_same_metric",
+              "graph_same_row"
+            ],
+            "generation_sources": [
+              "neural_operation_conditioned_beam",
+              "typed_slot_synthesis"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-average-0019",
+            "operation": "AVERAGE",
+            "question": "Giá trị bình quân của Chỉ tiêu về khả năng thanh toán giữa Năm 2025 và Năm 2024 là bao nhiêu?",
+            "gold_program": "AVERAGE:1,0",
+            "candidate_program": "AVERAGE:0,1",
+            "rejection_reasons": [],
+            "unknown_reasons": [
+              "unit_match",
+              "temporal_direction",
+              "reporting_entity",
+              "graph_same_unit"
+            ],
+            "generation_sources": [
+              "neural_baseline",
+              "neural_operation_conditioned_beam",
+              "typed_slot_synthesis"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-divide-0024",
+            "operation": "DIVIDE",
+            "question": "Tiền và các khoản tương đương tiền chia cho TÀI SẢN NGẮN HẠN tại dau nam bằng bao nhiêu?",
+            "gold_program": "DIVIDE:4,0",
+            "candidate_program": "DIVIDE:4,0",
+            "rejection_reasons": [
+              "operand_role_mismatch"
+            ],
+            "unknown_reasons": [
+              "metric_match",
+              "same_row",
+              "period_coverage",
+              "temporal_direction",
+              "reporting_entity",
+              "graph_same_metric",
+              "graph_same_row"
+            ],
+            "generation_sources": [
+              "neural_operation_conditioned_beam",
+              "typed_slot_synthesis"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-multiply-0117",
+            "operation": "MULTIPLY",
+            "question": "Giá trị theo mệnh giá của Trái phiếu Công ty Cổ phần Hàng không Vietjet có thời hạn 7 năm kể từ ngày phát hành ngày 31/12/2025, số lượng tại năm 2025 là bao nhiêu?",
+            "gold_program": "MULTIPLY:10,18",
+            "candidate_program": "MULTIPLY:10,18",
+            "rejection_reasons": [
+              "operand_role_mismatch"
+            ],
+            "unknown_reasons": [
+              "metric_match",
+              "unit_match",
+              "unit_algebra",
+              "same_row",
+              "temporal_direction",
+              "reporting_entity",
+              "graph_same_metric",
+              "graph_same_row",
+              "graph_same_unit"
+            ],
+            "generation_sources": [
+              "neural_operation_conditioned_beam"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-select-0052",
+            "operation": "SELECT",
+            "question": "Tài sản ngắn hạn tại 31/12/2025 là bao nhiêu?",
+            "gold_program": "SELECT:7",
+            "candidate_program": "SELECT:7",
+            "rejection_reasons": [
+              "unary_grounding_mismatch"
+            ],
+            "unknown_reasons": [
+              "operation_match",
+              "temporal_direction",
+              "reporting_entity"
+            ],
+            "generation_sources": [
+              "neural_operation_conditioned_beam",
+              "typed_slot_synthesis"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-select-0058",
+            "operation": "SELECT",
+            "question": "Nợ đủ tiêu chuẩn tại Số đầu năm là bao nhiêu?",
+            "gold_program": "SELECT:1",
+            "candidate_program": "SELECT:1",
+            "rejection_reasons": [
+              "unary_grounding_mismatch"
+            ],
+            "unknown_reasons": [
+              "operation_match",
+              "period_coverage",
+              "temporal_direction",
+              "reporting_entity"
+            ],
+            "generation_sources": [
+              "neural_operation_conditioned_beam",
+              "typed_slot_synthesis"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-multiply-0098",
+            "operation": "MULTIPLY",
+            "question": "Giá trị theo mệnh giá của (*) Theo chương trình ESOP 2025, Công ty đã phát hành 2.000.000 cổ phiếu (có tại năm 2025 là bao nhiêu?",
+            "gold_program": "MULTIPLY:4,6",
+            "candidate_program": "MULTIPLY:4,6",
+            "rejection_reasons": [],
+            "unknown_reasons": [
+              "operation_match",
+              "metric_match",
+              "unit_algebra",
+              "same_row",
+              "temporal_direction",
+              "reporting_entity",
+              "graph_same_metric",
+              "graph_same_row",
+              "graph_same_unit"
+            ],
+            "generation_sources": [
+              "neural_operation_conditioned_beam"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-ratio_percent-0118",
+            "operation": "RATIO_PERCENT",
+            "question": "Tiền và các khoản tương đương tiền chiếm bao nhiêu phần trăm TÀI SẢN NGẮN HẠN tại cuoi nam?",
+            "gold_program": "RATIO_PERCENT:5,2",
+            "candidate_program": "RATIO_PERCENT:5,2",
+            "rejection_reasons": [
+              "operand_role_mismatch"
+            ],
+            "unknown_reasons": [
+              "metric_match",
+              "same_row",
+              "period_coverage",
+              "temporal_direction",
+              "reporting_entity",
+              "graph_same_metric",
+              "graph_same_row"
+            ],
+            "generation_sources": [
+              "neural_operation_conditioned_beam",
+              "typed_slot_synthesis"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-select-0038",
+            "operation": "SELECT",
+            "question": "Tài sản ngắn hạn tại Năm 2024 là bao nhiêu?",
+            "gold_program": "SELECT:5",
+            "candidate_program": "SELECT:5",
+            "rejection_reasons": [],
+            "unknown_reasons": [
+              "operation_match",
+              "temporal_direction",
+              "reporting_entity"
+            ],
+            "generation_sources": [
+              "neural_operation_conditioned_beam",
+              "typed_slot_synthesis"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-multiply-0092",
+            "operation": "MULTIPLY",
+            "question": "Giá trị theo mệnh giá của Số cổ phiếu đang lưu hành tại năm 2024 là bao nhiêu?",
+            "gold_program": "MULTIPLY:33,13",
+            "candidate_program": "MULTIPLY:13,33",
+            "rejection_reasons": [],
+            "unknown_reasons": [
+              "metric_match",
+              "same_row",
+              "temporal_direction",
+              "reporting_entity",
+              "graph_same_metric",
+              "graph_same_row",
+              "graph_same_unit"
+            ],
+            "generation_sources": [
+              "neural_operation_conditioned_beam"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-subtract-0054",
+            "operation": "SUBTRACT",
+            "question": "Chênh lệch Hệ số thanh toán ngắn hạn giữa Năm 2025 và Năm 2024 là bao nhiêu?",
+            "gold_program": "SUBTRACT:10,9",
+            "candidate_program": "SUBTRACT:10,9",
+            "rejection_reasons": [],
+            "unknown_reasons": [
+              "reporting_entity"
+            ],
+            "generation_sources": [
+              "neural_operation_conditioned_beam",
+              "typed_slot_synthesis"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-percent_change-0003",
+            "operation": "PERCENT_CHANGE",
+            "question": "Tổng sản lượng thay đổi bao nhiêu phần trăm từ Thực hiện 2024 đến Kế hoạch 2025?",
+            "gold_program": "PERCENT_CHANGE:0,1",
+            "candidate_program": "PERCENT_CHANGE:0,1",
+            "rejection_reasons": [],
+            "unknown_reasons": [
+              "unit_match",
+              "reporting_entity",
+              "graph_same_unit"
+            ],
+            "generation_sources": [
+              "typed_slot_synthesis"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-select-0005",
+            "operation": "SELECT",
+            "question": "Cổ phiếu niêm yết tại đánh giá lại năm trước là bao nhiêu?",
+            "gold_program": "SELECT:2",
+            "candidate_program": "SELECT:2",
+            "rejection_reasons": [],
+            "unknown_reasons": [
+              "operation_match",
+              "period_coverage",
+              "temporal_direction",
+              "reporting_entity"
+            ],
+            "generation_sources": [
+              "neural_operation_conditioned_beam",
+              "typed_slot_synthesis"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-select-0075",
+            "operation": "SELECT",
+            "question": "Lợi nhuận từ hoạt động kinh doanh tại TH 2024 là bao nhiêu?",
+            "gold_program": "SELECT:11",
+            "candidate_program": "SELECT:11",
+            "rejection_reasons": [],
+            "unknown_reasons": [
+              "operation_match",
+              "temporal_direction",
+              "reporting_entity"
+            ],
+            "generation_sources": [
+              "neural_operation_conditioned_beam"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-ratio_percent-0075",
+            "operation": "RATIO_PERCENT",
+            "question": "Loi nhuan sau thue chiếm bao nhiêu phần trăm Doanh thu thuan tại 2024?",
+            "gold_program": "RATIO_PERCENT:14,3",
+            "candidate_program": "RATIO_PERCENT:14,3",
+            "rejection_reasons": [],
+            "unknown_reasons": [
+              "metric_match",
+              "unit_match",
+              "same_row",
+              "temporal_direction",
+              "reporting_entity",
+              "graph_same_metric",
+              "graph_same_row",
+              "graph_same_unit"
+            ],
+            "generation_sources": [
+              "neural_baseline",
+              "neural_operation_conditioned_beam",
+              "typed_slot_synthesis"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-divide-0029",
+            "operation": "DIVIDE",
+            "question": "Tiền và các khoản tương đương tiền chia cho TÀI SẢN NGẮN HẠN tại dau nam bằng bao nhiêu?",
+            "gold_program": "DIVIDE:6,2",
+            "candidate_program": "DIVIDE:6,2",
+            "rejection_reasons": [
+              "operand_role_mismatch"
+            ],
+            "unknown_reasons": [
+              "metric_match",
+              "same_row",
+              "period_coverage",
+              "temporal_direction",
+              "reporting_entity",
+              "graph_same_metric",
+              "graph_same_row"
+            ],
+            "generation_sources": [
+              "neural_operation_conditioned_beam",
+              "typed_slot_synthesis"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-add-0083",
+            "operation": "ADD",
+            "question": "Tổng A. TÀI SẢN NGẮN HẠN và III. Các khoản phải thu ngắn hạn tại dau nam là bao nhiêu?",
+            "gold_program": "ADD:0,22",
+            "candidate_program": "ADD:0,22",
+            "rejection_reasons": [
+              "operand_role_mismatch"
+            ],
+            "unknown_reasons": [
+              "metric_match",
+              "same_row",
+              "period_coverage",
+              "temporal_direction",
+              "reporting_entity",
+              "graph_same_metric",
+              "graph_same_row"
+            ],
+            "generation_sources": [
+              "neural_operation_conditioned_beam",
+              "typed_slot_synthesis"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-ratio_percent-0025",
+            "operation": "RATIO_PERCENT",
+            "question": "Các khoản phải thu ngắn hạn chiếm bao nhiêu phần trăm TÀI SẢN NGẮN HẠN tại dau nam?",
+            "gold_program": "RATIO_PERCENT:18,1",
+            "candidate_program": "RATIO_PERCENT:18,1",
+            "rejection_reasons": [
+              "operand_role_mismatch"
+            ],
+            "unknown_reasons": [
+              "metric_match",
+              "same_row",
+              "period_coverage",
+              "temporal_direction",
+              "reporting_entity",
+              "graph_same_metric",
+              "graph_same_row"
+            ],
+            "generation_sources": [
+              "neural_operation_conditioned_beam",
+              "typed_slot_synthesis"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-subtract-0100",
+            "operation": "SUBTRACT",
+            "question": "Chênh lệch Tài sản ngắn hạn giữa Năm 2025 và Năm 2024 là bao nhiêu?",
+            "gold_program": "SUBTRACT:1,0",
+            "candidate_program": "SUBTRACT:1,0",
+            "rejection_reasons": [],
+            "unknown_reasons": [
+              "reporting_entity"
+            ],
+            "generation_sources": [
+              "neural_operation_conditioned_beam",
+              "typed_slot_synthesis"
+            ]
+          }
+        ],
+        "gold_program_generated_but_ineligible": [
+          {
+            "example_id": "synthetic-train-add-0079",
+            "operation": "ADD",
+            "question": "Tổng Phải trả người bán ngắn hạn và Thuế và các khoản phải nộp Nhà nước tại nam nay là bao nhiêu?",
+            "gold_program": "ADD:4,9",
+            "candidate_program": "ADD:4,9",
+            "rejection_reasons": [
+              "operand_role_mismatch"
+            ],
+            "unknown_reasons": [
+              "operation_match",
+              "metric_match",
+              "unit_match",
+              "same_row",
+              "period_coverage",
+              "temporal_direction",
+              "reporting_entity",
+              "graph_same_metric",
+              "graph_same_row",
+              "graph_same_unit"
+            ],
+            "generation_sources": [
+              "neural_operation_conditioned_beam",
+              "typed_slot_synthesis"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-add-0072",
+            "operation": "ADD",
+            "question": "Tổng Phải trả người lao động và Chi phí phải trả dài hạn tại dau nam là bao nhiêu?",
+            "gold_program": "ADD:18,38",
+            "candidate_program": "ADD:18,38",
+            "rejection_reasons": [
+              "operand_role_mismatch"
+            ],
+            "unknown_reasons": [
+              "operation_match",
+              "metric_match",
+              "same_row",
+              "period_coverage",
+              "temporal_direction",
+              "reporting_entity",
+              "graph_same_metric",
+              "graph_same_row"
+            ],
+            "generation_sources": [
+              "neural_operation_conditioned_beam",
+              "typed_slot_synthesis"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-select-0104",
+            "operation": "SELECT",
+            "question": "Điều chỉnh cho các khoản: tại Năm nay là bao nhiêu?",
+            "gold_program": "SELECT:3",
+            "candidate_program": "SELECT:3",
+            "rejection_reasons": [
+              "unary_grounding_mismatch"
+            ],
+            "unknown_reasons": [
+              "operation_match",
+              "period_coverage",
+              "temporal_direction",
+              "reporting_entity"
+            ],
+            "generation_sources": [
+              "neural_operation_conditioned_beam",
+              "typed_slot_synthesis"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-subtract-0112",
+            "operation": "SUBTRACT",
+            "question": "Chênh lệch 1. Tiền giữa Số cuối kỳ và Số đầu năm là bao nhiêu?",
+            "gold_program": "SUBTRACT:4,5",
+            "candidate_program": "SUBTRACT:4,5",
+            "rejection_reasons": [
+              "temporal_metric_mismatch"
+            ],
+            "unknown_reasons": [
+              "operation_match",
+              "unit_match",
+              "period_coverage",
+              "temporal_direction",
+              "reporting_entity",
+              "graph_same_unit"
+            ],
+            "generation_sources": [
+              "neural_operation_conditioned_beam",
+              "typed_slot_synthesis"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-multiply-0057",
+            "operation": "MULTIPLY",
+            "question": "Giá trị theo mệnh giá của Tổng số cổ phiếu đã phát hành tại năm 2025 là bao nhiêu?",
+            "gold_program": "MULTIPLY:1,2",
+            "candidate_program": "MULTIPLY:1,2",
+            "rejection_reasons": [
+              "missing_requested_operand_roles"
+            ],
+            "unknown_reasons": [
+              "metric_match",
+              "same_row",
+              "temporal_direction",
+              "reporting_entity",
+              "graph_same_metric",
+              "graph_same_row",
+              "graph_same_unit"
+            ],
+            "generation_sources": [
+              "neural_baseline"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-subtract-0101",
+            "operation": "SUBTRACT",
+            "question": "Chênh lệch Lợi nhuận trước thuế giữa Năm 2025 và Năm 2024 là bao nhiêu?",
+            "gold_program": "SUBTRACT:8,7",
+            "candidate_program": "SUBTRACT:8,7",
+            "rejection_reasons": [
+              "reporting_entity_mismatch"
+            ],
+            "unknown_reasons": [
+              "reporting_entity"
+            ],
+            "generation_sources": [
+              "neural_operation_conditioned_beam",
+              "typed_slot_synthesis"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-select-0023",
+            "operation": "SELECT",
+            "question": "Tổng tài sản tại Năm 2024 là bao nhiêu?",
+            "gold_program": "SELECT:0",
+            "candidate_program": "SELECT:0",
+            "rejection_reasons": [
+              "unary_grounding_mismatch"
+            ],
+            "unknown_reasons": [
+              "temporal_direction",
+              "reporting_entity"
+            ],
+            "generation_sources": [
+              "financial_identity:direct",
+              "neural_operation_conditioned_beam",
+              "typed_slot_synthesis"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-ratio_percent-0100",
+            "operation": "RATIO_PERCENT",
+            "question": "Các khoản phải thu ngắn hạn chiếm bao nhiêu phần trăm TÀI SẢN NGẮN HẠN tại dau nam?",
+            "gold_program": "RATIO_PERCENT:16,2",
+            "candidate_program": "RATIO_PERCENT:16,2",
+            "rejection_reasons": [
+              "operand_role_mismatch"
+            ],
+            "unknown_reasons": [
+              "metric_match",
+              "same_row",
+              "period_coverage",
+              "temporal_direction",
+              "reporting_entity",
+              "graph_same_metric",
+              "graph_same_row"
+            ],
+            "generation_sources": [
+              "neural_operation_conditioned_beam",
+              "typed_slot_synthesis"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-ratio_percent-0047",
+            "operation": "RATIO_PERCENT",
+            "question": "Lợi nhuận sau thuế chiếm bao nhiêu phần trăm Doanh thu thuần tại 2025?",
+            "gold_program": "RATIO_PERCENT:11,4",
+            "candidate_program": "RATIO_PERCENT:11,4",
+            "rejection_reasons": [
+              "reporting_entity_mismatch"
+            ],
+            "unknown_reasons": [
+              "metric_match",
+              "same_row",
+              "temporal_direction",
+              "reporting_entity",
+              "graph_same_metric",
+              "graph_same_row"
+            ],
+            "generation_sources": [
+              "neural_baseline",
+              "neural_operation_conditioned_beam",
+              "typed_slot_synthesis"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-add-0058",
+            "operation": "ADD",
+            "question": "Tổng A. TÀI SẢN NGẮN HẠN và V. Tài sản ngắn hạn khác tại dau nam là bao nhiêu?",
+            "gold_program": "ADD:0,49",
+            "candidate_program": "ADD:0,49",
+            "rejection_reasons": [
+              "operand_role_mismatch"
+            ],
+            "unknown_reasons": [
+              "metric_match",
+              "same_row",
+              "period_coverage",
+              "temporal_direction",
+              "reporting_entity",
+              "graph_same_metric",
+              "graph_same_row"
+            ],
+            "generation_sources": [
+              "neural_operation_conditioned_beam",
+              "typed_slot_synthesis"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-divide-0018",
+            "operation": "DIVIDE",
+            "question": "Tiền và các khoản tương đương tiền chia cho TÀI SẢN NGẮN HẠN tại dau nam bằng bao nhiêu?",
+            "gold_program": "DIVIDE:4,1",
+            "candidate_program": "DIVIDE:4,1",
+            "rejection_reasons": [
+              "operand_role_mismatch"
+            ],
+            "unknown_reasons": [
+              "metric_match",
+              "same_row",
+              "period_coverage",
+              "temporal_direction",
+              "reporting_entity",
+              "graph_same_metric",
+              "graph_same_row"
+            ],
+            "generation_sources": [
+              "neural_operation_conditioned_beam",
+              "typed_slot_synthesis"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-multiply-0093",
+            "operation": "MULTIPLY",
+            "question": "Giá trị theo mệnh giá của Số lượng cổ phiếu được phép phát hành tại năm 2025 là bao nhiêu?",
+            "gold_program": "MULTIPLY:8,20",
+            "candidate_program": "MULTIPLY:8,20",
+            "rejection_reasons": [
+              "missing_requested_operand_roles"
+            ],
+            "unknown_reasons": [
+              "metric_match",
+              "same_row",
+              "temporal_direction",
+              "reporting_entity",
+              "graph_same_metric",
+              "graph_same_row",
+              "graph_same_unit"
+            ],
+            "generation_sources": [
+              "neural_baseline"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-subtract-0064",
+            "operation": "SUBTRACT",
+            "question": "Chênh lệch Thuế TNDN giữa Năm 2025 và Năm 2024 là bao nhiêu?",
+            "gold_program": "SUBTRACT:7,6",
+            "candidate_program": "SUBTRACT:7,6",
+            "rejection_reasons": [
+              "temporal_metric_mismatch"
+            ],
+            "unknown_reasons": [
+              "reporting_entity"
+            ],
+            "generation_sources": [
+              "neural_operation_conditioned_beam",
+              "typed_slot_synthesis"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-ratio_percent-0087",
+            "operation": "RATIO_PERCENT",
+            "question": "Các khoản phải thu ngắn hạn chiếm bao nhiêu phần trăm TÀI SẢN NGẮN HẠN tại dau nam?",
+            "gold_program": "RATIO_PERCENT:25,0",
+            "candidate_program": "RATIO_PERCENT:25,0",
+            "rejection_reasons": [
+              "operand_role_mismatch"
+            ],
+            "unknown_reasons": [
+              "metric_match",
+              "same_row",
+              "period_coverage",
+              "temporal_direction",
+              "reporting_entity",
+              "graph_same_metric",
+              "graph_same_row"
+            ],
+            "generation_sources": [
+              "neural_operation_conditioned_beam",
+              "typed_slot_synthesis"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-add-0095",
+            "operation": "ADD",
+            "question": "Tổng Tiền và các khoản tương đương tiền và Các khoản đầu tư tài chính ngắn hạn tại 2025 là bao nhiêu?",
+            "gold_program": "ADD:2,4",
+            "candidate_program": "ADD:2,4",
+            "rejection_reasons": [
+              "operand_role_mismatch"
+            ],
+            "unknown_reasons": [
+              "operation_match",
+              "metric_match",
+              "same_row",
+              "temporal_direction",
+              "reporting_entity",
+              "graph_same_metric",
+              "graph_same_row"
+            ],
+            "generation_sources": [
+              "neural_operation_conditioned_beam",
+              "typed_slot_synthesis"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-multiply-0039",
+            "operation": "MULTIPLY",
+            "question": "Giá trị theo mệnh giá của Số lượng cổ phiếu đã phát hành và góp vốn đầy đủ tại năm 2025 là bao nhiêu?",
+            "gold_program": "MULTIPLY:1,3",
+            "candidate_program": "MULTIPLY:1,3",
+            "rejection_reasons": [
+              "missing_requested_operand_roles",
+              "invalid_unit_algebra"
+            ],
+            "unknown_reasons": [
+              "metric_match",
+              "same_row",
+              "temporal_direction",
+              "reporting_entity",
+              "graph_same_metric",
+              "graph_same_row",
+              "graph_same_unit"
+            ],
+            "generation_sources": [
+              "neural_baseline"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-divide-0024",
+            "operation": "DIVIDE",
+            "question": "Tiền và các khoản tương đương tiền chia cho TÀI SẢN NGẮN HẠN tại dau nam bằng bao nhiêu?",
+            "gold_program": "DIVIDE:4,0",
+            "candidate_program": "DIVIDE:4,0",
+            "rejection_reasons": [
+              "operand_role_mismatch"
+            ],
+            "unknown_reasons": [
+              "metric_match",
+              "same_row",
+              "period_coverage",
+              "temporal_direction",
+              "reporting_entity",
+              "graph_same_metric",
+              "graph_same_row"
+            ],
+            "generation_sources": [
+              "neural_operation_conditioned_beam",
+              "typed_slot_synthesis"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-multiply-0117",
+            "operation": "MULTIPLY",
+            "question": "Giá trị theo mệnh giá của Trái phiếu Công ty Cổ phần Hàng không Vietjet có thời hạn 7 năm kể từ ngày phát hành ngày 31/12/2025, số lượng tại năm 2025 là bao nhiêu?",
+            "gold_program": "MULTIPLY:10,18",
+            "candidate_program": "MULTIPLY:10,18",
+            "rejection_reasons": [
+              "operand_role_mismatch"
+            ],
+            "unknown_reasons": [
+              "metric_match",
+              "unit_match",
+              "unit_algebra",
+              "same_row",
+              "temporal_direction",
+              "reporting_entity",
+              "graph_same_metric",
+              "graph_same_row",
+              "graph_same_unit"
+            ],
+            "generation_sources": [
+              "neural_operation_conditioned_beam"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-select-0052",
+            "operation": "SELECT",
+            "question": "Tài sản ngắn hạn tại 31/12/2025 là bao nhiêu?",
+            "gold_program": "SELECT:7",
+            "candidate_program": "SELECT:7",
+            "rejection_reasons": [
+              "unary_grounding_mismatch"
+            ],
+            "unknown_reasons": [
+              "operation_match",
+              "temporal_direction",
+              "reporting_entity"
+            ],
+            "generation_sources": [
+              "neural_operation_conditioned_beam",
+              "typed_slot_synthesis"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-divide-0014",
+            "operation": "DIVIDE",
+            "question": "Tiền và các khoản tương đương tiền chia cho TÀI SẢN NGẮN HẠN tại 2025 bằng bao nhiêu?",
+            "gold_program": "DIVIDE:6,0",
+            "candidate_program": "DIVIDE:6,0",
+            "rejection_reasons": [
+              "operand_outside_requested_period"
+            ],
+            "unknown_reasons": [
+              "metric_match",
+              "same_row",
+              "temporal_direction",
+              "reporting_entity",
+              "graph_same_metric",
+              "graph_same_row"
+            ],
+            "generation_sources": [
+              "neural_baseline",
+              "neural_operation_conditioned_beam"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-add-0041",
+            "operation": "ADD",
+            "question": "Tổng Tiền và các khoản tương đương tiền và Phải thu dài hạn khác tại 2025 là bao nhiêu?",
+            "gold_program": "ADD:6,8",
+            "candidate_program": "ADD:6,8",
+            "rejection_reasons": [
+              "operand_outside_requested_period"
+            ],
+            "unknown_reasons": [
+              "operation_match",
+              "metric_match",
+              "same_row",
+              "temporal_direction",
+              "reporting_entity",
+              "graph_same_metric",
+              "graph_same_row"
+            ],
+            "generation_sources": [
+              "neural_baseline",
+              "neural_operation_conditioned_beam"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-select-0058",
+            "operation": "SELECT",
+            "question": "Nợ đủ tiêu chuẩn tại Số đầu năm là bao nhiêu?",
+            "gold_program": "SELECT:1",
+            "candidate_program": "SELECT:1",
+            "rejection_reasons": [
+              "unary_grounding_mismatch"
+            ],
+            "unknown_reasons": [
+              "operation_match",
+              "period_coverage",
+              "temporal_direction",
+              "reporting_entity"
+            ],
+            "generation_sources": [
+              "neural_operation_conditioned_beam",
+              "typed_slot_synthesis"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-ratio_percent-0118",
+            "operation": "RATIO_PERCENT",
+            "question": "Tiền và các khoản tương đương tiền chiếm bao nhiêu phần trăm TÀI SẢN NGẮN HẠN tại cuoi nam?",
+            "gold_program": "RATIO_PERCENT:5,2",
+            "candidate_program": "RATIO_PERCENT:5,2",
+            "rejection_reasons": [
+              "operand_role_mismatch"
+            ],
+            "unknown_reasons": [
+              "metric_match",
+              "same_row",
+              "period_coverage",
+              "temporal_direction",
+              "reporting_entity",
+              "graph_same_metric",
+              "graph_same_row"
+            ],
+            "generation_sources": [
+              "neural_operation_conditioned_beam",
+              "typed_slot_synthesis"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-divide-0091",
+            "operation": "DIVIDE",
+            "question": "Lợi nhuận sau thuế chia cho Doanh thu thuần tại 2025 bằng bao nhiêu?",
+            "gold_program": "DIVIDE:11,4",
+            "candidate_program": "DIVIDE:11,4",
+            "rejection_reasons": [
+              "reporting_entity_mismatch"
+            ],
+            "unknown_reasons": [
+              "metric_match",
+              "same_row",
+              "temporal_direction",
+              "reporting_entity",
+              "graph_same_metric",
+              "graph_same_row"
+            ],
+            "generation_sources": [
+              "neural_baseline",
+              "neural_operation_conditioned_beam",
+              "typed_slot_synthesis"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-multiply-0050",
+            "operation": "MULTIPLY",
+            "question": "Giá trị theo mệnh giá của đã được hoàn thành vào ngày 22/09/2025 với tổng số cổ phiếu đã phát hành là tại năm 2025 là bao nhiêu?",
+            "gold_program": "MULTIPLY:45,46",
+            "candidate_program": "MULTIPLY:45,46",
+            "rejection_reasons": [
+              "reporting_entity_mismatch"
+            ],
+            "unknown_reasons": [
+              "operation_match",
+              "metric_match",
+              "same_row",
+              "temporal_direction",
+              "reporting_entity",
+              "graph_same_metric",
+              "graph_same_row",
+              "graph_same_unit"
+            ],
+            "generation_sources": [
+              "neural_operation_conditioned_beam"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-divide-0029",
+            "operation": "DIVIDE",
+            "question": "Tiền và các khoản tương đương tiền chia cho TÀI SẢN NGẮN HẠN tại dau nam bằng bao nhiêu?",
+            "gold_program": "DIVIDE:6,2",
+            "candidate_program": "DIVIDE:6,2",
+            "rejection_reasons": [
+              "operand_role_mismatch"
+            ],
+            "unknown_reasons": [
+              "metric_match",
+              "same_row",
+              "period_coverage",
+              "temporal_direction",
+              "reporting_entity",
+              "graph_same_metric",
+              "graph_same_row"
+            ],
+            "generation_sources": [
+              "neural_operation_conditioned_beam",
+              "typed_slot_synthesis"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-subtract-0119",
+            "operation": "SUBTRACT",
+            "question": "Chênh lệch ĐVT: tỷ đồng giữa 2025 và 2024 là bao nhiêu?",
+            "gold_program": "SUBTRACT:5,4",
+            "candidate_program": "SUBTRACT:5,4",
+            "rejection_reasons": [
+              "temporal_metric_mismatch"
+            ],
+            "unknown_reasons": [
+              "reporting_entity"
+            ],
+            "generation_sources": [
+              "neural_operation_conditioned_beam",
+              "typed_slot_synthesis"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-add-0083",
+            "operation": "ADD",
+            "question": "Tổng A. TÀI SẢN NGẮN HẠN và III. Các khoản phải thu ngắn hạn tại dau nam là bao nhiêu?",
+            "gold_program": "ADD:0,22",
+            "candidate_program": "ADD:0,22",
+            "rejection_reasons": [
+              "operand_role_mismatch"
+            ],
+            "unknown_reasons": [
+              "metric_match",
+              "same_row",
+              "period_coverage",
+              "temporal_direction",
+              "reporting_entity",
+              "graph_same_metric",
+              "graph_same_row"
+            ],
+            "generation_sources": [
+              "neural_operation_conditioned_beam",
+              "typed_slot_synthesis"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-ratio_percent-0025",
+            "operation": "RATIO_PERCENT",
+            "question": "Các khoản phải thu ngắn hạn chiếm bao nhiêu phần trăm TÀI SẢN NGẮN HẠN tại dau nam?",
+            "gold_program": "RATIO_PERCENT:18,1",
+            "candidate_program": "RATIO_PERCENT:18,1",
+            "rejection_reasons": [
+              "operand_role_mismatch"
+            ],
+            "unknown_reasons": [
+              "metric_match",
+              "same_row",
+              "period_coverage",
+              "temporal_direction",
+              "reporting_entity",
+              "graph_same_metric",
+              "graph_same_row"
+            ],
+            "generation_sources": [
+              "neural_operation_conditioned_beam",
+              "typed_slot_synthesis"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-divide-0009",
+            "operation": "DIVIDE",
+            "question": "TÀI SẢN DÀI HẠN chia cho TỔNG CỘNG TÀI SẢN tại dau nam bằng bao nhiêu?",
+            "gold_program": "DIVIDE:26,15",
+            "candidate_program": "DIVIDE:26,15",
+            "rejection_reasons": [
+              "operand_role_mismatch"
+            ],
+            "unknown_reasons": [
+              "metric_match",
+              "unit_match",
+              "same_row",
+              "period_coverage",
+              "temporal_direction",
+              "reporting_entity",
+              "graph_same_metric",
+              "graph_same_row",
+              "graph_same_unit"
+            ],
+            "generation_sources": [
+              "neural_operation_conditioned_beam",
+              "typed_slot_synthesis"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-ratio_percent-0001",
+            "operation": "RATIO_PERCENT",
+            "question": "Tiền và các khoản tương đương tiền chiếm bao nhiêu phần trăm TÀI SẢN NGẮN HẠN tại dau nam?",
+            "gold_program": "RATIO_PERCENT:7,0",
+            "candidate_program": "RATIO_PERCENT:7,0",
+            "rejection_reasons": [
+              "operand_role_mismatch"
+            ],
+            "unknown_reasons": [
+              "metric_match",
+              "same_row",
+              "period_coverage",
+              "temporal_direction",
+              "reporting_entity",
+              "graph_same_metric",
+              "graph_same_row"
+            ],
+            "generation_sources": [
+              "neural_operation_conditioned_beam",
+              "typed_slot_synthesis"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-divide-0003",
+            "operation": "DIVIDE",
+            "question": "Tiền và các khoản tương đương tiền chia cho TÀI SẢN NGẮN HẠN tại dau nam bằng bao nhiêu?",
+            "gold_program": "DIVIDE:4,0",
+            "candidate_program": "DIVIDE:4,0",
+            "rejection_reasons": [
+              "operand_role_mismatch"
+            ],
+            "unknown_reasons": [
+              "metric_match",
+              "same_row",
+              "period_coverage",
+              "temporal_direction",
+              "reporting_entity",
+              "graph_same_metric",
+              "graph_same_row"
+            ],
+            "generation_sources": [
+              "neural_operation_conditioned_beam",
+              "typed_slot_synthesis"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-add-0012",
+            "operation": "ADD",
+            "question": "Tổng Phải trả người bán ngắn hạn và Thuế và các khoản phải nộp Nhà nước tại nam truoc là bao nhiêu?",
+            "gold_program": "ADD:0,5",
+            "candidate_program": "ADD:0,5",
+            "rejection_reasons": [
+              "operand_role_mismatch"
+            ],
+            "unknown_reasons": [
+              "operation_match",
+              "metric_match",
+              "unit_match",
+              "same_row",
+              "period_coverage",
+              "temporal_direction",
+              "reporting_entity",
+              "graph_same_metric",
+              "graph_same_row",
+              "graph_same_unit"
+            ],
+            "generation_sources": [
+              "neural_operation_conditioned_beam",
+              "typed_slot_synthesis"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-select-0087",
+            "operation": "SELECT",
+            "question": "TỔNG CỘNG NGUỒN VỐN (440=300+400) tại - Lợi nhuận sau thuế chưa phân phối năm nay là bao nhiêu?",
+            "gold_program": "SELECT:4",
+            "candidate_program": "SELECT:4",
+            "rejection_reasons": [
+              "unary_grounding_mismatch"
+            ],
+            "unknown_reasons": [
+              "operation_match",
+              "period_coverage",
+              "temporal_direction",
+              "reporting_entity"
+            ],
+            "generation_sources": [
+              "neural_operation_conditioned_beam"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-multiply-0083",
+            "operation": "MULTIPLY",
+            "question": "Giá trị theo mệnh giá của DNE Số lượng cổ phiếu quỹ nguyên mức là57 tại năm 2025 là bao nhiêu?",
+            "gold_program": "MULTIPLY:11,3",
+            "candidate_program": "MULTIPLY:3,11",
+            "rejection_reasons": [
+              "missing_requested_operand_roles"
+            ],
+            "unknown_reasons": [
+              "metric_match",
+              "unit_match",
+              "unit_algebra",
+              "same_row",
+              "temporal_direction",
+              "reporting_entity",
+              "graph_same_metric",
+              "graph_same_row",
+              "graph_same_unit"
+            ],
+            "generation_sources": [
+              "neural_baseline"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-ratio_percent-0079",
+            "operation": "RATIO_PERCENT",
+            "question": "Hàng tồn kho chiếm bao nhiêu phần trăm Tài sản ngắn hạn tại cuoi nam?",
+            "gold_program": "RATIO_PERCENT:16,0",
+            "candidate_program": "RATIO_PERCENT:16,0",
+            "rejection_reasons": [
+              "operand_role_mismatch"
+            ],
+            "unknown_reasons": [
+              "metric_match",
+              "same_row",
+              "period_coverage",
+              "temporal_direction",
+              "reporting_entity",
+              "graph_same_metric",
+              "graph_same_row"
+            ],
+            "generation_sources": [
+              "neural_operation_conditioned_beam",
+              "typed_slot_synthesis"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-multiply-0020",
+            "operation": "MULTIPLY",
+            "question": "Giá trị theo mệnh giá của Tổng số cổ phiếu đã phát hành: 5.472.900 cổ phiếu tại năm 2024 là bao nhiêu?",
+            "gold_program": "MULTIPLY:7,20",
+            "candidate_program": "MULTIPLY:7,20",
+            "rejection_reasons": [
+              "operand_role_mismatch"
+            ],
+            "unknown_reasons": [
+              "metric_match",
+              "same_row",
+              "temporal_direction",
+              "reporting_entity",
+              "graph_same_metric",
+              "graph_same_row",
+              "graph_same_unit"
+            ],
+            "generation_sources": [
+              "neural_operation_conditioned_beam"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-add-0066",
+            "operation": "ADD",
+            "question": "Tổng A . TÀI SẢN NGẮN HẠN và 1. Hàng tồn kho tại dau nam là bao nhiêu?",
+            "gold_program": "ADD:0,39",
+            "candidate_program": "ADD:0,39",
+            "rejection_reasons": [
+              "operand_role_mismatch"
+            ],
+            "unknown_reasons": [
+              "metric_match",
+              "same_row",
+              "period_coverage",
+              "temporal_direction",
+              "reporting_entity",
+              "graph_same_metric",
+              "graph_same_row"
+            ],
+            "generation_sources": [
+              "neural_operation_conditioned_beam",
+              "typed_slot_synthesis"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-add-0065",
+            "operation": "ADD",
+            "question": "Tổng - Chi phí bảo trì, bảo dưỡng và - Chi phí trả trước ngắn hạn khác tại dau nam là bao nhiêu?",
+            "gold_program": "ADD:7,11",
+            "candidate_program": "ADD:7,11",
+            "rejection_reasons": [
+              "operation_wording",
+              "operand_role_mismatch"
+            ],
+            "unknown_reasons": [
+              "metric_match",
+              "same_row",
+              "period_coverage",
+              "temporal_direction",
+              "reporting_entity",
+              "graph_same_metric",
+              "graph_same_row"
+            ],
+            "generation_sources": [
+              "neural_operation_conditioned_beam",
+              "typed_slot_synthesis"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-ratio_percent-0106",
+            "operation": "RATIO_PERCENT",
+            "question": "Các khoản phải thu ngắn hạn chiếm bao nhiêu phần trăm TÀI SẢN NGẮN HẠN tại cuoi nam?",
+            "gold_program": "RATIO_PERCENT:34,1",
+            "candidate_program": "RATIO_PERCENT:34,1",
+            "rejection_reasons": [
+              "operand_role_mismatch"
+            ],
+            "unknown_reasons": [
+              "metric_match",
+              "same_row",
+              "period_coverage",
+              "temporal_direction",
+              "reporting_entity",
+              "graph_same_metric",
+              "graph_same_row"
+            ],
+            "generation_sources": [
+              "neural_operation_conditioned_beam",
+              "typed_slot_synthesis"
+            ]
+          }
+        ],
+        "gold_program_not_generated_with_operands_available": [
+          {
+            "example_id": "synthetic-train-subtract-0087",
+            "operation": "SUBTRACT",
+            "question": "Chênh lệch 151,02%Hệ số Nợ/Vốn chủ sở hữu giữa Năm 2025 và Năm 2024 là bao nhiêu?",
+            "gold_program": "SUBTRACT:24,23"
+          },
+          {
+            "example_id": "synthetic-train-multiply-0060",
+            "operation": "MULTIPLY",
+            "question": "Giá trị theo mệnh giá của Số lượng cổ phiếu đăng ký phát hành tại năm 2025 là bao nhiêu?",
+            "gold_program": "MULTIPLY:47,61"
+          },
+          {
+            "example_id": "synthetic-train-multiply-0090",
+            "operation": "MULTIPLY",
+            "question": "Giá trị theo mệnh giá của Vốn điều lệ Công ty Số lượng cổ phiếu quỹ - Nước ngoài tại năm 2025 là bao nhiêu?",
+            "gold_program": "MULTIPLY:41,50"
+          },
+          {
+            "example_id": "synthetic-train-multiply-0041",
+            "operation": "MULTIPLY",
+            "question": "Giá trị theo mệnh giá của Số lượng cổ phiếu quỹ Số lượng cổ phần tại năm 2025 là bao nhiêu?",
+            "gold_program": "MULTIPLY:50,45"
+          },
+          {
+            "example_id": "synthetic-train-multiply-0023",
+            "operation": "MULTIPLY",
+            "question": "Giá trị theo mệnh giá của Số lượng cổ phiếu được phép phát hành tại năm 2025 là bao nhiêu?",
+            "gold_program": "MULTIPLY:9,20"
+          },
+          {
+            "example_id": "synthetic-train-add-0090",
+            "operation": "ADD",
+            "question": "Tổng Tiền và các khoản tương đương tiền và Tài sản ngắn hạn khác tại cuoi nam là bao nhiêu?",
+            "gold_program": "ADD:3,19"
+          },
+          {
+            "example_id": "synthetic-train-multiply-0049",
+            "operation": "MULTIPLY",
+            "question": "Giá trị theo mệnh giá của - Số lượng cổ phiếu đã bán ra công chúng tại năm 2024 là bao nhiêu?",
+            "gold_program": "MULTIPLY:30,45"
+          },
+          {
+            "example_id": "synthetic-train-multiply-0087",
+            "operation": "MULTIPLY",
+            "question": "Giá trị theo mệnh giá của Số lượng cổ phiếu đang lưu hành tại năm 2025 là bao nhiêu?",
+            "gold_program": "MULTIPLY:17,41"
+          },
+          {
+            "example_id": "synthetic-train-subtract-0012",
+            "operation": "SUBTRACT",
+            "question": "Chênh lệch 1,31%Hệ số thanh toán ngắn hạn giữa Năm 2025 và Năm 2024 là bao nhiêu?",
+            "gold_program": "SUBTRACT:4,3"
+          },
+          {
+            "example_id": "synthetic-train-multiply-0043",
+            "operation": "MULTIPLY",
+            "question": "Giá trị theo mệnh giá của Số lượng cổ phần chuyển nhượng tự do Số CMND/Hộ chiếu/ĐKKD tại năm 2025 là bao nhiêu?",
+            "gold_program": "MULTIPLY:47,45"
+          },
+          {
+            "example_id": "synthetic-train-multiply-0104",
+            "operation": "MULTIPLY",
+            "question": "Giá trị theo mệnh giá của Số lượng cổ phiếu đang lưu hành tại năm 2025 là bao nhiêu?",
+            "gold_program": "MULTIPLY:55,61"
+          },
+          {
+            "example_id": "synthetic-train-add-0081",
+            "operation": "ADD",
+            "question": "Tổng Tiền gửi và vay Chính phủ, NHNN và Tiền gửi và vay các TCTD khác tại cuoi nam là bao nhiêu?",
+            "gold_program": "ADD:2,4"
+          },
+          {
+            "example_id": "synthetic-train-multiply-0063",
+            "operation": "MULTIPLY",
+            "question": "Giá trị theo mệnh giá của CONTEXT: SỐ LƯỢNG CỔ PHIẾU ĐANG LƯU HÀNH\nVALUE_LINE: <VALUE> 101.206.352 </VALUE> LOẠI CỔ PHẦN: tại năm 2025 là bao nhiêu?",
+            "gold_program": "MULTIPLY:13,14"
+          },
+          {
+            "example_id": "synthetic-train-add-0017",
+            "operation": "ADD",
+            "question": "Tổng Đầu tư tài chính ngắn hạn và Tài sản ngắn hạn khác tại 2024 là bao nhiêu?",
+            "gold_program": "ADD:4,10"
+          },
+          {
+            "example_id": "synthetic-train-multiply-0035",
+            "operation": "MULTIPLY",
+            "question": "Giá trị theo mệnh giá của định hiệu quả vượt trội trong công tác quản trị tài sản và khai thác nguồn vốn. Đáng chú ý nhất là chỉ số ROE - Số lượng cổ phiếu đang lưu hành tại năm 2025 là bao nhiêu?",
+            "gold_program": "MULTIPLY:3,11"
+          },
+          {
+            "example_id": "synthetic-train-subtract-0106",
+            "operation": "SUBTRACT",
+            "question": "Chênh lệch -55,10%Doanh thu từ thị trường nội địa giữa Năm 2025 và Năm 2024 là bao nhiêu?",
+            "gold_program": "SUBTRACT:6,5"
+          },
+          {
+            "example_id": "synthetic-train-multiply-0086",
+            "operation": "MULTIPLY",
+            "question": "Giá trị theo mệnh giá của Số lượng cổ phiếu đăng ký phát hành tại năm 2025 là bao nhiêu?",
+            "gold_program": "MULTIPLY:44,54"
+          }
+        ],
+        "trace_without_eligible_program": [
+          {
+            "example_id": "synthetic-train-multiply-0060",
+            "operation": "MULTIPLY",
+            "question": "Giá trị theo mệnh giá của Số lượng cổ phiếu đăng ký phát hành tại năm 2025 là bao nhiêu?",
+            "gold_program": "MULTIPLY:47,61"
+          },
+          {
+            "example_id": "synthetic-train-multiply-0090",
+            "operation": "MULTIPLY",
+            "question": "Giá trị theo mệnh giá của Vốn điều lệ Công ty Số lượng cổ phiếu quỹ - Nước ngoài tại năm 2025 là bao nhiêu?",
+            "gold_program": "MULTIPLY:41,50"
+          },
+          {
+            "example_id": "synthetic-train-multiply-0041",
+            "operation": "MULTIPLY",
+            "question": "Giá trị theo mệnh giá của Số lượng cổ phiếu quỹ Số lượng cổ phần tại năm 2025 là bao nhiêu?",
+            "gold_program": "MULTIPLY:50,45"
+          },
+          {
+            "example_id": "synthetic-train-multiply-0057",
+            "operation": "MULTIPLY",
+            "question": "Giá trị theo mệnh giá của Tổng số cổ phiếu đã phát hành tại năm 2025 là bao nhiêu?",
+            "gold_program": "MULTIPLY:1,2"
+          },
+          {
+            "example_id": "synthetic-train-subtract-0101",
+            "operation": "SUBTRACT",
+            "question": "Chênh lệch Lợi nhuận trước thuế giữa Năm 2025 và Năm 2024 là bao nhiêu?",
+            "gold_program": "SUBTRACT:8,7"
+          },
+          {
+            "example_id": "synthetic-train-multiply-0023",
+            "operation": "MULTIPLY",
+            "question": "Giá trị theo mệnh giá của Số lượng cổ phiếu được phép phát hành tại năm 2025 là bao nhiêu?",
+            "gold_program": "MULTIPLY:9,20"
+          },
+          {
+            "example_id": "synthetic-train-ratio_percent-0047",
+            "operation": "RATIO_PERCENT",
+            "question": "Lợi nhuận sau thuế chiếm bao nhiêu phần trăm Doanh thu thuần tại 2025?",
+            "gold_program": "RATIO_PERCENT:11,4"
+          },
+          {
+            "example_id": "synthetic-train-multiply-0049",
+            "operation": "MULTIPLY",
+            "question": "Giá trị theo mệnh giá của - Số lượng cổ phiếu đã bán ra công chúng tại năm 2024 là bao nhiêu?",
+            "gold_program": "MULTIPLY:30,45"
+          },
+          {
+            "example_id": "synthetic-train-multiply-0087",
+            "operation": "MULTIPLY",
+            "question": "Giá trị theo mệnh giá của Số lượng cổ phiếu đang lưu hành tại năm 2025 là bao nhiêu?",
+            "gold_program": "MULTIPLY:17,41"
+          },
+          {
+            "example_id": "synthetic-train-multiply-0093",
+            "operation": "MULTIPLY",
+            "question": "Giá trị theo mệnh giá của Số lượng cổ phiếu được phép phát hành tại năm 2025 là bao nhiêu?",
+            "gold_program": "MULTIPLY:8,20"
+          },
+          {
+            "example_id": "synthetic-train-subtract-0064",
+            "operation": "SUBTRACT",
+            "question": "Chênh lệch Thuế TNDN giữa Năm 2025 và Năm 2024 là bao nhiêu?",
+            "gold_program": "SUBTRACT:7,6"
+          },
+          {
+            "example_id": "synthetic-train-multiply-0039",
+            "operation": "MULTIPLY",
+            "question": "Giá trị theo mệnh giá của Số lượng cổ phiếu đã phát hành và góp vốn đầy đủ tại năm 2025 là bao nhiêu?",
+            "gold_program": "MULTIPLY:1,3"
+          },
+          {
+            "example_id": "synthetic-train-multiply-0043",
+            "operation": "MULTIPLY",
+            "question": "Giá trị theo mệnh giá của Số lượng cổ phần chuyển nhượng tự do Số CMND/Hộ chiếu/ĐKKD tại năm 2025 là bao nhiêu?",
+            "gold_program": "MULTIPLY:47,45"
+          },
+          {
+            "example_id": "synthetic-train-divide-0091",
+            "operation": "DIVIDE",
+            "question": "Lợi nhuận sau thuế chia cho Doanh thu thuần tại 2025 bằng bao nhiêu?",
+            "gold_program": "DIVIDE:11,4"
+          },
+          {
+            "example_id": "synthetic-train-multiply-0050",
+            "operation": "MULTIPLY",
+            "question": "Giá trị theo mệnh giá của đã được hoàn thành vào ngày 22/09/2025 với tổng số cổ phiếu đã phát hành là tại năm 2025 là bao nhiêu?",
+            "gold_program": "MULTIPLY:45,46"
+          },
+          {
+            "example_id": "synthetic-train-multiply-0104",
+            "operation": "MULTIPLY",
+            "question": "Giá trị theo mệnh giá của Số lượng cổ phiếu đang lưu hành tại năm 2025 là bao nhiêu?",
+            "gold_program": "MULTIPLY:55,61"
+          },
+          {
+            "example_id": "synthetic-train-multiply-0083",
+            "operation": "MULTIPLY",
+            "question": "Giá trị theo mệnh giá của DNE Số lượng cổ phiếu quỹ nguyên mức là57 tại năm 2025 là bao nhiêu?",
+            "gold_program": "MULTIPLY:11,3"
+          },
+          {
+            "example_id": "synthetic-train-add-0081",
+            "operation": "ADD",
+            "question": "Tổng Tiền gửi và vay Chính phủ, NHNN và Tiền gửi và vay các TCTD khác tại cuoi nam là bao nhiêu?",
+            "gold_program": "ADD:2,4"
+          },
+          {
+            "example_id": "synthetic-train-add-0065",
+            "operation": "ADD",
+            "question": "Tổng - Chi phí bảo trì, bảo dưỡng và - Chi phí trả trước ngắn hạn khác tại dau nam là bao nhiêu?",
+            "gold_program": "ADD:7,11"
+          },
+          {
+            "example_id": "synthetic-train-ratio_percent-0115",
+            "operation": "RATIO_PERCENT",
+            "question": "Lợi nhuận sau thuế chiếm bao nhiêu phần trăm Doanh thu thuần tại 2025?",
+            "gold_program": "RATIO_PERCENT:11,4"
+          },
+          {
+            "example_id": "synthetic-train-percent_change-0100",
+            "operation": "PERCENT_CHANGE",
+            "question": "Lợi nhuận trước thuế thay đổi bao nhiêu phần trăm từ Năm 2024 đến Năm 2025?",
+            "gold_program": "PERCENT_CHANGE:8,7"
+          },
+          {
+            "example_id": "synthetic-train-multiply-0063",
+            "operation": "MULTIPLY",
+            "question": "Giá trị theo mệnh giá của CONTEXT: SỐ LƯỢNG CỔ PHIẾU ĐANG LƯU HÀNH\nVALUE_LINE: <VALUE> 101.206.352 </VALUE> LOẠI CỔ PHẦN: tại năm 2025 là bao nhiêu?",
+            "gold_program": "MULTIPLY:13,14"
+          },
+          {
+            "example_id": "synthetic-train-divide-0006",
+            "operation": "DIVIDE",
+            "question": "Lợi nhuận sau thuế chia cho Doanh thu thuần tại 2025 bằng bao nhiêu?",
+            "gold_program": "DIVIDE:11,4"
+          },
+          {
+            "example_id": "synthetic-train-add-0025",
+            "operation": "ADD",
+            "question": "Tổng 4. Giá vốn hàng bán và 15. Chi phí thuế TNDN hiện hành tại nam nay là bao nhiêu?",
+            "gold_program": "ADD:4,27"
+          },
+          {
+            "example_id": "synthetic-train-multiply-0035",
+            "operation": "MULTIPLY",
+            "question": "Giá trị theo mệnh giá của định hiệu quả vượt trội trong công tác quản trị tài sản và khai thác nguồn vốn. Đáng chú ý nhất là chỉ số ROE - Số lượng cổ phiếu đang lưu hành tại năm 2025 là bao nhiêu?",
+            "gold_program": "MULTIPLY:3,11"
+          },
+          {
+            "example_id": "synthetic-train-add-0102",
+            "operation": "ADD",
+            "question": "Tổng CHI PHÍ SẢN XUẤT, KINH DOANH THEO YẾU TỐ và Chi phí thuế TNDN tại nam truoc là bao nhiêu?",
+            "gold_program": "ADD:13,15"
+          },
+          {
+            "example_id": "synthetic-train-multiply-0086",
+            "operation": "MULTIPLY",
+            "question": "Giá trị theo mệnh giá của Số lượng cổ phiếu đăng ký phát hành tại năm 2025 là bao nhiêu?",
+            "gold_program": "MULTIPLY:44,54"
+          },
+          {
+            "example_id": "synthetic-train-add-0104",
+            "operation": "ADD",
+            "question": "Tổng Tăng, giảm chi phí trả trước và Chi phí thuế thu nhập doanh nghiệp hiện hành tại nam nay là bao nhiêu?",
+            "gold_program": "ADD:30,37"
+          }
+        ],
+        "single_candidate_wrong_gold_ineligible": [
+          {
+            "example_id": "synthetic-train-subtract-0112",
+            "operation": "SUBTRACT",
+            "question": "Chênh lệch 1. Tiền giữa Số cuối kỳ và Số đầu năm là bao nhiêu?",
+            "gold_program": "SUBTRACT:4,5",
+            "candidate_program": "SUBTRACT:4,5",
+            "rejection_reasons": [
+              "temporal_metric_mismatch"
+            ],
+            "unknown_reasons": [
+              "operation_match",
+              "unit_match",
+              "period_coverage",
+              "temporal_direction",
+              "reporting_entity",
+              "graph_same_unit"
+            ],
+            "generation_sources": [
+              "neural_operation_conditioned_beam",
+              "typed_slot_synthesis"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-subtract-0119",
+            "operation": "SUBTRACT",
+            "question": "Chênh lệch ĐVT: tỷ đồng giữa 2025 và 2024 là bao nhiêu?",
+            "gold_program": "SUBTRACT:5,4",
+            "candidate_program": "SUBTRACT:5,4",
+            "rejection_reasons": [
+              "temporal_metric_mismatch"
+            ],
+            "unknown_reasons": [
+              "reporting_entity"
+            ],
+            "generation_sources": [
+              "neural_operation_conditioned_beam",
+              "typed_slot_synthesis"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-percent_change-0101",
+            "operation": "PERCENT_CHANGE",
+            "question": "ĐVT: tỷ đồng thay đổi bao nhiêu phần trăm từ 2024 đến 2025?",
+            "gold_program": "PERCENT_CHANGE:7,6",
+            "candidate_program": "PERCENT_CHANGE:7,6",
+            "rejection_reasons": [
+              "temporal_metric_mismatch"
+            ],
+            "unknown_reasons": [
+              "reporting_entity"
+            ],
+            "generation_sources": [
+              "neural_operation_conditioned_beam",
+              "typed_slot_synthesis"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-divide-0062",
+            "operation": "DIVIDE",
+            "question": "Doanh thu thuần chia cho Tổng tài sản tại 2025 bằng bao nhiêu?",
+            "gold_program": "DIVIDE:16,13",
+            "candidate_program": "DIVIDE:16,13",
+            "rejection_reasons": [
+              "reporting_entity_mismatch"
+            ],
+            "unknown_reasons": [
+              "metric_match",
+              "same_row",
+              "temporal_direction",
+              "reporting_entity",
+              "graph_same_metric",
+              "graph_same_row"
+            ],
+            "generation_sources": [
+              "neural_operation_conditioned_beam",
+              "typed_slot_synthesis"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-percent_change-0090",
+            "operation": "PERCENT_CHANGE",
+            "question": "Tổng tài sản thay đổi bao nhiêu phần trăm từ Năm 2024 đến Năm 2025?",
+            "gold_program": "PERCENT_CHANGE:13,12",
+            "candidate_program": "PERCENT_CHANGE:13,12",
+            "rejection_reasons": [
+              "reporting_entity_mismatch"
+            ],
+            "unknown_reasons": [
+              "reporting_entity"
+            ],
+            "generation_sources": [
+              "neural_operation_conditioned_beam",
+              "typed_slot_synthesis"
+            ]
+          }
+        ],
+        "single_candidate_wrong_gold_not_generated": [
+          {
+            "example_id": "synthetic-train-subtract-0012",
+            "operation": "SUBTRACT",
+            "question": "Chênh lệch 1,31%Hệ số thanh toán ngắn hạn giữa Năm 2025 và Năm 2024 là bao nhiêu?",
+            "gold_program": "SUBTRACT:4,3"
+          },
+          {
+            "example_id": "synthetic-train-add-0017",
+            "operation": "ADD",
+            "question": "Tổng Đầu tư tài chính ngắn hạn và Tài sản ngắn hạn khác tại 2024 là bao nhiêu?",
+            "gold_program": "ADD:4,10"
+          }
+        ]
+      },
+      "gold_program_recall_at_k": 0.9697802197802198,
+      "execution_recall_at_k": 0.9725274725274725,
+      "rerankable_gold_program_recall_at_k": 0.9755301794453507,
+      "rerankable_execution_recall_at_k": 0.9771615008156607,
+      "mean_pre_prune_candidates": 36.335978835978835,
+      "mean_post_prune_candidates": 26.09259259259259,
+      "pre_prune_gold_program_recall": 0.9338624338624338,
+      "post_prune_gold_program_recall": 0.9338624338624338
+    },
+    "calibration_audit": {
+      "examples": 280,
+      "records": 163,
+      "candidate_sets": 200,
+      "no_trace": 4,
+      "typed_candidates": 1710,
+      "typed_gold_candidates": 163,
+      "hard_invalid_candidates_dropped": 10263,
+      "soft_unknown_candidates_retained": 5504,
+      "pre_prune_candidates": 7565,
+      "post_prune_candidates": 5504,
+      "training_trace_sets": 204,
+      "pruning_gold_loss_count": 0,
+      "top_k": 64,
+      "invalid_candidates_retained": 0,
+      "unknown_as_negative": false,
+      "training_state_policy": "hard-invalid-drop-unknown-retain-v1",
+      "positive_classes": {
+        "negative": 5098,
+        "canonical_exact": 192,
+        "execution_only": 214
+      },
+      "typed_synthesis_statuses": {
+        "RATIO_PERCENT:explicit_operand_roles:ok:8": 3,
+        "SUBTRACT:temporal_same_metric_pair:ok:1": 14,
+        "AVERAGE:temporal_same_metric_pair:ok:4": 2,
+        "DIVIDE:explicit_operand_roles:ok:16": 4,
+        "AVERAGE:temporal_same_metric_pair:ok:10": 1,
+        "SELECT:typed_lookup:ok:1": 6,
+        "SUM4:explicit_operand_roles:ok:24": 3,
+        "PERCENT_CHANGE:temporal_same_metric_pair:ok:31": 1,
+        "MULTIPLY:explicit_operand_roles:ok:96": 1,
+        "SUM4:explicit_operand_roles:ok:96": 3,
+        "PERCENT_CHANGE:temporal_same_metric_pair:ok:14": 1,
+        "ADD:explicit_operand_roles:ok:8": 2,
+        "MULTIPLY:explicit_operand_roles:ok:12": 2,
+        "AVERAGE:temporal_same_metric_pair:ok:1": 9,
+        "ADD:explicit_operand_roles:ok:35": 1,
+        "SUM4:explicit_operand_roles:ok:88": 1,
+        "SUBTRACT:temporal_same_metric_pair:ok:2": 4,
+        "MULTIPLY:explicit_operand_roles:ok:72": 1,
+        "RATIO_PERCENT:explicit_operand_roles:ok:1": 6,
+        "DIVIDE:explicit_operand_roles:ok:32": 1,
+        "SUM4:explicit_operand_roles:ok:48": 2,
+        "ADD:explicit_operand_roles:ok:86": 2,
+        "RATIO_PERCENT:explicit_operand_roles:ok:6": 2,
+        "DIVIDE:explicit_operand_roles:ok:10": 6,
+        "SELECT:typed_lookup:ok:4": 3,
+        "PERCENT_CHANGE:temporal_same_metric_pair:ok:4": 2,
+        "PERCENT_CHANGE:temporal_same_metric_pair:ok:7": 2,
+        "SUM3:explicit_operand_roles:ok:16": 4,
+        "DIVIDE:explicit_operand_roles:ok:1": 5,
+        "ADD:explicit_operand_roles:ok:12": 3,
+        "DIVIDE:explicit_operand_roles:ok:28": 1,
+        "RATIO_PERCENT:explicit_operand_roles:ok:10": 5,
+        "SUM4:explicit_operand_roles:ok:16": 4,
+        "SUBTRACT:temporal_same_metric_pair:ok:4": 3,
+        "DIVIDE:explicit_operand_roles:ok:8": 2,
+        "ADD:explicit_operand_roles:ok:2": 12,
+        "SUM3:explicit_operand_roles:ok:1": 9,
+        "DIVIDE:explicit_operand_roles:ok:4": 4,
+        "ADD:explicit_operand_roles:ok:10": 4,
+        "AVERAGE:temporal_same_metric_pair:ok:8": 1,
+        "AVERAGE:temporal_same_metric_pair:ok:9": 2,
+        "ADD:explicit_operand_roles:ok:14": 1,
+        "SUM3:explicit_operand_roles:ok:12": 5,
+        "MULTIPLY:explicit_operand_roles:ok:76": 1,
+        "ADD:explicit_operand_roles:ok:21": 1,
+        "SELECT:typed_lookup:ok:2": 6,
+        "ADD:unresolved:missing_operand_roles:0": 5,
+        "ADD:explicit_operand_roles:ok:4": 5,
+        "SELECT:typed_lookup:ok:11": 2,
+        "SUM3:explicit_operand_roles:ok:8": 2,
+        "PERCENT_CHANGE:temporal_same_metric_pair:ok:1": 9,
+        "PERCENT_CHANGE:temporal_same_metric_pair:ok:21": 1,
+        "SUM3:explicit_operand_roles:ok:30": 1,
+        "MULTIPLY:explicit_operand_roles:ok:24": 1,
+        "SELECT:typed_lookup:ok:6": 2,
+        "MULTIPLY:explicit_operand_roles:ok:5": 1,
+        "AVERAGE:temporal_same_metric_pair:ok:5": 2,
+        "SUM4:explicit_operand_roles:ok:30": 2,
+        "RATIO_PERCENT:explicit_operand_roles:ok:2": 6,
+        "ADD:explicit_operand_roles:ok:15": 2,
+        "SUM4:unresolved:missing_operand_roles:0": 5,
+        "AVERAGE:temporal_same_metric_pair:ok:11": 1,
+        "AVERAGE:temporal_same_metric_pair:ok:3": 4,
+        "SUM4:explicit_operand_roles:ok:1": 5,
+        "MULTIPLY:explicit_operand_roles:ok:70": 2,
+        "AVERAGE:temporal_same_metric_pair:ok:2": 2,
+        "SUM4:explicit_operand_roles:ok:128": 2,
+        "MULTIPLY:explicit_operand_roles:ok:107": 1,
+        "SELECT:typed_lookup:ok:5": 3,
+        "SUM3:unresolved:missing_operand_roles:0": 1,
+        "SUM4:explicit_operand_roles:ok:4": 2,
+        "PERCENT_CHANGE:temporal_same_metric_pair:ok:3": 2,
+        "SUM3:explicit_operand_roles:ok:32": 2,
+        "SUM4:explicit_operand_roles:ok:64": 3,
+        "SUM3:explicit_operand_roles:ok:72": 1,
+        "ADD:explicit_operand_roles:ok:45": 1,
+        "ADD:explicit_operand_roles:ok:6": 1,
+        "SELECT:typed_lookup:ok:3": 2,
+        "MULTIPLY:explicit_operand_roles:empty_typed_slot:0": 2,
+        "SUM4:explicit_operand_roles:ok:36": 1,
+        "MULTIPLY:explicit_operand_roles:no_typed_assignment:0": 1,
+        "MULTIPLY:explicit_operand_roles:ok:11": 1,
+        "SUM3:explicit_operand_roles:ok:4": 3,
+        "ADD:explicit_operand_roles:ok:1": 2,
+        "SUM3:explicit_operand_roles:ok:120": 1,
+        "DIVIDE:explicit_operand_roles:ok:2": 1,
+        "MULTIPLY:explicit_operand_roles:ok:63": 2,
+        "SUM3:explicit_operand_roles:ok:36": 1,
+        "SUM3:explicit_operand_roles:ok:20": 3,
+        "MULTIPLY:explicit_operand_roles:ok:6": 1,
+        "SUM4:explicit_operand_roles:no_typed_assignment:0": 1,
+        "ADD:explicit_operand_roles:ok:25": 3,
+        "PERCENT_CHANGE:temporal_same_metric_pair:ok:6": 1,
+        "ADD:explicit_operand_roles:ok:16": 2,
+        "SUM4:explicit_operand_roles:ok:40": 1,
+        "MULTIPLY:explicit_operand_roles:ok:115": 1,
+        "RATIO_PERCENT:explicit_operand_roles:ok:16": 1,
+        "PERCENT_CHANGE:temporal_same_metric_pair:ok:10": 1,
+        "SUM3:explicit_operand_roles:ok:2": 3,
+        "SUM4:explicit_operand_roles:ok:113": 1,
+        "SUM4:explicit_operand_roles:ok:8": 3,
+        "MULTIPLY:explicit_operand_roles:ok:54": 1,
+        "SUBTRACT:temporal_same_metric_pair:ok:9": 1,
+        "PERCENT_CHANGE:temporal_same_metric_pair:ok:5": 2,
+        "MULTIPLY:explicit_operand_roles:ok:100": 1,
+        "AVERAGE:temporal_same_metric_pair:ok:6": 1,
+        "ADD:explicit_operand_roles:ok:49": 1,
+        "SUBTRACT:temporal_same_metric_pair:ok:25": 1,
+        "MULTIPLY:explicit_operand_roles:ok:40": 1,
+        "SUM3:explicit_operand_roles:ok:64": 1,
+        "MULTIPLY:explicit_operand_roles:ok:92": 1,
+        "SUM4:explicit_operand_roles:ok:12": 1,
+        "RATIO_PERCENT:explicit_operand_roles:ok:56": 1,
+        "SUBTRACT:temporal_same_metric_pair:ok:5": 1,
+        "MULTIPLY:explicit_operand_roles:ok:42": 1,
+        "SUBTRACT:unresolved:missing_operand_roles:0": 1,
+        "SUBTRACT:financial_identity:income.net_revenue:ok:9": 1,
+        "PERCENT_CHANGE:temporal_same_metric_pair:ok:2": 1,
+        "MULTIPLY:explicit_operand_roles:ok:57": 1,
+        "SUBTRACT:temporal_same_metric_pair:ok:6": 1,
+        "PERCENT_CHANGE:temporal_same_metric_pair:no_typed_assignment:0": 1,
+        "SUM4:explicit_operand_roles:ok:80": 1,
+        "SUBTRACT:temporal_same_metric_pair:ok:3": 1,
+        "SUM4:explicit_operand_roles:ok:67": 1,
+        "SUM4:explicit_operand_roles:ok:6": 1
+      },
+      "candidate_failure_modes": {
+        "single_candidate_correct": 33,
+        "gold_program_generated_but_ineligible": 9,
+        "ranking_failure_with_gold_eligible": 22,
+        "gold_program_not_generated_with_operands_available": 9,
+        "single_candidate_wrong_gold_not_generated": 3,
+        "trace_without_eligible_program": 4,
+        "single_candidate_wrong_gold_ineligible": 1
+      },
+      "training_state_counts": {
+        "UNKNOWN": 7907,
+        "INVALID": 10263
+      },
+      "retained_training_state_counts": {
+        "UNKNOWN": 5504
+      },
+      "per_operation": {
+        "SELECT": {
+          "examples": 24,
+          "gold_program_generated_but_ineligible": 3,
+          "positive_class__negative": 472,
+          "typed_candidates": 85,
+          "candidate_sets": 24,
+          "gold_in_top_k": 23,
+          "execution_in_top_k": 23,
+          "candidates": 498,
+          "generated": 24,
+          "positive_class__canonical_exact": 23,
+          "typed_gold_candidates": 22,
+          "ranking_failure_with_gold_eligible": 4,
+          "positive_class__execution_only": 3
+        },
+        "ADD": {
+          "examples": 33,
+          "positive_class__canonical_exact": 27,
+          "typed_candidates": 373,
+          "typed_gold_candidates": 24,
+          "positive_class__negative": 1195,
+          "positive_class__execution_only": 7,
+          "candidate_sets": 29,
+          "gold_in_top_k": 27,
+          "execution_in_top_k": 27,
+          "candidates": 1229,
+          "generated": 24,
+          "ranking_failure_with_gold_eligible": 7,
+          "gold_program_not_generated_with_operands_available": 6,
+          "legacy_fallback_single_candidate": 5,
+          "single_candidate_wrong_gold_not_generated": 2,
+          "single_candidate_correct": 3,
+          "no_eligible_trace": 4,
+          "gold_program_generated_but_ineligible": 2
+        },
+        "SUBTRACT": {
+          "examples": 26,
+          "positive_class__canonical_exact": 23,
+          "typed_candidates": 71,
+          "typed_gold_candidates": 22,
+          "candidate_sets": 26,
+          "gold_in_top_k": 23,
+          "execution_in_top_k": 23,
+          "candidates": 105,
+          "legacy_fallback_single_candidate": 19,
+          "single_candidate_correct": 18,
+          "positive_class__negative": 82,
+          "generated": 7,
+          "gold_program_generated_but_ineligible": 2,
+          "gold_program_not_generated_with_operands_available": 1,
+          "single_candidate_wrong_gold_ineligible": 1,
+          "ranking_failure_with_gold_eligible": 1
+        },
+        "MULTIPLY": {
+          "examples": 24,
+          "positive_class__canonical_exact": 24,
+          "positive_class__negative": 1351,
+          "positive_class__execution_only": 11,
+          "typed_candidates": 642,
+          "candidate_sets": 24,
+          "gold_in_top_k": 24,
+          "execution_in_top_k": 24,
+          "candidates": 1386,
+          "generated": 24,
+          "typed_gold_candidates": 2,
+          "ranking_failure_with_gold_eligible": 4
+        },
+        "DIVIDE": {
+          "examples": 24,
+          "positive_class__canonical_exact": 24,
+          "typed_candidates": 183,
+          "typed_gold_candidates": 24,
+          "positive_class__negative": 946,
+          "positive_class__execution_only": 124,
+          "candidate_sets": 24,
+          "gold_in_top_k": 24,
+          "execution_in_top_k": 24,
+          "candidates": 1094,
+          "generated": 24,
+          "gold_program_generated_but_ineligible": 1,
+          "ranking_failure_with_gold_eligible": 1
+        },
+        "RATIO_PERCENT": {
+          "examples": 24,
+          "positive_class__negative": 793,
+          "typed_candidates": 140,
+          "positive_class__canonical_exact": 24,
+          "typed_gold_candidates": 24,
+          "candidate_sets": 24,
+          "gold_in_top_k": 24,
+          "execution_in_top_k": 24,
+          "candidates": 879,
+          "generated": 24,
+          "positive_class__execution_only": 62,
+          "ranking_failure_with_gold_eligible": 2,
+          "gold_program_generated_but_ineligible": 1
+        },
+        "PERCENT_CHANGE": {
+          "examples": 24,
+          "positive_class__canonical_exact": 22,
+          "typed_candidates": 122,
+          "typed_gold_candidates": 22,
+          "positive_class__negative": 132,
+          "candidate_sets": 24,
+          "gold_in_top_k": 22,
+          "execution_in_top_k": 22,
+          "candidates": 159,
+          "generated": 13,
+          "gold_program_not_generated_with_operands_available": 2,
+          "legacy_fallback_single_candidate": 11,
+          "single_candidate_correct": 10,
+          "positive_class__execution_only": 5,
+          "ranking_failure_with_gold_eligible": 1,
+          "single_candidate_wrong_gold_not_generated": 1
+        },
+        "AVERAGE": {
+          "examples": 25,
+          "positive_class__canonical_exact": 25,
+          "typed_candidates": 94,
+          "typed_gold_candidates": 23,
+          "positive_class__execution_only": 2,
+          "candidate_sets": 25,
+          "gold_in_top_k": 25,
+          "execution_in_top_k": 25,
+          "candidates": 154,
+          "generated": 23,
+          "positive_class__negative": 127,
+          "legacy_fallback_single_candidate": 2,
+          "single_candidate_correct": 2,
+          "ranking_failure_with_gold_eligible": 2
+        },
+        "SUM3": {
+          "examples": 38,
+          "excluded_from_reranker": 38
+        },
+        "SUM4": {
+          "examples": 38,
+          "excluded_from_reranker": 38
+        }
+      },
+      "failure_examples": {
+        "gold_program_generated_but_ineligible": [
+          {
+            "example_id": "synthetic-train-select-0096",
+            "operation": "SELECT",
+            "question": "Tại ngày 31 tháng 12 năm 2025 tại Số đầu năm là bao nhiêu?",
+            "gold_program": "SELECT:2",
+            "candidate_program": "SELECT:2",
+            "rejection_reasons": [
+              "missing_requested_period",
+              "unary_grounding_mismatch"
+            ],
+            "unknown_reasons": [
+              "operation_match",
+              "temporal_direction",
+              "reporting_entity"
+            ],
+            "generation_sources": [
+              "neural_operation_conditioned_beam"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-divide-0045",
+            "operation": "DIVIDE",
+            "question": "Các khoản phải thu ngắn hạn chia cho TÀI SẢN NGẮN HẠN tại dau nam bằng bao nhiêu?",
+            "gold_program": "DIVIDE:24,1",
+            "candidate_program": "DIVIDE:24,1",
+            "rejection_reasons": [
+              "operand_role_mismatch"
+            ],
+            "unknown_reasons": [
+              "metric_match",
+              "same_row",
+              "period_coverage",
+              "temporal_direction",
+              "reporting_entity",
+              "graph_same_metric",
+              "graph_same_row"
+            ],
+            "generation_sources": [
+              "neural_operation_conditioned_beam",
+              "typed_slot_synthesis"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-select-0051",
+            "operation": "SELECT",
+            "question": "Lãi bán các tài sản tài chính FVTPL tại NĂM NAY là bao nhiêu?",
+            "gold_program": "SELECT:9",
+            "candidate_program": "SELECT:9",
+            "rejection_reasons": [
+              "unary_grounding_mismatch"
+            ],
+            "unknown_reasons": [
+              "operation_match",
+              "period_coverage",
+              "temporal_direction",
+              "reporting_entity"
+            ],
+            "generation_sources": [
+              "neural_operation_conditioned_beam",
+              "typed_slot_synthesis"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-select-0086",
+            "operation": "SELECT",
+            "question": "1. Doanh thu bán hàng và cung cấp dịch vụ tại Số đầu năm là bao nhiêu?",
+            "gold_program": "SELECT:1",
+            "candidate_program": "SELECT:1",
+            "rejection_reasons": [
+              "unary_grounding_mismatch"
+            ],
+            "unknown_reasons": [
+              "operation_match",
+              "period_coverage",
+              "temporal_direction",
+              "reporting_entity"
+            ],
+            "generation_sources": [
+              "neural_operation_conditioned_beam",
+              "typed_slot_synthesis"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-subtract-0116",
+            "operation": "SUBTRACT",
+            "question": "Chênh lệch 2. Các khoản tương đương tiền giữa Số cuối năm và Số đầu năm là bao nhiêu?",
+            "gold_program": "SUBTRACT:12,11",
+            "candidate_program": "SUBTRACT:12,11",
+            "rejection_reasons": [
+              "temporal_metric_mismatch"
+            ],
+            "unknown_reasons": [
+              "period_coverage",
+              "temporal_direction",
+              "reporting_entity"
+            ],
+            "generation_sources": [
+              "neural_operation_conditioned_beam",
+              "typed_slot_synthesis"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-add-0074",
+            "operation": "ADD",
+            "question": "Tổng I. Các khoản phải thu dài hạn và I. Tiền và các khoản tương đương tiền tại cuoi nam là bao nhiêu?",
+            "gold_program": "ADD:3,9",
+            "candidate_program": "ADD:3,9",
+            "rejection_reasons": [
+              "operand_role_mismatch"
+            ],
+            "unknown_reasons": [
+              "operation_match",
+              "metric_match",
+              "same_row",
+              "period_coverage",
+              "temporal_direction",
+              "reporting_entity",
+              "graph_same_metric",
+              "graph_same_row"
+            ],
+            "generation_sources": [
+              "neural_operation_conditioned_beam",
+              "typed_slot_synthesis"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-ratio_percent-0068",
+            "operation": "RATIO_PERCENT",
+            "question": "Tiền và các khoản tương đương tiền chiếm bao nhiêu phần trăm TÀI SẢN NGẮN HẠN tại dau nam?",
+            "gold_program": "RATIO_PERCENT:4,1",
+            "candidate_program": "RATIO_PERCENT:4,1",
+            "rejection_reasons": [
+              "operand_role_mismatch"
+            ],
+            "unknown_reasons": [
+              "metric_match",
+              "same_row",
+              "period_coverage",
+              "temporal_direction",
+              "reporting_entity",
+              "graph_same_metric",
+              "graph_same_row"
+            ],
+            "generation_sources": [
+              "neural_operation_conditioned_beam",
+              "typed_slot_synthesis"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-subtract-0090",
+            "operation": "SUBTRACT",
+            "question": "Chênh lệch Các khoản tương đương tiền giữa SỐ ĐẦU NĂMMÃ SỐSỐ CUỐI NĂM và SỐ CUỐI NĂM là bao nhiêu?",
+            "gold_program": "SUBTRACT:19,17",
+            "candidate_program": "SUBTRACT:19,17",
+            "rejection_reasons": [
+              "temporal_metric_mismatch"
+            ],
+            "unknown_reasons": [
+              "period_coverage",
+              "temporal_direction",
+              "reporting_entity"
+            ],
+            "generation_sources": [
+              "neural_operation_conditioned_beam"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-add-0094",
+            "operation": "ADD",
+            "question": "Tổng Phải trả người bán ngắn hạn và Phải trả người bán dài hạn tại dau nam là bao nhiêu?",
+            "gold_program": "ADD:2,24",
+            "candidate_program": "ADD:2,24",
+            "rejection_reasons": [
+              "operand_role_mismatch"
+            ],
+            "unknown_reasons": [
+              "operation_match",
+              "metric_match",
+              "same_row",
+              "period_coverage",
+              "temporal_direction",
+              "reporting_entity",
+              "graph_same_metric",
+              "graph_same_row"
+            ],
+            "generation_sources": [
+              "neural_operation_conditioned_beam",
+              "typed_slot_synthesis"
+            ]
+          }
+        ],
+        "ranking_failure_with_gold_eligible": [
+          {
+            "example_id": "synthetic-train-add-0015",
+            "operation": "ADD",
+            "question": "Tổng Các khoản tương đương tiền và Đầu tư nắm giữ đến ngày đáo hạn tại cuoi nam là bao nhiêu?",
+            "gold_program": "ADD:6,20",
+            "candidate_program": "ADD:6,20",
+            "rejection_reasons": [],
+            "unknown_reasons": [
+              "operation_match",
+              "metric_match",
+              "same_row",
+              "period_coverage",
+              "temporal_direction",
+              "reporting_entity",
+              "graph_same_metric",
+              "graph_same_row"
+            ],
+            "generation_sources": [
+              "neural_baseline",
+              "typed_slot_synthesis"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-divide-0045",
+            "operation": "DIVIDE",
+            "question": "Các khoản phải thu ngắn hạn chia cho TÀI SẢN NGẮN HẠN tại dau nam bằng bao nhiêu?",
+            "gold_program": "DIVIDE:24,1",
+            "candidate_program": "DIVIDE:24,1",
+            "rejection_reasons": [
+              "operand_role_mismatch"
+            ],
+            "unknown_reasons": [
+              "metric_match",
+              "same_row",
+              "period_coverage",
+              "temporal_direction",
+              "reporting_entity",
+              "graph_same_metric",
+              "graph_same_row"
+            ],
+            "generation_sources": [
+              "neural_operation_conditioned_beam",
+              "typed_slot_synthesis"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-add-0117",
+            "operation": "ADD",
+            "question": "Tổng Tiền và các khoản tương đương tiền và Các khoản đầu tư tài chính ngắn hạn tại 2024 là bao nhiêu?",
+            "gold_program": "ADD:6,9",
+            "candidate_program": "ADD:6,9",
+            "rejection_reasons": [],
+            "unknown_reasons": [
+              "operation_match",
+              "metric_match",
+              "same_row",
+              "temporal_direction",
+              "reporting_entity",
+              "graph_same_metric",
+              "graph_same_row"
+            ],
+            "generation_sources": [
+              "neural_baseline",
+              "neural_operation_conditioned_beam",
+              "typed_slot_synthesis"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-average-0116",
+            "operation": "AVERAGE",
+            "question": "Giá trị bình quân của Dự phòng phải thu dài hạn khó đòi giữa Số cuối năm và Số đầu năm là bao nhiêu?",
+            "gold_program": "AVERAGE:17,18",
+            "candidate_program": "AVERAGE:17,18",
+            "rejection_reasons": [],
+            "unknown_reasons": [
+              "period_coverage",
+              "temporal_direction",
+              "reporting_entity"
+            ],
+            "generation_sources": [
+              "neural_operation_conditioned_beam",
+              "typed_slot_synthesis"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-add-0097",
+            "operation": "ADD",
+            "question": "Tổng 2. Phải thu dài hạn khác và II. Tài sản cố định tại cuoi nam là bao nhiêu?",
+            "gold_program": "ADD:4,6",
+            "candidate_program": "ADD:4,6",
+            "rejection_reasons": [],
+            "unknown_reasons": [
+              "operation_match",
+              "metric_match",
+              "same_row",
+              "period_coverage",
+              "temporal_direction",
+              "reporting_entity",
+              "graph_same_metric",
+              "graph_same_row"
+            ],
+            "generation_sources": [
+              "neural_baseline",
+              "typed_slot_synthesis"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-select-0088",
+            "operation": "SELECT",
+            "question": "Lãi bán các tài sản tài chính FVTPL tại NĂM TRƯỚCTTCHỈ TIÊU là bao nhiêu?",
+            "gold_program": "SELECT:10",
+            "candidate_program": "SELECT:10",
+            "rejection_reasons": [],
+            "unknown_reasons": [
+              "operation_match",
+              "period_coverage",
+              "temporal_direction",
+              "reporting_entity"
+            ],
+            "generation_sources": [
+              "neural_operation_conditioned_beam",
+              "typed_slot_synthesis"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-ratio_percent-0084",
+            "operation": "RATIO_PERCENT",
+            "question": "Doanh thu thuần chiếm bao nhiêu phần trăm Tổng tài sản tại 2025?",
+            "gold_program": "RATIO_PERCENT:4,1",
+            "candidate_program": "RATIO_PERCENT:4,1",
+            "rejection_reasons": [],
+            "unknown_reasons": [
+              "metric_match",
+              "same_row",
+              "temporal_direction",
+              "reporting_entity",
+              "graph_same_metric",
+              "graph_same_row"
+            ],
+            "generation_sources": [
+              "neural_baseline",
+              "neural_operation_conditioned_beam",
+              "typed_slot_synthesis"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-multiply-0096",
+            "operation": "MULTIPLY",
+            "question": "Giá trị theo mệnh giá của Số lượng cổ phiếu tự do chuyển nhượng tại năm 2025 là bao nhiêu?",
+            "gold_program": "MULTIPLY:30,15",
+            "candidate_program": "MULTIPLY:15,30",
+            "rejection_reasons": [],
+            "unknown_reasons": [
+              "metric_match",
+              "unit_match",
+              "unit_algebra",
+              "same_row",
+              "temporal_direction",
+              "reporting_entity",
+              "graph_same_metric",
+              "graph_same_row",
+              "graph_same_unit"
+            ],
+            "generation_sources": [
+              "neural_operation_conditioned_beam"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-add-0045",
+            "operation": "ADD",
+            "question": "Tổng Tiền và các khoản tương đương tiền và Đầu tư tài chính ngắn hạn tại cuoi nam là bao nhiêu?",
+            "gold_program": "ADD:2,9",
+            "candidate_program": "ADD:2,9",
+            "rejection_reasons": [],
+            "unknown_reasons": [
+              "operation_match",
+              "metric_match",
+              "same_row",
+              "period_coverage",
+              "temporal_direction",
+              "reporting_entity",
+              "graph_same_metric",
+              "graph_same_row"
+            ],
+            "generation_sources": [
+              "typed_slot_synthesis"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-multiply-0100",
+            "operation": "MULTIPLY",
+            "question": "Giá trị theo mệnh giá của Số lượng cổ phiếu (%) tại năm 2025 là bao nhiêu?",
+            "gold_program": "MULTIPLY:10,4",
+            "candidate_program": "MULTIPLY:4,10",
+            "rejection_reasons": [],
+            "unknown_reasons": [
+              "metric_match",
+              "same_row",
+              "temporal_direction",
+              "reporting_entity",
+              "graph_same_metric",
+              "graph_same_row",
+              "graph_same_unit"
+            ],
+            "generation_sources": [
+              "neural_operation_conditioned_beam",
+              "typed_slot_synthesis"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-select-0051",
+            "operation": "SELECT",
+            "question": "Lãi bán các tài sản tài chính FVTPL tại NĂM NAY là bao nhiêu?",
+            "gold_program": "SELECT:9",
+            "candidate_program": "SELECT:9",
+            "rejection_reasons": [
+              "unary_grounding_mismatch"
+            ],
+            "unknown_reasons": [
+              "operation_match",
+              "period_coverage",
+              "temporal_direction",
+              "reporting_entity"
+            ],
+            "generation_sources": [
+              "neural_operation_conditioned_beam",
+              "typed_slot_synthesis"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-percent_change-0047",
+            "operation": "PERCENT_CHANGE",
+            "question": "Dự phòng phải thu dài hạn khó đòi thay đổi bao nhiêu phần trăm từ Số đầu năm đến Số cuối năm?",
+            "gold_program": "PERCENT_CHANGE:17,18",
+            "candidate_program": "PERCENT_CHANGE:17,18",
+            "rejection_reasons": [],
+            "unknown_reasons": [
+              "period_coverage",
+              "temporal_direction",
+              "reporting_entity"
+            ],
+            "generation_sources": [
+              "neural_operation_conditioned_beam",
+              "typed_slot_synthesis"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-select-0086",
+            "operation": "SELECT",
+            "question": "1. Doanh thu bán hàng và cung cấp dịch vụ tại Số đầu năm là bao nhiêu?",
+            "gold_program": "SELECT:1",
+            "candidate_program": "SELECT:1",
+            "rejection_reasons": [
+              "unary_grounding_mismatch"
+            ],
+            "unknown_reasons": [
+              "operation_match",
+              "period_coverage",
+              "temporal_direction",
+              "reporting_entity"
+            ],
+            "generation_sources": [
+              "neural_operation_conditioned_beam",
+              "typed_slot_synthesis"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-average-0039",
+            "operation": "AVERAGE",
+            "question": "Giá trị bình quân của Nguyên giá giữa SỐ ĐẦU NĂMMÃ SỐSỐ CUỐI NĂM và SỐ CUỐI NĂM là bao nhiêu?",
+            "gold_program": "AVERAGE:19,17",
+            "candidate_program": "AVERAGE:17,19",
+            "rejection_reasons": [],
+            "unknown_reasons": [
+              "period_coverage",
+              "temporal_direction",
+              "reporting_entity"
+            ],
+            "generation_sources": [
+              "typed_slot_synthesis"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-multiply-0065",
+            "operation": "MULTIPLY",
+            "question": "Giá trị theo mệnh giá của Số lượng cổ phiếu tự do chuyển nhượng tại năm 2025 là bao nhiêu?",
+            "gold_program": "MULTIPLY:30,16",
+            "candidate_program": "MULTIPLY:16,30",
+            "rejection_reasons": [],
+            "unknown_reasons": [
+              "metric_match",
+              "unit_match",
+              "unit_algebra",
+              "same_row",
+              "temporal_direction",
+              "reporting_entity",
+              "graph_same_metric",
+              "graph_same_row",
+              "graph_same_unit"
+            ],
+            "generation_sources": [
+              "neural_operation_conditioned_beam"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-multiply-0007",
+            "operation": "MULTIPLY",
+            "question": "Giá trị theo mệnh giá của - Số lượng cổ phiếu đã phát hành: tại năm 2025 là bao nhiêu?",
+            "gold_program": "MULTIPLY:11,2",
+            "candidate_program": "MULTIPLY:2,11",
+            "rejection_reasons": [],
+            "unknown_reasons": [
+              "metric_match",
+              "same_row",
+              "temporal_direction",
+              "reporting_entity",
+              "graph_same_metric",
+              "graph_same_row",
+              "graph_same_unit"
+            ],
+            "generation_sources": [
+              "neural_operation_conditioned_beam"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-select-0042",
+            "operation": "SELECT",
+            "question": "Lợi nhuận sau thuế tại Kế hoạch năm 2025 là bao nhiêu?",
+            "gold_program": "SELECT:4",
+            "candidate_program": "SELECT:4",
+            "rejection_reasons": [],
+            "unknown_reasons": [
+              "operation_match",
+              "temporal_direction",
+              "reporting_entity"
+            ],
+            "generation_sources": [
+              "neural_operation_conditioned_beam",
+              "typed_slot_synthesis"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-add-0092",
+            "operation": "ADD",
+            "question": "Tổng Các khoản tương đương tiền và Đầu tư tài chính ngắn hạn tại cuoi nam là bao nhiêu?",
+            "gold_program": "ADD:6,11",
+            "candidate_program": "ADD:6,11",
+            "rejection_reasons": [],
+            "unknown_reasons": [
+              "operation_match",
+              "metric_match",
+              "same_row",
+              "period_coverage",
+              "temporal_direction",
+              "reporting_entity",
+              "graph_same_metric",
+              "graph_same_row"
+            ],
+            "generation_sources": [
+              "typed_slot_synthesis"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-add-0074",
+            "operation": "ADD",
+            "question": "Tổng I. Các khoản phải thu dài hạn và I. Tiền và các khoản tương đương tiền tại cuoi nam là bao nhiêu?",
+            "gold_program": "ADD:3,9",
+            "candidate_program": "ADD:3,9",
+            "rejection_reasons": [
+              "operand_role_mismatch"
+            ],
+            "unknown_reasons": [
+              "operation_match",
+              "metric_match",
+              "same_row",
+              "period_coverage",
+              "temporal_direction",
+              "reporting_entity",
+              "graph_same_metric",
+              "graph_same_row"
+            ],
+            "generation_sources": [
+              "neural_operation_conditioned_beam",
+              "typed_slot_synthesis"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-ratio_percent-0068",
+            "operation": "RATIO_PERCENT",
+            "question": "Tiền và các khoản tương đương tiền chiếm bao nhiêu phần trăm TÀI SẢN NGẮN HẠN tại dau nam?",
+            "gold_program": "RATIO_PERCENT:4,1",
+            "candidate_program": "RATIO_PERCENT:4,1",
+            "rejection_reasons": [
+              "operand_role_mismatch"
+            ],
+            "unknown_reasons": [
+              "metric_match",
+              "same_row",
+              "period_coverage",
+              "temporal_direction",
+              "reporting_entity",
+              "graph_same_metric",
+              "graph_same_row"
+            ],
+            "generation_sources": [
+              "neural_operation_conditioned_beam",
+              "typed_slot_synthesis"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-subtract-0044",
+            "operation": "SUBTRACT",
+            "question": "Chênh lệch Lợi nhuận sau thuế chưa phân giữa Số cuối năm và Số đầu năm là bao nhiêu?",
+            "gold_program": "SUBTRACT:0,1",
+            "candidate_program": "SUBTRACT:0,1",
+            "rejection_reasons": [],
+            "unknown_reasons": [
+              "period_coverage",
+              "temporal_direction",
+              "reporting_entity"
+            ],
+            "generation_sources": [
+              "neural_operation_conditioned_beam",
+              "typed_slot_synthesis"
+            ]
+          },
+          {
+            "example_id": "synthetic-train-add-0094",
+            "operation": "ADD",
+            "question": "Tổng Phải trả người bán ngắn hạn và Phải trả người bán dài hạn tại dau nam là bao nhiêu?",
+            "gold_program": "ADD:2,24",
+            "candidate_program": "ADD:2,24",
+            "rejection_reasons": [
+              "operand_role_mismatch"
+            ],
+            "unknown_reasons": [
+              "operation_match",
+              "metric_match",
+              "same_row",
+              "period_coverage",
+              "temporal_direction",
+              "reporting_entity",
+              "graph_same_metric",
+              "graph_same_row"
+            ],
+            "generation_sources": [
+              "neural_operation_conditioned_beam",
+              "typed_slot_synthesis"
+            ]
+          }
+        ],
+        "gold_program_not_generated_with_operands_available": [
+          {
+            "example_id": "synthetic-train-percent_change-0006",
+            "operation": "PERCENT_CHANGE",
+            "question": "5. Chi phí phải trả ngắn hạn thay đổi bao nhiêu phần trăm từ Số cuối năm đến Năm nay?",
+            "gold_program": "PERCENT_CHANGE:15,13"
+          },
+          {
+            "example_id": "synthetic-train-add-0099",
+            "operation": "ADD",
+            "question": "Tổng TÀI SẢN TÀI CHÍNH và Tiền và các khoản tương đương tiền tại cuoi nam dau nam là bao nhiêu?",
+            "gold_program": "ADD:10,12"
+          },
+          {
+            "example_id": "synthetic-train-add-0107",
+            "operation": "ADD",
+            "question": "Tổng 3. Tài sản cố định vô hình và 2. Các khoản tương đương tiền tại dau nam là bao nhiêu?",
+            "gold_program": "ADD:10,13"
+          },
+          {
+            "example_id": "synthetic-train-add-0029",
+            "operation": "ADD",
+            "question": "Tổng Chi phí lãi vay, lãi trái phiếu phải trả và - Người mua trả tiền trước khác tại cuoi nam là bao nhiêu?",
+            "gold_program": "ADD:31,35"
+          },
+          {
+            "example_id": "synthetic-train-add-0085",
+            "operation": "ADD",
+            "question": "Tổng Tiền mặt, vàng và Tiền gửi của khách hàng tại cuoi nam là bao nhiêu?",
+            "gold_program": "ADD:5,16"
+          },
+          {
+            "example_id": "synthetic-train-add-0027",
+            "operation": "ADD",
+            "question": "Tổng TÀI SẢN TÀI CHÍNH và Phải thu các dịch vụ CTCK cung cấp tại cuoi nam dau nam là bao nhiêu?",
+            "gold_program": "ADD:10,32"
+          },
+          {
+            "example_id": "synthetic-train-subtract-0067",
+            "operation": "SUBTRACT",
+            "question": "Chênh lệch 4. Giá vốn hàng bán và dịch vụ cung cấp giữa Năm nay và Số cuối năm là bao nhiêu?",
+            "gold_program": "SUBTRACT:15,13"
+          },
+          {
+            "example_id": "synthetic-train-add-0038",
+            "operation": "ADD",
+            "question": "Tổng Tiền mặt, vàng và Tài sản cố định tại cuoi nam là bao nhiêu?",
+            "gold_program": "ADD:6,26"
+          },
+          {
+            "example_id": "synthetic-train-percent_change-0071",
+            "operation": "PERCENT_CHANGE",
+            "question": "CHI PHÍ XÂY DỰNG CƠ BẢN DỞ DANG thay đổi bao nhiêu phần trăm từ SỐ ĐẦU NĂMTÀI SẢNTTCHỈ TIÊU đến SỐ ĐẦU NĂMMÃ SỐSỐ CUỐI NĂM?",
+            "gold_program": "PERCENT_CHANGE:27,26"
+          }
+        ],
+        "single_candidate_wrong_gold_not_generated": [
+          {
+            "example_id": "synthetic-train-add-0099",
+            "operation": "ADD",
+            "question": "Tổng TÀI SẢN TÀI CHÍNH và Tiền và các khoản tương đương tiền tại cuoi nam dau nam là bao nhiêu?",
+            "gold_program": "ADD:10,12"
+          },
+          {
+            "example_id": "synthetic-train-add-0027",
+            "operation": "ADD",
+            "question": "Tổng TÀI SẢN TÀI CHÍNH và Phải thu các dịch vụ CTCK cung cấp tại cuoi nam dau nam là bao nhiêu?",
+            "gold_program": "ADD:10,32"
+          },
+          {
+            "example_id": "synthetic-train-percent_change-0071",
+            "operation": "PERCENT_CHANGE",
+            "question": "CHI PHÍ XÂY DỰNG CƠ BẢN DỞ DANG thay đổi bao nhiêu phần trăm từ SỐ ĐẦU NĂMTÀI SẢNTTCHỈ TIÊU đến SỐ ĐẦU NĂMMÃ SỐSỐ CUỐI NĂM?",
+            "gold_program": "PERCENT_CHANGE:27,26"
+          }
+        ],
+        "trace_without_eligible_program": [
+          {
+            "example_id": "synthetic-train-add-0107",
+            "operation": "ADD",
+            "question": "Tổng 3. Tài sản cố định vô hình và 2. Các khoản tương đương tiền tại dau nam là bao nhiêu?",
+            "gold_program": "ADD:10,13"
+          },
+          {
+            "example_id": "synthetic-train-add-0029",
+            "operation": "ADD",
+            "question": "Tổng Chi phí lãi vay, lãi trái phiếu phải trả và - Người mua trả tiền trước khác tại cuoi nam là bao nhiêu?",
+            "gold_program": "ADD:31,35"
+          },
+          {
+            "example_id": "synthetic-train-add-0085",
+            "operation": "ADD",
+            "question": "Tổng Tiền mặt, vàng và Tiền gửi của khách hàng tại cuoi nam là bao nhiêu?",
+            "gold_program": "ADD:5,16"
+          },
+          {
+            "example_id": "synthetic-train-add-0038",
+            "operation": "ADD",
+            "question": "Tổng Tiền mặt, vàng và Tài sản cố định tại cuoi nam là bao nhiêu?",
+            "gold_program": "ADD:6,26"
+          }
+        ],
+        "single_candidate_wrong_gold_ineligible": [
+          {
+            "example_id": "synthetic-train-subtract-0090",
+            "operation": "SUBTRACT",
+            "question": "Chênh lệch Các khoản tương đương tiền giữa SỐ ĐẦU NĂMMÃ SỐSỐ CUỐI NĂM và SỐ CUỐI NĂM là bao nhiêu?",
+            "gold_program": "SUBTRACT:19,17",
+            "candidate_program": "SUBTRACT:19,17",
+            "rejection_reasons": [
+              "temporal_metric_mismatch"
+            ],
+            "unknown_reasons": [
+              "period_coverage",
+              "temporal_direction",
+              "reporting_entity"
+            ],
+            "generation_sources": [
+              "neural_operation_conditioned_beam"
+            ]
+          }
+        ]
+      },
+      "gold_program_recall_at_k": 0.96,
+      "execution_recall_at_k": 0.96,
+      "rerankable_gold_program_recall_at_k": 0.9754601226993865,
+      "rerankable_execution_recall_at_k": 0.9754601226993865,
+      "mean_pre_prune_candidates": 37.083333333333336,
+      "mean_post_prune_candidates": 26.980392156862745,
+      "pre_prune_gold_program_recall": 0.9411764705882353,
+      "post_prune_gold_program_recall": 0.9411764705882353
+    }
+  },
+  "training": {
+    "train_examples": 613,
+    "train_rank_examples": 598,
+    "calibration_examples": 163,
+    "calibration_rank_examples": 159,
+    "epochs": 24,
+    "selected_epoch": 16,
+    "final_loss": 1.9573843128251571,
+    "calibration_legacy_program_exact": 0.8404907975460123,
+    "calibration_legacy_execution": 0.852760736196319,
+    "calibration_legacy_coverage": 1.0,
+    "calibration_legacy_accepted_precision": 0.852760736196319,
+    "calibration_program_exact": 0.8588957055214724,
+    "calibration_execution": 0.8650306748466258,
+    "calibration_overrides": 4,
+    "override_margin": 1000000000.0,
+    "override_margins_by_operation": {
+      "ADD": 0.12608830139095728,
+      "AVERAGE": 1000000000.0,
+      "DIVIDE": 1000000000.0,
+      "MULTIPLY": 1000000000.0,
+      "PERCENT_CHANGE": 1000000000.0,
+      "RATIO_PERCENT": 1000000000.0,
+      "SELECT": 1000000000.0,
+      "SUBTRACT": 1000000000.0
+    },
+    "calibration_coverage": 0.8282208588957055,
+    "calibration_accepted_precision": 0.9703703703703703,
+    "confidence_epochs": 6,
+    "regression_guard_passed": false
+  },
+  "reranker_metadata": {
+    "architecture": "v12b-tristate-pruned-safe-residual-reranker",
+    "feature_schema": "typed-evidence-safe-residual-v2",
+    "train_operations": [
+      "ADD",
+      "AVERAGE",
+      "DIVIDE",
+      "MULTIPLY",
+      "PERCENT_CHANGE",
+      "RATIO_PERCENT",
+      "SELECT",
+      "SUBTRACT"
+    ],
+    "sum3_sum4_optimized": false,
+    "unknown_as_automatic_negative": false,
+    "selected_epoch": 16,
+    "target_precision": 0.9,
+    "residual_scale": 0.25,
+    "override_margin": 1000000000.0,
+    "override_margins_by_operation": {
+      "ADD": 0.12608830139095728,
+      "AVERAGE": 1000000000.0,
+      "DIVIDE": 1000000000.0,
+      "MULTIPLY": 1000000000.0,
+      "PERCENT_CHANGE": 1000000000.0,
+      "RATIO_PERCENT": 1000000000.0,
+      "SELECT": 1000000000.0,
+      "SUBTRACT": 1000000000.0
+    },
+    "legacy_fallback_enabled": true,
+    "calibration_regression_guard": true,
+    "base_model_sha256": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de",
+    "candidate_cache_schema": "v12b-tristate-pruned-candidate-cache-v1",
+    "training_state_policy": "hard-invalid-drop-unknown-retain-v1",
+    "top_k": 64,
+    "typed_program_synthesis_enabled": true,
+    "financial_identity_catalog_enabled": true,
+    "candidate_recall_v12_4_enabled": true,
+    "validation_labels_used_for_training": false,
+    "company_report_disjoint_calibration": true,
+    "confidence_thresholds_by_operation": {
+      "RATIO_PERCENT": 0.6927295923233032,
+      "AVERAGE": 0.9343598484992981,
+      "DIVIDE": 0.26775455474853516,
+      "SELECT": 0.6312853693962097,
+      "PERCENT_CHANGE": 0.7321958541870117,
+      "MULTIPLY": 0.8713988065719604,
+      "ADD": 0.9884369969367981,
+      "SUBTRACT": 0.8491687774658203
+    },
+    "calibration_legacy_program_exact": 0.8404907975460123,
+    "calibration_legacy_execution": 0.852760736196319,
+    "calibration_legacy_coverage": 1.0,
+    "calibration_legacy_accepted_precision": 0.852760736196319,
+    "calibration_program_exact": 0.8588957055214724,
+    "calibration_execution": 0.8650306748466258,
+    "calibration_overrides": 4,
+    "calibration_coverage": 0.8282208588957055,
+    "calibration_accepted_precision": 0.9703703703703703,
+    "calibration_target_met": false,
+    "regression_guard_passed": false
+  }
+}

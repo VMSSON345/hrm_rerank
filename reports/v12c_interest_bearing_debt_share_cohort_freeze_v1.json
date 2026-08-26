@@ -1,0 +1,29 @@
+{
+  "protocol": "v12c-interest-bearing-debt-share-cohort-freeze-v1",
+  "classification": "development_only",
+  "protected_evaluation_sources_used": false,
+  "training_performed": false,
+  "model_or_reranker_changed": false,
+  "threshold_changed": false,
+  "candidate_path": "/mnt/d/reasoning_model_V4/reasoning_model/data/v12c_interest_bearing_debt_share_development_candidates_v3.jsonl",
+  "candidate_sha256": "f39f728c94c28e60c25157972f9c2c537b6ff419e792aea6b155912a32621c84",
+  "visual_decisions_path": "/mnt/d/reasoning_model_V4/reasoning_model/reports/v12c_interest_bearing_debt_share_visual_decisions_v1.json",
+  "visual_decisions_sha256": "2198bfa7b80dd336c1b2c969e92309fc2e31f6a6d50b6161d33313df81de1e50",
+  "render_report_path": "/mnt/d/reasoning_model_V4/reasoning_model/reports/v12c_interest_bearing_debt_share_render_queue_v3.json",
+  "render_report_sha256": "40a2de615f8de53a6231f217c750528e4ff9549a51c7050c3fd23780e6b38958",
+  "summary": {
+    "frozen_records": 12,
+    "approved_pages": 6,
+    "company_groups": 5,
+    "minimum_company_groups": 5,
+    "role_contract_pass": true,
+    "period_unit_entity_lineage_pass": true,
+    "arithmetic_reexecution_pass": true,
+    "visual_qa_pass": true,
+    "ready_for_frozen_evaluation": true,
+    "ready_for_calibration": false
+  },
+  "frozen_path": "/mnt/d/reasoning_model_V4/reasoning_model/data/v12c_interest_bearing_debt_share_development_frozen_v1.jsonl",
+  "frozen_sha256": "13e4f290f7301d159edda87ed267607a80963e72bd9853329352726f70cfd520",
+  "freezer_sha256": "b97cc3fc3743e821a93ef7faf0e749b2b4d485ff5696bffacb5626cc61a9ce05"
+}

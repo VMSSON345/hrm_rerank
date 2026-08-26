@@ -1,0 +1,1213 @@
+{
+  "schema": "finhrm-qp3d-role-inventory-producer-development-evaluation-v1",
+  "classification": "development_only_role_inventory_producer_evaluation",
+  "implementation_gate_passed": true,
+  "errors": [],
+  "frozen_cohort": {
+    "state_exact": 96,
+    "reason_set_exact": 96,
+    "total": 96,
+    "failures": [],
+    "by_scenario": {
+      "complete_explicit": 8,
+      "complete_inherited_with_anchor": 8,
+      "complete_permuted": 8,
+      "conflicting_header_role": 8,
+      "cross_extractor_role_conflict": 8,
+      "duplicate_physical_role_conflict": 8,
+      "incomplete_cell_coverage": 8,
+      "missing_header_column": 8,
+      "missing_physical_provenance": 8,
+      "partial_table_boundary": 8,
+      "unaligned_header_width": 8,
+      "unknown_role_label": 8
+    },
+    "details": [
+      {
+        "example_id": "L01_FLAT_PLAN_ACTUAL:complete_explicit",
+        "observed_state": "EXPLICIT_COMPLETE",
+        "expected_state": "EXPLICIT_COMPLETE",
+        "observed_reasons": [],
+        "expected_reasons": [],
+        "exact": true
+      },
+      {
+        "example_id": "L01_FLAT_PLAN_ACTUAL:complete_inherited_with_anchor",
+        "observed_state": "EXPLICIT_COMPLETE",
+        "expected_state": "EXPLICIT_COMPLETE",
+        "observed_reasons": [],
+        "expected_reasons": [],
+        "exact": true
+      },
+      {
+        "example_id": "L01_FLAT_PLAN_ACTUAL:complete_permuted",
+        "observed_state": "EXPLICIT_COMPLETE",
+        "expected_state": "EXPLICIT_COMPLETE",
+        "observed_reasons": [],
+        "expected_reasons": [],
+        "exact": true
+      },
+      {
+        "example_id": "L01_FLAT_PLAN_ACTUAL:missing_header_column",
+        "observed_state": "UNKNOWN",
+        "expected_state": "UNKNOWN",
+        "observed_reasons": [
+          "header_column_coverage_mismatch"
+        ],
+        "expected_reasons": [
+          "header_column_coverage_mismatch"
+        ],
+        "exact": true
+      },
+      {
+        "example_id": "L01_FLAT_PLAN_ACTUAL:unknown_role_label",
+        "observed_state": "UNKNOWN",
+        "expected_state": "UNKNOWN",
+        "observed_reasons": [
+          "missing_explicit_column_role"
+        ],
+        "expected_reasons": [
+          "missing_explicit_column_role"
+        ],
+        "exact": true
+      },
+      {
+        "example_id": "L01_FLAT_PLAN_ACTUAL:conflicting_header_role",
+        "observed_state": "UNKNOWN",
+        "expected_state": "UNKNOWN",
+        "observed_reasons": [
+          "header_role_conflict",
+          "missing_explicit_column_role"
+        ],
+        "expected_reasons": [
+          "header_role_conflict",
+          "missing_explicit_column_role"
+        ],
+        "exact": true
+      },
+      {
+        "example_id": "L01_FLAT_PLAN_ACTUAL:cross_extractor_role_conflict",
+        "observed_state": "UNKNOWN",
+        "expected_state": "UNKNOWN",
+        "observed_reasons": [
+          "cross_extractor_role_conflict",
+          "physical_role_conflict"
+        ],
+        "expected_reasons": [
+          "cross_extractor_role_conflict",
+          "physical_role_conflict"
+        ],
+        "exact": true
+      },
+      {
+        "example_id": "L01_FLAT_PLAN_ACTUAL:incomplete_cell_coverage",
+        "observed_state": "UNKNOWN",
+        "expected_state": "UNKNOWN",
+        "observed_reasons": [
+          "cell_coverage_mismatch"
+        ],
+        "expected_reasons": [
+          "cell_coverage_mismatch"
+        ],
+        "exact": true
+      },
+      {
+        "example_id": "L01_FLAT_PLAN_ACTUAL:partial_table_boundary",
+        "observed_state": "UNKNOWN",
+        "expected_state": "UNKNOWN",
+        "observed_reasons": [
+          "incomplete_table_boundary"
+        ],
+        "expected_reasons": [
+          "incomplete_table_boundary"
+        ],
+        "exact": true
+      },
+      {
+        "example_id": "L01_FLAT_PLAN_ACTUAL:unaligned_header_width",
+        "observed_state": "UNKNOWN",
+        "expected_state": "UNKNOWN",
+        "observed_reasons": [
+          "header_alignment_unproven"
+        ],
+        "expected_reasons": [
+          "header_alignment_unproven"
+        ],
+        "exact": true
+      },
+      {
+        "example_id": "L01_FLAT_PLAN_ACTUAL:missing_physical_provenance",
+        "observed_state": "UNKNOWN",
+        "expected_state": "UNKNOWN",
+        "observed_reasons": [
+          "missing_physical_provenance"
+        ],
+        "expected_reasons": [
+          "missing_physical_provenance"
+        ],
+        "exact": true
+      },
+      {
+        "example_id": "L01_FLAT_PLAN_ACTUAL:duplicate_physical_role_conflict",
+        "observed_state": "UNKNOWN",
+        "expected_state": "UNKNOWN",
+        "observed_reasons": [
+          "physical_role_conflict"
+        ],
+        "expected_reasons": [
+          "physical_role_conflict"
+        ],
+        "exact": true
+      },
+      {
+        "example_id": "L02_HIERARCHICAL_MERGED:complete_explicit",
+        "observed_state": "EXPLICIT_COMPLETE",
+        "expected_state": "EXPLICIT_COMPLETE",
+        "observed_reasons": [],
+        "expected_reasons": [],
+        "exact": true
+      },
+      {
+        "example_id": "L02_HIERARCHICAL_MERGED:complete_inherited_with_anchor",
+        "observed_state": "EXPLICIT_COMPLETE",
+        "expected_state": "EXPLICIT_COMPLETE",
+        "observed_reasons": [],
+        "expected_reasons": [],
+        "exact": true
+      },
+      {
+        "example_id": "L02_HIERARCHICAL_MERGED:complete_permuted",
+        "observed_state": "EXPLICIT_COMPLETE",
+        "expected_state": "EXPLICIT_COMPLETE",
+        "observed_reasons": [],
+        "expected_reasons": [],
+        "exact": true
+      },
+      {
+        "example_id": "L02_HIERARCHICAL_MERGED:missing_header_column",
+        "observed_state": "UNKNOWN",
+        "expected_state": "UNKNOWN",
+        "observed_reasons": [
+          "header_column_coverage_mismatch"
+        ],
+        "expected_reasons": [
+          "header_column_coverage_mismatch"
+        ],
+        "exact": true
+      },
+      {
+        "example_id": "L02_HIERARCHICAL_MERGED:unknown_role_label",
+        "observed_state": "UNKNOWN",
+        "expected_state": "UNKNOWN",
+        "observed_reasons": [
+          "missing_explicit_column_role"
+        ],
+        "expected_reasons": [
+          "missing_explicit_column_role"
+        ],
+        "exact": true
+      },
+      {
+        "example_id": "L02_HIERARCHICAL_MERGED:conflicting_header_role",
+        "observed_state": "UNKNOWN",
+        "expected_state": "UNKNOWN",
+        "observed_reasons": [
+          "header_role_conflict",
+          "missing_explicit_column_role"
+        ],
+        "expected_reasons": [
+          "header_role_conflict",
+          "missing_explicit_column_role"
+        ],
+        "exact": true
+      },
+      {
+        "example_id": "L02_HIERARCHICAL_MERGED:cross_extractor_role_conflict",
+        "observed_state": "UNKNOWN",
+        "expected_state": "UNKNOWN",
+        "observed_reasons": [
+          "cross_extractor_role_conflict",
+          "physical_role_conflict"
+        ],
+        "expected_reasons": [
+          "cross_extractor_role_conflict",
+          "physical_role_conflict"
+        ],
+        "exact": true
+      },
+      {
+        "example_id": "L02_HIERARCHICAL_MERGED:incomplete_cell_coverage",
+        "observed_state": "UNKNOWN",
+        "expected_state": "UNKNOWN",
+        "observed_reasons": [
+          "cell_coverage_mismatch"
+        ],
+        "expected_reasons": [
+          "cell_coverage_mismatch"
+        ],
+        "exact": true
+      },
+      {
+        "example_id": "L02_HIERARCHICAL_MERGED:partial_table_boundary",
+        "observed_state": "UNKNOWN",
+        "expected_state": "UNKNOWN",
+        "observed_reasons": [
+          "incomplete_table_boundary"
+        ],
+        "expected_reasons": [
+          "incomplete_table_boundary"
+        ],
+        "exact": true
+      },
+      {
+        "example_id": "L02_HIERARCHICAL_MERGED:unaligned_header_width",
+        "observed_state": "UNKNOWN",
+        "expected_state": "UNKNOWN",
+        "observed_reasons": [
+          "header_alignment_unproven"
+        ],
+        "expected_reasons": [
+          "header_alignment_unproven"
+        ],
+        "exact": true
+      },
+      {
+        "example_id": "L02_HIERARCHICAL_MERGED:missing_physical_provenance",
+        "observed_state": "UNKNOWN",
+        "expected_state": "UNKNOWN",
+        "observed_reasons": [
+          "missing_physical_provenance"
+        ],
+        "expected_reasons": [
+          "missing_physical_provenance"
+        ],
+        "exact": true
+      },
+      {
+        "example_id": "L02_HIERARCHICAL_MERGED:duplicate_physical_role_conflict",
+        "observed_state": "UNKNOWN",
+        "expected_state": "UNKNOWN",
+        "observed_reasons": [
+          "physical_role_conflict"
+        ],
+        "expected_reasons": [
+          "physical_role_conflict"
+        ],
+        "exact": true
+      },
+      {
+        "example_id": "L03_REPEATED_HEADER:complete_explicit",
+        "observed_state": "EXPLICIT_COMPLETE",
+        "expected_state": "EXPLICIT_COMPLETE",
+        "observed_reasons": [],
+        "expected_reasons": [],
+        "exact": true
+      },
+      {
+        "example_id": "L03_REPEATED_HEADER:complete_inherited_with_anchor",
+        "observed_state": "EXPLICIT_COMPLETE",
+        "expected_state": "EXPLICIT_COMPLETE",
+        "observed_reasons": [],
+        "expected_reasons": [],
+        "exact": true
+      },
+      {
+        "example_id": "L03_REPEATED_HEADER:complete_permuted",
+        "observed_state": "EXPLICIT_COMPLETE",
+        "expected_state": "EXPLICIT_COMPLETE",
+        "observed_reasons": [],
+        "expected_reasons": [],
+        "exact": true
+      },
+      {
+        "example_id": "L03_REPEATED_HEADER:missing_header_column",
+        "observed_state": "UNKNOWN",
+        "expected_state": "UNKNOWN",
+        "observed_reasons": [
+          "header_column_coverage_mismatch"
+        ],
+        "expected_reasons": [
+          "header_column_coverage_mismatch"
+        ],
+        "exact": true
+      },
+      {
+        "example_id": "L03_REPEATED_HEADER:unknown_role_label",
+        "observed_state": "UNKNOWN",
+        "expected_state": "UNKNOWN",
+        "observed_reasons": [
+          "missing_explicit_column_role"
+        ],
+        "expected_reasons": [
+          "missing_explicit_column_role"
+        ],
+        "exact": true
+      },
+      {
+        "example_id": "L03_REPEATED_HEADER:conflicting_header_role",
+        "observed_state": "UNKNOWN",
+        "expected_state": "UNKNOWN",
+        "observed_reasons": [
+          "header_role_conflict",
+          "missing_explicit_column_role"
+        ],
+        "expected_reasons": [
+          "header_role_conflict",
+          "missing_explicit_column_role"
+        ],
+        "exact": true
+      },
+      {
+        "example_id": "L03_REPEATED_HEADER:cross_extractor_role_conflict",
+        "observed_state": "UNKNOWN",
+        "expected_state": "UNKNOWN",
+        "observed_reasons": [
+          "cross_extractor_role_conflict",
+          "physical_role_conflict"
+        ],
+        "expected_reasons": [
+          "cross_extractor_role_conflict",
+          "physical_role_conflict"
+        ],
+        "exact": true
+      },
+      {
+        "example_id": "L03_REPEATED_HEADER:incomplete_cell_coverage",
+        "observed_state": "UNKNOWN",
+        "expected_state": "UNKNOWN",
+        "observed_reasons": [
+          "cell_coverage_mismatch"
+        ],
+        "expected_reasons": [
+          "cell_coverage_mismatch"
+        ],
+        "exact": true
+      },
+      {
+        "example_id": "L03_REPEATED_HEADER:partial_table_boundary",
+        "observed_state": "UNKNOWN",
+        "expected_state": "UNKNOWN",
+        "observed_reasons": [
+          "incomplete_table_boundary"
+        ],
+        "expected_reasons": [
+          "incomplete_table_boundary"
+        ],
+        "exact": true
+      },
+      {
+        "example_id": "L03_REPEATED_HEADER:unaligned_header_width",
+        "observed_state": "UNKNOWN",
+        "expected_state": "UNKNOWN",
+        "observed_reasons": [
+          "header_alignment_unproven"
+        ],
+        "expected_reasons": [
+          "header_alignment_unproven"
+        ],
+        "exact": true
+      },
+      {
+        "example_id": "L03_REPEATED_HEADER:missing_physical_provenance",
+        "observed_state": "UNKNOWN",
+        "expected_state": "UNKNOWN",
+        "observed_reasons": [
+          "missing_physical_provenance"
+        ],
+        "expected_reasons": [
+          "missing_physical_provenance"
+        ],
+        "exact": true
+      },
+      {
+        "example_id": "L03_REPEATED_HEADER:duplicate_physical_role_conflict",
+        "observed_state": "UNKNOWN",
+        "expected_state": "UNKNOWN",
+        "observed_reasons": [
+          "physical_role_conflict"
+        ],
+        "expected_reasons": [
+          "physical_role_conflict"
+        ],
+        "exact": true
+      },
+      {
+        "example_id": "L04_PARALLEL_ENTITY_PANELS:complete_explicit",
+        "observed_state": "EXPLICIT_COMPLETE",
+        "expected_state": "EXPLICIT_COMPLETE",
+        "observed_reasons": [],
+        "expected_reasons": [],
+        "exact": true
+      },
+      {
+        "example_id": "L04_PARALLEL_ENTITY_PANELS:complete_inherited_with_anchor",
+        "observed_state": "EXPLICIT_COMPLETE",
+        "expected_state": "EXPLICIT_COMPLETE",
+        "observed_reasons": [],
+        "expected_reasons": [],
+        "exact": true
+      },
+      {
+        "example_id": "L04_PARALLEL_ENTITY_PANELS:complete_permuted",
+        "observed_state": "EXPLICIT_COMPLETE",
+        "expected_state": "EXPLICIT_COMPLETE",
+        "observed_reasons": [],
+        "expected_reasons": [],
+        "exact": true
+      },
+      {
+        "example_id": "L04_PARALLEL_ENTITY_PANELS:missing_header_column",
+        "observed_state": "UNKNOWN",
+        "expected_state": "UNKNOWN",
+        "observed_reasons": [
+          "header_column_coverage_mismatch"
+        ],
+        "expected_reasons": [
+          "header_column_coverage_mismatch"
+        ],
+        "exact": true
+      },
+      {
+        "example_id": "L04_PARALLEL_ENTITY_PANELS:unknown_role_label",
+        "observed_state": "UNKNOWN",
+        "expected_state": "UNKNOWN",
+        "observed_reasons": [
+          "missing_explicit_column_role"
+        ],
+        "expected_reasons": [
+          "missing_explicit_column_role"
+        ],
+        "exact": true
+      },
+      {
+        "example_id": "L04_PARALLEL_ENTITY_PANELS:conflicting_header_role",
+        "observed_state": "UNKNOWN",
+        "expected_state": "UNKNOWN",
+        "observed_reasons": [
+          "header_role_conflict",
+          "missing_explicit_column_role"
+        ],
+        "expected_reasons": [
+          "header_role_conflict",
+          "missing_explicit_column_role"
+        ],
+        "exact": true
+      },
+      {
+        "example_id": "L04_PARALLEL_ENTITY_PANELS:cross_extractor_role_conflict",
+        "observed_state": "UNKNOWN",
+        "expected_state": "UNKNOWN",
+        "observed_reasons": [
+          "cross_extractor_role_conflict",
+          "physical_role_conflict"
+        ],
+        "expected_reasons": [
+          "cross_extractor_role_conflict",
+          "physical_role_conflict"
+        ],
+        "exact": true
+      },
+      {
+        "example_id": "L04_PARALLEL_ENTITY_PANELS:incomplete_cell_coverage",
+        "observed_state": "UNKNOWN",
+        "expected_state": "UNKNOWN",
+        "observed_reasons": [
+          "cell_coverage_mismatch"
+        ],
+        "expected_reasons": [
+          "cell_coverage_mismatch"
+        ],
+        "exact": true
+      },
+      {
+        "example_id": "L04_PARALLEL_ENTITY_PANELS:partial_table_boundary",
+        "observed_state": "UNKNOWN",
+        "expected_state": "UNKNOWN",
+        "observed_reasons": [
+          "incomplete_table_boundary"
+        ],
+        "expected_reasons": [
+          "incomplete_table_boundary"
+        ],
+        "exact": true
+      },
+      {
+        "example_id": "L04_PARALLEL_ENTITY_PANELS:unaligned_header_width",
+        "observed_state": "UNKNOWN",
+        "expected_state": "UNKNOWN",
+        "observed_reasons": [
+          "header_alignment_unproven"
+        ],
+        "expected_reasons": [
+          "header_alignment_unproven"
+        ],
+        "exact": true
+      },
+      {
+        "example_id": "L04_PARALLEL_ENTITY_PANELS:missing_physical_provenance",
+        "observed_state": "UNKNOWN",
+        "expected_state": "UNKNOWN",
+        "observed_reasons": [
+          "missing_physical_provenance"
+        ],
+        "expected_reasons": [
+          "missing_physical_provenance"
+        ],
+        "exact": true
+      },
+      {
+        "example_id": "L04_PARALLEL_ENTITY_PANELS:duplicate_physical_role_conflict",
+        "observed_state": "UNKNOWN",
+        "expected_state": "UNKNOWN",
+        "observed_reasons": [
+          "physical_role_conflict"
+        ],
+        "expected_reasons": [
+          "physical_role_conflict"
+        ],
+        "exact": true
+      },
+      {
+        "example_id": "L05_REVISED_PLAN:complete_explicit",
+        "observed_state": "EXPLICIT_COMPLETE",
+        "expected_state": "EXPLICIT_COMPLETE",
+        "observed_reasons": [],
+        "expected_reasons": [],
+        "exact": true
+      },
+      {
+        "example_id": "L05_REVISED_PLAN:complete_inherited_with_anchor",
+        "observed_state": "EXPLICIT_COMPLETE",
+        "expected_state": "EXPLICIT_COMPLETE",
+        "observed_reasons": [],
+        "expected_reasons": [],
+        "exact": true
+      },
+      {
+        "example_id": "L05_REVISED_PLAN:complete_permuted",
+        "observed_state": "EXPLICIT_COMPLETE",
+        "expected_state": "EXPLICIT_COMPLETE",
+        "observed_reasons": [],
+        "expected_reasons": [],
+        "exact": true
+      },
+      {
+        "example_id": "L05_REVISED_PLAN:missing_header_column",
+        "observed_state": "UNKNOWN",
+        "expected_state": "UNKNOWN",
+        "observed_reasons": [
+          "header_column_coverage_mismatch"
+        ],
+        "expected_reasons": [
+          "header_column_coverage_mismatch"
+        ],
+        "exact": true
+      },
+      {
+        "example_id": "L05_REVISED_PLAN:unknown_role_label",
+        "observed_state": "UNKNOWN",
+        "expected_state": "UNKNOWN",
+        "observed_reasons": [
+          "missing_explicit_column_role"
+        ],
+        "expected_reasons": [
+          "missing_explicit_column_role"
+        ],
+        "exact": true
+      },
+      {
+        "example_id": "L05_REVISED_PLAN:conflicting_header_role",
+        "observed_state": "UNKNOWN",
+        "expected_state": "UNKNOWN",
+        "observed_reasons": [
+          "header_role_conflict",
+          "missing_explicit_column_role"
+        ],
+        "expected_reasons": [
+          "header_role_conflict",
+          "missing_explicit_column_role"
+        ],
+        "exact": true
+      },
+      {
+        "example_id": "L05_REVISED_PLAN:cross_extractor_role_conflict",
+        "observed_state": "UNKNOWN",
+        "expected_state": "UNKNOWN",
+        "observed_reasons": [
+          "cross_extractor_role_conflict",
+          "physical_role_conflict"
+        ],
+        "expected_reasons": [
+          "cross_extractor_role_conflict",
+          "physical_role_conflict"
+        ],
+        "exact": true
+      },
+      {
+        "example_id": "L05_REVISED_PLAN:incomplete_cell_coverage",
+        "observed_state": "UNKNOWN",
+        "expected_state": "UNKNOWN",
+        "observed_reasons": [
+          "cell_coverage_mismatch"
+        ],
+        "expected_reasons": [
+          "cell_coverage_mismatch"
+        ],
+        "exact": true
+      },
+      {
+        "example_id": "L05_REVISED_PLAN:partial_table_boundary",
+        "observed_state": "UNKNOWN",
+        "expected_state": "UNKNOWN",
+        "observed_reasons": [
+          "incomplete_table_boundary"
+        ],
+        "expected_reasons": [
+          "incomplete_table_boundary"
+        ],
+        "exact": true
+      },
+      {
+        "example_id": "L05_REVISED_PLAN:unaligned_header_width",
+        "observed_state": "UNKNOWN",
+        "expected_state": "UNKNOWN",
+        "observed_reasons": [
+          "header_alignment_unproven"
+        ],
+        "expected_reasons": [
+          "header_alignment_unproven"
+        ],
+        "exact": true
+      },
+      {
+        "example_id": "L05_REVISED_PLAN:missing_physical_provenance",
+        "observed_state": "UNKNOWN",
+        "expected_state": "UNKNOWN",
+        "observed_reasons": [
+          "missing_physical_provenance"
+        ],
+        "expected_reasons": [
+          "missing_physical_provenance"
+        ],
+        "exact": true
+      },
+      {
+        "example_id": "L05_REVISED_PLAN:duplicate_physical_role_conflict",
+        "observed_state": "UNKNOWN",
+        "expected_state": "UNKNOWN",
+        "observed_reasons": [
+          "physical_role_conflict"
+        ],
+        "expected_reasons": [
+          "physical_role_conflict"
+        ],
+        "exact": true
+      },
+      {
+        "example_id": "L06_FORECAST:complete_explicit",
+        "observed_state": "EXPLICIT_COMPLETE",
+        "expected_state": "EXPLICIT_COMPLETE",
+        "observed_reasons": [],
+        "expected_reasons": [],
+        "exact": true
+      },
+      {
+        "example_id": "L06_FORECAST:complete_inherited_with_anchor",
+        "observed_state": "EXPLICIT_COMPLETE",
+        "expected_state": "EXPLICIT_COMPLETE",
+        "observed_reasons": [],
+        "expected_reasons": [],
+        "exact": true
+      },
+      {
+        "example_id": "L06_FORECAST:complete_permuted",
+        "observed_state": "EXPLICIT_COMPLETE",
+        "expected_state": "EXPLICIT_COMPLETE",
+        "observed_reasons": [],
+        "expected_reasons": [],
+        "exact": true
+      },
+      {
+        "example_id": "L06_FORECAST:missing_header_column",
+        "observed_state": "UNKNOWN",
+        "expected_state": "UNKNOWN",
+        "observed_reasons": [
+          "header_column_coverage_mismatch"
+        ],
+        "expected_reasons": [
+          "header_column_coverage_mismatch"
+        ],
+        "exact": true
+      },
+      {
+        "example_id": "L06_FORECAST:unknown_role_label",
+        "observed_state": "UNKNOWN",
+        "expected_state": "UNKNOWN",
+        "observed_reasons": [
+          "missing_explicit_column_role"
+        ],
+        "expected_reasons": [
+          "missing_explicit_column_role"
+        ],
+        "exact": true
+      },
+      {
+        "example_id": "L06_FORECAST:conflicting_header_role",
+        "observed_state": "UNKNOWN",
+        "expected_state": "UNKNOWN",
+        "observed_reasons": [
+          "header_role_conflict",
+          "missing_explicit_column_role"
+        ],
+        "expected_reasons": [
+          "header_role_conflict",
+          "missing_explicit_column_role"
+        ],
+        "exact": true
+      },
+      {
+        "example_id": "L06_FORECAST:cross_extractor_role_conflict",
+        "observed_state": "UNKNOWN",
+        "expected_state": "UNKNOWN",
+        "observed_reasons": [
+          "cross_extractor_role_conflict",
+          "physical_role_conflict"
+        ],
+        "expected_reasons": [
+          "cross_extractor_role_conflict",
+          "physical_role_conflict"
+        ],
+        "exact": true
+      },
+      {
+        "example_id": "L06_FORECAST:incomplete_cell_coverage",
+        "observed_state": "UNKNOWN",
+        "expected_state": "UNKNOWN",
+        "observed_reasons": [
+          "cell_coverage_mismatch"
+        ],
+        "expected_reasons": [
+          "cell_coverage_mismatch"
+        ],
+        "exact": true
+      },
+      {
+        "example_id": "L06_FORECAST:partial_table_boundary",
+        "observed_state": "UNKNOWN",
+        "expected_state": "UNKNOWN",
+        "observed_reasons": [
+          "incomplete_table_boundary"
+        ],
+        "expected_reasons": [
+          "incomplete_table_boundary"
+        ],
+        "exact": true
+      },
+      {
+        "example_id": "L06_FORECAST:unaligned_header_width",
+        "observed_state": "UNKNOWN",
+        "expected_state": "UNKNOWN",
+        "observed_reasons": [
+          "header_alignment_unproven"
+        ],
+        "expected_reasons": [
+          "header_alignment_unproven"
+        ],
+        "exact": true
+      },
+      {
+        "example_id": "L06_FORECAST:missing_physical_provenance",
+        "observed_state": "UNKNOWN",
+        "expected_state": "UNKNOWN",
+        "observed_reasons": [
+          "missing_physical_provenance"
+        ],
+        "expected_reasons": [
+          "missing_physical_provenance"
+        ],
+        "exact": true
+      },
+      {
+        "example_id": "L06_FORECAST:duplicate_physical_role_conflict",
+        "observed_state": "UNKNOWN",
+        "expected_state": "UNKNOWN",
+        "observed_reasons": [
+          "physical_role_conflict"
+        ],
+        "expected_reasons": [
+          "physical_role_conflict"
+        ],
+        "exact": true
+      },
+      {
+        "example_id": "L07_RATIO_COLUMNS:complete_explicit",
+        "observed_state": "EXPLICIT_COMPLETE",
+        "expected_state": "EXPLICIT_COMPLETE",
+        "observed_reasons": [],
+        "expected_reasons": [],
+        "exact": true
+      },
+      {
+        "example_id": "L07_RATIO_COLUMNS:complete_inherited_with_anchor",
+        "observed_state": "EXPLICIT_COMPLETE",
+        "expected_state": "EXPLICIT_COMPLETE",
+        "observed_reasons": [],
+        "expected_reasons": [],
+        "exact": true
+      },
+      {
+        "example_id": "L07_RATIO_COLUMNS:complete_permuted",
+        "observed_state": "EXPLICIT_COMPLETE",
+        "expected_state": "EXPLICIT_COMPLETE",
+        "observed_reasons": [],
+        "expected_reasons": [],
+        "exact": true
+      },
+      {
+        "example_id": "L07_RATIO_COLUMNS:missing_header_column",
+        "observed_state": "UNKNOWN",
+        "expected_state": "UNKNOWN",
+        "observed_reasons": [
+          "header_column_coverage_mismatch"
+        ],
+        "expected_reasons": [
+          "header_column_coverage_mismatch"
+        ],
+        "exact": true
+      },
+      {
+        "example_id": "L07_RATIO_COLUMNS:unknown_role_label",
+        "observed_state": "UNKNOWN",
+        "expected_state": "UNKNOWN",
+        "observed_reasons": [
+          "missing_explicit_column_role"
+        ],
+        "expected_reasons": [
+          "missing_explicit_column_role"
+        ],
+        "exact": true
+      },
+      {
+        "example_id": "L07_RATIO_COLUMNS:conflicting_header_role",
+        "observed_state": "UNKNOWN",
+        "expected_state": "UNKNOWN",
+        "observed_reasons": [
+          "header_role_conflict",
+          "missing_explicit_column_role"
+        ],
+        "expected_reasons": [
+          "header_role_conflict",
+          "missing_explicit_column_role"
+        ],
+        "exact": true
+      },
+      {
+        "example_id": "L07_RATIO_COLUMNS:cross_extractor_role_conflict",
+        "observed_state": "UNKNOWN",
+        "expected_state": "UNKNOWN",
+        "observed_reasons": [
+          "cross_extractor_role_conflict",
+          "physical_role_conflict"
+        ],
+        "expected_reasons": [
+          "cross_extractor_role_conflict",
+          "physical_role_conflict"
+        ],
+        "exact": true
+      },
+      {
+        "example_id": "L07_RATIO_COLUMNS:incomplete_cell_coverage",
+        "observed_state": "UNKNOWN",
+        "expected_state": "UNKNOWN",
+        "observed_reasons": [
+          "cell_coverage_mismatch"
+        ],
+        "expected_reasons": [
+          "cell_coverage_mismatch"
+        ],
+        "exact": true
+      },
+      {
+        "example_id": "L07_RATIO_COLUMNS:partial_table_boundary",
+        "observed_state": "UNKNOWN",
+        "expected_state": "UNKNOWN",
+        "observed_reasons": [
+          "incomplete_table_boundary"
+        ],
+        "expected_reasons": [
+          "incomplete_table_boundary"
+        ],
+        "exact": true
+      },
+      {
+        "example_id": "L07_RATIO_COLUMNS:unaligned_header_width",
+        "observed_state": "UNKNOWN",
+        "expected_state": "UNKNOWN",
+        "observed_reasons": [
+          "header_alignment_unproven"
+        ],
+        "expected_reasons": [
+          "header_alignment_unproven"
+        ],
+        "exact": true
+      },
+      {
+        "example_id": "L07_RATIO_COLUMNS:missing_physical_provenance",
+        "observed_state": "UNKNOWN",
+        "expected_state": "UNKNOWN",
+        "observed_reasons": [
+          "missing_physical_provenance"
+        ],
+        "expected_reasons": [
+          "missing_physical_provenance"
+        ],
+        "exact": true
+      },
+      {
+        "example_id": "L07_RATIO_COLUMNS:duplicate_physical_role_conflict",
+        "observed_state": "UNKNOWN",
+        "expected_state": "UNKNOWN",
+        "observed_reasons": [
+          "physical_role_conflict"
+        ],
+        "expected_reasons": [
+          "physical_role_conflict"
+        ],
+        "exact": true
+      },
+      {
+        "example_id": "L08_BILINGUAL_HEADER:complete_explicit",
+        "observed_state": "EXPLICIT_COMPLETE",
+        "expected_state": "EXPLICIT_COMPLETE",
+        "observed_reasons": [],
+        "expected_reasons": [],
+        "exact": true
+      },
+      {
+        "example_id": "L08_BILINGUAL_HEADER:complete_inherited_with_anchor",
+        "observed_state": "EXPLICIT_COMPLETE",
+        "expected_state": "EXPLICIT_COMPLETE",
+        "observed_reasons": [],
+        "expected_reasons": [],
+        "exact": true
+      },
+      {
+        "example_id": "L08_BILINGUAL_HEADER:complete_permuted",
+        "observed_state": "EXPLICIT_COMPLETE",
+        "expected_state": "EXPLICIT_COMPLETE",
+        "observed_reasons": [],
+        "expected_reasons": [],
+        "exact": true
+      },
+      {
+        "example_id": "L08_BILINGUAL_HEADER:missing_header_column",
+        "observed_state": "UNKNOWN",
+        "expected_state": "UNKNOWN",
+        "observed_reasons": [
+          "header_column_coverage_mismatch"
+        ],
+        "expected_reasons": [
+          "header_column_coverage_mismatch"
+        ],
+        "exact": true
+      },
+      {
+        "example_id": "L08_BILINGUAL_HEADER:unknown_role_label",
+        "observed_state": "UNKNOWN",
+        "expected_state": "UNKNOWN",
+        "observed_reasons": [
+          "missing_explicit_column_role"
+        ],
+        "expected_reasons": [
+          "missing_explicit_column_role"
+        ],
+        "exact": true
+      },
+      {
+        "example_id": "L08_BILINGUAL_HEADER:conflicting_header_role",
+        "observed_state": "UNKNOWN",
+        "expected_state": "UNKNOWN",
+        "observed_reasons": [
+          "header_role_conflict",
+          "missing_explicit_column_role"
+        ],
+        "expected_reasons": [
+          "header_role_conflict",
+          "missing_explicit_column_role"
+        ],
+        "exact": true
+      },
+      {
+        "example_id": "L08_BILINGUAL_HEADER:cross_extractor_role_conflict",
+        "observed_state": "UNKNOWN",
+        "expected_state": "UNKNOWN",
+        "observed_reasons": [
+          "cross_extractor_role_conflict",
+          "physical_role_conflict"
+        ],
+        "expected_reasons": [
+          "cross_extractor_role_conflict",
+          "physical_role_conflict"
+        ],
+        "exact": true
+      },
+      {
+        "example_id": "L08_BILINGUAL_HEADER:incomplete_cell_coverage",
+        "observed_state": "UNKNOWN",
+        "expected_state": "UNKNOWN",
+        "observed_reasons": [
+          "cell_coverage_mismatch"
+        ],
+        "expected_reasons": [
+          "cell_coverage_mismatch"
+        ],
+        "exact": true
+      },
+      {
+        "example_id": "L08_BILINGUAL_HEADER:partial_table_boundary",
+        "observed_state": "UNKNOWN",
+        "expected_state": "UNKNOWN",
+        "observed_reasons": [
+          "incomplete_table_boundary"
+        ],
+        "expected_reasons": [
+          "incomplete_table_boundary"
+        ],
+        "exact": true
+      },
+      {
+        "example_id": "L08_BILINGUAL_HEADER:unaligned_header_width",
+        "observed_state": "UNKNOWN",
+        "expected_state": "UNKNOWN",
+        "observed_reasons": [
+          "header_alignment_unproven"
+        ],
+        "expected_reasons": [
+          "header_alignment_unproven"
+        ],
+        "exact": true
+      },
+      {
+        "example_id": "L08_BILINGUAL_HEADER:missing_physical_provenance",
+        "observed_state": "UNKNOWN",
+        "expected_state": "UNKNOWN",
+        "observed_reasons": [
+          "missing_physical_provenance"
+        ],
+        "expected_reasons": [
+          "missing_physical_provenance"
+        ],
+        "exact": true
+      },
+      {
+        "example_id": "L08_BILINGUAL_HEADER:duplicate_physical_role_conflict",
+        "observed_state": "UNKNOWN",
+        "expected_state": "UNKNOWN",
+        "observed_reasons": [
+          "physical_role_conflict"
+        ],
+        "expected_reasons": [
+          "physical_role_conflict"
+        ],
+        "exact": true
+      }
+    ]
+  },
+  "end_to_end": {
+    "pass": 8,
+    "total": 8,
+    "cases": [
+      {
+        "id": "complete_table_manifest",
+        "passed": true,
+        "observed": "EXPLICIT_COMPLETE"
+      },
+      {
+        "id": "no_role_actual_plan_ambiguity",
+        "passed": true,
+        "observed": {
+          "inventory": "EXPLICIT_COMPLETE",
+          "reasons": [
+            "ambiguous_column_role_evidence"
+          ]
+        }
+      },
+      {
+        "id": "partial_table_unknown",
+        "passed": true,
+        "observed": [
+          "incomplete_table_boundary"
+        ]
+      },
+      {
+        "id": "bare_year_role_unknown",
+        "passed": true,
+        "observed": [
+          "missing_explicit_column_role"
+        ]
+      },
+      {
+        "id": "missing_cell_coverage_unknown",
+        "passed": true,
+        "observed": [
+          "cell_coverage_mismatch"
+        ]
+      },
+      {
+        "id": "candidate_permutation_invariant",
+        "passed": true,
+        "observed": "EXPLICIT_COMPLETE"
+      },
+      {
+        "id": "plaintext_without_manifest_legacy_undeclared",
+        "passed": true,
+        "observed": ""
+      },
+      {
+        "id": "ordinary_period_table_role_proof_not_applicable",
+        "passed": true,
+        "observed": ""
+      }
+    ]
+  },
+  "runtime_changes": {
+    "changed_files": [
+      "evidence_schema.py",
+      "program_data.py",
+      "symbolic_verifier.py"
+    ],
+    "expected_changed_files": [
+      "evidence_schema.py",
+      "program_data.py",
+      "symbolic_verifier.py"
+    ],
+    "hashes": {
+      "evidence_schema.py": "2f16fabf932dc9dabc8203d9642d2503bb2dab43e0e1ee0f78755dd4fb00825d",
+      "question_planner.py": "4b6b415dac3e64b76fef9dee2179282a742c5769e30f780393d1dd43242b13d2",
+      "program_synthesis.py": "a37470ad307c04744a5db794258f8bff2f6439ef6a689f8a9b8db67f91a17761",
+      "symbolic_verifier.py": "b0bc88ae35d5ec1f3a2dccb3ac9a93f1e47185e44947aa30e235af9662848b23",
+      "document_hrm.py": "f07e8f5685527ba76e1a9d74022b4e1e8cd29ba103593cb9a2063ddfcc15c1e5",
+      "document_reasoning_engine.py": "ee2ce9e2d8cea6fc87d307450297dace74727bdf915ba29e22cab67c7da6212f",
+      "program_data.py": "b6f1e1bb901459b2df2ca73bdb22f1db6f699fb452b12c68130ba3fe8c61db66"
+    }
+  },
+  "artifact_hashes": {
+    "precommit": "c86f3ea490af98456ecf2e25edc492d0e5dca3799d424e80d6304d59e13be563",
+    "cohort": "201b0c1b06f28dca514ebd40750882953dbc3b6f729b694e18e740ff60827266",
+    "qp3c_lock": "d52605c9dcc250673b8703a1e2dd517320d551f2edbc577096a72b93cba3d44c",
+    "checkpoint": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de"
+  },
+  "invariants": {
+    "manifest_created_before_top_k": true,
+    "question_text_used_by_producer": false,
+    "numeric_value_used_by_producer": false,
+    "candidate_score_used_by_producer": false,
+    "threshold_changed": false,
+    "checkpoint_changed": false,
+    "fine_tuning_performed": false,
+    "global_validation_loaded": false,
+    "sealed_validation_loaded": false,
+    "blind_test_loaded": false,
+    "phase_d_unlocked": false
+  }
+}

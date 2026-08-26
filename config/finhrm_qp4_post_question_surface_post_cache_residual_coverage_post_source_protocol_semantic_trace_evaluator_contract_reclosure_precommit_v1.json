@@ -1,0 +1,429 @@
+{
+  "schema": "finhrm.qp4.post_question_surface.post_cache.residual_coverage.post_source_protocol.semantic_trace_evaluator_contract_reclosure_precommit.v1",
+  "created_at": "2026-08-24T09:36:45+07:00",
+  "classification": "development_only_evaluator_contract_reclosure_precommit_no_runtime_no_model_no_ocr",
+  "status": "PASS",
+  "step": "QP4-POST-QUESTION-SURFACE-POST-CACHE-RESIDUAL-COVERAGE-POST-SOURCE-PROTOCOL-SEMANTIC-TRACE-EVALUATOR-CONTRACT-RECLOSURE-PRECOMMIT",
+  "precommit_gate_passed": true,
+  "implementation_gate_passed": false,
+  "purpose": "Replace an unexecutable semantic-trace equivalence oracle with an explicitly materialized bare baseline, an exact deterministic permutation transform and a separate observed replay before any semantic root attribution.",
+  "parents": {
+    "semantic_trace_defect_report": {
+      "path": "reports/finhrm_qp4_post_question_surface_post_cache_residual_coverage_post_source_protocol_semantic_trace_reclosure_v1.json",
+      "size_bytes": 7541,
+      "sha256": "00b9502fd458dfc90c512bccea956953d67d00c6931b272cef5e4242277d7217"
+    },
+    "semantic_trace_defect_markdown": {
+      "path": "reports/finhrm_qp4_post_question_surface_post_cache_residual_coverage_post_source_protocol_semantic_trace_reclosure_v1.md",
+      "size_bytes": 3644,
+      "sha256": "f195746ba9f8eee96797a2c1759e5b64d06fe7c1d76fc5f108265819d4665d72"
+    },
+    "semantic_trace_defect_lock": {
+      "path": "reports/finhrm_qp4_post_question_surface_post_cache_residual_coverage_post_source_protocol_semantic_trace_reclosure_lock_v1.json",
+      "size_bytes": 4198,
+      "sha256": "6f30a1d5bccf33a80c596433e64c26968763fb95ced3a08a40f2bac5bea82f4c"
+    },
+    "frozen_cohort_build": {
+      "path": "reports/finhrm_qp4_post_question_surface_post_cache_residual_coverage_cohort_build_v1.json",
+      "size_bytes": 40607,
+      "sha256": "e084ec16312488c1badb5b645cfdf135a623cf89486d0f189648404fc5de35e6"
+    },
+    "frozen_cohort_build_lock": {
+      "path": "reports/finhrm_qp4_post_question_surface_post_cache_residual_coverage_cohort_build_lock_v1.json",
+      "size_bytes": 2570,
+      "sha256": "811b7aa5c0696af345918b2f92846106321d71cc296653b7fb38e0472a67bdef"
+    },
+    "frozen_source_protocol": {
+      "path": "reports/finhrm_qp4_post_question_surface_post_cache_residual_coverage_source_protocol_reclosure_v1.json",
+      "size_bytes": 764361,
+      "sha256": "88907efcf7764217c5aa1d5219e5ef2c997d34cbf45d1f300dd68190b8ae84eb"
+    },
+    "frozen_source_protocol_lock": {
+      "path": "reports/finhrm_qp4_post_question_surface_post_cache_residual_coverage_source_protocol_reclosure_lock_v1.json",
+      "size_bytes": 28633,
+      "sha256": "e3edc7103c3a366d7ce57e62df2a7e1f7dc1af8affa20ef59f46533e947fdf95"
+    },
+    "claude_md": {
+      "path": "CLAUDE.md",
+      "size_bytes": 3494,
+      "sha256": "b3e61c65fd4f36a86d5ba4fac780150960c81bfe7cf5f4a9a685071a408178aa"
+    },
+    "thesis_core": {
+      "path": "config/finhrm_thesis_core_v1.json",
+      "size_bytes": 24625,
+      "sha256": "a9f2f3088f7622c6c8912086eac16252f154fcae1164a3fe7ba75107a0ece502"
+    },
+    "generalization_invariant": {
+      "path": "config/finhrm_report_generalization_invariant_v1.json",
+      "size_bytes": 2512,
+      "sha256": "7a8c6e58a47314d522adb782277f6d5bf0cbf761faf681d848e2e9ae4e861846"
+    }
+  },
+  "historical_defect_disposition": {
+    "legacy_source_permutation_exact": "20/42",
+    "legacy_permutation_recipe_reproducible": false,
+    "legacy_metric_retained_as_historical_record": true,
+    "legacy_metric_used_as_new_gate": false,
+    "legacy_metric_compared_to_new_transform": false,
+    "parent_artifacts_rewritten": false,
+    "superseded_requirement": "The earlier demand to reproduce 20/42 is unexecutable because its transform was not frozen. The new transform receives a new identifier and a freshly materialized baseline; this is an evaluator-version change, not a performance improvement or regression.",
+    "claude_hash_transition": {
+      "previous_historical_sha256": "35a0f66a6531e61b35dc7288884da35eeef79ad1039f5ffdfd29295cee8d566e",
+      "current_required_sha256": "b3e61c65fd4f36a86d5ba4fac780150960c81bfe7cf5f4a9a685071a408178aa",
+      "old_locks_remain_immutable": true
+    }
+  },
+  "selection_contract": {
+    "source": "frozen_cohort_build",
+    "logical_rows": 42,
+    "categories": [
+      {"category": "base_target", "surface": "canonical_first_frozen_surface", "rows": 6},
+      {"category": "reference_base_mutation_target", "surface": "canonical_first_frozen_surface", "rows": 6},
+      {"category": "minimal_pair_role_swap", "surface": "frozen_control", "rows": 6},
+      {"category": "PA07_operation_contrast", "surface": "frozen_control", "rows": 6},
+      {"category": "ambiguity_control", "surface": "frozen_control", "rows": 6},
+      {"category": "hard_negative_missing_role", "surface": "frozen_control", "rows": 6},
+      {"category": "minimal_pair_year_shift", "surface": "frozen_control", "rows": 6}
+    ],
+    "manifest_matches_source_protocol_rows": "42/42",
+    "questions_present": "42/42",
+    "companies": 6,
+    "source_documents": 6,
+    "real_document_layout_families": 3,
+    "real_table_layout_families": 6,
+    "extraction_families": 2,
+    "all_source_hashes_exact": true,
+    "protected_sources": 0,
+    "selection_must_not_use": [
+      "company identity",
+      "source filename",
+      "page or year literal",
+      "numeric value",
+      "anchor or example identity",
+      "question literal",
+      "candidate rank",
+      "neural score",
+      "confidence",
+      "current action or repair convenience"
+    ]
+  },
+  "schema_feasibility_audit": {
+    "performed_before_precommit_pass": true,
+    "runtime_answer_fields_present": [
+      "program_dag",
+      "source_action",
+      "verification_state",
+      "proof_obligations",
+      "verification_reasons",
+      "acceptance_basis"
+    ],
+    "runtime_prediction_fields_present": [
+      "program",
+      "program_search_trace",
+      "typed_synthesis_status",
+      "program_dag",
+      "slot_bindings"
+    ],
+    "program_trace_fields_present": [
+      "program",
+      "verification_state",
+      "eligible",
+      "rejection_reasons",
+      "unknown_reasons",
+      "generation_sources",
+      "proof_contract_state",
+      "proof_obligations"
+    ],
+    "reverse_transform_constructed": true,
+    "derived_operand_remap_roundtrip": true,
+    "prediction_program_remap_roundtrip": true,
+    "program_search_trace_remap_roundtrip": true,
+    "program_dag_candidate_leaf_remap_roundtrip": true,
+    "slot_binding_remap_roundtrip": true,
+    "temporary_probe_deleted": true,
+    "full_source_replay_performed_in_precommit": false,
+    "precommit_feasibility_result": "PASS"
+  },
+  "deterministic_candidate_permutation_contract": {
+    "transform_id": "FINHRM_CANDIDATE_REVERSE_REINDEX_REMAP_V1",
+    "input": "the exact post-extraction candidate sequence passed by DocumentHRMReasoningEngine to bundle.predict",
+    "order_new_to_old": "for N candidates, new position j reads old position N-1-j",
+    "old_to_new": "old index i maps to N-1-i",
+    "new_to_old": "new index j maps to N-1-j",
+    "candidate_reconstruction": "dataclasses.replace(original[old], index=new, derived_operands=tuple(old_to_new[x] for x in original[old].derived_operands))",
+    "inner_predict_calls": 1,
+    "inner_predict_question_and_options_unchanged": true,
+    "prediction_new_to_old_remap": [
+      "ProgramPrediction.program.operands",
+      "every ProgramCandidateTrace.program.operands without reordering trace rows",
+      "every candidate-kind ProgramDAGInput.reference while node-kind references remain unchanged",
+      "every ProgramPrediction.slot_bindings candidate index"
+    ],
+    "fields_preserved_without_reordering": [
+      "pointer confidence tuples because they are operand-slot ordered",
+      "typed synthesis status",
+      "generation-source order",
+      "proof obligations and reasons",
+      "all non-index prediction fields"
+    ],
+    "commutative_operand_sort_during_remap": false,
+    "returned_prediction": "dataclasses.replace of the exact raw prediction with only the declared candidate-index-bearing fields remapped",
+    "engine_downstream_candidate_sequence": "original unpermuted sequence",
+    "random_seed_required": false,
+    "hidden_state_required": false,
+    "legacy_unknown_transform_assumed": false
+  },
+  "execution_contract": {
+    "authorized_next_step": "QP4-POST-QUESTION-SURFACE-POST-CACHE-RESIDUAL-COVERAGE-POST-SOURCE-PROTOCOL-SEMANTIC-TRACE-EVALUATOR-CONTRACT-RECLOSURE",
+    "stage": "development_only_baseline_materialization_and_observed_semantic_trace_in_one_step",
+    "runtime_file_whitelist": [],
+    "runtime_edits": false,
+    "model_checkpoint_or_threshold_edits": false,
+    "fine_tuning": false,
+    "persistent_evaluator_or_test_files": false,
+    "temporary_harness_allowed": true,
+    "temporary_harness_and_execution_payloads_deleted_after_final_artifact_verification": true,
+    "mineru_auto_generate": false,
+    "new_ocr_generation": false,
+    "protected_split_read": false,
+    "gold_passed_to_runtime": false,
+    "gold_used_post_hoc_only": true,
+    "clean_process_lanes": [
+      {
+        "process": "A_BARE_BASELINE",
+        "bare_primary_rows": 42,
+        "bare_permutation_rows": 42,
+        "candidate_trace_capture": false,
+        "output": "temporary complete final semantic envelopes plus in-memory-only exact digests"
+      },
+      {
+        "process": "B_OBSERVED_TRACE",
+        "observed_primary_rows": 42,
+        "observed_permutation_rows": 42,
+        "candidate_trace_capture": true,
+        "output": "temporary typed trace projections and complete final semantic envelopes"
+      }
+    ],
+    "total_source_queries": 168,
+    "per_query_timeout_seconds": 300,
+    "timeout_or_source_failure_disposition": "retained in denominator as TRACE_EXECUTION_FAILURE; never converted to an abstention pass or semantic root",
+    "runtime_hashes_checked_before_each_process_and_after_all_processes": true,
+    "checkpoint_hash_checked_before_each_process_and_after_all_processes": true
+  },
+  "identity_observer_contract": {
+    "primary_method": "process-local bundle wrapper around DocumentHRMBundle.predict",
+    "stores_exact_candidates_argument_object_reference": true,
+    "passes_exact_question_candidates_and_keyword_arguments_to_inner_predict": true,
+    "inner_predict_calls": 1,
+    "returns_exact_inner_prediction_object": true,
+    "may_mutate_reorder_filter_or_append": false,
+    "may_change_random_state_or_configuration": false,
+    "permutation_observer": "trace-enabled form of FINHRM_CANDIDATE_REVERSE_REINDEX_REMAP_V1 stores the exact permuted input and raw inner prediction before applying the already-required new-to-old remap",
+    "observer_lifetime": "process B only",
+    "if_identity_or_single_call_cannot_be_proven": "FAIL execution and authorize no semantic or runtime attribution"
+  },
+  "bare_baseline_envelope": {
+    "fields": [
+      "source outcome and terminal stage",
+      "question-plan typed projection",
+      "candidate count",
+      "selected operation and ordered program pointers",
+      "program DAG present-or-absent state and structural projection",
+      "selected evidence exact in-memory digest",
+      "result and unit exact in-memory digest",
+      "source action",
+      "verification state",
+      "proof obligations",
+      "verification reason codes",
+      "acceptance basis codes"
+    ],
+    "explicit_empty_or_absent_policy": "Persist EMPTY_EXPLICIT or ABSENT_EXPLICIT. Do not synthesize a DAG, program trace, obligation or reason.",
+    "primary_must_match_historical_parent_on_available_fields": "42/42",
+    "historical_parent_available_fields": [
+      "source outcome",
+      "source action",
+      "verification state",
+      "observed operation",
+      "candidate count",
+      "selected physical evidence and result via in-memory digest"
+    ],
+    "new_permutation_baseline": "materialized under FINHRM_CANDIDATE_REVERSE_REINDEX_REMAP_V1 with no expected exactness target"
+  },
+  "no_interference_gates": {
+    "observed_primary_matches_bare_primary": "42/42",
+    "observed_permutation_matches_bare_permutation": "42/42",
+    "compared_fields": [
+      "source outcome and terminal stage",
+      "question-plan typed projection",
+      "candidate count",
+      "selected operation and ordered program pointers",
+      "program DAG structure",
+      "selected evidence and result exact in-memory digests",
+      "source action",
+      "verification state",
+      "proof obligations",
+      "verification reasons",
+      "acceptance basis"
+    ],
+    "observer_induced_action_program_evidence_candidate_or_proof_changes": 0,
+    "failure_policy": "Any mismatch invalidates the observed trace. It is neither a semantic improvement nor a model regression result."
+  },
+  "typed_trace_completeness_gates": {
+    "observed_primary_trace": "42/42",
+    "observed_permutation_trace": "42/42",
+    "candidate_inventory_matches_predictor_input_count": "84/84",
+    "every_program_operand_resolves": true,
+    "every_selected_operand_resolves": true,
+    "every_program_has_explicit_eligibility_and_rejection_or_unknown_state": true,
+    "every_present_required_obligation_has_explicit_state": true,
+    "empty_and_absent_states_explicit": true,
+    "trace_incomplete_rows": 0,
+    "forbidden_persisted_fields": 0,
+    "missing_field_policy": "TRACE_INCOMPLETE_AND_FAIL_WITHOUT_INFERENCE"
+  },
+  "persistent_trace_policy": {
+    "allowed": [
+      "sequential trace-row id that encodes no source identity",
+      "semantic category and surface family",
+      "document/table layout family and extraction family",
+      "typed question-plan roles and period relations without literals",
+      "per-run local candidate ids",
+      "typed role, period, entity, unit, scale and provenance presence projections",
+      "program operation, local operands, DAG structure, eligibility and proof-state enums",
+      "final action, state, obligation, reason and acceptance-basis codes",
+      "aggregate distinct company/source/layout counts without identities"
+    ],
+    "forbidden": [
+      "question literal",
+      "raw OCR or source text",
+      "row or column label literal",
+      "company identity or source filename",
+      "page number or source span",
+      "year literal",
+      "numeric candidate or answer value",
+      "candidate relevance, neural score or rank",
+      "operation, pointer or reranker confidence",
+      "warning prose",
+      "opaque digest in the final artifact"
+    ],
+    "opaque_digests": "temporary in-memory/process payload comparison only; deleted before final verification"
+  },
+  "semantic_root_decision_contract": {
+    "earliest_layers": [
+      "CANDIDATE_POPULATION_OR_RETRIEVAL",
+      "SEMANTIC_BINDING_OR_PROGRAM_SYNTHESIS",
+      "SYMBOLIC_PROOF_OR_ACTION",
+      "PASS"
+    ],
+    "confirmed_generic_root_requires": [
+      "same semantic category",
+      "same earliest failing layer",
+      "same exact typed candidate/program/proof signature",
+      "at least 3 distinct companies and 3 distinct source documents",
+      "at least 2 real document layout families",
+      "at least 3 real table layout families when candidate structure is relevant",
+      "at least 2 extraction families when retrieval or candidate population is relevant"
+    ],
+    "cross_category_or_layer_pooling": false,
+    "synthetic_confirmation": false,
+    "candidate_rank_score_confidence_as_root": false,
+    "model_capacity_attribution_requires": "required evidence present plus symbolic typed program/proof feasibility, followed by the same neural operation-or-pointer proposal failure signature across the full generic-root diversity minimum",
+    "parameter_count_alone_is_root": false,
+    "possible_outcomes": [
+      "CONFIRMED_GENERIC_CAUSAL_ROOT",
+      "HETEROGENEOUS_OR_NON_GENERIC",
+      "TRACE_INCOMPLETE_OR_INTERFERING",
+      "SOURCE_PROTOCOL_REGRESSION",
+      "EVALUATOR_OR_ORACLE_DEFECT"
+    ]
+  },
+  "metric_and_safety_contract": {
+    "new_reverse_v1_primary_permutation_exactness": "report descriptively with denominator 42; no target and no comparison to legacy 20/42",
+    "accepted_wrong": 0,
+    "semantic_control_false_accepts": 0,
+    "hard_negative_answers": 0,
+    "source_errors": 0,
+    "frozen_gold_execution": "363/363",
+    "frozen_candidate_permutation": "363/363",
+    "frozen_counterfactuals": 141,
+    "frozen_counterfactual_false_accepts": 0,
+    "safe_replay_and_relevant_regressions_required_after_execution": true,
+    "utility_metric_improvement_required": false,
+    "failure_metrics_may_not_be_optimized_or_reclassified": true
+  },
+  "checkpoint": {
+    "path": "models/document_hrm_V8_candidate.pt",
+    "size_bytes": 3413128,
+    "sha256": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de",
+    "parameter_count": 843097
+  },
+  "frozen_runtime_hashes": {
+    "src/hrm_finance_qa/question_planner.py": "334ab6bfb57b883ff2022cdcb39614d7e7a8d3269c14f4bea188640d53111bf4",
+    "src/hrm_finance_qa/symbolic_verifier.py": "2679b1ce55cc070697438c806f19e3e888bfc19bc1a9ae3686a0b7fd7ffb0087",
+    "src/hrm_finance_qa/program_synthesis.py": "e4acc4878d0dfd465ba66ab91f3aaf8be71db5591aa1358fb8cb81f3c7bff550",
+    "src/hrm_finance_qa/evidence_schema.py": "2f16fabf932dc9dabc8203d9642d2503bb2dab43e0e1ee0f78755dd4fb00825d",
+    "src/hrm_finance_qa/document_hrm.py": "b5951bcde79583950b672f7fb6b199b3e5b9904e6784daae7c4c5be0eba65d21",
+    "src/hrm_finance_qa/document_reasoning_engine.py": "3883500011472716bc01f8e04a6d6f925173b35a14bbedd945c5ca4fb0063fa2",
+    "src/hrm_finance_qa/program_data.py": "5199434fc0628b7d270ce62b12657366cbe118901065edd9f1e1f6ca0f1f8d54",
+    "src/hrm_finance_qa/direction_contract.py": "a18aa130419fc74ce647bd92dc9c1b1217007738e636aad0f28c7f78396be937",
+    "src/hrm_finance_qa/answer_presentation.py": "c40bd4a8dff39162b44cf11ef2da12e7b153d907f7254e5d1856157b3ac56d36",
+    "src/hrm_finance_qa/document_sources.py": "e9eb7b3ddcc2ed13060a573a6a0101a216fa49ff21dd65cd5fc2629b92f5fc0b",
+    "src/hrm_finance_qa/document_page_index.py": "d531f47a22ed051863b41b3de031bb3e9d4bbf60ef71f825217559b7035386b4"
+  },
+  "precommit_gates": {
+    "parent_hashes_exact": true,
+    "current_claude_hash_exact": true,
+    "selection_manifest_exact_42": true,
+    "source_hashes_exact_6": true,
+    "protected_sources_zero": true,
+    "runtime_trace_fields_available": true,
+    "permutation_transform_fully_specified": true,
+    "candidate_and_prediction_remap_schema_probe_passed": true,
+    "bare_baseline_materialization_explicitly_authorized": true,
+    "observer_comparison_oracle_defined": true,
+    "legacy_unreproducible_metric_not_used_as_gate": true,
+    "runtime_and_checkpoint_hashes_exact": true,
+    "contract_executable_without_hidden_persistent_state": true,
+    "runtime_edit_authorized": false,
+    "qp4_complete": false,
+    "qp5_authorized": false,
+    "phase_d_unlocked": false
+  },
+  "future_outputs": {
+    "final_json": "reports/finhrm_qp4_post_question_surface_post_cache_residual_coverage_post_source_protocol_semantic_trace_evaluator_contract_reclosure_v1.json",
+    "final_markdown": "reports/finhrm_qp4_post_question_surface_post_cache_residual_coverage_post_source_protocol_semantic_trace_evaluator_contract_reclosure_v1.md",
+    "lock_manifest": "reports/finhrm_qp4_post_question_surface_post_cache_residual_coverage_post_source_protocol_semantic_trace_evaluator_contract_reclosure_lock_v1.json"
+  },
+  "artifact_policy": {
+    "this_step_final_json": 1,
+    "this_step_final_markdown": 1,
+    "this_step_lock_manifest": 1,
+    "execution_step_maximum_same": true,
+    "temporary_files_deleted_after_final_verification": true,
+    "persistent_runtime_test_or_evaluator_artifacts": 0
+  },
+  "authorization": {
+    "next_allowed_action": "QP4-POST-QUESTION-SURFACE-POST-CACHE-RESIDUAL-COVERAGE-POST-SOURCE-PROTOCOL-SEMANTIC-TRACE-EVALUATOR-CONTRACT-RECLOSURE",
+    "runtime_edit_authorized": false,
+    "runtime_file_whitelist": [],
+    "model_or_threshold_change_authorized": false,
+    "qp4_complete": false,
+    "qp5_authorized": false,
+    "phase_d_unlocked": false
+  },
+  "invariants": {
+    "development_only": true,
+    "company_layout_disjoint_requirement_retained": true,
+    "unseen_or_universal_claim_forbidden": true,
+    "abw_forbidden": true,
+    "protected_evaluation_forbidden": true,
+    "fine_tuning_forbidden": true,
+    "rank_score_confidence_semantic_proof_forbidden": true,
+    "missing_role_period_or_provenance_inference_forbidden": true,
+    "unknown_to_abstain": true,
+    "conflict_to_reject": true,
+    "synthetic_layout_confirmation_forbidden": true,
+    "metric_beautification_forbidden": true,
+    "qp5_and_phase_d_locked": true
+  }
+}

@@ -1,0 +1,370 @@
+{
+  "schema": "finhrm-qp3-core-add-diverse-development-candidate-cohort-v1",
+  "created_at": "2026-08-20",
+  "classification": "development_only_hash_ordered_pending_independent_review",
+  "candidate_cohort_gate_passed": false,
+  "failed_gates": [
+    "minimum_companies_per_layout",
+    "target_companies_per_layout"
+  ],
+  "inputs": {
+    "precommit": {
+      "path": "config/finhrm_qp3_core_add_diverse_development_cohort_precommit_v1.json",
+      "sha256": "7b9d0bc6e7ad75a80aead0015d62f8a448f2f945b93413fdb3740ce0cfb52820"
+    },
+    "manifest": {
+      "path": "data/finhrm_qp3_core_add_diversity_generation_manifest_v1.json",
+      "sha256": "f4118e9d6100dcfc4f6e606ac8fae5a5fc7a0a61a42b999d4653f449412b8c42"
+    },
+    "native_pool": {
+      "path": "data/finhrm_qp3_core_add_diversity_generated_pool_v1.jsonl",
+      "sha256": "ffdd19919a657a724693f49065c2485bdf6379fab4f11344e2c3254f5d3f6c0a"
+    },
+    "ocr_pool": {
+      "path": "data/finhrm_qp3_core_add_diversity_ocr_generated_pool_v1.jsonl",
+      "sha256": "bfae87250ed67b3060fc70b67af48dc0b991607821616285b9940c3ecee8a993"
+    }
+  },
+  "results": {
+    "eligible_add_examples": 10,
+    "selected_examples": 5,
+    "selected_companies": 5,
+    "selected_by_layout": {
+      "NATIVE_TEXT_TABLE": 4,
+      "OCR_OR_HYBRID_TABLE": 1
+    },
+    "rejection_counts": {
+      "counterfactual_false_accept_zero": 18,
+      "counterfactual_generated": 18,
+      "proof_complete_answer": 13
+    },
+    "independently_reviewed": 0
+  },
+  "gate_checks": {
+    "minimum_companies_per_layout": false,
+    "target_companies_per_layout": false,
+    "one_positive_per_company": true,
+    "company_disjoint_between_layouts": true,
+    "all_selected_eligibility_checks_pass": true,
+    "counterfactual_false_accepts_zero": true
+  },
+  "details": [
+    {
+      "example_id": "synthetic-document-000012",
+      "company_key": "development-company-171130f90d122e5d",
+      "source_key": "DEVPDF_05982d532c7771e9",
+      "source_name": "TNA_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/TNA_23CN_BCTN.pdf",
+      "source_sha256": "05982d532c7771e90133c6f5ff49d21309249b7f04a60b2c211d06305480f9c3",
+      "layout_stratum": "NATIVE_TEXT_TABLE",
+      "layout_family": "native_text_mixed_orientation",
+      "page": 33,
+      "question": "Tổng Tài sản ngắn hạn và Tài sản dài hạn tại 2022 là bao nhiêu?",
+      "answer_value": "2669702",
+      "selected_operands": [
+        {
+          "value": "2285865",
+          "raw": "2.285.865",
+          "row": "Tài sản ngắn hạn",
+          "column": "Năm 2022",
+          "period": "2022",
+          "table_id": "table-5-9",
+          "source_span": [
+            21,
+            31
+          ],
+          "extraction_method": "native"
+        },
+        {
+          "value": "383837",
+          "raw": "383.837",
+          "row": "Tài sản dài hạn",
+          "column": "Năm 2022",
+          "period": "2022",
+          "table_id": "table-5-9",
+          "source_span": [
+            20,
+            28
+          ],
+          "extraction_method": "native"
+        }
+      ],
+      "checks": {
+        "operation_add": true,
+        "selected_arity_two": true,
+        "explicit_two_role_question": true,
+        "same_source": true,
+        "same_period": true,
+        "provenance_complete": true,
+        "distinct_physical_cells": true,
+        "hard_negative_present": true,
+        "gold_execution_correct": true,
+        "proof_complete_answer": true,
+        "permutation_exact": true,
+        "counterfactual_generated": true,
+        "counterfactual_false_accept_zero": true,
+        "source_hash_exact": true
+      },
+      "gold_action": "ANSWER",
+      "gold_proof_contract_state": "VALID",
+      "gold_reasons": [],
+      "counterfactual_mutation": "WRONG_YEAR",
+      "counterfactual_action": "REJECT"
+    },
+    {
+      "example_id": "synthetic-document-000073",
+      "company_key": "development-company-1fde0b02049a9bea",
+      "source_key": "DEVPDF_4f47e37f75f2a5e6",
+      "source_name": "TCR_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/TCR_23CN_BCTN.pdf",
+      "source_sha256": "4f47e37f75f2a5e69238d630612bc8d49c2f513a7aa8e0a29dd64923ae411019",
+      "layout_stratum": "NATIVE_TEXT_TABLE",
+      "layout_family": "native_text_mixed_orientation",
+      "page": 29,
+      "question": "Tổng Tài sản ngắn hạn và Tài sản dài hạn tại 2023 là bao nhiêu?",
+      "answer_value": "943636",
+      "selected_operands": [
+        {
+          "value": "680777",
+          "raw": "680.777",
+          "row": "Tài sản ngắn hạn",
+          "column": "31/ 12/2023",
+          "period": "2023",
+          "table_id": "table-3-9",
+          "source_span": [
+            34,
+            42
+          ],
+          "extraction_method": "native"
+        },
+        {
+          "value": "262859",
+          "raw": "262.859",
+          "row": "Tài sản dài hạn",
+          "column": "31/ 12/2023",
+          "period": "2023",
+          "table_id": "table-3-9",
+          "source_span": [
+            33,
+            41
+          ],
+          "extraction_method": "native"
+        }
+      ],
+      "checks": {
+        "operation_add": true,
+        "selected_arity_two": true,
+        "explicit_two_role_question": true,
+        "same_source": true,
+        "same_period": true,
+        "provenance_complete": true,
+        "distinct_physical_cells": true,
+        "hard_negative_present": true,
+        "gold_execution_correct": true,
+        "proof_complete_answer": true,
+        "permutation_exact": true,
+        "counterfactual_generated": true,
+        "counterfactual_false_accept_zero": true,
+        "source_hash_exact": true
+      },
+      "gold_action": "ANSWER",
+      "gold_proof_contract_state": "VALID",
+      "gold_reasons": [],
+      "counterfactual_mutation": "WRONG_YEAR",
+      "counterfactual_action": "REJECT"
+    },
+    {
+      "example_id": "synthetic-document-000077",
+      "company_key": "development-company-1af5660601b8be7b",
+      "source_key": "DEVPDF_512728c810a86a53",
+      "source_name": "VCC_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/VCC_23CN_BCTN.pdf",
+      "source_sha256": "512728c810a86a531817661064b48fe813c0f5cad5967ed601f3a87e22351b47",
+      "layout_stratum": "NATIVE_TEXT_TABLE",
+      "layout_family": "native_text_portrait",
+      "page": 12,
+      "question": "Tổng TÀI SẢN NGẮN HẠN và TÀI SẢN DÀI HẠN tại 2023 là bao nhiêu?",
+      "answer_value": "1285015",
+      "selected_operands": [
+        {
+          "value": "1234531",
+          "raw": "1.234.531",
+          "row": "TÀI SẢN NGẮN HẠN",
+          "column": "31/12/2023",
+          "period": "2023",
+          "table_id": "table-24-31",
+          "source_span": [
+            25,
+            35
+          ],
+          "extraction_method": "native"
+        },
+        {
+          "value": "50484",
+          "raw": "50.484",
+          "row": "TÀI SẢN DÀI HẠN",
+          "column": "31/12/2023",
+          "period": "2023",
+          "table_id": "table-24-31",
+          "source_span": [
+            24,
+            31
+          ],
+          "extraction_method": "native"
+        }
+      ],
+      "checks": {
+        "operation_add": true,
+        "selected_arity_two": true,
+        "explicit_two_role_question": true,
+        "same_source": true,
+        "same_period": true,
+        "provenance_complete": true,
+        "distinct_physical_cells": true,
+        "hard_negative_present": true,
+        "gold_execution_correct": true,
+        "proof_complete_answer": true,
+        "permutation_exact": true,
+        "counterfactual_generated": true,
+        "counterfactual_false_accept_zero": true,
+        "source_hash_exact": true
+      },
+      "gold_action": "ANSWER",
+      "gold_proof_contract_state": "VALID",
+      "gold_reasons": [],
+      "counterfactual_mutation": "WRONG_METRIC",
+      "counterfactual_action": "REJECT"
+    },
+    {
+      "example_id": "synthetic-document-000140",
+      "company_key": "development-company-09",
+      "source_key": "DEVPDF_8526606ffba6423a",
+      "source_name": "AAM_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/AAM_23CN_BCTN.pdf",
+      "source_sha256": "8526606ffba6423a8ae3e36e669b97868f9e457064c120ede4cf4d5489d0e1f8",
+      "layout_stratum": "NATIVE_TEXT_TABLE",
+      "layout_family": "native_text_portrait",
+      "page": 46,
+      "question": "Tổng Giá vốn của thành phẩm đã bán và Giá vốn của cá nguyên liệu đã bán tại nam nay là bao nhiêu?",
+      "answer_value": "135861757126",
+      "selected_operands": [
+        {
+          "value": "129326485792",
+          "raw": "129.326.485.792",
+          "row": "Giá vốn của thành phẩm đã bán",
+          "column": "Năm nay",
+          "period": "nam nay",
+          "table_id": "table-35-38",
+          "source_span": [
+            34,
+            50
+          ],
+          "extraction_method": "native"
+        },
+        {
+          "value": "6535271334",
+          "raw": "6.535.271.334",
+          "row": "Giá vốn của cá nguyên liệu đã bán",
+          "column": "Năm nay",
+          "period": "nam nay",
+          "table_id": "table-35-38",
+          "source_span": [
+            38,
+            52
+          ],
+          "extraction_method": "native"
+        }
+      ],
+      "checks": {
+        "operation_add": true,
+        "selected_arity_two": true,
+        "explicit_two_role_question": true,
+        "same_source": true,
+        "same_period": true,
+        "provenance_complete": true,
+        "distinct_physical_cells": true,
+        "hard_negative_present": true,
+        "gold_execution_correct": true,
+        "proof_complete_answer": true,
+        "permutation_exact": true,
+        "counterfactual_generated": true,
+        "counterfactual_false_accept_zero": true,
+        "source_hash_exact": true
+      },
+      "gold_action": "ANSWER",
+      "gold_proof_contract_state": "VALID",
+      "gold_reasons": [],
+      "counterfactual_mutation": "WRONG_METRIC",
+      "counterfactual_action": "REJECT"
+    },
+    {
+      "example_id": "synthetic-document-000009",
+      "company_key": "development-company-1ff838dc6ca9680d",
+      "source_key": "DEVPDF_39d9fa177669d89a",
+      "source_name": "VID_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/VID_23CN_BCTN.pdf",
+      "source_sha256": "39d9fa177669d89a0595acb9938fc0d1e57958970473ff07fb03d3ae815b9b20",
+      "layout_stratum": "OCR_OR_HYBRID_TABLE",
+      "layout_family": "hybrid_scan_text",
+      "page": 24,
+      "question": "Tổng Tài sản ngắn hạn và Tai san dai han tại 2022 là bao nhiêu?",
+      "answer_value": "1211710",
+      "selected_operands": [
+        {
+          "value": "731624",
+          "raw": "731.624",
+          "row": "Tài sản ngắn hạn",
+          "column": "31/12/2022 Giá trị",
+          "period": "2022",
+          "table_id": "table-6-9",
+          "source_span": [
+            21,
+            29
+          ],
+          "extraction_method": "tesseract_vie_250dpi"
+        },
+        {
+          "value": "480086",
+          "raw": "480.086",
+          "row": "Tai san dai han",
+          "column": "31/12/2022 Giá trị",
+          "period": "2022",
+          "table_id": "table-6-9",
+          "source_span": [
+            20,
+            28
+          ],
+          "extraction_method": "tesseract_vie_250dpi"
+        }
+      ],
+      "checks": {
+        "operation_add": true,
+        "selected_arity_two": true,
+        "explicit_two_role_question": true,
+        "same_source": true,
+        "same_period": true,
+        "provenance_complete": true,
+        "distinct_physical_cells": true,
+        "hard_negative_present": true,
+        "gold_execution_correct": true,
+        "proof_complete_answer": true,
+        "permutation_exact": true,
+        "counterfactual_generated": true,
+        "counterfactual_false_accept_zero": true,
+        "source_hash_exact": true
+      },
+      "gold_action": "ANSWER",
+      "gold_proof_contract_state": "VALID",
+      "gold_reasons": [],
+      "counterfactual_mutation": "WRONG_YEAR",
+      "counterfactual_action": "ABSTAIN"
+    }
+  ],
+  "invariants": {
+    "protected_evaluation_loaded": false,
+    "abw_loaded": false,
+    "runtime_changed": false,
+    "model_checkpoint_or_threshold_changed": false,
+    "selection_used_company_filename_page_year_value_example_id_or_question_literal_priority": false
+  }
+}

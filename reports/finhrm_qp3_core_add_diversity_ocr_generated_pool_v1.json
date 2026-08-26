@@ -1,0 +1,116 @@
+{
+  "schema": "finhrm-qp3-core-add-diversity-ocr-generated-pool-v1",
+  "created_at": "2026-08-20",
+  "classification": "development_only_hash_locked_tesseract_ocr_program_pool",
+  "inputs": {
+    "precommit": {
+      "path": "config/finhrm_qp3_core_add_diverse_development_cohort_precommit_v1.json",
+      "sha256": "7b9d0bc6e7ad75a80aead0015d62f8a448f2f945b93413fdb3740ce0cfb52820"
+    },
+    "manifest": {
+      "path": "data/finhrm_qp3_core_add_diversity_generation_manifest_v1.json",
+      "sha256": "f4118e9d6100dcfc4f6e606ac8fae5a5fc7a0a61a42b999d4653f449412b8c42"
+    },
+    "generator": {
+      "path": "archive/pre_v12_cleanup_20260802/scripts/generate_document_derived_programs.py",
+      "sha256": "a8cf17d04931c5517bd2218da718576a27ac9f014159c6480b4dda0e38bc028f"
+    }
+  },
+  "ocr": {
+    "engine": "tesseract 5.3.4",
+    "languages": [
+      "vie",
+      "eng"
+    ],
+    "dpi": 250,
+    "ocr_text_used_as_semantic_proof": false
+  },
+  "metrics": {
+    "pages_processed": 12,
+    "pages_with_examples": 3,
+    "examples": 36,
+    "operation_counts": {
+      "ADD": 6,
+      "AVERAGE": 6,
+      "DIVIDE": 2,
+      "PERCENT_CHANGE": 6,
+      "RATIO_PERCENT": 2,
+      "SELECT": 6,
+      "SUBTRACT": 6,
+      "SUM3": 2
+    },
+    "companies_with_examples": 3,
+    "skipped": {
+      "average_quota": 11,
+      "divide_quota": 6,
+      "percent_change_quota": 11,
+      "ratio_percent_quota": 6,
+      "select_quota": 45,
+      "subtract_quota": 11
+    }
+  },
+  "sources": [
+    {
+      "source_key": "DEVPDF_39d9fa177669d89a",
+      "company_key": "development-company-1ff838dc6ca9680d",
+      "layout_family": "hybrid_scan_text",
+      "pages": 1,
+      "examples": 14
+    },
+    {
+      "source_key": "DEVPDF_73954bc9eba3bcec",
+      "company_key": "development-company-10f237b59be8d441",
+      "layout_family": "hybrid_scan_text",
+      "pages": 3,
+      "examples": 0
+    },
+    {
+      "source_key": "DEVPDF_7b2e7e42723245b6",
+      "company_key": "development-company-05418f7af32f3c72",
+      "layout_family": "scanned_image_dominant",
+      "pages": 1,
+      "examples": 0
+    },
+    {
+      "source_key": "DEVPDF_80760b8e9a0eaeb7",
+      "company_key": "development-company-02",
+      "layout_family": "hybrid_scan_text",
+      "pages": 1,
+      "examples": 0
+    },
+    {
+      "source_key": "DEVPDF_947e027134a4ae53",
+      "company_key": "development-company-102b69eac137d9ca",
+      "layout_family": "scanned_image_dominant",
+      "pages": 3,
+      "examples": 0
+    },
+    {
+      "source_key": "DEVPDF_ac9ed34c4bc2af3d",
+      "company_key": "development-company-014b813850156c80",
+      "layout_family": "hybrid_scan_text",
+      "pages": 1,
+      "examples": 12
+    },
+    {
+      "source_key": "DEVPDF_d369bebc0996e34f",
+      "company_key": "development-company-09",
+      "layout_family": "hybrid_scan_text",
+      "pages": 1,
+      "examples": 10
+    },
+    {
+      "source_key": "DEVPDF_fbfeb1f417caf064",
+      "company_key": "development-company-094f686e92c888ae",
+      "layout_family": "scanned_image_dominant",
+      "pages": 1,
+      "examples": 0
+    }
+  ],
+  "invariants": {
+    "protected_evaluation_loaded": false,
+    "abw_loaded": false,
+    "runtime_changed": false,
+    "model_checkpoint_or_threshold_changed": false
+  }
+}

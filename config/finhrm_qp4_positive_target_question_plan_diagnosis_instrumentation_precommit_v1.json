@@ -1,0 +1,291 @@
+{
+  "schema": "finhrm-qp4-positive-target-question-plan-diagnosis-instrumentation-precommit-v1",
+  "created_at": "2026-08-25",
+  "classification": "development-only positive-target Question Plan diagnosis/instrumentation precommit; runtime locked",
+  "status": "PASS",
+  "precommit_gate_passed": true,
+  "step": "QP4-POSITIVE-TARGET-QUESTION-PLAN-DIAGNOSIS-INSTRUMENTATION-PRECOMMIT",
+  "purpose": "Freeze all 19 corrected positive-target Question Plan residuals and an executable question-only baseline/instrumented replay before any runtime repair.",
+  "parents": {
+    "corrected_evaluator": {
+      "path": "reports/finhrm_qp4_full_source_semantic_replay_refresh_evaluator_contract_reclosure_v1.json",
+      "size_bytes": 48181,
+      "sha256": "15af773a7fd02d66a25bcea056218fe5257cd286f633dd207d4ef5891c1a6e70"
+    },
+    "corrected_evaluator_lock": {
+      "path": "reports/finhrm_qp4_full_source_semantic_replay_refresh_evaluator_contract_reclosure_lock_v1.json",
+      "size_bytes": 3045,
+      "sha256": "201566740b9ff716baeb34e4048fe36d991e99ff4ed81621402c687f27e91d94"
+    },
+    "full_source_replay": {
+      "path": "reports/finhrm_qp4_full_source_semantic_replay_refresh_v1.json",
+      "size_bytes": 247897,
+      "sha256": "a693c0b011685dac70be5365d175ce4065dce192b3ce72525a9fa34ad776f56f"
+    },
+    "source_cohort": {
+      "path": "reports/finhrm_qp4_post_question_surface_post_cache_residual_coverage_cohort_build_v1.json",
+      "size_bytes": 40607,
+      "sha256": "e084ec16312488c1badb5b645cfdf135a623cf89486d0f189648404fc5de35e6"
+    },
+    "governing_diversity_invariant": {
+      "path": "reports/finhrm_qp4_post_question_surface_post_cache_residual_coverage_source_replay_precommit_lock_v1.json",
+      "size_bytes": 5878,
+      "sha256": "d1d03e133d9d276b702cf9c7a0e73d53c39fb71b873071ef555a52299a08b1ee"
+    },
+    "candidate_replacement_trace": {
+      "path": "reports/finhrm_qp4_positive_target_candidate_replacement_instrumentation_replay_v2.jsonl",
+      "size_bytes": 214082,
+      "sha256": "fe93d6434faeadfe1d59146fb84c7c7b4ebcb44be3548995f829a797c58dddb7"
+    },
+    "candidate_replacement_lock": {
+      "path": "reports/finhrm_qp4_positive_target_candidate_replacement_instrumentation_replay_lock_v2.json",
+      "size_bytes": 3245,
+      "sha256": "9b9e8f4ce16c266da507c57d4cbeccc424448d53942c2a92c7af31384bf1c2b0"
+    },
+    "candidate_binding_original_precommit": {
+      "path": "config/finhrm_qp4_positive_target_candidate_binding_instrumentation_cohort_precommit_v1.json",
+      "size_bytes": 26821,
+      "sha256": "2cb403e4eddd9f5768327b1860e462fffce7c74f058a24b2f930d7716b3ce6c5"
+    }
+  },
+  "frozen_residual_accounting": {
+    "candidate_positive_target": {
+      "universe": 24,
+      "directly_instrumented": 3,
+      "case_results": {
+        "qp4-rcc-hub-parent-profit-after-tax:base_target:canonical": "LOCAL_CONFIRMED",
+        "qp4-rcc-vnl-profit-before-tax:base_target:canonical": "LOCAL_CONFIRMED_DIFFERENT_SIGNATURE",
+        "qp4-rcc-ict-total-revenue:base_target:canonical": "UNRESOLVED"
+      },
+      "generic_exact_signature_hypothesis_on_frozen_three_case_cohort": "REJECTED",
+      "remaining_open": 21,
+      "remaining_open_must_not_be_reported_resolved": true,
+      "included_in_next_replay": false
+    },
+    "binding_or_provenance_positive_target": {
+      "universe": 17,
+      "examined": 2,
+      "observed_diversity": {
+        "companies": 2,
+        "sources": 2,
+        "real_document_layouts": 2
+      },
+      "governing_minimum_diversity": {
+        "companies": 3,
+        "sources": 3,
+        "real_document_layouts": 3
+      },
+      "generic_conclusion_authorized": false,
+      "post_hoc_case_addition_to_locked_two_case_cohort": false,
+      "new_precommit_required_before_any_additional_case": true,
+      "remaining_open": 15,
+      "remaining_open_must_not_be_reported_resolved": true,
+      "included_in_next_replay": false
+    },
+    "question_plan_positive_target": {
+      "universe": 19,
+      "remaining_open_before_replay": 19,
+      "selected_as_next_generic_diagnosis_surface": true
+    }
+  },
+  "selection_contract": {
+    "universe": "exact corrected-evaluator rows whose primary.first_failing_layer_v2 is QUESTION_PLAN",
+    "expected_rows": 19,
+    "exclude_candidate_rows": true,
+    "exclude_binding_or_provenance_rows": true,
+    "exclude_safe_controls": true,
+    "protected_evaluation_sources_allowed": false,
+    "abw_allowed": false,
+    "synthetic_layouts_count_as_diversity": false,
+    "ordering": "ascending corrected-evaluator rows array ordinal",
+    "expansion_after_precommit": false,
+    "replacement_after_precommit": false,
+    "fallback_case_allowed": false
+  },
+  "fixed_target_cohort": {
+    "total_cases": 19,
+    "cases": [
+      {"order": 1, "evaluator_row_ordinal": 0, "full_source_row_ordinal": 8, "oracle_row_id": "qp4-rcc-agr-total-expense:reference_base_mutation_target:clause_reordered", "anchor_id": "qp4-rcc-agr-total-expense", "question_selector": {"collection": "reference_base_mutation_surfaces", "index": 3}, "question_sha256": "4ad2b83ed36e2664fd062acfe0c9cf4d3489bb822f2dab75540cb3fc08c22818", "expected_signature": "EXPECTED_MUTATION_RATIO_CURRENT_OVER_PRIOR_ACTUAL", "observed_signature": "OBS_MUTATION_SELECT_PRIOR_CURRENT_NO_BASE"},
+      {"order": 2, "evaluator_row_ordinal": 9, "full_source_row_ordinal": 6, "oracle_row_id": "qp4-rcc-agr-total-expense:reference_base_mutation_target:paraphrase_1", "anchor_id": "qp4-rcc-agr-total-expense", "question_selector": {"collection": "reference_base_mutation_surfaces", "index": 1}, "question_sha256": "3402931ba5034d2b9582cea23a1810b2a6003bc3efd8383bebaa09e9ace37fcd", "expected_signature": "EXPECTED_MUTATION_RATIO_CURRENT_OVER_PRIOR_ACTUAL", "observed_signature": "OBS_MUTATION_SELECT_CURRENT_PRIOR_NO_BASE"},
+      {"order": 3, "evaluator_row_ordinal": 10, "full_source_row_ordinal": 63, "oracle_row_id": "qp4-rcc-scg-total-revenue:base_target:clause_reordered", "anchor_id": "qp4-rcc-scg-total-revenue", "question_selector": {"collection": "base_surfaces", "index": 3}, "question_sha256": "614ed38b575d1af7147a6759fc688436c48f18fd2fb5496cb182983868fd7050", "expected_signature": "EXPECTED_BASE_RATIO_ACTUAL_OVER_PLAN", "observed_signature": "OBS_BASE_ROLE_AND_REFERENCE_REVERSAL"},
+      {"order": 4, "evaluator_row_ordinal": 18, "full_source_row_ordinal": 51, "oracle_row_id": "qp4-rcc-pic-total-revenue:reference_base_mutation_target:paraphrase_1", "anchor_id": "qp4-rcc-pic-total-revenue", "question_selector": {"collection": "reference_base_mutation_surfaces", "index": 1}, "question_sha256": "4d7e6de9422e03b64d76362bb890a29a2b2160a89fd77ee461961d0f1acdabf9", "expected_signature": "EXPECTED_MUTATION_RATIO_CURRENT_OVER_PRIOR_ACTUAL", "observed_signature": "OBS_MUTATION_SELECT_CURRENT_PRIOR_NO_BASE"},
+      {"order": 5, "evaluator_row_ordinal": 24, "full_source_row_ordinal": 37, "oracle_row_id": "qp4-rcc-ict-total-revenue:reference_base_mutation_target:long_clause", "anchor_id": "qp4-rcc-ict-total-revenue", "question_selector": {"collection": "reference_base_mutation_surfaces", "index": 2}, "question_sha256": "067f86298a4cfe801a9ae13877bdb1190ad24dd25dddb7233fba60445a64ce92", "expected_signature": "EXPECTED_MUTATION_RATIO_CURRENT_OVER_PRIOR_ACTUAL", "observed_signature": "OBS_MUTATION_PERCENT_CHANGE"},
+      {"order": 6, "evaluator_row_ordinal": 30, "full_source_row_ordinal": 81, "oracle_row_id": "qp4-rcc-vnl-profit-before-tax:reference_base_mutation_target:paraphrase_1", "anchor_id": "qp4-rcc-vnl-profit-before-tax", "question_selector": {"collection": "reference_base_mutation_surfaces", "index": 1}, "question_sha256": "10d537300d86d04131a315c64d5d8d8b4965b7352ffc8b80bdafc249694b1af1", "expected_signature": "EXPECTED_MUTATION_RATIO_CURRENT_OVER_PRIOR_ACTUAL", "observed_signature": "OBS_MUTATION_SELECT_CURRENT_PRIOR_NO_BASE"},
+      {"order": 7, "evaluator_row_ordinal": 35, "full_source_row_ordinal": 23, "oracle_row_id": "qp4-rcc-hub-parent-profit-after-tax:reference_base_mutation_target:clause_reordered", "anchor_id": "qp4-rcc-hub-parent-profit-after-tax", "question_selector": {"collection": "reference_base_mutation_surfaces", "index": 3}, "question_sha256": "59efe5bd0be57bb053429cc2f606b05f99cad8e56d6519241a64fcfaadbe9c7d", "expected_signature": "EXPECTED_MUTATION_RATIO_CURRENT_OVER_PRIOR_ACTUAL", "observed_signature": "OBS_MUTATION_SELECT_PRIOR_CURRENT_NO_BASE"},
+      {"order": 8, "evaluator_row_ordinal": 42, "full_source_row_ordinal": 48, "oracle_row_id": "qp4-rcc-pic-total-revenue:base_target:clause_reordered", "anchor_id": "qp4-rcc-pic-total-revenue", "question_selector": {"collection": "base_surfaces", "index": 3}, "question_sha256": "614ed38b575d1af7147a6759fc688436c48f18fd2fb5496cb182983868fd7050", "expected_signature": "EXPECTED_BASE_RATIO_ACTUAL_OVER_PLAN", "observed_signature": "OBS_BASE_ROLE_AND_REFERENCE_REVERSAL"},
+      {"order": 9, "evaluator_row_ordinal": 46, "full_source_row_ordinal": 38, "oracle_row_id": "qp4-rcc-ict-total-revenue:reference_base_mutation_target:clause_reordered", "anchor_id": "qp4-rcc-ict-total-revenue", "question_selector": {"collection": "reference_base_mutation_surfaces", "index": 3}, "question_sha256": "5d27545f34271f7b82e8cf135173f4ba2e2ecc4c99bf2d0598508d5ae8dce50f", "expected_signature": "EXPECTED_MUTATION_RATIO_CURRENT_OVER_PRIOR_ACTUAL", "observed_signature": "OBS_MUTATION_SELECT_PRIOR_CURRENT_NO_BASE"},
+      {"order": 10, "evaluator_row_ordinal": 48, "full_source_row_ordinal": 78, "oracle_row_id": "qp4-rcc-vnl-profit-before-tax:base_target:clause_reordered", "anchor_id": "qp4-rcc-vnl-profit-before-tax", "question_selector": {"collection": "base_surfaces", "index": 3}, "question_sha256": "fcec734cbe04afe65e0971295ccb36625102b2381a56ebee47b1c99e1bbcf4b6", "expected_signature": "EXPECTED_BASE_RATIO_ACTUAL_OVER_PLAN", "observed_signature": "OBS_BASE_ROLE_AND_REFERENCE_REVERSAL"},
+      {"order": 11, "evaluator_row_ordinal": 57, "full_source_row_ordinal": 36, "oracle_row_id": "qp4-rcc-ict-total-revenue:reference_base_mutation_target:paraphrase_1", "anchor_id": "qp4-rcc-ict-total-revenue", "question_selector": {"collection": "reference_base_mutation_surfaces", "index": 1}, "question_sha256": "4d7e6de9422e03b64d76362bb890a29a2b2160a89fd77ee461961d0f1acdabf9", "expected_signature": "EXPECTED_MUTATION_RATIO_CURRENT_OVER_PRIOR_ACTUAL", "observed_signature": "OBS_MUTATION_SELECT_CURRENT_PRIOR_NO_BASE"},
+      {"order": 12, "evaluator_row_ordinal": 60, "full_source_row_ordinal": 68, "oracle_row_id": "qp4-rcc-scg-total-revenue:reference_base_mutation_target:clause_reordered", "anchor_id": "qp4-rcc-scg-total-revenue", "question_selector": {"collection": "reference_base_mutation_surfaces", "index": 3}, "question_sha256": "5d27545f34271f7b82e8cf135173f4ba2e2ecc4c99bf2d0598508d5ae8dce50f", "expected_signature": "EXPECTED_MUTATION_RATIO_CURRENT_OVER_PRIOR_ACTUAL", "observed_signature": "OBS_MUTATION_SELECT_PRIOR_CURRENT_NO_BASE"},
+      {"order": 13, "evaluator_row_ordinal": 63, "full_source_row_ordinal": 21, "oracle_row_id": "qp4-rcc-hub-parent-profit-after-tax:reference_base_mutation_target:paraphrase_1", "anchor_id": "qp4-rcc-hub-parent-profit-after-tax", "question_selector": {"collection": "reference_base_mutation_surfaces", "index": 1}, "question_sha256": "16717bfc33762bafb077ec47f75d645117efdb5d72028857192bfda4b127dc6f", "expected_signature": "EXPECTED_MUTATION_RATIO_CURRENT_OVER_PRIOR_ACTUAL", "observed_signature": "OBS_MUTATION_SELECT_CURRENT_PRIOR_NO_BASE"},
+      {"order": 14, "evaluator_row_ordinal": 69, "full_source_row_ordinal": 33, "oracle_row_id": "qp4-rcc-ict-total-revenue:base_target:clause_reordered", "anchor_id": "qp4-rcc-ict-total-revenue", "question_selector": {"collection": "base_surfaces", "index": 3}, "question_sha256": "614ed38b575d1af7147a6759fc688436c48f18fd2fb5496cb182983868fd7050", "expected_signature": "EXPECTED_BASE_RATIO_ACTUAL_OVER_PLAN", "observed_signature": "OBS_BASE_ROLE_AND_REFERENCE_REVERSAL"},
+      {"order": 15, "evaluator_row_ordinal": 78, "full_source_row_ordinal": 53, "oracle_row_id": "qp4-rcc-pic-total-revenue:reference_base_mutation_target:clause_reordered", "anchor_id": "qp4-rcc-pic-total-revenue", "question_selector": {"collection": "reference_base_mutation_surfaces", "index": 3}, "question_sha256": "5d27545f34271f7b82e8cf135173f4ba2e2ecc4c99bf2d0598508d5ae8dce50f", "expected_signature": "EXPECTED_MUTATION_RATIO_CURRENT_OVER_PRIOR_ACTUAL", "observed_signature": "OBS_MUTATION_SELECT_PRIOR_CURRENT_NO_BASE"},
+      {"order": 16, "evaluator_row_ordinal": 80, "full_source_row_ordinal": 3, "oracle_row_id": "qp4-rcc-agr-total-expense:base_target:clause_reordered", "anchor_id": "qp4-rcc-agr-total-expense", "question_selector": {"collection": "base_surfaces", "index": 3}, "question_sha256": "d344e3d6e396ac4e2d8a7a0e9075b7869611016d0660e42ffeb2e13e8b1074ee", "expected_signature": "EXPECTED_BASE_RATIO_ACTUAL_OVER_PLAN", "observed_signature": "OBS_BASE_ROLE_AND_REFERENCE_REVERSAL"},
+      {"order": 17, "evaluator_row_ordinal": 81, "full_source_row_ordinal": 83, "oracle_row_id": "qp4-rcc-vnl-profit-before-tax:reference_base_mutation_target:clause_reordered", "anchor_id": "qp4-rcc-vnl-profit-before-tax", "question_selector": {"collection": "reference_base_mutation_surfaces", "index": 3}, "question_sha256": "f29d17833276f7a2aab5904debdc06bffbf6a17fdf6ecd9bed541ad2ac328f8f", "expected_signature": "EXPECTED_MUTATION_RATIO_CURRENT_OVER_PRIOR_ACTUAL", "observed_signature": "OBS_MUTATION_SELECT_PRIOR_CURRENT_NO_BASE"},
+      {"order": 18, "evaluator_row_ordinal": 88, "full_source_row_ordinal": 66, "oracle_row_id": "qp4-rcc-scg-total-revenue:reference_base_mutation_target:paraphrase_1", "anchor_id": "qp4-rcc-scg-total-revenue", "question_selector": {"collection": "reference_base_mutation_surfaces", "index": 1}, "question_sha256": "4d7e6de9422e03b64d76362bb890a29a2b2160a89fd77ee461961d0f1acdabf9", "expected_signature": "EXPECTED_MUTATION_RATIO_CURRENT_OVER_PRIOR_ACTUAL", "observed_signature": "OBS_MUTATION_SELECT_CURRENT_PRIOR_NO_BASE"},
+      {"order": 19, "evaluator_row_ordinal": 89, "full_source_row_ordinal": 18, "oracle_row_id": "qp4-rcc-hub-parent-profit-after-tax:base_target:clause_reordered", "anchor_id": "qp4-rcc-hub-parent-profit-after-tax", "question_selector": {"collection": "base_surfaces", "index": 3}, "question_sha256": "0f519031eb497bbabf81b1f51d16f2d6c48448e7c3b777c84d362f2b03c9ee50", "expected_signature": "EXPECTED_BASE_RATIO_ACTUAL_OVER_PLAN", "observed_signature": "OBS_BASE_ROLE_AND_REFERENCE_REVERSAL"}
+    ]
+  },
+  "oracle_contract": {
+    "correctness_source": "source-cohort anchor programs and evidence-role/period declarations; corrected-evaluator result/hash is membership evidence only, not correctness proof",
+    "EXPECTED_BASE_RATIO_ACTUAL_OVER_PLAN": {
+      "operation": "RATIO_PERCENT",
+      "operation_candidates": ["RATIO_PERCENT"],
+      "roles": ["ACTUAL", "PLAN"],
+      "years": "current_actual.period,current_plan.period in anchor evidence",
+      "reference_base": "plan",
+      "abstention_reason_present": false
+    },
+    "EXPECTED_MUTATION_RATIO_CURRENT_OVER_PRIOR_ACTUAL": {
+      "operation": "RATIO_PERCENT",
+      "operation_candidates": ["RATIO_PERCENT"],
+      "roles": ["ACTUAL", "ACTUAL"],
+      "years": "current_actual.period,prior_actual.period in anchor evidence",
+      "reference_base": "actual_<prior_actual.period>",
+      "abstention_reason_present": false
+    },
+    "gold_or_expected_plan_passed_to_compiler": false,
+    "oracle_applied_post_hoc_only": true
+  },
+  "observed_divergence_groups": {
+    "OBS_BASE_ROLE_AND_REFERENCE_REVERSAL": {
+      "rows": 6,
+      "surface": "base_target/clause_reordered",
+      "observed_projection": {"operation": "RATIO_PERCENT", "roles": ["PLAN", "ACTUAL"], "reference_base": "actual"},
+      "diversity": {"companies": 6, "sources": 6, "real_document_layouts": 3, "real_table_layouts": 6, "extraction_families": 2, "distinct_question_hashes": 4}
+    },
+    "OBS_MUTATION_SELECT_CURRENT_PRIOR_NO_BASE": {
+      "rows": 6,
+      "surface": "reference_base_mutation_target/paraphrase_1",
+      "observed_projection": {"operation": "SELECT", "roles": ["ACTUAL", "ACTUAL"], "year_order": "current,prior", "reference_base": null},
+      "diversity": {"companies": 6, "sources": 6, "real_document_layouts": 3, "real_table_layouts": 6, "extraction_families": 2, "distinct_question_hashes": 4}
+    },
+    "OBS_MUTATION_SELECT_PRIOR_CURRENT_NO_BASE": {
+      "rows": 6,
+      "surface": "reference_base_mutation_target/clause_reordered",
+      "observed_projection": {"operation": "SELECT", "roles": ["ACTUAL", "ACTUAL"], "year_order": "prior,current", "reference_base": null},
+      "diversity": {"companies": 6, "sources": 6, "real_document_layouts": 3, "real_table_layouts": 6, "extraction_families": 2, "distinct_question_hashes": 4}
+    },
+    "OBS_MUTATION_PERCENT_CHANGE": {
+      "rows": 1,
+      "surface": "reference_base_mutation_target/long_clause",
+      "observed_projection": {"operation": "PERCENT_CHANGE", "roles": ["ACTUAL", "ACTUAL"], "year_order": "current,prior", "reference_base": "actual_<prior period>"},
+      "diversity": {"companies": 1, "sources": 1, "real_document_layouts": 1, "real_table_layouts": 1, "extraction_families": 1, "distinct_question_hashes": 1},
+      "generic_verdict_possible_from_this_row_alone": false
+    },
+    "surface_similarity_or_same_observed_projection_is_root_cause_proof": false
+  },
+  "aggregate_diversity": {
+    "cases": 19,
+    "companies": 6,
+    "sources": 6,
+    "real_document_layouts": 3,
+    "real_table_layouts": 6,
+    "extraction_families": 2
+  },
+  "runtime_freeze": {
+    "runtime_file_whitelist": [],
+    "runtime_hashes": {
+      "src/hrm_finance_qa/question_planner.py": "334ab6bfb57b883ff2022cdcb39614d7e7a8d3269c14f4bea188640d53111bf4",
+      "src/hrm_finance_qa/financial_identities.py": "ee7347885f561d5f5d9c404964ecb7a46f1275186e100f2236e53114aeacd2ee",
+      "src/hrm_finance_qa/ontology.py": "47375f6a95057ddda75433fd40a8e9c2be3448165e288c2764d1d54bc83e400b"
+    },
+    "model_inference_authorized": false,
+    "checkpoint_read_or_change_authorized": false,
+    "threshold_change_authorized": false,
+    "source_pdf_read_authorized": false,
+    "page_index_used": false,
+    "ocr_used": false
+  },
+  "replay_contract": {
+    "next_step": "QP4-POSITIVE-TARGET-QUESTION-PLAN-DIAGNOSIS-INSTRUMENTATION-REPLAY",
+    "target_cases": 19,
+    "baseline_compiler_calls": 19,
+    "instrumented_compiler_calls": 19,
+    "total_compiler_calls": 38,
+    "execution_order": "for each fixed target in order: unwrapped compile_question_plan baseline, then instrumented compile_question_plan",
+    "candidate_or_binding_replay_calls": 0,
+    "question_materialization": "resolve only through anchor_id plus frozen question_selector after parent and question SHA-256 verification",
+    "allowed_temporary_harness": "scripts/_tmp_qp4_positive_target_question_plan_diagnosis_instrumentation_replay.py",
+    "harness_retained_after_execution": false,
+    "direct_trace_path": "reports/finhrm_qp4_positive_target_question_plan_diagnosis_instrumentation_replay_v1.jsonl",
+    "trace_transport": "direct independent JSONL file handle; append one case record then flush and os.fsync; stdout progress only",
+    "output_artifacts": {"final_json_or_jsonl": 1, "final_markdown": 1, "lock_manifest": 1, "temporary_files_retained": 0},
+    "output_noninterference_required": "19/19 exact baseline versus instrumented semantic plan projection",
+    "baseline_parent_match_required": "19/19 exact against frozen full-source question_plan projection",
+    "no_case_expansion_replacement_or_fallback": true
+  },
+  "instrumentation_contract": {
+    "module": "hrm_finance_qa.question_planner",
+    "entry_symbol": "compile_question_plan",
+    "allowed_observed_symbols": [
+      "compile_question_plan",
+      "_partition_column_role_context",
+      "_compile_column_roles",
+      "_align_column_roles",
+      "_compile_operand_slots",
+      "_compile_program_intent_dag",
+      "_compile_abstention_reason"
+    ],
+    "allowed_trace": [
+      "question SHA-256 and normalized-question SHA-256",
+      "symbol call/return order",
+      "branch/predicate identifier and evaluated boolean or enum",
+      "role-match spans and typed role labels",
+      "operation and operation-candidate transition",
+      "requested years and aligned role order",
+      "operand-slot ids/roles/years/intent sources",
+      "reference base and program DAG nodes",
+      "abstention reason",
+      "final semantic plan projection"
+    ],
+    "forbidden_trace": [
+      "model logits or confidence",
+      "candidate sequence, rank or score",
+      "document text, page context or OCR output",
+      "gold-driven branch override",
+      "new label",
+      "selection or decision override"
+    ],
+    "observer_semantics": "wrappers must call each original symbol exactly once with unchanged arguments and return the exact original object/value; restore all symbols after each case including failure paths"
+  },
+  "root_cause_contract": {
+    "unit_of_comparison": "exact code-level causal signature, never failure layer or surface similarity",
+    "exact_match_required": [
+      "same module and first-divergence producer symbol",
+      "same executed branch/predicate with same causal state transition",
+      "same downstream incorrect plan field caused by that transition",
+      "no gold, row ID, company, filename, page, year literal or question literal used in the runtime path"
+    ],
+    "governing_minimum_diversity": {"companies": 3, "sources": 3, "real_document_layouts": 3},
+    "code_derived_partition_allowed": true,
+    "partition_rule": "a partition may be formed only by exact traced code-level signature; every one of 19 targets must retain an explicit disposition and unmatched rows cannot be dropped",
+    "surface_group_is_automatic_causal_partition": false,
+    "singleton_long_clause_generic_allowed": false,
+    "permitted_case_dispositions": ["GENERIC_ROOT_CAUSE_MEMBER", "LOCAL", "UNRESOLVED"],
+    "permitted_cluster_conclusions": ["GENERIC_ROOT_CAUSE", "LOCAL", "INSUFFICIENT_EVIDENCE"],
+    "repair_open_condition": "at least one exact code-derived partition reaches the governing 3/3/3 gate with complete traces and 19/19 output noninterference; any repair requires a separate runtime-repair precommit",
+    "otherwise": "HOLD",
+    "same_failure_layer_is_root_cause_proof": false,
+    "neural_rank_score_or_confidence_is_semantic_proof": false
+  },
+  "precommit_feasibility_gates": {
+    "all_parent_hashes_match": true,
+    "corrected_evaluator_question_plan_rows_exactly_19": true,
+    "fixed_case_ids_match_parent_rows_at_all_19_ordinals": true,
+    "full_source_rows_match_all_19_ids_and_ordinals": true,
+    "question_selectors_exist_and_all_question_hashes_match": true,
+    "oracle_fields_materializable_from_frozen_anchor_evidence_and_programs": true,
+    "all_three_six_row_groups_reach_6_companies_6_sources_3_real_document_layouts": true,
+    "singleton_is_fail_closed_for_genericity": true,
+    "unobserved_baseline_and_instrumented_comparison_complete": true,
+    "runtime_whitelist_empty": true,
+    "candidate_and_binding_replay_excluded": true,
+    "precommit_executable": true
+  },
+  "repair_authorized": false,
+  "qp4_complete": false,
+  "qp5_authorized": false,
+  "phase_d_unlocked": false,
+  "authorized_next_action": "QP4-POSITIVE-TARGET-QUESTION-PLAN-DIAGNOSIS-INSTRUMENTATION-REPLAY: execute exactly 19 baseline plus 19 instrumented compiler calls with direct per-case fsynced JSONL; do not read PDFs, use model/page-index, replay Candidate/Binding, or edit runtime."
+}

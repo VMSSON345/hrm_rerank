@@ -1,0 +1,106 @@
+{
+  "schema": "finhrm-qp3-core-generalization-coverage-diagnostic-matrix-v1",
+  "created_at": "2026-08-14",
+  "classification": "development_only_report_agnostic_diagnostic_matrix",
+  "status": "matrix_recipe_frozen_before_runtime_edit",
+  "parent_precommit": {
+    "path": "config/finhrm_qp3_core_generalization_coverage_precommit_v1.json",
+    "sha256": "e392a7e07ecab6934c69c0e54cc80e255963c9a2cf363202b858a108ddf57a06"
+  },
+  "source_report": {
+    "path": "reports/finhrm_qp3_core_s4_safe_replay_v1.json",
+    "sha256": "cb0dbbc27de5c9254fd3fa4634183f91bfcbf2b93e96f1703984aaf4d9f146f0",
+    "allowed_split": "development_train_only"
+  },
+  "diversity_gate": {
+    "minimum_distinct_companies_per_track_and_control": 3,
+    "minimum_distinct_layouts_per_track_and_control": 3,
+    "synthetic_layout_counts_as_unseen_confirmation": false,
+    "source_company_identifiers_persisted": false
+  },
+  "tracks": {
+    "period_and_provenance": {
+      "operation": "SELECT",
+      "select_when_any_unknown": ["period_coverage"],
+      "positive_recipe": "KEEP_GOLD_PROGRAM_AND_EVIDENCE_UNCHANGED",
+      "positive_oracle": "GOLD_PROGRAM_AND_EVIDENCE_SEMANTICS_PRESERVED",
+      "hard_negative_recipe": "DUPLICATE_LOGICAL_CELL_WITH_CONFLICTING_OR_MISSING_PROVENANCE",
+      "hard_negative_oracle": "ABSTAIN_OR_REJECT_NEVER_ANSWER",
+      "counterfactual_recipe": "EXPLICIT_WRONG_PERIOD_OR_COLUMN_QUALIFIER",
+      "counterfactual_oracle": "REJECT_NEVER_ANSWER",
+      "permutation_recipe": "REVERSE_ALL_CANDIDATES_AND_REMAP_POINTERS",
+      "permutation_oracle": "EXACT_PROOF_DECISION_AND_EXECUTION_INVARIANCE",
+      "layout_projection": {
+        "enabled": true,
+        "only_if_source_layouts_below_gate": true,
+        "target_layout": "DEVELOPMENT_SYNTHETIC_OCR_CHANNEL_SEMANTICS_PRESERVING",
+        "source_companies": 3,
+        "transformation": "RELABEL_EXTRACTION_CHANNEL_ONLY_PRESERVE_CELL_TEXT_VALUE_STRUCTURE_AND_PROVENANCE",
+        "may_count_as_confirmation": false
+      },
+      "no_regression_obligations": [
+        "logical_cell_unique",
+        "source_provenance_complete",
+        "reference_base_match"
+      ]
+    },
+    "operation_and_add_grounding": {
+      "operation": "ADD",
+      "select_when_any_unknown": ["operation_match", "add_grounding"],
+      "positive_recipe": "KEEP_GOLD_TWO_ROLE_ADD_PROGRAM_AND_EVIDENCE_UNCHANGED",
+      "positive_oracle": "GOLD_TWO_ROLE_COMPOSITION_AND_EXECUTION_PRESERVED",
+      "hard_negative_recipe": "BIND_TWO_POINTERS_TO_ONE_LOGICAL_CELL",
+      "hard_negative_oracle": "REJECT_NEVER_ANSWER",
+      "counterfactual_recipe": "REPLACE_ONE_OPERAND_WITH_EXPLICIT_WRONG_ROLE_PERIOD_ENTITY_OR_UNIT",
+      "counterfactual_oracle": "REJECT_NEVER_ANSWER",
+      "permutation_recipe": "REVERSE_ALL_CANDIDATES_AND_REMAP_POINTERS",
+      "permutation_oracle": "EXACT_PROOF_DECISION_AND_EXECUTION_INVARIANCE",
+      "layout_projection": {
+        "enabled": false
+      },
+      "no_regression_obligations": [
+        "operand_arity_intent",
+        "logical_cell_unique",
+        "source_provenance_complete",
+        "unit_algebra"
+      ]
+    },
+    "query_metric": {
+      "operation": "SELECT",
+      "select_when_any_unknown": ["query_metric"],
+      "positive_recipe": "KEEP_GOLD_METRIC_BINDING_AND_EVIDENCE_UNCHANGED",
+      "positive_oracle": "GOLD_METRIC_BINDING_AND_EXECUTION_PRESERVED",
+      "hard_negative_recipe": "ADD_SECOND_SEMANTICALLY_COMPATIBLE_LOGICAL_CELL_WITHOUT_DISAMBIGUATING_LINEAGE",
+      "hard_negative_oracle": "ABSTAIN_OR_REJECT_NEVER_ANSWER",
+      "counterfactual_recipe": "REPLACE_SELECTED_CELL_WITH_EXPLICIT_NON_ALIAS_METRIC",
+      "counterfactual_oracle": "REJECT_NEVER_ANSWER",
+      "permutation_recipe": "REVERSE_ALL_CANDIDATES_AND_REMAP_POINTERS",
+      "permutation_oracle": "EXACT_PROOF_DECISION_AND_EXECUTION_INVARIANCE",
+      "layout_projection": {
+        "enabled": false
+      },
+      "no_regression_obligations": [
+        "logical_cell_unique",
+        "source_provenance_complete",
+        "period_coverage"
+      ]
+    }
+  },
+  "control_types": [
+    "positive",
+    "hard_negative",
+    "counterfactual",
+    "permutation"
+  ],
+  "forbidden": {
+    "runtime_edit": true,
+    "company_file_page_year_value_or_question_literal_rule": true,
+    "candidate_rank_or_score_as_proof": true,
+    "abw_confirmation": true,
+    "protected_validation_blind_test_access": true,
+    "threshold_or_checkpoint_change": true,
+    "fine_tuning": true,
+    "synthetic_layout_as_unseen_evidence": true
+  },
+  "authorized_next_step_if_matrix_passes": "QP3-CORE-GENERALIZATION-COVERAGE-IMPLEMENTATION-PRECOMMIT only; runtime remains locked until that separate precommit freezes admitted generic edits and replay gates."
+}

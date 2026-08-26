@@ -1,0 +1,82 @@
+{
+  "schema": "finhrm.qp4.final_gate_reclosure_lock.v1",
+  "created_at": "2026-08-24T18:00:04+07:00",
+  "classification": "development_only_read_only_full_qp4_gate_aggregation_lock",
+  "status": "COMPLETE_FAIL_CLOSED",
+  "step": "QP4-FINAL-GATE-RECLOSURE",
+  "final_gate_passed": false,
+  "qp4_complete": false,
+  "qp5_authorized": false,
+  "phase_d_unlocked": false,
+  "locked_artifacts": [
+    {
+      "path": "reports/finhrm_qp4_final_gate_reclosure_v1.json",
+      "size_bytes": 8784,
+      "sha256": "1013f5c5a7edbf809dd11287d8cf14824d4077a5815baeb91754bf5e6a6ace32"
+    },
+    {
+      "path": "reports/finhrm_qp4_final_gate_reclosure_v1.md",
+      "size_bytes": 3258,
+      "sha256": "0865d9b4c772d437898d668e8181a8d9960429e0c7a4a17faa9f239735538629"
+    }
+  ],
+  "input_lock_integrity": {
+    "terminal_locks_checked": 8,
+    "nested_path_sha256_references_checked": 109,
+    "missing_references": 0,
+    "hash_mismatches": 0,
+    "passed": true
+  },
+  "live_replay_lock": {
+    "compiler_inventory": "242/242",
+    "affected_regression": "360/360",
+    "safe_actions": {
+      "ANSWER": 257,
+      "ABSTAIN": 92,
+      "REJECT": 14
+    },
+    "gold_execution": "363/363",
+    "candidate_permutation": "363/363",
+    "counterfactuals": 141,
+    "counterfactual_false_accepts": 0,
+    "checkpoint_sha256": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de"
+  },
+  "failed_release_gates": {
+    "proof_complete_exact_target_answers": {
+      "required": "60/60",
+      "latest_locked_full_cohort_observation": "0/60"
+    },
+    "base_exact_answers": {
+      "required": "30/30",
+      "latest_locked_full_cohort_observation": "0/30"
+    },
+    "reference_base_mutation_exact_answers": {
+      "required": "30/30",
+      "latest_locked_full_cohort_observation": "0/30"
+    },
+    "surface_equivalence_groups": {
+      "required": "12/12",
+      "latest_locked_full_cohort_observation": "0/12"
+    },
+    "source_cohort_candidate_permutation": {
+      "required": "90/90",
+      "latest_locked_post_protocol_observation": "37/90"
+    }
+  },
+  "claim_boundary": "The citation carrier cohort and frozen 363-example safe replay do not replace the locked 90-observation full source-semantic release gate.",
+  "mutation_lock": {
+    "runtime_edits": 0,
+    "model_edits": 0,
+    "checkpoint_edits": 0,
+    "threshold_edits": 0,
+    "gold_edits": 0,
+    "new_examples": 0,
+    "protected_sources_loaded": 0
+  },
+  "authorized_next_action": {
+    "step": "QP4-FULL-SOURCE-SEMANTIC-REPLAY-REFRESH-PRECOMMIT",
+    "runtime_or_model_edit_authorized": false,
+    "qp5_authorized": false,
+    "phase_d_unlocked": false
+  }
+}

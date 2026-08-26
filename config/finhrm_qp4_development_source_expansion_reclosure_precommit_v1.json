@@ -1,0 +1,399 @@
+{
+  "schema": "finhrm.qp4.development_source_expansion_reclosure_precommit.v1",
+  "created_at": "2026-08-24T12:24:04+07:00",
+  "classification": "development_only_deterministic_random_source_expansion_precommit_no_runtime_no_model_no_ocr",
+  "status": "PASS",
+  "step": "QP4-DEVELOPMENT-SOURCE-EXPANSION-RECLOSURE-PRECOMMIT",
+  "precommit_gate_passed": true,
+  "source_expansion_build_gate_passed": false,
+  "runtime_implementation_gate_passed": false,
+  "purpose": "Reclose the failed PA07 structural cohort with an outcome-independent random sample of previously uncataloged 2024 PDFs belonging to already classified development companies. Only the hierarchical and fragmented structural signatures that failed the prior build may be audited. This step authorizes no runtime, model, threshold, checkpoint, OCR or final-evaluation work.",
+  "authorization_basis": {
+    "parent_lock_required_state": "Remain FAIL_CLOSED and report exact structural coverage shortfalls; no runtime edit.",
+    "parent_runtime_edit_authorized": false,
+    "parent_source_replay_diagnostic_precommit_authorized": false,
+    "explicit_user_reclosure_authorization": true,
+    "user_authorized_scope": "Find additional real development PDFs for the missing hierarchical and fragmented structures and inspect materialization/binding before touching the model.",
+    "interpretation": "This is a development-source-universe reclosure caused by the newly verified 2127-versus-169 source-coverage mismatch. It is not the source-replay diagnostic forbidden by the parent lock and it does not supersede any runtime, QP5, Phase D or publication-pilot lock."
+  },
+  "parents": {
+    "failed_cohort_build_json": {
+      "path": "reports/finhrm_qp4_post_question_surface_post_cache_residual_coverage_post_source_protocol_semantic_trace_pa07_candidate_population_root_decomposition_cohort_build_v1.json",
+      "size_bytes": 23633,
+      "sha256": "9090750188e6c7c984fbc2032a0639aa8d7d3383dc9c7890ab6f7b3f89301d8e",
+      "status": "FAIL_CLOSED"
+    },
+    "failed_cohort_build_markdown": {
+      "path": "reports/finhrm_qp4_post_question_surface_post_cache_residual_coverage_post_source_protocol_semantic_trace_pa07_candidate_population_root_decomposition_cohort_build_v1.md",
+      "size_bytes": 3205,
+      "sha256": "0bce2ed2359a29778d86d8a3de7fde02ecef4efeb8486878bcc5e249d64ade62"
+    },
+    "failed_cohort_build_lock": {
+      "path": "reports/finhrm_qp4_post_question_surface_post_cache_residual_coverage_post_source_protocol_semantic_trace_pa07_candidate_population_root_decomposition_cohort_build_lock_v1.json",
+      "size_bytes": 5783,
+      "sha256": "bf9703bdec9b7dc17a63eb1185d09b9f933ca3ffe33a6b64703139478d57cafa"
+    },
+    "structural_contract_precommit": {
+      "path": "config/finhrm_qp4_post_question_surface_post_cache_residual_coverage_post_source_protocol_semantic_trace_pa07_candidate_population_root_decomposition_cohort_precommit_v1.json",
+      "size_bytes": 20652,
+      "sha256": "e4122258a7d86c1869fe9c11d4150d4e5d471ef88412d9374d40a3efa8c4ed6c"
+    },
+    "structural_contract_lock": {
+      "path": "reports/finhrm_qp4_post_question_surface_post_cache_residual_coverage_post_source_protocol_semantic_trace_pa07_candidate_population_root_decomposition_cohort_precommit_lock_v1.json",
+      "size_bytes": 5920,
+      "sha256": "938fa516799c4891964c13aa7e579ad657c90d057dfea8a1020860812f905a59"
+    }
+  },
+  "frozen_inputs": {
+    "claude": {
+      "path": "CLAUDE.md",
+      "size_bytes": 3494,
+      "sha256": "b3e61c65fd4f36a86d5ba4fac780150960c81bfe7cf5f4a9a685071a408178aa"
+    },
+    "generalization_invariant": {
+      "path": "config/finhrm_report_generalization_invariant_v1.json",
+      "size_bytes": 2512,
+      "sha256": "7a8c6e58a47314d522adb782277f6d5bf0cbf761faf681d848e2e9ae4e861846"
+    },
+    "thesis_core": {
+      "path": "config/finhrm_thesis_core_v1.json",
+      "size_bytes": 24625,
+      "sha256": "a9f2f3088f7622c6c8912086eac16252f154fcae1164a3fe7ba75107a0ece502"
+    },
+    "development_catalog": {
+      "path": "data/pdf_development_company_catalog_v3.json",
+      "size_bytes": 31784,
+      "sha256": "17f74e49fe1894871453dd0c2b2ec8f13fa3650c4294c324d90bc7e47dd8bb2b",
+      "classification": "development_only",
+      "catalog_documents": 169,
+      "catalog_company_groups": 150
+    },
+    "question_family_catalog": {
+      "path": "config/question_family_catalog_plan_actual_v1.jsonl",
+      "size_bytes": 285544,
+      "sha256": "69c4017afec7731f63407339ae0c3d717ac38690807b17908b77fb1892d8e31b",
+      "used_for_source_selection": false,
+      "used_for_this_structural_build": false
+    }
+  },
+  "verified_scope_correction": {
+    "repository_pdf_files_by_extension": 2127,
+    "pdf_2023_files": 928,
+    "pdf_2024_files": 1199,
+    "development_catalog_documents": 169,
+    "prior_build_universe_documents": 160,
+    "prior_full_catalog_wording_meant_full_locked_build_universe_only": true,
+    "prior_build_claimed_all_2127_pdfs": false,
+    "all_2127_end_to_end_qa_verified": false,
+    "publication_or_unseen_generalization_claim_from_this_reclosure": false
+  },
+  "development_expansion_derivation": {
+    "candidate_path_roots": [
+      "pdf/PDF_23",
+      "pdf/PDF_24/PDF_24"
+    ],
+    "path_normalization": "Replace U+005C backslash with U+002F slash before every regex, sort and digest operation.",
+    "basename_regex": "^([A-Z0-9]+)_(23|24)CN_BCTN\\.pdf$",
+    "company_mapping": "For each of the 169 development-catalog document keys, take the token before the first underscore as ticker. Require a one-to-one ticker-to-company_key mapping; the verified mapping has 150 unique tickers and 150 unique company keys.",
+    "eligibility_predicate_all_required": [
+      "The PDF basename matches the frozen basename_regex.",
+      "Its ticker maps uniquely to a company_key in the frozen development catalog.",
+      "Its basename is not already one of the 169 catalog document keys.",
+      "Its company_key is not in excluded_company_keys.",
+      "Its relative path contains none of the protected marker tokens.",
+      "Its file SHA-256 is computed and frozen before any page text, geometry, question, model outcome or answer is inspected."
+    ],
+    "protected_marker_tokens_case_insensitive": [
+      "validation",
+      "blind",
+      "test",
+      "sealed",
+      "holdout",
+      "final_evaluation"
+    ],
+    "excluded_company_keys": [
+      "development-company-12",
+      "development-company-2255c8b55faa7d4f",
+      "development-company-18",
+      "development-company-08d33503ee27d4c1",
+      "development-company-175a680792c1fbf7",
+      "development-company-128d077252ff6e80",
+      "development-company-0d2016d24a4bb0bd",
+      "development-company-10",
+      "development-company-1d585201d60f1098",
+      "development-company-0014e8573a28e8bc",
+      "development-company-1e84b08c59bf24b2",
+      "development-company-00e37ffae0562ab6",
+      "development-company-16",
+      "development-company-1af5660601b8be7b",
+      "development-company-0b28864100007207",
+      "development-company-19"
+    ],
+    "exclusion_reason": "ABW is forbidden as confirmation. The other fifteen company groups appeared in the six-source diagnosis, the four admitted prior-build anchors or the five material-rejection reviews; they are excluded to keep the expansion cohort company-disjoint from diagnosis and prior confirmation.",
+    "eligible_uncataloged_sources": 112,
+    "eligible_distinct_companies": 112,
+    "eligible_report_years": [2024],
+    "maximum_sources_per_company": 1,
+    "pool_line_encoding": "UTF-8 without BOM",
+    "pool_line_format": "company_key<TAB>normalized_relative_path<TAB>lowercase_source_sha256",
+    "pool_line_order": "normalized_relative_path ascending by ordinal code point",
+    "pool_line_separator": "LF between lines and no terminal LF",
+    "eligible_pool_sha256": "8711cfdf491bc14fe5dbed6a161dd754c6de89f4d918be4b410006d6acc2c5ab"
+  },
+  "deterministic_random_selection": {
+    "transform_id": "FINHRM_QP4_DEV_SOURCE_EXPANSION_RANDOM_V1",
+    "sample_size": 50,
+    "selection_prefix_exact": "FINHRM_QP4_DEV_SOURCE_EXPANSION_RANDOM_V1\nbf9703bdec9b7dc17a63eb1185d09b9f933ca3ffe33a6b64703139478d57cafa\n",
+    "selection_key_preimage": "selection_prefix_exact + company_key + LF + normalized_relative_path + LF + lowercase_source_sha256",
+    "selection_key": "lowercase_hex(SHA256(UTF-8-without-BOM(selection_key_preimage)))",
+    "selection_order": [
+      "selection_key ascending by ordinal code point",
+      "normalized_relative_path ascending by ordinal code point"
+    ],
+    "selection_rule": "Take the first 50 eligible sources after selection_order. No replacement is allowed for scan-only, unreadable, irrelevant, missing-structure, runtime-failing or otherwise unfavorable sources.",
+    "selected_sources": 50,
+    "selected_distinct_companies": 50,
+    "selected_total_size_bytes": 545914821,
+    "selected_manifest_line_format": "selection_key<TAB>company_key<TAB>normalized_relative_path<TAB>lowercase_source_sha256<TAB>decimal_size_bytes",
+    "selected_manifest_line_order": "selection_order",
+    "selected_manifest_line_separator": "LF between lines and no terminal LF",
+    "selected_manifest_sha256": "4af6cebd661df6cebf9249343de16c7b6740a40f8e9cd600b6b423f2a48ab238",
+    "selected_source_names_in_order": [
+      "NHA_24CN_BCTN.pdf", "CCP_24CN_BCTN.pdf", "MBB_24CN_BCTN.pdf", "BHC_24CN_BCTN.pdf", "VLW_24CN_BCTN.pdf",
+      "KKC_24CN_BCTN.pdf", "VCA_24CN_BCTN.pdf", "PHP_24CN_BCTN.pdf", "VTM_24CN_BCTN.pdf", "THW_24CN_BCTN.pdf",
+      "VRE_24CN_BCTN.pdf", "HES_24CN_BCTN.pdf", "BHG_24CN_BCTN.pdf", "IDP_24CN_BCTN.pdf", "HLY_24CN_BCTN.pdf",
+      "UEM_24CN_BCTN.pdf", "VNT_24CN_BCTN.pdf", "CLX_24CN_BCTN.pdf", "SDC_24CN_BCTN.pdf", "CMG_24CN_BCTN.pdf",
+      "MTS_24CN_BCTN.pdf", "PVV_24CN_BCTN.pdf", "VIG_24CN_BCTN.pdf", "GIC_24CN_BCTN.pdf", "BIO_24CN_BCTN.pdf",
+      "MCM_24CN_BCTN.pdf", "BMV_24CN_BCTN.pdf", "CRE_24CN_BCTN.pdf", "SBB_24CN_BCTN.pdf", "ASG_24CN_BCTN.pdf",
+      "HNF_24CN_BCTN.pdf", "TET_24CN_BCTN.pdf", "TMC_24CN_BCTN.pdf", "PBT_24CN_BCTN.pdf", "SRF_24CN_BCTN.pdf",
+      "HTI_24CN_BCTN.pdf", "NAS_24CN_BCTN.pdf", "BSH_24CN_BCTN.pdf", "TMX_24CN_BCTN.pdf", "CMK_24CN_BCTN.pdf",
+      "CMS_24CN_BCTN.pdf", "FDC_24CN_BCTN.pdf", "API_24CN_BCTN.pdf", "APL_24CN_BCTN.pdf", "VSN_24CN_BCTN.pdf",
+      "DAS_24CN_BCTN.pdf", "ECI_24CN_BCTN.pdf", "BMF_24CN_BCTN.pdf", "BKG_24CN_BCTN.pdf", "TVA_24CN_BCTN.pdf"
+    ],
+    "question_text_used": false,
+    "page_or_value_used": false,
+    "layout_or_content_used": false,
+    "model_rank_score_confidence_or_action_used": false
+  },
+  "schema_feasibility_probe": {
+    "selection": "The first three sources in frozen selection_order; no replacement.",
+    "sources_probed": 3,
+    "source_hash_matches": "3/3",
+    "native_extraction_api": "src/hrm_finance_qa/document_sources.py::extract_native_pdf_pages",
+    "geometry_api": "PyMuPDF 1.28.0 page.get_text('words')",
+    "pypdf_version": "6.14.2",
+    "results": [
+      {
+        "source_path": "pdf/PDF_24/PDF_24/NHA_24CN_BCTN.pdf",
+        "source_sha256": "7e22914d45b6e2040128f957e6dd0cca5e18ccb60ff5be75fc85bad3c08f7297",
+        "native_pages": 152,
+        "method_pages": 152,
+        "geometry_pages": 152,
+        "native_nonempty_pages": 152,
+        "word_geometry_nonempty_pages": 152,
+        "method_domain": ["pymupdf", "pypdf"]
+      },
+      {
+        "source_path": "pdf/PDF_24/PDF_24/CCP_24CN_BCTN.pdf",
+        "source_sha256": "5b41ecd5600334e8556814cc2a5654c1033a37fdbbabf095d887c7e700b2fcca",
+        "native_pages": 9,
+        "method_pages": 9,
+        "geometry_pages": 9,
+        "native_nonempty_pages": 1,
+        "word_geometry_nonempty_pages": 1,
+        "method_domain": ["pymupdf", "pypdf"]
+      },
+      {
+        "source_path": "pdf/PDF_24/PDF_24/MBB_24CN_BCTN.pdf",
+        "source_sha256": "25325fe208bd565c45e0ac92587df429199b050a5eac7d0309eb05968511f2ae",
+        "native_pages": 184,
+        "method_pages": 184,
+        "geometry_pages": 184,
+        "native_nonempty_pages": 175,
+        "word_geometry_nonempty_pages": 175,
+        "method_domain": ["pymupdf", "pypdf"]
+      }
+    ],
+    "scan_only_or_sparse_source_replaced": false,
+    "new_ocr_generated": false,
+    "raw_probe_text_persisted": false,
+    "temporary_probe_deleted": true,
+    "claim_limit": "This proves that the selected-source schema and native/geometry readers are executable. It does not prove target-signature prevalence, materialization correctness or QA accuracy."
+  },
+  "target_structural_contract": {
+    "frozen_taxonomy_source": "structural_contract_precommit.structural_signature_taxonomy and canonical_layout_definition",
+    "target_signatures": [
+      "PA07_ROOT_HIERARCHICAL_MULTIROW_ROLE_PERIOD_HEADER_V1",
+      "PA07_ROOT_FRAGMENTED_VISUAL_ROW_LABEL_V1"
+    ],
+    "flattened_signature_status": "Already PASS at 3 companies, 3 sources, 3 real layout families and 3 instances; it is frozen as a later replay control and is not a source-expansion target.",
+    "required_explicit_semantics": [
+      "same normalized metric identity",
+      "ACTUAL and PLAN roles on two distinct numeric cells",
+      "same explicit period for both roles",
+      "explicit currency unit in the same physical table",
+      "explicit entity scope",
+      "source SHA-256, physical page, table/cell bounding boxes and extraction method"
+    ],
+    "forbidden_substitutes": [
+      "question wording",
+      "nearby prose or another table",
+      "absence of conflicting labels",
+      "numeric equality or magnitude",
+      "candidate rank, neural score or confidence",
+      "filename, company, page, year, value or example identity",
+      "synthetic layout or generated OCR"
+    ]
+  },
+  "authorized_expansion_build": {
+    "ordered_steps": [
+      "Verify this config and lock plus every frozen parent/input/runtime/checkpoint hash.",
+      "Reconstruct the 112-source eligible pool and require exact eligible_pool_sha256.",
+      "Recompute the deterministic 50-source selection and require exact selected_manifest_sha256 and selected_source_names_in_order.",
+      "Verify all 50 selected source hashes before reading page content.",
+      "Read all physical pages of only those 50 sources using native extraction and PyMuPDF word geometry; do not generate OCR or use existing OCR as eligibility evidence.",
+      "Enumerate only the two target signatures using the frozen structural predicates; do not use questions, HRM, ranker, answer evaluator, model output or prior failures for eligibility.",
+      "Record source read outcome and exactly one terminal reason for every selected source, including no-native-text, no-target-structure, incomplete-proof, contradiction or admitted-anchor.",
+      "Render only structurally eligible candidate pages for independent visual agreement; reject disagreement and delete temporary renders after verification.",
+      "Compute canonical layout family and instance fingerprints using the frozen parent definition.",
+      "Select at most one anchor per company/source/signature, preferring new canonical layout families and then source hash/page; do not replace unfavorable random sources.",
+      "Write exactly one final JSON, one final Markdown and one lock manifest; persist no raw extraction trace or temporary file."
+    ],
+    "source_result_required_fields": [
+      "company_key", "source_path", "source_sha256", "source_hash_match", "physical_pages",
+      "native_nonempty_pages", "geometry_nonempty_pages", "target_candidate_pages",
+      "terminal_status", "terminal_reason"
+    ],
+    "anchor_schema": "Exactly the required anchor_schema from the frozen structural contract precommit.",
+    "terminal_status_domain": ["ADMITTED", "REJECTED", "SOURCE_ERROR"],
+    "terminal_reason_domain": [
+      "ADMITTED_EXPLICIT_HIERARCHICAL",
+      "ADMITTED_EXPLICIT_FRAGMENTED",
+      "REJECT_NO_NATIVE_TEXT_OR_GEOMETRY",
+      "REJECT_NO_TARGET_STRUCTURE",
+      "REJECT_MISSING_EXPLICIT_ROLE",
+      "REJECT_MISSING_EXPLICIT_SAME_PERIOD",
+      "REJECT_MISSING_EXPLICIT_UNIT_IN_SAME_TABLE",
+      "REJECT_MISSING_ENTITY_OR_PROVENANCE",
+      "REJECT_GEOMETRY_VISUAL_DISAGREEMENT",
+      "REJECT_SOURCE_CONTRADICTION",
+      "SOURCE_READ_ERROR",
+      "SOURCE_HASH_MISMATCH"
+    ],
+    "runtime_files_changed": false,
+    "test_files_changed": false,
+    "source_replay_questions_run": false,
+    "new_ocr_generation": false
+  },
+  "admission_gates": {
+    "global_all_required": {
+      "eligible_pool_sha256_exact": true,
+      "selected_manifest_sha256_exact": true,
+      "selected_sources_processed": "50/50",
+      "selected_source_hash_matches": "50/50",
+      "selected_distinct_companies": 50,
+      "excluded_company_overlap": 0,
+      "protected_marker_sources": 0,
+      "abw_sources": 0,
+      "unfrozen_replacements": 0,
+      "question_model_rank_or_outcome_used_for_selection": false,
+      "new_ocr_generated": false,
+      "runtime_or_test_files_changed": false,
+      "temporary_files_after_verification": 0
+    },
+    "hierarchical_combined_with_frozen_prior_anchor": {
+      "frozen_prior_companies": 1,
+      "frozen_prior_sources": 1,
+      "frozen_prior_real_layout_families": 1,
+      "minimum_new_distinct_companies": 2,
+      "minimum_new_distinct_sources": 2,
+      "minimum_new_real_layout_families_not_equal_to_prior": 2,
+      "minimum_new_layout_instances": 2,
+      "combined_minimum_each": 3
+    },
+    "fragmented": {
+      "frozen_prior_companies": 0,
+      "frozen_prior_sources": 0,
+      "frozen_prior_real_layout_families": 0,
+      "minimum_new_distinct_companies": 3,
+      "minimum_new_distinct_sources": 3,
+      "minimum_new_real_layout_families": 3,
+      "minimum_new_layout_instances": 3
+    },
+    "all_target_signatures_must_pass": true,
+    "no_pooling_between_signatures": true,
+    "failure_behavior": "If either target signature fails its exact minimum, remain FAIL_CLOSED. Do not enlarge the random sample post-hoc, replace sources, relax semantic proof, redefine layout families, change thresholds or patch runtime. Report the exact sample-bound shortfall as a residual development limitation."
+  },
+  "post_build_sequence": {
+    "if_both_target_gates_pass": "QP4-PA07-EXPANDED-COHORT-SOURCE-REPLAY-DIAGNOSTIC-PRECOMMIT",
+    "if_any_target_gate_fails": "Remain FAIL_CLOSED and report exact deterministic-sample shortfall; no runtime edit.",
+    "runtime_edit_after_this_precommit": false,
+    "runtime_edit_after_expansion_build": false,
+    "publication_pilot_30_to_50_authorized": false,
+    "qp4_complete": false,
+    "qp5_authorized": false,
+    "phase_d_unlocked": false
+  },
+  "authorization": {
+    "next_allowed_action": "QP4-DEVELOPMENT-SOURCE-EXPANSION-COHORT-BUILD",
+    "next_action_may_read": [
+      "only the 50 hash-selected development PDFs",
+      "their native page text",
+      "their native word geometry",
+      "temporary renders of structurally eligible candidate pages"
+    ],
+    "next_action_may_write": [
+      "one final JSON",
+      "one final Markdown",
+      "one lock manifest",
+      "temporary execution files deleted after verification"
+    ],
+    "runtime_edit_authorized": false,
+    "runtime_file_whitelist": [],
+    "test_file_whitelist": [],
+    "source_replay_authorized": false,
+    "final_random_pilot_authorized": false,
+    "qp4_complete": false,
+    "qp5_authorized": false,
+    "phase_d_unlocked": false
+  },
+  "frozen_integrity": {
+    "runtime_hashes": {
+      "src/hrm_finance_qa/document_sources.py": "e9eb7b3ddcc2ed13060a573a6a0101a216fa49ff21dd65cd5fc2629b92f5fc0b",
+      "src/hrm_finance_qa/document_page_index.py": "d531f47a22ed051863b41b3de031bb3e9d4bbf60ef71f825217559b7035386b4",
+      "src/hrm_finance_qa/program_data.py": "5199434fc0628b7d270ce62b12657366cbe118901065edd9f1e1f6ca0f1f8d54",
+      "src/hrm_finance_qa/evidence_schema.py": "2f16fabf932dc9dabc8203d9642d2503bb2dab43e0e1ee0f78755dd4fb00825d",
+      "src/hrm_finance_qa/document_reasoning_engine.py": "3883500011472716bc01f8e04a6d6f925173b35a14bbedd945c5ca4fb0063fa2"
+    },
+    "checkpoint": {
+      "path": "models/document_hrm_V8_candidate.pt",
+      "size_bytes": 3413128,
+      "sha256": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de",
+      "parameter_count": 843097
+    },
+    "runtime_changed": false,
+    "model_checkpoint_or_threshold_changed": false,
+    "fine_tuning_performed": false,
+    "protected_split_read": false,
+    "abw_used": false,
+    "new_ocr_generated": false
+  },
+  "artifact_policy": {
+    "final_json": 1,
+    "final_markdown": 1,
+    "lock_manifest": 1,
+    "persistent_script_or_raw_trace": false,
+    "temporary_probe_deleted": true,
+    "temporary_files_after_verification": 0
+  },
+  "invariants": {
+    "company_filename_page_year_value_example_or_question_literal_runtime_rule_added": false,
+    "candidate_rank_neural_score_or_confidence_used_as_semantic_proof": false,
+    "period_or_provenance_inferred_from_absence_nearby_context_or_question": false,
+    "missing_proof_policy": "UNKNOWN_TO_ABSTAIN",
+    "conflict_policy": "INVALID_TO_REJECT",
+    "synthetic_layout_counted_as_confirmation": false,
+    "metric_beautification_performed": false,
+    "unseen_2025_or_2026_generalization_claimed": false
+  }
+}

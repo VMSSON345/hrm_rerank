@@ -1,0 +1,65 @@
+{
+  "schema": "finhrm-qp3-core-s4-safe-replay-precommit-v1",
+  "created_at": "2026-08-14",
+  "classification": "development_train_only_report_agnostic_s4_replay_precommit",
+  "status": "precommitted_before_safe_replay_no_runtime_change_authorized",
+  "source": {
+    "path": "data/document_hrm_development_v1_train.jsonl",
+    "size_bytes": 17712766,
+    "sha256": "8d445cbc776ec10ffb9b94bf4fd0693eb1ab3857837d6cd509e49b6f4a1a5bb0",
+    "allowed_split": "development_train_only",
+    "abw_allowed": false,
+    "protected_record_markers_allowed": false
+  },
+  "parent_implementation_lock": {
+    "path": "reports/finhrm_qp3_core_implementation_lock_v1.json",
+    "sha256": "19021a8b8b1c69611aa6cd4f32c1aac4f459567b62fb11df0fdf3b8a3a74ca1b"
+  },
+  "scope": {
+    "operations": ["SELECT", "ADD"],
+    "evaluate_all_eligible_examples": true,
+    "controls": [
+      "gold_program",
+      "candidate_serialization_permutation",
+      "explicit_semantic_counterfactual"
+    ],
+    "group_reports": ["company", "layout_family"],
+    "minimum_company_groups": 3,
+    "minimum_layout_groups": 3
+  },
+  "counterfactual_policy": {
+    "allowed_mutations": [
+      "WRONG_YEAR",
+      "WRONG_COLUMN_ROLE",
+      "WRONG_ENTITY_SCOPE",
+      "WRONG_METRIC"
+    ],
+    "candidate_rank_or_score_may_select_mutation": false,
+    "only_explicit_metadata_contradictions_are_controls": true,
+    "accepted_counterfactual_is_false_accept": true
+  },
+  "gates": {
+    "source_hash_exact": true,
+    "zero_abw_records": true,
+    "zero_protected_records": true,
+    "minimum_company_and_layout_groups": true,
+    "candidate_permutation_exact": 1.0,
+    "counterfactual_false_accepts": 0,
+    "gold_retention_is_reported_not_tuned": true,
+    "safe_abstention_is_not_answered": true
+  },
+  "interpretation": {
+    "unseen_confirmation_claim_allowed": false,
+    "universal_report_coverage_claim_allowed": false,
+    "reason": "The source is development/train. It is a broad regression stress replay, not sealed or unseen generalization evidence."
+  },
+  "invariants": {
+    "runtime_change_allowed": false,
+    "threshold_change_allowed": false,
+    "checkpoint_change_allowed": false,
+    "fine_tuning_allowed": false,
+    "validation_blind_test_access_allowed": false,
+    "phase_d_unlock_allowed": false
+  },
+  "authorized_next_step": "Run the unchanged runtime over the frozen safe source and report every failure by company/layout; do not repair or tune from individual reports."
+}

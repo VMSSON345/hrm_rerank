@@ -1,0 +1,78 @@
+{
+  "schema": "finhrm-qp4-post-question-surface-post-cache-source-error-diagnostic-review-precommit-lock-v1",
+  "created_at": "2026-08-23",
+  "classification": "development_only_qp4_post_cache_source_error_diagnostic_review_precommit_no_runtime_change",
+  "status": "complete",
+  "precommit_gate_passed": true,
+  "failed_gates": [],
+  "coverage": {
+    "SEMANTIC_BINDING_OR_PROGRAM_SYNTHESIS": {
+      "queries": 4,
+      "companies": 3,
+      "sources": 3,
+      "real_layouts": 2
+    },
+    "CANDIDATE_POPULATION_OR_RETRIEVAL": {
+      "queries": 2,
+      "companies": 2,
+      "sources": 2,
+      "real_layouts": 2
+    },
+    "SOURCE_LOAD_OR_EXTRACTION": {
+      "queries": 2,
+      "companies": 1,
+      "sources": 1,
+      "real_layouts": 1
+    }
+  },
+  "generic_residual_strata": [],
+  "runtime_changed": false,
+  "runtime_edit_authorized": false,
+  "runtime_file_whitelist": [],
+  "ocr_rerun_performed": false,
+  "source_replay_rerun_performed": false,
+  "authorized_next_step": "QP4-POST-QUESTION-SURFACE-POST-CACHE-SOURCE-ERROR-DIAGNOSTIC-REVIEW",
+  "parent_report_sha256": "52b6e8d6814375695bcd209c9d3df6430158de592c8a949edcc750a7e7a90efd",
+  "parent_lock_sha256": "4748e4604c74fc21cf940f636b29443d23dbc92bf108713bd5aafb2f76288b8a",
+  "runtime_hashes": {
+    "src/hrm_finance_qa/question_planner.py": "334ab6bfb57b883ff2022cdcb39614d7e7a8d3269c14f4bea188640d53111bf4",
+    "src/hrm_finance_qa/symbolic_verifier.py": "2679b1ce55cc070697438c806f19e3e888bfc19bc1a9ae3686a0b7fd7ffb0087",
+    "src/hrm_finance_qa/program_synthesis.py": "e4acc4878d0dfd465ba66ab91f3aaf8be71db5591aa1358fb8cb81f3c7bff550",
+    "src/hrm_finance_qa/evidence_schema.py": "2f16fabf932dc9dabc8203d9642d2503bb2dab43e0e1ee0f78755dd4fb00825d",
+    "src/hrm_finance_qa/document_hrm.py": "b5951bcde79583950b672f7fb6b199b3e5b9904e6784daae7c4c5be0eba65d21",
+    "src/hrm_finance_qa/document_reasoning_engine.py": "3883500011472716bc01f8e04a6d6f925173b35a14bbedd945c5ca4fb0063fa2",
+    "src/hrm_finance_qa/program_data.py": "5199434fc0628b7d270ce62b12657366cbe118901065edd9f1e1f6ca0f1f8d54",
+    "src/hrm_finance_qa/direction_contract.py": "a18aa130419fc74ce647bd92dc9c1b1217007738e636aad0f28c7f78396be937",
+    "src/hrm_finance_qa/answer_presentation.py": "c40bd4a8dff39162b44cf11ef2da12e7b153d907f7254e5d1856157b3ac56d36",
+    "src/hrm_finance_qa/document_sources.py": "e9eb7b3ddcc2ed13060a573a6a0101a216fa49ff21dd65cd5fc2629b92f5fc0b",
+    "src/hrm_finance_qa/document_page_index.py": "c99e011175afef21f302be42ba9454b948caa549d4d445d6bb35c5b974b81f85"
+  },
+  "checkpoint_sha256": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de",
+  "artifact_policy": {
+    "maximum_final_json": 1,
+    "maximum_final_markdown": 1,
+    "maximum_lock_or_manifest": 1,
+    "raw_or_intermediate_artifacts_persisted": false,
+    "temporary_artifacts_deleted_after_verification": true
+  },
+  "artifacts": [
+    {
+      "path": "config/finhrm_qp4_post_question_surface_post_cache_source_error_diagnostic_review_precommit_v1.json",
+      "size_bytes": 9336,
+      "sha256": "0664c4f9a66f0e995c12dfac9409f937333f6eb11e3795ebcbc23ee254c530e4"
+    },
+    {
+      "path": "scripts/validate_qp4_post_question_surface_post_cache_source_error_diagnostic_review_precommit.py",
+      "size_bytes": 11970,
+      "sha256": "88277bd5fc717ecaf5d45474f486ae0217a1f02beada0e98437fdf39b0d394a3"
+    },
+    {
+      "path": "reports/finhrm_qp4_post_question_surface_post_cache_source_error_diagnostic_review_precommit_v1.md",
+      "size_bytes": 902,
+      "sha256": "6d9e4839a371a2b750354724c97e18e2b9dd7207ee5a4be17f22ba89e7fa20d0"
+    }
+  ],
+  "qp4_complete": false,
+  "qp5_authorized": false,
+  "phase_d": "locked"
+}

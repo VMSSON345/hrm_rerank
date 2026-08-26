@@ -1,0 +1,149 @@
+{
+  "schema": "finhrm-qp4-post-question-surface-post-cache-residual-coverage-cohort-precommit-lock-v1",
+  "created_at": "2026-08-23",
+  "classification": "development_only_qp4_post_cache_residual_coverage_cohort_precommit_no_runtime_change",
+  "status": "complete",
+  "precommit_gate_passed": true,
+  "failed_gates": [],
+  "source_universe": {
+    "catalog_documents": 169,
+    "catalog_company_groups": 150,
+    "classification": "development_only"
+  },
+  "diagnosis_exclusion": {
+    "companies": 4,
+    "sources": 4,
+    "document_layouts": 3,
+    "table_layouts": 4
+  },
+  "minimum_cohort": {
+    "anchors": 3,
+    "companies": 3,
+    "sources": 3,
+    "document_layouts": 3,
+    "table_layouts": 3,
+    "layout_instances": 3,
+    "metric_identities": 3,
+    "extraction_families": 2
+  },
+  "runtime_changed": false,
+  "runtime_edit_authorized": false,
+  "runtime_file_whitelist": [],
+  "ocr_authorized": false,
+  "source_replay_authorized": false,
+  "authorized_next_step": "QP4-POST-QUESTION-SURFACE-POST-CACHE-RESIDUAL-COVERAGE-COHORT-BUILD",
+  "semantic_stratum": {
+    "track": "ACTUAL_PLAN",
+    "group": "REFERENCE_BASE",
+    "operation": "RATIO_PERCENT",
+    "answer_mode": "SINGLE_SCALAR",
+    "required_evidence": [
+      "one explicit metric identity",
+      "explicit ACTUAL and PLAN roles for the requested period",
+      "explicit prior-period ACTUAL role for the reference-base mutation",
+      "explicit periods attached to every operand",
+      "compatible explicit units attached to all operands",
+      "same reporting entity and scope across operands",
+      "source PDF hash, physical page, table span, row and column provenance",
+      "independent visual review of role headers, periods, metric and unit"
+    ],
+    "base_program_semantics": "current-period ACTUAL divided by same-period PLAN, multiplied by 100",
+    "mutated_program_semantics": "current-period ACTUAL divided by explicit prior-period ACTUAL, multiplied by 100",
+    "mutation_changes_only": "reference-base operand identity",
+    "nearby_context_or_question_used_to_infer_period_or_provenance": false,
+    "missing_proof_policy": "UNKNOWN_TO_ABSTAIN",
+    "contradiction_policy": "REJECT"
+  },
+  "disjointness_contract": {
+    "diagnosis_anchor_source": "parents.diagnosis_source_cohort.anchors",
+    "selected_company_disjoint_from_diagnosis": true,
+    "selected_source_sha256_disjoint_from_diagnosis": true,
+    "selected_layout_instance_disjoint_from_diagnosis": true,
+    "layout_instance_fingerprint_fields": [
+      "document_layout_family",
+      "table_layout_family",
+      "header_role_topology",
+      "orientation",
+      "page_span"
+    ],
+    "same_broad_document_layout_family_may_recur_only_with_distinct_layout_instance_fingerprint": true,
+    "maximum_selected_anchors_per_company": 1,
+    "maximum_selected_anchors_per_source": 1,
+    "duplicate_layout_instance_fingerprint_allowed": false,
+    "synthetic_layout_counts_as_confirmation": false
+  },
+  "question_diversity_contract": {
+    "question_literal_used_for_source_selection": false,
+    "family_ids": [
+      "PA03",
+      "PA07"
+    ],
+    "meaning_preserving_surface_variants": [
+      "canonical",
+      "paraphrase_1",
+      "long_clause",
+      "clause_reordered",
+      "no_diacritics"
+    ],
+    "minimum_surface_variants_per_semantic_program": 4,
+    "surface_equivalence_oracle": "operation, ordered operand roles, periods, entity scope, normalized metric identity and requested unit must remain identical",
+    "required_semantic_controls": [
+      "reference-base ACTUAL-versus-PLAN to ACTUAL-versus-prior-ACTUAL mutation",
+      "minimal_pair_role_swap",
+      "minimal_pair_year_shift",
+      "hard_negative_missing_role",
+      "ambiguity_control"
+    ],
+    "catalog_control_variants": [
+      "minimal_pair_role_swap",
+      "minimal_pair_year_shift",
+      "hard_negative_missing_role",
+      "ambiguity_control"
+    ],
+    "semantic_control_oracle": "the intended semantic projection changes exactly in the named dimension, or the expected behavior is explicitly ABSTAIN",
+    "surface_forms_count_as_layout_confirmation": false,
+    "counterfactual_false_accepts_required": 0,
+    "candidate_permutation_exact_required": true
+  },
+  "runtime_hashes": {
+    "src/hrm_finance_qa/question_planner.py": "334ab6bfb57b883ff2022cdcb39614d7e7a8d3269c14f4bea188640d53111bf4",
+    "src/hrm_finance_qa/symbolic_verifier.py": "2679b1ce55cc070697438c806f19e3e888bfc19bc1a9ae3686a0b7fd7ffb0087",
+    "src/hrm_finance_qa/program_synthesis.py": "e4acc4878d0dfd465ba66ab91f3aaf8be71db5591aa1358fb8cb81f3c7bff550",
+    "src/hrm_finance_qa/evidence_schema.py": "2f16fabf932dc9dabc8203d9642d2503bb2dab43e0e1ee0f78755dd4fb00825d",
+    "src/hrm_finance_qa/document_hrm.py": "b5951bcde79583950b672f7fb6b199b3e5b9904e6784daae7c4c5be0eba65d21",
+    "src/hrm_finance_qa/document_reasoning_engine.py": "3883500011472716bc01f8e04a6d6f925173b35a14bbedd945c5ca4fb0063fa2",
+    "src/hrm_finance_qa/program_data.py": "5199434fc0628b7d270ce62b12657366cbe118901065edd9f1e1f6ca0f1f8d54",
+    "src/hrm_finance_qa/direction_contract.py": "a18aa130419fc74ce647bd92dc9c1b1217007738e636aad0f28c7f78396be937",
+    "src/hrm_finance_qa/answer_presentation.py": "c40bd4a8dff39162b44cf11ef2da12e7b153d907f7254e5d1856157b3ac56d36",
+    "src/hrm_finance_qa/document_sources.py": "e9eb7b3ddcc2ed13060a573a6a0101a216fa49ff21dd65cd5fc2629b92f5fc0b",
+    "src/hrm_finance_qa/document_page_index.py": "c99e011175afef21f302be42ba9454b948caa549d4d445d6bb35c5b974b81f85"
+  },
+  "checkpoint_sha256": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de",
+  "artifact_policy": {
+    "maximum_final_json": 1,
+    "maximum_final_markdown": 1,
+    "maximum_lock_or_manifest": 1,
+    "raw_or_intermediate_artifacts_persisted": false,
+    "temporary_artifacts_deleted_after_verification": true
+  },
+  "artifacts": [
+    {
+      "path": "config/finhrm_qp4_post_question_surface_post_cache_residual_coverage_cohort_precommit_v1.json",
+      "size_bytes": 13552,
+      "sha256": "2997e17f14565340d91e830e3cef031e40fbb239dc915dce89e557cb5ed8b509"
+    },
+    {
+      "path": "scripts/validate_qp4_post_question_surface_post_cache_residual_coverage_cohort_precommit.py",
+      "size_bytes": 16844,
+      "sha256": "1754c0698577561ac71144e6e79c563bf2cc09015040eadba602f11a7fb5a248"
+    },
+    {
+      "path": "reports/finhrm_qp4_post_question_surface_post_cache_residual_coverage_cohort_precommit_v1.md",
+      "size_bytes": 1175,
+      "sha256": "4b5fe5dd7ac873f8ba2d6052d3f5e857be4b33db8ac8a62f8214bb305fc3f599"
+    }
+  ],
+  "qp4_complete": false,
+  "qp5_authorized": false,
+  "phase_d": "locked"
+}

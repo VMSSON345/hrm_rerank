@@ -1,0 +1,280 @@
+{
+  "schema": "finhrm-qp4-post-question-surface-post-cache-residual-coverage-post-source-protocol-semantic-trace-reclosure-precommit-lock-v1",
+  "created_at": "2026-08-24",
+  "classification": "development_only_qp4_semantic_trace_reclosure_precommit_no_runtime_change_no_metric_optimization",
+  "status": "complete",
+  "precommit_gate_passed": true,
+  "failed_gates": [],
+  "parents": {
+    "diagnostic_review_sha256": "5a0f794f9afb5704710679c955b20dcfbeab08770af039306d49dc25e08bd813",
+    "diagnostic_markdown_sha256": "fb9194761fb97f844075245b2eddd4d3318cf57b2502d65f9261a0a2ddc437be",
+    "diagnostic_lock_sha256": "e5bbe5022f8b26559feeabd8ef0d8ae64e6da0c8af93b7d671cc6fee11f58bf6",
+    "source_protocol_reclosure_report_sha256": "88907efcf7764217c5aa1d5219e5ef2c997d34cbf45d1f300dd68190b8ae84eb",
+    "claude_md_sha256": "35a0f66a6531e61b35dc7288884da35eeef79ad1039f5ffdfd29295cee8d566e",
+    "thesis_core_sha256": "a9f2f3088f7622c6c8912086eac16252f154fcae1164a3fe7ba75107a0ece502",
+    "generalization_invariant_sha256": "7a8c6e58a47314d522adb782277f6d5bf0cbf761faf681d848e2e9ae4e861846"
+  },
+  "honesty_lock": {
+    "precommit_pass_is_trace_execution_pass": false,
+    "precommit_pass_is_root_confirmation": false,
+    "precommit_pass_is_metric_improvement": false,
+    "precommit_pass_is_qp4_completion": false,
+    "failure_counts_must_be_reported": true,
+    "abstain_or_reject_counted_as_answer": false,
+    "trace_incomplete_counted_as_root_absence": false,
+    "heterogeneous_signatures_may_be_pooled": false,
+    "metric_optimization_is_objective": false
+  },
+  "frozen_baseline": {
+    "full_universe": {
+      "logical_rows": 90,
+      "nested_permutation_rows": 90,
+      "proof_complete_exact_targets": "0/60",
+      "all_expected_answer_rows_answered": "0/72",
+      "canonical_positive_answers": "0/12",
+      "exact_non_answer_controls": "8/18",
+      "surface_equivalence_groups": "0/12",
+      "source_candidate_permutation_exact": "37/90",
+      "accepted_wrong": 0,
+      "semantic_control_false_accepts": 0,
+      "hard_negative_answers": 0
+    },
+    "trace_selection": {
+      "logical_rows": 42,
+      "nested_permutation_rows": 42,
+      "categories": 7,
+      "rows_per_category": 6,
+      "companies": 6,
+      "sources": 6,
+      "real_document_layouts": 3,
+      "real_table_layouts": 6,
+      "extraction_families": 2,
+      "expected_answer_rows": 24,
+      "expected_non_answer_rows": 18,
+      "question_plan_passed": "42/42",
+      "primary_permutation_exact": "20/42",
+      "primary_first_failing_layer": {
+        "CANDIDATE_POPULATION_OR_RETRIEVAL": 18,
+        "SEMANTIC_BINDING_OR_PROGRAM_SYNTHESIS": 5,
+        "SYMBOLIC_PROOF_OR_ACTION": 11,
+        "PASS": 8
+      },
+      "primary_actions": {
+        "ABSTAIN_UNKNOWN": 15,
+        "REJECT_INVALID": 23,
+        "REJECT_UNKNOWN": 4,
+        "ANSWER_VALID": 0
+      },
+      "permutation_actions": {
+        "ABSTAIN_UNKNOWN": 18,
+        "REJECT_INVALID": 22,
+        "REJECT_UNKNOWN": 2,
+        "ANSWER_VALID": 0
+      }
+    }
+  },
+  "selection_lock": {
+    "categories": [
+      "base_target:canonical",
+      "reference_base_mutation_target:canonical",
+      "minimal_pair_role_swap:control",
+      "PA07_operation_contrast:control",
+      "ambiguity_control:control",
+      "hard_negative_missing_role:control",
+      "minimal_pair_year_shift:control"
+    ],
+    "all_eligible_rows_selected": true,
+    "company_filename_page_year_value_id_question_selection_forbidden": true,
+    "rank_score_confidence_selection_forbidden": true,
+    "selection_by_current_action_or_repair_convenience_forbidden": true,
+    "P2_rows": 0,
+    "P3_rows": 0,
+    "P2_and_P3_remain_in_full_denominator": true
+  },
+  "execution_lock": {
+    "persistent_runtime_edits": false,
+    "runtime_file_whitelist": [],
+    "persistent_test_or_evaluator_code": false,
+    "temporary_trace_harness_allowed": true,
+    "temporary_harness_deleted_after_final_verification": true,
+    "source_scope": "six frozen development sources and compatible caches only",
+    "new_cohort_or_questions": false,
+    "mineru_auto_generate": false,
+    "new_ocr_generation": false,
+    "whole_document_ocr": false,
+    "pre_ranking_ocr_generation": false,
+    "unselected_page_ocr_request_or_generation": false,
+    "primary_rows": 42,
+    "candidate_permutation_rows": 42,
+    "gold_passed_to_runtime": false,
+    "gold_used_post_hoc_only": true,
+    "runtime_and_checkpoint_hashes_checked_before_after": true
+  },
+  "observer_lock": {
+    "existing_runtime_fields": [
+      "program_search_trace",
+      "typed_synthesis_status",
+      "slot_bindings",
+      "program_dag",
+      "source_action",
+      "verification_state",
+      "proof_obligations",
+      "verification_reasons",
+      "acceptance_basis"
+    ],
+    "candidate_capture_symbol": "hrm_finance_qa.document_reasoning_engine._augment_financial_identity_candidates",
+    "candidate_capture_is_process_local": true,
+    "wrapper_calls_original_once": true,
+    "wrapper_returns_exact_original_result_object": true,
+    "wrapper_reorder_mutate_filter_append_forbidden": true,
+    "wrapper_argument_configuration_or_random_state_change_forbidden": true,
+    "runtime_source_file_modified": false,
+    "failure_to_prove_identity_preservation": "TRACE_EXECUTION_FAIL_AND_NO_RUNTIME_EDIT"
+  },
+  "persisted_trace_lock": {
+    "allowed": [
+      "semantic category and surface family",
+      "layout and extraction family",
+      "typed question-plan projection",
+      "local candidate pointer mapping",
+      "typed role/period-relation/entity-relation/unit-scale and provenance-presence projection",
+      "program operation, ordered pointers, typed synthesis and slot bindings",
+      "eligibility, rejection and UNKNOWN reasons",
+      "proof-contract and per-obligation states",
+      "final action, verification state and acceptance basis"
+    ],
+    "forbidden": [
+      "question literal",
+      "raw OCR or source text",
+      "row or column label literal",
+      "company or source filename",
+      "page number or source span",
+      "year literal",
+      "numeric candidate or answer value",
+      "candidate relevance",
+      "neural or reranker rank/score/confidence/features",
+      "warning prose"
+    ],
+    "missing_fields_are_inferred": false,
+    "missing_field_disposition": "TRACE_INCOMPLETE",
+    "opaque_digest_use": "in-memory equivalence only; never semantic proof or root grouping"
+  },
+  "no_interference_lock": {
+    "primary_matches_parent": "42/42 required",
+    "permutation_matches_parent": "42/42 required",
+    "baseline_primary_permutation_exact": "20/42 required; 42/42 is neither expected nor allowed as a substituted baseline",
+    "observer_induced_action_changes": 0,
+    "observer_induced_program_changes": 0,
+    "observer_induced_evidence_changes": 0,
+    "observer_induced_candidate_count_changes": 0,
+    "source_errors": 0,
+    "pre_ranking_ocr_generation_attempts": 0,
+    "unselected_page_ocr_requests": 0,
+    "unselected_page_ocr_generation": 0,
+    "whole_document_ocr_jobs": 0,
+    "any_mismatch_policy": "INVALIDATE_TRACE_RUN; DO_NOT_REPORT_AS_IMPROVEMENT"
+  },
+  "trace_completeness_lock": {
+    "complete_primary_trace": "42/42 required",
+    "complete_permutation_trace": "42/42 required",
+    "candidate_inventory_count_matches_runtime": "84/84 required",
+    "every_program_and_selected_operand_resolves": true,
+    "every_program_has_eligibility_and_reason": true,
+    "every_required_obligation_has_state": true,
+    "not_applicable_not_counted_as_valid": true,
+    "trace_incomplete_rows": 0,
+    "forbidden_persisted_fields": 0
+  },
+  "root_decision_lock": {
+    "same_category_layer_exact_signature_required": true,
+    "minimum_companies": 3,
+    "minimum_sources": 3,
+    "minimum_real_document_layouts": 2,
+    "minimum_real_table_layouts_when_structural": 3,
+    "minimum_extraction_families_when_retrieval_relevant": 2,
+    "cross_category_or_layer_pooling_forbidden": true,
+    "synthetic_layout_confirmation_forbidden": true,
+    "group_size_alone_is_not_root": true,
+    "rank_score_confidence_candidate_index_not_root": true,
+    "outcomes": {
+      "CONFIRMED_GENERIC_CAUSAL_ROOT": "separate implementation precommit only",
+      "HETEROGENEOUS_OR_NON_GENERIC": "no runtime edit",
+      "TRACE_INCOMPLETE_OR_INTERFERING": "invalid trace and no runtime edit",
+      "EVALUATOR_OR_ORACLE_DEFECT": "evaluator reclosure before runtime",
+      "SOURCE_PROTOCOL_REGRESSION": "source-protocol reclosure before semantic attribution"
+    }
+  },
+  "precommit_checks": {
+    "parent_hashes_exact": true,
+    "selection_exact_42": true,
+    "seven_categories_six_each": true,
+    "positive_24_negative_18": true,
+    "plans_pass_42": true,
+    "baseline_permutation_exact_20": true,
+    "selection_diversity_exact": true,
+    "required_observables_exist": true,
+    "runtime_hashes_exact": true,
+    "checkpoint_hash_exact": true,
+    "runtime_changed": false,
+    "source_or_ocr_execution_performed": false,
+    "metric_optimization_performed": false,
+    "implementation_authorized": false,
+    "qp4_complete": false,
+    "qp5_authorized": false,
+    "phase_d_unlocked": false
+  },
+  "frozen_controls": {
+    "compiler": "242/242",
+    "regression": "360/360",
+    "safe_replay_gate": true,
+    "actions": {
+      "ABSTAIN": 92,
+      "ANSWER": 257,
+      "REJECT": 14
+    },
+    "execution": "363/363",
+    "permutation": "363/363",
+    "counterfactuals": 141,
+    "counterfactual_false_accepts": 0,
+    "rerun_policy": "hash-verify inherited controls; runtime modification is forbidden"
+  },
+  "runtime_hashes": {
+    "src/hrm_finance_qa/question_planner.py": "334ab6bfb57b883ff2022cdcb39614d7e7a8d3269c14f4bea188640d53111bf4",
+    "src/hrm_finance_qa/symbolic_verifier.py": "2679b1ce55cc070697438c806f19e3e888bfc19bc1a9ae3686a0b7fd7ffb0087",
+    "src/hrm_finance_qa/program_synthesis.py": "e4acc4878d0dfd465ba66ab91f3aaf8be71db5591aa1358fb8cb81f3c7bff550",
+    "src/hrm_finance_qa/evidence_schema.py": "2f16fabf932dc9dabc8203d9642d2503bb2dab43e0e1ee0f78755dd4fb00825d",
+    "src/hrm_finance_qa/document_hrm.py": "b5951bcde79583950b672f7fb6b199b3e5b9904e6784daae7c4c5be0eba65d21",
+    "src/hrm_finance_qa/document_reasoning_engine.py": "3883500011472716bc01f8e04a6d6f925173b35a14bbedd945c5ca4fb0063fa2",
+    "src/hrm_finance_qa/program_data.py": "5199434fc0628b7d270ce62b12657366cbe118901065edd9f1e1f6ca0f1f8d54",
+    "src/hrm_finance_qa/direction_contract.py": "a18aa130419fc74ce647bd92dc9c1b1217007738e636aad0f28c7f78396be937",
+    "src/hrm_finance_qa/answer_presentation.py": "c40bd4a8dff39162b44cf11ef2da12e7b153d907f7254e5d1856157b3ac56d36",
+    "src/hrm_finance_qa/document_sources.py": "e9eb7b3ddcc2ed13060a573a6a0101a216fa49ff21dd65cd5fc2629b92f5fc0b",
+    "src/hrm_finance_qa/document_page_index.py": "d531f47a22ed051863b41b3de031bb3e9d4bbf60ef71f825217559b7035386b4"
+  },
+  "checkpoint_sha256": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de",
+  "artifacts": {
+    "final_json": {
+      "path": "config/finhrm_qp4_post_question_surface_post_cache_residual_coverage_post_source_protocol_semantic_trace_reclosure_precommit_v1.json",
+      "size_bytes": 21441,
+      "sha256": "bc693cc118fef8238d189c74c7099a1e262e5deb77c3ff04c4f78e31f555634c"
+    },
+    "final_markdown": {
+      "path": "reports/finhrm_qp4_post_question_surface_post_cache_residual_coverage_post_source_protocol_semantic_trace_reclosure_precommit_v1.md",
+      "size_bytes": 3547,
+      "sha256": "1dece962bcd91ab92c80e36f02c9e9cd7ce5a0beda3a2865aab59489cc3e137c"
+    }
+  },
+  "artifact_policy": {
+    "maximum_final_json": 1,
+    "maximum_final_markdown": 1,
+    "maximum_lock_or_manifest": 1,
+    "raw_or_intermediate_artifacts_persisted": false,
+    "temporary_harness_or_trace_files_deleted_after_verification": true
+  },
+  "authorized_next_step": "QP4-POST-QUESTION-SURFACE-POST-CACHE-RESIDUAL-COVERAGE-POST-SOURCE-PROTOCOL-SEMANTIC-TRACE-RECLOSURE",
+  "runtime_edit_authorized": false,
+  "runtime_file_whitelist": [],
+  "qp4_complete": false,
+  "qp5_authorized": false,
+  "phase_d": "locked"
+}

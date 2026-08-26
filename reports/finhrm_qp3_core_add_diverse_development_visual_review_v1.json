@@ -1,0 +1,151 @@
+{
+  "schema": "finhrm-qp3-core-add-diverse-development-visual-review-v1",
+  "created_at": "2026-08-20",
+  "classification": "development_only_independent_visual_and_structural_review",
+  "review_standard": {
+    "source_pdf_hash_exact": true,
+    "physical_page_render_required": true,
+    "both_row_roles_visible_required": true,
+    "period_or_column_header_visible_required": true,
+    "both_values_visible_and_exact_required": true,
+    "distinct_physical_cells_required": true,
+    "cross_region_or_cross_table_join_forbidden": true,
+    "arithmetic_replay_exact_required": true,
+    "ocr_text_alone_is_not_proof": true,
+    "approval_status": "independently_reviewed_approved",
+    "rejection_status": "independently_reviewed_rejected"
+  },
+  "records": [
+    {
+      "example_id": "synthetic-document-000005",
+      "source_name": "LAS_23CN_BCTN.pdf",
+      "source_sha256": "0512d6848014459b74a4293f9ed98a3d0c98c5af54aa21e12e5949df89ce1cf6",
+      "company_key": "development-company-02d5d0522a76608d",
+      "layout_stratum": "NATIVE_TEXT_TABLE",
+      "layout_family": "native_text_portrait",
+      "page": 90,
+      "observed_values": ["2049009043386", "22645161919"],
+      "observed_sum": "2071654205305",
+      "status": "independently_reviewed_approved",
+      "reason": "Both rows and the ending-period column are visible on one table; values and sum match."
+    },
+    {
+      "example_id": "synthetic-document-000012",
+      "source_name": "TNA_23CN_BCTN.pdf",
+      "source_sha256": "05982d532c7771e90133c6f5ff49d21309249b7f04a60b2c211d06305480f9c3",
+      "company_key": "development-company-171130f90d122e5d",
+      "layout_stratum": "NATIVE_TEXT_TABLE",
+      "layout_family": "native_text_mixed_orientation",
+      "page": 33,
+      "observed_values": ["2285865", "383837"],
+      "observed_sum": "2669702",
+      "status": "independently_reviewed_approved",
+      "reason": "Both asset rows and the 2022 value column are visible on the landscape table; values and sum match."
+    },
+    {
+      "example_id": "synthetic-document-000021",
+      "source_name": "CMG_23CN_BCTN.pdf",
+      "source_sha256": "1151a65a8d1028834a84179543d7b721df57e9c6c8f539e419ecbd8d978fd65f",
+      "company_key": "development-company-1ae2af0e40480754",
+      "layout_stratum": "NATIVE_TEXT_TABLE",
+      "layout_family": "native_text_portrait",
+      "page": 59,
+      "observed_values": ["12399440394", "12399440394"],
+      "observed_sum": "24798880788",
+      "status": "independently_reviewed_approved",
+      "reason": "The aggregate cash row and the distinct cash detail row are both visible in the ending column; values and sum match."
+    },
+    {
+      "example_id": "synthetic-document-000059",
+      "source_name": "AGR_24CN_BCTN.pdf",
+      "source_sha256": "29cda4b451aa6e180334489db732ce77b94df32a8f19d6ee93afd234ce1a7d6e",
+      "company_key": "development-company-18",
+      "layout_stratum": "NATIVE_TEXT_TABLE",
+      "layout_family": "native_text_mixed_orientation",
+      "page": 50,
+      "status": "independently_reviewed_rejected",
+      "reason": "Cross-region provenance collision: row labels came from the right-hand financial-restatement table while selected values came from the left-hand remuneration table."
+    },
+    {
+      "example_id": "synthetic-document-000066",
+      "source_name": "VCE_23CN_BCTN.pdf",
+      "source_sha256": "3e5568ee0dd44c454ae98ab588e74c86cbb4421daed72d17cd45d1e5e59af11c",
+      "company_key": "development-company-0a3c720ab489e28b",
+      "layout_stratum": "NATIVE_TEXT_TABLE",
+      "layout_family": "native_text_portrait",
+      "page": 9,
+      "observed_values": ["80041413099", "205501621"],
+      "observed_sum": "80246914720",
+      "status": "independently_reviewed_approved",
+      "reason": "Both rows and the opening-period column are visible on one table; values and sum match."
+    },
+    {
+      "example_id": "synthetic-document-000014",
+      "source_name": "PCT_23CN_BCTN.pdf",
+      "source_sha256": "156945b3a6df780a56d1474ae43ee74c4baf78fd38fc07be5f305ebf001bbf77",
+      "company_key": "development-company-02cee318d68057bf",
+      "layout_stratum": "OCR_OR_HYBRID_TABLE",
+      "layout_family": "scanned_image_dominant",
+      "page": 22,
+      "observed_values": ["285696199162", "68820951271"],
+      "observed_sum": "354517150433",
+      "status": "independently_reviewed_approved",
+      "reason": "Both expense rows and current-year values are visible on the scanned statement; values and sum match."
+    },
+    {
+      "example_id": "synthetic-document-000054",
+      "source_name": "TMC_23CN_BCTN.pdf",
+      "source_sha256": "19e535558fac5d289d91c94a551ed686e97045726e1666e231caaf7b360883ce",
+      "company_key": "development-company-0cf6c2d4d5bab184",
+      "layout_stratum": "OCR_OR_HYBRID_TABLE",
+      "layout_family": "scanned_image_dominant",
+      "page": 40,
+      "observed_values": ["34245413092", "69227774831"],
+      "observed_sum": "103473187923",
+      "status": "independently_reviewed_approved",
+      "reason": "Both rows and the 31/12/2023 column are visible on the scanned balance sheet; values and sum match."
+    },
+    {
+      "example_id": "synthetic-document-000087",
+      "source_name": "VID_23CN_BCTN.pdf",
+      "source_sha256": "39d9fa177669d89a0595acb9938fc0d1e57958970473ff07fb03d3ae815b9b20",
+      "company_key": "development-company-1ff838dc6ca9680d",
+      "layout_stratum": "OCR_OR_HYBRID_TABLE",
+      "layout_family": "hybrid_scan_text",
+      "page": 24,
+      "observed_values": ["731624", "480086"],
+      "observed_sum": "1211710",
+      "status": "independently_reviewed_approved",
+      "reason": "Both asset rows and the 31/12/2022 value subcolumn are visible on the landscape spread; values and sum match."
+    },
+    {
+      "example_id": "synthetic-document-000106",
+      "source_name": "AGP_23CN_BCTN.pdf",
+      "source_sha256": "519da08c72bedfc2b4338356edff2f2d5e62d38d82fc897c5e30bfff14682687",
+      "company_key": "development-company-03",
+      "layout_stratum": "OCR_OR_HYBRID_TABLE",
+      "layout_family": "scanned_image_dominant",
+      "page": 38,
+      "observed_values": ["82644842348", "39692723111"],
+      "observed_sum": "122337565459",
+      "status": "independently_reviewed_approved",
+      "reason": "Both expense rows and current-year values are visible on the scanned statement; values and sum match."
+    }
+  ],
+  "metrics": {
+    "reviewed": 9,
+    "approved": 8,
+    "rejected": 1,
+    "approved_companies": 8,
+    "approved_by_layout_stratum": {
+      "NATIVE_TEXT_TABLE": 4,
+      "OCR_OR_HYBRID_TABLE": 4
+    }
+  },
+  "invariants": {
+    "protected_evaluation_loaded": false,
+    "abw_loaded": false,
+    "runtime_rule_created_from_review_decision": false,
+    "review_decisions_used_only_for_development_cohort_adjudication": true
+  }
+}

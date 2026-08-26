@@ -1,0 +1,220 @@
+{
+  "schema": "finhrm-qp3-core-generalization-coverage-implementation-precommit-v1",
+  "created_at": "2026-08-14",
+  "classification": "development_only_exact_runtime_edit_precommit",
+  "status": "precommitted_runtime_unchanged_exact_scope_only",
+  "claude_md": {
+    "path": "CLAUDE.md",
+    "sha256": "35a0f66a6531e61b35dc7288884da35eeef79ad1039f5ffdfd29295cee8d566e",
+    "read_before_scope_design": true
+  },
+  "parents": {
+    "coverage_precommit": {
+      "path": "config/finhrm_qp3_core_generalization_coverage_precommit_v1.json",
+      "sha256": "e392a7e07ecab6934c69c0e54cc80e255963c9a2cf363202b858a108ddf57a06"
+    },
+    "diagnostic_matrix": {
+      "path": "reports/finhrm_qp3_core_generalization_coverage_diagnostic_matrix_v1.json",
+      "sha256": "f5f11ad01478b4e144a30fdc25be24e668d3764236d6bc0035008b24b439de62"
+    },
+    "diagnostic_matrix_lock": {
+      "path": "reports/finhrm_qp3_core_generalization_coverage_diagnostic_matrix_lock_v1.json",
+      "sha256": "b9fe4cf0bd7c67ebea9fd99bb9a12d13904585218903a7e208fe72dd427455ad"
+    },
+    "safe_replay": {
+      "path": "reports/finhrm_qp3_core_s4_safe_replay_v1.json",
+      "sha256": "cb0dbbc27de5c9254fd3fa4634183f91bfcbf2b93e96f1703984aaf4d9f146f0"
+    }
+  },
+  "allowed_evidence": {
+    "split": "development_train_only",
+    "source_path": "data/document_hrm_development_v1_train.jsonl",
+    "source_sha256": "8d445cbc776ec10ffb9b94bf4fd0693eb1ab3857837d6cd509e49b6f4a1a5bb0",
+    "abw_allowed": false,
+    "protected_validation_blind_test_access_allowed": false
+  },
+  "aggregate_diagnosis": {
+    "period_and_provenance": {
+      "unknown_examples": 74,
+      "companies": 73,
+      "source_layouts": 2,
+      "selected_period_empty": 74,
+      "selected_explicit_year_present": 0,
+      "selected_period_role_present": 0,
+      "header_contains_requested_year": 0,
+      "header_contains_period_role": 0,
+      "context_mentions_requested_year_without_cell_linkage": 9,
+      "complete_physical_provenance": 2,
+      "conclusion": "NO_CELL_LINKED_TEMPORAL_EVIDENCE_RUNTIME_VALIDATION_NOT_ADMISSIBLE"
+    },
+    "operation_and_add_grounding": {
+      "unknown_examples": 67,
+      "companies": 47,
+      "layouts": 3,
+      "compiled_add_operation": 0,
+      "compiled_two_operand_roles": 0,
+      "selected_pair_has_two_metric_labels": 67,
+      "conclusion": "STRUCTURAL_ADDITION_INTENT_NOT_COMPILED_EVIDENCE_PAIR_EXISTS"
+    },
+    "query_metric": {
+      "unknown_examples": 33,
+      "companies": 26,
+      "layouts": 6,
+      "missing_selected_metric_label": 8,
+      "row_only_alias_middle_state": 25,
+      "provenanced_composite_alias_valid_candidates": 8,
+      "provenanced_composite_candidate_companies": 3,
+      "provenanced_composite_candidate_layouts": 3,
+      "symmetric_alias_valid_candidates": 4,
+      "conclusion": "PROVENANCED_ROW_SECTION_HEADER_COMPOSITION_CAN_CLOSE_A_BOUNDED_SUBSET"
+    }
+  },
+  "track_admission": {
+    "period_and_provenance": {
+      "runtime_edit_admitted": false,
+      "policy": "KEEP_UNKNOWN_WITHOUT_CELL_LINKED_PERIOD_OR_PROVENANCE",
+      "reason": "Question year, nearby context, candidate order, page position, or a synthetic layout label cannot prove a cell period.",
+      "future_unblock_condition": "A separate upstream-evidence precommit must demonstrate explicit period or relative-role lineage in at least three companies and three real layout families.",
+      "no_regression_obligations": [
+        "period_coverage",
+        "logical_cell_unique",
+        "source_provenance_complete",
+        "reference_base_match"
+      ]
+    },
+    "operation_and_add_grounding": {
+      "runtime_edit_admitted": true,
+      "semantic_contract": [
+        "compile explicit additive syntax into all structurally valid two-span role hypotheses after removing typed temporal and answer suffixes",
+        "do not require a fixed financial-anchor vocabulary to create a hypothesis",
+        "keep multiple separator parses as ambiguity instead of choosing one by order or score",
+        "materialize ADD only when two independent evidence slots bind distinct logical cells and one complete role hypothesis is proved",
+        "require compatible period, entity, unit, logical-cell identity, and source provenance before ANSWER"
+      ]
+    },
+    "query_metric": {
+      "runtime_edit_admitted": true,
+      "semantic_contract": [
+        "evaluate row metric together with section and fully provenanced header path as one compositional metric context",
+        "retain the existing alias VALID and INVALID cutoffs unchanged",
+        "allow symmetric alias comparison only as corroboration, never as a threshold bypass",
+        "require the selected logical cell to be uniquely compatible within requested period, entity, and column-role scope",
+        "missing row label or incomplete header provenance remains UNKNOWN"
+      ]
+    }
+  },
+  "exact_runtime_edit_scope": {
+    "src/hrm_finance_qa/question_planner.py": {
+      "symbols": [
+        "QuestionPlan",
+        "compile_question_plan",
+        "_strip_question_suffix",
+        "_explicit_addition_roles",
+        "_addition_role_hypotheses",
+        "_compile_operand_slots"
+      ],
+      "allowed_change": "Represent structural ADD role hypotheses and preserve ambiguity until evidence binding."
+    },
+    "src/hrm_finance_qa/program_synthesis.py": {
+      "symbols": [
+        "_metric_score",
+        "_metric_context_score",
+        "_slot_candidates",
+        "_role_proposals",
+        "synthesize_typed_programs"
+      ],
+      "allowed_change": "Bind each ADD hypothesis to two independent typed evidence slots and use provenanced compositional metric context for proposal generation."
+    },
+    "src/hrm_finance_qa/symbolic_verifier.py": {
+      "symbols": [
+        "_metric_obligation_state",
+        "_query_metric_obligation_state",
+        "_operand_role_state",
+        "verify_program"
+      ],
+      "allowed_change": "Verify one complete ADD-role hypothesis and unique provenanced compositional query-metric binding without changing proof cutoffs."
+    },
+    "src/hrm_finance_qa/document_hrm.py": {
+      "symbols": [
+        "_role_compatible_pair_indices",
+        "_grounding_gate_reasons"
+      ],
+      "allowed_change": "Consume ADD role hypotheses in the final grounding gate; ambiguity or incomplete evidence remains ABSTAIN."
+    }
+  },
+  "runtime_files_explicitly_frozen": [
+    "src/hrm_finance_qa/evidence_schema.py",
+    "src/hrm_finance_qa/financial_identities.py",
+    "src/hrm_finance_qa/direction_contract.py",
+    "src/hrm_finance_qa/document_reasoning_engine.py"
+  ],
+  "runtime_hashes_before_implementation": {
+    "src/hrm_finance_qa/question_planner.py": "76ddcd2cb64ced25e3f7737552cc8b93e69e0048a1d6a6499f15f9d8059e2b56",
+    "src/hrm_finance_qa/program_synthesis.py": "3dd00b6633136b7d3d4edc6eb6763747263330f8ed3c570e9720ba22cb51b592",
+    "src/hrm_finance_qa/symbolic_verifier.py": "2436bae3895146044c1f40158426545363df50ade1ba2d1fcc977b346435e1a2",
+    "src/hrm_finance_qa/document_hrm.py": "f40345b8696063cd41a5d2c69daa816ffae3db926900e3af3de2becbae03e91e",
+    "src/hrm_finance_qa/evidence_schema.py": "2f16fabf932dc9dabc8203d9642d2503bb2dab43e0e1ee0f78755dd4fb00825d",
+    "src/hrm_finance_qa/financial_identities.py": "ee7347885f561d5f5d9c404964ecb7a46f1275186e100f2236e53114aeacd2ee",
+    "src/hrm_finance_qa/direction_contract.py": "a18aa130419fc74ce647bd92dc9c1b1217007738e636aad0f28c7f78396be937",
+    "src/hrm_finance_qa/document_reasoning_engine.py": "f01865c508241b27f459cc14ba47bea17e040ff0ebad8b437fb97c2b42e3a762"
+  },
+  "implementation_test_scope": {
+    "new_test_module": "tests/test_qp3_core_generalization_coverage_implementation.py",
+    "required_controls": [
+      "structural_add_positive",
+      "compound_metric_conjunction_hard_negative",
+      "ambiguous_add_separator_abstention",
+      "same_logical_cell_add_rejection",
+      "wrong_add_role_period_entity_unit_counterfactuals",
+      "provenanced_composite_metric_positive",
+      "unprovenanced_composite_metric_abstention",
+      "competing_metric_logical_cell_abstention",
+      "wrong_metric_counterfactual_rejection",
+      "candidate_permutation_exact",
+      "missing_period_evidence_remains_unknown"
+    ]
+  },
+  "postimplementation_replay_gates": {
+    "diagnostic_matrix_recipe_reproduction_exact": true,
+    "safe_replay_gold_execution": "363/363",
+    "safe_replay_candidate_permutation": "363/363",
+    "safe_replay_counterfactual_false_accepts": 0,
+    "retain_all_preexisting_answers": "187/187",
+    "operation_add_unknown_must_be_below": 67,
+    "operation_add_improvement_minimum_companies": 3,
+    "operation_add_improvement_minimum_layouts": 3,
+    "query_metric_unknown_must_be_below": 33,
+    "query_metric_improvement_minimum_companies": 3,
+    "query_metric_improvement_minimum_layouts": 3,
+    "period_unknown_may_decrease_without_explicit_lineage": false,
+    "new_answer_requires_every_required_proof_valid": true,
+    "hard_negative_or_counterfactual_answer_count": 0,
+    "company_macro_and_worst_group_reported": true,
+    "layout_macro_and_worst_group_reported": true,
+    "safe_abstention_counted_as_answered": false,
+    "unseen_or_universal_claim_allowed": false
+  },
+  "forbidden_implementation_actions": [
+    "edit any runtime file or symbol outside exact_runtime_edit_scope",
+    "copy requested year or role into evidence without source lineage",
+    "use company, report, filename, hash, page, fixed year, fixed value, question literal, example id, or family id as a runtime rule",
+    "use candidate rank, order, neural score, or confidence as semantic proof",
+    "lower or change any proof, model, acceptance, or retrieval threshold",
+    "modify checkpoint or fine-tune",
+    "use ABW as confirmation, calibration, or gate",
+    "read validation, blind, test, sealed, holdout, or final evaluation data",
+    "count synthetic layout projection as unseen confirmation",
+    "open QP4 or Phase D"
+  ],
+  "frozen_invariants": {
+    "runtime_changed_by_this_precommit": false,
+    "threshold_changed": false,
+    "checkpoint_changed": false,
+    "fine_tuning_performed": false,
+    "abw_used_as_confirmation": false,
+    "protected_evaluation_loaded": false,
+    "qp4_authorized": false,
+    "phase_d_unlocked": false
+  },
+  "authorized_next_step": "QP3-CORE-GENERALIZATION-COVERAGE-IMPLEMENTATION only, restricted to the admitted ADD and query-metric symbols and replay gates above. Period/provenance runtime relaxation remains forbidden."
+}

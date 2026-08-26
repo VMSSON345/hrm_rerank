@@ -1,0 +1,71 @@
+{
+  "schema": "finhrm-qp3f-flattened-table-reconstruction-lock-v1",
+  "created_at": "2026-08-14",
+  "classification": "development_only_flattened_table_reconstruction_implementation_lock",
+  "status": "complete",
+  "phase_d": "locked",
+  "implementation_gate_passed": true,
+  "results": {
+    "frozen_qp3e_state": {"exact": 128, "total": 128},
+    "frozen_qp3e_reason_set": {"exact": 128, "total": 128},
+    "manifest_emission_policy": {"exact": 128, "total": 128},
+    "development_end_to_end": {"pass": 9, "total": 9},
+    "pre_top_k_structure": {"physical_coordinates": 100, "retained_candidates": 64, "passed": true},
+    "runtime_regression_tests": {"pass": 306, "fail": 0},
+    "real_abw_status": "ABSTAIN",
+    "real_abw_manifest_emitted": false,
+    "real_abw_false_accept": false,
+    "unexpected_runtime_changes": 0
+  },
+  "implementation_decisions": {
+    "complete_state": "only RECONSTRUCTABLE_COMPLETE may emit a QP3D manifest",
+    "unknown_state": "does not emit a manifest and cannot be promoted by ordinal position",
+    "manifest_authority": "structural manifest only; QP3D and all other proof obligations remain active",
+    "overlapping_chunks": "merge only same source/page/extractor with contiguous non-conflicting global lines",
+    "manifest_timing": "full flattened structure captured before candidate Top-K pruning",
+    "native_layout_storage": "page-index content version 8 preserves available horizontal whitespace",
+    "wrapped_header_without_coordinates": "UNKNOWN",
+    "candidate_order": "not a signal"
+  },
+  "runtime_hashes": {
+    "flattened_table_reconstruction.py": "1e67aa3f2e3acc068d30ece065fc0a0365358c7aa75da660e065af83fa265d4c",
+    "program_data.py": "b6acccfed88117c6632d493b22eec3a3cf93f5eab83062703b7d06ceea8e7e0f",
+    "document_sources.py": "a42d158f7125e6dc618c166e5b04705f24853ebdc72210ce37219a1d4f40c2fe",
+    "document_page_index.py": "f931f235525a2fb8cc8a3743fb6a833bdea172181e4f2aa599481a3057c3d9d2",
+    "evidence_schema.py": "2f16fabf932dc9dabc8203d9642d2503bb2dab43e0e1ee0f78755dd4fb00825d",
+    "symbolic_verifier.py": "b0bc88ae35d5ec1f3a2dccb3ac9a93f1e47185e44947aa30e235af9662848b23",
+    "question_planner.py": "4b6b415dac3e64b76fef9dee2179282a742c5769e30f780393d1dd43242b13d2",
+    "program_synthesis.py": "a37470ad307c04744a5db794258f8bff2f6439ef6a689f8a9b8db67f91a17761",
+    "document_hrm.py": "f07e8f5685527ba76e1a9d74022b4e1e8cd29ba103593cb9a2063ddfcc15c1e5",
+    "document_reasoning_engine.py": "ee2ce9e2d8cea6fc87d307450297dace74727bdf915ba29e22cab67c7da6212f"
+  },
+  "invariants": {
+    "question_text_used_by_reconstruction": false,
+    "numeric_value_or_answer_used_by_reconstruction": false,
+    "candidate_score_rank_or_order_used_by_reconstruction": false,
+    "top_k_used_as_completeness_proof": false,
+    "threshold_changed": false,
+    "checkpoint_changed": false,
+    "fine_tuning_performed": false,
+    "global_validation_loaded": false,
+    "sealed_validation_loaded": false,
+    "blind_test_loaded": false,
+    "phase_d_unlocked": false
+  },
+  "artifacts": [
+    {"path": "src/hrm_finance_qa/flattened_table_reconstruction.py", "size_bytes": 9925, "sha256": "1e67aa3f2e3acc068d30ece065fc0a0365358c7aa75da660e065af83fa265d4c"},
+    {"path": "src/hrm_finance_qa/program_data.py", "size_bytes": 134499, "sha256": "b6acccfed88117c6632d493b22eec3a3cf93f5eab83062703b7d06ceea8e7e0f"},
+    {"path": "src/hrm_finance_qa/document_sources.py", "size_bytes": 56800, "sha256": "a42d158f7125e6dc618c166e5b04705f24853ebdc72210ce37219a1d4f40c2fe"},
+    {"path": "src/hrm_finance_qa/document_page_index.py", "size_bytes": 24546, "sha256": "f931f235525a2fb8cc8a3743fb6a833bdea172181e4f2aa599481a3057c3d9d2"},
+    {"path": "scripts/evaluate_qp3f_flattened_table_reconstruction.py", "size_bytes": 15891, "sha256": "b78826f64fc92c54392bbfb0019036a7f911559614b78a3161c6b9075369f620"},
+    {"path": "tests/test_qp3f_flattened_table_reconstruction.py", "size_bytes": 5452, "sha256": "5c00414e54b2b2db0d4fee92c04cd08f1aa9f0a54b50e587fecb89f733946c9e"},
+    {"path": "reports/finhrm_qp3f_flattened_table_reconstruction_development_v1.json", "size_bytes": 51039, "sha256": "6e85aaf287606941bd50b4f99b98078b5e4036f9ee615480617dfb159a5f4c1a"},
+    {"path": "reports/finhrm_qp3f_flattened_table_reconstruction_development_v1.md", "size_bytes": 3700, "sha256": "5a239909e84d223fda9935dbf08d2f058ec019551df10dfd293e71a17d111d5b"},
+    {"path": "reports/finhrm_qp3f_abw_development_replay_v1.json", "size_bytes": 2253, "sha256": "4d1b1b64df610cc952398ef709e6f290b2c9add8b411fab52f634e0eeb31cc8a"}
+  ],
+  "frozen_dependencies": [
+    {"path": "reports/finhrm_qp3e_flattened_table_provenance_precommit_lock_v1.json", "size_bytes": 5491, "sha256": "7d88cde2232c43ffca57751cb2da40145e0bb15ded3830b31e18e36c8b8c96d2"},
+    {"path": "models/document_hrm_V8_candidate.pt", "size_bytes": 3413128, "sha256": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de"}
+  ],
+  "authorized_next_step": "QP3G precommit a development-only word/bbox provenance contract for native PDF and OCR, plus a separate neural operation-proposal stability cohort; no ordinal-only inference and no threshold change."
+}

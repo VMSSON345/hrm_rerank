@@ -1,0 +1,107 @@
+{
+  "schema": "finhrm-qp2b-operation-direction-lock-v1",
+  "created_at": "2026-08-13",
+  "classification": "development_only_synthetic_compiler_repair_lock",
+  "status": "complete",
+  "phase_d": "locked",
+  "qp2b_gate_passed": true,
+  "target_families": ["PA04", "PA06", "PA07", "PA08", "PA09", "TY04"],
+  "results": {
+    "all_answer_variants": {"exact": 108, "total": 108},
+    "target_answer_variants": {"exact": 54, "total": 54},
+    "role_swap_counterfactual": {"exact": 12, "total": 12},
+    "year_shift_counterfactual": {"exact": 12, "total": 12},
+    "long_no_diacritic_reordered": {"exact": 36, "total": 36},
+    "qp2a_canonical_slot_retention": {"exact": 13, "total": 13},
+    "qp2a_frozen_slot_retention": {"exact": 108, "total": 108},
+    "strict_before": {"exact": 5, "total": 16},
+    "strict_after": {"exact": 7, "total": 16},
+    "operation_before": {"pass": 9, "total": 13},
+    "operation_after": {"pass": 13, "total": 13},
+    "direction_before": {"pass": 8, "total": 13},
+    "direction_after": {"pass": 13, "total": 13},
+    "legacy_before": {"exact": 54, "total": 135},
+    "legacy_after": {"exact": 90, "total": 135},
+    "legacy_improvements": 36,
+    "legacy_regressions": 0,
+    "regression_tests": {"pass": 131, "fail": 0}
+  },
+  "source_change": {
+    "question_planner_before_sha256": "ac1ef182ca7ef3799eda5cc3b1de9a02c50a7d88d003899023c1a71d07f7ba88",
+    "question_planner_after_sha256": "6116da8095d4235dda30302a6c0d0b5f084058b380e31c17a48a992c2605fc49",
+    "program_synthesis_unchanged_sha256": "a37470ad307c04744a5db794258f8bff2f6439ef6a689f8a9b8db67f91a17761",
+    "symbolic_verifier_unchanged_sha256": "6e95d13261c43f16e7c0118ddbb288adb427f8212831df56bf8b25102b5db7e6"
+  },
+  "invariants": {
+    "runtime_planning_behavior_changed": true,
+    "operand_slots_consumed_by_runtime": false,
+    "program_synthesis_source_changed": false,
+    "symbolic_verifier_source_changed": false,
+    "runtime_acceptance_policy_changed": false,
+    "threshold_changed": false,
+    "checkpoint_changed": false,
+    "fine_tuning_performed": false,
+    "document_loaded": false,
+    "pdf_loaded": false,
+    "model_loaded": false,
+    "global_validation_loaded": false,
+    "sealed_validation_loaded": false,
+    "blind_test_loaded": false,
+    "phase_d_unlocked": false
+  },
+  "artifacts": [
+    {
+      "path": "src/hrm_finance_qa/question_planner.py",
+      "size_bytes": 37098,
+      "sha256": "6116da8095d4235dda30302a6c0d0b5f084058b380e31c17a48a992c2605fc49"
+    },
+    {
+      "path": "tests/test_question_operation_direction_qp2b.py",
+      "size_bytes": 5500,
+      "sha256": "c04c2532febf4025df07eea3d842f826d0a61233ca69e8b8ea3a4b54d9556cc7"
+    },
+    {
+      "path": "scripts/audit_qp2b_operation_direction.py",
+      "size_bytes": 13166,
+      "sha256": "62ab8fcd7ba1dac835bbf5df08d7b0d25853fabc9506f61d744d7be14a34fae5"
+    },
+    {
+      "path": "tests/test_audit_qp2b_operation_direction.py",
+      "size_bytes": 2392,
+      "sha256": "57d95fdead2205e658a075c5238c4d435da1fc56ade1c53dfbfb43030d8bc298"
+    },
+    {
+      "path": "reports/finhrm_thesis_core_compiler_qp2b_v1.json",
+      "size_bytes": 396368,
+      "sha256": "f732517874c1e679fc01bca224275e4614184ff885114c48b3d40a7ac918ac58"
+    },
+    {
+      "path": "reports/finhrm_qp2b_operation_direction_development_v1.json",
+      "size_bytes": 61833,
+      "sha256": "deac8df03a1083b6abf0c99cb54526eb8ce2ba8ff6f0a772dce16bb22e8e3c43"
+    },
+    {
+      "path": "reports/finhrm_qp2b_operation_direction_development_v1.md",
+      "size_bytes": 3951,
+      "sha256": "291e86cdac6ba9e0faeca16a6b2588f4d47cb09c406bf6d4ef0729e42a523c48"
+    }
+  ],
+  "frozen_dependencies": [
+    {
+      "path": "config/finhrm_thesis_core_v1.json",
+      "size_bytes": 24625,
+      "sha256": "a9f2f3088f7622c6c8912086eac16252f154fcae1164a3fe7ba75107a0ece502"
+    },
+    {
+      "path": "config/question_family_catalog_plan_actual_v1.jsonl",
+      "size_bytes": 285544,
+      "sha256": "69c4017afec7731f63407339ae0c3d717ac38690807b17908b77fb1892d8e31b"
+    },
+    {
+      "path": "models/document_hrm_V8_candidate.pt",
+      "size_bytes": 3413128,
+      "sha256": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de"
+    }
+  ],
+  "authorized_next_step": "QP2C immutable reference-base and compiler-side program-DAG compilation for PA03, PA07, PA08, PA09, TY02, TY04 and IBDS01; do not connect the new DAG to runtime execution or acceptance yet."
+}

@@ -1,0 +1,132 @@
+{
+  "schema": "finhrm-qp4-unit-scale-frozen-action-contract-review-precommit-v1",
+  "created_at": "2026-08-21",
+  "classification": "development_only_qp4_versioned_action_contract_review",
+  "status": "precommit_pending_validation",
+  "parents": {
+    "proof_implementation_config": {
+      "path": "config/finhrm_qp4_unit_scale_proof_contract_implementation_v1.json",
+      "sha256": "e5f513e51f91e7f7495bd404fde393c25511816536fd85d6d9b2a8195a345b6c"
+    },
+    "proof_implementation_report": {
+      "path": "reports/finhrm_qp4_unit_scale_proof_contract_implementation_v1.json",
+      "sha256": "4c0c001b4e553824730587dafb92c40461b71f395fcf8ee5609c9caa40ffef98"
+    },
+    "proof_implementation_lock": {
+      "path": "reports/finhrm_qp4_unit_scale_proof_contract_implementation_lock_v1.json",
+      "sha256": "17ee8c4e5249ceef19dd80dbbf21d7d78c4773a23eb2d75333832403144d9f73"
+    },
+    "historical_safe_replay": {
+      "path": "reports/finhrm_qp4_unit_scale_question_planner_safe_replay_v1.json",
+      "sha256": "635139d6d1399044cfbb4c5160fb8de55be9978d140605e59a0704246f95c039"
+    },
+    "post_proof_safe_replay": {
+      "path": "reports/finhrm_qp4_unit_scale_proof_contract_safe_replay_v1.json",
+      "sha256": "73cc2bc11f3872cf25714de9b6d92ae9f40b4b349a4a63f4c8cc3b25e53d932d"
+    },
+    "post_proof_source_replay": {
+      "path": "reports/finhrm_qp4_unit_scale_proof_contract_source_replay_v1.json",
+      "sha256": "8adb8e5b39efc094fe145ec98e3962d9d7d8d02d56fd7ec6f47d6732dc4d7b96"
+    },
+    "action_delta_audit": {
+      "path": "reports/finhrm_qp4_unit_scale_frozen_action_contract_review_audit_v1.json",
+      "sha256": "59987dcb18eb4988804fab123a8adcfbcfa90e0c996312ef5be17998c284c725"
+    }
+  },
+  "checkpoint": {
+    "path": "models/document_hrm_V8_candidate.pt",
+    "sha256": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de"
+  },
+  "frozen_runtime_hashes": {
+    "src/hrm_finance_qa/question_planner.py": "0973e72711fccdac6fd8615e5dd5afc8f47fb98024c9080063cd6bac46bd66a2",
+    "src/hrm_finance_qa/symbolic_verifier.py": "2679b1ce55cc070697438c806f19e3e888bfc19bc1a9ae3686a0b7fd7ffb0087",
+    "src/hrm_finance_qa/program_synthesis.py": "e4acc4878d0dfd465ba66ab91f3aaf8be71db5591aa1358fb8cb81f3c7bff550",
+    "src/hrm_finance_qa/evidence_schema.py": "2f16fabf932dc9dabc8203d9642d2503bb2dab43e0e1ee0f78755dd4fb00825d",
+    "src/hrm_finance_qa/document_hrm.py": "b5951bcde79583950b672f7fb6b199b3e5b9904e6784daae7c4c5be0eba65d21",
+    "src/hrm_finance_qa/document_reasoning_engine.py": "3883500011472716bc01f8e04a6d6f925173b35a14bbedd945c5ca4fb0063fa2",
+    "src/hrm_finance_qa/program_data.py": "5199434fc0628b7d270ce62b12657366cbe118901065edd9f1e1f6ca0f1f8d54",
+    "src/hrm_finance_qa/direction_contract.py": "a18aa130419fc74ce647bd92dc9c1b1217007738e636aad0f28c7f78396be937",
+    "src/hrm_finance_qa/answer_presentation.py": "c40bd4a8dff39162b44cf11ef2da12e7b153d907f7254e5d1856157b3ac56d36"
+  },
+  "versioned_action_contract": {
+    "historical_contract_is_immutable": true,
+    "historical_pre_proof_actions": {
+      "ANSWER": 259,
+      "ABSTAIN": 90,
+      "REJECT": 14
+    },
+    "reviewed_post_proof_actions": {
+      "ANSWER": 257,
+      "ABSTAIN": 92,
+      "REJECT": 14
+    },
+    "allowed_transitions": {
+      "ANSWER_TO_ABSTAIN": 2,
+      "ANSWER_TO_REJECT": 0,
+      "ABSTAIN_TO_ANSWER": 0,
+      "ABSTAIN_TO_REJECT": 0,
+      "REJECT_TO_ANSWER": 0,
+      "REJECT_TO_ABSTAIN": 0
+    },
+    "unchanged_actions": 361,
+    "semantic_delta_eligibility": [
+      "The prior action is ANSWER and the post-proof action is ABSTAIN.",
+      "The question has an explicit, non-conflicting requested currency scale.",
+      "The selected raw evidence has no explicit unit scale and gold operand unit_status is missing.",
+      "The required unit_scale_match proof is UNKNOWN, so fail-closed policy requires ABSTAIN.",
+      "Operation, value execution and candidate-permutation correctness remain unchanged."
+    ],
+    "example_ids_allowed_only_in_audit_artifacts": true,
+    "example_id_filename_company_page_year_value_or_question_literal_runtime_rule_forbidden": true,
+    "gold_answer_text_as_runtime_unit_proof_forbidden": true,
+    "contract_conflicts_counted_as_generalization_confirmation": false
+  },
+  "gate_reclosure_contract": {
+    "runtime_changes_authorized": false,
+    "source_coverage": {
+      "runs": 5,
+      "companies": 5,
+      "sources": 5,
+      "real_layouts": 3
+    },
+    "source_prior_answer_to_abstain": 4,
+    "source_binding_retained": "4/4",
+    "source_required_unit_scale_unknown": "4/4",
+    "source_old_winner_false_accepts": 0,
+    "safe_examples": 363,
+    "safe_actions": {
+      "ANSWER": 257,
+      "ABSTAIN": 92,
+      "REJECT": 14
+    },
+    "safe_execution": "363/363",
+    "safe_permutation": "363/363",
+    "safe_counterfactuals": 141,
+    "safe_counterfactual_false_accepts": 0,
+    "compatible_affected_regression": "348/348"
+  },
+  "runtime_changed_by_this_precommit": false,
+  "downstream_runtime_change_authorized_in_same_step": false,
+  "historical_artifact_overwrite_authorized": false,
+  "invariants": {
+    "abw_used": false,
+    "protected_evaluation_loaded": false,
+    "validation_loaded": false,
+    "blind_loaded": false,
+    "test_data_loaded": false,
+    "sealed_or_holdout_loaded": false,
+    "threshold_changed": false,
+    "checkpoint_changed": false,
+    "model_changed": false,
+    "fine_tuning_performed": false,
+    "candidate_rank_score_or_confidence_used_as_semantic_proof": false,
+    "synthetic_layout_counted_as_confirmation": false,
+    "safe_abstention_counted_as_answer": false,
+    "runtime_rule_specialized_to_audit_ids": false,
+    "runtime_changed": false,
+    "qp4_complete": false,
+    "qp5_authorized": false,
+    "phase_d_unlocked": false
+  },
+  "authorized_next_step_after_lock": "QP4-UNIT-SCALE-PROOF-CONTRACT-GATE-RECLOSURE: re-evaluate the existing implementation against this reviewed versioned action contract; make no runtime changes."
+}

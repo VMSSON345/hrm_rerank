@@ -1,0 +1,1488 @@
+{
+  "protocol": "v12c-joint-calibration-visual-queue-v1",
+  "classification": "development_only_joint_calibration_pending_visual_qa",
+  "selection_policy": {
+    "maximum_pages_per_company_per_stratum": 1,
+    "maximum_period_controls_per_page": 2,
+    "positive_selection": "first source_name/page per company after deterministic sort",
+    "negative_selection": "one per failure stratum, then deterministic company/source/page order",
+    "model_outputs_used": false
+  },
+  "inputs": [
+    {
+      "path": "/mnt/d/reasoning_model_V4/reasoning_model/reports/v12c_joint_calibration_new_source_feasibility_discovery_v1.json",
+      "sha256": "b1e72ad4448fbc63c0927ed2b07b414cf05b22aad0743de41f185830dcdc78a8"
+    },
+    {
+      "path": "/mnt/d/reasoning_model_V4/reasoning_model/reports/v12c_joint_calibration_new_source_feasibility_discovery_v2.json",
+      "sha256": "86d4341bb63ae2a3cf2926c8ad8d32c95343f20a24bd0aded162c0a103e7d87e"
+    }
+  ],
+  "summary": {
+    "positive_pages": 20,
+    "positive_company_groups": 20,
+    "positive_maximum_control_capacity": 40,
+    "negative_pages": 30,
+    "negative_company_groups": 30,
+    "negative_failure_type_counts": {
+      "ambiguous_duplicate_role": 1,
+      "invalid_borrowing_role_semantics": 23,
+      "missing_required_raw_role": 6
+    },
+    "cross_stratum_company_overlap": 0,
+    "ready_for_visual_qa": true,
+    "ready_for_inference": false
+  },
+  "records": [
+    {
+      "source_name": "BTV_23CN_BCTN.pdf",
+      "source_path": "/mnt/d/reasoning_model_V4/reasoning_model/pdf/PDF_23/BTV_23CN_BCTN.pdf",
+      "source_sha256": "7dcf870a41f228b27969469d0f15765f6999b8231ff75a54e15a5068f9083b0b",
+      "company_key": "development-company-3daf16cad05f3ce1",
+      "page": 28,
+      "page_text_sha256": "417bab23c4618304ab99c3206831f37811879c7d3da5157205001d1143ab8117",
+      "candidate_stratum": "negative_candidate",
+      "proof_or_failure_type": "invalid_borrowing_role_semantics",
+      "signals": {
+        "required_roles": {
+          "short_term_borrowings": 1,
+          "long_term_borrowings": 0,
+          "total_capital": 0
+        },
+        "broad_liabilities": {
+          "current_liabilities": 9,
+          "long_term_liabilities": 5,
+          "total_liabilities": 4
+        },
+        "confound_totals": {
+          "total_assets": 4,
+          "total_liabilities": 4,
+          "owners_equity": 0
+        }
+      },
+      "excerpt": "55 CTCP Dịch vụ Du lịch Bến Thành BÁO CÁO THƯỜNG NIÊN 2023 56 TÌNH HÌNH TÀI CHÍNH Tình hình tài sản DVT: triệu đồng Từ năm 2022 tới nay, Công ty ghi nhận tình hình tăng tài sản ngắn hạn và giảm tài sản dài hạn. Trong khi các khoản đầu tư tài chính ngắn hạn năm nay tăng mạnh mẽ từ 8 tỷ TH 2023/ TH Tỷ trọng Tỷ trọng Chỉ tiêu Năm 2022 Năm 2023 đồng lên 32 tỷ đồng thì giá trị tài sản dài hạn tiếp tục giảm nhẹ do trích các khoản khấu 2022 năm 2022 năm 2023 hao TSCĐ và Bất động sản đầu tư. Điều này cho thấy chiến lược tài chính của Công ty vẫn đang ổn định, không ảnh hưởng quá nhiều tới kế hoạch và quy mô kinh doanh của Công Tài sản ngắn hạn 202.088 287.410 142,22% 52,24% 62,41% ty. Tuy nhiên, để hạn chế các rủi ro không đáng có, Ban điều hành công ty đã lên kế hoạch tài chính cho công ty và đưa ra các giải pháp để tăng cường tài sản dài hạn, chẳng hạn như tăng thu nhập hoặc đầu tư tiền vào các dự án có thể mang lại kết quả tích cực trong Tài sản dài hạn 184.767 173.112 93,69% 47,76% 37,59% tương lai. Bên cạnh đó, Công ty đảm bảo nguồn tiền để xử lý và thanh toán kịp thời cho tài sản ngắn hạn. ĐVT: triệu đồng Tổng tài sản 386.855 460.522 119,04% 100% 100% TH 2023/ TH Tỷ trọng Tỷ trọng Chỉ tiêu Năm 2022 Năm 2023 2022 năm 2022 năm 2023Năm 2023, trong cơ cấu tổng tài sản, tài sản ngắn hạn chiếm tỷ trọng cao hơn. Tổng tài sản năm vừa qua tăng 19,04% so với năm 2022, chủ yếu do tài sản ngắn hạn tăng hơn 80.000 Nợ ngắn hạn 158.431 203.275 128,30% 82,21% 85,94%triệu đồng, trong khi đó, tài sản dài hạn đã giảm xuống 93,69%. Trong năm 2022, tài sản ngắn hạn chiếm 52,24% tổng tài sản, tăng",
+      "queue_stratum": "negative_candidate"
+    },
+    {
+      "source_name": "TRS_24CN_BCTN.pdf",
+      "source_path": "/mnt/d/reasoning_model_V4/reasoning_model/pdf/PDF_24/PDF_24/TRS_24CN_BCTN.pdf",
+      "source_sha256": "eb6709d714523ae0dca29f40306f06bd888c8ef52fc84bfb5ae19433aa132b42",
+      "company_key": "development-company-3dea986ac2522236",
+      "page": 31,
+      "page_text_sha256": "e7c1b541f4edb9cfc42eaeb8e1597512c8eec735bfaa56d244ec9af6f1f5b0fd",
+      "candidate_stratum": "negative_candidate",
+      "proof_or_failure_type": "invalid_borrowing_role_semantics",
+      "signals": {
+        "required_roles": {
+          "short_term_borrowings": 0,
+          "long_term_borrowings": 0,
+          "total_capital": 1
+        },
+        "broad_liabilities": {
+          "current_liabilities": 2,
+          "long_term_liabilities": 2,
+          "total_liabilities": 3
+        },
+        "confound_totals": {
+          "total_assets": 2,
+          "total_liabilities": 3,
+          "owners_equity": 2
+        }
+      },
+      "excerpt": "TRA-SAS BÁO CÁO THƯỜNG NIÊN / 2024 TRA-SAS BÁO CÁO THƯỜNG NIÊN / 2024 BÁO CÁO TÌNH HÌNH TÀI CHÍNH NĂM 2024 TÌNH HÌNH TÀI SẢN TÌNH HÌNH NGUỒN VỐN Đơn vị tính: đồng Đơn vị tính: đồng TT Khoản mục Năm 2023 Năm 2024 TT Khoản mục Năm 2023 Năm 2024 I Tài sản ngắn hạn 213.386.222.644 239.428.555.635 I Nợ phải trả 160.916.580.025 188.564.875.455 - Tiền và các khoản tương đương tiền 23.360.742.280 16.705.919.363 - Nợ ngắn hạn 156.387.656.891 171.554.054.437 - Đầu tư tài chính ngắn hạn 306.053.000 369.164.066 - Nợ dài hạn 4.528.923.134 17.010.821.018 - Các khoản phải thu ngắn hạn 141.924.217.436 165.494.853.212 II Vốn chủ sở hữu 233.892.726.802 264.231.224.084 - Hàng tồn kho 34.252.819.836 40.211.515.541 @ TỔNG NGUỒN VỐN 394.809.306.827 452.796.099.539 - Tài sản ngắn hạn khác 13.542.390.092 16.647.103.453 Nguồn: Báo cáo tài chính kiểm toán năm 2024 của TRA-SAS II Tài sản dài hạn 181.423.084.183 213.367.543.904 CƠ CẤU NGUỒN VỐN NĂM 2024 - Các khoản phải thu dài hạn - 2.478.484.000 - Tài sản cố định 171.811.482.126 186.811.328.734 - Tài sản dở dang dài hạn - 18.389.147.205 41,64% - Tài sản dài hạn khác 9.611.602.057 5.688.583.965 58,36% @ TỔNG TÀI SẢN 394.809.306.827 452.796.099.539 Nguồn: Báo cáo tài chính kiểm toán năm 2024 của TRA-SAS CƠ CẤU TÀI SẢN NĂM 2024 CƠ CẤU NỢ PHẢI TRẢ NĂM 2024 Nợ Phải Trả Vốn chủ sở hữu 9,02% TỔNG TÀI SẢN 47,12% 52,88% 14,69 % SO VỚI NĂM 2023 90,98% Tài sản ngắn hạn Tài sản dài hạn Nợ ngắn hạn Nợ dài hạn CHƯƠNG 03 / BÁO CÁO ĐÁNH GIÁ CỦA BAN ĐIỀU HÀNH ( 60 ) CHƯƠNG 03 / BÁO CÁO ĐÁNH GIÁ CỦA BAN ĐIỀU HÀNH ( 61 )",
+      "queue_stratum": "negative_candidate"
+    },
+    {
+      "source_name": "HQC_24CN_BCTN.pdf",
+      "source_path": "/mnt/d/reasoning_model_V4/reasoning_model/pdf/PDF_24/PDF_24/HQC_24CN_BCTN.pdf",
+      "source_sha256": "24c8c5abbd968eae1289df9b8b0ecc52965bf3e577e89fd4dadb4e7d389518f7",
+      "company_key": "development-company-3e0bcf48b88bb30d",
+      "page": 57,
+      "page_text_sha256": "ee5fb94e312bc8befb014e83695832a921a8a0d65f57d34e4def49c4374643d5",
+      "candidate_stratum": "negative_candidate",
+      "proof_or_failure_type": "invalid_borrowing_role_semantics",
+      "signals": {
+        "required_roles": {
+          "short_term_borrowings": 0,
+          "long_term_borrowings": 0,
+          "total_capital": 0
+        },
+        "broad_liabilities": {
+          "current_liabilities": 3,
+          "long_term_liabilities": 1,
+          "total_liabilities": 2
+        },
+        "confound_totals": {
+          "total_assets": 4,
+          "total_liabilities": 2,
+          "owners_equity": 2
+        }
+      },
+      "excerpt": "b) Về kết quả kinh doanh Bên cạnh những thành quả đạt được về các mặt, trước sự khó khăn của kinh tế Việt nam cũng như thị trường bất động sản, Ban Tổng giám đốc chưa hoàn thành mục tiêu về kết quả kinh doanh đề ra. Tổng kết cả năm 2024, Doanh thu công ty đạt 345,7 tỷ đồng, tăng 7% so với năm 2023, hoàn thành 17% kế hoạch. Lợi nhuận sau thuế đạt 33,8 tỷ đồng, tăng 555% so với năm 2023, hoàn thành 34% kế hoạch Lợi nhuận sau thuế. STT CHỈ TIÊU 2024 2023 THAY ĐỔI TỶ LỆ 1 Doanh thu 345,7 322,6 23,1 7% 2 Doanh thu thuần -66,6 292,6 -359,1 -123% 3 Giá vốn hàng bán -157,4 240,8 -398,2 -165% 4 Lợi nhuận gộp 90,9 51,8 39,1 75% 5 Doanh thu tài chính 100,9 3,2 97,8 3.077% 6 Lợi nhuận thuần từ hoạt động kinh doanh 23,8 14,7 9,0 61% 7 Lợi nhuận khác 18,1 -8,6 26,7 -310% 8 Lợi nhuận trước thuế 41,8 6,2 35,7 580% 9 Lợi nhuận sau thuế 33,8 5,2 28,6 555% c) Tình hình tài sản, nguồn vốn: CHỈ TIÊU 2020 2021 2022 2023 2024 Tổng tài sản 6.970,2 9.326,8 7.236,9 7.299,4 10.102,0 Tài sản ngắn hạn 3.450,5 3.503,9 3.523,5 3.584,6 6.676,0 Tài sản dài hạn 3.519,7 5.822,9 3.713,4 3.714,8 3.426,0 Tổng nợ phải trả 2.633,7 4.986,2 2.877,5 2.934,9 4.708,3 Nợ ngắn hạn 2.586,1 3.785.0 2.670,3 2.618,6 3.206,3 Nợ dài hạn 47,6 1.201,2 207,2 316,3 1.502,0 Vốn chủ sở hữu 4.336,5 4.340,6 4.359,4 4.364,5 5.393,7 Lợi nhuận trước thuế 10,7 7,4 26,5 6,2 41,8 Lợi nhuận sau thuế 9,6 4,2 18,8 5,2 33,8 Tính đến ngày 31/12/2024, giá trị tổng tài sản đạt 10.102,0 tỷ đồng, tăng 38,4% so với năm 2023, trong đó tài sản ngắn hạn chiếm 66,1%, tài sản dài hạn chiếm 33,9%. Trong năm tài chính 2024, tài sản dài hạn giảm 7,8% so với",
+      "queue_stratum": "negative_candidate"
+    },
+    {
+      "source_name": "KLB_24CN_BCTN.pdf",
+      "source_path": "/mnt/d/reasoning_model_V4/reasoning_model/pdf/PDF_24/PDF_24/KLB_24CN_BCTN.pdf",
+      "source_sha256": "08fb0c22f7e3a6777888c9a11185ec306b6bd6964cfb1fd17d12a0cd99c8e14f",
+      "company_key": "development-company-3efea186c069554f",
+      "page": 57,
+      "page_text_sha256": "2144a0e0fefefcdeaaae0e12dbabd470e6e0cec48caefcb38231afd5977c2cdb",
+      "candidate_stratum": "negative_candidate",
+      "proof_or_failure_type": "missing_required_raw_role",
+      "signals": {
+        "required_roles": {
+          "short_term_borrowings": 1,
+          "long_term_borrowings": 1,
+          "total_capital": 0
+        },
+        "broad_liabilities": {
+          "current_liabilities": 0,
+          "long_term_liabilities": 0,
+          "total_liabilities": 1
+        },
+        "confound_totals": {
+          "total_assets": 0,
+          "total_liabilities": 1,
+          "owners_equity": 0
+        }
+      },
+      "excerpt": "CHƯƠNG 5 THUYẾT MINH BÁO CÁO TÀI CHÍNH HỢP NHẤT BÁO CÁO TÀI CHÍNH HỢP NHẤT ĐÃ KIỂM TOÁN Ngân hàng hạch toán việc hợp nhất kinh doanh theo phương pháp mua. Giá phí mua bao gồm giá trị hợp lý tại ngày diễn ro thấp hơn hoặc do khoản nợ phân loại vào nhóm nợ có rủi ro cao hơn theo quy định. ra trao đổi của các tài sản, các công cụ vốn do bên mua phát hành và các khoản nợ phải trả đã phát sinh hoặc đã thừa nhận cộng với các chi phí liên quan trực tiếp đến việc mua công ty con. - Nợ dưới tiêu chuẩn (Nhóm 3) bao gồm: a) Nợ quá hạn từ 91 ngày đến 180 ngày; trừ khoản nợ quy định tại khoản 3 Điều 10 Thông tư 31; hoặc b) Nợ gia hạn lần đầu còn trong hạn; trừ khoản nợ quy định tại điểm (b) khoản 2, khoản 3 Điều 10 Các số dư nội bộ, giao dịch và lợi nhuận chưa thực hiện trong giao dịch nội bộ giữa công ty con và Ngân hàng được loại Thông tư 11; hoặc c) Nợ được miễn, giảm lãi do khách hàng không có khả năng trả lãi đầy đủ theo thỏa thuận, trừ khoản trừ khi lập báo cáo tài chính hợp nhất. Lỗ chưa thực hiện cũng được loại trừ, ngoại trừ trường hợp giao dịch thể hiện cụ nợ quy định tại khoản 3 Điều 10 Thông tư 31; hoặc d) Nợ thuộc một trong các trường hợp sau đây chưa thu hồi được thể sự giảm giá của tài sản được chuyển giao. Các chính sách kế toán của các công ty con cũng được thay đổi khi cần trong thời gian dưới 30 ngày kể từ ngày có quyết định thu hồi: khoản nợ vi phạm các quy định tại các khoản 1,3,4,5,6 Điều thiết nhằm đảm bảo tính nhất quán với các chính sách kế toán được Ngân hàng áp dụng. 134 Luật các tổ chức tín dụng hoặc khoản nợ vi phạm quy định tại các khoản điều 1,2,3,4 Điều 1",
+      "queue_stratum": "negative_candidate"
+    },
+    {
+      "source_name": "BCE_23CN_BCTN.pdf",
+      "source_path": "/mnt/d/reasoning_model_V4/reasoning_model/pdf/PDF_23/BCE_23CN_BCTN.pdf",
+      "source_sha256": "3f14eeca2878fff8388b33bd7258341a120dc5e7f146b82e827b5f8cceec6369",
+      "company_key": "development-company-3f5319c51e359ee0",
+      "page": 28,
+      "page_text_sha256": "1017abcc47f4e9402a446fdcd2417ccf47c831cbe42a756172026ea5139700a3",
+      "candidate_stratum": "negative_candidate",
+      "proof_or_failure_type": "invalid_borrowing_role_semantics",
+      "signals": {
+        "required_roles": {
+          "short_term_borrowings": 0,
+          "long_term_borrowings": 0,
+          "total_capital": 2
+        },
+        "broad_liabilities": {
+          "current_liabilities": 2,
+          "long_term_liabilities": 1,
+          "total_liabilities": 4
+        },
+        "confound_totals": {
+          "total_assets": 2,
+          "total_liabilities": 4,
+          "owners_equity": 2
+        }
+      },
+      "excerpt": "3 TÌNH HÌNH TÀI CHÍNH TÀI SẢN NGUỒN VỐN ĐVT: Tỷ đồng ĐVT: Tỷ đồng 31/12/2022 31/12/2023 Tăng/Giảm 31/12/2022 31/12/2023 Tăng/Giảm Khoản mục Khoản mục % Tăng/ % Tăng/ Giá trị Tỷ trọng Giá trị Tỷ trọng Giá trị Giá trị Tỷ trọng Giá trị Tỷ trọng Giá trị Giảm Giảm TÀI SẢN NGẮN HẠN 486,74 75,07% 519,46 75,54% 33,21 6,72% NỢ PHẢI TRẢ 315,71 48.70% 354,23 51.49% 38,52 11% Tiền và khoản tương đương tiền 19,31 2,98% 35,76 5,20% 16,45 85,16% Nợ ngắn hạn 312,81 48.25% 353,50 51.38% 40,68 12% Các khoản đầu tư tài chính Nợ dài hạn 2,89 0.45% 731 0.11% (2,16) (296)% - 0,00% - 0.00% - - ngắn hạn NGUỒN VỐN CHỦ SỞ HỮU 332,62 51.30% 333,40 48.46% 778 0,23% Các khoản phải thu 404,58 62,40% 422,78 61,45% 18,21 4,50% TỔNG NGUỒN VỐN 648,33 100.00% 687,64 100.00% 39,30 6% Hàng tồn kho 33,83 5,22% 36,47 5,3% 2,64 7,8% Tài sản ngắn hạn khác 29,01 4,47% 3,55% (4,58) (15,788)% 24,44 TÀI SẢN DÀI HẠN 161,59 24,92% 168,17 24,46% 6,58 4% Tổng nguồn vốn của Công ty trong năm 2023 ghi nhận tăng nhẹ so với năm trước lên 687,64 tỷ đồng, tăng Các khoản phải thu dài hạn 77,48 11,95% 86,92 12,63% 9,44 12,18% hơn 39 tỷ đồng, tương đương tăng 6%. Nguyên nhân do cả nợ phải trả và vốn chủ sở hữu đều tăng trong Tài sản cố định 69,51 12,48% 9.51% (6)% 65,36 (4,149) năm vừa qua. Cơ cấu nợ ngắn hạn và dài hạn không Bất động sản đầu tư - - - - - - có sự biến động quá lớn, Công ty hoạt động trong lĩnh vực xây dựng nên việc huy động vốn trong ngắn Các khoản đầu tư tài chính dài hạn - - - - - - hạn là hoàn toàn phù hợp với đặc thù kinh doanh của Tài sản dở dang dài hạn 11,40 1,76% 12,67 1,84% 1,27 11% Công ty. Do đó, tổng n",
+      "queue_stratum": "negative_candidate"
+    },
+    {
+      "source_name": "SFG_23CN_BCTN.pdf",
+      "source_path": "/mnt/d/reasoning_model_V4/reasoning_model/pdf/PDF_23/SFG_23CN_BCTN.pdf",
+      "source_sha256": "1de871b4328b8d6c0496b5ee10ab1da6a517151372a2131a1c2afacea0c1dc83",
+      "company_key": "development-company-40bacf2c6dad104e",
+      "page": 34,
+      "page_text_sha256": "6e85a0c4c64a916cfa049c0857425f3782e22c684c62759be930c19233078f9f",
+      "candidate_stratum": "negative_candidate",
+      "proof_or_failure_type": "missing_required_raw_role",
+      "signals": {
+        "required_roles": {
+          "short_term_borrowings": 1,
+          "long_term_borrowings": 2,
+          "total_capital": 0
+        },
+        "broad_liabilities": {
+          "current_liabilities": 4,
+          "long_term_liabilities": 3,
+          "total_liabilities": 9
+        },
+        "confound_totals": {
+          "total_assets": 3,
+          "total_liabilities": 9,
+          "owners_equity": 0
+        }
+      },
+      "excerpt": "CHƯƠNG 3 - BÁO CÁO VÀ ĐÁNH GIÁ CỦA BAN TỔNG GIÁM ĐỐC Tình hình tài chính TÌNH HÌNH TÀI SẢN TÌNH HÌNH NỢ PHẢI TRẢ ĐVT: Triệu đồng ĐVT: Triệu đồng Chỉ tiêu 01/01/2023 Tỷ trọng 31/12/2023 Tỷ trọng % Tăng giảm Chỉ tiêu 01/01/2023 Tỷ trọng 31/12/2023 Tỷ trọng % Tăng giảm Tài sản ngắn hạn 871.564 79,95% 1.000.138 80,40% 114,75% Nợ ngắn hạn 469.098 99,92% 590.138 99,95% 125,80% Tài sản dài hạn 218.584 20,05% 243.809 19,60% 111,54% Nợ dài hạn 372 0,08% 268 0,05% 72,13% Tổng tài sản 1.090.148 100% 1.243.947 100,00% 114,11% Tổng nợ phải trả 469.470 100,00% 590.406 100,00% 125,76% Tính tại thời điểm 31/12/2023, tổng tài sản của Phân bón Miền Nam ghi nhận sự tăng nhẹ, đạt 1.243.947 triệu đồng, tăng hơn 14% so với Tính từ thời điểm 31/12/2023, tổng nợ phải trả tăng mạnh do với năm trước, đạt 590.406 triệu đồng, tăng 25,76% so với cùng kỳ. Trong cơ cùng kỳ. Xét về cơ cấu tỷ trọng, không có nhiều sự thay đổi trong cơ cấu Tổng tài sản, Tài sản ngắn hạn vẫn chiếm tỷ trọng chủ yếu với cấu nợ phải trả của Công ty chủ yếu là nợ ngắn hạn, chiếm 99,95% trong tổng nợ phải trả. Do đặc thù công ty thuộc ngành sản xuất nên 80,40% trong cơ cấu, đạt 1.000.138 triệu đồng, tăng 14,75% so với cùng kỳ trong năm 2022. Yếu tố trọng tâm làm Tài sản ngắn hạn tăng nợ ngắn hạn phát sinh trong quá trình sản xuất, cụ thể là các khoản vay ngắn hạn để bổ sung vốn lưu động và mua nguyên vật liệu trong là các khoản đầu tư nắm giữ tới ngày đáo hạn, đạt 506.300 triệu đồng, tăng hơn 124,07% so với thời điểm cùng kỳ. Trong tình hình kinh tế quá trình sản xuất kinh doanh. khó khăn, ngoài lên kế hoạch cho các hoạt động sản",
+      "queue_stratum": "negative_candidate"
+    },
+    {
+      "source_name": "CDC_23CN_BCTN.pdf",
+      "source_path": "/mnt/d/reasoning_model_V4/reasoning_model/pdf/PDF_23/CDC_23CN_BCTN.pdf",
+      "source_sha256": "89e4b969b674a9a5b8234366ea1289f0cacb0f8fb5e28cbee8fb45a4bc9d3739",
+      "company_key": "development-company-44abe4ace21b534d",
+      "page": 55,
+      "page_text_sha256": "03f4be0fe061a5c8b7d895024b184802616ea70381c5c5de61e28d93d1d37871",
+      "candidate_stratum": "negative_candidate",
+      "proof_or_failure_type": "invalid_borrowing_role_semantics",
+      "signals": {
+        "required_roles": {
+          "short_term_borrowings": 0,
+          "long_term_borrowings": 0,
+          "total_capital": 0
+        },
+        "broad_liabilities": {
+          "current_liabilities": 3,
+          "long_term_liabilities": 2,
+          "total_liabilities": 1
+        },
+        "confound_totals": {
+          "total_assets": 3,
+          "total_liabilities": 1,
+          "owners_equity": 3
+        }
+      },
+      "excerpt": "BÁO CÁO THƯỜNG NIÊN Chỉ tiêu về khả năng thanh toán Năm 2023, hệ số thanh toán ngắn hạn và hệ số thanh toán nhanh của Công ty lần lượt đạt 1,33 lần và 1,01 lần. Nguyên nhân chính là do tài sản ĐVT: Lần ngắn hạn của Công ty tăng trưởng mạnh mẽ, đạt tỷ lệ tăng 11,23% so với năm trước. Điều này có 1,4 1,33 1,26 nguồn gốc từ việc Công ty tiếp tục đẩy mạnh thực 1,2 hiện các dự án như Khu đô thị Central Garden 2 tại 1,05 1,01 xã Bà Điểm, huyện Hóc Môn, TP. Hồ Chí Minh, và 1 dự án Nhà ở xã hội Chương Dương Home…, dẫn 0,8 đến chi phí sản xuất dở dang tăng, góp phần vào sự tăng trưởng của chỉ tiêu hàng tồn kho. 0,6 Tuy nhiên, xu hướng nợ ngắn hạn lại có chiều 0,4 hướng tăng trưởng mạnh hơn so với tài sản ngắn hạn, với tỷ lệ tăng 19,26% so với năm 2022. Bởi 0,2 Công ty thực hiện các khoản vay và nợ thuê tài 0 chính ngắn hạn nhằm bổ sung nguồn vốn lưu động Hệ số thanh toán ngắn hạn Hệ số thanh toán nhanh cho hoạt động sản xuất kinh doanh. Dẫn đến, các chỉ tiêu về khả năng thanh toán có xu hướng giảm Năm 2022 Năm 2023 nhẹ so với năm 2022. Tuy nhiên, nhìn chung, các chỉ số này vẫn lớn hơn 1, thể hiện Công ty vẫn có đủ khả năng chi trả cho các khoản nợ ngắn hạn. Chỉ tiêu về cơ cấu vốn Năm 2023, nhóm chỉ tiêu về cơ cấu vốn của Công ty Cổ phần Chương Dương tăng trưởng nhẹ so với năm 2022, với hệ số Nợ/Tổng tài sản đạt 81,27% và hệ số Nợ/Vốn chủ sở hữu đạt ĐVT: % 433,79%. Sự biến động này chủ yếu từ việc nợ phải trả của Công ty tăng 10,42% so với cùng 500 433,79kỳ năm trước, đạt 1.467,57 tỷ đồng. Trong đó, 450 420,16 để bổ sung vốn lưu động và mở rộng hoạt động 400 kinh doanh, Công ty đã tă",
+      "queue_stratum": "negative_candidate"
+    },
+    {
+      "source_name": "TEG_23CN_BCTN.pdf",
+      "source_path": "/mnt/d/reasoning_model_V4/reasoning_model/pdf/PDF_23/TEG_23CN_BCTN.pdf",
+      "source_sha256": "efff250abbde4587495375fa5e2894624e686920edac77723733eebed0172502",
+      "company_key": "development-company-468aba26e46c01f9",
+      "page": 85,
+      "page_text_sha256": "e06f1cbce75558e70dc195d0cc786cd2fd069c9e5c994203030f2a18b1b86d34",
+      "candidate_stratum": "negative_candidate",
+      "proof_or_failure_type": "invalid_borrowing_role_semantics",
+      "signals": {
+        "required_roles": {
+          "short_term_borrowings": 0,
+          "long_term_borrowings": 0,
+          "total_capital": 0
+        },
+        "broad_liabilities": {
+          "current_liabilities": 1,
+          "long_term_liabilities": 1,
+          "total_liabilities": 3
+        },
+        "confound_totals": {
+          "total_assets": 1,
+          "total_liabilities": 3,
+          "owners_equity": 0
+        }
+      },
+      "excerpt": "Năm 2023, tổng tài sản giảm 65,35 tỷ đồng tương ứng giảm 5,30%, chủ yếu là do giảm tài sản ngắn hạn. Cuối năm 2023, cơ cấu tài sản đã thay đổi đáng kể khi tỷ lệ tài sản ngắn hạn so với tài sản dài hạn là 0,58 lần và 0,81 lần ở cuối năm 2022. b. Tình hình nợ phải trả Đơn vị tính: tỷ đồng STT Chỉ tiêu 31/12/2022 31/12/2023 Chênh lệch 1 Nợ phải trả 271,78 190,93 (80,92) 2 Nợ ngắn hạn 198,32 187,07 (11,25) 3 Nợ dài hạn 73,46 3,86 (69,67) Cuối năm 2023, nợ phải trả giảm so với cuối năm 2022. Tình hình trả nợ của Công ty vẫn ổn định, không có khoản nợ nào quá hạn, cùng với hệ số thanh toán ngắn hạn 2,30 và hệ số thanh toán nhanh 2,02, cho thấy khả năng quản trị thanh khoản của Công ty có chiều hướng tích cực hơn. 3. Những cải tiến về cơ cấu tổ chức, chính sách, quản lý Trong năm 2023, Công ty đã có sự thay đổi về cơ cấu tổ chức, bộ máy quản lý theo hướng tinh gọn, tiết giảm chi phí, giảm các cấp quản lý trung gian, giảm chồng chéo trong công việc và chức năng giữa các bộ phận, nâng cao năng suất lao động thông qua việc ứng dụng công nghệ thông tin vào công tác quản trị. Bên cạnh đó, Công ty cũng đã từng bước hoàn hiện hệ thống đánh giá nhân viên trên nguyên tắc hiệu quả và công bằng. 79",
+      "queue_stratum": "negative_candidate"
+    },
+    {
+      "source_name": "PGI_23CN_BCTN.pdf",
+      "source_path": "/mnt/d/reasoning_model_V4/reasoning_model/pdf/PDF_23/PGI_23CN_BCTN.pdf",
+      "source_sha256": "af1d81e47658681931df0342907e3234a4aa6cbc4b1054ac524fcd60931569f9",
+      "company_key": "development-company-4857fac1a0d8901b",
+      "page": 67,
+      "page_text_sha256": "ba40786b35f2364104f847bfbf21a38df5d9fd4f042502f6055aa1339cd7d1bc",
+      "candidate_stratum": "negative_candidate",
+      "proof_or_failure_type": "invalid_borrowing_role_semantics",
+      "signals": {
+        "required_roles": {
+          "short_term_borrowings": 0,
+          "long_term_borrowings": 0,
+          "total_capital": 1
+        },
+        "broad_liabilities": {
+          "current_liabilities": 2,
+          "long_term_liabilities": 1,
+          "total_liabilities": 1
+        },
+        "confound_totals": {
+          "total_assets": 1,
+          "total_liabilities": 1,
+          "owners_equity": 2
+        }
+      },
+      "excerpt": "132 BảoBáo hiểmcáo thườngPJICO niên 2023 Quản trị Doanh Phầnnghiệp5 133 Mẫu số B 01 – DNPNT Mẫu số B 01 – DNPNT (tiếp theo) (tiếp theo)BẢNG CÂN ĐỐI KẾ TOÁN BẢNG CÂN ĐỐI KẾ TOÁN Tại ngày Tại ngày MÃ THUYẾT 31/12/2023 31/12/2022 MÃ THUYẾT 31/12/2023 31/12/2022 TÀI SẢN NGUỒN VỐN SỐ MINH VND VND SỐ MINH VND VND (Điều chỉnh lại (Điều chỉnh lại - Thuyết minh 41) - Thuyết minh 41) 218.2 - Phải thu dài hạn khác 14.087.649.504 5.682.774.174 323 Quỹ khen thưởng, phúc lợi 16 104.879.924.523 104.247.001.842 329 Dự phòng nghiệp vụ 4.090.263.671.506 4.094.875.805.196 220 Tài sản cố định 643.034.087.676 619.142.266.301 329.1 - Dự phòng phí bảo hiểm gốc và nhận tái bảo hiểm 17(a) 2.084.486.409.534 1.939.462.647.262 221 Tài sản cố định hữu hình 9(a) 356.441.023.574 349.164.423.667 329.2 - Dự phòng bồi thường bảo hiểm gốc và nhận tái bảo hiểm 17(a) 1.614.845.100.698 1.792.221.143.092 222 Nguyên giá 703.656.456.483 668.102.293.393 329.3 - Dự phòng dao động lớn và đảm bảo cân đối 17(b) 390.932.161.274 363.192.014.842 223 Giá trị khấu hao lũy kế (347.215.432.909) (318.937.869.726) 330 Nợ dài hạn 51.718.536.072 37.911.203.358 227 Tài sản cố định vô hình 9(b) 271.183.333.418 230.415.868.579 333 Phải trả dài hạn khác 1.900.213.300 1.770.713.300 228 Nguyên giá 371.354.221.427 311.060.555.102 337 Dự phòng phải trả dài hạn 18 14.320.315.000 - 229 Giá trị khấu hao lũy kế (100.170.888.009) (80.644.686.523) 338 Doanh thu chưa thực hiện 15(b) 26.724.498.212 30.724.879.874 339 Quỹ phát triển khoa học và công nghệ 8.773.509.560 5.415.610.184 230 Chi phí xây dựng cơ bản dở dang 10 15.409.730.684 39.561.974.",
+      "queue_stratum": "negative_candidate"
+    },
+    {
+      "source_name": "SPD_24CN_BCTN.pdf",
+      "source_path": "/mnt/d/reasoning_model_V4/reasoning_model/pdf/PDF_24/PDF_24/SPD_24CN_BCTN.pdf",
+      "source_sha256": "9deaa8de56c8d24ec22d0450b7f890d4343c64f0e2e004dae7d5d2de68333aaa",
+      "company_key": "development-company-4ae044f6332cf7b0",
+      "page": 28,
+      "page_text_sha256": "15589f66daf93d2dcee1a22827ebfd693721be6e879bea5a7aea430228a49b6c",
+      "candidate_stratum": "negative_candidate",
+      "proof_or_failure_type": "invalid_borrowing_role_semantics",
+      "signals": {
+        "required_roles": {
+          "short_term_borrowings": 0,
+          "long_term_borrowings": 0,
+          "total_capital": 0
+        },
+        "broad_liabilities": {
+          "current_liabilities": 2,
+          "long_term_liabilities": 3,
+          "total_liabilities": 8
+        },
+        "confound_totals": {
+          "total_assets": 2,
+          "total_liabilities": 8,
+          "owners_equity": 0
+        }
+      },
+      "excerpt": "TÌNH HÌNH TÀI CHÍNH TÌNH HÌNH TÀI SẢN TÌNH HÌNH NỢ PHẢI TRẢ Đơn vị tính: Triệu đồng Đơn vị tính: Triệu đồng Tỷ trọng Tỷ trọng Chênh lệch Tỷ trọng Tỷ trọng Chênh lệch Chỉ tiêu Năm 2023 Năm 2024 Chỉ tiêu Năm 2023 Năm 2024 Năm 2023 Năm 2024 2024/2023 Năm 2023 Năm 2024 2024/2023 Tài sản ngắn hạn 300.074 76,55% 318.932 77,63% 106,28% Nợ ngắn hạn 259.522 96,78% 272.248 97,70% 104,90% Tài sản dài hạn 91.911 23,45% 91.897 22,37% 99,98% Nợ dài hạn 8.627 3,22% 6.396 2,30% 74,14% Tổng tài sản 391.985 100,00% 410.829 100,00% 104,81% Tổng nợ phải trả 268.149 100,00% 278.644 100,00% 103,91% Tổng Tài sản tăng nhẹ từ 391,985 tỷ đồng lên 410,829 tăng 2,6%; cùng với chi phí sản xuất, kinh doanh dở Kết thúc năm 2024, tổng Nợ phải trả của khoản Vay tài chính ngắn hạn tăng từ 205,33 tỷ đồng tỷ đồng, tương đương tăng 4,81% so với năm trước. dang tăng 8,25% so với cùng kỳ 2023, tương đương SEADANANG tăng 3,91% so với năm trước, tương lên 247,69 tỷ đồng. Về phía Nợ dài hạn, Công ty ghi Cơ cấu tài sản có sự điều chỉnh nhẹ, trong đó tỷ ghi nhận 214,69 tỷ đồng và 7,23 tỷ đồng nguyên liệu, đương tăng từ 268,149 tỷ đồng lên 278,644 tỷ đồng. nhận giảm 2,23 tỷ đồng còn 6,39 tỷ đồng tương ứng trọng Tài sản ngắn hạn; Tài sản dài hạn trên Tổng tài phụ liệu, giảm 12,60% so với năm 2023. Về phía Tài Cơ cấu Nợ phải trả có sự thay đổi so với năm 2023. giảm 25,86% so với năm 2023. sản lần lượt là 77,63% và 22,37%. Tại thời điểm ngày sản dài hạn, Công ty ghi nhận đạt 91,897 tỷ đồng, Tại thời điểm cuối năm tài chính, tỷ trọng Nợ ngắn 31/12/2024, Tài sản ngắn hạn của Công ty ghi nhận giảm nhẹ 0,02% so với thời điểm",
+      "queue_stratum": "negative_candidate"
+    },
+    {
+      "source_name": "VPG_24CN_BCTN.pdf",
+      "source_path": "/mnt/d/reasoning_model_V4/reasoning_model/pdf/PDF_24/PDF_24/VPG_24CN_BCTN.pdf",
+      "source_sha256": "75ba895c95d0b1465a212534e466981cb7301ed1e3e1dcc5512b997e16c2bdfe",
+      "company_key": "development-company-4ee387ce38516a5e",
+      "page": 30,
+      "page_text_sha256": "a4008a4963046479d10616a544645e27745227ab9737cf37a88ed75c5561ecb2",
+      "candidate_stratum": "negative_candidate",
+      "proof_or_failure_type": "missing_required_raw_role",
+      "signals": {
+        "required_roles": {
+          "short_term_borrowings": 4,
+          "long_term_borrowings": 1,
+          "total_capital": 0
+        },
+        "broad_liabilities": {
+          "current_liabilities": 2,
+          "long_term_liabilities": 0,
+          "total_liabilities": 3
+        },
+        "confound_totals": {
+          "total_assets": 3,
+          "total_liabilities": 3,
+          "owners_equity": 0
+        }
+      },
+      "excerpt": "Đầu tư Thương mại Xuất nhập khẩu Việt Phát | 56 Báo cáo thường niên 2024 | 57 TÌNH HÌNH TÀI CHÍNH TÌNH HÌNH NỢ PHẢI TRẢ Đơn vị tính: tỷ đồng TÌNH HÌNH TÀI SẢN Chênh lệch Đơn vị tính: tỷ đồng Tài sản 31/12/2023 31/12/2024 Giá trị % Chênh lệch Tài sản 31/12/2023 31/12/2024 Phải trả người bán ngắn hạn 346,52 1.946,62 1.600,1 461,75 Giá trị % Người mua trả tiền trước ngắn hạn 823,64 158,51 (665,14) (80,75) Tiền và các khoản tương đương tiền 1.532,12 1.628,11 95,99 6,26% Thuế và các khoản phải nộp nhà nước 5,02 48,18 43,15 857,99 Các khoản phải thu ngắn hạn 1.874,16 2.796,24 922,08 49,20% Phải trả người lao động 3,30 4,22 0,92 27,86 Hàng tồn kho 2.994,46 3.357,26 362,80 12,12% Chi phí phải trả ngắn hạn 2,23 19,30 17,07 763,65 Tài sản ngắn hạn khác 60,43 41,37 (19,06) (31,54%) Phải trả ngắn hạn khác 2.351,24 35,05 (2.316,19) (98,51) Các khoản phải thu dài hạn 0,61 0,62 0,01 1,87% Vay và nợ thuê tài chính ngắn hạn 1.720,25 4.431,67 2.711,42 157,62 Tài sản cố định 51,58 357,94 306,35 593,88% Quỹ khen thưởng phúc lợi 24,20 17,00 (7,20) (29,74) Tài sản dở dang dài hạn 482,47 75,93 (406,55) (84,26% Vay và nợ thuê tài chính dài hạn 386,00 176,32 (209,68) (100) Đầu tư tài chính dài hạn 157,50 37,48 (120,02) (76,2%) Tài sản dài hạn khác 1,84 20,06 18,21 987,35% Tính đến ngày 31/12/2024, khoản phải trả người bán ngắn hạn của Công ty đạt 1.946,62 tỷ đồng, tăng mạnh 1.600,1 tỷ đồng so với đầu năm (tăng 461,75%), phản ánh nhu cầu vốn lưu động lớn nhằm phục vụ hoạt động nhập khẩu than nhiệt và triển Bất động sản đầu tư - 141,6 141,6 - khai các dự án bất động sản. Vay và nợ thuê tài chính ngắn",
+      "queue_stratum": "negative_candidate"
+    },
+    {
+      "source_name": "VLC_23CN_BCTN.pdf",
+      "source_path": "/mnt/d/reasoning_model_V4/reasoning_model/pdf/PDF_23/VLC_23CN_BCTN.pdf",
+      "source_sha256": "3b6cf4d981b5f82a311f85cc08cd652cca875312ea444e8633dcc2731b32a479",
+      "company_key": "development-company-51c80ba0161295bb",
+      "page": 52,
+      "page_text_sha256": "346071b9a5683c185e71274c87a2fbcc7a9ade39a82b8b9b7a97debbcbc65fc6",
+      "candidate_stratum": "negative_candidate",
+      "proof_or_failure_type": "invalid_borrowing_role_semantics",
+      "signals": {
+        "required_roles": {
+          "short_term_borrowings": 0,
+          "long_term_borrowings": 0,
+          "total_capital": 1
+        },
+        "broad_liabilities": {
+          "current_liabilities": 1,
+          "long_term_liabilities": 1,
+          "total_liabilities": 1
+        },
+        "confound_totals": {
+          "total_assets": 0,
+          "total_liabilities": 1,
+          "owners_equity": 2
+        }
+      },
+      "excerpt": "Mẫu B 02 – DN/HN Mẫu B 01 – DN/HN BÁO CÁO KẾT QUẢ HOẠT ĐỘNG (Ban hành theo Thông tư số 202/2014/TT-BTCBẢNG CÂN ĐỐI KẾ TOÁN HỢP NHẤT (Ban hành theo Thông tư số 202/2014/TT-BTC ngày 22/12/2014 của Bộ Tài chính)tại ngày 31 tháng 12 năm 2023 (tiếp theo) ngày 22/12/2014 của Bộ Tài chính) KINH DOANH HỢP NHẤT cho năm kết thúc ngày 31 tháng 12 năm 2023 Mã Thuyết 31/12/2023 1/1/2023 Mã Thuyết 2023 2022 số minh VND VND số minh VND VND Doanh thu bán hàng và cung cấp dịch vụ 01 27 3.154.135.415.593 3.141.724.414.769 NGUỒN VỐN Các khoản giảm trừ doanh thu 02 27 2.130.324.193 1.429.539.473 NỢ PHẢI TRẢ (300 = 310 + 330) 300 507.288.445.735 441.483.489.059 Doanh thu thuần về bán hàng và cung cấp dịch vụ Nợ ngắn hạn 310 383.348.951.078 301.263.026.624 10 27 3.152.005.091.400 3.140.294.875.296 (10 = 01 - 02) Phải trả người bán ngắn hạn 311 18 153.446.507.473 106.774.996.534 Giá vốn hàng bán và dịch vụ đã cung cấp 11 28 2.205.689.908.842 2.176.695.145.121 Người mua trả tiền trước ngắn hạn 312 2.253.225.266 2.385.720.705 Lợi nhuận gộp (20 = 10 - 11) 20 946.315.182.558 963.599.730.175 Thuế và các khoản phải nộp Nhà nước 313 19 3.221.153.642 1.307.871.475 Doanh thu hoạt động tài chính 21 29 266.335.775.571 158.159.542.030 Phải trả người lao động 314 20.834.169.802 22.525.106.419 Chi phí tài chính 22 30 951.991.578 5.507.398.072 Chi phí phải trả ngắn hạn 315 20 86.962.286.651 63.962.270.314 Trong đó: Chi phí lãi vay 23 - 636.335.055 Phải trả ngắn hạn khác 319 21(a) 22.519.295.983 27.900.424.333 Phần lỗ trong công ty liên kết 24 (13.370.328.202) (3.274.852.245) Dự phòng phải trả ngắn hạn 321 2.232",
+      "queue_stratum": "negative_candidate"
+    },
+    {
+      "source_name": "GVR_23CN_BCTN.pdf",
+      "source_path": "/mnt/d/reasoning_model_V4/reasoning_model/pdf/PDF_23/GVR_23CN_BCTN.pdf",
+      "source_sha256": "88656b3b9944238551ab43a2b1e5f8f2af8fbea19c0adca289312a7a9e87155a",
+      "company_key": "development-company-5239bffed37948f0",
+      "page": 47,
+      "page_text_sha256": "f98db7c54bd4450366991128d9371c39edb30beb0df665d39683fb931a0f60ec",
+      "candidate_stratum": "negative_candidate",
+      "proof_or_failure_type": "invalid_borrowing_role_semantics",
+      "signals": {
+        "required_roles": {
+          "short_term_borrowings": 0,
+          "long_term_borrowings": 0,
+          "total_capital": 2
+        },
+        "broad_liabilities": {
+          "current_liabilities": 1,
+          "long_term_liabilities": 1,
+          "total_liabilities": 4
+        },
+        "confound_totals": {
+          "total_assets": 3,
+          "total_liabilities": 4,
+          "owners_equity": 1
+        }
+      },
+      "excerpt": "THÔNGTHÔNG TINTIN TÀITÀI CHÍNHCHÍNH CƠCƠ BẢNBẢN QUAQUA CÁCCÁC NĂMNĂM - Về tài sản: Tại ngày 31 tháng 12 năm 2023 tổng tài sản của Tập đoàn đạt 75.055 tỷ đồng. Tài sản dài hạn của Tập đoàn chủ yếu là các vườn cây cao su, các nhà máy chế biến và giá trị của các khu công nghiệp. Tài sản dài hạn chiếm tỷ trọng lớn trong cơ cấu tổng tài sản của Tập đoàn, chiếm 69,45% tổng tài sản. - Về nợ phải trả: Tổng nợ phải trả tại ngày cuối năm 2023 là 23.085 tỷ đồng, chiếm tỉ lệ 29,58% trên tổng nguồn vốn, một tỷ lệ thấp. Tập đoàn giám sát chặt chẽ các khoản nợ phải trả, đặc biệt là nợ vay ngân hàng để đảm bảo khả năng thanh toán đúng hạn và sử dụng đòn bẩy tài chính phù hợp ở ngưỡng phù hợp. - Về cơ cấu tổng nguồn vốn: Tại ngày Tại ngày Tại ngày Tại ngày Tại ngày Chỉ tiêu 31.12.2023 31.12.2022 31.12.2021 31.12.2020 31.12.2019 Vốn chủ sở hữu 70,42% 68,21% 65,74% 64,07% 64,44% Nợ ngắn hạn 12,36% 13,23% 13,75% 13,72% 12,39% Nợ dài hạn 58,06% 18,56% 20,51% 22,21% 23,17% Cơ cấu vốn tại ngày 31.12.2023 BÁOBÁO CÁOCÁO THƯỜNGTHƯỜNG NIÊNNIÊN 20232023 45",
+      "queue_stratum": "negative_candidate"
+    },
+    {
+      "source_name": "HNG_24CN_BCTN.pdf",
+      "source_path": "/mnt/d/reasoning_model_V4/reasoning_model/pdf/PDF_24/PDF_24/HNG_24CN_BCTN.pdf",
+      "source_sha256": "66246a10e2b12464de2fedd9945f4491a506a1c7bde5d080ea8e19553fb728a8",
+      "company_key": "development-company-52940dfe4bb14a33",
+      "page": 33,
+      "page_text_sha256": "21488d7848db74467d9c00fb93a803d74a94fec697bc85174ab9a75b1c84586a",
+      "candidate_stratum": "negative_candidate",
+      "proof_or_failure_type": "invalid_borrowing_role_semantics",
+      "signals": {
+        "required_roles": {
+          "short_term_borrowings": 0,
+          "long_term_borrowings": 0,
+          "total_capital": 1
+        },
+        "broad_liabilities": {
+          "current_liabilities": 1,
+          "long_term_liabilities": 1,
+          "total_liabilities": 1
+        },
+        "confound_totals": {
+          "total_assets": 1,
+          "total_liabilities": 1,
+          "owners_equity": 1
+        }
+      },
+      "excerpt": "2. BAN KIỂM SOÁT 2.1 Thành viên và cơ cấu Ban kiểm soát (BKS) 2.3 Kết quả giám sát hoạt động kinh doanh năm 2024 Kết quả kinh doanh năm 2024 Họ và tên Chức vụ Ghi chú Đvt: Tỷ đồng 1 Ông Bùi Minh Khoa Trưởng ban Bổ nhiệm ngày 08/01/2021 Kế hoạch % Hoàn thành Chỉ tiêu Thực hiện 2024 2024 theo Tăng/(Giảm) kế hoạch 2 Ông Đặng Công Trực Thành viên Bổ nhiệm ngày 17/09/2018 NQ ĐHĐCĐ Doanh thu thuần 492 694 (202) 71% 3 Bà Bùi Thị Liễu Thành viên Bổ nhiệm ngày 16/04/2022 Chuối 187 413 (226) 45% Thù lao và chi phí hoạt động Ban kiểm soát được thực hiện đúng quy định tại Nghị Quyết ĐHĐCĐ thường niên năm 2024. Mủ cao su 301 281 20 107% Khác 4 4 Lỗ trước thuế (1,282) (120) (1,162) 2.2 Các hoạt động của BKS trong năm 2024 Trong năm 2024, BKS đã thực hiện giám sát hoạt động của Hội đồng quản trị và Ban Tổng Giám đĀc trong công tác quản lý điều hành hoạt động SXKD thông qua việc: Tham dự các cuộc họp của Hội đồng quản trị và Ban Tổng Giám đĀc; Giám sát tình hình thực hiện Nghị quyĀt Đại hội đồng cổ đông của Hội đồng quản trị và Ban Tổng Giám đĀc; Tình hình tài chính 2024 Soát xét Báo cáo tài chính định kỳ và làm việc với kiểm toán độc lập các nội dung liên quan đĀn kiểm toán Đvt: Tỷ đồng báo cáo tài chính. Chỉ tiêu Năm 2024 Năm 2023 Tăng/(Giảm) Tăng/(Giảm) Tổng Tài sản 16.695 14.096 2.599 18% 1. Tài sản ngắn hạn 2.474 2.659 (185) (7%) 2. Tài sản dài hạn 14.221 11.437 2.784 24% Tổng nguồn vốn 16.695 14.096 2.599 18% 1. Nợ phải trả 15.060 11.840 3.220 27% - Nợ ngắn hạn 14.304 9.609 4.695 49% - Nợ dài hạn 756 2.231 (1.475) (66%) 2. Vốn chủ sở hữu 1.635 2.256 (621) (28%) Thông tin và sĀ ",
+      "queue_stratum": "negative_candidate"
+    },
+    {
+      "source_name": "CSV_24CN_BCTN.pdf",
+      "source_path": "/mnt/d/reasoning_model_V4/reasoning_model/pdf/PDF_24/PDF_24/CSV_24CN_BCTN.pdf",
+      "source_sha256": "28beec5d44ca0e62b14b72a59123e61bff27f2f721d2d1cf1103549cb990fa49",
+      "company_key": "development-company-53bb9b0b38ac8125",
+      "page": 40,
+      "page_text_sha256": "ef6aa94735d096effae6e11e66f4b5c8c3e5830dcf867d75028404697d5b6280",
+      "candidate_stratum": "negative_candidate",
+      "proof_or_failure_type": "invalid_borrowing_role_semantics",
+      "signals": {
+        "required_roles": {
+          "short_term_borrowings": 0,
+          "long_term_borrowings": 0,
+          "total_capital": 3
+        },
+        "broad_liabilities": {
+          "current_liabilities": 2,
+          "long_term_liabilities": 2,
+          "total_liabilities": 4
+        },
+        "confound_totals": {
+          "total_assets": 4,
+          "total_liabilities": 4,
+          "owners_equity": 4
+        }
+      },
+      "excerpt": "THÔNG TIN TỔNG QUAN VỀ CÔNG TY TÌNH HÌNH HOẠT ĐỘNG TRONG NĂM BÁO CÁO CỦA BAN TỔNG GIÁM ĐỐC ĐÁNH GIÁ CỦA HỘI ĐỒNG QUẢN TRỊ VỀ HOẠT ĐỘNG CỦA CÔNG TY QUẢN TRỊ CÔNG TY BÁO CÁO TÀI CHÍNH TÌNH HÌNH TÀI CHÍNH TÌNH HÌNH TÀI CHÍNH Tình hình nguồn vốn Tình hình tài sản ĐVT: Triệu đồng ĐVT: Triệu đồng 31/12/2024 31/12/2023 31/12/2024 31/12/2023 Chỉ tiêu % Tăng giảm Chỉ tiêu % Tăng giảm Giá trị Tỷ trọng Giá trị Tỷ trọng Giá trị Tỷ trọng Giá trị Tỷ trọng Nợ phải trả 304.982 16,41% 285.728 16,59% 6,74% Tài sản ngắn hạn 1.464.037 78,75% 1.303.628 75,71% 12,30% - Nợ ngắn hạn 304.982 100,00% 285.728 100,00% 6,74% Tài sản dài hạn 394.961 21,25% 418.327 24,29% -5,59% - Nợ dài hạn - - - - - Tổng tài sản 1.858.998 100,00% 1.721.955 100,00% 7,96% Vốn chủ sở hữu 1.554.016 83,59% 1.436.227 83,41% 8,20% Tại thời điểm 31/12/2024, tổng tài sản của Công ty đạt 1.858,99 Tài sản dài hạn của Công ty tại 31/12/2024 đạt 394,96 tỷ đồng, Tổng nguồn vốn 1.858.998 100,00% 1.721.955 100,00% 7,96% tỷ đồng, tăng 7,96% so với năm 2023, phản ánh xu hướng tăng chiếm 21,25% tổng tài sản và giảm 5,59% so với năm 2023. trưởng ổn định. Cơ cấu tài sản có sự dịch chuyển tích cực khi tài Cơ cấu tài sản dài hạn chủ yếu là chi phí trả trước dài hạn chiếm sản ngắn hạn tăng từ 75,71% lên 78,75%, trong khi tài sản dài tỷ trọng 80,07%, đây là khoản tiền thuê đất và hạ tầng tại KCN Tổng nguồn vốn của Công ty tại 31/12/2024 đạt 1.858,99 bối cảnh lãi suất thị trường thấp mà còn hạn chế được rủi ro tỷ hạn giảm từ 24,29% xuống 21,25%, thể hiện chiến lược tối ưu Nhơn Trạch với thời hạn đến năm 2055. Mặc dù phần lớn tài sản tỷ đồng, tă",
+      "queue_stratum": "negative_candidate"
+    },
+    {
+      "source_name": "VNM_23CN_BCTN.pdf",
+      "source_path": "/mnt/d/reasoning_model_V4/reasoning_model/pdf/PDF_23/VNM_23CN_BCTN.pdf",
+      "source_sha256": "cb59e97fe19864f33a3b35074b29c03e2f70f09cbdcb14dc274ac72bb358b73c",
+      "company_key": "development-company-5435f2c68bcd7753",
+      "page": 112,
+      "page_text_sha256": "9df4740229f138aa6caa93588119e362737f1ceb1ed772d4950319347d03cc80",
+      "candidate_stratum": "negative_candidate",
+      "proof_or_failure_type": "missing_required_raw_role",
+      "signals": {
+        "required_roles": {
+          "short_term_borrowings": 1,
+          "long_term_borrowings": 1,
+          "total_capital": 0
+        },
+        "broad_liabilities": {
+          "current_liabilities": 1,
+          "long_term_liabilities": 1,
+          "total_liabilities": 1
+        },
+        "confound_totals": {
+          "total_assets": 0,
+          "total_liabilities": 1,
+          "owners_equity": 2
+        }
+      },
+      "excerpt": "112 VINAMILK BÁO CÁO THƯỜNG NIÊN 2023 ĐỂ TÂM THAY ĐỔI CÔNG TY CỔ PHẦN SỮA VIỆT NAM VÀ CÁC CÔNG TY CON Mẫu B 01 – DN/HNBÁO CÁO TÌNH HÌNH TÀI CHÍNH HỢP NHẤT (Ban hành theo Thông tư số 202/2014/TT-BTC TẠI NGÀY 31 THÁNG 12 NĂM 2023 (TIẾP THEO) ngày 22 tháng 12 năm 2014 của Bộ Tài chính) Mã Thuyết 31/12/2023 1/1/2023 số minh VND VND NGUỒN VỐN NỢ PHẢI TRẢ (300 = 310 + 330) 300 17.647.627.338.990 15.666.145.881.135 Nợ ngắn hạn 310 17.138.689.974.862 15.308.423.081.524 Phải trả người bán ngắn hạn 311 V.14 3.805.885.429.198 4.284.158.390.163 Người mua trả tiền trước 312 164.712.782.108 161.708.567.120 Thuế phải nộp Ngân sách Nhà nước 313 V.16 967.878.916.785 598.135.128.295 Phải trả người lao động 314 289.224.237.367 287.914.221.269 Chi phí phải trả 315 V.17 1.910.204.625.860 1.620.874.538.443 Doanh thu chưa thực hiện 318 263.912.729 4.161.405.120 Phải trả ngắn hạn khác 319 V.18 1.193.900.858.465 3.055.541.590.234 Vay ngắn hạn 320 V.15(a) 8.217.757.172.267 4.867.129.839.103 Dự phòng phải trả 321 V.19 16.770.514.285 26.635.759.312 Quỹ khen thưởng và phúc lợi 322 V.20 572.091.525.798 402.163.642.465 Nợ dài hạn 330 508.937.364.128 357.722.799.611 Phải trả dài hạn khác 337 V.18 1.063.378.252 3.711.780.002 Vay dài hạn 338 V.15(b) 238.476.074.100 66.028.725.000 Thuế thu nhập hoãn lại phải trả 341 V.12(b) 269.397.911.776 287.982.294.609 VỐN CHỦ SỞ HỮU (400 = 410) 400 35.025.743.765.470 32.816.518.355.085 Vốn chủ sở hữu 410 V.21 35.025.743.765.470 32.816.518.355.085 Vốn cổ phần 411 V.22 20.899.554.450.000 20.899.554.450.000 Thặng dư vốn cổ phần 412 34.110.709.700 34.110.709.700 Vốn khác của",
+      "queue_stratum": "negative_candidate"
+    },
+    {
+      "source_name": "BWE_23CN_BCTN.pdf",
+      "source_path": "/mnt/d/reasoning_model_V4/reasoning_model/pdf/PDF_23/BWE_23CN_BCTN.pdf",
+      "source_sha256": "78e4eba2db392dc50b87fa8af15a0e846189a10422720fe51aa99c335a4cc742",
+      "company_key": "development-company-5ce7d148bda32b08",
+      "page": 107,
+      "page_text_sha256": "b019da53ab58ced49caafb2ff023a1ff5eeff02903ef5ce21400cd50f620db9a",
+      "candidate_stratum": "negative_candidate",
+      "proof_or_failure_type": "invalid_borrowing_role_semantics",
+      "signals": {
+        "required_roles": {
+          "short_term_borrowings": 0,
+          "long_term_borrowings": 0,
+          "total_capital": 1
+        },
+        "broad_liabilities": {
+          "current_liabilities": 1,
+          "long_term_liabilities": 1,
+          "total_liabilities": 1
+        },
+        "confound_totals": {
+          "total_assets": 1,
+          "total_liabilities": 1,
+          "owners_equity": 2
+        }
+      },
+      "excerpt": "[BÁO CÁO THƯỜNG NIÊN 2023] BIWASE CÔNG TY CP- TỔNG CÔNG TY NƯỚC- MÔI TRƯỜNG BÌNH DƯƠNG (BWE) BẢNG CÂN ĐỐI KẾ TOÁN NĂM 2023 (tóm tắt theo BCTC Hợp nhất) Mã Năm 2023 Năm 2022 tăng/giảm Tỷ lệ tăng/giảm CHỈ TIÊU số (Tỷ VND) (Tỷ VND) (+/-) (%) 100 A. TÀI SẢN NGẮN HẠN 2.705,82 2.786,19 -80,37 -3% 110 Tiền và các khoản tương đương tiền 655,36 275,26 380,10 138% 120 Đầu tư tài chính ngắn hạn 264,71 871,91 -607,20 -70% 130 Các khoản phải thu ngắn hạn 780,69 912,08 -131,39 -14% 140 Hàng tồn kho 923,22 713,82 209,40 29% 150 Tài sản ngắn hạn khác 81,84 13,11 68,73 524% 200 B. TÀI SẢN DÀI HẠN 9.407,08 7.201,10 2.205,99 31% 210 I. Các khoản phải thu dài hạn 952,02 952,06 -0,04 0% 220 II. Tài sản cố định 4.366,00 3.616,65 749,35 21% 221 Tài sản cố định hữu hình 4.260,74 3.512,16 748,58 21% 227 Tài sản cố định vô hình 105,26 104,49 0,77 1% 240 III. Tài sản dở dang dài hạn 1.558,26 999,95 558,31 56% 242 Chi phí xây dựng cơ bản dở dang 1.558,26 999,95 558,31 56% 250 IV. Đầu tư tài chính dài hạn 2.089,23 1.446,73 642,50 44% 260 V. Tài sản dài hạn khác 441,57 185,71 255,86 138% 270 TỔNG CỘNG TÀI SẢN 12.112,91 9.987,29 2.125,62 21% 300 C. NỢ PHẢI TRẢ 7.149,15 5.449,45 1.699,70 31% 310 Nợ ngắn hạn 2.375,96 1.989,02 386,94 19% 330 Nợ dài hạn 4.773,19 3.460,43 1.312,76 38% 400 D. VỐN CHỦ SỞ HỮU 4.963,76 4.537,84 425,92 9% 410 I. Vốn chủ sở hữu 4.802,02 4.493,77 308,26 7% 411 Vốn góp của chủ sở hữu 1.929,20 1.929,20 0,00 0% 412 Thặng dư vốn cổ phần 621,34 621,34 0,00 0% 418 Quỹ đầu tư phát triển 1.135,14 888,75 246,39 28% 421 Lợi nhuận sau thuế chưa phân phối 1.018,52 956,66 61,87 6% 422 Nguồn vốn ",
+      "queue_stratum": "negative_candidate"
+    },
+    {
+      "source_name": "VPD_24CN_BCTN.pdf",
+      "source_path": "/mnt/d/reasoning_model_V4/reasoning_model/pdf/PDF_24/PDF_24/VPD_24CN_BCTN.pdf",
+      "source_sha256": "6ee799ce783d7d561907ad358268976b0ebb920efec5526f5e092aee320c33c6",
+      "company_key": "development-company-5d138398f5fd0c24",
+      "page": 30,
+      "page_text_sha256": "8191348448be2e2534f2bf427abae5462ce43944d6ec656ec07abcb8dd111b83",
+      "candidate_stratum": "negative_candidate",
+      "proof_or_failure_type": "invalid_borrowing_role_semantics",
+      "signals": {
+        "required_roles": {
+          "short_term_borrowings": 1,
+          "long_term_borrowings": 0,
+          "total_capital": 0
+        },
+        "broad_liabilities": {
+          "current_liabilities": 2,
+          "long_term_liabilities": 3,
+          "total_liabilities": 5
+        },
+        "confound_totals": {
+          "total_assets": 0,
+          "total_liabilities": 5,
+          "owners_equity": 0
+        }
+      },
+      "excerpt": "TÌNH HÌNH NỢ PHẢI TRẢ Năm 2023 Năm 2024 Chỉ tiêu Giá trị Tỷ trọng Giá trị Tỷ trọng Tăng/ Giảm %Tăng/ Giảm I. Nợ ngắn hạn 169.776.580.901 68,31% 314.547.197.187 94,02% 144.770.616.286 85,27% 1. Phải trả người bán ngắn hạn 9.649.470.558 3,88% 14.681.923.957 4,39% 5.032.453.399 52,15% 2. Người mua trả tiền trước ngắn hạn 102.460.000 0,04% 102.460.000 0,03% 0 0,00% 3. Thuế và các khoản phải nộp Nhà nước 18.571.435.120 7,47% 31.419.514.955 9,39% 12.848.079.835 69,18% 4. Phải trả người lao động 6.110.892.085 2,46% 11.228.064.911 3,36% 5.117.172.826 83,74% 5. Chi phí phải trả ngắn hạn 10.634.889.874 4,28% 8.529.341.396 2,55% -2.105.548.478 -19,80% 6. Phải trả ngắn hạn khác 31.002.178.594 12,47% 183.764.505.072 54,93% 152.762.326.478 492,75% 7. Vay và nợ thuê tài chính ngắn hạn 89.166.666.671 35,88% 58.760.387.751 17,56% -30.406.278.920 -34,10% 8. Quỹ khen thưởng, phúc lợi 4.538.587.999 1,83% 6.060.999.145 1,81% 1.522.411.146 33,54% II. Nợ dài hạn 78.760.387.751 31,69% 20.000.000.000 5,98% -58.760.387.751 -74,61% 1. Phải trả nội bộ dài hạn 0 0,00% 0,00% 0 0,00% 2. Vay và thuê tài chính dài hạn 78.760.387.751 31,69% 20.000.000.000 5,98% -58.760.387.751 -74,61% Tổng Nợ phải trả 248.536.968.652 100,00% 334.547.197.187 100,00% 86.010.228.535 34,61% Dựa trên số liệu năm 2024, tổng nợ phải trả của Công ty tăng mạnh, đạt 334,547 tỷ đồng, tăng 34,61% so với năm 2023. Trong đó, nợ ngắn hạn tăng 144,770 tỷ đồng (tăng 85,27%), chủ yếu do các khoản phải trả người bán và thuế, phí phải nộp Nhà nước tăng mạnh. Ngược lại, chi phí phải trả ngắn hạn giảm 19,80%, cho thấy Công ty đang kiểm soát tốt ",
+      "queue_stratum": "negative_candidate"
+    },
+    {
+      "source_name": "MDC_23CN_BCTN.pdf",
+      "source_path": "/mnt/d/reasoning_model_V4/reasoning_model/pdf/PDF_23/MDC_23CN_BCTN.pdf",
+      "source_sha256": "7eb98fd3501f55eb9e18174ca922bcb2ad72c467c728c91700d0dc0fd3b7184a",
+      "company_key": "development-company-5f0d140ea109fec4",
+      "page": 17,
+      "page_text_sha256": "609e353da54f0bc7c3d6dd1e39b7703359e4ea7eb94b52d96929b8f2e6c188c1",
+      "candidate_stratum": "negative_candidate",
+      "proof_or_failure_type": "invalid_borrowing_role_semantics",
+      "signals": {
+        "required_roles": {
+          "short_term_borrowings": 0,
+          "long_term_borrowings": 1,
+          "total_capital": 0
+        },
+        "broad_liabilities": {
+          "current_liabilities": 3,
+          "long_term_liabilities": 4,
+          "total_liabilities": 6
+        },
+        "confound_totals": {
+          "total_assets": 0,
+          "total_liabilities": 6,
+          "owners_equity": 0
+        }
+      },
+      "excerpt": "17 Giá trị tài sản giảm trong năm là: 16.665 triệu đồng. (Trong đó tài sản thanh lý không đáp ứng được yêu cầu kỹ thuật là 16.665 triệu đồng). - Hiệu quả sử dụng tài sản cố định năm 2023 được đánh giá qua chỉ tiêu Doanh thu thuần /Giá trị tài sản cố định đạt: 5,52 (Tỷ số này cao chứng tỏ tình hình hoạt động của doanh nghiệp tốt đã tạo ra doanh thu thuần cao hơn so với tài sản cố định, việc đầu tư vào tài sản cố định của doanh nghiệp là xác đáng, cơ cấu hợp lý, hiệu suất sử dụng cao). - Ngoài chỉ tiêu đã nêu trên thì công tác theo dõi trích khấu hao tài sản cố định phục vụ cho sản xuất để thu hồi vốn đầu tư của Công ty được thực hiện đầy đủ, đúng với quy định của pháp luật thuế và chuẩn mực kế toán doanh nghiệp. b)Tình hình nợ phải trả: % Tăng STT Chỉ tiêu Năm 2023 (đồng) Năm 2022(đồng) giảm (A) (B) 1 2 (3=1/2*100) Nợ ngắn hạn: Trong A 628.458.655.307 867.168.474.349 72,47 đó 1 Vay và nợ ngắn hạn 276.437.506.123 290.328.045.936 95,22 2 Phải trả người bán 141.331.602.149 262.012.074.828 53,94 B Nợ dài hạn 132.146.574.338 263.436.806.552 50,16 1 Vay và nợ dài hạn 117.672.971.030 249.986.855.506 47,07 Tổng nợ phải trả C 760.605.229.645 1.130.605.280.901 67,27 (A+B) Tổng các khoản nợ phải trả giảm so với đầu kỳ là: 370.000 triệu đồng, tương ứng giảm 32,72%. Không có nợ quá hạn, nợ xấu. Nợ phải trả ngắn hạn giarm 238.710 triệu đồng, tương ứng giảm 27,53%, nợ dài hạn giảm 131.290 triệu đồng, tương ứng giảm 49,84%. Nguyên nhân chủ yếu do trong năm 2023 Công ty vẫn thu xếp ổn định dòng tiền để thực hiện nộp ngân sách Nhà nước, trả nợ người bán và trả lương CBCNV đúng thời hạn quy đị",
+      "queue_stratum": "negative_candidate"
+    },
+    {
+      "source_name": "BLI_23CN_BCTN.pdf",
+      "source_path": "/mnt/d/reasoning_model_V4/reasoning_model/pdf/PDF_23/BLI_23CN_BCTN.pdf",
+      "source_sha256": "fa8ca78b4da199ec41c45e830f1d0ce3bfb21e1e06ceb776faf8ef0277ff4ea0",
+      "company_key": "development-company-5f2c0653c7f703ab",
+      "page": 40,
+      "page_text_sha256": "08138a2b2b8ecdbe379af9907441ff52a3620e73854be31155ea7b43d6383698",
+      "candidate_stratum": "negative_candidate",
+      "proof_or_failure_type": "invalid_borrowing_role_semantics",
+      "signals": {
+        "required_roles": {
+          "short_term_borrowings": 0,
+          "long_term_borrowings": 0,
+          "total_capital": 1
+        },
+        "broad_liabilities": {
+          "current_liabilities": 1,
+          "long_term_liabilities": 1,
+          "total_liabilities": 1
+        },
+        "confound_totals": {
+          "total_assets": 0,
+          "total_liabilities": 1,
+          "owners_equity": 3
+        }
+      },
+      "excerpt": "78 www.baolonginsurance.com.vn Tổng Công Ty Cổ Phần Bảo Hiểm Bảo Long 79 Báo cáo Thường Niên 2023 Tổng Công ty Cổ phần Bảo hiểm Bảo Long Mẫu B 01 – DNPNT BẢNG CÂN ĐỐI KẾ TOÁN 232/2012/TT-BTC(Ban hànhngàytheo 28Thôngthángtư 12số tại ngày 31 tháng 12 năm 2023 (tiếp theo) năm 2012 của Bộ Tài chính) 31/12/2023 31/12/2022 Thuyết 31/12/2023 31/12/2022NGUỒN VỐN Mã sốThuyết CÁC CHỈ TIÊU NGOÀI BẢNG CÂN ĐỐI KẾ TOÁN minh VND VND minh VND VND NỢ PHẢI TRẢ (300 = 310 + 330) 300 1.492.094.426.463 1.774.653.906.137 Hợp đồng bảo hiểm chưa phát sinh trách 150.425.876.794 115.739.856.747 nhiệm – phí bảo hiểm gốc Nợ ngắn hạn 310 1.488.477.527.130 1.771.027.506.804 Nợ khó đòi đã xử lý 14.184.904.340 14.269.218.702 Phải trả cho người bán 312 344.422.421.137 347.845.341.967 Ngoại tệ – USD 33(b) 1.053.208 2.026.871 Phải trả về hợp đồng bảo hiểm 312.1 14 344.422.421.137 347.845.341.967 Thuế và các khoản phải nộp Nhà nước 314 15 25.751.149.009 26.165.543.198 Ngày 19 tháng 3 năm 2024 Phải trả người lao động 315 16.542.308.971 6.141.227.142 Người lập: Người kiểm soát: Người duyệt: Chi phí phải trả 316 20.390.963.551 34.021.717.599 Doanh thu chưa thực hiện ngắn hạn 318 12.199.576.634 15.344.795.198 Các khoản phải trả ngắn hạn khác 319 16 53.491.314.873 108.250.792.281 Doanh thu hoa hồng chưa được hưởng 319.1 17 34.412.594.826 58.895.295.871 Dự phòng nghiệp vụ 329 981.267.198.129 1.174.362.793.548 Dự phòng phí bảo hiểm gốc và nhận tái bảo 329.1 18(a) 575.989.067.455 663.530.871.731 hiểm Châu Hậu Doanh Doanh Hà Minh Hiếu Phan Quốc Dũng Dự phòng bồi thường bảo hiểm gốc và nhận Người lập Kế toán trưởng Tổn",
+      "queue_stratum": "negative_candidate"
+    },
+    {
+      "source_name": "AMS_24CN_BCTN.pdf",
+      "source_path": "/mnt/d/reasoning_model_V4/reasoning_model/pdf/PDF_24/PDF_24/AMS_24CN_BCTN.pdf",
+      "source_sha256": "215554f6c300ba78d3f5f823ec915d5ab27e521b6d88e532fa205211d47a0278",
+      "company_key": "development-company-5f9de8789b28ed02",
+      "page": 21,
+      "page_text_sha256": "ed98fa160d30903ff61eaa67a8860966d430e7f625a11cb928ab8b19a456ae68",
+      "candidate_stratum": "negative_candidate",
+      "proof_or_failure_type": "invalid_borrowing_role_semantics",
+      "signals": {
+        "required_roles": {
+          "short_term_borrowings": 0,
+          "long_term_borrowings": 0,
+          "total_capital": 0
+        },
+        "broad_liabilities": {
+          "current_liabilities": 1,
+          "long_term_liabilities": 1,
+          "total_liabilities": 1
+        },
+        "confound_totals": {
+          "total_assets": 1,
+          "total_liabilities": 1,
+          "owners_equity": 1
+        }
+      },
+      "excerpt": "1. ĐÁNH GIÁ KẾT QUẢ HOẠT ĐỘNG SẢN XUẤT KINH DOANH NĂM 2024 Năm 2024, tỷ trọng tài sản ngắn hạn trong tổng tài sản giảm 7,13% đồng thời tỷ trọng tài sản dài hạn tăng 9,96% so với năm 2023 chủ yếu do một số chỉ tiêu trên báo cáo tài chính năm 2023 TÌNH HÌNH TĂNG VỐN CHỦ SỞ HỮU: KHÔNG được trình bày lại theo ghi nhận của đơn vị kiểm toán, tuy nhiên cách ghi nhận này là phù hợp với tình hình thực tế tại công ty. Việc tăng đầu tư các tài sản dài hạn mục đích để tạo tiền đề choĐẦU TƯ NHÀ XƯỞNG, TRANG THIẾT BỊ sự phát triển bền vững trong các năm tiếp theo, khi mà năm 2025 được dự đoán là tăng trưởngTrong năm 2024, tổng mức đầu tư của Công ty là 161.814.441.635 đồng, trong đó: mạnh mẽ về doanh thu cũng như lợi nhuận sau thuế. Đầu tư mua sắm tài sản cố định (bao gồm cả tài sản thuê tài chính): 128.471.766.533 đồng. B. TÌNH HÌNH NỢ PHẢI TRẢ Đầu tư xây dựng cơ bản: 33.342.675.102 đồng. Phần đầu tư xây dựng nhà xưởng khu 5.5 ha tiếp tục được triển khai và đã cơ bản hoàn NĂM 2024 NĂM 2023 thành vào cuối năm 2024. TĂNG (+) CHI TIÊU /GIẢM (-) THỰC TRẠNG ĐẦU TƯ KINH DOANH TẠI MYANMAR GIÁ TRỊ (VNĐ) TỶ TRỌNG GIÁ TRỊ (VNĐ) TỶ TRỌNG (%) Tại thời điểm 31/12/2024, số vốn thực tế đã góp là 6.809.900 USD (trên tổng số vốn cam kết góp là 26.310.000 USD) tương đương 155.423.944.405 VND. Hiện nay, Công ty Liên doanh đang tạm dừng hoạt động và không thực hiện được công tác lập báo cáo tài chính do A. NỢ NH 2.168.469.650.031 87,82% 2.297.354.939.502 89,64% -5,61% tình hình bất ổn chính trị tại Myanmar. Vấn đề này cho thấy khả năng tồn tại các yếu tố không chắc chắn trọng yếu có thể ảnh hưởng đến khả n",
+      "queue_stratum": "negative_candidate"
+    },
+    {
+      "source_name": "SSG_24CN_BCTN.pdf",
+      "source_path": "/mnt/d/reasoning_model_V4/reasoning_model/pdf/PDF_24/PDF_24/SSG_24CN_BCTN.pdf",
+      "source_sha256": "03525afbe2d1c74e6b50d26062c604b13364ca3bf2c95c4529185facd34f2e7b",
+      "company_key": "development-company-6286783ee2dc2582",
+      "page": 9,
+      "page_text_sha256": "485b8106e0c0dc59d8bbf7bd1ca78dce9df315b11e76ce33bb48ce46300e250a",
+      "candidate_stratum": "negative_candidate",
+      "proof_or_failure_type": "missing_required_raw_role",
+      "signals": {
+        "required_roles": {
+          "short_term_borrowings": 0,
+          "long_term_borrowings": 2,
+          "total_capital": 1
+        },
+        "broad_liabilities": {
+          "current_liabilities": 0,
+          "long_term_liabilities": 0,
+          "total_liabilities": 2
+        },
+        "confound_totals": {
+          "total_assets": 4,
+          "total_liabilities": 2,
+          "owners_equity": 1
+        }
+      },
+      "excerpt": "Lợi nhuận sau thuế của công ty năm 2024 là 60.847 triệu đồng bằng 1.160,77 % so với kế hoạch (5.242 triệu đồng) và bằng 1.257,7% so năm 2022 (8.838 triệu đồng). 2. Tình hình tài chính năm 2024: 2.1. Tình hình tài sản Tổng tài sản của Công ty là: 122.501 triệu đồng (bằng 190% so với năm trước (64.441 triệu đồng), trong đó một số tài sản chủ yếu như sau: a) Tổng tài sản ngắn hạn: 110.862 triệu đồng, chiếm 90,5% tổng tài sản. Các tài sản chủ yếu là: Tiền và các khoản tương đương tiền (10.298 triệu đồng); Đầu tư Tài chính ngắn hạn 99.950 triệu đồng; Các khoản phải thu ngắn hạn (612 triệu đồng); Tài sản ngắn hạn khác (2,520 triệu đồng). b) Giá trị còn lại của tài sản cố định là: 11.638 triệu đồng, chiếm 9,5% tổng tài sản. Các tài sản cố định chủ yếu là tàu và trụ sở Công ty, cụ thể như sau: - Đến ngày 17/10/2021, tàu Sea Dream hết khấu hao. - Trụ sở Công ty tại số 40, đường số 1 khu phố 3 phường Bình Thuận, quận 7 thành phố Hồ Chí Minh giá trị còn lại: 11.638 triệu đồng (bằng 95,47% nguyên giá). Trong đó: tài sản cố định hữu hình 1.638 triệu đồng ; tài sản cố định vô hình (quyền sử dụng đất ) 10.000 triệu đồng, không trích khấu hao theo quy định của Bộ Tài chính. 2.2. Tình hình vốn Tổng số nguồn vốn của Công ty là: 122.501 triệu đồng (bằng 190% so với năm trước (64.441 triệu đồng), trong đó một số khoản mục chủ yếu như sau: a) Tổng nợ phải trả là: 11.616 triệu đồng, chiếm 9,48% tổng nguồn vốn chủ yếu là: - Phải trả cho người bán ngắn hạn: 136 triệu đồng - Người mua trả tiền trước ngắn hạn : 0 triệu đồng - Thuế và các khoản phải nộp nhà nước: 9.815 triệu đồng - Phải trả cho người",
+      "queue_stratum": "negative_candidate"
+    },
+    {
+      "source_name": "VTE_24CN_BCTN.pdf",
+      "source_path": "/mnt/d/reasoning_model_V4/reasoning_model/pdf/PDF_24/PDF_24/VTE_24CN_BCTN.pdf",
+      "source_sha256": "c11b904e9e3b91b8e665210fa9f42c931d0fe49e50cc39105426ea2a51b83c5b",
+      "company_key": "development-company-6665a9a8357aab44",
+      "page": 23,
+      "page_text_sha256": "385ff91f6fe3ff2a414a0ff282466cce0c468048f7a2f0408cedf4386a85371d",
+      "candidate_stratum": "negative_candidate",
+      "proof_or_failure_type": "invalid_borrowing_role_semantics",
+      "signals": {
+        "required_roles": {
+          "short_term_borrowings": 0,
+          "long_term_borrowings": 0,
+          "total_capital": 0
+        },
+        "broad_liabilities": {
+          "current_liabilities": 1,
+          "long_term_liabilities": 1,
+          "total_liabilities": 0
+        },
+        "confound_totals": {
+          "total_assets": 1,
+          "total_liabilities": 0,
+          "owners_equity": 1
+        }
+      },
+      "excerpt": "Đơn vị: tỷ đồng Thực hiện Năm 2024 TT Nội dung năm 2023 Kế hoạch Thực hiện % HT 381.79 389.02 339.91 87.38% 1 Doanh thu 2.06 2.54 0.84 33.09% 2 Tổng lợi nhuận trước thuế 1.21 2.03 0.40 19.94% 3 Tổng lợi nhuận sau thuế 156 156 156 100.00% 4 Vốn điều lệ bình quân 0.68% 1% 0.226% 22,6% 5 Tỷ lệ chia cổ tức (%) 0.012 0.0609 0.0109 17,89% 6 Thù lao HĐQT, BKS 0.121 0.0404 7 Trích lập các quỹ 0.0605 0.0202 Quỹ phúc lợi 5% 0.0605 0.0202 Quỹ khen thưởng 5% (Theo tài liệu Báo cáo tài chính đã kiểm toán năm 2024) 2. Tình hình tài chính: Đơn vị: Triệu đồng TT Chỉ tiêu Năm 2023 Năm 2024 TH/NT % 1 Tổng tài sản 278,119 311,591 93.45% 2 Nợ ngắn hạn 107,853 142,114 84.89% 3 Nợ dài hạn 25 25 100.00% 4 Vốn chủ sở hữu 170,241 169,452 99.84% a. Vốn điều lệ 156,000 156,000 100.00% b. Thặng dư vốn cổ phần 100.00% c. Chênh lệch tỷ giá hối đoái d. Lợi nhuận chưa phân phối 1,261 472 81.77% (Nguồn: Trích Báo cáo tài chính 2024 đã kiểm toán) 3. Những cải tiến về cơ cấu tổ chức, chính sách, quản lý - Năm 2024, Ban TGĐ hoạt động có 01 TGĐ và 01 Phó TGĐ điều hành dưới sự chỉ đạo của HĐQT và trực tiếp của Chủ tịch HĐQT Công ty trong các hoạt động kinh doanh. - Kiện toàn công tác tổ chức: Vinacap gồm các đơn vị phòng ban: Khối kinh doanh: Chi nhánh Hà Nội; Ban Viễn thông; Ban dự án. Khối văn phòng: Phòng TCTH, Phòng TCKT; Phòng VTTM. Trang 23",
+      "queue_stratum": "negative_candidate"
+    },
+    {
+      "source_name": "TPC_23CN_BCTN.pdf",
+      "source_path": "/mnt/d/reasoning_model_V4/reasoning_model/pdf/PDF_23/TPC_23CN_BCTN.pdf",
+      "source_sha256": "bdd25268d65a9d04af4dbf8f8614ea28e983302c55f2c036e620348487d11b3f",
+      "company_key": "development-company-68d3ff4b0ff6aa3e",
+      "page": 27,
+      "page_text_sha256": "ab5809c8f93723b4995522cb1fe35324f5e3bf8bc845120d5c350ccd5565741a",
+      "candidate_stratum": "negative_candidate",
+      "proof_or_failure_type": "invalid_borrowing_role_semantics",
+      "signals": {
+        "required_roles": {
+          "short_term_borrowings": 0,
+          "long_term_borrowings": 0,
+          "total_capital": 4
+        },
+        "broad_liabilities": {
+          "current_liabilities": 1,
+          "long_term_liabilities": 1,
+          "total_liabilities": 3
+        },
+        "confound_totals": {
+          "total_assets": 1,
+          "total_liabilities": 3,
+          "owners_equity": 3
+        }
+      },
+      "excerpt": "II. Tình hình tài chính 1) Tình hình tài sản So Sánh giá trị tài sản và nguồn vốn tại ngày 31/12/2023 và cuối kỳ năm trước. (Bảng 3) TÀI SẢN SỐ DƯ CUỐI SỐ DƯ CUỐI So Sánh Năm 2022 Năm 2023 2023/2022 A-TÀI SẢN NGẮN HẠN 445,419,478,665 239,356,462,445 -206,063,016,220 I.Tiền và các khoản tương đương tiền 11,653,619,367 10,979,746,628 (673,872,739) II.Các khoản đầu tư ngắn hạn 101,186,250,548 78,000,000,000 (23,186,250,548) III.Các khoản phải thu ngắn hạn 74,553,259,026 84,058,363,650 9,505,104,624 IV.Hàng tồn kho 245,555,362,367 50,121,240,416 (195,434,121,951) V.Tài sản ngắn hạn khác 12,470,987,357 16,197,111,751 3,726,124,394 B.TÀI SẢN DÀI HẠN 196,142,931,569 222,554,741,268 26,411,809,699 I.Các khoản phải thu dài hạn - - - II.Tài sản cố định 175,025,848,173 211,637,657,872 36,611,809,699 IV.Các khoản đàu tư tài chính dài hạn 17,000,347,397 8,000,347,397 (9,000,000,000) V.Tài sản dài hạn khác 4,116,735,999 2,916,735,999 (1,200,000,000) TỔNG CỘNG TÀI SẢN 641,562,410,234 461,911,203,713 -179,651,206,521 A.NỢ PHẢI TRẢ 305,627,839,531 174,752,762,325 -130,875,077,206 I.Nợ ngắn hạn 305,627,839,531 174,752,762,325 (130,875,077,206) II.Nợ dài hạn - - - B.VỐN CHỦ SỞ HƯU 335,934,570,703 287,158,441,388 -48,776,129,315 I.Vốn chủ sở hữu 335,934,570,703 287,158,441,388 (48,776,129,315) TỔNG CỘNG NGUỒN VỐN 641,562,410,234 461,911,203,713 -179,651,206,521 * Thuyết minh (bảng 3) Tổng giá trị tài sản cuối năm 2023 so với năm 2022 gỉảm 179.651 triệu đồng, trong đó: • Tài sản ngắn hạn giảm 206,063 triệu đồng, bao gồm các chỉ tiêu đầu tư ngắn hạn, hàng tồn kho và các khoản phải thu đều giảm, ",
+      "queue_stratum": "negative_candidate"
+    },
+    {
+      "source_name": "JVC_23CN_BCTN.pdf",
+      "source_path": "/mnt/d/reasoning_model_V4/reasoning_model/pdf/PDF_23/JVC_23CN_BCTN.pdf",
+      "source_sha256": "a7d5c23c2416c1c4f9e971b52b2fb89874ba79642b305b246c73951dff422c35",
+      "company_key": "development-company-6a25a61e5610dddb",
+      "page": 21,
+      "page_text_sha256": "e289485f71e963f1e0657d7d35ddffd223675a4314a21dc5a2d6dd309dbac0c2",
+      "candidate_stratum": "negative_candidate",
+      "proof_or_failure_type": "invalid_borrowing_role_semantics",
+      "signals": {
+        "required_roles": {
+          "short_term_borrowings": 0,
+          "long_term_borrowings": 0,
+          "total_capital": 0
+        },
+        "broad_liabilities": {
+          "current_liabilities": 1,
+          "long_term_liabilities": 1,
+          "total_liabilities": 10
+        },
+        "confound_totals": {
+          "total_assets": 0,
+          "total_liabilities": 10,
+          "owners_equity": 0
+        }
+      },
+      "excerpt": "CÔNG TY CỔ PHẦN ĐẦU TƯ VÀ PHÁT TRIỂN Y TẾ VIỆT NHẬT Trụ sở chính: Tầng 24 tòa nhà ICON 4, 243A Đê La Thành, Đống Đa, Hà Nội VP HCM: Số 218 Trần Hưng Đạo, Phường 11, Quận 5, TP. Hồ Chí Minh W: www.ytevietnhat.com.vn | T: (024) 3683 0516 | F: (024) 3683 0578 Tình hình nợ phải trả - Tổng Nợ phải trả tại 31/12/2023 là: 187,33 tỷ đồng trong đó nợ ngắn hạn là: 185 tỷ đồng chiếm 98,81% Tổng nợ phải trả, Nợ dài hạn là: 2,23 tỷ đồng chiếm 1,19% Tổng nợ phải trả; trong khi tỷ lệ này là 96,38% và 3,62% tại 01/01/2023. - Tại 31/12/2023, Tổng nợ phải trả người bán là: 48,3 tỷ đồng, trong đó không có dư nợ phải trả quá hạn. Chi phí lãi vay năm 2023 là: 5,29 tỷ đồng, tăng 57% so với năm 2022. Những cải tiến về cơ cấu tổ chức, chính sách, quản lý Năm 2023, Ban điều hành đã được cơ cấu, chuyên môn hóa. Hiện tại, Ban điều hành Công ty có 01 Tổng giám đốc, 01 Thành viên HĐQT phụ trách phát triển các Trung Tâm chẩn đoán hình ảnh, 02 Phó tổng giám đốc chuyên môn phụ trách các mảng Kinh doanh, Dự án, Phát triển thị trường và 01 Giám đốc tài chính. Kế hoạch phát triển trong tương lai Kế hoạch nhân sự - Tìm kiếm nhân sự trong nghành đủ năng lực, uy tín bổ sung vào HĐQT. - Bổ sung nhân sự Phó Tổng Giám đốc phụ trách kinh doanh. - Tìm kiếm chuyên gia người Trung Quốc trong lĩnh vực y tế phục vụ phát triển kinh doanh với các đối tác Trung Quốc. Kế hoạch kinh doanh - Kế hoạch kinh doanh năm 2024 như sau: doanh thu thuần 638 tỷ đồng. - Định hướng chung của Công ty là trở thành đối tác tin cậy cung cấp thiết bị, vật tư, giải pháp, dịch vụ đa dạng, toàn diện cho khách hàng, đặt chất lượng dịch vụ lên hàn",
+      "queue_stratum": "negative_candidate"
+    },
+    {
+      "source_name": "HAV_23CN_BCTN.pdf",
+      "source_path": "/mnt/d/reasoning_model_V4/reasoning_model/pdf/PDF_23/HAV_23CN_BCTN.pdf",
+      "source_sha256": "e57968185e1c63bcf76bbb3cedb2f0dd252e787d7e2bcc4dae0e1a7c36de5a9a",
+      "company_key": "development-company-6aa3fe2fb9e73147",
+      "page": 25,
+      "page_text_sha256": "59ff2fb52c2fcec23a0c2c6831f62e4150533c08e0e3c304c363f5165d6edbb2",
+      "candidate_stratum": "negative_candidate",
+      "proof_or_failure_type": "invalid_borrowing_role_semantics",
+      "signals": {
+        "required_roles": {
+          "short_term_borrowings": 0,
+          "long_term_borrowings": 0,
+          "total_capital": 0
+        },
+        "broad_liabilities": {
+          "current_liabilities": 1,
+          "long_term_liabilities": 1,
+          "total_liabilities": 3
+        },
+        "confound_totals": {
+          "total_assets": 1,
+          "total_liabilities": 3,
+          "owners_equity": 0
+        }
+      },
+      "excerpt": "Báo cáo thường niên Công ty cổ phần Rượu Hapro % tăng giảm Chỉ tiêu Năm 2022 Năm 2023 so năm 2022 Tổng tài sản 17.756 14.773 -17% (Nguồn: BCTC từ 01/04/2023 đến 31/03/2024 đã được kiểm toán của Công ty) 2.2. Tình hình nợ phải trả Bảng 7. Tình hình nợ phải trả của Công ty năm 2023 Đơn vị tính: Triệu đồng % tăng giảm so Chỉ tiêu Năm 2022 Năm 2023 với năm 2022 Nợ ngắn hạn 10.685 7.639 -29% Nợ dài hạn 110 281 155% Nợ phải trả 10.795 7.920 -27% (Nguồn: BCTC từ 01/04/2023 đến 31/03/2024 đã được kiểm toán của Công ty) 3. Những cải tiến về cơ cấu tổ chức, chính sách, quản lý Trong năm 2023 Công ty không có thay đổi về cơ cấu tổ chức. Về Công tác quản lý: HĐQT đã cùng Giám đốc tiếp tục tăng cường quản lý, điều hành hoạt động sản xuất kinh doanh, quán triệt tinh thần và nghiêm túc thực hiện chính sách khen thưởng đđộng viên, trách nhiệm vật chất trong chấp hành kỷ luật lao động; sử dụng các biên pháp tích cực kiểm tra, giám sát hoạt động sản xuất. 4. Kế hoạch phát triển trong tương lai Căn cứ vào kết quả sản xuất – kinh doanh năm 2023 và năng lực hiện tại của Công ty. Ban Giám đốc sẽ trình HĐQT và Đại hội đồng cổ đông thông qua kế hoạch kinh doanh năm 2024, cụ thể: Bảng 8. Kế hoạch kinh doanh năm 2024 Chỉ tiêu Đơn vị tính Kế hoạch 2024 Ghi chú Tổng Doanh thu Triệu đồng 1.643 Lợi nhuận sau thuế Triệu đồng 0 Số lượng lao động Người 3 Thu nhập bình quân Triệu đồng 4,5 Cổ tức % 0 21",
+      "queue_stratum": "negative_candidate"
+    },
+    {
+      "source_name": "SIP_24CN_BCTN.pdf",
+      "source_path": "/mnt/d/reasoning_model_V4/reasoning_model/pdf/PDF_24/PDF_24/SIP_24CN_BCTN.pdf",
+      "source_sha256": "2f8fbd8fe9b8c92362f259dabe5916ebff1c79b8f6e41a92ffcee659731d53a2",
+      "company_key": "development-company-6c126e81fa8dc29d",
+      "page": 28,
+      "page_text_sha256": "d848ad48f47cdc98fb361fc24237d8e6f10a3c1cf24db77c78ac87fb9057189b",
+      "candidate_stratum": "negative_candidate",
+      "proof_or_failure_type": "invalid_borrowing_role_semantics",
+      "signals": {
+        "required_roles": {
+          "short_term_borrowings": 0,
+          "long_term_borrowings": 0,
+          "total_capital": 0
+        },
+        "broad_liabilities": {
+          "current_liabilities": 6,
+          "long_term_liabilities": 6,
+          "total_liabilities": 5
+        },
+        "confound_totals": {
+          "total_assets": 3,
+          "total_liabilities": 5,
+          "owners_equity": 0
+        }
+      },
+      "excerpt": "TÌNH HÌNH TÀI CHÍNH TÌNH HÌNH TÀI SẢN TÌNH HÌNH NỢ PHẢI TRẢ ĐVT: Triệu ồng ĐVT: Triệu Đồng Chỉ tiêu 2024 2023 % Thay đổi Tỷ trọng 2024 Tỷ trọng 2023 Chỉ tiêu 2024 2023 % Thay đổi Tỷ trọng 2024 Tỷ trọng 2023 HỢP NHẤT HỢP NHẤT Tài sản ngắn hạn 11,917,346 7,937,162 50,15% 47,57% 37,69% Nợ ngắn hạn 4.143.521 3.061.004 35,36% 20,53% 17,97% Tài sản dài hạn 13,135,534 13,123,265 0,09% 52,43% 62,31% Nợ dài hạn 16.041.538 13.971.373 14,82% 79,47% 82,03% Tổng tài sản 25,052,881 21,060,427 18,96% 100,00% 100,00% Tổng nợ phải trả 20.185.059 17.032.377 18,51% 100,00% 100,00% Năm 2024 Năm 2023 Năm 2024 Năm 2023 Nợ ngắn hạn Nợ dài hạn Trong năm 2024, tổng tài sản của Công ty bất động sản công nghiệp đạt 25.052,88 tỷ đồng, tăng 18,96% so với năm 2023. Sự tăng Tổng nợ phải trả của công ty đạt 20.185,06 tỷ đồng, tăng 18,51% so với năm 2023 (17.032,38 tỷ đồng). Trong đó, nợ ngắn hạn tăng trưởng này chủ yếu đến từ tài sản ngắn hạn, với mức tăng mạnh 50,15%, từ 7.937,16 tỷ đồng lên 11.917,35 tỷ đồng. Ngược lại, tài mạnh 35,36%, từ 3.061,00 tỷ đồng lên 4.143,52 tỷ đồng, làm cho tỷ trọng nợ ngắn hạn trong tổng nợ tăng từ 17,97% lên 20,53%. Sự sản dài hạn gần như không biến động, chỉ tăng nhẹ 0,09%, từ 13.123,27 tỷ đồng lên 13.135,53 tỷ đồng. Về cơ cấu, tài sản ngắn hạn gia tăng này phản ánh công ty đang sử dụng linh hoạt các nguồn vốn ngắn hạn để phục vụ cho các hoạt động triển khai, thi công, đền chiếm 47,57% tổng tài sản trong năm 2024, tăng đáng kể so với mức 37,69% của năm 2023; trong khi đó, tài sản dài hạn giảm tỷ trọng bù, và vận hành các dự án khu công nghiệp. Trong bối cảnh lãi suất năm ",
+      "queue_stratum": "negative_candidate"
+    },
+    {
+      "source_name": "YEG_23CN_BCTN.pdf",
+      "source_path": "/mnt/d/reasoning_model_V4/reasoning_model/pdf/PDF_23/YEG_23CN_BCTN.pdf",
+      "source_sha256": "67c424fc090f2baa8d1b0b45c615e2b2963be5707b6101bd0cd09cf3cc6397a3",
+      "company_key": "development-company-6c48084e55e31da1",
+      "page": 73,
+      "page_text_sha256": "424ca9038750cecb86a5ea3b540d228a0c2fa4e5c8c4dd6de14fddcfe91a7da3",
+      "candidate_stratum": "negative_candidate",
+      "proof_or_failure_type": "missing_required_raw_role",
+      "signals": {
+        "required_roles": {
+          "short_term_borrowings": 1,
+          "long_term_borrowings": 1,
+          "total_capital": 0
+        },
+        "broad_liabilities": {
+          "current_liabilities": 1,
+          "long_term_liabilities": 1,
+          "total_liabilities": 1
+        },
+        "confound_totals": {
+          "total_assets": 0,
+          "total_liabilities": 1,
+          "owners_equity": 2
+        }
+      },
+      "excerpt": "Bảng cân đối Kế toán hợp nhất B01-DN/HN Bản cân đối kế toán hợp nhất vào ngày 31 tháng 12 năm 2023 VND Mã số NGUỒN VỐN Thuyết minh Số cuối năm Số đầu năm 300 C. NỢ PHẢI TRẢ 477.098.903.310 334.197.703.328 310 I. Nợ ngắn hạn 408.623.646.511 315.495.843.209 1. Phải trả người bán ngắn hạn 19.1 311 98.153.102.705 83.181.799.835 2. Người mua trả tiền trước 19.2 312 29.155.365.881 6.405.918.023 ngắn hạn 20 313 32.330.181.730 42.048.654.493 3. Thuế và các khoản phải nộp Nhà nước 314 5.107.804.827 4.685.853.174 4. Phải trả người lao động 21 315 27.448.675.197 18.755.981.834 5. Chi phí phải trả ngắn hạn 22 319 6. Phải trả ngắn hạn khác 45.075.825.259 66.099.828.450 23 320 7. Vay ngắn hạn 171.352.690.912 94.317.807.400 330 II. Nợ dài hạn 68.475.256.799 18.701.860.119 337 1. Phải trả dài hạn khác - 87.600.000 23 338 2. Vay dài hạn 39.014.432.856 1.000.000.000 33.3 341 3. Thuế thu nhập hoãn lại phải trả 29.460.823.943 17.614.260.119 400 D. VỐN CHỦ SỞ HỮU 1.383.299.139.059 906.780.179.732 410 I. Vốn chủ sở hữu 1.383.299.139.059 906.780.179.732 24.1 411 1. Vốn cổ phần 1.313.532.640.000 312.799.680.000 411a - Cổ phiếu phổ thông có quyền biểu quyết 1.313.532.640.000 312.799.680.000 24.1 412 2. Thặng dư vốn cổ phần 140.518.254 550.873.478.254 24.1 421 3. Lợi nhuận sau thuế chưa phân phối 57.414.341.843 30.555.633.680 421a - Lợi nhuận sau thuế chưa phân phối lũy kế đến cuối năm trước 30.555.633.680 18.294.413.020 421b - Lợi nhuận sau thuế chưa phân phối năm nay 26.858.708.163 12.261.220.660 26 429 4. Lợi ích cổ đông không kiểm soát 12.211.638.962 12.551.387.798 Báo cáoBáothườngcáo thườngniên",
+      "queue_stratum": "negative_candidate"
+    },
+    {
+      "source_name": "MSN_23CN_BCTN.pdf",
+      "source_path": "/mnt/d/reasoning_model_V4/reasoning_model/pdf/PDF_23/MSN_23CN_BCTN.pdf",
+      "source_sha256": "4af33f3dcc539b30df62e808206aa4bdfd71f8ba59057eda6fc18409e3727cf6",
+      "company_key": "development-company-6fe63d928c4455c3",
+      "page": 70,
+      "page_text_sha256": "02f22a9ff67fb9cad3237fbb90bf7ca299d3bf9953f088cf6ec107897a56ee7e",
+      "candidate_stratum": "negative_candidate",
+      "proof_or_failure_type": "invalid_borrowing_role_semantics",
+      "signals": {
+        "required_roles": {
+          "short_term_borrowings": 0,
+          "long_term_borrowings": 0,
+          "total_capital": 1
+        },
+        "broad_liabilities": {
+          "current_liabilities": 1,
+          "long_term_liabilities": 1,
+          "total_liabilities": 1
+        },
+        "confound_totals": {
+          "total_assets": 0,
+          "total_liabilities": 1,
+          "owners_equity": 3
+        }
+      },
+      "excerpt": "tại ngày ב׏ tháng ׏א nƑm א׎אב MƝu B ׎׏ ٫ DNHN ٽ BƏn hơnh Ɏhƺo Thȕng Ɏư ɀȖ 202 ٱ 20 ת׭ٱ TT ډ BTCBảng cân đối kế toán hợp nhất ngơɵ 22 Ɏháng ת 2 nƑȅ 20 ת׭ ƬɟƏ Bȗ Tơi Ƭhǥnh پ 31/12/2023 1/1/2023 31/12/2023 1/1/2023 Mã số Thuyết minh Triệu VND Triệu VND Mã số Thuyết minh Triệu VND Triệu VND NGUỒN VỐN VỐN CHỦ SỞ HỮU 400 38.237.241 36.636.739 NỢ PHẢI TRẢ 300 109.146.231 104.706.076 Vốn chủ sở hữu 410 23 38.237.241 36.636.739 Vốn cổ phần ג׏׏ אג ׏גِ ב׎זِ גבג ׏גِ אבוِ אגז Nợ ngắn hạn 310 50.422.500 65.320.877 ThƓng dư vốn cổ phần ג׏א אג זِ ואבِ ׎וז זِ ואבِ ׏אז Phải trả người bán ngƒn hạn ב׏׏ הِ ב׏וِ חחח וِ גזחِ בו׏ Vốn khác của chủ sở hữu ג׏ג אד ٢זِ בזזِ ׏גו٣ ٢זِ בזזِ ׏גו٣ Người mua trả tiền trước ב׏א זה׏ِ חבא דההِ בב׎ Chênh lệch tɼ giá hối đoái ג׏ו ٢אאגِ אאא٣ ٢בזדِ ׏דז٣ Thuế phải nộp Ngân sách Nhà nước ב׏ב ׏ו ׏ِ ׏׎בِ א׎ג דבהِ ב׏׎ Quỹ khác thuộc vốn chủ sở hữu גא׎ בגאِ בז׏ דזבِ האד Phải trả nhân viên ב׏ג אהגِ ב׎׎ אגזِ בהד Lợi nhuận sau thuế chưa phân phối גא׏ ׏׏ِ וחזِ ׎דה ׏׏ِ בז׏ِ חג׎ Chi phí phải trả ngƒn hạn ב׏ד ׏ז٢a٣ גِ ז׏חِ ׎גג גِ ׏זגِ בד׏ ډ nȤi nhɖƚn ɀƏɖ Ɏhɖǀ ƬhưƏ ȵhƘn ȵhȖi Ǽɬɵ Ǹǀ ƶǀn ׭2תƏ תת٫3ױת٫ײ׭0 תװ٫ׯ׮ׯ٫ױײװ Doanh thu chưa thực hiện ngƒn hạn ב׏ז הוِ ׎דח ׏דِ הח׏ ƬɖȖi nƑȅ ɎȸưȣƬ Phải trả ngƒn hạn khác ב׏ח ׏ח٢a٣ זِ ח׏חِ וח׏ ׏׏ِ הו׏ِ חבד ډ nȤi nhɖƚnٱٽǼȚپ ɀƏɖ Ɏhɖǀ Ɏȸong nƑȅ ׭2תƫ ׭תׯ٫תתׯ ٽׯ٫2װ׭٫ײ׮װپ Vay, trái phiếu phát hành và nợ thuê tài chính ngƒn hạn בא׎ א׎ אזِ ׎ב׎ِ ׏חו ג׎ِ דהוِ בוח Lợi ích cổ đông không kiểm soát גאח ׏׏ِ הווِ הה׏ ׏׎ِ גזגِ ׏׎ב Dự phȠng phải trả ngƒn hạn בא׏ וِ זאה חِ חחו Quỹ khen thưởng, phúc lợi באא ב׏ِ ׏גז ב׏ِ ׏גז TỔNG NGUỒN VỐN 440 147.383.472 141.342.815 Nợ",
+      "queue_stratum": "negative_candidate"
+    },
+    {
+      "source_name": "IMP_24CN_BCTN.pdf",
+      "source_path": "/mnt/d/reasoning_model_V4/reasoning_model/pdf/PDF_24/PDF_24/IMP_24CN_BCTN.pdf",
+      "source_sha256": "bab94fe43bdd14f77833cf62d83c651f3f7043881edfc2e64f588e41473f3b26",
+      "company_key": "development-company-9bd65b64aa13ed0a",
+      "page": 42,
+      "page_text_sha256": "e93b30a0afdf9ea929a1941b1c16048ddc7e5ff6f88b7033d4e540a767d47e36",
+      "candidate_stratum": "negative_candidate",
+      "proof_or_failure_type": "ambiguous_duplicate_role",
+      "signals": {
+        "required_roles": {
+          "short_term_borrowings": 1,
+          "long_term_borrowings": 3,
+          "total_capital": 1
+        },
+        "broad_liabilities": {
+          "current_liabilities": 1,
+          "long_term_liabilities": 0,
+          "total_liabilities": 2
+        },
+        "confound_totals": {
+          "total_assets": 11,
+          "total_liabilities": 2,
+          "owners_equity": 6
+        }
+      },
+      "excerpt": "BÁO CÁO HOẠT ĐỘNG CỦA BAN ĐIỀU HÀNH (tiếp theo) Các chỉ tiêu tài chính chủ yếu BÁO CÁO THƯỜNG NIÊN 2024 Chỉ tiêu ĐVT 2023 2024 Tình hình tài chính Chỉ tiêu về khả năng thanh toán Hệ số thanh toán ngắn hạn Lần 3,9 4,4 Tình hình tài sản Hệ số thanh toán nhanh Lần 1,6 2,2 4 Danh mục các từ viết tắt Tổng tài sản của công ty trong năm 2024 đạt 2.504,8 tỷ Chỉ tiêu về cơ cấu vốn 5 Điểm nhấn năm 2024 đồng, tăng 4,7% so với năm 2023. Tài sản ngắn hạn tăng Tổng tài sản trong năm 2024 đạt Hệ số Nợ/Tổng tài sản % 12,9 12,8 16,8% lên 1.409,5 tỷ đồng, chiếm 56,3% tổng tài sản, chủ TỶ Hệ số Nợ/Vốn chủ sở hữu % 14,8 14,76 Giải thưởng tiêu biểu năm 2024 yếu nhờ vào lợi nhuận tăng trưởng tốt, IMP có thêm nhiều ĐỒNG tiền mặt (tiền và các khoản tương đương tiền tăng 52,5%), 2.504,8 Chỉ tiêu về năng lực hoạt động 7 Tóm tắt thông tin tài chính 2020-2024 đồng thời các khoản phải thu tăng theo doanh thu của kênh tăng 4,7% so với năm 2023 Vòng quay hàng tồn kho Vòng 2,1 1,9 ETC và tài sản dài hạn giảm 7,6% xuống 1.095,2 tỷ đồng, 8 Thông điệp Chủ tịch HĐQT chiếm 43,7% tổng tài sản, do khấu hao tài sản hàng năm Vòng quay tổng tài sản Vòng 0,9 0,9 đồng thời IMP không thực hiện các khoản đầu tư mới trọng Chỉ tiêu về khả năng sinh lời9 Thông điệp Tổng Giám đốc yếu nào trong năm 2024, các khoản đầu tư chủ yếu tập Tài sản ngắn hạn trung vào bảo trì, bảo dường thiết bị cũ và đầu tư thêm thiết ROS % 15,0 14,6 10 TỔNG QUAN IMEXPHARM bị cho các sản phẩm mới nhưng không đáng kể. ROE % 15,1 15,0 16,8% ROA % 12,8 13,132 ĐỊNH HƯỚNG PHÁT TRIỂN Các khoản đầu tư dài hạn giảm 6,1% xuống 67,1 tỷ đồng Tài sản dài hạn d",
+      "queue_stratum": "negative_candidate"
+    },
+    {
+      "source_name": "KDH_23CN_BCTN.pdf",
+      "source_path": "/mnt/d/reasoning_model_V4/reasoning_model/pdf/PDF_23/KDH_23CN_BCTN.pdf",
+      "source_sha256": "03cc79a669d1c7da31afdcb9b1552a7779369a5b7f1bbe9e4787f106002a90a5",
+      "company_key": "development-company-57b1173c4f6e80e2",
+      "page": 70,
+      "page_text_sha256": "5f3fbbbf0adfea8132b67445bf98ea8b8cbadac2e2c784ec38cea0ba0aadf484",
+      "candidate_stratum": "positive_candidate",
+      "proof_or_failure_type": "complete_required_role_triplet",
+      "signals": {
+        "required_roles": {
+          "short_term_borrowings": 1,
+          "long_term_borrowings": 1,
+          "total_capital": 1
+        },
+        "broad_liabilities": {
+          "current_liabilities": 1,
+          "long_term_liabilities": 1,
+          "total_liabilities": 1
+        },
+        "confound_totals": {
+          "total_assets": 0,
+          "total_liabilities": 1,
+          "owners_equity": 2
+        }
+      },
+      "excerpt": "136 BÁO CÁO THƯỜNG NIÊN 2023 BÁO CÁO TÀI CHÍNH 137 BẢNG CÂN ĐỐI KẾ TOÁN HỢP NHẤT (tiếp theo) Mẫu số B 01 - DN/HN BÁO CÁO KẾT QUẢ HOẠT ĐỘNG KINH DOANH HỢP NHẤT Mẫu số B 02 - DN/HN Tại ngày 31 tháng 12 năm Năm tài chính kết thúc ngày 31 tháng 12 năm Mã Thuyết 2023 2022 Mã Thuyết 2023 2022 số NGUỒN VỐN minh Nghìn VND Nghìn VND số minh Nghìn VND Nghìn VND 300 NỢ PHẢI TRẢ 10.957.815.586 9.744.717.268 01 Doanh thu bán hàng và cung cấp dịch vụ 2.166.305.461 2.973.585.022 310 Nợ ngắn hạn 5.345.531.698 3.502.562.996 02 Các khoản giảm trừ doanh thu (78.534.784) (61.621.819) 311 Phải trả người bán ngắn hạn 15 92.146.883 108.934.963 10 Doanh thu thuần về bán hàng và cung cấp dịch vụ 28 2.087.770.677 2.911.963.203 312 Người mua trả tiền trước ngắn hạn 16 2.387.640.249 892.021.429 11 Giá vốn hàng bán và dịch vụ cung cấp 29 (501.132.984) (1.452.443.758) 313 Thuế và các khoản phải nộp Nhà nước 17(b) 497.387.968 427.255.255 20 Lợi nhuận gộp về bán hàng và cung cấp dịch vụ 1.586.637.693 1.459.519.445 315 Chi phí phải trả ngắn hạn 18 106.126.851 92.227.349 21 Doanh thu hoạt động tài chính 30 49.704.916 17.711.841 318 Doanh thu chưa thực hiện ngắn hạn 37.144 96.045 22 Chi phí tài chính 31 (147.648.608) (91.011.692) 319 Phải trả ngắn hạn khác 19(a) 735.970.532 733.532.645 23 - Trong đó: Chi phí lãi vay 31 - (9.345.992) 320 Vay ngắn hạn 20(a) 1.444.346.120 1.194.723.968 25 Chi phí bán hàng 32 (162.401.036) (175.245.966) 322 Quỹ khen thưởng, phúc lợi 21 81.875.951 53.771.342 26 Chi phí quản lý doanh nghiệp 33 (204.561.098) (219.168.679) 330 Nợ dài hạn 5.612.283.888 6.242.154.272 30 Lợi nhuận thuầ",
+      "queue_stratum": "positive_candidate"
+    },
+    {
+      "source_name": "SBT_23CN_BCTN.pdf",
+      "source_path": "/mnt/d/reasoning_model_V4/reasoning_model/pdf/PDF_23/SBT_23CN_BCTN.pdf",
+      "source_sha256": "fa34c03d50478f16e4b2a009342a5e7644f11d994acff0d5eabe524931367450",
+      "company_key": "development-company-64087abe6d4b2df6",
+      "page": 223,
+      "page_text_sha256": "f8c0b6744a37978e0f1543228448f994fc5275bfb6f919e0d8326580a2c9f9cd",
+      "candidate_stratum": "positive_candidate",
+      "proof_or_failure_type": "complete_required_role_triplet",
+      "signals": {
+        "required_roles": {
+          "short_term_borrowings": 1,
+          "long_term_borrowings": 1,
+          "total_capital": 1
+        },
+        "broad_liabilities": {
+          "current_liabilities": 1,
+          "long_term_liabilities": 1,
+          "total_liabilities": 1
+        },
+        "confound_totals": {
+          "total_assets": 0,
+          "total_liabilities": 1,
+          "owners_equity": 2
+        }
+      },
+      "excerpt": "NĂM PHỤNG SỰ NĂM PHỤNG SỰ KIỆN TOÀN CHUỖI GIÁ TRỊ TRÁCH NHIỆM KIỆN TOÀN CHUỖI GIÁ TRỊ TRÁCH NHIỆM BẢNG CÂN ĐỐI KẾ TOÁN RIÊNG (Tiếp theo) BÁO CÁO KẾT QUẢ HOẠT ĐỘNG KINH DOANH RIÊNG vào ngày 30 tháng 6 năm 2024 B01-DN cho năm tài chính kết thúc ngày 30 tháng 6 năm 2024 B02-DN VND VND Mã Thuyết Mã Thuyết NGUỒN VỐN Số cuối năm Số đầu năm CHỈ TIÊU Năm nay Năm trướcsố minh số minh 300 C. NỢ PHẢI TRẢ 18.103.826.366.866 15.137.616.234.790 01 1. Doanh thu bán hàng và cung cấp dịch vụ 26.1 15.559.680.083.169 12.263.990.996.942 310 I. Nợ ngắn hạn 14.382.220.416.088 13.060.350.525.770 02 2. Các khoản giảm trừ doanh thu 26.1 (3.206.586.064) (2.473.308.845) 311 1. Phải trả người bán ngắn hạn 19 1.539.127.422.736 1.242.192.336.218 10 3. Doanh thu thuần về bán hàng và cung cấp dịch vụ 26.1 15.556.473.497.105 12.261.517.688.097 312 2. Người mua trả tiền trước ngắn hạn 20 1.724.135.071.261 471.573.844.165 11 4. Giá vốn hàng bán và dịch vụ cung cấp 27, 31 (13.947.881.627.601) (11.009.064.906.475) 313 3. Thuế và các khoản phải nộp Nhà nước 21 32.204.686.927 42.696.733.921 20 5. Lợi nhuận gộp về bán hàng và cung cấp dịch vụ 1.608.591.869.504 1.252.452.781.622 314 4. Phải trả người lao động 14.787.963.145 16.683.915.624 21 6. Doanh thu hoạt động tài chính 26.2 1.270.552.333.842 1.035.252.471.838 315 5. Chi phí phải trả ngắn hạn 22 210.884.177.026 262.535.875.115 22 7. Chi phí tài chính 28 (1.529.157.182.696) (1.174.152.474.997) 318 6. Doanh thu chưa thực hiện ngắn hạn 360.649.029 19.867.487.444 23 Trong đó: Chi phí lãi vay (1.400.670.615.364) (1.059.525.098.595) 319 7. Phải trả ngắn hạn khác 23 ",
+      "queue_stratum": "positive_candidate"
+    },
+    {
+      "source_name": "HHV_23CN_BCTN.pdf",
+      "source_path": "/mnt/d/reasoning_model_V4/reasoning_model/pdf/PDF_23/HHV_23CN_BCTN.pdf",
+      "source_sha256": "0cf75fcb1c8f4f373a671301c77b37b582af3e7fdb97b89c408279018aaba43d",
+      "company_key": "development-company-692f1933fe47ff68",
+      "page": 51,
+      "page_text_sha256": "8e0dbb361e90329e9d8f60e17ffa40f2796283f75d56dff75ffecab6813c93a5",
+      "candidate_stratum": "positive_candidate",
+      "proof_or_failure_type": "complete_required_role_triplet",
+      "signals": {
+        "required_roles": {
+          "short_term_borrowings": 1,
+          "long_term_borrowings": 1,
+          "total_capital": 1
+        },
+        "broad_liabilities": {
+          "current_liabilities": 1,
+          "long_term_liabilities": 1,
+          "total_liabilities": 1
+        },
+        "confound_totals": {
+          "total_assets": 1,
+          "total_liabilities": 1,
+          "owners_equity": 2
+        }
+      },
+      "excerpt": "05. BÁO CÁO TÀI CHÍNH 05. BÁO CÁO TÀI CHÍNH Tại ngàyBÁO CÁO KIỂM TOÁN Mã Thuyết 31.12.2023 01.01.2023 TÀI SẢN số minh VND VNDĐỘC LẬP (Tiếp theo) 336 Doanh thu chưa thực hiện dài hạn V.19b 7.764.764.056 8.800.000.000 337 Phải trả dài hạn khác V.20b 53.484.473.182 53.450.748.994 BẢNG CÂN ĐỐI KẾ TOÁN HỢP NHẤT (Tiếp theo) 338 Vay và nợ thuê tài chính dài hạn V.21b 19.279.986.194.751 19.780.099.074.104 Tại ngày 31 tháng 12 năm 2023 341 Thuế thu nhập hoãn lại phải trả V.22b 152.829.809.985 155.134.453.811 Tại ngày 400 VỐN CHỦ SỞ HỮU V.23 8.732.901.329.464 8.375.513.279.374 Mã Thuyết 31.12.2023 01.01.2023 TÀI SẢN số minh VND VND 410 Vốn chủ sở hữu 5.460.093.016.662 5.102.704.966.572 227 Tài sản cố định vô hình V.12 3.898.832.719 4.571.532.687 411 Vốn góp của chủ sở hữu 3.293.503.510.000 3.078.044.500.000 228 Nguyên giá 5.411.164.156 5.411.164.156 411a - Cổ phiếu phổ thông có quyền biểu quyết 3.293.503.510.000 3.078.044.500.000 229 Giá trị khấu hao lũy kế (1.512.331.437) (839.631.469) 412 Thặng dư vốn cổ phần (876.900.000) (537.900.000) 418 Quỹ đầu tư phát triển 8.822.456.079 7.148.483.380 240 Tài sản dở dang dài hạn 170.630.457 13.636.905.417 421 Lợi nhuận sau thuế (“LNST”) chưa phân phối 921.898.501.789 820.521.267.159 242 Chi phí xây dựng cơ bản dở dang V.13 170.630.457 13.636.905.417 421a - LNST chưa phân phối lũy kế của các năm trước 601.683.644.827 558.377.930.998 250 Đầu tư tài chính dài hạn 496.981.414.519 531.096.348.432 421b - LNST chưa phân phối của năm nay 320.214.856.962 262.143.336.161 252 Đầu tư vào công ty liên doanh, liên kết V.2b 466.481.414.519 514.096.348.432 42",
+      "queue_stratum": "positive_candidate"
+    },
+    {
+      "source_name": "VPL_24CN_BCTN.pdf",
+      "source_path": "/mnt/d/reasoning_model_V4/reasoning_model/pdf/PDF_24/PDF_24/VPL_24CN_BCTN.pdf",
+      "source_sha256": "30f1c5ead5f5b71920dd188fe848f2d268cc8eedc0397cf371d6a6ca9486c3a6",
+      "company_key": "development-company-6b29fbbd781e5fef",
+      "page": 62,
+      "page_text_sha256": "40ed6a3b964ff6c5805958e39b31d7d657a84a1bc2c476262a50bafe59faa81a",
+      "candidate_stratum": "positive_candidate",
+      "proof_or_failure_type": "complete_required_role_triplet",
+      "signals": {
+        "required_roles": {
+          "short_term_borrowings": 1,
+          "long_term_borrowings": 1,
+          "total_capital": 1
+        },
+        "broad_liabilities": {
+          "current_liabilities": 1,
+          "long_term_liabilities": 1,
+          "total_liabilities": 1
+        },
+        "confound_totals": {
+          "total_assets": 0,
+          "total_liabilities": 1,
+          "owners_equity": 3
+        }
+      },
+      "excerpt": "122 VINPEARL BÁO CÁO THƯỜNG NIÊN | 2024 BÁO CÁO THƯỜNG NIÊN | 2024 CHƯƠNG 6 123 Bảng cân đối kế toán hợp nhất Tại ngày 31 tháng 12 năm 2024 Mẫu số B 01-DN/HN Mẫu số B 01-DN/HN Ban hành theo Thông tư số 202/2014/TT-BTC Ban hành theo Thông tư số 202/2014/TT-BTC ngày 22 tháng 12 năm 2014 của Bộ Tài chính ngày 22 tháng 12 năm 2014 của Bộ Tài chính Số cuối năm Số đầu năm Số cuối năm Số đầu năm NGUỒN VỐN Mã số Thuyết minh NGUỒN VỐN Mã số Thuyết minh Triệu VND Triệu VND Triệu VND Triệu VND C. NỢ PHẢI TRẢ 300 44.999.176 30.755.907 D. VỐN CHỦ SỞ HỮU 400 31.483.965 13.316.823 I. Nợ ngắn hạn 310 30.403.183 23.395.359 I. Vốn chủ sở hữu 410 27 31.483.965 13.316.823 1. Phải trả người bán ngắn hạn 311 20 3.202.092 1.782.919 1. Vốn góp của chủ sở hữu 411 17.232.122 15.041.382 2. Người mua trả tiền trước ngắn hạn 312 21 13.573.064 443.673 - Cổ phiếu phổ thông có quyền biểu quyết 411a 17.232.122 15.041.382 3. Thuế và các khoản phải nộp Nhà nước 313 12 2.186.006 491.178 2. Thặng dư vốn cổ phần 412 11.389.128 (2.037.138) 4. Phải trả người lao động 314 1.693 4.655 3. Quỹ đầu tư phát triển 418 2.177 2.177 5. Chi phí phải trả ngắn hạn 315 22 2.647.691 2.661.455 4. Quỹ khác thuộc vốn chủ sở hữu 420 (213.406) (213.406) 6. Doanh thu chưa thực hiện ngắn hạn 318 23 124.943 878.397 5. Lợi nhuận sau thuế chưa phân phối 421 3.071.173 521.449 7. Phải trả ngắn hạn khác 319 24 5.207.051 2.394.873 - Lợi nhuận sau thuế chưa phân phối/ 421a 521.449 (149.203) (Lỗ) lũy kế đến cuối năm trước 8. Vay và nợ thuê tài chính ngắn hạn 320 25 3.459.311 13.856.491 - Lợi nhuận sau thuế chưa phân phối năm nay 421b 2.549.724",
+      "queue_stratum": "positive_candidate"
+    },
+    {
+      "source_name": "GHC_24CN_BCTN.pdf",
+      "source_path": "/mnt/d/reasoning_model_V4/reasoning_model/pdf/PDF_24/PDF_24/GHC_24CN_BCTN.pdf",
+      "source_sha256": "0b6fa996efcef9c28bdb005f00dbb011a4d2549e52a75dd6546d7cca16c4a673",
+      "company_key": "development-company-6bf0a8d4af5bd6e2",
+      "page": 71,
+      "page_text_sha256": "a29f99e48ce06c7cc9f2b423a6ef824addd659911b78165e4566fcbd3036218f",
+      "candidate_stratum": "positive_candidate",
+      "proof_or_failure_type": "complete_required_role_triplet",
+      "signals": {
+        "required_roles": {
+          "short_term_borrowings": 1,
+          "long_term_borrowings": 1,
+          "total_capital": 1
+        },
+        "broad_liabilities": {
+          "current_liabilities": 1,
+          "long_term_liabilities": 1,
+          "total_liabilities": 1
+        },
+        "confound_totals": {
+          "total_assets": 0,
+          "total_liabilities": 1,
+          "owners_equity": 2
+        }
+      },
+      "excerpt": "Báo cáo thường niên 2024 www.ghc.vn BẢNGBẢNG CÂNCÂN ÐỐIÐỐI KẾKẾ TOÁNTOÁN (Tiếp theo) MẫuMẫu sốsố BB 0101 -- DNDN BÁOBÁO CÁOCÁO KẾTKẾT QUẢQUẢ HOẠTHOẠT ÐỘNGÐỘNG KINHKINH DOANHDOANH MẫuMẫu sốsố BB 0202 -- DNDN Tại ngày 31 tháng 12 năm 2024 Cho năm tài chính kết thúc ngày 31 tháng 12 năm 2024 THUYẾT SỐ CUỐI NĂM SỐ ĐẦU NĂM THUYẾT SỐ CUỐI NĂM SỐ ĐẦU NĂM TT TÀI SẢN MINH (VNĐ) (VNĐ) TT TÀI SẢN MINH (VNĐ) (VNĐ) (VNĐ) (VNĐ) 300300 NỢ PHẢI TRẢ 460.736.192.407 537.991.145.409 01 Doanh thu bán hàng 316.625.082.835 327.372.967.783 02 Các khoản giảm trừ doanh thu - - 310310 Nợ ngắn hạn 82.011.192.407 87.966.145.409 311311 Phải trả người bán ngắn hạn 11 656.848.749 1.546.736.784 10 Doanh thu thuần về bán hàng (10 = 01 - 02) 21 316.625.082.835 327.372.967.783 313313 Thuế và các khoản phải nộp Nhà nước 12 16.277.812.617 22.251.476.163 11 Giá vốn hàng bán 22 128.447.248.861 127.088.240.254 314314 Phải trả người lao động 212.032.087 227.404.758 315315 Chi phí phải trả ngắn hạn 666.676.639 820.433.756 20 Lợi nhuận gộp về bán hàng (20 = 10 - 11) 188.177.833.974 200.284.727.529 319319 Phải trả ngắn hạn khác 13 4.153.619.484 4.218.123.241 320320 Vay ngắn hạn 14(a) 13.800.000.000 19.800.000.000 21 Doanh thu hoạt động tài chính 23 54.323.838.652 31.716.968.069 322322 Quỹ khen thưởng, phúc lợi 15 46.244.202.831 39.101.970.707 22 Chi phí tài chính 24 31.860.683.477 45.974.534.766 23 - Trong đó: Chi phí lãi vay 24 31.854.833.953 45.971.612.205 330330 Nợ dài hạn 378.725.000.000 450.025.000.000 25 Chi phí bán hàng - 180.507.734 338338 Vay dài hạn 14(b) 378.725.000.000 450.025.000.000 26 Chi phí quản lý d",
+      "queue_stratum": "positive_candidate"
+    },
+    {
+      "source_name": "SMC_23CN_BCTN.pdf",
+      "source_path": "/mnt/d/reasoning_model_V4/reasoning_model/pdf/PDF_23/SMC_23CN_BCTN.pdf",
+      "source_sha256": "92a88e86909ef49ba2d8624a59f7536be001ba72753f9d9e03f361984d94bca2",
+      "company_key": "development-company-6f166e778d3e08c0",
+      "page": 46,
+      "page_text_sha256": "88c31ea0cf767c71725e3ac2b14649744971054bfc494aaf96760ca1e836a1f9",
+      "candidate_stratum": "positive_candidate",
+      "proof_or_failure_type": "complete_required_role_triplet",
+      "signals": {
+        "required_roles": {
+          "short_term_borrowings": 1,
+          "long_term_borrowings": 1,
+          "total_capital": 1
+        },
+        "broad_liabilities": {
+          "current_liabilities": 1,
+          "long_term_liabilities": 1,
+          "total_liabilities": 1
+        },
+        "confound_totals": {
+          "total_assets": 0,
+          "total_liabilities": 1,
+          "owners_equity": 3
+        }
+      },
+      "excerpt": "BẢNG CÂN ĐỐI Thuyết Nguồn vốn Mã số 31/12/2023 01/01/2023KẾ TOÁN HỢP NHẤT (TT) minh D. VỐN CHỦ SỞ HỮU 400 797.769.840.049 1.723.068.883.226 I. Vốn chủ sở hữu 410 V.23 797.769.840.049 1.723.068.883.226 Tại ngày 31 tháng 12 năm 2023 Đơn vị tính: Đồng Việt Nam 1. Vốn góp của chủ sở hữu 411 736.785.870.000 736.785.870.000 - Cổ phiếu phổ thông có quyền biểu quyết 411a 736.785.870.000 736.785.870.000 Thuyết - Cổ phiếu ưu đãi 411b - - Nguồn vốn Mã số 31/12/2023 01/01/2023 minh 2. Thặng dư vốn cổ phần 412 253.132.567.160 253.132.567.160 3. Quyền chọn chuyển đổi trái phiếu 413 - - C. NỢ PHẢI TRẢ 300 5.380.921.223.677 6.606.025.072.604 4. Vốn khác của chủ sở hữu 414 - - I. Nợ ngắn hạn 310 5.007.005.374.944 5.992.464.511.354 5. Cổ phiếu quỹ 415 (717.500.000) (717.500.000) 1. Phải trả cho người bán ngắn hạn 311 V.16 2.009.778.690.862 2.676.424.687.402 6. Chênh lệch đánh giá lại tài sản 416 - - 2. Người mua trả tiền trước ngắn hạn 312 V.17 65.854.745.370 113.917.896.415 7. Chênh lệch tỷ giá hối đoái 417 - - 3. Thuế và các khoản phải nộp Nhà nước 313 V.18b 19.509.132.725 14.560.157.545 8. Quỹ đầu tư phát triển 418 - 372.822.448.820 4. Phải trả người lao động 314 - - 9. Quỹ hỗ trợ sắp xếp doanh nghiệp 419 - - 5. Chi phí phải trả ngắn hạn 315 V.19 29.757.896.661 27.057.428.093 10. Quỹ khác thuộc vốn chủ sở hữu 420 - - 6. Phải trả nội bộ ngắn hạn 316 - - 11. Lợi nhuận sau thuế chưa phân phối 421 (168.865.083.788) 343.601.547.426 7. Phải trả theo tiến độ kế hoạch hợp đồng - LNST chưa phân phối lũy kế đến cuối kỳ trước 421a 343.601.547.426 922.589.995.092 xây dựng 317 - - - LNST chưa phân phố",
+      "queue_stratum": "positive_candidate"
+    },
+    {
+      "source_name": "NBB_23CN_BCTN.pdf",
+      "source_path": "/mnt/d/reasoning_model_V4/reasoning_model/pdf/PDF_23/NBB_23CN_BCTN.pdf",
+      "source_sha256": "95c2b170af28675640963fa7007e9960948f01d77064b337e759c1daeaab542f",
+      "company_key": "development-company-761119f21f27a2f4",
+      "page": 43,
+      "page_text_sha256": "d35d25dece805b77d183a7acbe6a2a33f317367d34f261a8b2c6d55eadf34ba7",
+      "candidate_stratum": "positive_candidate",
+      "proof_or_failure_type": "complete_required_role_triplet",
+      "signals": {
+        "required_roles": {
+          "short_term_borrowings": 1,
+          "long_term_borrowings": 1,
+          "total_capital": 1
+        },
+        "broad_liabilities": {
+          "current_liabilities": 1,
+          "long_term_liabilities": 1,
+          "total_liabilities": 1
+        },
+        "confound_totals": {
+          "total_assets": 0,
+          "total_liabilities": 1,
+          "owners_equity": 2
+        }
+      },
+      "excerpt": "CÔNG TY CỔ PHẦN ĐẦU TƯ NĂM BẢY BẢY Mẫu số B 01 – DN/HN BẢNG CÂN ĐỐI KẾ TOÁN HỢP NHẤT (tiếp theo) Tại ngày 31 tháng 12 năm 2023 Đơn vị: VND Mã Thuyết NGUỒN VỐN 31/12/2023 01/01/2023 số minh 300C. NỢ PHẢI TRẢ 5.089.477.676.732 4.567.447.492.416 I. Nợ ngắn hạn 310 2.244.732.416.752 1.884.476.593.967 1. Phải trả người bán ngắn hạn 311 V.16 130.532.484.607 92.397.109.825 2. Người mua trả tiền trước ngắn hạn 312 V.17 51.407.978.226 27.796.563.364 3. Thuế và các khoản phải nộp Nhà nước 313 V.18 73.316.133.969 131.865.793.625 4. Phải trả người lao động 314 3.646.829.655 3.002.161.649 5. Chi phí phải trả ngắn hạn 315 V.19 57.676.240.911 31.417.883.292 6. Phải trả ngắn hạn khác 319 V.20 500.455.429.113 297.279.337.773 7. Vay và nợ thuê tài chính ngắn hạn 320 V.21 1.101.012.692.962 971.948.604.185 8. Dự phòng phải trả ngắn hạn 321 V.22 322.879.240.867 321.000.000.000 9. Quỹ khen thưởng, phúc lợi 322 V.23 3.805.386.442 7.769.140.254 II. Nợ dài hạn 330 2.844.745.259.980 2.682.970.898.449 1. Phải trả dài hạn khác 337 V.20 301.454.445.765 520.642.428.537 2. Vay và nợ thuê tài chính dài hạn 338 V.21 2.539.396.000.000 2.158.200.685.697 3. Thuế thu nhập hoãn lại phải trả 341 V.14 786.852.028 786.852.028 4. Dự phòng phải trả dài hạn 342 V.22 3.107.962.187 3.340.932.187 D. VỐN CHỦ SỞ HỮU 400 1.820.654.454.281 1.819.808.830.211 I. Vốn chủ sở hữu 410 V.24 1.820.654.454.281 1.819.808.830.211 1. Vốn góp của chủ sở hữu 411 1.004.756.560.000 1.004.756.560.000 - Cổ phiếu phổ thông có quyền biểu quyết 411a 1.004.756.560.000 1.004.756.560.000 2. Thặng dư vốn cổ phần 412 207.059.165.444 207.059.165.444 ",
+      "queue_stratum": "positive_candidate"
+    },
+    {
+      "source_name": "PSP_23CN_BCTN.pdf",
+      "source_path": "/mnt/d/reasoning_model_V4/reasoning_model/pdf/PDF_23/PSP_23CN_BCTN.pdf",
+      "source_sha256": "3696615814eafa663d9e61cc5a0d17736002e25180e1853b45b3479e92321c50",
+      "company_key": "development-company-8f8e1f80de4676c8",
+      "page": 34,
+      "page_text_sha256": "aa3933f54441e1c79af4ebd407a40be2bcb2d7327c1695389e1e33e6170dced2",
+      "candidate_stratum": "positive_candidate",
+      "proof_or_failure_type": "complete_required_role_triplet",
+      "signals": {
+        "required_roles": {
+          "short_term_borrowings": 1,
+          "long_term_borrowings": 1,
+          "total_capital": 1
+        },
+        "broad_liabilities": {
+          "current_liabilities": 1,
+          "long_term_liabilities": 1,
+          "total_liabilities": 1
+        },
+        "confound_totals": {
+          "total_assets": 0,
+          "total_liabilities": 1,
+          "owners_equity": 2
+        }
+      },
+      "excerpt": "BẢNG CÂN ĐỐI KẾ TOÁN (tiếp theo) Cho năm tài chính kết thúc ngày 31 tháng 12 năm 2023 Mã Thuyết 2023 2022 số NGUỒN VỐN minh VND VND 300 NỢ PHẢI TRẢ 112.422.995.458 92.307.813.076 310 Nợ ngắn hạn 51.609.718.152 41.736.888.303 311 Phải trả người bán ngắn hạn 13 22.950.895.238 19.345.813.332 312 Người mua trả tiền trước ngắn hạn 108.058.132 114.553.500 313 Thuế và các khoản phải nộp Nhà nước 14(b) 1.191.734.911 - 314 Phải trả người lao động 4.550.185.741 2.836.821.874 315 Chi phí phải trả ngắn hạn 15 2.167.793.830 1.257.325.306 318 Doanh thu chưa thực hiện ngắn hạn 188.630.000 - 319 Phải trả ngắn hạn khác 16 5.456.612.277 5.451.913.268 320 Vay ngắn hạn 17(a) 14.954.040.000 11.813.995.000 322 Quỹ khen thưởng, phúc lợi 41.768.023 916.466.023 330 Nợ dài hạn 60.813.277.306 50.570.924.773 338 Vay dài hạn 17(b) 60.813.277.306 50.570.924.773 400 VỐN CHỦ SỞ HỮU 460.723.055.537 452.061.697.005 410 Vốn chủ sở hữu 460.723.055.537 452.061.697.005 411 Vốn góp của chủ sở hữu 18, 19 400.000.000.000 400.000.000.000 411a - Cổ phiếu phổ thông có quyền biểu quyết 400.000.000.000 400.000.000.000 418 Quỹ đầu tư phát triển 19 41.807.097.273 41.807.097.273 421 Lợi nhuận sau thuế (“LNST”) chưa phân phối 19 18.915.958.264 10.254.599.732 421a - LNST chưa phân phối lũy kế của các năm trước 10.254.599.732 10.159.130.945 421b - LNST chưa phân phối của năm nay 18.661.358.532 95.468.787 ──────────── ──────────── 440 TỔNG NGUỒN VỐN 573.146.050.995 544.369.510.081 ════════════ ════════════ Báo cáo thường niên năm 2023 – Công ty Cổ phần Cảng Dịch vụ Dầu khí Đình Vũ 31/34",
+      "queue_stratum": "positive_candidate"
+    },
+    {
+      "source_name": "POW_24CN_BCTN.pdf",
+      "source_path": "/mnt/d/reasoning_model_V4/reasoning_model/pdf/PDF_24/PDF_24/POW_24CN_BCTN.pdf",
+      "source_sha256": "de69f71ec07e631e06963004d17fed0d0661d55b0f9a8758a87f7a405c3bb1e9",
+      "company_key": "development-company-a6b829b01daf8ffc",
+      "page": 53,
+      "page_text_sha256": "6cd93b0d41e481a2ddfdd056291f49d9080cd8a42fda144c047610b175bc8564",
+      "candidate_stratum": "positive_candidate",
+      "proof_or_failure_type": "complete_required_role_triplet",
+      "signals": {
+        "required_roles": {
+          "short_term_borrowings": 1,
+          "long_term_borrowings": 1,
+          "total_capital": 1
+        },
+        "broad_liabilities": {
+          "current_liabilities": 3,
+          "long_term_liabilities": 3,
+          "total_liabilities": 3
+        },
+        "confound_totals": {
+          "total_assets": 2,
+          "total_liabilities": 3,
+          "owners_equity": 1
+        }
+      },
+      "excerpt": "100 KHÁT VỌNG VƯƠN XA - III. BÁO CÁO VÀ ĐÁNH GIÁ CỦA BAN TỔNG GIÁM ĐỐC TỔNG CÔNG TY ĐIỆN LỰC DẦU KHÍ VIỆT NAM - CTCP 101 TÌNH HÌNH TÀI CHÍNH 31/12/2023 31/12/2024 CHỈ TIÊU +/- (%) (TỶ ĐỒNG) (TỶ ĐỒNG) Đơn vị: Tỷ đồng 49.934 Tài sản ngắn hạn 29.042 29.981 3% 50.000 41.320 Tài sản dài hạn 41.320 49.934 21% 40.000 37.152 34.556 Tổng tài sản 70.362 79.915 14% 31.918 29.980 29.041 30.000 Nợ phải trả 36.243 45.234 25% 24.925 20.000 18.420 Nợ ngắn hạn 26.785 33.457 25% 16.897 Nợ dài hạn 9.458 11.777 25% 10.000 Vốn chủ sở hữu 34.119 34.681 2% 0 Tổng nguồn vốn 70.362 79.915 14% 2020 2021 2022 2023 2024 Tài sản ngắn hạn Tài sản dài hạn Tình hình tài sản Tại thời điểm 31/12/2024, Tổng tài sản đạt 79.915 tỷ đồng, tăng 14% so với cùng kỳ năm 2023. Trong đó: • Tài sản ngắn hạn đạt 29.981 tỷ đồng, tương ứng tăng 3% so với cùng kỳ năm 2023. Trong đó: ` Khoản tiền và tương đương tiền năm 2024 tăng 37% so với năm 2023, đạt 11.564 tỷ đồng ` Khoản đầu tư tài chính ngắn hạn năm 2024 tăng 72% so với năm 2023, đạt 4.112 tỷ đồng ` Khoản phải thu ngắn hạn của khách hàng năm 2024 giảm 18% so với năm 2023, đạt 11.873 tỷ đồng (trong đó chủ yếu là khoản phải thu ngắn hạn từ Công ty Mua bán điện – Tập đoàn Điện lực Việt Nam giảm từ mức 12.612 Đơn vị: Tỷ đồng tỷ đồng của năm 2023 còn 11.045 tỷ đồng) 40.000 ` Hàng tồn kho và Tài sản ngắn hạn khác năm 2024 giảm tương ứng lần lượt là 17% và 57% 33.457 • Tài sản dài hạn đạt 49.934 tỷ đồng, tăng 121% so với cùng kỳ năm 2023. Nguyên nhân chủ yếu do khoản chi phí Dự án đầu tư xây dựng công trình Nhà máy điện Nhơn Trạch 3 và Nhơn Trạch 4 tăng từ mức 8.096 tỷ đồng",
+      "queue_stratum": "positive_candidate"
+    },
+    {
+      "source_name": "DXG_24CN_BCTN.pdf",
+      "source_path": "/mnt/d/reasoning_model_V4/reasoning_model/pdf/PDF_24/PDF_24/DXG_24CN_BCTN.pdf",
+      "source_sha256": "3a82154cf9e924816d228393a9d2928c3fb113e78a76329e70d957fd1d3bb0f4",
+      "company_key": "development-company-a7b31ec4715e063f",
+      "page": 25,
+      "page_text_sha256": "563bd9d4ea8efa428b69cc91e86a02a16fd650141957aa7a28c2ab6cccd3bfb6",
+      "candidate_stratum": "positive_candidate",
+      "proof_or_failure_type": "complete_required_role_triplet",
+      "signals": {
+        "required_roles": {
+          "short_term_borrowings": 1,
+          "long_term_borrowings": 1,
+          "total_capital": 1
+        },
+        "broad_liabilities": {
+          "current_liabilities": 2,
+          "long_term_liabilities": 2,
+          "total_liabilities": 1
+        },
+        "confound_totals": {
+          "total_assets": 1,
+          "total_liabilities": 1,
+          "owners_equity": 2
+        }
+      },
+      "excerpt": "46 CHU KỲ MỚI, VẬN MỆNH MỚI BÁO CÁO CỦA BAN TỔNG GIÁM ĐỐC VỀ KẾT QUẢ KINH DOANH NĂM 2024 BÁO CÁO THƯỜNG NIÊN ĐẤT XANH GROUP 2024 47 CƠ CẤU CHI PHÍ VÀ HIỆU QUẢ VẬN HÀNH CƠ CẤU TÀI SẢN ĐVT: Triệu đồng Trong bối cảnh thị trường phục hồi chưa đồng đều, sức cầu còn yếu và biên lợi nhuận suy giảm, Tập Khoản mục 2020 2021 2022 2023 2024 đoàn Đất Xanh đã triển khai quyết liệt các giải pháp kiểm soát chi phí và tinh gọn bộ máy ngay từ đầu năm 2024. Chiến lược điều hành linh hoạt, tập trung vào hiệu quả vận hành và tối ưu chi phí đã TÀI SẢN NGẮN HẠN 19.723.042 25.255.041 27.370.931 26.229.757 26.133.344 góp phần quan trọng vào việc cải thiện năng lực tài chính và tăng trưởng lợi nhuận. Tiền và các khoản tương đương tiền 1.779.631 2.737.677 918.979 276.069 1.249.079 Tổng chi phí hoạt động năm 2024 đạt 4.215 tỷ đồng, tương đương 87,89% doanh thu thuần – mức tối ưu nhất trong 5 năm gần đây. So với năm 2022, tổng chi phí đã giảm hơn hơn 20%, phản ánh nỗ Các khoản đầu tư tài chính ngắn hạn 205.684 285.928 181.166 97.175 77.871 lực rõ rệt trong quản trị chi phí và tái cấu trúc hoạt động. Các khoản phải thu 7.213.288 10.795.975 11.947.519 11.422.613 11.089.555 Hàng tồn kho 10.251.681 11.238.341 14.030.956 14.139.059 13.406.215 CƠ CẤU CHI PHÍ ĐVT: Triệu đồng Tài sản ngắn hạn khác 272.757 197.120 292.311 294.842 310.624 2020 2021 2022 2023 2024 TÀI SẢN DÀI HẠN 3.588.391 2.999.020 2.949.736 2.556.684 3.050.031 Chỉ tiêu Các khoản phải thu dài hạn 670.602 516.496 147.128 149.201 804.376 Giá trị %/DTT Giá trị %/DTT Giá trị %/DTT Giá trị %/DTT Giá trị %/DTT Tài sản cố định 355.094 426.593 393.870 ",
+      "queue_stratum": "positive_candidate"
+    },
+    {
+      "source_name": "OIL_24CN_BCTN.pdf",
+      "source_path": "/mnt/d/reasoning_model_V4/reasoning_model/pdf/PDF_24/PDF_24/OIL_24CN_BCTN.pdf",
+      "source_sha256": "d85db7efc0f376e597b383bd07bbc53c7e5f5cc9952104d5ceb9d52ef1d6e4e9",
+      "company_key": "development-company-ab7902bcbd91137e",
+      "page": 69,
+      "page_text_sha256": "620251e275bc2be84135e03f9acd0a293a53db4d66b385bbdee281aa3a2c37ad",
+      "candidate_stratum": "positive_candidate",
+      "proof_or_failure_type": "complete_required_role_triplet",
+      "signals": {
+        "required_roles": {
+          "short_term_borrowings": 1,
+          "long_term_borrowings": 1,
+          "total_capital": 1
+        },
+        "broad_liabilities": {
+          "current_liabilities": 1,
+          "long_term_liabilities": 1,
+          "total_liabilities": 1
+        },
+        "confound_totals": {
+          "total_assets": 0,
+          "total_liabilities": 1,
+          "owners_equity": 3
+        }
+      },
+      "excerpt": "BẢNG CÂN ĐỐI KẾ TOÁN HỢP NHẤT (tiếp theo) Tại ngày 31 tháng 12 năm 2024 Đơn vị tính: VND Thuyết NGUỒN VỐN Mã số minh Số cuối năm Số đầu năm C. NỢ PHẢI TRẢ 300 30.286.081.721.273 27.446.112.930.499 I. Nợ ngắn hạn 310 29.952.500.030.911 27.144.353.193.886 1. Phải trả người bán ngắn hạn 311 21 13.532.386.670.554 13.630.705.436.026 2. Người mua trả tiền trước ngắn hạn 312 74.715.783.727 51.257.265.531 3. Thuế và các khoản phải nộp Nhà nước 313 12 831.226.700.666 747.765.561.352 4. Phải trả người lao động 314 307.706.829.468 319.832.549.640 5. Chi phí phải trả ngắn hạn 315 22 94.877.481.392 196.260.844.651 6. Doanh thu chưa thực hiện ngắn hạn 318 13.431.228.603 10.941.235.534 7. Phải trả ngắn hạn khác 319 23 7.624.488.086.822 5.153.463.733.043 8. Vay và nợ thuê tài chính ngắn hạn 320 24 7.423.447.631.211 6.966.663.180.400 9. Quỹ khen thưởng, phúc lợi 322 188.634.784.675 211.791.788.198 10. Quỹ bình ổn giá 323 25 (138.415.166.207) (144.328.400.489) II. Nợ dài hạn 330 333.581.690.362 301.759.736.613 1. Phải trả người bán dài hạn 331 618.584.000 - 2. Doanh thu chưa thực hiện dài hạn 336 7.734.338.843 17.018.030.278 3. Phải trả dài hạn khác 337 24.700.583.741 25.256.656.416 4. Vay và nợ thuê tài chính dài hạn 338 24 110.600.366.921 87.810.540.210 5. Thuế thu nhập hoãn lại phải trả 341 26 182.828.528.032 170.277.647.967 6. Quỹ phát triển khoa học và công nghệ 343 7.099.288.825 1.396.861.742 D. VỐN CHỦ SỞ HỮU 400 11.448.387.787.631 11.393.059.637.215 I. Vốn chủ sở hữu 410 27 11.448.387.787.631 11.393.059.637.215 1. Vốn góp của chủ sở hữu 411 10.342.295.000.000 10.342.295.000.000 2. Vố",
+      "queue_stratum": "positive_candidate"
+    },
+    {
+      "source_name": "CTF_24CN_BCTN.pdf",
+      "source_path": "/mnt/d/reasoning_model_V4/reasoning_model/pdf/PDF_24/PDF_24/CTF_24CN_BCTN.pdf",
+      "source_sha256": "794086a4f4a43974b2d8308cde859c97cca9ca19b51bf5edc6a4c622f56c8acf",
+      "company_key": "development-company-c18073362d17a17b",
+      "page": 37,
+      "page_text_sha256": "7b7eaeefb8f339510068eeab7c5c389e49c297a4d58e155e1373621dddb90d3c",
+      "candidate_stratum": "positive_candidate",
+      "proof_or_failure_type": "complete_required_role_triplet",
+      "signals": {
+        "required_roles": {
+          "short_term_borrowings": 1,
+          "long_term_borrowings": 1,
+          "total_capital": 1
+        },
+        "broad_liabilities": {
+          "current_liabilities": 1,
+          "long_term_liabilities": 1,
+          "total_liabilities": 1
+        },
+        "confound_totals": {
+          "total_assets": 0,
+          "total_liabilities": 1,
+          "owners_equity": 3
+        }
+      },
+      "excerpt": "Bảng cân đối kế toán hợp nhất Báo cáo kết quả hoạt động kinh doanh hợp nhất Ngày 31 tháng 12 năm 2024 Năm 2024 Đơn vị tính: đồng Đơn vị tính: đồng Nguồn vốn Mã số Thuyết minh Số cuối năm Số đầu năm TT Chỉ tiêu Mã số Thuyết minh Năm 2024 Năm 2023 C. Nợ phải trả 300 2.795.119.067.668 2.582.798.831.313 1. Doanh thu bán hàng và cung cấp dịch vụ 1 8.540.961.690.726 7.385.878.456.457 I. Nợ ngắn hạn 310 2.417.958.978.583 2.220.303.698.124 2. Các khoản giảm trừ doanh thu 2 366.887.363.858 285.095.490.000 1. Phải trả người bán ngắn hạn 311 V.14 217.056.737.424 220.537.581.204 3. Doanh thu thuần về bán hàng & cung cấp dịch vụ 10 VI.01 8.174.074.326.868 7.100.782.966.457 2. Người mua trả tiền trước ngắn hạn 312 V.15 62.692.978.996 52.292.079.677 4. Giá vốn hàng bán 11 VI.02 7.700.506.800.316 6.690.763.063.572 3. Thuế và các khoản phải nộp Nhà nước 313 V.16 15.682.296.480 11.023.524.467 5. Lợi nhuận gộp về bán hàng và cung cấp dịch vụ 20 473.567.526.552 410.019.902.885 4. Phải trả người lao động 314 15.554.396.110 12.286.064.620 6. Doanh thu hoạt động tài chính 21 VI.03 226.151.174.620 184.630.316.233 5. Chi phí phải trả ngắn hạn 315 V.17 16.918.523.271 8.799.947.394 7. Chi phí tài chính 22 VI.04 176.547.216.957 157.819.115.992 6. Doanh thu chưa thực hiện ngắn hạn 318 507.614.192 328.424.208 - Trong đó: Chi phí lãi vay 23 176.547.072.111 157.774.499.055 7. Phải trả ngắn hạn khác 319 V.18 46.848.431.899 55.215.365.916 8. Chi phí bán hàng 25 VI.05 344.271.900.821 307.125.628.529 8. Vay và nợ thuê tài chính ngắn hạn 320 V.19 2.041.682.704.872 1.858.337.969.859 9. Chi phí quản lý doanh ngh",
+      "queue_stratum": "positive_candidate"
+    },
+    {
+      "source_name": "VHC_23CN_BCTN.pdf",
+      "source_path": "/mnt/d/reasoning_model_V4/reasoning_model/pdf/PDF_23/VHC_23CN_BCTN.pdf",
+      "source_sha256": "27fcc4bc6693feb115ca977041428b0847a866734f531652597807dbf6b84bcb",
+      "company_key": "development-company-e0c3b7d2221a58d7",
+      "page": 48,
+      "page_text_sha256": "33b0ba26958bff8470f667535fb9f38501415c743f7af1911147e83e43791ad4",
+      "candidate_stratum": "positive_candidate",
+      "proof_or_failure_type": "complete_required_role_triplet",
+      "signals": {
+        "required_roles": {
+          "short_term_borrowings": 1,
+          "long_term_borrowings": 1,
+          "total_capital": 1
+        },
+        "broad_liabilities": {
+          "current_liabilities": 1,
+          "long_term_liabilities": 1,
+          "total_liabilities": 1
+        },
+        "confound_totals": {
+          "total_assets": 0,
+          "total_liabilities": 1,
+          "owners_equity": 2
+        }
+      },
+      "excerpt": "MẪU SỐ B 01 – DN/HN MẪU SỐ B 02 – DN/HN BẢNG CÂN ĐỐI KẾ TOÁN HỢP NHẤT (TIẾP THEO) BÁO CÁO KẾT QUẢ HOẠT ĐỘNG KINH DOANH HỢP NHẤT Tại ngày 31 tháng 12 năm Năm tài chính kết thúc ngày 31 tháng 12 năm Mã số NGUỒN VỐN Thuyết minh 2023 (VND) 2022 (VND) Mã số TÀI SẢN Thuyết minh 2023 (VND) 2022 (VND) 300 NỢ PHẢI TRẢ 3.351.493.695.011 3.888.901.503.932 01 Doanh thu bán hàng và cung cấp dịch vụ 10.075.768.816.568 13.463.916.114.123 310 Nợ ngắn hạn 3.232.914.913.265 3.698.134.021.801 02 Các khoản giảm trừ doanh thu (42.752.364.474) (233.115.927.204) 311 Phải trả người bán ngắn hạn 13 308.584.163.295 447.799.962.296 10 Doanh thu thuần về bán hàng và cung cấp dịch vụ 26 10.033.016.452.094 13.230.800.186.919 312 Người mua trả tiền trước ngắn hạn 16.466.420.387 22.850.420.951 11 Giá vốn hàng bán và dịch vụ cung cấp 27 (8.540.191.778.235) (10.254.865.119.471) 313 Thuế và các khoản phải nộp Nhà nước 14 133.711.886.921 281.305.798.482 20 Lợi nhuận gộp về bán hàng và cung cấp dịch vụ 1.492.824.673.859 2.975.935.067.448 314 Phải trả người lao động 15 210.419.210.495 572.450.013.706 21 Doanh thu hoạt động tài chính 28 377.047.027.503 434.061.627.900 315 Chi phí phải trả ngắn hạn 16 176.965.442.997 32.381.020.015 22 Chi phí tài chính 29 (228.560.765.049) (369.571.269.616) 319 Phải trả ngắn hạn khác 17 98.504.177.512 92.763.161.053 23 - Trong đó: Chi phí lãi vay 29 (133.346.693.090) (97.120.949.614) 320 Vay ngắn hạn 18(a) 2.157.386.405.831 2.213.546.608.238 24 Phần lãi trong công ty liên kết 4(c) 800.693.951 222.515.937 322 Quỹ khen thưởng, phúc lợi 21 130.877.205.827 35.037.037.060 25 Chi phí b",
+      "queue_stratum": "positive_candidate"
+    },
+    {
+      "source_name": "PDB_23CN_BCTN.pdf",
+      "source_path": "/mnt/d/reasoning_model_V4/reasoning_model/pdf/PDF_23/PDB_23CN_BCTN.pdf",
+      "source_sha256": "9d4685cff697d81e915cae15176cbe9e8b215919be599639de4f4cef231723c7",
+      "company_key": "development-company-e4bab4de957bbc2b",
+      "page": 31,
+      "page_text_sha256": "943d7f5d1bda67804cd617bb7ca276f4625071dee0e1cec8697186cc8456a2ad",
+      "candidate_stratum": "positive_candidate",
+      "proof_or_failure_type": "complete_required_role_triplet",
+      "signals": {
+        "required_roles": {
+          "short_term_borrowings": 1,
+          "long_term_borrowings": 1,
+          "total_capital": 1
+        },
+        "broad_liabilities": {
+          "current_liabilities": 1,
+          "long_term_liabilities": 1,
+          "total_liabilities": 1
+        },
+        "confound_totals": {
+          "total_assets": 0,
+          "total_liabilities": 1,
+          "owners_equity": 2
+        }
+      },
+      "excerpt": "DIN CAPITAL BÁO CÁO THƯỜNG NIÊN NĂM 2023 CÔNG TY CỔ PHẦN TẬP ĐOÀN ĐẦU TƯ DIN CAPITAL VÀ CÁC CÔNG TY CON CÔNG TY CỔ PHẦN TẬP ĐOÀN ĐẦU TƯ DIN CAPITAL VÀ CÁC CÔNG TY CON Địa chỉ: Tầng 4, 76- 78 Bạch Đằng, Phường Hải Châu I, Quận Hải Châu, Thành phố Đà Nẵng,Việt Nam Địa chỉ: Tầng 4, 76 - 78 Bạch Đằng, Phường Hải Châu I, Quận Hải Châu, Thành phố Đà Nẵng,Việt Nam Mẫu số B 01 - DN/HN Mẫu số B 02 – DN/HN (Ban hành theo Thông tư số 202/2014/TT-BTC (Ban hành theo Thông tư số 202/2014/TT-BTC ngày 22 tháng 12 năm 2014 của Bộ Tài chính) ngày 22 tháng 12 năm 2014 của Bộ Tài chính) BẢNG CÂN ĐỐI KẾ TOÁN HỢP NHẤT (TIẾP THEO) BÁO CÁO KẾT QUẢ HOẠT ĐỘNG KINH DOANH HỢP NHẤT Tại ngày 31 tháng 12 năm 2023 Cho năm tài chính kết thúc ngày 31 tháng 12 năm 2023 Mã Tại ngày Tại ngày Đơn vị tính: VND NGUỒN VỐN số TM 31/12/2023 01/01/2023 Mã A. NỢ PHẢI TRẢ 300 91.977.483.815 94.707.029.250 CHỈ TIÊU số TM Năm 2023 Năm 2022 I. Nợ ngắn hạn 310 91.187.483.815 91.424.096.650 1. Doanh thu bán hàng và cung cấp dịch vụ 01 5.1 235.118.964.915 281.350.535.843 1. Phải trả người bán ngắn hạn 311 4.11 63.175.661.010 55.442.371.596 2. Các khoản giảm trừ doanh thu 02 5.2 9.447.014 69.096.848 2. Người mua trả tiền trước ngắn hạn 312 4.12 361.264.743 433.290.012 3. Doanh thu thuần về bán hàng và cung cấp dịch vụ 10 235.109.517.901 281.281.438.995 3. Thuế và các khoản phải nộp Nhà nước 313 4.9 1.402.248.513 371.889.035 4. Phải trả người lao động 314 1.750.758.004 1.669.918.447 4. Giá vốn hàng bán 11 5.3 216.675.174.011 261.043.023.735 5. Chi phí phải trả ngắn hạn 315 4.13 475.366.869 108.033.020 5. Lợi nhuận gộp bán hàng",
+      "queue_stratum": "positive_candidate"
+    },
+    {
+      "source_name": "PDR_23CN_BCTN.pdf",
+      "source_path": "/mnt/d/reasoning_model_V4/reasoning_model/pdf/PDF_23/PDR_23CN_BCTN.pdf",
+      "source_sha256": "52b727a7a73f2242433c421d33f30c14f1377b4f84f305a6ff0447e73914ab44",
+      "company_key": "development-company-ebc0ba100a6d403e",
+      "page": 113,
+      "page_text_sha256": "cf7f419bce42ac580097b2338e76f5ce277d23bc5cee77fd0954105b0727b421",
+      "candidate_stratum": "positive_candidate",
+      "proof_or_failure_type": "complete_required_role_triplet",
+      "signals": {
+        "required_roles": {
+          "short_term_borrowings": 1,
+          "long_term_borrowings": 1,
+          "total_capital": 1
+        },
+        "broad_liabilities": {
+          "current_liabilities": 1,
+          "long_term_liabilities": 1,
+          "total_liabilities": 1
+        },
+        "confound_totals": {
+          "total_assets": 1,
+          "total_liabilities": 1,
+          "owners_equity": 2
+        }
+      },
+      "excerpt": "ĐẦU MỞ BẢNG CÂN ĐỐI KẾ TOÁN HỢP NHẤT VÀO NGÀY 31 THÁNG 12 NĂM 2023 Đvt: VND Đvt: VND Mã số TÀI SẢN Thuyết minh Số cuối năm Số đầu năm Mã số NGUỒN VỐN Thuyết minh Số cuối năm Số đầu năm 100 A. TÀI SẢN NGẮN HẠN 16.916.369.227.862 18.216.542.992.545 300 C. NỢ PHẢI TRẢ 11.488.430.754.796 13.582.765.739.708 110 I. TIỀN VÀ CÁC KHOẢN TƯƠNG ĐƯƠNG TIỀN 5 505.106.794.464 261.762.460.542 310 I. NỢ NGẮN HẠN 9.176.987.250.177 11.028.794.139.708 111 1. Tiền 505.106.594.464 255.762.460.542 PDR 311 1. Phải trả người bán ngắn hạn 17 243.382.646.786 456.503.036.903 VỀ 112 2. Các khoản tương đương tiền 200.000 6.000.000.000 312 2. Người mua trả tiền trước ngắn hạn 18 3.591.009.091 1.239.363.636.364 QUAN 3. Thuế và các khoản phải nộp 120 II. ĐẦU TƯ TÀI CHÍNH NGẮN HẠN 15.370.299.200 9.370.299.200 313 Nhà nước 19 197.887.405.481 341.253.479.545 TỔNG 123 1. Đầu tư nắm giữ đến ngày đáo hạn 6 15.370.299.200 9.370.299.200 314 4. Phải trả người lao động 9.026.702.743 11.407.127.175 315 5. Chi phí phải trả ngắn hạn 20 141.887.102.558 484.106.089.523 130 III. CÁC KHOẢN PHẢI THU NGẮN HẠN 4.114.801.234.933 5.649.830.393.200 131 1. Phải thu ngắn hạn của khách hàng 7 2.311.498.091.152 2.076.872.008.346 318 6. Doanh thu chưa thực hiện ngắn hạn 3.064.373.327 3.201.225.865 ĐẠO 132 2. Trả trước cho người bán ngắn hạn 8 884.525.552.477 976.276.816.642 319 7. Phải trả ngắn hạn khác 21 7.739.566.208.040 5.796.465.047.119 LÃNH 136 3. Phải thu ngắn hạn khác 9 928.819.135.679 2.597.723.112.587 320 8. Vay ngắn hạn 22 814.680.676.017 2.667.966.838.466 NGŨ 137 4. Dự phòng phải thu ngắn hạn khó đòi (10.041.544.375) (1.0",
+      "queue_stratum": "positive_candidate"
+    },
+    {
+      "source_name": "SAB_24CN_BCTN.pdf",
+      "source_path": "/mnt/d/reasoning_model_V4/reasoning_model/pdf/PDF_24/PDF_24/SAB_24CN_BCTN.pdf",
+      "source_sha256": "acdfee7158184c26da69cf8ed64cc7a4c0c2ce8cd7809e3e54d9e960357a5d1d",
+      "company_key": "development-company-ebecac3dbb3428c3",
+      "page": 72,
+      "page_text_sha256": "b271cddf7fe4d470c443111b61752cf5c896b08b4236997fddf3bde26067f5c6",
+      "candidate_stratum": "positive_candidate",
+      "proof_or_failure_type": "complete_required_role_triplet",
+      "signals": {
+        "required_roles": {
+          "short_term_borrowings": 1,
+          "long_term_borrowings": 1,
+          "total_capital": 1
+        },
+        "broad_liabilities": {
+          "current_liabilities": 1,
+          "long_term_liabilities": 1,
+          "total_liabilities": 1
+        },
+        "confound_totals": {
+          "total_assets": 0,
+          "total_liabilities": 1,
+          "owners_equity": 2
+        }
+      },
+      "excerpt": "BẢNG CÂN ĐỐI KẾ TOÁN HỢP NHẤT Mẫu B 01 – DN/HNTẠI NGÀY 31 THÁNG 12 NĂM 2024 (TIẾP) (Ban hành theo Thông tư số 202/2014/TT-BTC ngày 22 tháng 12 năm 2014 của Bộ Tài chính) THUYẾT 31/12/2024 1/1/2024 THUYẾT 31/12/2024 1/1/2024 MÃ SỐ MINH VND VND MÃ SỐ MINH VND VND VỐN CHỦ SỞ HỮU (400 = 410) 400 24.437.093.182.672 25.485.157.894.867 NGUỒN VỐN Vốn chủ sở hữu 410 26 24.437.093.182.672 25.485.157.894.867 NỢ PHẢI TRẢ (300 = 310 + 330) 300 9.002.313.181.979 8.571.466.944.838 Vốn cổ phần 411 27 12.825.623.720.000 12.825.623.720.000 Nợ ngắn hạn 310 8.657.140.531.800 8.224.608.450.196 - Cổ phiếu phổ thông có quyền biểu quyết 411a 12.825.623.720.000 12.825.623.720.000 Phải trả người bán 311 19 2.642.248.117.160 2.476.372.806.838 Vốn khác của chủ sở hữu 414 3.208.666.226 3.208.666.226 Người mua trả tiền trước 312 94.511.172.026 44.800.935.324 Chênh lệch tỷ giá quy đổi tiền tệ 417 53.776.366.426 43.954.201.299 Thuế phải nộp Nhà nước 313 20(a) 1.320.861.485.986 1.358.515.637.834 Quỹ đầu tư phát triển 418 28 1.181.709.861.073 1.122.241.373.127 Phải trả người lao động 314 128.685.159.625 235.426.444.878 Lợi nhuận sau thuế chưa phân phối 421 9.217.801.321.446 10.217.284.050.181 Chi phí phải trả 315 21 515.857.469.477 486.177.414.768 ‐ Lợi nhuận sau thuế chưa phân phối lũy kế đến cuối Doanh thu chưa thực hiện ngắn hạn 318 228.181.821 - 421a 5.021.305.707.207 6.222.786.077.389 năm trước Phải trả ngắn hạn khác 319 22(a) 3.509.694.004.122 2.898.696.098.647 ‐ Lợi nhuận sau thuế chưa phân phối năm nay 421b 4.196.495.614.239 3.994.497.972.792 Vay và nợ thuê tài chính ngắn hạn 320 23(a) 245.383.983.7",
+      "queue_stratum": "positive_candidate"
+    },
+    {
+      "source_name": "PVD_23CN_BCTN.pdf",
+      "source_path": "/mnt/d/reasoning_model_V4/reasoning_model/pdf/PDF_23/PVD_23CN_BCTN.pdf",
+      "source_sha256": "9b3b8a6863331da16f2ee90e14f5d68d8f0a527ac2af63dce6b6cda08c20080f",
+      "company_key": "development-company-f1ca692c1a7a49de",
+      "page": 125,
+      "page_text_sha256": "98c1a3a0f01076820027e8788590e439f6dc86c80158e39b2d3693aae33040c2",
+      "candidate_stratum": "positive_candidate",
+      "proof_or_failure_type": "complete_required_role_triplet",
+      "signals": {
+        "required_roles": {
+          "short_term_borrowings": 1,
+          "long_term_borrowings": 1,
+          "total_capital": 1
+        },
+        "broad_liabilities": {
+          "current_liabilities": 1,
+          "long_term_liabilities": 1,
+          "total_liabilities": 1
+        },
+        "confound_totals": {
+          "total_assets": 1,
+          "total_liabilities": 1,
+          "owners_equity": 2
+        }
+      },
+      "excerpt": "PV Drilling Chương 6 246 BÁO CÁO THƯỜNG NIÊN TÍCH HỢP 2023 ĐỘNG LỰC MỚI CHO TĂNG TRƯỞNG BÁO CÁO TÀI CHÍNH 247 BẢNG CÂN ĐỐI KẾ TOÁN HỢP NHẤT BẢNG CÂN ĐỐI KẾ TOÁN HỢP NHẤT (tiếp theo) Tại ngày 31 tháng 12 năm 2023 MẪU SỐ B 01-DN/HN Tại ngày 31 tháng 12 năm 2023 MẪU SỐ B 01-DN/HN Đơn vị tính: VND Đơn vị tính: VND Thuyết Thuyết TÀI SẢN Mã số minh Số cuối năm Số đầu năm NGUỒN VỐN Mã số minh Số cuối năm Số đầu năm A. TÀI SẢN NGẮN HẠN 100 6.927.879.980.560 5.645.895.372.740 C. NỢ PHẢI TRẢ 300 6.734.690.667.600 6.625.537.388.340 I. Tiền và các khoản tương đương tiền 110 4 2.256.047.157.280 2.078.586.541.400 I. Nợ ngắn hạn 310 3.146.135.991.040 2.868.228.338.410 1. Tiền 111 2.186.313.331.440 2.028.432.372.150 1. Phải trả người bán ngắn hạn 311 16 569.419.182.080 567.815.332.270 2. Các khoản tương đương tiền 112 69.733.825.840 50.154.169.250 2. Người mua trả tiền trước ngắn hạn 312 17 263.391.759.680 85.966.108.360 II. Đầu tư tài chính ngắn hạn 120 1.278.224.697.680 424.471.711.880 3. Thuế và các khoản phải nộp Nhà nước 313 18 93.707.922.000 58.577.719.320 1. Đầu tư nắm giữ đến ngày đáo hạn 123 5 1.278.224.697.680 424.471.711.880 4. Phải trả người lao động 314 125.894.309.520 118.469.535.580 III. Các khoản phải thu ngắn hạn 130 2.313.956.884.400 2.163.333.176.040 5. Chi phí phải trả ngắn hạn 315 19 701.235.365.600 498.364.908.680 1. Phải thu ngắn hạn của khách hàng 131 6 1.719.317.755.120 1.735.160.389.980 6. Phải trả ngắn hạn khác 319 20 375.423.502.160 337.986.627.230 2. Trả trước cho người bán ngắn hạn 132 7 240.849.532.560 111.908.063.730 7. Vay ngắn hạn 320 21 553.352.813.440 83",
+      "queue_stratum": "positive_candidate"
+    },
+    {
+      "source_name": "VTP_24CN_BCTN.pdf",
+      "source_path": "/mnt/d/reasoning_model_V4/reasoning_model/pdf/PDF_24/PDF_24/VTP_24CN_BCTN.pdf",
+      "source_sha256": "9de23a2be154461c968fca326675ea06bd6cbae2996dae6664a2084e937a2056",
+      "company_key": "development-company-f61b854ea6de4f03",
+      "page": 51,
+      "page_text_sha256": "e3ebcc21ee1c9489f1669b660c64954d6b6297390018bb09153928809ed45269",
+      "candidate_stratum": "positive_candidate",
+      "proof_or_failure_type": "complete_required_role_triplet",
+      "signals": {
+        "required_roles": {
+          "short_term_borrowings": 1,
+          "long_term_borrowings": 1,
+          "total_capital": 1
+        },
+        "broad_liabilities": {
+          "current_liabilities": 1,
+          "long_term_liabilities": 1,
+          "total_liabilities": 1
+        },
+        "confound_totals": {
+          "total_assets": 0,
+          "total_liabilities": 1,
+          "owners_equity": 2
+        }
+      },
+      "excerpt": "TỔNG CÔNG TY CỔ PHẦN BƯU CHÍNH VIETTEL MẪU SỐ B01-DN/HN Số 2, ngõ 15 phố Duy Tân, Phường Dịch Vọng Hậu, Ban hành theo Thông tư số 202/2014/TT-BTC Quận Cầu Giấy, Thành phố Hà Nội, Việt Nam ngày 22 tháng 12 năm 2014 của Bộ Tài chính BẢNG CÂN ĐỐI KẾ TOÁN HỢP NHẤT (Tiếp theo) Tại ngày 31 tháng 12 năm 2024 Đơn vị: VND Thuyết Số đầu năm NGUỒN VỐN Mã số minh Số cuối năm (Trình bày lại) C. NỢ PHẢI TRẢ 300 4.775.100.011.952 4.855.177.276.852 I. Nợ ngắn hạn 310 4.676.144.433.818 4.801.780.217.636 1. Phải trả người bán ngắn hạn 311 16 660.902.415.331 484.658.949.820 2. Người mua trả tiền trước ngắn hạn 312 3.987.739.541 3.515.514.378 3. Thuế và các khoản phải nộp Nhà 313 17 122.515.531.270 121.634.994.376 nước 4. Phải trả người lao động 314 581.595.506.372 587.326.219.182 5. Chi phí phải trả ngắn hạn 315 18 329.879.721.788 316.727.484.002 6. Doanh thu chưa thực hiện ngắn hạn 318 19 42.941.314.075 32.384.633.331 7. Phải trả ngắn hạn khác 319 20 1.470.158.663.520 1.569.593.012.530 8. Vay ngắn hạn 320 21 1.375.517.858.200 1.670.707.830.732 9. Quỹ khen thưởng, phúc lợi 322 23 88.645.683.721 15.231.579.285 II. Nợ dài hạn 330 98.955.578.134 53.397.059.216 1. Phải trả dài hạn khác 337 20 26.452.964.500 12.606.347.100 2. Vay dài hạn 338 22 72.502.613.634 40.790.712.116 D. VỐN CHỦ SỞ HỮU 400 1.588.456.546.171 1.584.216.879.869 I. Vốn chủ sở hữu 410 24 1.588.456.546.171 1.584.216.879.869 1. Vốn góp của chủ sở hữu 411 1.217.830.420.000 1.217.830.420.000 - Cổ phiếu phổ thông có quyền biểu 1.217.830.420.000 1.217.830.420.000 411a quyết 2. Thặng dư vốn cổ phần 412 21.173.847.940 21.173.847.940 3. C",
+      "queue_stratum": "positive_candidate"
+    },
+    {
+      "source_name": "HPT_23CN_BCTN.pdf",
+      "source_path": "/mnt/d/reasoning_model_V4/reasoning_model/pdf/PDF_23/HPT_23CN_BCTN.pdf",
+      "source_sha256": "149cad466f6bdfa5f6a0714212df90ad71b53109a37e766bcb338bf5cf150735",
+      "company_key": "development-company-fa1ca992cbacde62",
+      "page": 39,
+      "page_text_sha256": "2e6aca5e65e5b3dd873d2e8d12c2c721c9f1184f1ebc3d38871613888289147e",
+      "candidate_stratum": "positive_candidate",
+      "proof_or_failure_type": "complete_required_role_triplet",
+      "signals": {
+        "required_roles": {
+          "short_term_borrowings": 1,
+          "long_term_borrowings": 1,
+          "total_capital": 1
+        },
+        "broad_liabilities": {
+          "current_liabilities": 1,
+          "long_term_liabilities": 1,
+          "total_liabilities": 1
+        },
+        "confound_totals": {
+          "total_assets": 0,
+          "total_liabilities": 1,
+          "owners_equity": 3
+        }
+      },
+      "excerpt": "BÁO CÁO CỦA KIỂM TOÁN CÔNG TY CỔ PHẦN DỊCH VỤ CÔNG NGHỆ TIN HỌC HPT Mẫu số B 01 - DN CÔNG TY CỔ PHẦN DỊCH VỤ CÔNG NGHỆ TIN HỌC HPT Mẫu số B 01 - DN BẢNG CÂN ĐỐI KẾ TOÁN BẢNG CÂN ĐỐI KẾ TOÁN Đơn vị tính: Đồng Việt Nam Đơn vị tính: Đồng Việt NamTại ngày 31 tháng 3 năm 2024 Tại ngày 31 tháng 3 năm 2024 NGUỒN VỐN Mã số Thuyết minh 31/3/2024 01/4/2023 NGUỒN VỐN Mã số Thuyết minh 31/3/2024 01/4/2023 C. NỢ PHẢI TRẢ 300 248,779,782,398 245,973,907,494 I. Nợ ngắn hạn 310 248,505,097,741 245,129,087,681 D. VỐN CHỦ SỞ HỮU 400 151,294,396,037 128,233,787,805 1. Phải trả cho người bán ngắn hạn 311 V.11 154,557,032,650 135,320,751,405 2. Người mua trả tiền trước ngắn hạn 312 V.12 20,571,597,183 38,365,327,807 I. Vốn chủ sở hữu 410 V.18 151,294,396,037 128,233,787,805 3. Thuế và các khoản phải nộp Nhà nước 313 V.13 9,280,785,738 11,623,969,173 1. Vốn góp của chủ sở hữu 411 100,659,600,000 90,841,010,000 4. Phải trả người lao động 314 7,893,006,999 9,428,050,000 - Cổ phiếu phổ thông có quyền biểu quyết 411a 100,659,600,000 90,841,010,000 5. Chi phí phải trả ngắn hạn 315 V.14 24,119,328,542 25,123,737,886 - Cổ phiếu ưu đãi 411 - - 6. Phải trả nội bộ ngắn hạn 316 - - 2. Thặng dư vốn cổ phần 412 139.500.000 139.500.000 7. Phải trả theo tiến độ kế hoạch hợp đồng 3. Quyền chọn chuyển đổi trái phiếu 413 - - xây dựng 317 - - 4. Vốn khác của chủ sở hữu 414 - - 8. Doanh thu chưa thực hiện ngắn hạn 318 - - 5. Cổ phiếu quỹ 415 (2,155,280,020) (2,155,280,020) 9. Phải trả ngắn hạn khác 319 V.15 2,743,548,430 2,152,150,981 6. Chênh lệch đánh giá lại tài sản 416 - - 10. Vay và nợ thuê tài chính ngắn hạn ",
+      "queue_stratum": "positive_candidate"
+    },
+    {
+      "source_name": "RAL_23CN_BCTN.pdf",
+      "source_path": "/mnt/d/reasoning_model_V4/reasoning_model/pdf/PDF_23/RAL_23CN_BCTN.pdf",
+      "source_sha256": "4e5a9fd98ad8ecb6a6f84ffc7b08b28f72eb66f7cceb1a4e1ddc0cec16ef970b",
+      "company_key": "development-company-ff7180d8b03b26b2",
+      "page": 79,
+      "page_text_sha256": "e0ed546f0d83dadb65f3418180b6ad03df2479e05a03e780515173fa7201e9b6",
+      "candidate_stratum": "positive_candidate",
+      "proof_or_failure_type": "complete_required_role_triplet",
+      "signals": {
+        "required_roles": {
+          "short_term_borrowings": 1,
+          "long_term_borrowings": 1,
+          "total_capital": 1
+        },
+        "broad_liabilities": {
+          "current_liabilities": 1,
+          "long_term_liabilities": 1,
+          "total_liabilities": 1
+        },
+        "confound_totals": {
+          "total_assets": 0,
+          "total_liabilities": 1,
+          "owners_equity": 3
+        }
+      },
+      "excerpt": "Công ty Cổ phần Bóng đèn Phích nước Rạng Đông 87 - 89 Hạ Đình, phường Thanh Xuân Trung, quận Thanh Báo cáo tài chính Xuân, thành phố Hà Nội Cho năm tài chính kết thúc ngày 31/12/2023 BẢNG CÂN ĐỐI KẾ TOÁN Tại ngày 31 tháng 12 năm 2023 (tiếp theo) Mã NGUỒN VỐN Thuyết 31/12/2023 01/01/2023 số minh VND VND 300 C. NỢ PHẢI TRẢ 4,777,415,780,068 4,094,788,300,608 310 I. Nợ ngắn hạn 4,776,578,293,674 4,093,950,814,214 311 1. Phải trả người bán ngắn hạn 14 899,213,070,821 1,018,483,772,765 312 2. Người mua trả tiền trước ngắn hạn 15 19,272,039,354 15,237,312,691 313 3. Thuế và các khoản phải nộp Nhà nước 16 27,781,200,893 81,688,542,803 314 4. Phải trả người lao động 56,738,777,374 58,038,716,536 315 5. Chi phí phải trả ngắn hạn 17 335,392,388,829 408,411,860,067 319 6. Phải trả ngắn hạn khác 18 103,218,555,840 95,733,498,970 320 7. Vay và nợ thuê tài chính ngắn hạn 13 3,102,786,916,832 2,297,652,485,048 322 8. Quỹ khen thưởng phúc lợi 232,175,343,731 118,704,625,334 330 II. Nợ dài hạn 837,486,394 837,486,394 338 1. Vay và nợ thuê tài chính dài hạn 13 837,486,394 837,486,394 400 D. VỐN CHỦ SỞ HỮU 2,974,272,459,760 2,621,694,793,680 410 I. Vốn chủ sở hữu 19 2,974,272,459,760 2,621,694,793,680 411 1. Vốn góp của chủ sở hữu 235,474,190,000 229,474,190,000 411a - Cổ phiếu phổ thông có quyền biểu quyết 235,474,190,000 229,474,190,000 412 2. Thặng dư vốn cổ phần 1,077,593,300,829 1,077,593,300,829 418 3. Quỹ đầu tư phát triển 674,604,842,722 531,853,421,243 420 4. Quỹ khác thuộc vốn chủ sở hữu 461,197,065,233 354,315,039,525 421 5. Lợi nhuận sau thuế chưa phân phối 525,403,060,976 428,458",
+      "queue_stratum": "positive_candidate"
+    }
+  ]
+}

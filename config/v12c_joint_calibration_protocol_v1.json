@@ -1,0 +1,151 @@
+{
+  "protocol": "v12c-joint-calibration-protocol-v1",
+  "status": "precommitted_before_new_source_discovery",
+  "classification": "development_only_precommitted_calibration_protocol",
+  "created_date": "2026-08-12",
+  "protected_evaluation_sources_allowed": false,
+  "training_or_fine_tuning_allowed": false,
+  "model_or_reranker_change_allowed": false,
+  "runtime_threshold_change_during_measurement_allowed": false,
+  "alternative_threshold_search_allowed": false,
+  "scope": "V12-C interest-bearing debt share only; evidence-conditioned program/execution and accept/abstain measurement.",
+  "locked_inputs": {
+    "development_catalog": {
+      "path": "data/pdf_development_company_catalog_v3.json",
+      "sha256": "17f74e49fe1894871453dd0c2b2ec8f13fa3650c4294c324d90bc7e47dd8bb2b"
+    },
+    "checkpoint": {
+      "path": "models/document_hrm_V8_candidate.pt",
+      "sha256": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de"
+    },
+    "runtime_source": {
+      "path": "src/hrm_finance_qa/document_reasoning_engine.py",
+      "sha256": "c63b028387bb0be7fc74a799e3f5a21e09bed07adaffb444bf53bc47d5395bb9"
+    },
+    "frozen_ratio_percent_threshold": 0.9909889376955401
+  },
+  "exclusion_cohorts": [
+    {
+      "path": "data/v12c_interest_bearing_debt_share_development_frozen_v1.jsonl",
+      "sha256": "13e4f290f7301d159edda87ed267607a80963e72bd9853329352726f70cfd520",
+      "role": "repair"
+    },
+    {
+      "path": "data/v12c_interest_bearing_debt_share_independent_calibration_frozen_v1.jsonl",
+      "sha256": "58b1304afabbfd87f2f12cdf9b9694d996210a40768646368bff8e9274ca7133",
+      "role": "prior_positive_measurement"
+    },
+    {
+      "path": "data/v12c_interest_bearing_debt_share_negative_ambiguity_frozen_v1.jsonl",
+      "sha256": "17d8bc460346409200fa167ad485a7f3b056b497f1b3c4bec19b38618f5e1882",
+      "role": "prior_negative_measurement"
+    }
+  ],
+  "exclusion_policy": {
+    "exclude_before_opening_source": true,
+    "exclude_by_ticker": true,
+    "exclude_by_company_key": true,
+    "excluded_tickers": [
+      "ACG", "AGG", "AGM", "API", "CMG", "DCM", "DHP", "GMD", "HHC",
+      "HSG", "HTI", "KSF", "LAS", "NAF", "PAN", "PGS", "PIC", "SBB",
+      "SCG", "SRF", "TCR", "TLG", "TNH", "VHM", "VID", "VLW", "VSC"
+    ],
+    "excluded_company_keys": [
+      "development-company-00e37ffae0562ab6",
+      "development-company-02d5d0522a76608d",
+      "development-company-035456962822e6bf",
+      "development-company-0492c0e11c3838d3",
+      "development-company-07",
+      "development-company-0a465797a15eeb6b",
+      "development-company-0b28864100007207",
+      "development-company-0bd804ff4d877831",
+      "development-company-0d0d213f8044dc8f",
+      "development-company-0edcdb4ac852829d",
+      "development-company-128d077252ff6e80",
+      "development-company-13",
+      "development-company-14c2529eb4498c5d",
+      "development-company-168f6154daec7420",
+      "development-company-1a13a1d7e90611ba",
+      "development-company-1ae2af0e40480754",
+      "development-company-1d180849caa0b38e",
+      "development-company-1fde0b02049a9bea",
+      "development-company-1ff838dc6ca9680d",
+      "development-company-20",
+      "development-company-207f7bcecdcedf8b",
+      "development-company-2255c8b55faa7d4f",
+      "development-company-248fb276f60f01c8",
+      "development-company-26d5fb98b8c88a18",
+      "development-company-32f04cd59918b4b9",
+      "development-company-355521816b3689f4",
+      "development-company-3a6490b72b5ad015"
+    ]
+  },
+  "cohort_contract": {
+    "company_disjoint_from_all_exclusions": true,
+    "company_disjoint_between_positive_and_negative_strata": true,
+    "maximum_pages_per_company_per_stratum": 1,
+    "maximum_period_controls_per_page": 2,
+    "positive": {
+      "minimum_controls": 30,
+      "minimum_company_groups": 15,
+      "required_raw_roles": [
+        "short_term_borrowings", "long_term_borrowings", "total_capital"
+      ],
+      "required_proof": "unique same-source, same-table, same-period, same-entity/scope, same-currency-scale triplet with nonzero denominator",
+      "visual_qa_required": true
+    },
+    "negative": {
+      "minimum_controls": 30,
+      "minimum_company_groups": 15,
+      "minimum_failure_strata": 3,
+      "allowed_failure_strata": [
+        "missing_required_raw_role",
+        "invalid_borrowing_role_semantics",
+        "ambiguous_duplicate_role",
+        "scope_or_table_mismatch",
+        "period_mismatch",
+        "unit_scale_mismatch",
+        "zero_denominator"
+      ],
+      "expected_outcome": "ABSTAIN",
+      "visual_qa_required": true
+    }
+  },
+  "measurement": {
+    "primary_unit": "example",
+    "secondary_units": ["company_group", "failure_stratum"],
+    "accepted_positive_is_correct": "program exact AND execution exact",
+    "accepted_negative_is_false_accept": true,
+    "accepted_precision_numerator": "accepted positive controls with program and execution exact",
+    "accepted_precision_denominator": "all accepted controls across positive and negative strata",
+    "confidence_interval": {
+      "method": "Clopper-Pearson exact binomial",
+      "sidedness": "one-sided lower",
+      "confidence_level": 0.95
+    }
+  },
+  "precommitted_operating_point_gate": {
+    "minimum_accepted_precision_point_estimate": 0.90,
+    "minimum_accepted_precision_one_sided_95_lower_bound": 0.90,
+    "minimum_accepted_answers": 30,
+    "minimum_accepted_company_groups": 15,
+    "minimum_positive_accepted_coverage": 0.50,
+    "maximum_negative_false_accept_rate": 0.0,
+    "require_zero_false_accept_in_every_negative_failure_stratum": true,
+    "require_checkpoint_hash_unchanged": true,
+    "require_runtime_threshold_unchanged": true,
+    "all_conditions_required": true
+  },
+  "feasibility_stop_rule": {
+    "if_minimum_stratum_size_cannot_be_frozen": "stop_and_report_protocol_infeasible",
+    "lowering_sample_or_company_minimum_after_discovery_allowed": false,
+    "reusing_excluded_companies_allowed": false,
+    "reading_protected_sources_to_fill_quota_allowed": false
+  },
+  "interpretation_guard": {
+    "zero_acceptance_is_not_zero_precision": true,
+    "zero_negative_false_accepts_alone_does_not_authorize_threshold_change": true,
+    "passing_this_measurement_does_not_itself_change_runtime_threshold": true,
+    "phase_d_remains_locked_until_a_separate_authorized_decision": true
+  }
+}

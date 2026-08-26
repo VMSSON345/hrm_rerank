@@ -1,0 +1,37 @@
+{
+  "protocol": "v12c-interest-bearing-debt-share-cohort-discovery-v1",
+  "classification": "development_only",
+  "protected_evaluation_sources_used": false,
+  "sources": [
+    {
+      "path": "/mnt/d/reasoning_model_V4/reasoning_model/data/validation.jsonl",
+      "sha256": "87bf973de7c8694524ec2d7d712a208ecee62e1a565eb61ec2fddc4c57e02712",
+      "source_rows": 200,
+      "unique_structural_cases": 0,
+      "company_keys": [],
+      "cases": []
+    },
+    {
+      "path": "/mnt/d/reasoning_model_V4/reasoning_model/data/document_hrm_development_v1_train.jsonl",
+      "sha256": "8d445cbc776ec10ffb9b94bf4fd0693eb1ab3857837d6cd509e49b6f4a1a5bb0",
+      "source_rows": 1021,
+      "unique_structural_cases": 0,
+      "company_keys": [],
+      "cases": []
+    },
+    {
+      "path": "/mnt/d/reasoning_model_V4/reasoning_model/data/document_pointer_common_development_semantic_canonical_v5.jsonl",
+      "sha256": "a7e27ab226b824b412de2d661eb856d9ba8fbd3b12a1a4de0f44ed6ae71d2396",
+      "source_rows": 121,
+      "unique_structural_cases": 0,
+      "company_keys": [],
+      "cases": []
+    }
+  ],
+  "summary": {
+    "unique_structural_cases": 0,
+    "unique_company_keys": 0,
+    "company_keys": [],
+    "company_disjoint_calibration_ready": false
+  }
+}

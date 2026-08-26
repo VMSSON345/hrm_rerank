@@ -1,0 +1,357 @@
+{
+  "schema": "finhrm-qp3-answer-presentation-implementation-v1",
+  "created_at": "2026-08-21",
+  "classification": "development_only_source_backed_presentation_confirmation",
+  "status": "complete",
+  "implementation_gate_passed": true,
+  "failed_gates": [],
+  "parents": {
+    "presentation_precommit": {
+      "path": "config/finhrm_qp3_answer_presentation_precommit_v1.json",
+      "sha256": "5b695f34141db63ea292d29d141e232cf8564bdb942270ae2e9576e4cbfd1b6a"
+    },
+    "presentation_precommit_lock": {
+      "path": "reports/finhrm_qp3_answer_presentation_precommit_lock_v1.json",
+      "sha256": "180db7736b46cd332e03cb3b86a29a0101bf3723d171eda3a6983854580ca05e"
+    },
+    "reviewed_pdf_cohort": {
+      "path": "reports/finhrm_qp3_core_add_diverse_development_reviewed_cohort_v1.json",
+      "sha256": "f187e5966f47069717cbdc1cdf9fd063ef74d2418a1b5e1850a89bb3cdbca28f"
+    },
+    "end_to_end_pdf_replay": {
+      "path": "reports/finhrm_qp3_core_add_diverse_end_to_end_v1.json",
+      "sha256": "774e174610137a9be134497259c30f075ca9ab1dd3df3f6f0bfe9ce00d77a53d"
+    },
+    "frozen_safe_replay": {
+      "path": "reports/finhrm_qp3_core_s4_safe_replay_post_add_diverse_end_to_end_final_v1.json",
+      "sha256": "708201c05a25df3d0e00b9d9f3d43a2948614416aaa8c4b60fb33d3a925d978a"
+    }
+  },
+  "selection_policy": {
+    "evaluate_all_eligible_records": true,
+    "required": [
+      "independently_reviewed_approved",
+      "real PDF source hash exact",
+      "end-to-end positive passed",
+      "existing runtime action ANSWER",
+      "gold proof contract VALID",
+      "two distinct provenanced leaf cells",
+      "explicit non-empty result unit",
+      "source span and extraction method present"
+    ],
+    "forbidden_selection_inputs": [
+      "company identity",
+      "report filename",
+      "page number",
+      "year",
+      "numeric value",
+      "example id",
+      "question literal",
+      "candidate rank",
+      "neural score",
+      "confidence"
+    ],
+    "fact_construction": "Each FACT is a typed leaf already independently verified inside the accepted end-to-end computation, preserving its exact physical provenance.",
+    "computation_construction": "Each COMPUTATION is the accepted end-to-end ADD result with its two exact selected leaf citations.",
+    "summary_construction": "Each VERIFIED_SUMMARY contains the two verified FACT rows and their verified COMPUTATION as an explicit three-row inventory.",
+    "synthetic_fixture_counts_toward_coverage": false,
+    "abw_allowed": false,
+    "protected_evaluation_allowed": false
+  },
+  "runtime_hashes": {
+    "src/hrm_finance_qa/answer_presentation.py": "c40bd4a8dff39162b44cf11ef2da12e7b153d907f7254e5d1856157b3ac56d36",
+    "src/hrm_finance_qa/document_reasoning_engine.py": "3883500011472716bc01f8e04a6d6f925173b35a14bbedd945c5ca4fb0063fa2"
+  },
+  "frozen_runtime_hashes": {
+    "src/hrm_finance_qa/document_hrm.py": "b5951bcde79583950b672f7fb6b199b3e5b9904e6784daae7c4c5be0eba65d21",
+    "src/hrm_finance_qa/question_planner.py": "58404c5a04ffced2c00056a10e470730a8fb9ef723d3e8c5668f13b0a65571a6",
+    "src/hrm_finance_qa/program_synthesis.py": "e4acc4878d0dfd465ba66ab91f3aaf8be71db5591aa1358fb8cb81f3c7bff550",
+    "src/hrm_finance_qa/symbolic_verifier.py": "e9efa8d2fa9ce1aedd460cdd11c1eb9321aab7122b0908fc5017687c1491ed88",
+    "src/hrm_finance_qa/evidence_schema.py": "2f16fabf932dc9dabc8203d9642d2503bb2dab43e0e1ee0f78755dd4fb00825d",
+    "src/hrm_finance_qa/program_data.py": "5199434fc0628b7d270ce62b12657366cbe118901065edd9f1e1f6ca0f1f8d54",
+    "src/hrm_finance_qa/document_page_index.py": "c99e011175afef21f302be42ba9454b948caa549d4d445d6bb35c5b974b81f85",
+    "src/hrm_finance_qa/document_sources.py": "e9eb7b3ddcc2ed13060a573a6a0101a216fa49ff21dd65cd5fc2629b92f5fc0b",
+    "src/hrm_finance_qa/financial_identities.py": "ee7347885f561d5f5d9c404964ecb7a46f1275186e100f2236e53114aeacd2ee",
+    "src/hrm_finance_qa/direction_contract.py": "a18aa130419fc74ce647bd92dc9c1b1217007738e636aad0f28c7f78396be937"
+  },
+  "checkpoint_sha256": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de",
+  "results": {
+    "eligible_source_backed_records": 5,
+    "source_backed_scalar_envelopes": 15,
+    "mode_metrics": {
+      "COMPUTATION": {
+        "examples": 5,
+        "answers": 5,
+        "companies": 5,
+        "real_layout_families": 3,
+        "source_documents": 5,
+        "coverage_gate_passed": true,
+        "company": {
+          "groups": 5,
+          "macro_answer_rate": 1.0,
+          "worst_group_answer_rate": 1.0,
+          "by_group": {
+            "development-company-02cee318d68057bf": {
+              "examples": 1,
+              "answer_rate": 1.0
+            },
+            "development-company-02d5d0522a76608d": {
+              "examples": 1,
+              "answer_rate": 1.0
+            },
+            "development-company-03": {
+              "examples": 1,
+              "answer_rate": 1.0
+            },
+            "development-company-0a3c720ab489e28b": {
+              "examples": 1,
+              "answer_rate": 1.0
+            },
+            "development-company-171130f90d122e5d": {
+              "examples": 1,
+              "answer_rate": 1.0
+            }
+          }
+        },
+        "layout": {
+          "groups": 3,
+          "macro_answer_rate": 1.0,
+          "worst_group_answer_rate": 1.0,
+          "by_group": {
+            "native_text_mixed_orientation": {
+              "examples": 1,
+              "answer_rate": 1.0
+            },
+            "native_text_portrait": {
+              "examples": 2,
+              "answer_rate": 1.0
+            },
+            "scanned_image_dominant": {
+              "examples": 2,
+              "answer_rate": 1.0
+            }
+          }
+        }
+      },
+      "FACT": {
+        "examples": 10,
+        "answers": 10,
+        "companies": 5,
+        "real_layout_families": 3,
+        "source_documents": 5,
+        "coverage_gate_passed": true,
+        "company": {
+          "groups": 5,
+          "macro_answer_rate": 1.0,
+          "worst_group_answer_rate": 1.0,
+          "by_group": {
+            "development-company-02cee318d68057bf": {
+              "examples": 2,
+              "answer_rate": 1.0
+            },
+            "development-company-02d5d0522a76608d": {
+              "examples": 2,
+              "answer_rate": 1.0
+            },
+            "development-company-03": {
+              "examples": 2,
+              "answer_rate": 1.0
+            },
+            "development-company-0a3c720ab489e28b": {
+              "examples": 2,
+              "answer_rate": 1.0
+            },
+            "development-company-171130f90d122e5d": {
+              "examples": 2,
+              "answer_rate": 1.0
+            }
+          }
+        },
+        "layout": {
+          "groups": 3,
+          "macro_answer_rate": 1.0,
+          "worst_group_answer_rate": 1.0,
+          "by_group": {
+            "native_text_mixed_orientation": {
+              "examples": 2,
+              "answer_rate": 1.0
+            },
+            "native_text_portrait": {
+              "examples": 4,
+              "answer_rate": 1.0
+            },
+            "scanned_image_dominant": {
+              "examples": 4,
+              "answer_rate": 1.0
+            }
+          }
+        }
+      },
+      "VERIFIED_SUMMARY": {
+        "examples": 5,
+        "answers": 5,
+        "companies": 5,
+        "real_layout_families": 3,
+        "source_documents": 5,
+        "coverage_gate_passed": true,
+        "company": {
+          "groups": 5,
+          "macro_answer_rate": 1.0,
+          "worst_group_answer_rate": 1.0,
+          "by_group": {
+            "development-company-02cee318d68057bf": {
+              "examples": 1,
+              "answer_rate": 1.0
+            },
+            "development-company-02d5d0522a76608d": {
+              "examples": 1,
+              "answer_rate": 1.0
+            },
+            "development-company-03": {
+              "examples": 1,
+              "answer_rate": 1.0
+            },
+            "development-company-0a3c720ab489e28b": {
+              "examples": 1,
+              "answer_rate": 1.0
+            },
+            "development-company-171130f90d122e5d": {
+              "examples": 1,
+              "answer_rate": 1.0
+            }
+          }
+        },
+        "layout": {
+          "groups": 3,
+          "macro_answer_rate": 1.0,
+          "worst_group_answer_rate": 1.0,
+          "by_group": {
+            "native_text_mixed_orientation": {
+              "examples": 1,
+              "answer_rate": 1.0
+            },
+            "native_text_portrait": {
+              "examples": 2,
+              "answer_rate": 1.0
+            },
+            "scanned_image_dominant": {
+              "examples": 2,
+              "answer_rate": 1.0
+            }
+          }
+        }
+      }
+    },
+    "presentation_checks": {
+      "all_source_backed_envelopes_schema_valid": true,
+      "numeric_value_unit_scale_exact": true,
+      "citation_exact": true,
+      "operand_citation_coverage_exact": true,
+      "derivation_replay_exact": true,
+      "unsupported_claim_count_zero": true,
+      "summary_complete_false_claim_count_zero": true,
+      "answer_promotion_count_zero": true,
+      "candidate_permutation_exact": true,
+      "citation_permutation_exact": true,
+      "summary_input_permutation_exact": true,
+      "hard_negative_false_accept_count_zero": true
+    },
+    "candidate_permutation_exact": "5/5",
+    "citation_permutation_exact": "15/15",
+    "summary_input_permutation_exact": "5/5",
+    "hard_negatives": {
+      "PRES_WRONG_PAGE": "REJECTED_BY_VALIDATION",
+      "PRES_WRONG_STATEMENT": "REJECTED_BY_VALIDATION",
+      "PRES_WRONG_YEAR": "REJECTED_BY_VALIDATION",
+      "PRES_SCALE_X1000": "REJECTED_BY_VALIDATION",
+      "PRES_SWAPPED_OPERAND": "REJECTED_BY_VALIDATION",
+      "PRES_MISSING_SUMMARY_ROW": "ABSTAIN",
+      "PRES_UNCITED_QUALITATIVE_CAUSE": "ABSTAIN_AND_OMITTED",
+      "PRES_PARENT_ACTION_PROMOTION": "ABSTAIN"
+    },
+    "hard_negative_false_accepts": 0,
+    "presentation_and_report_tests": "22/22",
+    "affected_regression_tests": "293/293",
+    "frozen_core_checks": {
+      "actions_exact": true,
+      "gold_execution_exact": true,
+      "candidate_permutation_exact": true,
+      "counterfactual_exact": true
+    },
+    "frozen_core_actions": {
+      "ABSTAIN": 90,
+      "ANSWER": 259,
+      "REJECT": 14
+    },
+    "frozen_core_execution": "363/363",
+    "frozen_core_permutation": "363/363",
+    "frozen_core_counterfactual_false_accepts": 0
+  },
+  "details": [
+    {
+      "record_key": "a9cc9c1dc9c9b1aa",
+      "company_key": "development-company-02d5d0522a76608d",
+      "layout_family": "native_text_portrait",
+      "source_key": "DEVPDF_0512d6848014459b",
+      "fact_answers": 2,
+      "computation_action": "ANSWER",
+      "summary_action": "ANSWER"
+    },
+    {
+      "record_key": "cf85ee1ddc092f47",
+      "company_key": "development-company-171130f90d122e5d",
+      "layout_family": "native_text_mixed_orientation",
+      "source_key": "DEVPDF_05982d532c7771e9",
+      "fact_answers": 2,
+      "computation_action": "ANSWER",
+      "summary_action": "ANSWER"
+    },
+    {
+      "record_key": "d63bd97901fd25a1",
+      "company_key": "development-company-0a3c720ab489e28b",
+      "layout_family": "native_text_portrait",
+      "source_key": "DEVPDF_3e5568ee0dd44c45",
+      "fact_answers": 2,
+      "computation_action": "ANSWER",
+      "summary_action": "ANSWER"
+    },
+    {
+      "record_key": "bc81912c8d61872c",
+      "company_key": "development-company-02cee318d68057bf",
+      "layout_family": "scanned_image_dominant",
+      "source_key": "DEVPDF_156945b3a6df780a",
+      "fact_answers": 2,
+      "computation_action": "ANSWER",
+      "summary_action": "ANSWER"
+    },
+    {
+      "record_key": "4756b5524791dddb",
+      "company_key": "development-company-03",
+      "layout_family": "scanned_image_dominant",
+      "source_key": "DEVPDF_519da08c72bedfc2",
+      "fact_answers": 2,
+      "computation_action": "ANSWER",
+      "summary_action": "ANSWER"
+    }
+  ],
+  "invariants": {
+    "company_or_report_specific_runtime_rule_added": false,
+    "candidate_rank_score_or_confidence_used_as_proof": false,
+    "renderer_invented_claim_or_provenance": false,
+    "threshold_changed": false,
+    "checkpoint_changed": false,
+    "model_changed": false,
+    "fine_tuning_performed": false,
+    "abw_used": false,
+    "protected_evaluation_loaded": false,
+    "synthetic_layout_counted_as_confirmation": false,
+    "unseen_or_universal_claim_made": false,
+    "qp4_authorized": false,
+    "phase_d_unlocked": false
+  },
+  "qp3_complete": true,
+  "qp4_precommit_authorized": true,
+  "qp4_runtime_change_authorized": false,
+  "phase_d": "locked",
+  "authorized_next_step": "QP4-PRECOMMIT only: freeze counterfactual and long-question stress cohorts, minimal-pair mutations, invariance gates and exact runtime scope before any QP4 runtime edit. Phase D remains locked."
+}

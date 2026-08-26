@@ -1,0 +1,527 @@
+{
+  "schema": "finhrm.qp4.full_source_semantic_replay_refresh.semantic_diagnostic_review_precommit.v1",
+  "created_at": "2026-08-24",
+  "classification": "development_only_artifact_only_semantic_diagnostic_review_precommit_no_runtime_no_model_no_source_execution",
+  "status": "PRECOMMIT_LOCKED",
+  "step": "QP4-FULL-SOURCE-SEMANTIC-REPLAY-REFRESH-SEMANTIC-DIAGNOSTIC-REVIEW-PRECOMMIT",
+  "precommit_gate_passed": true,
+  "failed_gates": [],
+  "purpose": "Freeze an executable, read-only diagnostic review of every frozen primary and candidate-permutation result in the 90-row full-source semantic replay. The review may establish generic earliest-failure surfaces, but may not infer a runtime root cause or authorize a runtime edit without direct trace evidence and a later precommit.",
+  "parents": {
+    "claude_md": {
+      "path": "CLAUDE.md",
+      "size_bytes": 3494,
+      "sha256": "b3e61c65fd4f36a86d5ba4fac780150960c81bfe7cf5f4a9a685071a408178aa"
+    },
+    "thesis_core": {
+      "path": "config/finhrm_thesis_core_v1.json",
+      "size_bytes": 24625,
+      "sha256": "a9f2f3088f7622c6c8912086eac16252f154fcae1164a3fe7ba75107a0ece502"
+    },
+    "generalization_invariant": {
+      "path": "config/finhrm_report_generalization_invariant_v1.json",
+      "size_bytes": 2512,
+      "sha256": "7a8c6e58a47314d522adb782277f6d5bf0cbf761faf681d848e2e9ae4e861846"
+    },
+    "original_source_replay_precommit": {
+      "path": "config/finhrm_qp4_post_question_surface_post_cache_residual_coverage_source_replay_precommit_v1.json",
+      "size_bytes": 19532,
+      "sha256": "9e9c158c2721a7fa610f88a7c2d27eb26f3f30e0c6aae2b6fc3456bf64f298f3"
+    },
+    "full_source_replay_precommit": {
+      "path": "config/finhrm_qp4_full_source_semantic_replay_refresh_precommit_v1.json",
+      "size_bytes": 20136,
+      "sha256": "e0aa75cdf6d546fd00a0faac68a8b7f70961e5018894e2afee18086863dcf08b"
+    },
+    "full_source_replay_precommit_lock": {
+      "path": "reports/finhrm_qp4_full_source_semantic_replay_refresh_precommit_lock_v1.json",
+      "size_bytes": 3612,
+      "sha256": "c61924ced7a7dd1704e55af5d21dcc7ba3bca0e64ea6115ca356af16fee9695c"
+    },
+    "full_source_replay_report": {
+      "path": "reports/finhrm_qp4_full_source_semantic_replay_refresh_v1.json",
+      "size_bytes": 247897,
+      "sha256": "a693c0b011685dac70be5365d175ce4065dce192b3ce72525a9fa34ad776f56f"
+    },
+    "full_source_replay_markdown": {
+      "path": "reports/finhrm_qp4_full_source_semantic_replay_refresh_v1.md",
+      "size_bytes": 3274,
+      "sha256": "126faadd93f0ebf7d7cea3e5072652f9ead4a53f20e2cdee8ddbe1d03d622ddb"
+    },
+    "full_source_replay_lock": {
+      "path": "reports/finhrm_qp4_full_source_semantic_replay_refresh_lock_v1.json",
+      "size_bytes": 5104,
+      "sha256": "a903a04b6a7f936fdc256616ee9f5e62401afbf3e443070fc89d3111b8c3141b"
+    }
+  },
+  "authorization": {
+    "authorized_by_parent_step": "QP4-FULL-SOURCE-SEMANTIC-REPLAY-REFRESH-SEMANTIC-DIAGNOSTIC-REVIEW-PRECOMMIT",
+    "authorization_exact": true,
+    "runtime_or_model_edit_authorized": false,
+    "source_pdf_or_ocr_read_authorized": false,
+    "new_inference_or_replay_authorized": false,
+    "new_example_or_source_selection_authorized": false,
+    "threshold_checkpoint_or_model_change_authorized": false,
+    "qp5_authorized": false,
+    "phase_d_unlocked": false
+  },
+  "frozen_parent_state": {
+    "status": "FAIL_CLOSED",
+    "implementation_gate_passed": false,
+    "failed_gates": [
+      "proof_complete_exact_target_answers_60",
+      "base_exact_answers_30",
+      "reference_base_mutation_exact_answers_30",
+      "surface_equivalence_groups_12",
+      "source_candidate_permutation_exact_90"
+    ],
+    "selection": {
+      "primary_observations": 90,
+      "candidate_permutation_observations": 90,
+      "anchors": 6,
+      "companies": 6,
+      "sources": 6,
+      "real_document_layout_families": 3,
+      "real_table_layout_families": 6,
+      "extraction_families": 2,
+      "protected_sources": 0,
+      "new_or_replaced_examples": 0
+    },
+    "semantic_results": {
+      "proof_complete_exact_target_answers": "0/60",
+      "base_exact_answers": "0/30",
+      "reference_base_mutation_exact_answers": "0/30",
+      "surface_equivalence_groups": "0/12",
+      "candidate_population_exact_before_transform": "90/90",
+      "source_candidate_permutation_exact": "37/90",
+      "accepted_wrong": 0,
+      "reference_base_old_winner_false_accepts": 0,
+      "semantic_control_false_accepts": 0,
+      "hard_negative_answers": 0
+    },
+    "source_protocol": {
+      "primary_source_errors": 0,
+      "permutation_source_errors": 0,
+      "all_primary_sources_returned": "90/90",
+      "all_permutation_sources_returned": "90/90",
+      "new_ocr_generated": false,
+      "mineru_cache_files_before": 377,
+      "mineru_cache_files_after": 377,
+      "mineru_cache_manifest_exact": true
+    },
+    "primary_actions": {
+      "ANSWER": 0,
+      "ABSTAIN": 28,
+      "REJECT": 62
+    },
+    "permutation_actions": {
+      "ANSWER": 0,
+      "ABSTAIN": 31,
+      "REJECT": 59
+    },
+    "retained_controls": {
+      "compiler": "242/242",
+      "regression": "360/360",
+      "safe_replay_gate": true,
+      "safe_actions": {
+        "ANSWER": 257,
+        "ABSTAIN": 92,
+        "REJECT": 14
+      },
+      "gold_execution": "363/363",
+      "frozen_safe_permutation": "363/363",
+      "counterfactuals": 141,
+      "counterfactual_false_accepts": 0
+    }
+  },
+  "schema_feasibility": {
+    "source": "parents.full_source_replay_report.rows",
+    "logical_rows": 90,
+    "unique_observation_ids": 90,
+    "unique_oracle_row_ids": 90,
+    "primary_results": 90,
+    "permutation_results": 90,
+    "required_row_field_missing_count": 0,
+    "required_result_field_missing_count": 0,
+    "all_rows_have_generic_company_source_layout_and_extraction_labels": true,
+    "all_rows_have_primary_and_permutation_layer_attribution": true,
+    "sufficient_for_layer_category_coverage_and_symptom_signature_aggregation": true,
+    "sufficient_for_runtime_symbol_or_code_path_causality": false,
+    "reason_for_causality_limit": "The compact replay ledger contains exact layer and semantic-check outcomes but not full candidate identities, selected operand traces, proof clauses, or runtime symbol traces. A repeated outcome signature is evidence of a generic failure surface, not proof of its code-level cause.",
+    "clean_process_executable_from_named_inputs": true,
+    "hidden_temporary_input_required": false
+  },
+  "frozen_universe": {
+    "selection_policy": "Retain all 90 logical rows. Diagnose all 82 primary failures and preserve all 8 primary PASS rows as controls. No row may be dropped because of category, company, source, layout, action, permutation outcome, or apparent ease of explanation.",
+    "primary_failures": 82,
+    "primary_pass_controls": 8,
+    "permutation_failures": 80,
+    "permutation_pass_controls": 10,
+    "primary_first_failing_layer": {
+      "QUESTION_PLAN": 0,
+      "SOURCE_LOAD_OR_EXTRACTION": 0,
+      "CANDIDATE_POPULATION_OR_RETRIEVAL": 46,
+      "SEMANTIC_BINDING_OR_PROGRAM_SYNTHESIS": 25,
+      "SYMBOLIC_PROOF_OR_ACTION": 11,
+      "PASS": 8
+    },
+    "permutation_first_failing_layer": {
+      "QUESTION_PLAN": 0,
+      "SOURCE_LOAD_OR_EXTRACTION": 0,
+      "CANDIDATE_POPULATION_OR_RETRIEVAL": 46,
+      "SEMANTIC_BINDING_OR_PROGRAM_SYNTHESIS": 25,
+      "SYMBOLIC_PROOF_OR_ACTION": 9,
+      "PASS": 10
+    },
+    "primary_to_permutation_transition": {
+      "CANDIDATE_POPULATION_OR_RETRIEVAL->CANDIDATE_POPULATION_OR_RETRIEVAL": 46,
+      "SEMANTIC_BINDING_OR_PROGRAM_SYNTHESIS->SEMANTIC_BINDING_OR_PROGRAM_SYNTHESIS": 25,
+      "SYMBOLIC_PROOF_OR_ACTION->SYMBOLIC_PROOF_OR_ACTION": 9,
+      "SYMBOLIC_PROOF_OR_ACTION->PASS": 2,
+      "PASS->PASS": 8
+    },
+    "transition_total": 90,
+    "important_distinction": "The 10 permutation exact_pass rows are oracle passes for the permuted run. The separate 37/90 source_candidate_permutation_exact metric is the frozen invariance gate and must not be replaced by exact_pass counts."
+  },
+  "generic_admission_contract": {
+    "unit": "one exact category x earliest-primary-failing-layer stratum",
+    "cross_category_pooling_forbidden": true,
+    "cross_layer_pooling_forbidden": true,
+    "primary_and_permutation_rows_may_not_be_double_counted": true,
+    "pass_controls_may_not_dilute_failure_denominators": true,
+    "minimum_distinct_companies": 3,
+    "minimum_distinct_sources": 3,
+    "minimum_distinct_real_document_layout_families": 3,
+    "source_or_retrieval_layer_minimum_distinct_extraction_families": 2,
+    "layout_relevant_layer_minimum_distinct_real_table_layout_families": 3,
+    "synthetic_layout_counts": 0,
+    "claim_limit": "Meeting these minima admits a stratum for generic development diagnosis only. It does not prove an exact root cause, unseen generalization, or universal report coverage."
+  },
+  "frozen_primary_strata": {
+    "generic_failure_strata_count": 6,
+    "non_generic_failure_strata_count": 5,
+    "pass_control_strata_count": 2,
+    "generic_failure_strata": [
+      {
+        "layer": "CANDIDATE_POPULATION_OR_RETRIEVAL",
+        "category": "base_target",
+        "rows": 21,
+        "companies": 5,
+        "sources": 5,
+        "document_layouts": 3,
+        "table_layouts": 5,
+        "extraction_families": 2
+      },
+      {
+        "layer": "CANDIDATE_POPULATION_OR_RETRIEVAL",
+        "category": "minimal_pair_role_swap",
+        "rows": 4,
+        "companies": 4,
+        "sources": 4,
+        "document_layouts": 3,
+        "table_layouts": 4,
+        "extraction_families": 2
+      },
+      {
+        "layer": "CANDIDATE_POPULATION_OR_RETRIEVAL",
+        "category": "PA07_operation_contrast",
+        "rows": 4,
+        "companies": 4,
+        "sources": 4,
+        "document_layouts": 3,
+        "table_layouts": 4,
+        "extraction_families": 2
+      },
+      {
+        "layer": "CANDIDATE_POPULATION_OR_RETRIEVAL",
+        "category": "reference_base_mutation_target",
+        "rows": 17,
+        "companies": 5,
+        "sources": 5,
+        "document_layouts": 3,
+        "table_layouts": 5,
+        "extraction_families": 2
+      },
+      {
+        "layer": "SYMBOLIC_PROOF_OR_ACTION",
+        "category": "ambiguity_control",
+        "rows": 4,
+        "companies": 4,
+        "sources": 4,
+        "document_layouts": 3,
+        "table_layouts": 4,
+        "extraction_families": 2
+      },
+      {
+        "layer": "SYMBOLIC_PROOF_OR_ACTION",
+        "category": "minimal_pair_year_shift",
+        "rows": 6,
+        "companies": 6,
+        "sources": 6,
+        "document_layouts": 3,
+        "table_layouts": 6,
+        "extraction_families": 2
+      }
+    ],
+    "non_generic_failure_strata": [
+      {
+        "layer": "SEMANTIC_BINDING_OR_PROGRAM_SYNTHESIS",
+        "category": "base_target",
+        "rows": 9,
+        "companies": 3,
+        "sources": 3,
+        "document_layouts": 1,
+        "table_layouts": 3,
+        "extraction_families": 1
+      },
+      {
+        "layer": "SEMANTIC_BINDING_OR_PROGRAM_SYNTHESIS",
+        "category": "minimal_pair_role_swap",
+        "rows": 2,
+        "companies": 2,
+        "sources": 2,
+        "document_layouts": 1,
+        "table_layouts": 2,
+        "extraction_families": 1
+      },
+      {
+        "layer": "SEMANTIC_BINDING_OR_PROGRAM_SYNTHESIS",
+        "category": "PA07_operation_contrast",
+        "rows": 1,
+        "companies": 1,
+        "sources": 1,
+        "document_layouts": 1,
+        "table_layouts": 1,
+        "extraction_families": 1
+      },
+      {
+        "layer": "SEMANTIC_BINDING_OR_PROGRAM_SYNTHESIS",
+        "category": "reference_base_mutation_target",
+        "rows": 13,
+        "companies": 4,
+        "sources": 4,
+        "document_layouts": 2,
+        "table_layouts": 4,
+        "extraction_families": 1
+      },
+      {
+        "layer": "SYMBOLIC_PROOF_OR_ACTION",
+        "category": "PA07_operation_contrast",
+        "rows": 1,
+        "companies": 1,
+        "sources": 1,
+        "document_layouts": 1,
+        "table_layouts": 1,
+        "extraction_families": 1
+      }
+    ],
+    "pass_control_strata": [
+      {
+        "layer": "PASS",
+        "category": "ambiguity_control",
+        "rows": 2,
+        "companies": 2,
+        "sources": 2,
+        "document_layouts": 1,
+        "table_layouts": 2,
+        "extraction_families": 1
+      },
+      {
+        "layer": "PASS",
+        "category": "hard_negative_missing_role",
+        "rows": 6,
+        "companies": 6,
+        "sources": 6,
+        "document_layouts": 3,
+        "table_layouts": 6,
+        "extraction_families": 2
+      }
+    ],
+    "layer_level_context": {
+      "CANDIDATE_POPULATION_OR_RETRIEVAL": "46 rows / 6 companies / 6 sources / 3 document layouts / 6 table layouts / 2 extraction families",
+      "SEMANTIC_BINDING_OR_PROGRAM_SYNTHESIS": "25 rows / 4 companies / 4 sources / 2 document layouts / 4 table layouts / 1 extraction family; not generic under the frozen minimum",
+      "SYMBOLIC_PROOF_OR_ACTION": "11 rows / 6 companies / 6 sources / 3 document layouts / 6 table layouts / 2 extraction families"
+    }
+  },
+  "diagnostic_execution_contract": {
+    "stage": "artifact_only_read_only_semantic_diagnostic_review",
+    "allowed_inputs": [
+      "the exact parent JSON and lock files named and hashed above",
+      "this precommit JSON",
+      "frozen runtime and checkpoint files for SHA-256 verification only"
+    ],
+    "runtime_file_whitelist": [],
+    "historical_artifacts_immutable": true,
+    "new_source_or_model_execution_count": 0,
+    "layer_order": [
+      "QUESTION_PLAN",
+      "SOURCE_LOAD_OR_EXTRACTION",
+      "CANDIDATE_POPULATION_OR_RETRIEVAL",
+      "SEMANTIC_BINDING_OR_PROGRAM_SYNTHESIS",
+      "SYMBOLIC_PROOF_OR_ACTION",
+      "PASS"
+    ],
+    "group_order": "sort by layer_order, then category using ordinal UTF-8 string order",
+    "row_order": "sort by observation_id ascending only for deterministic output; identity must not be used for semantic selection",
+    "required_aggregations": [
+      "recompute the primary and permutation layer partitions",
+      "recompute the primary-to-permutation transition matrix",
+      "recompute every category x primary-earliest-layer stratum and all generic coverage counts",
+      "report company, source, document-layout, table-layout and extraction-family counts for every stratum",
+      "report primary and permutation action/state distributions without counting ABSTAIN or REJECT as answered",
+      "report mismatch-flag distributions for candidate_support, binding_exact, provenance_complete, operation_exact, value_exact, action_exact and state_exact",
+      "retain all non-generic failures and PASS controls"
+    ],
+    "symptom_signature": {
+      "fields": [
+        "category",
+        "primary.first_failing_layer",
+        "primary.source_outcome",
+        "primary.source_error type if present",
+        "primary.candidate_support",
+        "primary.binding_exact",
+        "primary.provenance_complete",
+        "primary.operation_exact",
+        "primary.value_exact",
+        "primary.action_exact",
+        "primary.state_exact",
+        "primary.source_action",
+        "primary.verification_state"
+      ],
+      "excluded_fields": [
+        "company identity",
+        "source filename",
+        "page number",
+        "year",
+        "numeric observed or expected value",
+        "anchor or example identity",
+        "question literal",
+        "candidate rank",
+        "neural score",
+        "confidence"
+      ],
+      "interpretation_limit": "An identical symptom signature may nominate a root-decomposition cohort. It may not be called a confirmed runtime root cause without direct candidate, binding, proof-clause, and code-path evidence."
+    },
+    "required_dispositions": {
+      "PASS_CONTROL": "Primary row exactly passes its oracle and remains a control.",
+      "GENERIC_FAILURE_SURFACE_ROOT_UNRESOLVED": "The category x earliest-layer stratum meets frozen generic coverage, but the compact ledger does not prove one code-level cause.",
+      "NON_GENERIC_FAILURE_RETAINED": "The failure is real but the exact stratum does not meet frozen generic coverage.",
+      "PERMUTATION_SENSITIVE_SYMPTOM": "Primary and permutation outcomes or invariance differ; this is order-sensitivity evidence, not semantic proof from candidate rank.",
+      "EVALUATOR_OR_LEDGER_INCONSISTENCY": "The frozen fields cannot be reconciled under the exact layer rules; evaluator reclosure is required before further diagnosis."
+    },
+    "forbidden_actions": [
+      "read validation, blind, test, sealed, holdout, or final evaluation",
+      "use ABW as confirmation or gate",
+      "read source PDFs or cached OCR content",
+      "run OCR, MinerU, source replay, candidate replay, model inference, or fine-tuning",
+      "change runtime, threshold, checkpoint, or model",
+      "add, remove, replace, or relabel examples to improve coverage or metrics",
+      "merge different categories or earliest layers to manufacture generic coverage",
+      "drop failures or add PASS controls to dilute a denominator",
+      "use company, filename, page, year, value, example ID, question literal, candidate rank, neural score, or confidence as a runtime rule or semantic proof",
+      "infer period or provenance from absence, nearby context, or the question",
+      "count synthetic layouts as confirmation",
+      "claim the 25 binding failures are generic despite only two document layouts and one extraction family",
+      "claim model weakness or a runtime symbol cause solely from failure counts"
+    ]
+  },
+  "diagnosis_confirmation_separation": {
+    "diagnosis_uses_all_current_companies": 6,
+    "diagnosis_uses_all_current_sources": 6,
+    "diagnosis_uses_all_current_document_layout_families": 3,
+    "current_rows_may_confirm_a_future_repair": false,
+    "future_confirmation_company_overlap_required": 0,
+    "future_confirmation_source_overlap_required": 0,
+    "future_layout_instance_overlap_required": 0,
+    "layout_disjoint_confirmation_required_if_repair_targets_layout": true,
+    "development_safe_sources_only": true,
+    "protected_evaluation_allowed": false,
+    "reason": "The same rows may diagnose an issue or replay an old baseline, but cannot independently confirm a repair learned from them."
+  },
+  "diagnostic_gates": {
+    "all_parent_hashes_exact": true,
+    "all_90_rows_schema_complete": true,
+    "all_90_rows_partitioned_once_in_primary": true,
+    "all_90_rows_partitioned_once_in_permutation": true,
+    "all_90_primary_to_permutation_transitions_accounted_for": true,
+    "all_82_primary_failures_retained": true,
+    "all_8_primary_pass_controls_retained": true,
+    "all_13_primary_category_layer_strata_accounted_for": true,
+    "generic_failure_strata_recomputed": "6/6",
+    "non_generic_failure_strata_recomputed": "5/5",
+    "pass_control_strata_recomputed": "2/2",
+    "candidate_permutation_exact_denominator_retained": "37/90",
+    "accepted_wrong_zero_retained": true,
+    "reference_base_old_winner_false_accepts_zero_retained": true,
+    "semantic_control_false_accepts_zero_retained": true,
+    "hard_negative_answers_zero_retained": true,
+    "runtime_hashes_exact": true,
+    "checkpoint_hash_exact": true,
+    "runtime_file_whitelist_empty": true,
+    "runtime_edit_authorized": false,
+    "source_or_model_execution_authorized": false,
+    "schema_feasibility_passed": true,
+    "diagnostic_review_executed": false,
+    "qp4_complete": false,
+    "qp5_authorized": false,
+    "phase_d_unlocked": false
+  },
+  "decision_policy": {
+    "if_parent_or_ledger_inconsistent": "Fail closed and authorize only evaluator or replay-contract reclosure; do not reinterpret denominators.",
+    "if_generic_failure_surface_exists_but_direct_root_trace_is_missing": "Authorize only QP4-FULL-SOURCE-SEMANTIC-REPLAY-REFRESH-SEMANTIC-ROOT-DECOMPOSITION-COHORT-PRECOMMIT. The cohort must be selected from all rows in an exact generic category x earliest-layer stratum before inspecting deeper outcomes.",
+    "if_exact_root_trace_and_generic_coverage_are_both_confirmed": "A later diagnostic result may authorize only a separate implementation precommit with the smallest generic symbol whitelist and frozen replay obligations; it may not edit runtime itself.",
+    "if_stratum_is_non_generic": "Retain it as fail-closed evidence. Do not repair from it and do not pool it with another category or layer.",
+    "if_missing_proof": "UNKNOWN to ABSTAIN",
+    "if_conflict_or_contradiction": "REJECT"
+  },
+  "future_diagnostic_outputs": {
+    "final_json": "reports/finhrm_qp4_full_source_semantic_replay_refresh_semantic_diagnostic_review_v1.json",
+    "final_markdown": "reports/finhrm_qp4_full_source_semantic_replay_refresh_semantic_diagnostic_review_v1.md",
+    "lock": "reports/finhrm_qp4_full_source_semantic_replay_refresh_semantic_diagnostic_review_lock_v1.json"
+  },
+  "checkpoint": {
+    "path": "models/document_hrm_V8_candidate.pt",
+    "size_bytes": 3413128,
+    "sha256": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de"
+  },
+  "frozen_runtime_hashes": {
+    "src/hrm_finance_qa/question_planner.py": "334ab6bfb57b883ff2022cdcb39614d7e7a8d3269c14f4bea188640d53111bf4",
+    "src/hrm_finance_qa/symbolic_verifier.py": "2679b1ce55cc070697438c806f19e3e888bfc19bc1a9ae3686a0b7fd7ffb0087",
+    "src/hrm_finance_qa/program_synthesis.py": "e4acc4878d0dfd465ba66ab91f3aaf8be71db5591aa1358fb8cb81f3c7bff550",
+    "src/hrm_finance_qa/evidence_schema.py": "2f16fabf932dc9dabc8203d9642d2503bb2dab43e0e1ee0f78755dd4fb00825d",
+    "src/hrm_finance_qa/document_hrm.py": "b5951bcde79583950b672f7fb6b199b3e5b9904e6784daae7c4c5be0eba65d21",
+    "src/hrm_finance_qa/document_reasoning_engine.py": "3883500011472716bc01f8e04a6d6f925173b35a14bbedd945c5ca4fb0063fa2",
+    "src/hrm_finance_qa/program_data.py": "5199434fc0628b7d270ce62b12657366cbe118901065edd9f1e1f6ca0f1f8d54",
+    "src/hrm_finance_qa/direction_contract.py": "a18aa130419fc74ce647bd92dc9c1b1217007738e636aad0f28c7f78396be937",
+    "src/hrm_finance_qa/answer_presentation.py": "c40bd4a8dff39162b44cf11ef2da12e7b153d907f7254e5d1856157b3ac56d36",
+    "src/hrm_finance_qa/document_sources.py": "e9eb7b3ddcc2ed13060a573a6a0101a216fa49ff21dd65cd5fc2629b92f5fc0b",
+    "src/hrm_finance_qa/document_page_index.py": "d531f47a22ed051863b41b3de031bb3e9d4bbf60ef71f825217559b7035386b4"
+  },
+  "artifact_policy": {
+    "maximum_final_json": 1,
+    "maximum_final_markdown": 1,
+    "maximum_lock_or_manifest": 1,
+    "raw_or_intermediate_artifacts_persisted": false,
+    "temporary_artifacts_deleted_after_verification": true
+  },
+  "invariants": {
+    "abw_used": false,
+    "protected_evaluation_loaded": false,
+    "validation_blind_test_sealed_holdout_or_final_loaded": false,
+    "fine_tuning_performed": false,
+    "runtime_changed": false,
+    "model_changed": false,
+    "threshold_changed": false,
+    "checkpoint_changed": false,
+    "source_pdf_or_ocr_read": false,
+    "source_replay_or_model_inference_run": false,
+    "synthetic_layout_counted_as_confirmation": false,
+    "candidate_rank_score_or_confidence_used_as_semantic_proof": false,
+    "period_or_provenance_inferred_from_absence_nearby_context_or_question": false,
+    "diagnostic_review_executed": false,
+    "qp4_complete": false,
+    "qp5_authorized": false,
+    "phase_d_unlocked": false
+  },
+  "authorized_next_step_after_lock": "QP4-FULL-SOURCE-SEMANTIC-REPLAY-REFRESH-SEMANTIC-DIAGNOSTIC-REVIEW"
+}

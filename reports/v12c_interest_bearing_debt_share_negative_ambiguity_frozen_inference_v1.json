@@ -1,0 +1,1347 @@
+{
+  "protocol": "v12c-negative-ambiguity-frozen-false-accept-v1",
+  "classification": "development_only_negative_control_frozen_evaluation",
+  "protected_evaluation_sources_used": false,
+  "training_performed": false,
+  "model_or_reranker_changed": false,
+  "threshold_changed": false,
+  "alternative_thresholds_evaluated": false,
+  "cohort_path": "/mnt/d/reasoning_model_V4/reasoning_model/data/v12c_interest_bearing_debt_share_negative_ambiguity_frozen_v1.jsonl",
+  "cohort_sha256": "17d8bc460346409200fa167ad485a7f3b056b497f1b3c4bec19b38618f5e1882",
+  "model_path": "/mnt/d/reasoning_model_V4/reasoning_model/models/document_hrm_V8_candidate.pt",
+  "model_sha256_before": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de",
+  "model_sha256_after": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de",
+  "evaluator_sha256": "f88eab77007a19d972c109e9c3e484d600ff9b084591bfea47c128de76a7851a",
+  "runtime_flags": {
+    "typed_program_synthesis_enabled": true,
+    "financial_identity_catalog_enabled": true,
+    "candidate_recall_v12_4_enabled": true,
+    "program_reranker_attached": false
+  },
+  "scope": "evidence-conditioned negative controls; retrieval is outside this audit",
+  "summary": {
+    "overall": {
+      "controls": 26,
+      "false_accepts": 0,
+      "false_accept_rate": 0.0,
+      "safe_abstentions": 26,
+      "safe_abstention_rate": 1.0,
+      "structurally_rejected": 20,
+      "below_frozen_threshold": 26,
+      "confidence_min": 0.5056006898380476,
+      "confidence_max": 0.9506362504100451
+    },
+    "proof_failure_types": {
+      "liability_rows_and_total_assets_are_semantic_confounds": {
+        "controls": 2,
+        "false_accepts": 0,
+        "false_accept_rate": 0.0,
+        "safe_abstentions": 2,
+        "safe_abstention_rate": 1.0,
+        "structurally_rejected": 2,
+        "below_frozen_threshold": 2,
+        "confidence_min": 0.5630840065261036,
+        "confidence_max": 0.5680589140079016
+      },
+      "liability_rows_are_not_interest_bearing_borrowings": {
+        "controls": 8,
+        "false_accepts": 0,
+        "false_accept_rate": 0.0,
+        "safe_abstentions": 8,
+        "safe_abstention_rate": 1.0,
+        "structurally_rejected": 2,
+        "below_frozen_threshold": 8,
+        "confidence_min": 0.5641745563021615,
+        "confidence_max": 0.9506362504100451
+      },
+      "liability_rows_are_not_interest_bearing_borrowings_and_total_capital_missing": {
+        "controls": 2,
+        "false_accepts": 0,
+        "false_accept_rate": 0.0,
+        "safe_abstentions": 2,
+        "safe_abstention_rate": 1.0,
+        "structurally_rejected": 2,
+        "below_frozen_threshold": 2,
+        "confidence_min": 0.6126816494561188,
+        "confidence_max": 0.6223044669253557
+      },
+      "missing_required_raw_role": {
+        "controls": 6,
+        "false_accepts": 0,
+        "false_accept_rate": 0.0,
+        "safe_abstentions": 6,
+        "safe_abstention_rate": 1.0,
+        "structurally_rejected": 6,
+        "below_frozen_threshold": 6,
+        "confidence_min": 0.6321777986259329,
+        "confidence_max": 0.7866325914821692
+      },
+      "missing_total_capital_with_components_present": {
+        "controls": 2,
+        "false_accepts": 0,
+        "false_accept_rate": 0.0,
+        "safe_abstentions": 2,
+        "safe_abstention_rate": 1.0,
+        "structurally_rejected": 2,
+        "below_frozen_threshold": 2,
+        "confidence_min": 0.5056006898380476,
+        "confidence_max": 0.5218146870269008
+      },
+      "missing_total_capital_with_total_asset_and_liability_confounds": {
+        "controls": 2,
+        "false_accepts": 0,
+        "false_accept_rate": 0.0,
+        "safe_abstentions": 2,
+        "safe_abstention_rate": 1.0,
+        "structurally_rejected": 2,
+        "below_frozen_threshold": 2,
+        "confidence_min": 0.5145702643875224,
+        "confidence_max": 0.5193367313196697
+      },
+      "missing_total_capital_with_total_liability_confound": {
+        "controls": 2,
+        "false_accepts": 0,
+        "false_accept_rate": 0.0,
+        "safe_abstentions": 2,
+        "safe_abstention_rate": 1.0,
+        "structurally_rejected": 2,
+        "below_frozen_threshold": 2,
+        "confidence_min": 0.6128106054945097,
+        "confidence_max": 0.6135560906001907
+      },
+      "required_role_is_non_numeric_dash": {
+        "controls": 2,
+        "false_accepts": 0,
+        "false_accept_rate": 0.0,
+        "safe_abstentions": 2,
+        "safe_abstention_rate": 1.0,
+        "structurally_rejected": 2,
+        "below_frozen_threshold": 2,
+        "confidence_min": 0.7510450739429491,
+        "confidence_max": 0.7780614200716919
+      }
+    },
+    "required_proof_status": {
+      "INCOMPLETE_REQUIRED_ROLE_ABSENT": {
+        "controls": 14,
+        "false_accepts": 0,
+        "false_accept_rate": 0.0,
+        "safe_abstentions": 14,
+        "safe_abstention_rate": 1.0,
+        "structurally_rejected": 14,
+        "below_frozen_threshold": 14,
+        "confidence_min": 0.5056006898380476,
+        "confidence_max": 0.7866325914821692
+      },
+      "INVALID_ROLE_SEMANTICS": {
+        "controls": 12,
+        "false_accepts": 0,
+        "false_accept_rate": 0.0,
+        "safe_abstentions": 12,
+        "safe_abstention_rate": 1.0,
+        "structurally_rejected": 6,
+        "below_frozen_threshold": 12,
+        "confidence_min": 0.5630840065261036,
+        "confidence_max": 0.9506362504100451
+      }
+    },
+    "company_groups": {
+      "development-company-02d5d0522a76608d": {
+        "controls": 2,
+        "false_accepts": 0,
+        "false_accept_rate": 0.0,
+        "safe_abstentions": 2,
+        "safe_abstention_rate": 1.0,
+        "structurally_rejected": 2,
+        "below_frozen_threshold": 2,
+        "confidence_min": 0.7510450739429491,
+        "confidence_max": 0.7780614200716919
+      },
+      "development-company-035456962822e6bf": {
+        "controls": 2,
+        "false_accepts": 0,
+        "false_accept_rate": 0.0,
+        "safe_abstentions": 2,
+        "safe_abstention_rate": 1.0,
+        "structurally_rejected": 0,
+        "below_frozen_threshold": 2,
+        "confidence_min": 0.9045388966207883,
+        "confidence_max": 0.9109780355570375
+      },
+      "development-company-0492c0e11c3838d3": {
+        "controls": 2,
+        "false_accepts": 0,
+        "false_accept_rate": 0.0,
+        "safe_abstentions": 2,
+        "safe_abstention_rate": 1.0,
+        "structurally_rejected": 0,
+        "below_frozen_threshold": 2,
+        "confidence_min": 0.9011764705882354,
+        "confidence_max": 0.9233643475229104
+      },
+      "development-company-07": {
+        "controls": 2,
+        "false_accepts": 0,
+        "false_accept_rate": 0.0,
+        "safe_abstentions": 2,
+        "safe_abstention_rate": 1.0,
+        "structurally_rejected": 2,
+        "below_frozen_threshold": 2,
+        "confidence_min": 0.5641745563021615,
+        "confidence_max": 0.5647984772575911
+      },
+      "development-company-0d0d213f8044dc8f": {
+        "controls": 2,
+        "false_accepts": 0,
+        "false_accept_rate": 0.0,
+        "safe_abstentions": 2,
+        "safe_abstention_rate": 1.0,
+        "structurally_rejected": 2,
+        "below_frozen_threshold": 2,
+        "confidence_min": 0.7587797911717991,
+        "confidence_max": 0.7866325914821692
+      },
+      "development-company-0edcdb4ac852829d": {
+        "controls": 2,
+        "false_accepts": 0,
+        "false_accept_rate": 0.0,
+        "safe_abstentions": 2,
+        "safe_abstention_rate": 1.0,
+        "structurally_rejected": 2,
+        "below_frozen_threshold": 2,
+        "confidence_min": 0.5145702643875224,
+        "confidence_max": 0.5193367313196697
+      },
+      "development-company-128d077252ff6e80": {
+        "controls": 2,
+        "false_accepts": 0,
+        "false_accept_rate": 0.0,
+        "safe_abstentions": 2,
+        "safe_abstention_rate": 1.0,
+        "structurally_rejected": 2,
+        "below_frozen_threshold": 2,
+        "confidence_min": 0.5056006898380476,
+        "confidence_max": 0.5218146870269008
+      },
+      "development-company-13": {
+        "controls": 2,
+        "false_accepts": 0,
+        "false_accept_rate": 0.0,
+        "safe_abstentions": 2,
+        "safe_abstention_rate": 1.0,
+        "structurally_rejected": 2,
+        "below_frozen_threshold": 2,
+        "confidence_min": 0.6321777986259329,
+        "confidence_max": 0.6453514968299476
+      },
+      "development-company-14c2529eb4498c5d": {
+        "controls": 2,
+        "false_accepts": 0,
+        "false_accept_rate": 0.0,
+        "safe_abstentions": 2,
+        "safe_abstention_rate": 1.0,
+        "structurally_rejected": 2,
+        "below_frozen_threshold": 2,
+        "confidence_min": 0.7363725485474202,
+        "confidence_max": 0.7741132030503342
+      },
+      "development-company-1d180849caa0b38e": {
+        "controls": 2,
+        "false_accepts": 0,
+        "false_accept_rate": 0.0,
+        "safe_abstentions": 2,
+        "safe_abstention_rate": 1.0,
+        "structurally_rejected": 2,
+        "below_frozen_threshold": 2,
+        "confidence_min": 0.6126816494561188,
+        "confidence_max": 0.6223044669253557
+      },
+      "development-company-1fde0b02049a9bea": {
+        "controls": 2,
+        "false_accepts": 0,
+        "false_accept_rate": 0.0,
+        "safe_abstentions": 2,
+        "safe_abstention_rate": 1.0,
+        "structurally_rejected": 2,
+        "below_frozen_threshold": 2,
+        "confidence_min": 0.5630840065261036,
+        "confidence_max": 0.5680589140079016
+      },
+      "development-company-1ff838dc6ca9680d": {
+        "controls": 2,
+        "false_accepts": 0,
+        "false_accept_rate": 0.0,
+        "safe_abstentions": 2,
+        "safe_abstention_rate": 1.0,
+        "structurally_rejected": 0,
+        "below_frozen_threshold": 2,
+        "confidence_min": 0.948144356242121,
+        "confidence_max": 0.9506362504100451
+      },
+      "development-company-2255c8b55faa7d4f": {
+        "controls": 2,
+        "false_accepts": 0,
+        "false_accept_rate": 0.0,
+        "safe_abstentions": 2,
+        "safe_abstention_rate": 1.0,
+        "structurally_rejected": 2,
+        "below_frozen_threshold": 2,
+        "confidence_min": 0.6128106054945097,
+        "confidence_max": 0.6135560906001907
+      }
+    },
+    "predicted_operation_counts": {
+      "RATIO_PERCENT": 26
+    },
+    "frozen_threshold_counts": {
+      "0.990988937695540": 26
+    },
+    "abstain_reason_counts": {
+      "below_frozen_threshold": 26,
+      "missing_required_multi_step_derivation": 20,
+      "zero_baseline_percent_change": 3
+    }
+  },
+  "records": [
+    {
+      "example_id": "v12c-neg-0637ef5b41cbf5c76aa8",
+      "company_key": "development-company-02d5d0522a76608d",
+      "report_id": "LAS_23CN_BCTN.pdf",
+      "page": 91,
+      "period": "01/01/2023",
+      "proof_failure_type": "required_role_is_non_numeric_dash",
+      "required_proof_status": "INCOMPLETE_REQUIRED_ROLE_ABSENT",
+      "missing_required_roles": [
+        "long_term_borrowings"
+      ],
+      "expected_outcome": "ABSTAIN",
+      "raw_candidate_count": 2,
+      "runtime_candidate_count": 2,
+      "materialized_derivations": [],
+      "predicted_operation": "RATIO_PERCENT",
+      "predicted_operands": [
+        0,
+        1
+      ],
+      "confidence": 0.7510450739429491,
+      "confidence_threshold": 0.9909889376955401,
+      "accepted": false,
+      "false_accept": false,
+      "abstain_reasons": [
+        "below_frozen_threshold",
+        "missing_required_multi_step_derivation"
+      ],
+      "grounding_rejections": [
+        "missing_required_multi_step_derivation"
+      ],
+      "grounding_constraints_applied": [
+        "period"
+      ],
+      "program_candidates_considered": 1,
+      "symbolic_program_rejections": 1,
+      "symbolic_unknown_constraints": 5,
+      "synthesized_program_candidates": 1
+    },
+    {
+      "example_id": "v12c-neg-d83a0d0e493c06e37917",
+      "company_key": "development-company-02d5d0522a76608d",
+      "report_id": "LAS_23CN_BCTN.pdf",
+      "page": 91,
+      "period": "31/12/2023",
+      "proof_failure_type": "required_role_is_non_numeric_dash",
+      "required_proof_status": "INCOMPLETE_REQUIRED_ROLE_ABSENT",
+      "missing_required_roles": [
+        "long_term_borrowings"
+      ],
+      "expected_outcome": "ABSTAIN",
+      "raw_candidate_count": 2,
+      "runtime_candidate_count": 2,
+      "materialized_derivations": [],
+      "predicted_operation": "RATIO_PERCENT",
+      "predicted_operands": [
+        0,
+        1
+      ],
+      "confidence": 0.7780614200716919,
+      "confidence_threshold": 0.9909889376955401,
+      "accepted": false,
+      "false_accept": false,
+      "abstain_reasons": [
+        "below_frozen_threshold",
+        "missing_required_multi_step_derivation"
+      ],
+      "grounding_rejections": [
+        "missing_required_multi_step_derivation"
+      ],
+      "grounding_constraints_applied": [
+        "period"
+      ],
+      "program_candidates_considered": 1,
+      "symbolic_program_rejections": 1,
+      "symbolic_unknown_constraints": 5,
+      "synthesized_program_candidates": 1
+    },
+    {
+      "example_id": "v12c-neg-a163a590903379831865",
+      "company_key": "development-company-035456962822e6bf",
+      "report_id": "VLW_23CN_BCTN.pdf",
+      "page": 22,
+      "period": "31/12/2022",
+      "proof_failure_type": "liability_rows_are_not_interest_bearing_borrowings",
+      "required_proof_status": "INVALID_ROLE_SEMANTICS",
+      "missing_required_roles": [
+        "long_term_borrowings",
+        "short_term_borrowings"
+      ],
+      "expected_outcome": "ABSTAIN",
+      "raw_candidate_count": 3,
+      "runtime_candidate_count": 4,
+      "materialized_derivations": [
+        "interest_bearing_debt"
+      ],
+      "predicted_operation": "RATIO_PERCENT",
+      "predicted_operands": [
+        3,
+        2
+      ],
+      "confidence": 0.9109780355570375,
+      "confidence_threshold": 0.9909889376955401,
+      "accepted": false,
+      "false_accept": false,
+      "abstain_reasons": [
+        "below_frozen_threshold"
+      ],
+      "grounding_rejections": [],
+      "grounding_constraints_applied": [
+        "period"
+      ],
+      "program_candidates_considered": 1,
+      "symbolic_program_rejections": 0,
+      "symbolic_unknown_constraints": 5,
+      "synthesized_program_candidates": 1
+    },
+    {
+      "example_id": "v12c-neg-5b908232b08df53e42a3",
+      "company_key": "development-company-035456962822e6bf",
+      "report_id": "VLW_23CN_BCTN.pdf",
+      "page": 22,
+      "period": "31/12/2023",
+      "proof_failure_type": "liability_rows_are_not_interest_bearing_borrowings",
+      "required_proof_status": "INVALID_ROLE_SEMANTICS",
+      "missing_required_roles": [
+        "long_term_borrowings",
+        "short_term_borrowings"
+      ],
+      "expected_outcome": "ABSTAIN",
+      "raw_candidate_count": 3,
+      "runtime_candidate_count": 4,
+      "materialized_derivations": [
+        "interest_bearing_debt"
+      ],
+      "predicted_operation": "RATIO_PERCENT",
+      "predicted_operands": [
+        3,
+        2
+      ],
+      "confidence": 0.9045388966207883,
+      "confidence_threshold": 0.9909889376955401,
+      "accepted": false,
+      "false_accept": false,
+      "abstain_reasons": [
+        "below_frozen_threshold"
+      ],
+      "grounding_rejections": [],
+      "grounding_constraints_applied": [
+        "period"
+      ],
+      "program_candidates_considered": 1,
+      "symbolic_program_rejections": 0,
+      "symbolic_unknown_constraints": 5,
+      "synthesized_program_candidates": 1
+    },
+    {
+      "example_id": "v12c-neg-6eb8ada1e4fea8d519c3",
+      "company_key": "development-company-0492c0e11c3838d3",
+      "report_id": "SBB_23CN_BCTN.pdf",
+      "page": 24,
+      "period": "31/12/2022",
+      "proof_failure_type": "liability_rows_are_not_interest_bearing_borrowings",
+      "required_proof_status": "INVALID_ROLE_SEMANTICS",
+      "missing_required_roles": [
+        "long_term_borrowings",
+        "short_term_borrowings"
+      ],
+      "expected_outcome": "ABSTAIN",
+      "raw_candidate_count": 3,
+      "runtime_candidate_count": 4,
+      "materialized_derivations": [
+        "interest_bearing_debt"
+      ],
+      "predicted_operation": "RATIO_PERCENT",
+      "predicted_operands": [
+        3,
+        2
+      ],
+      "confidence": 0.9233643475229104,
+      "confidence_threshold": 0.9909889376955401,
+      "accepted": false,
+      "false_accept": false,
+      "abstain_reasons": [
+        "below_frozen_threshold"
+      ],
+      "grounding_rejections": [],
+      "grounding_constraints_applied": [
+        "period"
+      ],
+      "program_candidates_considered": 1,
+      "symbolic_program_rejections": 0,
+      "symbolic_unknown_constraints": 5,
+      "synthesized_program_candidates": 1
+    },
+    {
+      "example_id": "v12c-neg-743409d6e2a1bfd74075",
+      "company_key": "development-company-0492c0e11c3838d3",
+      "report_id": "SBB_23CN_BCTN.pdf",
+      "page": 24,
+      "period": "31/12/2023",
+      "proof_failure_type": "liability_rows_are_not_interest_bearing_borrowings",
+      "required_proof_status": "INVALID_ROLE_SEMANTICS",
+      "missing_required_roles": [
+        "long_term_borrowings",
+        "short_term_borrowings"
+      ],
+      "expected_outcome": "ABSTAIN",
+      "raw_candidate_count": 3,
+      "runtime_candidate_count": 4,
+      "materialized_derivations": [
+        "interest_bearing_debt"
+      ],
+      "predicted_operation": "RATIO_PERCENT",
+      "predicted_operands": [
+        3,
+        2
+      ],
+      "confidence": 0.9011764705882354,
+      "confidence_threshold": 0.9909889376955401,
+      "accepted": false,
+      "false_accept": false,
+      "abstain_reasons": [
+        "below_frozen_threshold"
+      ],
+      "grounding_rejections": [],
+      "grounding_constraints_applied": [
+        "period"
+      ],
+      "program_candidates_considered": 1,
+      "symbolic_program_rejections": 0,
+      "symbolic_unknown_constraints": 5,
+      "synthesized_program_candidates": 1
+    },
+    {
+      "example_id": "v12c-neg-937d2be955ea50a231b4",
+      "company_key": "development-company-07",
+      "report_id": "AGM_23CN_BCTN.pdf",
+      "page": 62,
+      "period": "31/12/2022",
+      "proof_failure_type": "liability_rows_are_not_interest_bearing_borrowings",
+      "required_proof_status": "INVALID_ROLE_SEMANTICS",
+      "missing_required_roles": [
+        "long_term_borrowings",
+        "short_term_borrowings",
+        "total_capital"
+      ],
+      "expected_outcome": "ABSTAIN",
+      "raw_candidate_count": 3,
+      "runtime_candidate_count": 3,
+      "materialized_derivations": [],
+      "predicted_operation": "RATIO_PERCENT",
+      "predicted_operands": [
+        0,
+        1
+      ],
+      "confidence": 0.5647984772575911,
+      "confidence_threshold": 0.9909889376955401,
+      "accepted": false,
+      "false_accept": false,
+      "abstain_reasons": [
+        "below_frozen_threshold",
+        "missing_required_multi_step_derivation"
+      ],
+      "grounding_rejections": [
+        "missing_required_multi_step_derivation"
+      ],
+      "grounding_constraints_applied": [
+        "period"
+      ],
+      "program_candidates_considered": 4,
+      "symbolic_program_rejections": 4,
+      "symbolic_unknown_constraints": 5,
+      "synthesized_program_candidates": 4
+    },
+    {
+      "example_id": "v12c-neg-6f00c4645912cde5ba98",
+      "company_key": "development-company-07",
+      "report_id": "AGM_23CN_BCTN.pdf",
+      "page": 62,
+      "period": "31/12/2023",
+      "proof_failure_type": "liability_rows_are_not_interest_bearing_borrowings",
+      "required_proof_status": "INVALID_ROLE_SEMANTICS",
+      "missing_required_roles": [
+        "long_term_borrowings",
+        "short_term_borrowings",
+        "total_capital"
+      ],
+      "expected_outcome": "ABSTAIN",
+      "raw_candidate_count": 3,
+      "runtime_candidate_count": 3,
+      "materialized_derivations": [],
+      "predicted_operation": "RATIO_PERCENT",
+      "predicted_operands": [
+        0,
+        1
+      ],
+      "confidence": 0.5641745563021615,
+      "confidence_threshold": 0.9909889376955401,
+      "accepted": false,
+      "false_accept": false,
+      "abstain_reasons": [
+        "below_frozen_threshold",
+        "missing_required_multi_step_derivation"
+      ],
+      "grounding_rejections": [
+        "missing_required_multi_step_derivation"
+      ],
+      "grounding_constraints_applied": [
+        "period"
+      ],
+      "program_candidates_considered": 4,
+      "symbolic_program_rejections": 4,
+      "symbolic_unknown_constraints": 5,
+      "synthesized_program_candidates": 4
+    },
+    {
+      "example_id": "v12c-neg-e8e620bda8cae8715de1",
+      "company_key": "development-company-0d0d213f8044dc8f",
+      "report_id": "DHP_23CN_BCTN.pdf",
+      "page": 24,
+      "period": "01/01/2023",
+      "proof_failure_type": "missing_required_raw_role",
+      "required_proof_status": "INCOMPLETE_REQUIRED_ROLE_ABSENT",
+      "missing_required_roles": [
+        "long_term_borrowings"
+      ],
+      "expected_outcome": "ABSTAIN",
+      "raw_candidate_count": 2,
+      "runtime_candidate_count": 2,
+      "materialized_derivations": [],
+      "predicted_operation": "RATIO_PERCENT",
+      "predicted_operands": [
+        0,
+        1
+      ],
+      "confidence": 0.7587797911717991,
+      "confidence_threshold": 0.9909889376955401,
+      "accepted": false,
+      "false_accept": false,
+      "abstain_reasons": [
+        "below_frozen_threshold",
+        "missing_required_multi_step_derivation"
+      ],
+      "grounding_rejections": [
+        "missing_required_multi_step_derivation"
+      ],
+      "grounding_constraints_applied": [
+        "period"
+      ],
+      "program_candidates_considered": 1,
+      "symbolic_program_rejections": 1,
+      "symbolic_unknown_constraints": 5,
+      "synthesized_program_candidates": 1
+    },
+    {
+      "example_id": "v12c-neg-6fa0ecd3142012c9680c",
+      "company_key": "development-company-0d0d213f8044dc8f",
+      "report_id": "DHP_23CN_BCTN.pdf",
+      "page": 24,
+      "period": "31/12/2023",
+      "proof_failure_type": "missing_required_raw_role",
+      "required_proof_status": "INCOMPLETE_REQUIRED_ROLE_ABSENT",
+      "missing_required_roles": [
+        "long_term_borrowings"
+      ],
+      "expected_outcome": "ABSTAIN",
+      "raw_candidate_count": 2,
+      "runtime_candidate_count": 2,
+      "materialized_derivations": [],
+      "predicted_operation": "RATIO_PERCENT",
+      "predicted_operands": [
+        0,
+        1
+      ],
+      "confidence": 0.7866325914821692,
+      "confidence_threshold": 0.9909889376955401,
+      "accepted": false,
+      "false_accept": false,
+      "abstain_reasons": [
+        "below_frozen_threshold",
+        "missing_required_multi_step_derivation"
+      ],
+      "grounding_rejections": [
+        "missing_required_multi_step_derivation"
+      ],
+      "grounding_constraints_applied": [
+        "period"
+      ],
+      "program_candidates_considered": 1,
+      "symbolic_program_rejections": 1,
+      "symbolic_unknown_constraints": 5,
+      "synthesized_program_candidates": 1
+    },
+    {
+      "example_id": "v12c-neg-0e3fdb4b77713de84402",
+      "company_key": "development-company-0edcdb4ac852829d",
+      "report_id": "HTI_23CN_BCTN.pdf",
+      "page": 26,
+      "period": "31/12/2022",
+      "proof_failure_type": "missing_total_capital_with_total_asset_and_liability_confounds",
+      "required_proof_status": "INCOMPLETE_REQUIRED_ROLE_ABSENT",
+      "missing_required_roles": [
+        "total_capital"
+      ],
+      "expected_outcome": "ABSTAIN",
+      "raw_candidate_count": 4,
+      "runtime_candidate_count": 4,
+      "materialized_derivations": [],
+      "predicted_operation": "RATIO_PERCENT",
+      "predicted_operands": [
+        0,
+        1
+      ],
+      "confidence": 0.5145702643875224,
+      "confidence_threshold": 0.9909889376955401,
+      "accepted": false,
+      "false_accept": false,
+      "abstain_reasons": [
+        "below_frozen_threshold",
+        "missing_required_multi_step_derivation"
+      ],
+      "grounding_rejections": [
+        "missing_required_multi_step_derivation"
+      ],
+      "grounding_constraints_applied": [
+        "period"
+      ],
+      "program_candidates_considered": 6,
+      "symbolic_program_rejections": 6,
+      "symbolic_unknown_constraints": 5,
+      "synthesized_program_candidates": 6
+    },
+    {
+      "example_id": "v12c-neg-6f8cb0e0a9fba44820ad",
+      "company_key": "development-company-0edcdb4ac852829d",
+      "report_id": "HTI_23CN_BCTN.pdf",
+      "page": 26,
+      "period": "31/12/2023",
+      "proof_failure_type": "missing_total_capital_with_total_asset_and_liability_confounds",
+      "required_proof_status": "INCOMPLETE_REQUIRED_ROLE_ABSENT",
+      "missing_required_roles": [
+        "total_capital"
+      ],
+      "expected_outcome": "ABSTAIN",
+      "raw_candidate_count": 4,
+      "runtime_candidate_count": 4,
+      "materialized_derivations": [],
+      "predicted_operation": "RATIO_PERCENT",
+      "predicted_operands": [
+        1,
+        0
+      ],
+      "confidence": 0.5193367313196697,
+      "confidence_threshold": 0.9909889376955401,
+      "accepted": false,
+      "false_accept": false,
+      "abstain_reasons": [
+        "below_frozen_threshold",
+        "missing_required_multi_step_derivation",
+        "zero_baseline_percent_change"
+      ],
+      "grounding_rejections": [
+        "missing_required_multi_step_derivation",
+        "zero_baseline_percent_change"
+      ],
+      "grounding_constraints_applied": [
+        "period"
+      ],
+      "program_candidates_considered": 6,
+      "symbolic_program_rejections": 6,
+      "symbolic_unknown_constraints": 5,
+      "synthesized_program_candidates": 6
+    },
+    {
+      "example_id": "v12c-neg-f99b44e9d940fc8e927b",
+      "company_key": "development-company-128d077252ff6e80",
+      "report_id": "SCG_23CN_BCTN.pdf",
+      "page": 30,
+      "period": "31/12/2022",
+      "proof_failure_type": "missing_total_capital_with_components_present",
+      "required_proof_status": "INCOMPLETE_REQUIRED_ROLE_ABSENT",
+      "missing_required_roles": [
+        "total_capital"
+      ],
+      "expected_outcome": "ABSTAIN",
+      "raw_candidate_count": 4,
+      "runtime_candidate_count": 4,
+      "materialized_derivations": [],
+      "predicted_operation": "RATIO_PERCENT",
+      "predicted_operands": [
+        1,
+        0
+      ],
+      "confidence": 0.5218146870269008,
+      "confidence_threshold": 0.9909889376955401,
+      "accepted": false,
+      "false_accept": false,
+      "abstain_reasons": [
+        "below_frozen_threshold",
+        "missing_required_multi_step_derivation"
+      ],
+      "grounding_rejections": [
+        "missing_required_multi_step_derivation"
+      ],
+      "grounding_constraints_applied": [
+        "period"
+      ],
+      "program_candidates_considered": 3,
+      "symbolic_program_rejections": 3,
+      "symbolic_unknown_constraints": 5,
+      "synthesized_program_candidates": 2
+    },
+    {
+      "example_id": "v12c-neg-7e86f191939fc6ac8452",
+      "company_key": "development-company-128d077252ff6e80",
+      "report_id": "SCG_23CN_BCTN.pdf",
+      "page": 30,
+      "period": "31/12/2023",
+      "proof_failure_type": "missing_total_capital_with_components_present",
+      "required_proof_status": "INCOMPLETE_REQUIRED_ROLE_ABSENT",
+      "missing_required_roles": [
+        "total_capital"
+      ],
+      "expected_outcome": "ABSTAIN",
+      "raw_candidate_count": 4,
+      "runtime_candidate_count": 4,
+      "materialized_derivations": [],
+      "predicted_operation": "RATIO_PERCENT",
+      "predicted_operands": [
+        1,
+        0
+      ],
+      "confidence": 0.5056006898380476,
+      "confidence_threshold": 0.9909889376955401,
+      "accepted": false,
+      "false_accept": false,
+      "abstain_reasons": [
+        "below_frozen_threshold",
+        "missing_required_multi_step_derivation"
+      ],
+      "grounding_rejections": [
+        "missing_required_multi_step_derivation"
+      ],
+      "grounding_constraints_applied": [
+        "period"
+      ],
+      "program_candidates_considered": 3,
+      "symbolic_program_rejections": 3,
+      "symbolic_unknown_constraints": 5,
+      "synthesized_program_candidates": 2
+    },
+    {
+      "example_id": "v12c-neg-f6314a9770e73a0bc600",
+      "company_key": "development-company-13",
+      "report_id": "ACG_23CN_BCTN.pdf",
+      "page": 106,
+      "period": "31/12/2022",
+      "proof_failure_type": "missing_required_raw_role",
+      "required_proof_status": "INCOMPLETE_REQUIRED_ROLE_ABSENT",
+      "missing_required_roles": [
+        "long_term_borrowings"
+      ],
+      "expected_outcome": "ABSTAIN",
+      "raw_candidate_count": 2,
+      "runtime_candidate_count": 2,
+      "materialized_derivations": [],
+      "predicted_operation": "RATIO_PERCENT",
+      "predicted_operands": [
+        0,
+        1
+      ],
+      "confidence": 0.6453514968299476,
+      "confidence_threshold": 0.9909889376955401,
+      "accepted": false,
+      "false_accept": false,
+      "abstain_reasons": [
+        "below_frozen_threshold",
+        "missing_required_multi_step_derivation"
+      ],
+      "grounding_rejections": [
+        "missing_required_multi_step_derivation"
+      ],
+      "grounding_constraints_applied": [
+        "period"
+      ],
+      "program_candidates_considered": 1,
+      "symbolic_program_rejections": 1,
+      "symbolic_unknown_constraints": 5,
+      "synthesized_program_candidates": 1
+    },
+    {
+      "example_id": "v12c-neg-35bd73d18f56ec7c5985",
+      "company_key": "development-company-13",
+      "report_id": "ACG_23CN_BCTN.pdf",
+      "page": 106,
+      "period": "31/12/2023",
+      "proof_failure_type": "missing_required_raw_role",
+      "required_proof_status": "INCOMPLETE_REQUIRED_ROLE_ABSENT",
+      "missing_required_roles": [
+        "long_term_borrowings"
+      ],
+      "expected_outcome": "ABSTAIN",
+      "raw_candidate_count": 2,
+      "runtime_candidate_count": 2,
+      "materialized_derivations": [],
+      "predicted_operation": "RATIO_PERCENT",
+      "predicted_operands": [
+        0,
+        1
+      ],
+      "confidence": 0.6321777986259329,
+      "confidence_threshold": 0.9909889376955401,
+      "accepted": false,
+      "false_accept": false,
+      "abstain_reasons": [
+        "below_frozen_threshold",
+        "missing_required_multi_step_derivation"
+      ],
+      "grounding_rejections": [
+        "missing_required_multi_step_derivation"
+      ],
+      "grounding_constraints_applied": [
+        "period"
+      ],
+      "program_candidates_considered": 1,
+      "symbolic_program_rejections": 1,
+      "symbolic_unknown_constraints": 5,
+      "synthesized_program_candidates": 1
+    },
+    {
+      "example_id": "v12c-neg-907ebe07d2862e103f42",
+      "company_key": "development-company-14c2529eb4498c5d",
+      "report_id": "API_23CN_BCTN.pdf",
+      "page": 53,
+      "period": "01/01/2023",
+      "proof_failure_type": "missing_required_raw_role",
+      "required_proof_status": "INCOMPLETE_REQUIRED_ROLE_ABSENT",
+      "missing_required_roles": [
+        "total_capital"
+      ],
+      "expected_outcome": "ABSTAIN",
+      "raw_candidate_count": 2,
+      "runtime_candidate_count": 2,
+      "materialized_derivations": [],
+      "predicted_operation": "RATIO_PERCENT",
+      "predicted_operands": [
+        0,
+        1
+      ],
+      "confidence": 0.7363725485474202,
+      "confidence_threshold": 0.9909889376955401,
+      "accepted": false,
+      "false_accept": false,
+      "abstain_reasons": [
+        "below_frozen_threshold",
+        "missing_required_multi_step_derivation"
+      ],
+      "grounding_rejections": [
+        "missing_required_multi_step_derivation"
+      ],
+      "grounding_constraints_applied": [
+        "period"
+      ],
+      "program_candidates_considered": 2,
+      "symbolic_program_rejections": 2,
+      "symbolic_unknown_constraints": 5,
+      "synthesized_program_candidates": 2
+    },
+    {
+      "example_id": "v12c-neg-2266fdc16799edadd87d",
+      "company_key": "development-company-14c2529eb4498c5d",
+      "report_id": "API_23CN_BCTN.pdf",
+      "page": 53,
+      "period": "31/12/2023",
+      "proof_failure_type": "missing_required_raw_role",
+      "required_proof_status": "INCOMPLETE_REQUIRED_ROLE_ABSENT",
+      "missing_required_roles": [
+        "total_capital"
+      ],
+      "expected_outcome": "ABSTAIN",
+      "raw_candidate_count": 2,
+      "runtime_candidate_count": 2,
+      "materialized_derivations": [],
+      "predicted_operation": "RATIO_PERCENT",
+      "predicted_operands": [
+        0,
+        1
+      ],
+      "confidence": 0.7741132030503342,
+      "confidence_threshold": 0.9909889376955401,
+      "accepted": false,
+      "false_accept": false,
+      "abstain_reasons": [
+        "below_frozen_threshold",
+        "missing_required_multi_step_derivation"
+      ],
+      "grounding_rejections": [
+        "missing_required_multi_step_derivation"
+      ],
+      "grounding_constraints_applied": [
+        "period"
+      ],
+      "program_candidates_considered": 2,
+      "symbolic_program_rejections": 2,
+      "symbolic_unknown_constraints": 5,
+      "synthesized_program_candidates": 2
+    },
+    {
+      "example_id": "v12c-neg-8e22cda6168cdc596edd",
+      "company_key": "development-company-1d180849caa0b38e",
+      "report_id": "TNH_23CN_BCTN.pdf",
+      "page": 44,
+      "period": "31/12/2022",
+      "proof_failure_type": "liability_rows_are_not_interest_bearing_borrowings_and_total_capital_missing",
+      "required_proof_status": "INVALID_ROLE_SEMANTICS",
+      "missing_required_roles": [
+        "long_term_borrowings",
+        "short_term_borrowings",
+        "total_capital"
+      ],
+      "expected_outcome": "ABSTAIN",
+      "raw_candidate_count": 3,
+      "runtime_candidate_count": 3,
+      "materialized_derivations": [],
+      "predicted_operation": "RATIO_PERCENT",
+      "predicted_operands": [
+        1,
+        0
+      ],
+      "confidence": 0.6223044669253557,
+      "confidence_threshold": 0.9909889376955401,
+      "accepted": false,
+      "false_accept": false,
+      "abstain_reasons": [
+        "below_frozen_threshold",
+        "missing_required_multi_step_derivation"
+      ],
+      "grounding_rejections": [
+        "missing_required_multi_step_derivation"
+      ],
+      "grounding_constraints_applied": [
+        "period"
+      ],
+      "program_candidates_considered": 4,
+      "symbolic_program_rejections": 4,
+      "symbolic_unknown_constraints": 5,
+      "synthesized_program_candidates": 4
+    },
+    {
+      "example_id": "v12c-neg-9d7152f451b38a1dbe4c",
+      "company_key": "development-company-1d180849caa0b38e",
+      "report_id": "TNH_23CN_BCTN.pdf",
+      "page": 44,
+      "period": "31/12/2023",
+      "proof_failure_type": "liability_rows_are_not_interest_bearing_borrowings_and_total_capital_missing",
+      "required_proof_status": "INVALID_ROLE_SEMANTICS",
+      "missing_required_roles": [
+        "long_term_borrowings",
+        "short_term_borrowings",
+        "total_capital"
+      ],
+      "expected_outcome": "ABSTAIN",
+      "raw_candidate_count": 3,
+      "runtime_candidate_count": 3,
+      "materialized_derivations": [],
+      "predicted_operation": "RATIO_PERCENT",
+      "predicted_operands": [
+        1,
+        0
+      ],
+      "confidence": 0.6126816494561188,
+      "confidence_threshold": 0.9909889376955401,
+      "accepted": false,
+      "false_accept": false,
+      "abstain_reasons": [
+        "below_frozen_threshold",
+        "missing_required_multi_step_derivation"
+      ],
+      "grounding_rejections": [
+        "missing_required_multi_step_derivation"
+      ],
+      "grounding_constraints_applied": [
+        "period"
+      ],
+      "program_candidates_considered": 4,
+      "symbolic_program_rejections": 4,
+      "symbolic_unknown_constraints": 5,
+      "synthesized_program_candidates": 4
+    },
+    {
+      "example_id": "v12c-neg-63421fd39c773b3350c8",
+      "company_key": "development-company-1fde0b02049a9bea",
+      "report_id": "TCR_23CN_BCTN.pdf",
+      "page": 29,
+      "period": "31/12/2022",
+      "proof_failure_type": "liability_rows_and_total_assets_are_semantic_confounds",
+      "required_proof_status": "INVALID_ROLE_SEMANTICS",
+      "missing_required_roles": [
+        "long_term_borrowings",
+        "short_term_borrowings",
+        "total_capital"
+      ],
+      "expected_outcome": "ABSTAIN",
+      "raw_candidate_count": 3,
+      "runtime_candidate_count": 3,
+      "materialized_derivations": [],
+      "predicted_operation": "RATIO_PERCENT",
+      "predicted_operands": [
+        0,
+        1
+      ],
+      "confidence": 0.5680589140079016,
+      "confidence_threshold": 0.9909889376955401,
+      "accepted": false,
+      "false_accept": false,
+      "abstain_reasons": [
+        "below_frozen_threshold",
+        "missing_required_multi_step_derivation"
+      ],
+      "grounding_rejections": [
+        "missing_required_multi_step_derivation"
+      ],
+      "grounding_constraints_applied": [
+        "period"
+      ],
+      "program_candidates_considered": 4,
+      "symbolic_program_rejections": 4,
+      "symbolic_unknown_constraints": 5,
+      "synthesized_program_candidates": 4
+    },
+    {
+      "example_id": "v12c-neg-daf97c9d33d85af47ec2",
+      "company_key": "development-company-1fde0b02049a9bea",
+      "report_id": "TCR_23CN_BCTN.pdf",
+      "page": 29,
+      "period": "31/12/2023",
+      "proof_failure_type": "liability_rows_and_total_assets_are_semantic_confounds",
+      "required_proof_status": "INVALID_ROLE_SEMANTICS",
+      "missing_required_roles": [
+        "long_term_borrowings",
+        "short_term_borrowings",
+        "total_capital"
+      ],
+      "expected_outcome": "ABSTAIN",
+      "raw_candidate_count": 3,
+      "runtime_candidate_count": 3,
+      "materialized_derivations": [],
+      "predicted_operation": "RATIO_PERCENT",
+      "predicted_operands": [
+        0,
+        1
+      ],
+      "confidence": 0.5630840065261036,
+      "confidence_threshold": 0.9909889376955401,
+      "accepted": false,
+      "false_accept": false,
+      "abstain_reasons": [
+        "below_frozen_threshold",
+        "missing_required_multi_step_derivation"
+      ],
+      "grounding_rejections": [
+        "missing_required_multi_step_derivation"
+      ],
+      "grounding_constraints_applied": [
+        "period"
+      ],
+      "program_candidates_considered": 4,
+      "symbolic_program_rejections": 4,
+      "symbolic_unknown_constraints": 5,
+      "synthesized_program_candidates": 4
+    },
+    {
+      "example_id": "v12c-neg-7f48b0dcb2fc647f4663",
+      "company_key": "development-company-1ff838dc6ca9680d",
+      "report_id": "VID_23CN_BCTN.pdf",
+      "page": 24,
+      "period": "31/12/2022",
+      "proof_failure_type": "liability_rows_are_not_interest_bearing_borrowings",
+      "required_proof_status": "INVALID_ROLE_SEMANTICS",
+      "missing_required_roles": [
+        "long_term_borrowings",
+        "short_term_borrowings"
+      ],
+      "expected_outcome": "ABSTAIN",
+      "raw_candidate_count": 3,
+      "runtime_candidate_count": 4,
+      "materialized_derivations": [
+        "interest_bearing_debt"
+      ],
+      "predicted_operation": "RATIO_PERCENT",
+      "predicted_operands": [
+        3,
+        2
+      ],
+      "confidence": 0.9506362504100451,
+      "confidence_threshold": 0.9909889376955401,
+      "accepted": false,
+      "false_accept": false,
+      "abstain_reasons": [
+        "below_frozen_threshold"
+      ],
+      "grounding_rejections": [],
+      "grounding_constraints_applied": [
+        "period"
+      ],
+      "program_candidates_considered": 1,
+      "symbolic_program_rejections": 0,
+      "symbolic_unknown_constraints": 5,
+      "synthesized_program_candidates": 1
+    },
+    {
+      "example_id": "v12c-neg-d13d70756a91b8c9fc4d",
+      "company_key": "development-company-1ff838dc6ca9680d",
+      "report_id": "VID_23CN_BCTN.pdf",
+      "page": 24,
+      "period": "31/12/2023",
+      "proof_failure_type": "liability_rows_are_not_interest_bearing_borrowings",
+      "required_proof_status": "INVALID_ROLE_SEMANTICS",
+      "missing_required_roles": [
+        "long_term_borrowings",
+        "short_term_borrowings"
+      ],
+      "expected_outcome": "ABSTAIN",
+      "raw_candidate_count": 3,
+      "runtime_candidate_count": 4,
+      "materialized_derivations": [
+        "interest_bearing_debt"
+      ],
+      "predicted_operation": "RATIO_PERCENT",
+      "predicted_operands": [
+        3,
+        2
+      ],
+      "confidence": 0.948144356242121,
+      "confidence_threshold": 0.9909889376955401,
+      "accepted": false,
+      "false_accept": false,
+      "abstain_reasons": [
+        "below_frozen_threshold"
+      ],
+      "grounding_rejections": [],
+      "grounding_constraints_applied": [
+        "period"
+      ],
+      "program_candidates_considered": 1,
+      "symbolic_program_rejections": 0,
+      "symbolic_unknown_constraints": 5,
+      "synthesized_program_candidates": 1
+    },
+    {
+      "example_id": "v12c-neg-226db5df86b1a30a619d",
+      "company_key": "development-company-2255c8b55faa7d4f",
+      "report_id": "PIC_23CN_BCTN.pdf",
+      "page": 27,
+      "period": "31/12/2022",
+      "proof_failure_type": "missing_total_capital_with_total_liability_confound",
+      "required_proof_status": "INCOMPLETE_REQUIRED_ROLE_ABSENT",
+      "missing_required_roles": [
+        "total_capital"
+      ],
+      "expected_outcome": "ABSTAIN",
+      "raw_candidate_count": 3,
+      "runtime_candidate_count": 3,
+      "materialized_derivations": [],
+      "predicted_operation": "RATIO_PERCENT",
+      "predicted_operands": [
+        1,
+        0
+      ],
+      "confidence": 0.6128106054945097,
+      "confidence_threshold": 0.9909889376955401,
+      "accepted": false,
+      "false_accept": false,
+      "abstain_reasons": [
+        "below_frozen_threshold",
+        "missing_required_multi_step_derivation",
+        "zero_baseline_percent_change"
+      ],
+      "grounding_rejections": [
+        "missing_required_multi_step_derivation",
+        "zero_baseline_percent_change"
+      ],
+      "grounding_constraints_applied": [
+        "period"
+      ],
+      "program_candidates_considered": 4,
+      "symbolic_program_rejections": 4,
+      "symbolic_unknown_constraints": 5,
+      "synthesized_program_candidates": 4
+    },
+    {
+      "example_id": "v12c-neg-f70180c945923424e232",
+      "company_key": "development-company-2255c8b55faa7d4f",
+      "report_id": "PIC_23CN_BCTN.pdf",
+      "page": 27,
+      "period": "31/12/2023",
+      "proof_failure_type": "missing_total_capital_with_total_liability_confound",
+      "required_proof_status": "INCOMPLETE_REQUIRED_ROLE_ABSENT",
+      "missing_required_roles": [
+        "total_capital"
+      ],
+      "expected_outcome": "ABSTAIN",
+      "raw_candidate_count": 3,
+      "runtime_candidate_count": 3,
+      "materialized_derivations": [],
+      "predicted_operation": "RATIO_PERCENT",
+      "predicted_operands": [
+        1,
+        0
+      ],
+      "confidence": 0.6135560906001907,
+      "confidence_threshold": 0.9909889376955401,
+      "accepted": false,
+      "false_accept": false,
+      "abstain_reasons": [
+        "below_frozen_threshold",
+        "missing_required_multi_step_derivation",
+        "zero_baseline_percent_change"
+      ],
+      "grounding_rejections": [
+        "missing_required_multi_step_derivation",
+        "zero_baseline_percent_change"
+      ],
+      "grounding_constraints_applied": [
+        "period"
+      ],
+      "program_candidates_considered": 4,
+      "symbolic_program_rejections": 4,
+      "symbolic_unknown_constraints": 5,
+      "synthesized_program_candidates": 4
+    }
+  ],
+  "gate": {
+    "false_accept_measurement_completed": true,
+    "zero_false_accepts_at_frozen_threshold": true,
+    "negative_control_coverage_sufficient_for_current_threshold_audit": true,
+    "safe_lower_threshold_identified": false,
+    "ready_for_threshold_change": false,
+    "phase_d_unlocked": false
+  }
+}

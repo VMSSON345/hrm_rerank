@@ -1,0 +1,6 @@
+/archive/
+/.venv-demo/
+/venv/
+/models/embedding_cache/
+/**/__pycache__/
+*.pyc

@@ -1,0 +1,117 @@
+{
+  "schema": "finhrm.qp4.post_question_surface.post_cache.residual_coverage.post_source_protocol.semantic_trace_evaluator_contract_reclosure.lock.v1",
+  "created_at": "2026-08-24T10:10:18+07:00",
+  "classification": "development_only_confirmed_generic_candidate_population_root_lock_no_runtime_no_model_no_ocr",
+  "status": "LOCKED_PASS",
+  "outcome": "CONFIRMED_GENERIC_CAUSAL_ROOT",
+  "execution_gate_passed": true,
+  "artifacts": {
+    "final_json": {
+      "path": "reports/finhrm_qp4_post_question_surface_post_cache_residual_coverage_post_source_protocol_semantic_trace_evaluator_contract_reclosure_v1.json",
+      "size_bytes": 9662,
+      "sha256": "4248a3a63f9f7b23b6430c1f600dac60a06aae838bf64307ab2a08c65bc103c7"
+    },
+    "final_markdown": {
+      "path": "reports/finhrm_qp4_post_question_surface_post_cache_residual_coverage_post_source_protocol_semantic_trace_evaluator_contract_reclosure_v1.md",
+      "size_bytes": 2614,
+      "sha256": "d26ba320286afc0555ebbef8e31021c4bdeb8cbccf01af66663a6f911e235b40"
+    }
+  },
+  "parents": {
+    "evaluator_contract_precommit": {
+      "path": "config/finhrm_qp4_post_question_surface_post_cache_residual_coverage_post_source_protocol_semantic_trace_evaluator_contract_reclosure_precommit_v1.json",
+      "size_bytes": 20765,
+      "sha256": "a465975b7bc0cc71dce6063ddb4a1bd75e3c2f12eb955392d3bfabddea8cfd7e"
+    },
+    "evaluator_contract_precommit_markdown": {
+      "path": "reports/finhrm_qp4_post_question_surface_post_cache_residual_coverage_post_source_protocol_semantic_trace_evaluator_contract_reclosure_precommit_v1.md",
+      "size_bytes": 3517,
+      "sha256": "b574ccbfea47b023625efaa38c0ac3bcad4671aa622d50c7af0ea35341a0e245"
+    },
+    "evaluator_contract_precommit_lock": {
+      "path": "reports/finhrm_qp4_post_question_surface_post_cache_residual_coverage_post_source_protocol_semantic_trace_evaluator_contract_reclosure_precommit_lock_v1.json",
+      "size_bytes": 6504,
+      "sha256": "2964205678c7dd896bd8c2ad6cf153e33e09dce78c4db81de49e36c52759ff19"
+    }
+  },
+  "locked_execution": {
+    "logical_rows": 42,
+    "source_queries": 168,
+    "bare_primary": "42/42",
+    "bare_permutation": "42/42",
+    "observed_primary": "42/42",
+    "observed_permutation": "42/42",
+    "historical_primary_matches": "42/42",
+    "observed_primary_matches_bare": "42/42",
+    "observed_permutation_matches_bare": "42/42",
+    "primary_trace_complete": "42/42",
+    "permutation_trace_complete": "42/42",
+    "candidate_inventory_count_matches": "84/84",
+    "predictor_invocations_exactly_one_per_observed_query": "84/84",
+    "transform_id": "FINHRM_CANDIDATE_REVERSE_REINDEX_REMAP_V1",
+    "reverse_v1_exact": "20/42",
+    "reverse_v1_claimed_equivalent_to_legacy_transform": false,
+    "source_errors": 0,
+    "observer_induced_changes": 0
+  },
+  "locked_root": {
+    "confirmed_generic_groups": 1,
+    "exact_signature_groups_audited": 37,
+    "category": "PA07_operation_contrast",
+    "expected_action": "ANSWER",
+    "earliest_failing_layer": "CANDIDATE_POPULATION_OR_RETRIEVAL",
+    "planned_operation": "PERCENT_CHANGE",
+    "candidate_pool_count": 64,
+    "explicit_actual_requested_period_support": 0,
+    "explicit_plan_requested_period_support": 0,
+    "rows": 3,
+    "companies": 3,
+    "source_documents": 3,
+    "real_document_layout_families": 2,
+    "real_table_layout_families": 3,
+    "extraction_families": 2,
+    "model_capacity_failure_confirmed": false,
+    "unconfirmed_groups_authorized_for_runtime_work": false
+  },
+  "frozen_safety": {
+    "accepted_wrong": 0,
+    "permutation_false_accepts": 0,
+    "hard_negative_answers": 0,
+    "gold_execution": "363/363",
+    "candidate_permutation": "363/363",
+    "counterfactuals": 141,
+    "counterfactual_false_accepts": 0,
+    "regression": "360/360",
+    "regression_exit_code": 0
+  },
+  "integrity": {
+    "runtime_hashes_exact_before_after": true,
+    "checkpoint_sha256": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de",
+    "checkpoint_hash_exact_before_after": true,
+    "checkpoint_parameter_count": 843097,
+    "runtime_changed": false,
+    "model_checkpoint_or_threshold_changed": false,
+    "fine_tuning_performed": false,
+    "new_ocr_generation": false,
+    "protected_split_read": false,
+    "abw_used": false,
+    "metric_beautification_performed": false
+  },
+  "authorization": {
+    "runtime_edit_authorized": false,
+    "runtime_file_whitelist": [],
+    "implementation_precommit_authorized": true,
+    "implementation_precommit_scope": "Only the exact PA07 PERCENT_CHANGE candidate-population signature lacking explicit ACTUAL and PLAN requested-period support.",
+    "next_allowed_action": "QP4-POST-QUESTION-SURFACE-POST-CACHE-RESIDUAL-COVERAGE-POST-SOURCE-PROTOCOL-SEMANTIC-TRACE-PA07-CANDIDATE-POPULATION-IMPLEMENTATION-PRECOMMIT",
+    "qp4_complete": false,
+    "qp5_authorized": false,
+    "phase_d_unlocked": false
+  },
+  "artifact_policy": {
+    "final_json": 1,
+    "final_markdown": 1,
+    "lock_manifest": 1,
+    "temporary_harness_and_payloads_deleted_after_final_verification": true,
+    "persistent_runtime_test_or_evaluator_artifacts_added": 0
+  }
+}

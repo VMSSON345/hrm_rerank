@@ -1,0 +1,175 @@
+{
+  "schema": "finhrm-qp3-core-add-diverse-end-to-end-v1",
+  "classification": "development_only_frozen_pdf_question_end_to_end_replay",
+  "status": "diagnostic_incomplete_or_failed",
+  "gate_passed": false,
+  "inputs": {
+    "precommit": "config/finhrm_qp3_core_add_diverse_development_cohort_precommit_v1.json",
+    "cohort": "data/finhrm_qp3_core_add_diverse_development_reviewed_cohort_v1.jsonl",
+    "cohort_report": "reports/finhrm_qp3_core_add_diverse_development_reviewed_cohort_v1.json",
+    "checkpoint": "models/document_hrm_V8_candidate.pt",
+    "checkpoint_sha256": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de"
+  },
+  "inference_boundary": {
+    "engine_inputs": [
+      "question",
+      "source_pdf_path"
+    ],
+    "gold_candidates_or_program_passed_to_engine": false,
+    "engine_defaults_overridden": false,
+    "checkpoint_or_threshold_changed": false
+  },
+  "metrics": {
+    "full_cohort_run": false,
+    "examples": 1,
+    "passed": 1,
+    "failed": 0,
+    "examples_by_layout": {
+      "NATIVE_TEXT_TABLE": 1
+    },
+    "passed_by_layout": {
+      "NATIVE_TEXT_TABLE": 1
+    }
+  },
+  "results": [
+    {
+      "example_id": "synthetic-document-000005",
+      "company_key": "development-company-02d5d0522a76608d",
+      "layout_stratum": "NATIVE_TEXT_TABLE",
+      "layout_family": "native_text_portrait",
+      "source_path": "pdf/PDF_23/LAS_23CN_BCTN.pdf",
+      "source_sha256": "0512d6848014459b74a4293f9ed98a3d0c98c5af54aa21e12e5949df89ce1cf6",
+      "question": "Tổng A- TÀI SẢN NGẮN HẠN và I. Tiền và các khoản tương đương tiền tại cuoi ky là bao nhiêu?",
+      "checks": {
+        "document_discovery_ran": true,
+        "native_or_ocr_retrieval_ran": true,
+        "chunk_retrieval_nonempty": true,
+        "gold_page_retrieved": true,
+        "candidate_materialization_nonempty": true,
+        "neural_prediction_ran": true,
+        "operation_add": true,
+        "selected_arity_two": true,
+        "operand_values_exact": true,
+        "operand_roles_and_physical_page_exact": true,
+        "source_spans_present": true,
+        "source_spans_exact_diagnostic": false,
+        "provenance_complete": true,
+        "gold_execution_exact": true,
+        "accepted": true
+      },
+      "end_to_end_positive_passed": true,
+      "observed": {
+        "abstained": false,
+        "value": "2071654205305",
+        "unit": "VND",
+        "operation": "ADD",
+        "operands": [
+          3,
+          28
+        ],
+        "confidence": 0.9354505726883148,
+        "operation_confidence": 0.9444360733032227,
+        "confidence_threshold": 0.5220309066033059,
+        "candidate_count": 64,
+        "retrieved_pages": [
+          23,
+          24,
+          58,
+          59,
+          60,
+          89,
+          90,
+          91,
+          93
+        ],
+        "evidence": [
+          {
+            "value": "22645161919",
+            "source_name": "LAS_23CN_BCTN.pdf",
+            "page": 90,
+            "row_label": "I. Tiền và các khoản tương đương tiền",
+            "column_label": "so cuoi ky",
+            "period": "cuoi ky",
+            "source_span": [
+              42,
+              57
+            ],
+            "extraction_method": "native",
+            "table_id": "",
+            "subtable_id": ""
+          },
+          {
+            "value": "2049009043386",
+            "source_name": "LAS_23CN_BCTN.pdf",
+            "page": 90,
+            "row_label": "A- TÀI SẢN NGẮN HẠN",
+            "column_label": "so cuoi ky",
+            "period": "cuoi ky",
+            "source_span": [
+              24,
+              42
+            ],
+            "extraction_method": "native",
+            "table_id": "",
+            "subtable_id": ""
+          }
+        ],
+        "grounding_constraints_applied": [
+          "operand_role"
+        ],
+        "warnings": [],
+        "stage_timings": {
+          "document_discovery": 0.005568841000240354,
+          "native_retrieval": 0.07544940100069653,
+          "native_chunk_ranking": 0.003232086000025447,
+          "native_candidate_extraction": 0.5247736249993977,
+          "native_prediction": 1.237511923999591,
+          "native_execution": 1.352199979010038e-05,
+          "total": 1.994552164000197
+        }
+      },
+      "gold_for_scoring_only": {
+        "answer_value": "2071654205305",
+        "operation": "ADD",
+        "physical_pages": [
+          90
+        ],
+        "selected_candidates": [
+          {
+            "value": "2049009043386",
+            "source_name": "LAS_23CN_BCTN.pdf",
+            "page": 90,
+            "row_label": "A- TÀI SẢN NGẮN HẠN",
+            "column_label": "Số cuối kỳ",
+            "period": "cuoi ky",
+            "source_span": [
+              30,
+              48
+            ]
+          },
+          {
+            "value": "22645161919",
+            "source_name": "LAS_23CN_BCTN.pdf",
+            "page": 90,
+            "row_label": "I. Tiền và các khoản tương đương tiền",
+            "column_label": "Số cuối kỳ",
+            "period": "cuoi ky",
+            "source_span": [
+              48,
+              63
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "invariants": {
+    "protected_evaluation_loaded": false,
+    "abw_loaded": false,
+    "synthetic_layout_counted": false,
+    "gold_used_for_inference": false,
+    "candidate_rank_score_or_confidence_used_as_semantic_proof": false,
+    "answer_presentation_unlocked": false,
+    "qp4_or_phase_d_unlocked": false
+  }
+}

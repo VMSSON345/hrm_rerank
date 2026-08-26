@@ -1,0 +1,123 @@
+{
+  "schema": "finhrm-qp2e-surface-robustness-lock-v1",
+  "created_at": "2026-08-13",
+  "classification": "development_only_synthetic_compiler_repair_lock",
+  "status": "complete_with_evidence_conditioned_deferral",
+  "phase_d": "locked",
+  "qp2e_safe_gate_passed": true,
+  "results": {
+    "raw_before": {"exact": 92, "total": 135},
+    "raw_after": {"exact": 123, "total": 135},
+    "compiler_identifiable_subset": {"exact": 123, "total": 123},
+    "improvements": 31,
+    "regressions": 0,
+    "answer_variant_retention": {"exact": 108, "total": 108},
+    "ambiguity_controls": {"exact": 12, "total": 12},
+    "column_role_use_site_projection": {"exact": 135, "total": 135},
+    "strict_canonical": {"exact": 16, "total": 16},
+    "metric_year_generalization": {"exact": 7, "total": 7},
+    "evidence_conditioned_deferred": 12,
+    "catalog_behavior_collisions": 1,
+    "regression_tests": {"pass": 216, "fail": 0}
+  },
+  "deferred_contract": {
+    "variant": "hard_negative_missing_role",
+    "count": 12,
+    "reason": "Question-only behavior is not identifiable; the frozen catalog assigns both ANSWER and ABSTAIN to the same normalized question.",
+    "collision_examples": ["A05-canonical", "TY02-hard_negative_missing_role"],
+    "required_resolution": "QP3 evidence-conditioned proof must reject only when evidence exposes multiple incompatible column roles for the same requested logical identity."
+  },
+  "source_change": {
+    "question_planner_before_sha256": "57e08c9abfb4290bdf90bdbb591f5e1ed7fc37ff57e62bc21bfa795e0a6c2304",
+    "question_planner_after_sha256": "6870080033a3190c8a7c2f8772438ada2a3abac2679015c12d0ff0dfdb9ace62",
+    "program_synthesis_unchanged_sha256": "a37470ad307c04744a5db794258f8bff2f6439ef6a689f8a9b8db67f91a17761",
+    "symbolic_verifier_unchanged_sha256": "6e95d13261c43f16e7c0118ddbb288adb427f8212831df56bf8b25102b5db7e6",
+    "executor_document_hrm_unchanged_sha256": "52d37630d1797176df06245171dc59131b89f73e1aa552b270297e6154e2c054",
+    "document_reasoning_engine_unchanged_sha256": "ee2ce9e2d8cea6fc87d307450297dace74727bdf915ba29e22cab67c7da6212f",
+    "program_data_unchanged_sha256": "769fb033fdd74a3b20da4b6e96fb380cc4d8a08280736cf708979db02a3a3a41"
+  },
+  "invariants": {
+    "family_id_rule_added": false,
+    "fixed_year_rule_added": false,
+    "fixed_metric_rule_added": false,
+    "runtime_planning_source_changed": true,
+    "program_column_roles_consumed_by_runtime": false,
+    "abstention_reason_consumed_by_runtime": false,
+    "compiler_dag_consumed_by_runtime": false,
+    "program_identity_ids_consumed_by_runtime": false,
+    "program_synthesis_source_changed": false,
+    "symbolic_verifier_source_changed": false,
+    "executor_source_changed": false,
+    "runtime_acceptance_policy_changed": false,
+    "threshold_changed": false,
+    "checkpoint_changed": false,
+    "fine_tuning_performed": false,
+    "document_loaded": false,
+    "pdf_loaded": false,
+    "model_loaded": false,
+    "global_validation_loaded": false,
+    "sealed_validation_loaded": false,
+    "blind_test_loaded": false,
+    "phase_d_unlocked": false
+  },
+  "artifacts": [
+    {
+      "path": "src/hrm_finance_qa/question_planner.py",
+      "size_bytes": 52336,
+      "sha256": "6870080033a3190c8a7c2f8772438ada2a3abac2679015c12d0ff0dfdb9ace62"
+    },
+    {
+      "path": "scripts/audit_question_plan_compiler.py",
+      "size_bytes": 10714,
+      "sha256": "617944f33120c9d39d8037b971a8c3a0354c5e1f5a6b980510b3e9d069ec47ca"
+    },
+    {
+      "path": "tests/test_question_surface_robustness_qp2e.py",
+      "size_bytes": 3842,
+      "sha256": "0ab8011c426dd46965e1341c565c5ef964235cbe7b6d1c15776010bd9fc19f96"
+    },
+    {
+      "path": "scripts/audit_qp2e_surface_robustness.py",
+      "size_bytes": 17057,
+      "sha256": "dc5afc72f3c9464dbbfdfa98d6df11a27d607a8d1d21a7cb04231e4cd8379b49"
+    },
+    {
+      "path": "tests/test_audit_qp2e_surface_robustness.py",
+      "size_bytes": 2926,
+      "sha256": "c0855290df7d18bde1a5d274c3a0b82b960fd8d72028e56121337767ffb4fd1c"
+    },
+    {
+      "path": "reports/finhrm_thesis_core_compiler_qp2e_v1.json",
+      "size_bytes": 420866,
+      "sha256": "2c5bbfa07176b35c166b93026d6db1237e1046db4f373666c7250d0c87900947"
+    },
+    {
+      "path": "reports/finhrm_qp2e_surface_robustness_development_v1.json",
+      "size_bytes": 12224,
+      "sha256": "d1a6daba40f4b0f941c8ebcc2f5aa5b38513755c1e7c5416099670eeba66c2a2"
+    },
+    {
+      "path": "reports/finhrm_qp2e_surface_robustness_development_v1.md",
+      "size_bytes": 5201,
+      "sha256": "dba70ce079ce28b5ce0a563410b64819c7cfb211c1f33af036548a9e9f743c36"
+    }
+  ],
+  "frozen_dependencies": [
+    {
+      "path": "config/finhrm_thesis_core_v1.json",
+      "size_bytes": 24625,
+      "sha256": "a9f2f3088f7622c6c8912086eac16252f154fcae1164a3fe7ba75107a0ece502"
+    },
+    {
+      "path": "config/question_family_catalog_plan_actual_v1.jsonl",
+      "size_bytes": 285544,
+      "sha256": "69c4017afec7731f63407339ae0c3d717ac38690807b17908b77fb1892d8e31b"
+    },
+    {
+      "path": "models/document_hrm_V8_candidate.pt",
+      "size_bytes": 3413128,
+      "sha256": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de"
+    }
+  ],
+  "authorized_next_step": "QP3A precommit a development-only evidence-conditioned column-role proof cohort for the 12 deferred hard negatives, with unique-role positives, multiple-role conflicts and role-swap counterfactuals; do not change threshold."
+}

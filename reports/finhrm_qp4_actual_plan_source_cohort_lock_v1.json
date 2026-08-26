@@ -1,0 +1,64 @@
+{
+  "schema": "finhrm-qp4-actual-plan-source-cohort-lock-v1",
+  "created_at": "2026-08-21",
+  "classification": "development_only_independently_reviewed_real_pdf_qp4_source_extension",
+  "status": "complete",
+  "source_cohort_complete": true,
+  "source_evidence_coverage_complete": true,
+  "coverage": {
+    "anchors": 4,
+    "companies": 4,
+    "sources": 4,
+    "document_layouts": 3,
+    "table_layouts": 4
+  },
+  "source_dimensions_confirmed": [
+    "COLUMN_ROLE",
+    "DIRECTION",
+    "REFERENCE_BASE"
+  ],
+  "runtime_gates_passed": false,
+  "failed_runtime_dimensions": [
+    "COLUMN_ROLE",
+    "DIRECTION",
+    "REFERENCE_BASE"
+  ],
+  "runtime_changed": false,
+  "qp4_runtime_change_authorized": false,
+  "retrieval_or_binding_edit_authorized": false,
+  "qp5_authorized": false,
+  "phase_d": "locked",
+  "artifacts": [
+    {
+      "path": "config/finhrm_qp4_actual_plan_ratio_direction_source_cohort_v1.json",
+      "size_bytes": 15466,
+      "sha256": "20ba00740ffe9ba2686c08bc01d07b8f345847d7ddbc5b8780c157bd7ef8d11f"
+    },
+    {
+      "path": "scripts/evaluate_qp4_actual_plan_source_cohort.py",
+      "size_bytes": 19532,
+      "sha256": "771dd0ac263d9dcd8e819a43c69166ff10e32022cf11a83c552cfa0d95a8b09b"
+    },
+    {
+      "path": "tests/test_qp4_actual_plan_source_cohort.py",
+      "size_bytes": 5642,
+      "sha256": "88e78c7b68e9d6cf2fc392c9e1b5b3ceef910bb42007082efba851190540a25a"
+    },
+    {
+      "path": "reports/finhrm_qp4_actual_plan_source_baseline_v1.json",
+      "size_bytes": 27561,
+      "sha256": "99182589341d2bd8a5c377831a906e83ec9d39daf50c76d684694fcad6f5b240"
+    },
+    {
+      "path": "reports/finhrm_qp4_actual_plan_source_cohort_v1.json",
+      "size_bytes": 4963,
+      "sha256": "91363d02adbd24e9026e73e4e30664012b5d34bf8aa6832c47464fac45f6a8cf"
+    },
+    {
+      "path": "reports/finhrm_qp4_actual_plan_source_cohort_v1.md",
+      "size_bytes": 662,
+      "sha256": "ece20fae885b8ca68088ea646d61d2320115f3a2f8fe0879974a485476b8f94a"
+    }
+  ],
+  "authorized_next_step": "Review and freeze QP4-RUNTIME-IMPLEMENTATION-PRECOMMIT for the already generic, whitelist-eligible question_planner UNIT_SCALE failure only. COLUMN_ROLE, DIRECTION and REFERENCE_BASE source failures remain retrieval-or-binding-unisolated and do not authorize an edit. QP5 and Phase D remain locked."
+}

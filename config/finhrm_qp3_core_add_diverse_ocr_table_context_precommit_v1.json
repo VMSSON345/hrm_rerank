@@ -1,0 +1,41 @@
+{
+  "schema": "finhrm-qp3-core-add-diverse-ocr-table-context-precommit-v1",
+  "created_at": "2026-08-20",
+  "classification": "development_only_full_page_ocr_table_context_precommit",
+  "status": "frozen_before_cached_ocr_table_context_transformation",
+  "parents": {
+    "full_page_ocr_index_report": {
+      "path": "reports/finhrm_qp3_core_add_diverse_full_page_ocr_index_v1.json",
+      "sha256": "ee8007dc435c3c296da8195c4dddafe98191d11b86280ce787b2b93941c7622f"
+    },
+    "frozen_generic_layout_transformer": {
+      "path": "archive/pre_v12_cleanup_20260802/scripts/generate_document_derived_programs.py",
+      "sha256": "a8cf17d04931c5517bd2218da718576a27ac9f014159c6480b4dda0e38bc028f"
+    }
+  },
+  "transformation": {
+    "input": "all provenance-correct extraction_method=ocr high_quality page records",
+    "operation": "frozen _layout_to_table_context plus generic explicit multilevel header recovery",
+    "every_cached_physical_page_required": true,
+    "question_gold_page_value_program_candidate_inputs_allowed": false,
+    "source_page_or_layout_literal_rule_allowed": false
+  },
+  "output": {
+    "page_index": "cache/document_page_index.sqlite3",
+    "report": "reports/finhrm_qp3_core_add_diverse_ocr_table_context_v1.json"
+  },
+  "gates": {
+    "four_sources": true,
+    "all_246_pages_transformed": true,
+    "source_hashes_unchanged": true,
+    "ocr_provenance_preserved": true,
+    "zero_question_or_gold_inputs": true
+  },
+  "invariants": {
+    "protected_evaluation_loaded": false,
+    "abw_loaded": false,
+    "model_checkpoint_or_threshold_changed": false,
+    "answer_presentation_unlocked": false,
+    "qp4_or_phase_d_unlocked": false
+  }
+}

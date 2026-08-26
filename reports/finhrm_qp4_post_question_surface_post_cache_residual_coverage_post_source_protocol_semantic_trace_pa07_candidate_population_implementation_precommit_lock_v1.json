@@ -1,0 +1,97 @@
+{
+  "schema": "finhrm.qp4.post_question_surface.post_cache.residual_coverage.post_source_protocol.semantic_trace.pa07_candidate_population_implementation_precommit_lock.v1",
+  "created_at": "2026-08-24T10:29:19+07:00",
+  "classification": "development_only_fail_closed_precommit_lock_no_runtime_no_model_no_ocr",
+  "status": "FAIL_CLOSED",
+  "step": "QP4-POST-QUESTION-SURFACE-POST-CACHE-RESIDUAL-COVERAGE-POST-SOURCE-PROTOCOL-SEMANTIC-TRACE-PA07-CANDIDATE-POPULATION-IMPLEMENTATION-PRECOMMIT",
+  "precommit_gate_passed": false,
+  "implementation_gate_passed": false,
+  "artifacts": {
+    "final_json": {
+      "path": "config/finhrm_qp4_post_question_surface_post_cache_residual_coverage_post_source_protocol_semantic_trace_pa07_candidate_population_implementation_precommit_v1.json",
+      "size_bytes": 12927,
+      "sha256": "1906d6e53663d1aab7c4739fbfd8c308581d5b362bbb51ca4aa3bc30fd6d4cf5"
+    },
+    "final_markdown": {
+      "path": "reports/finhrm_qp4_post_question_surface_post_cache_residual_coverage_post_source_protocol_semantic_trace_pa07_candidate_population_implementation_precommit_v1.md",
+      "size_bytes": 2753,
+      "sha256": "3403c2bc26e9c0812a06d7f291ddfefe141ba12ae8e7607df2b33f9fb0bd1717"
+    }
+  },
+  "parent_lock": {
+    "path": "reports/finhrm_qp4_post_question_surface_post_cache_residual_coverage_post_source_protocol_semantic_trace_evaluator_contract_reclosure_lock_v1.json",
+    "size_bytes": 5142,
+    "sha256": "908966eae176466e0e973cbabb32d6bfc7566e56177513f928f82dc79693a53d",
+    "authorized_next_step_matches": true
+  },
+  "execution_summary": {
+    "development_source_queries": 6,
+    "source_errors": 0,
+    "predictor_single_call_rows": "6/6",
+    "merge_output_exact_predictor_input_rows": "6/6",
+    "exact_root_rows": 3,
+    "unbounded_extraction_actual_plan_requested_period_support": "0/3 complete pairs",
+    "runtime_final_actual_plan_requested_period_support": "0/3 complete pairs",
+    "local_quota_confirmed_causal": false,
+    "dedup_confirmed_causal": false,
+    "final_cap_confirmed_causal": false,
+    "single_shared_symbol_level_cause_confirmed": false,
+    "structural_subroots": 3,
+    "maximum_companies_per_subroot": 1,
+    "maximum_sources_per_subroot": 1,
+    "maximum_real_table_layouts_per_subroot": 1
+  },
+  "failed_gates": [
+    "single_shared_symbol_level_cause_across_three_rows",
+    "minimum_runtime_symbol_whitelist_proven",
+    "each_authorized_structural_cause_meets_multi_company_multi_layout_evidence",
+    "complete_executable_postimplementation_replay_contract_can_be_locked"
+  ],
+  "integrity": {
+    "claude_md_sha256": "b3e61c65fd4f36a86d5ba4fac780150960c81bfe7cf5f4a9a685071a408178aa",
+    "runtime_hashes": {
+      "src/hrm_finance_qa/program_data.py": "5199434fc0628b7d270ce62b12657366cbe118901065edd9f1e1f6ca0f1f8d54",
+      "src/hrm_finance_qa/evidence_schema.py": "2f16fabf932dc9dabc8203d9642d2503bb2dab43e0e1ee0f78755dd4fb00825d",
+      "src/hrm_finance_qa/document_reasoning_engine.py": "3883500011472716bc01f8e04a6d6f925173b35a14bbedd945c5ca4fb0063fa2"
+    },
+    "checkpoint": {
+      "path": "models/document_hrm_V8_candidate.pt",
+      "sha256": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de",
+      "parameter_count": 843097
+    },
+    "runtime_changed": false,
+    "checkpoint_threshold_or_model_changed": false,
+    "fine_tuning_performed": false,
+    "new_ocr_generation": false,
+    "protected_split_read": false,
+    "abw_used": false
+  },
+  "authorization": {
+    "runtime_edit_authorized": false,
+    "runtime_file_whitelist": [],
+    "runtime_symbol_whitelist": [],
+    "test_file_whitelist": [],
+    "next_allowed_action": "QP4-POST-QUESTION-SURFACE-POST-CACHE-RESIDUAL-COVERAGE-POST-SOURCE-PROTOCOL-SEMANTIC-TRACE-PA07-CANDIDATE-POPULATION-ROOT-DECOMPOSITION-COHORT-PRECOMMIT",
+    "next_action_runtime_edits": false,
+    "other_pa07_signatures_authorized": false,
+    "qp4_complete": false,
+    "qp5_authorized": false,
+    "phase_d_unlocked": false
+  },
+  "artifact_policy": {
+    "final_json": 1,
+    "final_markdown": 1,
+    "lock_manifest": 1,
+    "temporary_probe_persisted": false,
+    "temporary_payload_persisted": false,
+    "temporary_files_after_verification": 0
+  },
+  "invariants": {
+    "report_specific_runtime_rule_added": false,
+    "rank_score_or_confidence_used_as_semantic_proof": false,
+    "unknown_promoted_to_answer": false,
+    "conflict_promoted_to_answer": false,
+    "synthetic_layout_counted_as_confirmation": false,
+    "metric_beautification_performed": false
+  }
+}

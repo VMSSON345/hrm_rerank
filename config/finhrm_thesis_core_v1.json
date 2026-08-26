@@ -1,0 +1,456 @@
+{
+  "schema": "finhrm-thesis-core-precommit-v1",
+  "status": "precommitted_before_qp2_qp3_runtime_changes",
+  "created_date": "2026-08-13",
+  "classification": "development_only_research_protocol",
+  "research_claim": "Cell-level financial roles and provenance-aware proof obligations improve selective numerical reasoning under counterfactual evidence ambiguity.",
+  "research_questions": [
+    {
+      "id": "RQ1",
+      "question": "Does a cell-level role-aware evidence graph improve operand and provenance grounding over chunk retrieval or section-level graphs?"
+    },
+    {
+      "id": "RQ2",
+      "question": "Does typed program synthesis with a three-state verifier reduce semantic false accepts while retaining correct programs?"
+    },
+    {
+      "id": "RQ3",
+      "question": "Does proof-aware selective acceptance improve risk-coverage over neural-confidence-only acceptance?"
+    }
+  ],
+  "invariants": {
+    "protected_evaluation_sources_allowed": false,
+    "fine_tuning_allowed_during_precommit": false,
+    "threshold_change_allowed_during_precommit": false,
+    "runtime_acceptance_change_allowed_during_precommit": false,
+    "neo4j_required": false,
+    "llm_required": false,
+    "phase_d_unlocked": false,
+    "company_page_year_value_rules_allowed": false
+  },
+  "frozen_source_artifacts": {
+    "question_family_catalog": {
+      "path": "config/question_family_catalog_plan_actual_v1.jsonl",
+      "sha256": "69c4017afec7731f63407339ae0c3d717ac38690807b17908b77fb1892d8e31b"
+    },
+    "financial_identity_catalog": {
+      "path": "config/financial_identities.yaml",
+      "sha256": "cc566b3093060ac7b98badbbd38b6ab8ae51004046d49ca4ee33619e6cbf1aa5"
+    },
+    "checkpoint": {
+      "path": "models/document_hrm_V8_candidate.pt",
+      "sha256": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de"
+    }
+  },
+  "scope": {
+    "core_family_ids": [
+      "PA01", "PA02", "PA03", "PA04", "PA05", "PA06", "PA07", "PA08", "PA09",
+      "TY01", "TY02", "TY04", "IBDS01", "C13", "C14", "C15"
+    ],
+    "answer_family_ids": [
+      "PA01", "PA02", "PA03", "PA04", "PA05", "PA06", "PA07", "PA08", "PA09",
+      "TY01", "TY02", "TY04", "IBDS01"
+    ],
+    "abstain_family_ids": ["C13", "C14", "C15"],
+    "deferred": [
+      "PA10-PA12",
+      "TY03 and TY05-TY12",
+      "conversational_anaphora",
+      "cross_document_or_cross_company_reasoning",
+      "qualitative_causal_analysis",
+      "chart_reasoning",
+      "multi_agent_memory",
+      "enterprise_knowledge_graph"
+    ]
+  },
+  "evidence_graph_contract": {
+    "node_types": [
+      "Report", "Page", "Table", "Row", "Column", "Cell", "Metric", "Period",
+      "ColumnRole", "EntityScope", "UnitScale", "Value", "SourceSpan"
+    ],
+    "edge_types": [
+      "HAS_PAGE", "HAS_TABLE", "HAS_ROW", "HAS_COLUMN", "HAS_CELL", "HAS_METRIC",
+      "HAS_PERIOD", "HAS_COLUMN_ROLE", "HAS_ENTITY_SCOPE", "HAS_UNIT_SCALE", "HAS_VALUE",
+      "SOURCE_AT", "SAME_METRIC", "SAME_ENTITY", "SAME_TABLE", "SAME_ROW", "SAME_UNIT",
+      "PREVIOUS_PERIOD", "NEXT_PERIOD", "PART_OF_TOTAL", "HEADER_DERIVED_ROLE"
+    ],
+    "evidence_states": ["EXPLICIT", "INFERRED", "UNKNOWN", "CONFLICT"],
+    "logical_cell_identity": [
+      "document_id", "table_id", "row_id", "column_id", "metric", "period",
+      "column_role", "entity_scope", "unit_scale"
+    ],
+    "storage_backend_requirement": "versioned graph interface; in-memory or SQLite is sufficient",
+    "missing_metadata_policy": "UNKNOWN",
+    "explicit_contradiction_policy": "INVALID",
+    "conflicting_parser_policy": "CONFLICT_AND_FAIL_CLOSED"
+  },
+  "proof_contract": {
+    "states": ["VALID", "UNKNOWN", "INVALID", "NOT_APPLICABLE"],
+    "required_for_all_answer_families": [
+      "execution_valid",
+      "pointer_uniqueness",
+      "operation_match",
+      "operand_arity_intent",
+      "query_metric",
+      "period_coverage",
+      "entity_scope_match",
+      "unit_algebra",
+      "logical_cell_unique",
+      "source_provenance_complete"
+    ],
+    "required_when_column_role_is_explicit": ["column_role_match"],
+    "required_for_directional_operations": ["direction_match"],
+    "required_for_ratio_or_percent_change": [
+      "reference_base_match", "denominator_safe", "unit_compatibility"
+    ],
+    "required_for_multi_step": [
+      "all_leaf_nodes_valid", "all_intermediate_nodes_valid", "dag_execution_valid"
+    ],
+    "acceptance_target": "every applicable required obligation is VALID",
+    "unknown_required_obligation_policy": "ABSTAIN",
+    "invalid_required_obligation_policy": "REJECT",
+    "proof_does_not_replace_provenance": true
+  },
+  "families": [
+    {
+      "family_id": "PA01",
+      "category": "plan_actual_lookup",
+      "canonical_question": "Doanh thu hoạt động thực hiện năm 2023 là bao nhiêu?",
+      "expected": {
+        "behavior": "ANSWER", "answer_mode": "SINGLE_SCALAR", "root_operation": "SELECT",
+        "requested_unit_family": "", "direction_intent": null, "reference_base": null,
+        "operands": [
+          {"id": "actual", "metric": "doanh thu hoạt động", "year": "2023", "column_role": "ACTUAL", "entity_scope": "reporting", "unit_family": "currency_or_source"}
+        ],
+        "dag": [{"id": "answer", "operation": "SELECT", "inputs": ["actual"]}]
+      }
+    },
+    {
+      "family_id": "PA02",
+      "category": "plan_actual_lookup",
+      "canonical_question": "Doanh thu hoạt động kế hoạch năm 2023 là bao nhiêu?",
+      "expected": {
+        "behavior": "ANSWER", "answer_mode": "SINGLE_SCALAR", "root_operation": "SELECT",
+        "requested_unit_family": "", "direction_intent": null, "reference_base": null,
+        "operands": [
+          {"id": "plan", "metric": "doanh thu hoạt động", "year": "2023", "column_role": "PLAN", "entity_scope": "reporting", "unit_family": "currency_or_source"}
+        ],
+        "dag": [{"id": "answer", "operation": "SELECT", "inputs": ["plan"]}]
+      }
+    },
+    {
+      "family_id": "PA03",
+      "category": "plan_actual_single_step",
+      "canonical_question": "Doanh thu hoạt động thực hiện năm 2023 đạt bao nhiêu phần trăm kế hoạch năm 2023?",
+      "expected": {
+        "behavior": "ANSWER", "answer_mode": "SINGLE_SCALAR", "root_operation": "RATIO_PERCENT",
+        "requested_unit_family": "percent", "direction_intent": null, "reference_base": "plan",
+        "operands": [
+          {"id": "actual", "metric": "doanh thu hoạt động", "year": "2023", "column_role": "ACTUAL", "entity_scope": "reporting", "unit_family": "currency"},
+          {"id": "plan", "metric": "doanh thu hoạt động", "year": "2023", "column_role": "PLAN", "entity_scope": "reporting", "unit_family": "currency"}
+        ],
+        "dag": [{"id": "answer", "operation": "RATIO_PERCENT", "inputs": ["actual", "plan"]}]
+      }
+    },
+    {
+      "family_id": "PA04",
+      "category": "plan_actual_single_step",
+      "canonical_question": "Doanh thu hoạt động thực hiện năm 2023 trừ kế hoạch năm 2023 là bao nhiêu?",
+      "expected": {
+        "behavior": "ANSWER", "answer_mode": "SINGLE_SCALAR", "root_operation": "SUBTRACT",
+        "requested_unit_family": "", "direction_intent": "LEFT_MINUS_RIGHT", "reference_base": null,
+        "operands": [
+          {"id": "actual", "metric": "doanh thu hoạt động", "year": "2023", "column_role": "ACTUAL", "entity_scope": "reporting", "unit_family": "currency"},
+          {"id": "plan", "metric": "doanh thu hoạt động", "year": "2023", "column_role": "PLAN", "entity_scope": "reporting", "unit_family": "currency"}
+        ],
+        "dag": [{"id": "answer", "operation": "SUBTRACT", "inputs": ["actual", "plan"]}]
+      }
+    },
+    {
+      "family_id": "PA05",
+      "category": "plan_actual_single_step",
+      "canonical_question": "Doanh thu hoạt động thực hiện năm 2023 thấp hơn kế hoạch năm 2023 bao nhiêu đồng?",
+      "expected": {
+        "behavior": "ANSWER", "answer_mode": "SINGLE_SCALAR", "root_operation": "SUBTRACT",
+        "requested_unit_family": "currency", "direction_intent": "DECREASE_AMOUNT", "reference_base": null,
+        "operands": [
+          {"id": "plan", "metric": "doanh thu hoạt động", "year": "2023", "column_role": "PLAN", "entity_scope": "reporting", "unit_family": "currency"},
+          {"id": "actual", "metric": "doanh thu hoạt động", "year": "2023", "column_role": "ACTUAL", "entity_scope": "reporting", "unit_family": "currency"}
+        ],
+        "dag": [{"id": "answer", "operation": "SUBTRACT", "inputs": ["plan", "actual"]}]
+      }
+    },
+    {
+      "family_id": "PA06",
+      "category": "plan_actual_single_step",
+      "canonical_question": "Doanh thu hoạt động thực hiện năm 2023 vượt kế hoạch năm 2023 bao nhiêu đồng?",
+      "expected": {
+        "behavior": "ANSWER", "answer_mode": "SINGLE_SCALAR", "root_operation": "SUBTRACT",
+        "requested_unit_family": "currency", "direction_intent": "LEFT_MINUS_RIGHT", "reference_base": null,
+        "operands": [
+          {"id": "actual", "metric": "doanh thu hoạt động", "year": "2023", "column_role": "ACTUAL", "entity_scope": "reporting", "unit_family": "currency"},
+          {"id": "plan", "metric": "doanh thu hoạt động", "year": "2023", "column_role": "PLAN", "entity_scope": "reporting", "unit_family": "currency"}
+        ],
+        "dag": [{"id": "answer", "operation": "SUBTRACT", "inputs": ["actual", "plan"]}]
+      }
+    },
+    {
+      "family_id": "PA07",
+      "category": "plan_actual_single_step",
+      "canonical_question": "Doanh thu hoạt động thực hiện năm 2023 thay đổi bao nhiêu phần trăm so với kế hoạch năm 2023?",
+      "expected": {
+        "behavior": "ANSWER", "answer_mode": "SINGLE_SCALAR", "root_operation": "PERCENT_CHANGE",
+        "requested_unit_family": "percent", "direction_intent": "LEFT_MINUS_RIGHT", "reference_base": "plan",
+        "operands": [
+          {"id": "actual", "metric": "doanh thu hoạt động", "year": "2023", "column_role": "ACTUAL", "entity_scope": "reporting", "unit_family": "currency"},
+          {"id": "plan", "metric": "doanh thu hoạt động", "year": "2023", "column_role": "PLAN", "entity_scope": "reporting", "unit_family": "currency"}
+        ],
+        "dag": [{"id": "answer", "operation": "PERCENT_CHANGE", "inputs": ["actual", "plan"]}]
+      }
+    },
+    {
+      "family_id": "PA08",
+      "category": "plan_actual_multi_step",
+      "canonical_question": "Doanh thu hoạt động thực hiện năm 2023 còn thiếu bao nhiêu phần trăm để đạt kế hoạch năm 2023?",
+      "expected": {
+        "behavior": "ANSWER", "answer_mode": "SINGLE_SCALAR", "root_operation": "RATIO_PERCENT",
+        "requested_unit_family": "percent", "direction_intent": "PLAN_MINUS_ACTUAL", "reference_base": "plan",
+        "operands": [
+          {"id": "plan", "metric": "doanh thu hoạt động", "year": "2023", "column_role": "PLAN", "entity_scope": "reporting", "unit_family": "currency"},
+          {"id": "actual", "metric": "doanh thu hoạt động", "year": "2023", "column_role": "ACTUAL", "entity_scope": "reporting", "unit_family": "currency"}
+        ],
+        "dag": [
+          {"id": "shortfall", "operation": "SUBTRACT", "inputs": ["plan", "actual"]},
+          {"id": "answer", "operation": "RATIO_PERCENT", "inputs": ["shortfall", "plan"]}
+        ]
+      }
+    },
+    {
+      "family_id": "PA09",
+      "category": "plan_actual_multi_step",
+      "canonical_question": "Doanh thu hoạt động thực hiện năm 2023 vượt kế hoạch năm 2023 bao nhiêu phần trăm?",
+      "expected": {
+        "behavior": "ANSWER", "answer_mode": "SINGLE_SCALAR", "root_operation": "RATIO_PERCENT",
+        "requested_unit_family": "percent", "direction_intent": "ACTUAL_MINUS_PLAN", "reference_base": "plan",
+        "operands": [
+          {"id": "actual", "metric": "doanh thu hoạt động", "year": "2023", "column_role": "ACTUAL", "entity_scope": "reporting", "unit_family": "currency"},
+          {"id": "plan", "metric": "doanh thu hoạt động", "year": "2023", "column_role": "PLAN", "entity_scope": "reporting", "unit_family": "currency"}
+        ],
+        "dag": [
+          {"id": "excess", "operation": "SUBTRACT", "inputs": ["actual", "plan"]},
+          {"id": "answer", "operation": "RATIO_PERCENT", "inputs": ["excess", "plan"]}
+        ]
+      }
+    },
+    {
+      "family_id": "TY01",
+      "category": "two_year_single_step",
+      "canonical_question": "Doanh thu thực hiện năm 2023 tăng bao nhiêu so với thực hiện năm 2022?",
+      "expected": {
+        "behavior": "ANSWER", "answer_mode": "SINGLE_SCALAR", "root_operation": "SUBTRACT",
+        "requested_unit_family": "", "direction_intent": "NEW_MINUS_OLD", "reference_base": null,
+        "operands": [
+          {"id": "actual_2023", "metric": "doanh thu", "year": "2023", "column_role": "ACTUAL", "entity_scope": "reporting", "unit_family": "currency"},
+          {"id": "actual_2022", "metric": "doanh thu", "year": "2022", "column_role": "ACTUAL", "entity_scope": "reporting", "unit_family": "currency"}
+        ],
+        "dag": [{"id": "answer", "operation": "SUBTRACT", "inputs": ["actual_2023", "actual_2022"]}]
+      }
+    },
+    {
+      "family_id": "TY02",
+      "category": "two_year_single_step",
+      "canonical_question": "Doanh thu thực hiện năm 2023 tăng bao nhiêu phần trăm so với thực hiện năm 2022?",
+      "expected": {
+        "behavior": "ANSWER", "answer_mode": "SINGLE_SCALAR", "root_operation": "PERCENT_CHANGE",
+        "requested_unit_family": "percent", "direction_intent": "NEW_MINUS_OLD", "reference_base": "actual_2022",
+        "operands": [
+          {"id": "actual_2023", "metric": "doanh thu", "year": "2023", "column_role": "ACTUAL", "entity_scope": "reporting", "unit_family": "currency"},
+          {"id": "actual_2022", "metric": "doanh thu", "year": "2022", "column_role": "ACTUAL", "entity_scope": "reporting", "unit_family": "currency"}
+        ],
+        "dag": [{"id": "answer", "operation": "PERCENT_CHANGE", "inputs": ["actual_2023", "actual_2022"]}]
+      }
+    },
+    {
+      "family_id": "TY04",
+      "category": "two_year_mixed_role",
+      "canonical_question": "Kế hoạch doanh thu năm 2024 cao hơn thực hiện năm 2023 bao nhiêu phần trăm?",
+      "expected": {
+        "behavior": "ANSWER", "answer_mode": "SINGLE_SCALAR", "root_operation": "PERCENT_CHANGE",
+        "requested_unit_family": "percent", "direction_intent": "LEFT_MINUS_RIGHT", "reference_base": "actual_2023",
+        "operands": [
+          {"id": "plan_2024", "metric": "doanh thu", "year": "2024", "column_role": "PLAN", "entity_scope": "reporting", "unit_family": "currency"},
+          {"id": "actual_2023", "metric": "doanh thu", "year": "2023", "column_role": "ACTUAL", "entity_scope": "reporting", "unit_family": "currency"}
+        ],
+        "dag": [{"id": "answer", "operation": "PERCENT_CHANGE", "inputs": ["plan_2024", "actual_2023"]}]
+      }
+    },
+    {
+      "family_id": "IBDS01",
+      "category": "financial_identity_multi_step",
+      "canonical_question": "Nợ vay ngắn hạn và nợ vay dài hạn chịu lãi năm 2023 chiếm bao nhiêu phần trăm tổng nguồn vốn năm 2023?",
+      "expected": {
+        "behavior": "ANSWER", "answer_mode": "SINGLE_SCALAR", "root_operation": "RATIO_PERCENT",
+        "requested_unit_family": "percent", "direction_intent": null, "reference_base": "total_capital",
+        "operands": [
+          {"id": "short_term_borrowings", "metric": "vay và nợ thuê tài chính ngắn hạn", "year": "2023", "column_role": "ACTUAL", "entity_scope": "reporting", "unit_family": "currency"},
+          {"id": "long_term_borrowings", "metric": "vay và nợ thuê tài chính dài hạn", "year": "2023", "column_role": "ACTUAL", "entity_scope": "reporting", "unit_family": "currency"},
+          {"id": "total_capital", "metric": "tổng nguồn vốn", "year": "2023", "column_role": "ACTUAL", "entity_scope": "reporting", "unit_family": "currency"}
+        ],
+        "dag": [
+          {"id": "interest_bearing_debt", "operation": "ADD", "inputs": ["short_term_borrowings", "long_term_borrowings"]},
+          {"id": "answer", "operation": "RATIO_PERCENT", "inputs": ["interest_bearing_debt", "total_capital"]}
+        ]
+      }
+    },
+    {
+      "family_id": "C13",
+      "category": "ambiguity_control",
+      "canonical_question": "Chênh lệch giữa doanh thu thực hiện và kế hoạch năm 2023 là bao nhiêu?",
+      "expected": {
+        "behavior": "ABSTAIN", "answer_mode": "SINGLE_SCALAR", "root_operation": null,
+        "requested_unit_family": "", "direction_intent": null, "reference_base": null,
+        "operands": [], "dag": [], "abstention_reason": "ambiguous_signed_direction"
+      }
+    },
+    {
+      "family_id": "C14",
+      "category": "ambiguity_control",
+      "canonical_question": "Doanh thu năm 2023 lớn hơn bao nhiêu phần trăm?",
+      "expected": {
+        "behavior": "ABSTAIN", "answer_mode": "SINGLE_SCALAR", "root_operation": null,
+        "requested_unit_family": "percent", "direction_intent": null, "reference_base": null,
+        "operands": [], "dag": [], "abstention_reason": "missing_reference_base"
+      }
+    },
+    {
+      "family_id": "C15",
+      "category": "ambiguity_control",
+      "canonical_question": "Doanh thu hoạt động năm 2023 là bao nhiêu khi bảng có cả kế hoạch và thực hiện?",
+      "expected": {
+        "behavior": "ABSTAIN", "answer_mode": "SINGLE_SCALAR", "root_operation": null,
+        "requested_unit_family": "", "direction_intent": null, "reference_base": null,
+        "operands": [], "dag": [], "abstention_reason": "missing_column_role"
+      }
+    }
+  ],
+  "hard_negative_taxonomy": [
+    {"id": "HN_ROLE_SWAP", "mutation": "ACTUAL <-> PLAN while metric/year/entity/unit stay fixed", "expected": "original program INVALID or different typed program"},
+    {"id": "HN_YEAR_SWAP", "mutation": "change exactly one operand year", "expected": "period proof rejects old assignment"},
+    {"id": "HN_ENTITY_SCOPE", "mutation": "reporting/consolidated/separate/parent scope mismatch", "expected": "entity_scope_match INVALID"},
+    {"id": "HN_UNIT_SCALE", "mutation": "same metric with incompatible unit or unproved scale", "expected": "unit proof INVALID or UNKNOWN and fail closed"},
+    {"id": "HN_SAME_VALUE_DIFFERENT_IDENTITY", "mutation": "same numeric value at a different logical cell", "expected": "not accepted as grounded equivalent without provenance equivalence"},
+    {"id": "HN_PERCENT_NEAR_ABSOLUTE", "mutation": "adjacent ratio/percent cell replaces absolute operand", "expected": "unit and column-role proof reject"},
+    {"id": "HN_SUBTOTAL_DETAIL", "mutation": "subtotal/detail or liabilities/interest-bearing borrowings substitution", "expected": "metric/identity proof reject"},
+    {"id": "HN_TABLE_SCOPE", "mutation": "confusable cell from another table or subtable", "expected": "table/entity proof reject unless cross-table identity is explicit"},
+    {"id": "HN_COINCIDENTAL_EXECUTION", "mutation": "wrong operands produce the gold numeric result", "expected": "negative because provenance/program are wrong"},
+    {"id": "HN_MISSING_QUALIFIER", "mutation": "remove role, direction, denominator or reference base", "expected": "ABSTAIN with the corresponding reason"}
+  ],
+  "annotation_schema": {
+    "required_example_fields": [
+      "example_id", "family_id", "question", "answerability", "answer_or_abstention",
+      "program_dag", "operand_order", "reference_base", "hard_negative_type",
+      "company_key", "report_id", "source_document_sha256", "annotator_status"
+    ],
+    "required_operand_fields": [
+      "operand_id", "value", "metric", "period", "column_role", "entity_scope", "unit_scale",
+      "logical_cell_id", "document_id", "page", "table_id", "row_id", "column_id",
+      "source_span_or_coordinate", "evidence_state"
+    ],
+    "answerability_values": ["ANSWER", "ABSTAIN"],
+    "annotator_status_values": ["single_reviewed_development", "double_reviewed", "adjudicated"],
+    "test_requirement": "double_reviewed_and_adjudicated_on_disagreement",
+    "numeric_equality_policy": "Decimal execution with explicit rounding/tolerance recorded per example",
+    "coincidental_execution_policy": "wrong program or wrong provenance remains incorrect"
+  },
+  "split_protocol": {
+    "group_key": "canonical_company_identity",
+    "all_reports_of_company_in_one_partition": true,
+    "partitions": ["development", "calibration", "sealed_test"],
+    "target_company_proportions": {"development": 0.6, "calibration": 0.2, "sealed_test": 0.2},
+    "assignment": "stable SHA-256 of canonical_company_identity with versioned salt",
+    "assignment_salt_id": "finhrm-thesis-core-split-v1",
+    "stratify_audit_by": ["family", "industry", "layout", "native_scan_hybrid", "year"],
+    "no_company_overlap": true,
+    "no_source_document_hash_overlap": true,
+    "sealed_test_open_rule": "open once after code/config/checkpoint/threshold/calibration/report hashes are frozen",
+    "sealed_test_threshold_selection_allowed": false,
+    "previous_diagnosis_or_repair_companies_allowed_in_sealed_test": false,
+    "minimum_thesis_target": {"examples": 300, "companies": 30},
+    "paper_extension_target": {"examples_min": 800, "examples_max": 1200, "companies_min": 50}
+  },
+  "metrics": {
+    "primary": [
+      "provenance_correct_execution", "accepted_precision", "coverage", "hard_negative_false_accept_rate"
+    ],
+    "grounding": [
+      "evidence_cell_recall_at_k", "operand_exact_match", "role_year_entity_unit_exact_match", "citation_cell_accuracy"
+    ],
+    "reasoning": [
+      "program_dag_exact_match", "execution_accuracy", "verifier_gold_retention", "proof_state_confusion"
+    ],
+    "selective": [
+      "risk_coverage_curve", "aurc", "brier_score_by_operation", "answerability_f1", "abstain_reason_accuracy"
+    ],
+    "efficiency": ["latency_p50", "latency_p95", "candidate_count", "pages_ranked"],
+    "statistical_protocol": [
+      "company_clustered_bootstrap_confidence_interval",
+      "paired_bootstrap_or_mcnemar_on_same_test",
+      "clopper_pearson_one_sided_lower_bound_for_accepted_precision",
+      "macro_average_by_company_and_family"
+    ],
+    "ragas_role": "secondary_only"
+  },
+  "release_gates": {
+    "compiler_contract": {
+      "core_explicit_intent_exact": 1.0,
+      "short_long_equivalent_ir": 1.0
+    },
+    "counterfactual": {
+      "swapped_role_false_accepts": 0,
+      "swapped_year_false_accepts": 0,
+      "new_false_accepts": 0
+    },
+    "grounding_and_reasoning": {
+      "minimum_verifier_gold_retention_per_fold": 0.95,
+      "minimum_provenance_correct_execution_to_report_as_supported": 0.0,
+      "note": "No arbitrary performance target is preclaimed for provenance-correct execution; report estimate and confidence interval."
+    },
+    "selective_thesis": {
+      "minimum_accepted_precision_point_estimate": 0.90,
+      "minimum_overall_coverage": 0.885,
+      "precision_lower_bound_must_be_reported": true
+    },
+    "selective_publication": {
+      "minimum_accepted_precision_point_estimate": 0.90,
+      "minimum_accepted_precision_one_sided_95_lower_bound": 0.90,
+      "minimum_accepted_company_groups": 15
+    },
+    "frozen_s4_compatibility": {
+      "minimum_nine_F_minus_T": 143,
+      "maximum_common_operation_regression_percentage_points": 1.0,
+      "minimum_overall_coverage": 0.885
+    },
+    "determinism": {
+      "candidate_permutation_invariant": true,
+      "hash_seed_invariant": true
+    },
+    "efficiency": {
+      "maximum_latency_p95_increase_fraction_without_separate_ablation": 0.10
+    },
+    "all_applicable_conditions_required": true
+  },
+  "baseline_and_ablation_precommit": {
+    "baselines": [
+      "BM25_or_keyword", "dense_or_hybrid_retrieval", "section_level_GraphRAG",
+      "LLM_retrieval_plus_program_of_thought", "V8_HRM_neural_only",
+      "flat_cell_retrieval_plus_deterministic_executor"
+    ],
+    "ablations": [
+      "full_minus_column_role_header_lineage", "full_minus_graph_relations",
+      "full_minus_typed_synthesis", "full_minus_three_state_verifier",
+      "full_minus_proof_conditioned_acceptance", "full_minus_operation_calibration"
+    ],
+    "same_corpus_split_questions_and_gold_evidence_required": true
+  },
+  "next_allowed_step": "Run a compiler-only baseline audit restricted to the 16 frozen thesis-core families, then implement QP2 gaps without changing runtime acceptance."
+}

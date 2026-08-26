@@ -1,0 +1,121 @@
+{
+  "schema": "finhrm-qp2c-reference-dag-lock-v1",
+  "created_at": "2026-08-13",
+  "classification": "development_only_synthetic_compiler_repair_lock",
+  "status": "complete",
+  "phase_d": "locked",
+  "qp2c_gate_passed": true,
+  "target_families": ["PA03", "PA07", "PA08", "PA09", "TY02", "TY04", "IBDS01"],
+  "results": {
+    "canonical_answer_contract": {"exact": 13, "total": 13},
+    "all_answer_variants": {"exact": 108, "total": 108},
+    "abstain_no_dag_controls": {"pass": 27, "total": 27},
+    "role_swap_counterfactual": {"exact": 12, "total": 12},
+    "year_shift_counterfactual": {"exact": 12, "total": 12},
+    "pa08_pa09_multistep_variants": {"exact": 18, "total": 18},
+    "ibds01_canonical": {"pass": 1, "total": 1},
+    "qp2a_slot_retention": {"exact": 108, "total": 108},
+    "qp2b_operation_direction_retention": {"exact": 108, "total": 108},
+    "dag_validation_errors": 0,
+    "provenance_violations": 0,
+    "strict_before": {"exact": 7, "total": 16},
+    "strict_after": {"exact": 14, "total": 16},
+    "reference_base_before": {"pass": 6, "total": 13},
+    "reference_base_after": {"pass": 13, "total": 13},
+    "program_dag_before": {"pass": 10, "total": 13},
+    "program_dag_after": {"pass": 13, "total": 13},
+    "legacy_before": {"exact": 90, "total": 135},
+    "legacy_after": {"exact": 90, "total": 135},
+    "legacy_improvements": 0,
+    "legacy_regressions": 0,
+    "regression_tests": {"pass": 193, "fail": 0}
+  },
+  "source_change": {
+    "question_planner_before_sha256": "6116da8095d4235dda30302a6c0d0b5f084058b380e31c17a48a992c2605fc49",
+    "question_planner_after_sha256": "daff958a903022c83254ca3bd88872e157977a24b87224623f098a2aa3cf883c",
+    "program_synthesis_unchanged_sha256": "a37470ad307c04744a5db794258f8bff2f6439ef6a689f8a9b8db67f91a17761",
+    "symbolic_verifier_unchanged_sha256": "6e95d13261c43f16e7c0118ddbb288adb427f8212831df56bf8b25102b5db7e6",
+    "executor_document_hrm_unchanged_sha256": "52d37630d1797176df06245171dc59131b89f73e1aa552b270297e6154e2c054",
+    "program_data_unchanged_sha256": "769fb033fdd74a3b20da4b6e96fb380cc4d8a08280736cf708979db02a3a3a41"
+  },
+  "invariants": {
+    "runtime_planning_source_changed": true,
+    "compiler_dag_consumed_by_runtime": false,
+    "program_identity_ids_consumed_by_runtime": false,
+    "legacy_financial_identity_ids_changed_for_ibds01": false,
+    "program_synthesis_source_changed": false,
+    "symbolic_verifier_source_changed": false,
+    "executor_source_changed": false,
+    "runtime_acceptance_policy_changed": false,
+    "threshold_changed": false,
+    "checkpoint_changed": false,
+    "fine_tuning_performed": false,
+    "document_loaded": false,
+    "pdf_loaded": false,
+    "model_loaded": false,
+    "global_validation_loaded": false,
+    "sealed_validation_loaded": false,
+    "blind_test_loaded": false,
+    "phase_d_unlocked": false
+  },
+  "artifacts": [
+    {
+      "path": "src/hrm_finance_qa/question_planner.py",
+      "size_bytes": 45552,
+      "sha256": "daff958a903022c83254ca3bd88872e157977a24b87224623f098a2aa3cf883c"
+    },
+    {
+      "path": "tests/test_question_program_dag_qp2c.py",
+      "size_bytes": 7285,
+      "sha256": "64da9de0e351f9310056de9e34f2ca4dbdb2e9850b067c4ac2028f3c01322ecc"
+    },
+    {
+      "path": "scripts/audit_qp2c_reference_dag.py",
+      "size_bytes": 16501,
+      "sha256": "0d7fdad480cb71c1f7a54009ee79be873df026384abb72eb4b56ac32922c82a7"
+    },
+    {
+      "path": "tests/test_audit_qp2c_reference_dag.py",
+      "size_bytes": 2251,
+      "sha256": "a7055057d3cf33eb6b8a8fb60ee6125ec9a146607f62cf413d8e5bc99e7e396f"
+    },
+    {
+      "path": "scripts/audit_finhrm_thesis_core_compiler.py",
+      "size_bytes": 22419,
+      "sha256": "4cdf772dce3b8e56667d8054df655457564461445f252b13640ff06a737bc7ae"
+    },
+    {
+      "path": "reports/finhrm_thesis_core_compiler_qp2c_v1.json",
+      "size_bytes": 407106,
+      "sha256": "12b0389db35a8912f0f7917f52602ee79bb6b0280f4a217f564e63ac8edd7f08"
+    },
+    {
+      "path": "reports/finhrm_qp2c_reference_dag_development_v1.json",
+      "size_bytes": 91039,
+      "sha256": "eb856809a217d9b7115e4ad7ea2caaf0f27925086f925860b00c2441e81e8ae2"
+    },
+    {
+      "path": "reports/finhrm_qp2c_reference_dag_development_v1.md",
+      "size_bytes": 4780,
+      "sha256": "9cdc877de2f4e1eb3ec6f8b822dc79ff80ff2dcb3f0f862e4d3798fdc2679d86"
+    }
+  ],
+  "frozen_dependencies": [
+    {
+      "path": "config/finhrm_thesis_core_v1.json",
+      "size_bytes": 24625,
+      "sha256": "a9f2f3088f7622c6c8912086eac16252f154fcae1164a3fe7ba75107a0ece502"
+    },
+    {
+      "path": "config/question_family_catalog_plan_actual_v1.jsonl",
+      "size_bytes": 285544,
+      "sha256": "69c4017afec7731f63407339ae0c3d717ac38690807b17908b77fb1892d8e31b"
+    },
+    {
+      "path": "models/document_hrm_V8_candidate.pt",
+      "size_bytes": 3413128,
+      "sha256": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de"
+    }
+  ],
+  "authorized_next_step": "QP2D safe abstention for C14 and C15 using general conflict and underspecification contracts; retain QP2A-QP2C, keep compiler DAG and program_identity_ids non-consuming, and do not change threshold or acceptance."
+}

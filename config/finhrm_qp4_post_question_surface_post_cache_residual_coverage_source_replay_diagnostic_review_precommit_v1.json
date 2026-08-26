@@ -1,0 +1,440 @@
+{
+  "schema": "finhrm-qp4-post-question-surface-post-cache-residual-coverage-source-replay-diagnostic-review-precommit-v1",
+  "created_at": "2026-08-23",
+  "classification": "development_only_qp4_frozen_source_replay_diagnostic_review_precommit_no_runtime_or_source_execution",
+  "status": "precommit_contract",
+  "parents": {
+    "source_replay_report": {
+      "path": "reports/finhrm_qp4_post_question_surface_post_cache_residual_coverage_source_replay_v1.json",
+      "size_bytes": 499770,
+      "sha256": "36cac34780d80f67bf82c21ffca0848eef68c9e0a4bb651df979a7da7bdfc7b8"
+    },
+    "source_replay_markdown": {
+      "path": "reports/finhrm_qp4_post_question_surface_post_cache_residual_coverage_source_replay_v1.md",
+      "size_bytes": 1285,
+      "sha256": "97565f7565a91555168e53412d86cb53b398149899f301c478cddd7eb977a073"
+    },
+    "source_replay_lock": {
+      "path": "reports/finhrm_qp4_post_question_surface_post_cache_residual_coverage_source_replay_lock_v1.json",
+      "size_bytes": 11078,
+      "sha256": "ff25feb6cd80b949c188cb0461bcb5e152dca58d52264096093b7590d00bd6ec"
+    },
+    "claude_md": {
+      "path": "CLAUDE.md",
+      "size_bytes": 2356,
+      "sha256": "35a0f66a6531e61b35dc7288884da35eeef79ad1039f5ffdfd29295cee8d566e"
+    },
+    "thesis_core": {
+      "path": "config/finhrm_thesis_core_v1.json",
+      "size_bytes": 24625,
+      "sha256": "a9f2f3088f7622c6c8912086eac16252f154fcae1164a3fe7ba75107a0ece502"
+    },
+    "generalization_invariant": {
+      "path": "config/finhrm_report_generalization_invariant_v1.json",
+      "size_bytes": 2512,
+      "sha256": "7a8c6e58a47314d522adb782277f6d5bf0cbf761faf681d848e2e9ae4e861846"
+    }
+  },
+  "frozen_parent_state": {
+    "status": "COMPLETE",
+    "source_replay_gate_passed": false,
+    "failed_gates": [
+      "pre_ranking_ocr_generation_attempts_zero",
+      "source_load_or_extraction_failures_zero",
+      "cache_reuse_with_auto_generation_disabled_90",
+      "proof_complete_exact_target_answers_60",
+      "base_exact_answers_30",
+      "reference_base_mutation_exact_answers_30",
+      "surface_equivalence_groups_12",
+      "candidate_permutation_exact_90"
+    ],
+    "selection": {
+      "anchors": 6,
+      "companies": 6,
+      "sources": 6,
+      "real_document_layouts": 3,
+      "real_table_layouts": 6,
+      "extraction_families": 2,
+      "diagnosis_company_overlap": 0,
+      "diagnosis_source_overlap": 0,
+      "diagnosis_layout_instance_overlap": 0
+    },
+    "observation_universe": {
+      "logical_primary_rows": 90,
+      "nested_frozen_permutation_results": 90,
+      "target_rows": 60,
+      "semantic_control_rows": 30,
+      "source_error_rows": 41,
+      "source_error_signature": {
+        "type": "DocumentSourceError",
+        "message": "MinerU OCR is required but no compatible cached artifact exists and auto-generation is disabled"
+      },
+      "source_error_rows_with_earliest_question_plan_failure": 4,
+      "source_error_rows_with_earliest_source_failure": 37,
+      "cache_reusable_with_auto_generation_disabled": 49,
+      "candidate_permutation_exact": 67,
+      "accepted_wrong": 0,
+      "reference_base_old_winner_false_accepts": 0,
+      "semantic_control_false_accepts": 0,
+      "hard_negative_answers": 0
+    },
+    "primary_first_failing_layer_partition": {
+      "QUESTION_PLAN": 19,
+      "SOURCE_LOAD_OR_EXTRACTION": 37,
+      "CANDIDATE_POPULATION_OR_RETRIEVAL": 12,
+      "SEMANTIC_BINDING_OR_PROGRAM_SYNTHESIS": 7,
+      "SYMBOLIC_PROOF_OR_ACTION": 6,
+      "PASS": 9
+    },
+    "page_selective_ocr_telemetry": {
+      "question_triggered": true,
+      "whole_corpus_ocr": false,
+      "ocr_requested_page_events": 1714,
+      "newly_materialized_page_events": 0,
+      "cache_hit_page_events": 0,
+      "whole_document_ocr_jobs": 0,
+      "pre_ranking_generation_attempt_page_events": 571,
+      "unselected_ocr_requested_page_events": 1142,
+      "unselected_ocr_generated_page_events": 0,
+      "observations_with_policy_violation_across_primary_and_permutation": 82,
+      "mineru_cli_timeout_seconds": 180
+    }
+  },
+  "generic_residual_inventory": {
+    "minimum": {
+      "companies": 3,
+      "source_documents": 3,
+      "real_document_layout_families": 3,
+      "real_table_layout_families_when_layout_or_source_is_relevant": 3,
+      "extraction_families_when_source_or_retrieval_is_relevant": 2
+    },
+    "strata": [
+      {
+        "category": "PA07_operation_contrast",
+        "first_failing_layer": "CANDIDATE_POPULATION_OR_RETRIEVAL",
+        "observations": 4,
+        "companies": 4,
+        "sources": 4,
+        "real_document_layouts": 3,
+        "real_table_layouts": 4,
+        "extraction_families": 2
+      },
+      {
+        "category": "ambiguity_control",
+        "first_failing_layer": "SYMBOLIC_PROOF_OR_ACTION",
+        "observations": 4,
+        "companies": 4,
+        "sources": 4,
+        "real_document_layouts": 3,
+        "real_table_layouts": 4,
+        "extraction_families": 2
+      },
+      {
+        "category": "base_target",
+        "first_failing_layer": "QUESTION_PLAN",
+        "observations": 6,
+        "companies": 6,
+        "sources": 6,
+        "real_document_layouts": 3,
+        "real_table_layouts": 6,
+        "extraction_families": 2
+      },
+      {
+        "category": "base_target",
+        "first_failing_layer": "SOURCE_LOAD_OR_EXTRACTION",
+        "observations": 16,
+        "companies": 4,
+        "sources": 4,
+        "real_document_layouts": 3,
+        "real_table_layouts": 4,
+        "extraction_families": 2
+      },
+      {
+        "category": "minimal_pair_role_swap",
+        "first_failing_layer": "SOURCE_LOAD_OR_EXTRACTION",
+        "observations": 4,
+        "companies": 4,
+        "sources": 4,
+        "real_document_layouts": 3,
+        "real_table_layouts": 4,
+        "extraction_families": 2
+      },
+      {
+        "category": "minimal_pair_year_shift",
+        "first_failing_layer": "SOURCE_LOAD_OR_EXTRACTION",
+        "observations": 4,
+        "companies": 4,
+        "sources": 4,
+        "real_document_layouts": 3,
+        "real_table_layouts": 4,
+        "extraction_families": 2
+      },
+      {
+        "category": "reference_base_mutation_target",
+        "first_failing_layer": "QUESTION_PLAN",
+        "observations": 13,
+        "companies": 6,
+        "sources": 6,
+        "real_document_layouts": 3,
+        "real_table_layouts": 6,
+        "extraction_families": 2
+      },
+      {
+        "category": "reference_base_mutation_target",
+        "first_failing_layer": "SOURCE_LOAD_OR_EXTRACTION",
+        "observations": 12,
+        "companies": 4,
+        "sources": 4,
+        "real_document_layouts": 3,
+        "real_table_layouts": 4,
+        "extraction_families": 2
+      }
+    ],
+    "strata_count": 8,
+    "runtime_edit_automatically_authorized": false,
+    "cross_category_pooling_to_reach_minimum_forbidden": true,
+    "pass_controls_may_not_dilute_failure_denominators": true,
+    "non_generic_residual_strata_retained_in_report": true
+  },
+  "diagnostic_contract": {
+    "stage": "artifact_only_frozen_row_diagnostic_review_no_source_execution_no_runtime_change",
+    "runtime_file_whitelist": [],
+    "historical_artifacts_are_immutable": true,
+    "allowed_inputs": [
+      "the final frozen source-replay JSON and lock named in parents",
+      "this precommit config",
+      "frozen runtime files for SHA-256 verification only",
+      "the frozen checkpoint for SHA-256 verification only"
+    ],
+    "forbidden_inputs_or_actions": [
+      "read validation, blind, test, sealed, holdout, or final-evaluation data",
+      "use ABW as confirmation or gate",
+      "read source PDFs or cached OCR content",
+      "run MinerU, OCR, source replay, candidate replay, or model inference",
+      "materialize or persist OCR or raw diagnostic traces",
+      "change runtime, threshold, checkpoint, or model",
+      "fine-tune any model",
+      "use company, filename, page, year, value, example ID, anchor ID, or question literal as a runtime rule",
+      "use candidate rank, neural score, or confidence as semantic proof",
+      "infer period or provenance from absence, nearby context, or the question",
+      "count synthetic layout as unseen confirmation",
+      "merge semantically different categories or different earliest layers to manufacture generic coverage"
+    ],
+    "review_unit": {
+      "logical_rows": 90,
+      "primary_result_per_row": 1,
+      "frozen_permutation_result_per_row": 1,
+      "new_execution_count": 0,
+      "each_logical_row_classified_exactly_once": true,
+      "all_pass_and_non_generic_rows_retained": true
+    },
+    "selection_may_use": [
+      "frozen category",
+      "frozen first_failing_layer",
+      "frozen source outcome and error type",
+      "frozen generic surface label",
+      "frozen document/table layout family and extraction family for aggregate coverage"
+    ],
+    "selection_must_not_use": [
+      "company identity",
+      "report filename",
+      "page number",
+      "year",
+      "numeric value",
+      "example or anchor identity",
+      "question literal",
+      "candidate rank",
+      "neural score",
+      "confidence"
+    ],
+    "gold_use": {
+      "gold_passed_to_runtime": false,
+      "gold_changes_candidate_or_winner": false,
+      "post_hoc_comparison_only": true
+    },
+    "layer_order": [
+      "QUESTION_PLAN",
+      "SOURCE_LOAD_OR_EXTRACTION",
+      "CANDIDATE_POPULATION_OR_RETRIEVAL",
+      "SEMANTIC_BINDING_OR_PROGRAM_SYNTHESIS",
+      "SYMBOLIC_PROOF_OR_ACTION",
+      "PASS"
+    ],
+    "first_failing_layer_rules": {
+      "QUESTION_PLAN": "The frozen typed operation, role, year, or reference-base projection differs from the frozen oracle before source evidence is considered.",
+      "SOURCE_LOAD_OR_EXTRACTION": "Question planning passes, but the frozen source result is an error or cannot expose reusable evidence; downstream candidate, binding, and proof attribution is forbidden.",
+      "CANDIDATE_POPULATION_OR_RETRIEVAL": "Planning and source return pass, but the frozen candidate support does not contain usable explicitly typed evidence for all required roles.",
+      "SEMANTIC_BINDING_OR_PROGRAM_SYNTHESIS": "Planning, source, and candidate support pass, but the frozen operation, operand identity/order, reference base, unit/scale, or selected provenance differs from the oracle.",
+      "SYMBOLIC_PROOF_OR_ACTION": "All upstream layers pass, but proof state or final ANSWER/ABSTAIN/REJECT action violates the frozen oracle.",
+      "PASS": "The frozen observation satisfies its exact positive or control oracle; PASS rows remain controls and never dilute a failing stratum."
+    },
+    "disposition_taxonomy": {
+      "PASS_CONTROL": "The frozen primary row passes its oracle.",
+      "CONFIRMED_GENERIC_ROOT_CAUSE": "One exact, semantically coherent root-cause signature is directly supported within the same category and earliest layer at the frozen generic minimum; group size alone is insufficient.",
+      "UPSTREAM_CONSEQUENCE": "The observed symptom occurs only after an earlier frozen failure and cannot nominate a downstream repair.",
+      "ENVIRONMENT_OR_CACHE_AVAILABILITY": "The symptom is explained by cache availability, disabled generation, worker/CLI availability, or execution environment without evidence of an OCR/layout algorithm defect.",
+      "POLICY_TELEMETRY_ONLY": "A request/attempt policy signal is present, but no corresponding OCR page was generated; request counts may not be reported as generated output.",
+      "ORACLE_OR_EVALUATOR_CONTRACT_DEFECT": "The frozen row or evaluator attribution is internally inconsistent; this requires evaluator reclosure and cannot nominate runtime code.",
+      "NON_GENERIC_FAIL_CLOSED": "The failure is real but lacks one coherent generic root-cause signature at the required coverage and remains fail-closed."
+    },
+    "source_diagnostic_rules": {
+      "all_41_source_errors_share_frozen_signature": true,
+      "only_37_are_earliest_source_failures": true,
+      "four_question_plan_first_rows_keep_question_plan_as_earliest": true,
+      "auto_generation_disabled_cache_miss_is_not_automatically_an_extraction_algorithm_defect": true,
+      "mineru_cli_timeout_is_operational_telemetry_not_root_cause_by_itself": true,
+      "pre_ranking_request_or_attempt_is_not_generated_ocr": true,
+      "unselected_requested_pages_are_not_generated_pages": true,
+      "zero_newly_materialized_pages_must_be_retained": true,
+      "zero_unselected_generated_pages_must_be_retained": true,
+      "source_protocol_or_cache_issue_requires_separate_reclosure_precommit": true,
+      "ocr_or_layout_algorithm_change_authorized": false
+    },
+    "per_generic_stratum_review": [
+      {
+        "category": "PA07_operation_contrast",
+        "layer": "CANDIDATE_POPULATION_OR_RETRIEVAL",
+        "required_comparison": "Expected typed operand roles versus frozen candidate-support signatures, without rank or score as proof."
+      },
+      {
+        "category": "ambiguity_control",
+        "layer": "SYMBOLIC_PROOF_OR_ACTION",
+        "required_comparison": "Exact ambiguity oracle versus frozen verification state and final action after confirming all upstream checks pass."
+      },
+      {
+        "category": "base_target",
+        "layer": "QUESTION_PLAN",
+        "required_comparison": "Frozen typed operation, roles, years, and reference base versus oracle projection."
+      },
+      {
+        "category": "base_target",
+        "layer": "SOURCE_LOAD_OR_EXTRACTION",
+        "required_comparison": "Frozen cache/source error signature and page-policy telemetry, separating availability/protocol from extraction semantics."
+      },
+      {
+        "category": "minimal_pair_role_swap",
+        "layer": "SOURCE_LOAD_OR_EXTRACTION",
+        "required_comparison": "Frozen source outcome only after planner equivalence is confirmed; role-swap semantics may not be inferred from the source error."
+      },
+      {
+        "category": "minimal_pair_year_shift",
+        "layer": "SOURCE_LOAD_OR_EXTRACTION",
+        "required_comparison": "Frozen source outcome only after planner equivalence is confirmed; year/period may not be inferred from the question or nearby content."
+      },
+      {
+        "category": "reference_base_mutation_target",
+        "layer": "QUESTION_PLAN",
+        "required_comparison": "Frozen reference-base and operand-direction projection versus oracle, retaining all surface variants."
+      },
+      {
+        "category": "reference_base_mutation_target",
+        "layer": "SOURCE_LOAD_OR_EXTRACTION",
+        "required_comparison": "Frozen cache/source error signature and page-policy telemetry without using the mutated question to supply provenance."
+      }
+    ],
+    "generic_root_cause_confirmation": {
+      "same_category_required": true,
+      "same_earliest_layer_required": true,
+      "same_exact_root_signature_required": true,
+      "minimum_coverage_recomputed_from_rows": true,
+      "company_source_and_layout_disjoint_claims_limited_to_frozen_development_cohort": true,
+      "universal_or_unseen_generalization_claim_forbidden": true,
+      "runtime_module_or_symbol_nomination_requires_direct_trace_evidence": true,
+      "runtime_edit_authorized_by_this_review": false,
+      "separate_implementation_precommit_required": true
+    }
+  },
+  "diagnostic_gates": {
+    "parent_hashes_exact": true,
+    "all_90_logical_rows_partitioned_once": true,
+    "all_90_nested_permutation_results_retained": true,
+    "primary_layer_partition_exact": true,
+    "all_41_source_errors_accounted_for": true,
+    "four_question_plan_first_source_errors_not_relabelled_as_source_first": true,
+    "all_8_generic_strata_recomputed_from_rows": true,
+    "non_generic_residual_strata_retained": true,
+    "each_row_has_exactly_one_disposition": true,
+    "all_dispositions_have_evidence": true,
+    "request_attempt_and_generation_counts_not_conflated": true,
+    "post_hoc_gold_never_changes_runtime_input_or_winner": true,
+    "accepted_wrong_zero": true,
+    "reference_base_old_winner_false_accepts_zero": true,
+    "semantic_control_false_accepts_zero": true,
+    "hard_negative_answers_zero": true,
+    "compiler_inventory_242_of_242": true,
+    "regression_360_of_360": true,
+    "safe_replay_gate": true,
+    "gold_execution_363_of_363": true,
+    "candidate_permutation_363_of_363": true,
+    "frozen_counterfactuals_141": true,
+    "frozen_counterfactual_false_accepts_zero": true,
+    "runtime_hashes_exact": true,
+    "checkpoint_hash_exact": true,
+    "runtime_changed": false,
+    "runtime_edit_authorized": false,
+    "source_or_ocr_execution_performed": false,
+    "qp4_complete": false,
+    "qp5_authorized": false,
+    "phase_d_unlocked": false
+  },
+  "decision_policy": {
+    "if_generic_runtime_root_cause_confirmed": "Authorize only a separate implementation precommit that names the smallest generic symbol whitelist and its exact replay obligations; do not edit runtime in the diagnostic review.",
+    "if_source_protocol_cache_or_environment_confirmed": "Authorize only a separate source-protocol/cache reclosure precommit; do not claim an OCR/layout algorithm defect and do not edit runtime in the diagnostic review.",
+    "if_evaluator_or_oracle_defect_confirmed": "Authorize only evaluator-contract reclosure before any new measurement.",
+    "if_no_coherent_generic_root_cause": "Keep runtime whitelist empty, retain every residual in the denominator, and fail closed.",
+    "missing_proof": "UNKNOWN to ABSTAIN",
+    "conflict_or_contradiction": "REJECT"
+  },
+  "future_diagnostic_outputs": {
+    "final_json": "reports/finhrm_qp4_post_question_surface_post_cache_residual_coverage_source_replay_diagnostic_review_v1.json",
+    "final_markdown": "reports/finhrm_qp4_post_question_surface_post_cache_residual_coverage_source_replay_diagnostic_review_v1.md",
+    "lock": "reports/finhrm_qp4_post_question_surface_post_cache_residual_coverage_source_replay_diagnostic_review_lock_v1.json"
+  },
+  "checkpoint": {
+    "path": "models/document_hrm_V8_candidate.pt",
+    "sha256": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de"
+  },
+  "frozen_runtime_hashes": {
+    "src/hrm_finance_qa/question_planner.py": "334ab6bfb57b883ff2022cdcb39614d7e7a8d3269c14f4bea188640d53111bf4",
+    "src/hrm_finance_qa/symbolic_verifier.py": "2679b1ce55cc070697438c806f19e3e888bfc19bc1a9ae3686a0b7fd7ffb0087",
+    "src/hrm_finance_qa/program_synthesis.py": "e4acc4878d0dfd465ba66ab91f3aaf8be71db5591aa1358fb8cb81f3c7bff550",
+    "src/hrm_finance_qa/evidence_schema.py": "2f16fabf932dc9dabc8203d9642d2503bb2dab43e0e1ee0f78755dd4fb00825d",
+    "src/hrm_finance_qa/document_hrm.py": "b5951bcde79583950b672f7fb6b199b3e5b9904e6784daae7c4c5be0eba65d21",
+    "src/hrm_finance_qa/document_reasoning_engine.py": "3883500011472716bc01f8e04a6d6f925173b35a14bbedd945c5ca4fb0063fa2",
+    "src/hrm_finance_qa/program_data.py": "5199434fc0628b7d270ce62b12657366cbe118901065edd9f1e1f6ca0f1f8d54",
+    "src/hrm_finance_qa/direction_contract.py": "a18aa130419fc74ce647bd92dc9c1b1217007738e636aad0f28c7f78396be937",
+    "src/hrm_finance_qa/answer_presentation.py": "c40bd4a8dff39162b44cf11ef2da12e7b153d907f7254e5d1856157b3ac56d36",
+    "src/hrm_finance_qa/document_sources.py": "e9eb7b3ddcc2ed13060a573a6a0101a216fa49ff21dd65cd5fc2629b92f5fc0b",
+    "src/hrm_finance_qa/document_page_index.py": "c99e011175afef21f302be42ba9454b948caa549d4d445d6bb35c5b974b81f85"
+  },
+  "artifact_policy": {
+    "maximum_final_json": 1,
+    "maximum_final_markdown": 1,
+    "maximum_lock_or_manifest": 1,
+    "raw_or_intermediate_artifacts_persisted": false,
+    "temporary_artifacts_deleted_after_verification": true
+  },
+  "invariants": {
+    "abw_used": false,
+    "protected_evaluation_loaded": false,
+    "validation_loaded": false,
+    "blind_loaded": false,
+    "test_data_loaded": false,
+    "sealed_or_holdout_loaded": false,
+    "fine_tuning_performed": false,
+    "threshold_changed": false,
+    "checkpoint_changed": false,
+    "model_changed": false,
+    "synthetic_layout_counted_as_confirmation": false,
+    "candidate_rank_score_or_confidence_used_as_semantic_proof": false,
+    "nearby_context_or_absence_used_to_infer_period_or_provenance": false,
+    "runtime_changed": false,
+    "ocr_run": false,
+    "source_replay_run": false,
+    "diagnostic_review_executed": false,
+    "qp4_complete": false,
+    "qp5_authorized": false,
+    "phase_d_unlocked": false
+  },
+  "authorized_next_step_after_lock": "QP4-POST-QUESTION-SURFACE-POST-CACHE-RESIDUAL-COVERAGE-SOURCE-REPLAY-DIAGNOSTIC-REVIEW"
+}

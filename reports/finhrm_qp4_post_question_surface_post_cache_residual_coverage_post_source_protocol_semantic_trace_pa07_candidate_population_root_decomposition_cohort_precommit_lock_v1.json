@@ -1,0 +1,125 @@
+{
+  "schema": "finhrm.qp4.post_question_surface.post_cache.residual_coverage.post_source_protocol.semantic_trace.pa07_candidate_population.root_decomposition_cohort_precommit_lock.v1",
+  "created_at": "2026-08-24T10:54:05+07:00",
+  "classification": "development_only_executable_cohort_precommit_lock_no_runtime_no_model_no_ocr",
+  "status": "PASS",
+  "step": "QP4-POST-QUESTION-SURFACE-POST-CACHE-RESIDUAL-COVERAGE-POST-SOURCE-PROTOCOL-SEMANTIC-TRACE-PA07-CANDIDATE-POPULATION-ROOT-DECOMPOSITION-COHORT-PRECOMMIT",
+  "precommit_gate_passed": true,
+  "cohort_build_gate_passed": false,
+  "runtime_implementation_gate_passed": false,
+  "artifacts": {
+    "final_json": {
+      "path": "config/finhrm_qp4_post_question_surface_post_cache_residual_coverage_post_source_protocol_semantic_trace_pa07_candidate_population_root_decomposition_cohort_precommit_v1.json",
+      "size_bytes": 20652,
+      "sha256": "e4122258a7d86c1869fe9c11d4150d4e5d471ef88412d9374d40a3efa8c4ed6c"
+    },
+    "final_markdown": {
+      "path": "reports/finhrm_qp4_post_question_surface_post_cache_residual_coverage_post_source_protocol_semantic_trace_pa07_candidate_population_root_decomposition_cohort_precommit_v1.md",
+      "size_bytes": 4375,
+      "sha256": "826999dad702bfeb9168f03a277207ace77e0804a0ea2ea7bec4c7959045f867"
+    }
+  },
+  "parent_lock": {
+    "path": "reports/finhrm_qp4_post_question_surface_post_cache_residual_coverage_post_source_protocol_semantic_trace_pa07_candidate_population_implementation_precommit_lock_v1.json",
+    "size_bytes": 4524,
+    "sha256": "ea92495085869a22f8e02fa27ab99acbd7ee6c3bcb5b6f76b457d55718855302",
+    "authorized_next_step_matches": true
+  },
+  "execution_summary": {
+    "development_catalog_documents": 169,
+    "development_catalog_companies": 150,
+    "catalog_documents_after_abw_exclusion": 167,
+    "unique_pdf_locators": "167/167",
+    "source_sha256_matches": "167/167",
+    "build_universe_after_diagnosis_company_exclusion": {
+      "documents": 160,
+      "companies": 143
+    },
+    "schema_probe": {
+      "selection": "first_three_by_source_sha256_after_all_exclusions",
+      "sources": 3,
+      "hash_matches": "3/3",
+      "page_text_method_length_matches": "3/3",
+      "page_count_geometry_matches": "3/3",
+      "native_nonempty_pages": [20, 93, 57],
+      "word_geometry_nonempty_pages": [20, 93, 57],
+      "raw_text_persisted": false
+    },
+    "structural_signatures_frozen": 3,
+    "minimum_per_signature": {
+      "companies": 3,
+      "sources": 3,
+      "real_table_layout_families": 3,
+      "layout_instances": 3
+    },
+    "cohort_existence_claimed": false,
+    "runtime_or_model_used_for_eligibility": false
+  },
+  "gate_results": {
+    "parent_authorization_exact": true,
+    "all_frozen_hashes_exact": true,
+    "development_universe_complete_and_locatable": true,
+    "native_text_and_geometry_schema_feasible": true,
+    "structural_predicates_executable_without_runtime_or_question_outcome": true,
+    "deterministic_full_scan_and_selection_locked": true,
+    "minimum_company_and_real_layout_admission_locked_per_signature": true,
+    "failure_behavior_locked": true,
+    "artifact_budget_locked": true,
+    "precommit_gate_passed": true,
+    "cohort_build_gate_passed": false
+  },
+  "integrity": {
+    "claude_md_sha256": "b3e61c65fd4f36a86d5ba4fac780150960c81bfe7cf5f4a9a685071a408178aa",
+    "generalization_invariant_sha256": "7a8c6e58a47314d522adb782277f6d5bf0cbf761faf681d848e2e9ae4e861846",
+    "development_catalog_sha256": "17f74e49fe1894871453dd0c2b2ec8f13fa3650c4294c324d90bc7e47dd8bb2b",
+    "question_family_catalog_sha256": "69c4017afec7731f63407339ae0c3d717ac38690807b17908b77fb1892d8e31b",
+    "runtime_and_extraction_hashes": {
+      "src/hrm_finance_qa/document_sources.py": "e9eb7b3ddcc2ed13060a573a6a0101a216fa49ff21dd65cd5fc2629b92f5fc0b",
+      "src/hrm_finance_qa/document_page_index.py": "d531f47a22ed051863b41b3de031bb3e9d4bbf60ef71f825217559b7035386b4",
+      "src/hrm_finance_qa/program_data.py": "5199434fc0628b7d270ce62b12657366cbe118901065edd9f1e1f6ca0f1f8d54",
+      "src/hrm_finance_qa/evidence_schema.py": "2f16fabf932dc9dabc8203d9642d2503bb2dab43e0e1ee0f78755dd4fb00825d",
+      "src/hrm_finance_qa/document_reasoning_engine.py": "3883500011472716bc01f8e04a6d6f925173b35a14bbedd945c5ca4fb0063fa2"
+    },
+    "checkpoint": {
+      "path": "models/document_hrm_V8_candidate.pt",
+      "size_bytes": 3413128,
+      "sha256": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de",
+      "parameter_count": 843097
+    },
+    "runtime_changed": false,
+    "checkpoint_threshold_or_model_changed": false,
+    "fine_tuning_performed": false,
+    "new_ocr_generation": false,
+    "protected_split_read": false,
+    "abw_used": false
+  },
+  "authorization": {
+    "runtime_edit_authorized": false,
+    "runtime_file_whitelist": [],
+    "runtime_symbol_whitelist": [],
+    "test_file_whitelist": [],
+    "next_allowed_action": "QP4-POST-QUESTION-SURFACE-POST-CACHE-RESIDUAL-COVERAGE-POST-SOURCE-PROTOCOL-SEMANTIC-TRACE-PA07-CANDIDATE-POPULATION-ROOT-DECOMPOSITION-COHORT-BUILD",
+    "next_action_runtime_edits": false,
+    "other_pa07_signatures_authorized": false,
+    "qp4_complete": false,
+    "qp5_authorized": false,
+    "phase_d_unlocked": false
+  },
+  "artifact_policy": {
+    "final_json": 1,
+    "final_markdown": 1,
+    "lock_manifest": 1,
+    "temporary_probe_persisted": false,
+    "temporary_payload_persisted": false,
+    "temporary_files_after_verification": 0
+  },
+  "invariants": {
+    "report_company_filename_page_year_value_example_or_question_literal_rule_added": false,
+    "rank_score_or_confidence_used_as_semantic_proof": false,
+    "period_or_provenance_inferred_from_absence_or_nearby_context": false,
+    "unknown_promoted_to_answer": false,
+    "conflict_promoted_to_answer": false,
+    "synthetic_layout_counted_as_confirmation": false,
+    "metric_beautification_performed": false
+  }
+}

@@ -1,0 +1,135 @@
+{
+  "schema": "finhrm.qp4.development_source_expansion_cohort_build.lock.v1",
+  "created_at": "2026-08-24T12:37:08+07:00",
+  "classification": "development_only_deterministic_random_expansion_cohort_build_lock_no_runtime_no_model_no_ocr",
+  "status": "FAIL_CLOSED",
+  "step": "QP4-DEVELOPMENT-SOURCE-EXPANSION-COHORT-BUILD",
+  "precommit_gate_passed": true,
+  "source_expansion_build_gate_passed": false,
+  "runtime_implementation_gate_passed": false,
+  "artifacts": {
+    "final_json": {
+      "path": "reports/finhrm_qp4_development_source_expansion_cohort_build_v1.json",
+      "size_bytes": 33686,
+      "sha256": "16511e98bea58c41b2366be4e5820784a7c5f6e2a6671947e5632c153c315514"
+    },
+    "final_markdown": {
+      "path": "reports/finhrm_qp4_development_source_expansion_cohort_build_v1.md",
+      "size_bytes": 3945,
+      "sha256": "216ae25245c89cd616f43e48adc8e372c93b64dce5e20b34eaf8b6038c9f7886"
+    }
+  },
+  "parent_precommit": {
+    "config_path": "config/finhrm_qp4_development_source_expansion_reclosure_precommit_v1.json",
+    "config_size_bytes": 21238,
+    "config_sha256": "f6103a5c1e5e44209ea4e037915ba33e67c014d6099fcb55125d043039306b0a",
+    "lock_path": "reports/finhrm_qp4_development_source_expansion_reclosure_precommit_lock_v1.json",
+    "lock_size_bytes": 5798,
+    "lock_sha256": "4a6560c231bbc3b1131a69d0bcc0393cfebaf2499fee93d7c799893b7526d8a5",
+    "authorization_matches_exactly": true
+  },
+  "locked_selection": {
+    "eligible_sources": 112,
+    "eligible_companies": 112,
+    "eligible_pool_sha256": "8711cfdf491bc14fe5dbed6a161dd754c6de89f4d918be4b410006d6acc2c5ab",
+    "transform_id": "FINHRM_QP4_DEV_SOURCE_EXPANSION_RANDOM_V1",
+    "selected_sources": 50,
+    "selected_companies": 50,
+    "selected_manifest_sha256": "4af6cebd661df6cebf9249343de16c7b6740a40f8e9cd600b6b423f2a48ab238",
+    "post_hoc_replacements": 0,
+    "selection_used_content_question_layout_value_or_model_outcome": false
+  },
+  "execution_summary": {
+    "selected_sources_processed": "50/50",
+    "selected_source_hash_matches": "50/50",
+    "source_read_errors": 0,
+    "physical_pages_scanned": 2425,
+    "native_nonempty_pages": 1541,
+    "geometry_nonempty_pages": 1541,
+    "broad_candidate_pages": 19,
+    "sources_with_broad_candidate_pages": 8,
+    "native_table_grids_detected": 13,
+    "visual_candidate_pages_reviewed": 4,
+    "visual_source_documents_reviewed": 3,
+    "admitted_target_anchors": 0,
+    "new_ocr_generated": false,
+    "question_model_or_answer_evaluator_run": false
+  },
+  "terminal_counts": {
+    "REJECT_NO_NATIVE_TEXT_OR_GEOMETRY": 25,
+    "REJECT_NO_TARGET_STRUCTURE": 24,
+    "REJECT_MISSING_EXPLICIT_SAME_PERIOD": 1,
+    "ADMITTED": 0,
+    "SOURCE_ERROR": 0,
+    "no_native_sources_are_negative_prevalence_proof": false
+  },
+  "visual_decisions": {
+    "NHA_pages_100_and_108": "REJECT: Plan/Actual is physical, but 2024 is a section title rather than an explicit parent period header or spanner over both role columns.",
+    "HTI_page_73": "REJECT: wrapped metric labels exist, but Actual 2024 and Plan 2025 have different explicit periods.",
+    "CMK_page_3": "OUT_OF_TARGET: explicit Kế hoạch 2024 and Thực hiện 2024 is a flattened compact header, not hierarchical or fragmented; it is not counted.",
+    "section_title_or_nearby_context_used_as_period_proof": false,
+    "cross_signature_pooling_used": false
+  },
+  "per_signature_gates": {
+    "PA07_ROOT_HIERARCHICAL_MULTIROW_ROLE_PERIOD_HEADER_V1": {
+      "frozen_prior": 1,
+      "new_admitted": 0,
+      "combined_companies_sources_layouts_instances": "1/1/1/1",
+      "minimum_each": 3,
+      "shortfall_each": 2,
+      "gate": "FAIL"
+    },
+    "PA07_ROOT_FRAGMENTED_VISUAL_ROW_LABEL_V1": {
+      "frozen_prior": 0,
+      "new_admitted": 0,
+      "combined_companies_sources_layouts_instances": "0/0/0/0",
+      "minimum_each": 3,
+      "shortfall_each": 3,
+      "gate": "FAIL"
+    },
+    "PA07_ROOT_FLATTENED_COMPACT_ROLE_YEAR_HEADER_V1": {
+      "frozen_status": "PASS_3_3_3",
+      "new_out_of_target_control_observed": 1,
+      "new_out_of_target_control_counted": 0,
+      "gate": "PASS_FROZEN"
+    }
+  },
+  "integrity": {
+    "runtime_hashes": {
+      "src/hrm_finance_qa/document_sources.py": "e9eb7b3ddcc2ed13060a573a6a0101a216fa49ff21dd65cd5fc2629b92f5fc0b",
+      "src/hrm_finance_qa/document_page_index.py": "d531f47a22ed051863b41b3de031bb3e9d4bbf60ef71f825217559b7035386b4",
+      "src/hrm_finance_qa/program_data.py": "5199434fc0628b7d270ce62b12657366cbe118901065edd9f1e1f6ca0f1f8d54",
+      "src/hrm_finance_qa/evidence_schema.py": "2f16fabf932dc9dabc8203d9642d2503bb2dab43e0e1ee0f78755dd4fb00825d",
+      "src/hrm_finance_qa/document_reasoning_engine.py": "3883500011472716bc01f8e04a6d6f925173b35a14bbedd945c5ca4fb0063fa2"
+    },
+    "checkpoint_sha256": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de",
+    "runtime_changed": false,
+    "test_files_changed": false,
+    "model_checkpoint_or_threshold_changed": false,
+    "fine_tuning_performed": false,
+    "protected_split_read": false,
+    "abw_used": false,
+    "new_ocr_generated": false,
+    "rank_score_or_confidence_used_as_semantic_proof": false,
+    "metric_beautification_performed": false,
+    "temporary_files_after_verification": 0
+  },
+  "authorization": {
+    "runtime_edit_authorized": false,
+    "runtime_file_whitelist": [],
+    "test_file_whitelist": [],
+    "source_replay_diagnostic_precommit_authorized": false,
+    "required_state": "Remain FAIL_CLOSED and report exact deterministic-sample structural shortfalls; no runtime edit.",
+    "publication_pilot_30_to_50_authorized": false,
+    "qp4_complete": false,
+    "qp5_authorized": false,
+    "phase_d_unlocked": false
+  },
+  "artifact_policy": {
+    "final_json": 1,
+    "final_markdown": 1,
+    "lock_manifest": 1,
+    "persistent_script_or_raw_trace": false,
+    "temporary_files_after_verification": 0
+  }
+}

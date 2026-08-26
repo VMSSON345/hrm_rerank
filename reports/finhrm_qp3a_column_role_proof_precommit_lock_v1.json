@@ -1,0 +1,121 @@
+{
+  "schema": "finhrm-qp3a-column-role-proof-precommit-lock-v1",
+  "created_at": "2026-08-13",
+  "classification": "development_only_synthetic_evidence_precommit_lock",
+  "status": "complete",
+  "phase_d": "locked",
+  "precommit_gate_passed": true,
+  "results": {
+    "examples": {"exact": 128, "total": 128},
+    "oracle_state": {"exact": 128, "total": 128},
+    "oracle_action": {"exact": 128, "total": 128},
+    "deferred_groups": {"covered": 12, "required": 12},
+    "generalization_groups": {"covered": 4, "required": 4},
+    "scenarios_per_group": 8,
+    "same_value_conflicts": {"exact": 16, "total": 16},
+    "permutation_invariance": {"exact": 16, "total": 16},
+    "unknown_inventory_controls": {"exact": 16, "total": 16},
+    "distinct_metrics": 6,
+    "distinct_years": 7,
+    "malformed_examples": 0,
+    "forbidden_signal_examples": 0,
+    "runtime_hash_mismatches": 0,
+    "regression_tests": {"pass": 222, "fail": 0}
+  },
+  "proof_decisions": {
+    "no_role_unique_complete": "VALID for column-role uniqueness only; defer to all other proofs",
+    "no_role_multiple_roles": "INVALID and ABSTAIN",
+    "no_role_same_value_multiple_roles": "INVALID and ABSTAIN",
+    "no_role_inventory_unknown": "UNKNOWN and ABSTAIN",
+    "cross_extractor_role_conflict": "INVALID and ABSTAIN",
+    "explicit_role_match": "VALID",
+    "explicit_role_mismatch": "INVALID and REJECT",
+    "candidate_order": "not a signal"
+  },
+  "runtime_baseline": {
+    "question_planner.py": "6870080033a3190c8a7c2f8772438ada2a3abac2679015c12d0ff0dfdb9ace62",
+    "program_synthesis.py": "a37470ad307c04744a5db794258f8bff2f6439ef6a689f8a9b8db67f91a17761",
+    "symbolic_verifier.py": "6e95d13261c43f16e7c0118ddbb288adb427f8212831df56bf8b25102b5db7e6",
+    "document_hrm.py": "52d37630d1797176df06245171dc59131b89f73e1aa552b270297e6154e2c054",
+    "document_reasoning_engine.py": "ee2ce9e2d8cea6fc87d307450297dace74727bdf915ba29e22cab67c7da6212f",
+    "program_data.py": "769fb033fdd74a3b20da4b6e96fb380cc4d8a08280736cf708979db02a3a3a41"
+  },
+  "invariants": {
+    "runtime_implementation_performed": false,
+    "runtime_acceptance_policy_changed": false,
+    "threshold_changed": false,
+    "checkpoint_changed": false,
+    "fine_tuning_performed": false,
+    "numeric_values_used": false,
+    "numeric_answers_used": false,
+    "document_content_used": false,
+    "candidate_scores_used": false,
+    "document_loaded": false,
+    "pdf_loaded": false,
+    "model_loaded": false,
+    "global_validation_loaded": false,
+    "sealed_validation_loaded": false,
+    "blind_test_loaded": false,
+    "phase_d_unlocked": false
+  },
+  "artifacts": [
+    {
+      "path": "config/finhrm_qp3a_column_role_proof_precommit_v1.json",
+      "size_bytes": 9132,
+      "sha256": "75cf5124b5107fce112c0e394cb7077c7c7e209b27fe461a23eb86af779d3c9f"
+    },
+    {
+      "path": "scripts/build_qp3a_column_role_proof_cohort.py",
+      "size_bytes": 11431,
+      "sha256": "cc78bab1c95ce3f4ab5c7064716ecfca345d41b90eaa003ff27170877c4b6590"
+    },
+    {
+      "path": "data/finhrm_qp3a_column_role_proof_development_v1.jsonl",
+      "size_bytes": 238246,
+      "sha256": "cfb7c5b38a55a721f81cc06cc4f00602e9df5f145c57590faf3bd5cb6634d1bf"
+    },
+    {
+      "path": "scripts/validate_qp3a_column_role_proof_precommit.py",
+      "size_bytes": 15533,
+      "sha256": "a0ca30e920c03bcd8d9e165aa6082697f939f3285b3278f5016cc9d329f76dae"
+    },
+    {
+      "path": "tests/test_qp3a_column_role_proof_precommit.py",
+      "size_bytes": 3220,
+      "sha256": "37a3b1244432f5e05dc1aa45d19d7d747d8c8fe8835cfe67661ee9c958b577ba"
+    },
+    {
+      "path": "reports/finhrm_qp3a_column_role_proof_precommit_v1.json",
+      "size_bytes": 36149,
+      "sha256": "045aa82e0a0dc3d3f2ef601d8fcf0eae1d9e1e266808d2a2a50117c23b26e949"
+    },
+    {
+      "path": "reports/finhrm_qp3a_column_role_proof_precommit_v1.md",
+      "size_bytes": 4311,
+      "sha256": "efabb3a466735513f222b56cc16f9694c353eac7dc6a8db559081ff9955c3258"
+    }
+  ],
+  "frozen_dependencies": [
+    {
+      "path": "config/finhrm_thesis_core_v1.json",
+      "size_bytes": 24625,
+      "sha256": "a9f2f3088f7622c6c8912086eac16252f154fcae1164a3fe7ba75107a0ece502"
+    },
+    {
+      "path": "config/question_family_catalog_plan_actual_v1.jsonl",
+      "size_bytes": 285544,
+      "sha256": "69c4017afec7731f63407339ae0c3d717ac38690807b17908b77fb1892d8e31b"
+    },
+    {
+      "path": "reports/finhrm_qp2e_surface_robustness_lock_v1.json",
+      "size_bytes": 5442,
+      "sha256": "624f3e0b74bb3f0dfdb17eb0aae9d9b10f6ddb4d70fff3302d906887b682edac"
+    },
+    {
+      "path": "models/document_hrm_V8_candidate.pt",
+      "size_bytes": 3413128,
+      "sha256": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de"
+    }
+  ],
+  "authorized_next_step": "QP3B implement the frozen evidence-conditioned column-role proof against the 128-case cohort; require exact state/action and all counterfactual controls, retain QP2A-QP2E, and do not change threshold."
+}

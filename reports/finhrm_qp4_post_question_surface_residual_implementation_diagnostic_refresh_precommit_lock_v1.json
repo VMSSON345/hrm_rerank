@@ -1,0 +1,53 @@
+{
+  "schema": "finhrm-qp4-post-question-surface-residual-implementation-diagnostic-refresh-precommit-lock-v1",
+  "created_at": "2026-08-22",
+  "classification": "development_only_qp4_postimplementation_residual_diagnostic_precommit_no_runtime_change",
+  "status": "complete",
+  "precommit_gate_passed": true,
+  "failed_gates": [],
+  "runtime_changed": false,
+  "runtime_file_whitelist": [],
+  "source_observations": 29,
+  "authorized_next_step": "QP4-POST-QUESTION-SURFACE-RESIDUAL-IMPLEMENTATION-DIAGNOSTIC-REFRESH: replay and classify all 5 ADD short/long family records plus 24 ACTUAL/PLAN development source observations in memory, retain 242/242 compiler control, persist no raw output, and make no runtime change.",
+  "runtime_hashes": {
+    "src/hrm_finance_qa/question_planner.py": "334ab6bfb57b883ff2022cdcb39614d7e7a8d3269c14f4bea188640d53111bf4",
+    "src/hrm_finance_qa/symbolic_verifier.py": "2679b1ce55cc070697438c806f19e3e888bfc19bc1a9ae3686a0b7fd7ffb0087",
+    "src/hrm_finance_qa/program_synthesis.py": "e4acc4878d0dfd465ba66ab91f3aaf8be71db5591aa1358fb8cb81f3c7bff550",
+    "src/hrm_finance_qa/evidence_schema.py": "2f16fabf932dc9dabc8203d9642d2503bb2dab43e0e1ee0f78755dd4fb00825d",
+    "src/hrm_finance_qa/document_hrm.py": "b5951bcde79583950b672f7fb6b199b3e5b9904e6784daae7c4c5be0eba65d21",
+    "src/hrm_finance_qa/document_reasoning_engine.py": "3883500011472716bc01f8e04a6d6f925173b35a14bbedd945c5ca4fb0063fa2",
+    "src/hrm_finance_qa/program_data.py": "5199434fc0628b7d270ce62b12657366cbe118901065edd9f1e1f6ca0f1f8d54",
+    "src/hrm_finance_qa/direction_contract.py": "a18aa130419fc74ce647bd92dc9c1b1217007738e636aad0f28c7f78396be937",
+    "src/hrm_finance_qa/answer_presentation.py": "c40bd4a8dff39162b44cf11ef2da12e7b153d907f7254e5d1856157b3ac56d36",
+    "src/hrm_finance_qa/document_sources.py": "e9eb7b3ddcc2ed13060a573a6a0101a216fa49ff21dd65cd5fc2629b92f5fc0b",
+    "src/hrm_finance_qa/document_page_index.py": "c99e011175afef21f302be42ba9454b948caa549d4d445d6bb35c5b974b81f85"
+  },
+  "checkpoint_sha256": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de",
+  "artifact_policy": {
+    "maximum_final_json": 1,
+    "maximum_final_markdown": 1,
+    "maximum_lock_or_manifest": 1,
+    "raw_or_intermediate_artifacts_persisted": false,
+    "temporary_artifacts_deleted_after_verification": true
+  },
+  "artifacts": [
+    {
+      "path": "config/finhrm_qp4_post_question_surface_residual_implementation_diagnostic_refresh_precommit_v1.json",
+      "size_bytes": 5446,
+      "sha256": "5a5ca6610f0bf87cbdcc214f8be49e414039faada626637a30d131ebf027f96c"
+    },
+    {
+      "path": "scripts/validate_qp4_post_question_surface_residual_implementation_diagnostic_refresh_precommit.py",
+      "size_bytes": 5364,
+      "sha256": "9fa318ce148c04bb5272972af0fc9ccb7b40264792d13e82267fe85eb082f866"
+    },
+    {
+      "path": "reports/finhrm_qp4_post_question_surface_residual_implementation_diagnostic_refresh_precommit_v1.md",
+      "size_bytes": 481,
+      "sha256": "14c83c7592531c6e816512126d97466cf03f72c96039e994230083c68ad9b806"
+    }
+  ],
+  "qp4_complete": false,
+  "qp5_authorized": false,
+  "phase_d": "locked"
+}

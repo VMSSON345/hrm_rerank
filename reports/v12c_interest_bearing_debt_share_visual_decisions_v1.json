@@ -1,0 +1,123 @@
+{
+  "protocol": "v12c-interest-bearing-debt-share-visual-decisions-v1",
+  "classification": "development_only_visual_qa",
+  "review_id": "v12c-ibd-visual-qa-2026-08-12",
+  "candidate_sha256": "f39f728c94c28e60c25157972f9c2c537b6ff419e792aea6b155912a32621c84",
+  "protected_evaluation_sources_used": false,
+  "records": [
+    {
+      "source_name": "NAF_24CN_BCTN.pdf",
+      "page": 73,
+      "render_sha256": "b99085efb585c6ae69e443a613b49c138f9acc136d61dc3362c5c010de113f3b",
+      "decision": "approved",
+      "checks": {
+        "balance_sheet_page": true,
+        "roles_unique": true,
+        "values_match": true,
+        "period_headers_match": true,
+        "unit_match": true,
+        "entity_scope_match": true,
+        "no_cross_panel_leakage": true
+      },
+      "observed_values": {
+        "31/12/2023": {"short_term_borrowings": "746877659254", "long_term_borrowings": "62411882575", "total_capital": "2043235491713"},
+        "31/12/2024": {"short_term_borrowings": "692096793955", "long_term_borrowings": "155576868843", "total_capital": "2028985659371"}
+      }
+    },
+    {
+      "source_name": "PGS_23CN_BCTN.pdf",
+      "page": 68,
+      "render_sha256": "3ec84a3edda7ccf8d1ef1aae9b5d9b134805256ce23be6052b7e4373e1acf93e",
+      "decision": "approved",
+      "checks": {
+        "balance_sheet_page": true,
+        "roles_unique": true,
+        "values_match": true,
+        "period_headers_match": true,
+        "unit_match": true,
+        "entity_scope_match": true,
+        "no_cross_panel_leakage": true
+      },
+      "observed_values": {
+        "01/01/2023": {"short_term_borrowings": "268801811123", "long_term_borrowings": "19169103485", "total_capital": "2389451316230"},
+        "31/12/2023": {"short_term_borrowings": "564844530548", "long_term_borrowings": "21770678566", "total_capital": "2737637322267"}
+      }
+    },
+    {
+      "source_name": "PGS_24CN_BCTN.pdf",
+      "page": 63,
+      "render_sha256": "4b155994ae6bf370ecc0df286b6719d8375dc9faf6ca5727de47c28f55e2c024",
+      "decision": "approved",
+      "checks": {
+        "balance_sheet_page": true,
+        "roles_unique": true,
+        "values_match": true,
+        "period_headers_match": true,
+        "unit_match": true,
+        "entity_scope_match": true,
+        "no_cross_panel_leakage": true
+      },
+      "observed_values": {
+        "01/01/2024": {"short_term_borrowings": "564844530548", "long_term_borrowings": "21770678566", "total_capital": "2737637322267"},
+        "31/12/2024": {"short_term_borrowings": "528523819180", "long_term_borrowings": "12094821430", "total_capital": "2841418344920"}
+      }
+    },
+    {
+      "source_name": "VHM_24CN_BCTN.pdf",
+      "page": 89,
+      "render_sha256": "bcb1622c2109e51037f1ca8f5f27aaf113f8a59ff8063beddaf4386473d45c50",
+      "decision": "approved",
+      "checks": {
+        "balance_sheet_page": true,
+        "roles_unique": true,
+        "values_match": true,
+        "period_headers_match": true,
+        "unit_match": true,
+        "entity_scope_match": true,
+        "no_cross_panel_leakage": true
+      },
+      "observed_values": {
+        "01/01/2024": {"short_term_borrowings": "18289641", "long_term_borrowings": "38393923", "total_capital": "444630675"},
+        "31/12/2024": {"short_term_borrowings": "34276497", "long_term_borrowings": "47015689", "total_capital": "564209360"}
+      }
+    },
+    {
+      "source_name": "DCM_23CN_BCTN.pdf",
+      "page": 138,
+      "render_sha256": "dbcd0f871d28f32cb0b9cc86634d0c243ee2d02ff283f59d0448870369bd0d7b",
+      "decision": "approved",
+      "checks": {
+        "balance_sheet_page": true,
+        "roles_unique": true,
+        "values_match": true,
+        "period_headers_match": true,
+        "unit_match": true,
+        "entity_scope_match": true,
+        "no_cross_panel_leakage": true
+      },
+      "observed_values": {
+        "01/01/2023": {"short_term_borrowings": "2559405532", "long_term_borrowings": "1048481500", "total_capital": "14166860720016"},
+        "31/12/2023": {"short_term_borrowings": "845805808955", "long_term_borrowings": "2964479875", "total_capital": "15237966427299"}
+      }
+    },
+    {
+      "source_name": "VSC_23CN_BCTN.pdf",
+      "page": 29,
+      "render_sha256": "b0b6c7cee48b0ec0dc04028ec7daa004bc9837eb2ba1e6dc1961a3e185aa3f0d",
+      "decision": "approved",
+      "checks": {
+        "balance_sheet_page": true,
+        "roles_unique": true,
+        "values_match": true,
+        "period_headers_match": true,
+        "unit_match": true,
+        "entity_scope_match": true,
+        "no_cross_panel_leakage": true
+      },
+      "observed_values": {
+        "31/12/2022": {"short_term_borrowings": "208400000000", "long_term_borrowings": "700000000000", "total_capital": "4366810324093"},
+        "31/12/2023": {"short_term_borrowings": "118835910443", "long_term_borrowings": "1449749013010", "total_capital": "5190925854088"}
+      }
+    }
+  ]
+}

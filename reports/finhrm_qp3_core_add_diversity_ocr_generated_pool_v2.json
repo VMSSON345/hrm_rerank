@@ -1,0 +1,559 @@
+{
+  "schema": "finhrm-qp3-core-add-diversity-ocr-generated-pool-v2",
+  "created_at": "2026-08-20",
+  "classification": "development_only_hash_ordered_full_page_ocr_discovery",
+  "inputs": {
+    "precommit": {
+      "path": "config/finhrm_qp3_core_add_diverse_development_cohort_precommit_v1.json",
+      "sha256": "7b9d0bc6e7ad75a80aead0015d62f8a448f2f945b93413fdb3740ce0cfb52820"
+    },
+    "source_audit": {
+      "path": "reports/finhrm_qp3_core_add_diverse_development_source_audit_v1.json",
+      "sha256": "1c186dcb2b0711dbebabf01ceeca3f5d3c976fb884565d312ae05144a15f886f"
+    },
+    "generator": {
+      "path": "archive/pre_v12_cleanup_20260802/scripts/generate_document_derived_programs.py",
+      "sha256": "a8cf17d04931c5517bd2218da718576a27ac9f014159c6480b4dda0e38bc028f"
+    }
+  },
+  "discovery": {
+    "order": "ascending_source_sha256",
+    "every_physical_page_scored_until_source_has_maximum_selected_pages": true,
+    "scorer": "scripts.build_financial_page_manifest.score_financial_page",
+    "discovery_ocr_dpi": 125,
+    "materialization_ocr_dpi": 250,
+    "languages": [
+      "vie",
+      "eng"
+    ],
+    "stop_condition": "target distinct companies with explicit-two-role ADD ANSWER/VALID"
+  },
+  "metrics": {
+    "sources_scanned": 24,
+    "physical_pages_scored": 849,
+    "pages_materialized": 43,
+    "examples": 123,
+    "operation_counts": {
+      "ADD": 12,
+      "AVERAGE": 22,
+      "DIVIDE": 4,
+      "PERCENT_CHANGE": 22,
+      "RATIO_PERCENT": 4,
+      "SELECT": 26,
+      "SUBTRACT": 22,
+      "SUM3": 8,
+      "SUM4": 3
+    },
+    "qualifying_companies": 4,
+    "skipped": {
+      "add_quota": 1,
+      "average_quota": 61,
+      "divide_quota": 18,
+      "percent_change_quota": 61,
+      "ratio_percent_quota": 18,
+      "select_pointer_unavailable": 2,
+      "select_quota": 175,
+      "subtract_quota": 61
+    }
+  },
+  "sources": [
+    {
+      "source_key": "DEVPDF_068d3eb11fbb857c",
+      "source_name": "VTZ_23CN_BCTN.pdf",
+      "source_sha256": "068d3eb11fbb857c757968c6d12c0352ab0b313f6797ed8651c9ad18fb38ce1b",
+      "company_key": "development-company-1b6dee1ef0abdc31",
+      "layout_family": "scanned_image_dominant",
+      "physical_pages_scored": 34,
+      "selected_pages": [],
+      "examples": 0,
+      "qualifying_add_answer_valid": false
+    },
+    {
+      "source_key": "DEVPDF_0994ccd63cd7a871",
+      "source_name": "VGR_23CN_BCTN.pdf",
+      "source_sha256": "0994ccd63cd7a871fd14e41c1caf7d413c6264c2d7b94827afe02f0695a097fb",
+      "company_key": "development-company-109221118fecb3ac",
+      "layout_family": "scanned_image_dominant",
+      "physical_pages_scored": 51,
+      "selected_pages": [
+        {
+          "page": 21,
+          "score": 16,
+          "page_class": "financial_summary"
+        },
+        {
+          "page": 23,
+          "score": 16,
+          "page_class": "financial_summary"
+        },
+        {
+          "page": 24,
+          "score": 14,
+          "page_class": "financial_summary"
+        }
+      ],
+      "examples": 0,
+      "qualifying_add_answer_valid": false
+    },
+    {
+      "source_key": "DEVPDF_0bb854c923edd446",
+      "source_name": "TMX_23CN_BCTN.pdf",
+      "source_sha256": "0bb854c923edd446f754b856cd5d43ab58841483225797633101b6ec548525f5",
+      "company_key": "development-company-02005c8731c7bacd",
+      "layout_family": "scanned_image_dominant",
+      "physical_pages_scored": 15,
+      "selected_pages": [
+        {
+          "page": 8,
+          "score": 7,
+          "page_class": "financial_summary"
+        }
+      ],
+      "examples": 0,
+      "qualifying_add_answer_valid": false
+    },
+    {
+      "source_key": "DEVPDF_0cb3aac65efa6de9",
+      "source_name": "HES_23CN_BCTN.pdf",
+      "source_sha256": "0cb3aac65efa6de9ca89afe93fc3e18ba7439bd561ffcf1e996fdb3a553976a6",
+      "company_key": "development-company-050be1e2f4531f6d",
+      "layout_family": "scanned_image_dominant",
+      "physical_pages_scored": 55,
+      "selected_pages": [
+        {
+          "page": 12,
+          "score": 8,
+          "page_class": "financial_summary"
+        },
+        {
+          "page": 19,
+          "score": 3,
+          "page_class": "financial_summary"
+        },
+        {
+          "page": 27,
+          "score": 14,
+          "page_class": "financial_summary"
+        },
+        {
+          "page": 29,
+          "score": 15,
+          "page_class": "financial_summary"
+        },
+        {
+          "page": 49,
+          "score": 14,
+          "page_class": "financial_summary"
+        }
+      ],
+      "examples": 0,
+      "qualifying_add_answer_valid": false
+    },
+    {
+      "source_key": "DEVPDF_156945b3a6df780a",
+      "source_name": "PCT_23CN_BCTN.pdf",
+      "source_sha256": "156945b3a6df780a56d1474ae43ee74c4baf78fd38fc07be5f305ebf001bbf77",
+      "company_key": "development-company-02cee318d68057bf",
+      "layout_family": "scanned_image_dominant",
+      "physical_pages_scored": 48,
+      "selected_pages": [
+        {
+          "page": 18,
+          "score": 16,
+          "page_class": "financial_summary"
+        },
+        {
+          "page": 22,
+          "score": 17,
+          "page_class": "financial_summary"
+        },
+        {
+          "page": 23,
+          "score": 16,
+          "page_class": "financial_summary"
+        },
+        {
+          "page": 34,
+          "score": 14,
+          "page_class": "financial_summary"
+        },
+        {
+          "page": 37,
+          "score": 15,
+          "page_class": "financial_summary"
+        },
+        {
+          "page": 40,
+          "score": 17,
+          "page_class": "financial_summary"
+        },
+        {
+          "page": 41,
+          "score": 16,
+          "page_class": "financial_summary"
+        }
+      ],
+      "examples": 43,
+      "qualifying_add_answer_valid": true
+    },
+    {
+      "source_key": "DEVPDF_1941bbdb928b9825",
+      "source_name": "HAM_23CN_BCTN.pdf",
+      "source_sha256": "1941bbdb928b9825b82b1e9af274fe9cf03647825ca038afa6e448ddecf96a51",
+      "company_key": "development-company-0eccfe263668d171",
+      "layout_family": "scanned_image_dominant",
+      "physical_pages_scored": 50,
+      "selected_pages": [
+        {
+          "page": 20,
+          "score": 6,
+          "page_class": "financial_summary"
+        },
+        {
+          "page": 23,
+          "score": 7,
+          "page_class": "financial_summary"
+        },
+        {
+          "page": 24,
+          "score": 7,
+          "page_class": "financial_summary"
+        },
+        {
+          "page": 26,
+          "score": 7,
+          "page_class": "financial_summary"
+        },
+        {
+          "page": 35,
+          "score": 5,
+          "page_class": "financial_summary"
+        }
+      ],
+      "examples": 8,
+      "qualifying_add_answer_valid": false
+    },
+    {
+      "source_key": "DEVPDF_19e535558fac5d28",
+      "source_name": "TMC_23CN_BCTN.pdf",
+      "source_sha256": "19e535558fac5d289d91c94a551ed686e97045726e1666e231caaf7b360883ce",
+      "company_key": "development-company-0cf6c2d4d5bab184",
+      "layout_family": "scanned_image_dominant",
+      "physical_pages_scored": 68,
+      "selected_pages": [
+        {
+          "page": 13,
+          "score": 3,
+          "page_class": "financial_summary"
+        },
+        {
+          "page": 18,
+          "score": 6,
+          "page_class": "financial_summary"
+        },
+        {
+          "page": 40,
+          "score": 15,
+          "page_class": "financial_summary"
+        },
+        {
+          "page": 42,
+          "score": 17,
+          "page_class": "financial_summary"
+        },
+        {
+          "page": 43,
+          "score": 14,
+          "page_class": "financial_summary"
+        },
+        {
+          "page": 52,
+          "score": 15,
+          "page_class": "financial_summary"
+        },
+        {
+          "page": 54,
+          "score": 15,
+          "page_class": "financial_summary"
+        },
+        {
+          "page": 60,
+          "score": 14,
+          "page_class": "financial_summary"
+        }
+      ],
+      "examples": 7,
+      "qualifying_add_answer_valid": true
+    },
+    {
+      "source_key": "DEVPDF_1a8f1c392822a483",
+      "source_name": "SEB_23CN_BCTN.pdf",
+      "source_sha256": "1a8f1c392822a483079420fc93d2ef16ff795e74c61f07b242cf1b4fa943b6ce",
+      "company_key": "development-company-155290511d5c4bfb",
+      "layout_family": "scanned_image_dominant",
+      "physical_pages_scored": 16,
+      "selected_pages": [],
+      "examples": 0,
+      "qualifying_add_answer_valid": false
+    },
+    {
+      "source_key": "DEVPDF_1bbbaaf0cf8bf89b",
+      "source_name": "HAT_23CN_BCTN.pdf",
+      "source_sha256": "1bbbaaf0cf8bf89bfce6fdd1a4dfcbc9e11ad970d861604a9297a158376c424b",
+      "company_key": "development-company-18e1dd392168f601",
+      "layout_family": "scanned_image_dominant",
+      "physical_pages_scored": 21,
+      "selected_pages": [],
+      "examples": 0,
+      "qualifying_add_answer_valid": false
+    },
+    {
+      "source_key": "DEVPDF_20aac2ebbf914f57",
+      "source_name": "PVV_23CN_BCTN.pdf",
+      "source_sha256": "20aac2ebbf914f57f697c749fd5ca56ffb0375ae131f35d1353273d2db530115",
+      "company_key": "development-company-18a728617eab1b41",
+      "layout_family": "scanned_image_dominant",
+      "physical_pages_scored": 13,
+      "selected_pages": [],
+      "examples": 0,
+      "qualifying_add_answer_valid": false
+    },
+    {
+      "source_key": "DEVPDF_234c1b12bf2da48a",
+      "source_name": "AAS_24CN_BCTN.pdf",
+      "source_sha256": "234c1b12bf2da48a26a4b0fc14a2b83bed325b4e05f5779e028b494806afbbe5",
+      "company_key": "development-company-01",
+      "layout_family": "scanned_image_dominant",
+      "physical_pages_scored": 21,
+      "selected_pages": [
+        {
+          "page": 10,
+          "score": 7,
+          "page_class": "financial_summary"
+        }
+      ],
+      "examples": 0,
+      "qualifying_add_answer_valid": false
+    },
+    {
+      "source_key": "DEVPDF_2a79347d2a6e0b86",
+      "source_name": "HLB_23CN_BCTN.pdf",
+      "source_sha256": "2a79347d2a6e0b8618da59f2a311f84fa901e8e25220079979f6c820a8083719",
+      "company_key": "development-company-13ed7955a8035437",
+      "layout_family": "scanned_image_dominant",
+      "physical_pages_scored": 24,
+      "selected_pages": [
+        {
+          "page": 12,
+          "score": 5,
+          "page_class": "financial_summary"
+        }
+      ],
+      "examples": 8,
+      "qualifying_add_answer_valid": false
+    },
+    {
+      "source_key": "DEVPDF_2c0481397210a2b1",
+      "source_name": "TLD_23CN_BCTN.pdf",
+      "source_sha256": "2c0481397210a2b1d4e01310a43b49187e5ac04e9653537743fb1a7d9c7d88f0",
+      "company_key": "development-company-1eaec7aae93cc9a6",
+      "layout_family": "scanned_image_dominant",
+      "physical_pages_scored": 42,
+      "selected_pages": [],
+      "examples": 0,
+      "qualifying_add_answer_valid": false
+    },
+    {
+      "source_key": "DEVPDF_32f78e8719374156",
+      "source_name": "VIT_23CN_BCTN.pdf",
+      "source_sha256": "32f78e8719374156e285cfd9969eab55de46c8370905789bd92fd943d586f1fa",
+      "company_key": "development-company-00352181b013eb3c",
+      "layout_family": "scanned_image_dominant",
+      "physical_pages_scored": 22,
+      "selected_pages": [
+        {
+          "page": 13,
+          "score": 5,
+          "page_class": "financial_summary"
+        }
+      ],
+      "examples": 0,
+      "qualifying_add_answer_valid": false
+    },
+    {
+      "source_key": "DEVPDF_333c0bcb7266a612",
+      "source_name": "POV_23CN_BCTN.pdf",
+      "source_sha256": "333c0bcb7266a61290f1032e17026fe7b6808e07f865b215ebb6f9602f1badf0",
+      "company_key": "development-company-0db56faac9b0e1d3",
+      "layout_family": "scanned_image_dominant",
+      "physical_pages_scored": 12,
+      "selected_pages": [],
+      "examples": 0,
+      "qualifying_add_answer_valid": false
+    },
+    {
+      "source_key": "DEVPDF_35bdeb62d9507a65",
+      "source_name": "TET_23CN_BCTN.pdf",
+      "source_sha256": "35bdeb62d9507a65f1436375c3e2e7b7d86fa198fb3c7dcec9efbde3302f45c7",
+      "company_key": "development-company-0c67b2c1fcfba9fb",
+      "layout_family": "scanned_image_dominant",
+      "physical_pages_scored": 16,
+      "selected_pages": [],
+      "examples": 0,
+      "qualifying_add_answer_valid": false
+    },
+    {
+      "source_key": "DEVPDF_39d9fa177669d89a",
+      "source_name": "VID_23CN_BCTN.pdf",
+      "source_sha256": "39d9fa177669d89a0595acb9938fc0d1e57958970473ff07fb03d3ae815b9b20",
+      "company_key": "development-company-1ff838dc6ca9680d",
+      "layout_family": "hybrid_scan_text",
+      "physical_pages_scored": 64,
+      "selected_pages": [
+        {
+          "page": 13,
+          "score": 9,
+          "page_class": "financial_summary"
+        },
+        {
+          "page": 17,
+          "score": 6,
+          "page_class": "financial_summary"
+        },
+        {
+          "page": 20,
+          "score": 9,
+          "page_class": "financial_summary"
+        },
+        {
+          "page": 24,
+          "score": 7,
+          "page_class": "financial_summary"
+        },
+        {
+          "page": 43,
+          "score": 14,
+          "page_class": "financial_summary"
+        },
+        {
+          "page": 57,
+          "score": 7,
+          "page_class": "financial_summary"
+        }
+      ],
+      "examples": 31,
+      "qualifying_add_answer_valid": true
+    },
+    {
+      "source_key": "DEVPDF_3db930b2ac1d7ad5",
+      "source_name": "IDP_23CN_BCTN.pdf",
+      "source_sha256": "3db930b2ac1d7ad5d35b3306a03e19cd79660a65c51ce22d6f3cd8d2970e6caa",
+      "company_key": "development-company-0c1eeccce6f114bf",
+      "layout_family": "scanned_image_dominant",
+      "physical_pages_scored": 15,
+      "selected_pages": [],
+      "examples": 0,
+      "qualifying_add_answer_valid": false
+    },
+    {
+      "source_key": "DEVPDF_4701e08f278aa37e",
+      "source_name": "AAS_23CN_BCTN.pdf",
+      "source_sha256": "4701e08f278aa37e14f702974c6ea94c753d2f4818ea2e8bf741e82729513343",
+      "company_key": "development-company-01",
+      "layout_family": "scanned_image_dominant",
+      "physical_pages_scored": 36,
+      "selected_pages": [],
+      "examples": 0,
+      "qualifying_add_answer_valid": false
+    },
+    {
+      "source_key": "DEVPDF_489cb5ec7e478522",
+      "source_name": "BMF_23CN_BCTN.pdf",
+      "source_sha256": "489cb5ec7e478522a536518dbcf33e7749939e4fb0659918e2788fe70949e32d",
+      "company_key": "development-company-0705e1308e777598",
+      "layout_family": "scanned_image_dominant",
+      "physical_pages_scored": 30,
+      "selected_pages": [],
+      "examples": 0,
+      "qualifying_add_answer_valid": false
+    },
+    {
+      "source_key": "DEVPDF_49a37dba115beb38",
+      "source_name": "VIB_23CN_BCTN.pdf",
+      "source_sha256": "49a37dba115beb38cd9025c6379b33d91fbfe6718d9c73404213ad8e93392410",
+      "company_key": "development-company-0a85e05a413bcf02",
+      "layout_family": "scanned_image_dominant",
+      "physical_pages_scored": 99,
+      "selected_pages": [],
+      "examples": 0,
+      "qualifying_add_answer_valid": false
+    },
+    {
+      "source_key": "DEVPDF_4a6497f48e1460a1",
+      "source_name": "BSH_23CN_BCTN.pdf",
+      "source_sha256": "4a6497f48e1460a15e8573a8fc29316b109b01ce9cd855c3fe8019c9ee6ef595",
+      "company_key": "development-company-2230a64fe703897f",
+      "layout_family": "hybrid_scan_text",
+      "physical_pages_scored": 31,
+      "selected_pages": [
+        {
+          "page": 8,
+          "score": 6,
+          "page_class": "financial_summary"
+        },
+        {
+          "page": 18,
+          "score": 6,
+          "page_class": "financial_summary"
+        }
+      ],
+      "examples": 0,
+      "qualifying_add_answer_valid": false
+    },
+    {
+      "source_key": "DEVPDF_4b80a44499f79fb3",
+      "source_name": "AAV_23CN_BCTN.pdf",
+      "source_sha256": "4b80a44499f79fb31ed1d02c884cb1fca5629149d2e17eaaf9a293f3171bdf99",
+      "company_key": "development-company-02",
+      "layout_family": "hybrid_scan_text",
+      "physical_pages_scored": 0,
+      "selected_pages": [],
+      "examples": 0,
+      "qualifying_add_answer_valid": false
+    },
+    {
+      "source_key": "DEVPDF_519da08c72bedfc2",
+      "source_name": "AGP_23CN_BCTN.pdf",
+      "source_sha256": "519da08c72bedfc2b4338356edff2f2d5e62d38d82fc897c5e30bfff14682687",
+      "company_key": "development-company-03",
+      "layout_family": "scanned_image_dominant",
+      "physical_pages_scored": 66,
+      "selected_pages": [
+        {
+          "page": 21,
+          "score": 3,
+          "page_class": "financial_summary"
+        },
+        {
+          "page": 38,
+          "score": 18,
+          "page_class": "financial_summary"
+        },
+        {
+          "page": 58,
+          "score": 16,
+          "page_class": "financial_summary"
+        }
+      ],
+      "examples": 26,
+      "qualifying_add_answer_valid": true
+    }
+  ],
+  "invariants": {
+    "protected_evaluation_loaded": false,
+    "abw_loaded": false,
+    "runtime_changed": false,
+    "model_checkpoint_or_threshold_changed": false,
+    "source_filename_page_year_value_example_id_or_question_literal_used_for_priority": false
+  }
+}

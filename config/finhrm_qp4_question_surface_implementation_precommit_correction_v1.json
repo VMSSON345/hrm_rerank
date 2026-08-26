@@ -1,0 +1,108 @@
+{
+  "schema": "finhrm-qp4-question-surface-implementation-precommit-correction-v1",
+  "created_at": "2026-08-22",
+  "classification": "development_only_question_surface_hold_ahead_contract_correction_no_runtime_change",
+  "status": "correction_pending_validation",
+  "parents": {
+    "original_precommit_config": {
+      "path": "config/finhrm_qp4_question_surface_implementation_precommit_v1.json",
+      "sha256": "37e3d024c417e3aa808dacbe46c9455bb346a5069b95d5b77cf8f021a177145e"
+    },
+    "original_precommit_report": {
+      "path": "reports/finhrm_qp4_question_surface_implementation_precommit_v1.json",
+      "sha256": "52ff05303f2126fe9fed4fa4d339c47cc60966fcf0e928498e7a3a3cf1529989"
+    },
+    "original_precommit_lock": {
+      "path": "reports/finhrm_qp4_question_surface_implementation_precommit_lock_v1.json",
+      "sha256": "b2a263c1820cffebf5e58b8a171c2673ff89ea16278be898c59417fe9d7d4ec9"
+    },
+    "baseline_refresh": {
+      "path": "reports/finhrm_qp4_post_unit_scale_development_baseline_refresh_v1.json",
+      "sha256": "5fedfcff1c70ae0f0e6c878c08132f14ed2743a3d7aefc4640fcd91fe43db84a"
+    }
+  },
+  "correction": {
+    "category": "IRRELEVANT_DISTRACTOR_CLAUSE",
+    "recipe_index_zero_based": 1,
+    "invalid_recipe": {
+      "placement": "suffix_clause",
+      "text": "không yêu cầu dự báo hay nhận định xu hướng"
+    },
+    "invalidity": "The token 'dự báo' is a frozen FORECAST column-role alias. Treating it as erasable surface conflicts with the anti-erasure contract and would require an operation/column-role repair outside the implementation whitelist.",
+    "replacement_recipe": {
+      "placement": "suffix_clause",
+      "text": "không yêu cầu bình luận xu hướng"
+    },
+    "replacement_rule": "The replacement excludes only qualitative commentary and contains no metric, role, period, entity, unit/scale, direction, reference-base or output-count qualifier.",
+    "historical_artifacts_modified": false,
+    "runtime_modified": false
+  },
+  "additional_correction": {
+    "category": "BILINGUAL_PARENTHETICAL",
+    "recipe_index_zero_based": 1,
+    "invalid_recipe": {
+      "placement": "suffix_parenthetical",
+      "text": "source-disclosed unit / đơn vị công bố"
+    },
+    "invalidity": "The normalized gloss changes direction and abstention fields for SELECT families before metric normalization, so it is not isolated to the admitted operand-metric failure.",
+    "replacement_recipe": {
+      "placement": "suffix_parenthetical",
+      "text": "as reported / theo nguồn"
+    },
+    "replacement_rule": "The bilingual source-attribution gloss contains no frozen role, period, entity, unit-scale, direction, reference-base or output-count token."
+  },
+  "effective_hold_ahead_contract": {
+    "families": 13,
+    "categories": 3,
+    "recipes_per_category": 2,
+    "total_questions": 78,
+    "expected_before_implementation_exact": "42/78",
+    "expected_postimplementation_exact": "78/78",
+    "allowed_preimplementation_diff_fields": [
+      "operand_slots"
+    ],
+    "runtime_may_match_recipe_literals": false,
+    "counts_as_company_or_layout_confirmation": false
+  },
+  "implementation_scope_unchanged": {
+    "runtime_file_whitelist": [
+      "src/hrm_finance_qa/question_planner.py"
+    ],
+    "exact_symbols": {
+      "new_helper": [
+        "_strip_nonsemantic_metric_surface"
+      ],
+      "existing_function_edit": [
+        "compile_question_plan"
+      ]
+    },
+    "allowed_observable_change": [
+      "metric_text after removal of proven non-semantic surface framing",
+      "operand_slots[*].metric derived from that metric_text"
+    ],
+    "operation_intent_repair_authorized": false,
+    "retrieval_source_binding_verifier_edit_authorized": false
+  },
+  "runtime_hashes": {
+    "src/hrm_finance_qa/question_planner.py": "0973e72711fccdac6fd8615e5dd5afc8f47fb98024c9080063cd6bac46bd66a2",
+    "src/hrm_finance_qa/symbolic_verifier.py": "2679b1ce55cc070697438c806f19e3e888bfc19bc1a9ae3686a0b7fd7ffb0087",
+    "src/hrm_finance_qa/program_synthesis.py": "e4acc4878d0dfd465ba66ab91f3aaf8be71db5591aa1358fb8cb81f3c7bff550",
+    "src/hrm_finance_qa/document_hrm.py": "b5951bcde79583950b672f7fb6b199b3e5b9904e6784daae7c4c5be0eba65d21",
+    "src/hrm_finance_qa/document_sources.py": "e9eb7b3ddcc2ed13060a573a6a0101a216fa49ff21dd65cd5fc2629b92f5fc0b",
+    "src/hrm_finance_qa/document_page_index.py": "c99e011175afef21f302be42ba9454b948caa549d4d445d6bb35c5b974b81f85"
+  },
+  "invariants": {
+    "abw_used": false,
+    "protected_evaluation_loaded": false,
+    "threshold_changed": false,
+    "checkpoint_changed": false,
+    "model_changed": false,
+    "fine_tuning_performed": false,
+    "synthetic_layout_counted_as_confirmation": false,
+    "runtime_changed": false,
+    "qp4_complete": false,
+    "qp5_authorized": false,
+    "phase_d_unlocked": false
+  },
+  "authorized_next_step_after_lock": "Resume QP4-QUESTION-SURFACE-IMPLEMENTATION under the unchanged one-file/two-symbol whitelist, using the corrected 78-question effective hold-ahead contract."
+}

@@ -1,0 +1,59 @@
+{
+  "schema": "finhrm-qp3-core-add-real-layout-confirmation-lock-v1",
+  "created_at": "2026-08-20",
+  "classification": "development_only_source_backed_real_layout_confirmation",
+  "confirmation_gate_passed": true,
+  "failed_gates": [],
+  "runtime_hashes": {
+    "src/hrm_finance_qa/question_planner.py": "58404c5a04ffced2c00056a10e470730a8fb9ef723d3e8c5668f13b0a65571a6",
+    "src/hrm_finance_qa/program_synthesis.py": "e4acc4878d0dfd465ba66ab91f3aaf8be71db5591aa1358fb8cb81f3c7bff550",
+    "src/hrm_finance_qa/symbolic_verifier.py": "ff667034737ab8603032a3fdb17e808fb0fc8023c17f941bfcb51276078d77f7",
+    "src/hrm_finance_qa/direction_contract.py": "a18aa130419fc74ce647bd92dc9c1b1217007738e636aad0f28c7f78396be937",
+    "src/hrm_finance_qa/document_hrm.py": "b5951bcde79583950b672f7fb6b199b3e5b9904e6784daae7c4c5be0eba65d21",
+    "src/hrm_finance_qa/document_reasoning_engine.py": "f01865c508241b27f459cc14ba47bea17e040ff0ebad8b437fb97c2b42e3a762",
+    "src/hrm_finance_qa/evidence_schema.py": "2f16fabf932dc9dabc8203d9642d2503bb2dab43e0e1ee0f78755dd4fb00825d",
+    "src/hrm_finance_qa/financial_identities.py": "ee7347885f561d5f5d9c404964ecb7a46f1275186e100f2236e53114aeacd2ee"
+  },
+  "invariants": {
+    "runtime_changed": false,
+    "threshold_changed": false,
+    "checkpoint_changed": false,
+    "fine_tuning_performed": false,
+    "abw_used_as_confirmation": false,
+    "protected_evaluation_loaded": false,
+    "candidate_rank_or_score_used_as_semantic_proof": false,
+    "synthetic_layout_projection_counted_as_confirmation": false,
+    "unseen_or_universal_claim_made": false,
+    "qp4_authorized": false,
+    "phase_d_unlocked": false
+  },
+  "artifacts": [
+    {
+      "path": "config/finhrm_qp3_core_add_real_layout_confirmation_precommit_v1.json",
+      "size_bytes": 4478,
+      "sha256": "033e2d8a1540e29250f14b0a2da50403466ebd0e3bb60b4b88657ffb15e3a326"
+    },
+    {
+      "path": "scripts/evaluate_qp3_core_add_real_layout_confirmation.py",
+      "size_bytes": 20694,
+      "sha256": "825fe19740fa8842df5fffc20a364d97dec628751ef87bc9ad097f0f651b1c98"
+    },
+    {
+      "path": "tests/test_qp3_core_add_real_layout_confirmation.py",
+      "size_bytes": 4198,
+      "sha256": "fcaf2f07b588d03f93fa1e8fc7f8b8a46f2f8dbc112ec2ad0ae3c1365da101b3"
+    },
+    {
+      "path": "reports/finhrm_qp3_core_add_real_layout_confirmation_v1.json",
+      "size_bytes": 24207,
+      "sha256": "ba7e89f41ee5da1ef26f634048a24987cf5d37133fc86ca80d57ba120f193740"
+    },
+    {
+      "path": "reports/finhrm_qp3_core_add_real_layout_confirmation_v1.md",
+      "size_bytes": 809,
+      "sha256": "f1321454dc11e506d39d4d183ee59f2177a7d51516a289d77c437f447422bfb0"
+    }
+  ],
+  "qp4_authorized": false,
+  "phase_d": "locked"
+}

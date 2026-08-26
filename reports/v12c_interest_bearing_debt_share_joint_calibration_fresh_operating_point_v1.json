@@ -1,0 +1,72 @@
+{
+  "protocol": "v12c-joint-calibration-fresh-operating-point-v1",
+  "classification": "development_only_joint_calibration_frozen_operating_point",
+  "protected_evaluation_sources_used": false,
+  "training_performed": false,
+  "model_or_reranker_changed": false,
+  "threshold_changed": false,
+  "alternative_thresholds_evaluated": false,
+  "inputs": {
+    "precommitted_protocol": {
+      "path": "/mnt/d/reasoning_model_V4/reasoning_model/config/v12c_joint_calibration_protocol_v1.json",
+      "sha256": "e797925a706f3a2f61ac4f7e58515919ccc569770fb5217b6543d0c91a53f3bc"
+    },
+    "positive_report": {
+      "path": "/mnt/d/reasoning_model_V4/reasoning_model/reports/v12c_interest_bearing_debt_share_joint_calibration_fresh_positive_inference_v1.json",
+      "sha256": "927657ce639e6e5b570b0d36dd904b45c9dcdcea6a4821c362ecc867f8f9702e"
+    },
+    "negative_report": {
+      "path": "/mnt/d/reasoning_model_V4/reasoning_model/reports/v12c_interest_bearing_debt_share_joint_calibration_fresh_negative_inference_v1.json",
+      "sha256": "1890cb6cfcce232bf23b1054fc77a4ad1d7de5d328b3836844d940694b9223b7"
+    }
+  },
+  "frozen_ratio_percent_threshold": 0.9909889376955401,
+  "cohort_adequacy": {
+    "positive_controls": 36,
+    "positive_company_groups": 18,
+    "negative_controls": 31,
+    "negative_company_groups": 16,
+    "negative_failure_strata": [
+      "ambiguous_duplicate_role",
+      "invalid_borrowing_role_semantics",
+      "missing_required_raw_role"
+    ],
+    "positive_negative_company_overlap": 0
+  },
+  "measurement": {
+    "positive_program_and_execution_correct": 36,
+    "accepted_positive": 0,
+    "positive_accepted_coverage": 0.0,
+    "negative_false_accepts": 0,
+    "negative_false_accept_rate": 0.0,
+    "negative_false_accepts_by_failure_stratum": {
+      "ambiguous_duplicate_role": 0,
+      "invalid_borrowing_role_semantics": 0,
+      "missing_required_raw_role": 0
+    },
+    "accepted_answers": 0,
+    "accepted_company_groups": 0,
+    "accepted_precision_numerator": 0,
+    "accepted_precision_denominator": 0,
+    "accepted_precision_point_estimate": null,
+    "accepted_precision_one_sided_95_lower_bound": null
+  },
+  "gate": {
+    "conditions": {
+      "accepted_precision_point_estimate": false,
+      "accepted_precision_one_sided_95_lower_bound": false,
+      "minimum_accepted_answers": false,
+      "minimum_accepted_company_groups": false,
+      "minimum_positive_accepted_coverage": false,
+      "maximum_negative_false_accept_rate": true,
+      "zero_false_accept_in_every_negative_failure_stratum": true,
+      "checkpoint_hash_unchanged": true,
+      "runtime_threshold_unchanged": true
+    },
+    "all_conditions_pass": false,
+    "zero_acceptance_is_not_zero_precision": true,
+    "threshold_change_authorized": false,
+    "phase_d_unlocked": false
+  },
+  "conclusion": "The fresh company-disjoint cohort is statistically adequate, and all positive programs execute correctly while all hard negatives abstain. The frozen threshold accepts no control, so accepted precision is undefined and the precommitted operating-point gate fails coverage and acceptance minima."
+}

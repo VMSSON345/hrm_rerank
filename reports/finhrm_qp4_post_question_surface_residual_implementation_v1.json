@@ -1,0 +1,1120 @@
+{
+  "schema": "finhrm-qp4-post-question-surface-residual-implementation-report-v1",
+  "created_at": "2026-08-22",
+  "classification": "development_only_qp4_generic_question_plan_residual_implementation",
+  "status": "IMPLEMENTATION_COMPLETE",
+  "implementation_gate_passed": true,
+  "failed_gates": [],
+  "checks": {
+    "full_compiler_inventory": true,
+    "add_surface_projection": true,
+    "actual_plan_reference_base_projection": true,
+    "all_source_queries_replayed": true,
+    "source_errors_remain_failures": true,
+    "accepted_wrong_zero": true,
+    "old_winner_false_accepts_zero": true,
+    "regression": true,
+    "safe_actions": true,
+    "safe_execution": true,
+    "safe_permutation": true,
+    "safe_counterfactuals": true,
+    "safe_false_accepts": true,
+    "runtime_outside_whitelist_unchanged": true,
+    "checkpoint_unchanged": true,
+    "no_persistent_temporary_artifacts": true
+  },
+  "compiler": {
+    "full_inventory": "242/242",
+    "details": {
+      "canonical": {
+        "exact": 13,
+        "total": 13,
+        "details": [
+          {
+            "family_id": "IBDS01",
+            "question": "Nợ vay ngắn hạn và nợ vay dài hạn chịu lãi năm 2023 chiếm bao nhiêu phần trăm tổng nguồn vốn năm 2023?",
+            "exact": true,
+            "failed_dimensions": []
+          },
+          {
+            "family_id": "PA01",
+            "question": "Doanh thu hoạt động thực hiện năm 2023 là bao nhiêu?",
+            "exact": true,
+            "failed_dimensions": []
+          },
+          {
+            "family_id": "PA02",
+            "question": "Doanh thu hoạt động kế hoạch năm 2023 là bao nhiêu?",
+            "exact": true,
+            "failed_dimensions": []
+          },
+          {
+            "family_id": "PA03",
+            "question": "Doanh thu hoạt động thực hiện năm 2023 đạt bao nhiêu phần trăm kế hoạch năm 2023?",
+            "exact": true,
+            "failed_dimensions": []
+          },
+          {
+            "family_id": "PA04",
+            "question": "Doanh thu hoạt động thực hiện năm 2023 trừ kế hoạch năm 2023 là bao nhiêu?",
+            "exact": true,
+            "failed_dimensions": []
+          },
+          {
+            "family_id": "PA05",
+            "question": "Doanh thu hoạt động thực hiện năm 2023 thấp hơn kế hoạch năm 2023 bao nhiêu đồng?",
+            "exact": true,
+            "failed_dimensions": []
+          },
+          {
+            "family_id": "PA06",
+            "question": "Doanh thu hoạt động thực hiện năm 2023 vượt kế hoạch năm 2023 bao nhiêu đồng?",
+            "exact": true,
+            "failed_dimensions": []
+          },
+          {
+            "family_id": "PA07",
+            "question": "Doanh thu hoạt động thực hiện năm 2023 thay đổi bao nhiêu phần trăm so với kế hoạch năm 2023?",
+            "exact": true,
+            "failed_dimensions": []
+          },
+          {
+            "family_id": "PA08",
+            "question": "Doanh thu hoạt động thực hiện năm 2023 còn thiếu bao nhiêu phần trăm để đạt kế hoạch năm 2023?",
+            "exact": true,
+            "failed_dimensions": []
+          },
+          {
+            "family_id": "PA09",
+            "question": "Doanh thu hoạt động thực hiện năm 2023 vượt kế hoạch năm 2023 bao nhiêu phần trăm?",
+            "exact": true,
+            "failed_dimensions": []
+          },
+          {
+            "family_id": "TY01",
+            "question": "Doanh thu thực hiện năm 2023 tăng bao nhiêu so với thực hiện năm 2022?",
+            "exact": true,
+            "failed_dimensions": []
+          },
+          {
+            "family_id": "TY02",
+            "question": "Doanh thu thực hiện năm 2023 tăng bao nhiêu phần trăm so với thực hiện năm 2022?",
+            "exact": true,
+            "failed_dimensions": []
+          },
+          {
+            "family_id": "TY04",
+            "question": "Kế hoạch doanh thu năm 2024 cao hơn thực hiện năm 2023 bao nhiêu phần trăm?",
+            "exact": true,
+            "failed_dimensions": []
+          }
+        ]
+      },
+      "ambiguity": {
+        "exact": 3,
+        "total": 3,
+        "details": [
+          {
+            "family_id": "C13",
+            "question": "Chênh lệch giữa doanh thu thực hiện và kế hoạch năm 2023 là bao nhiêu?",
+            "exact": true,
+            "expected_reason": "ambiguous_signed_direction",
+            "actual_reason": "ambiguous_signed_direction",
+            "failed_dimensions": []
+          },
+          {
+            "family_id": "C14",
+            "question": "Doanh thu năm 2023 lớn hơn bao nhiêu phần trăm?",
+            "exact": true,
+            "expected_reason": "missing_reference_base",
+            "actual_reason": "missing_reference_base",
+            "failed_dimensions": []
+          },
+          {
+            "family_id": "C15",
+            "question": "Doanh thu hoạt động năm 2023 là bao nhiêu khi bảng có cả kế hoạch và thực hiện?",
+            "exact": true,
+            "expected_reason": "missing_column_role",
+            "actual_reason": "missing_column_role",
+            "failed_dimensions": []
+          }
+        ]
+      },
+      "frozen_surface": {
+        "exact": 91,
+        "total": 91,
+        "exact_rate": 1.0,
+        "by_category": {
+          "BILINGUAL_PARENTHETICAL": {
+            "total": 13,
+            "passed": 13,
+            "pass_rate": 1.0
+          },
+          "CLAUSE_PERMUTATION": {
+            "total": 13,
+            "passed": 13,
+            "pass_rate": 1.0
+          },
+          "DISCOURSE_PREFIX_SUFFIX": {
+            "total": 13,
+            "passed": 13,
+            "pass_rate": 1.0
+          },
+          "IRRELEVANT_DISTRACTOR_CLAUSE": {
+            "total": 13,
+            "passed": 13,
+            "pass_rate": 1.0
+          },
+          "NO_DIACRITICS": {
+            "total": 13,
+            "passed": 13,
+            "pass_rate": 1.0
+          },
+          "PUNCTUATION_VARIANT": {
+            "total": 13,
+            "passed": 13,
+            "pass_rate": 1.0
+          },
+          "SHORT_LONG_EQUIVALENT": {
+            "total": 13,
+            "passed": 13,
+            "pass_rate": 1.0
+          }
+        },
+        "details": [
+          {
+            "family_id": "PA01",
+            "category": "SHORT_LONG_EQUIVALENT",
+            "source": "frozen_catalog",
+            "expected_ir_exact": true,
+            "semantic_invariant": true,
+            "question": "Căn cứ đúng bảng số liệu tài chính trong báo cáo và giữ nguyên năm, đơn vị, phạm vi cùng vai trò của từng cột, hãy xác định: doanh thu hoạt động thực hiện năm 2023 là bao nhiêu?"
+          },
+          {
+            "family_id": "PA01",
+            "category": "CLAUSE_PERMUTATION",
+            "source": "frozen_catalog",
+            "expected_ir_exact": true,
+            "semantic_invariant": true,
+            "question": "Đối với cùng chỉ tiêu và phạm vi báo cáo, doanh thu hoạt động thực hiện năm 2023 là bao nhiêu?"
+          },
+          {
+            "family_id": "PA01",
+            "category": "NO_DIACRITICS",
+            "source": "frozen_catalog",
+            "expected_ir_exact": true,
+            "semantic_invariant": true,
+            "question": "Doanh thu hoat dong thuc hien nam 2023 la bao nhieu?"
+          },
+          {
+            "family_id": "PA01",
+            "category": "DISCOURSE_PREFIX_SUFFIX",
+            "source": "deterministic_generated_question_only",
+            "expected_ir_exact": null,
+            "semantic_invariant": true,
+            "question": "Theo số liệu đã công bố trong cùng báo cáo, doanh thu hoạt động thực hiện năm 2023 là bao nhiêu?"
+          },
+          {
+            "family_id": "PA01",
+            "category": "PUNCTUATION_VARIANT",
+            "source": "deterministic_generated_question_only",
+            "expected_ir_exact": null,
+            "semantic_invariant": true,
+            "question": "Doanh thu hoạt động thực hiện năm 2023 là bao nhiêu ?"
+          },
+          {
+            "family_id": "PA01",
+            "category": "BILINGUAL_PARENTHETICAL",
+            "source": "deterministic_generated_question_only",
+            "expected_ir_exact": null,
+            "semantic_invariant": true,
+            "question": "Doanh thu hoạt động thực hiện năm 2023 là bao nhiêu (đơn vị theo nguồn / source unit)?"
+          },
+          {
+            "family_id": "PA01",
+            "category": "IRRELEVANT_DISTRACTOR_CLAUSE",
+            "source": "deterministic_generated_question_only",
+            "expected_ir_exact": null,
+            "semantic_invariant": true,
+            "question": "Doanh thu hoạt động thực hiện năm 2023 là bao nhiêu, không yêu cầu phân tích nguyên nhân?"
+          },
+          {
+            "family_id": "PA02",
+            "category": "SHORT_LONG_EQUIVALENT",
+            "source": "frozen_catalog",
+            "expected_ir_exact": true,
+            "semantic_invariant": true,
+            "question": "Căn cứ đúng bảng số liệu tài chính trong báo cáo và giữ nguyên năm, đơn vị, phạm vi cùng vai trò của từng cột, hãy xác định: doanh thu hoạt động kế hoạch năm 2023 là bao nhiêu?"
+          },
+          {
+            "family_id": "PA02",
+            "category": "CLAUSE_PERMUTATION",
+            "source": "frozen_catalog",
+            "expected_ir_exact": true,
+            "semantic_invariant": true,
+            "question": "Đối với cùng chỉ tiêu và phạm vi báo cáo, doanh thu hoạt động kế hoạch năm 2023 là bao nhiêu?"
+          },
+          {
+            "family_id": "PA02",
+            "category": "NO_DIACRITICS",
+            "source": "frozen_catalog",
+            "expected_ir_exact": true,
+            "semantic_invariant": true,
+            "question": "Doanh thu hoat dong ke hoach nam 2023 la bao nhieu?"
+          },
+          {
+            "family_id": "PA02",
+            "category": "DISCOURSE_PREFIX_SUFFIX",
+            "source": "deterministic_generated_question_only",
+            "expected_ir_exact": null,
+            "semantic_invariant": true,
+            "question": "Theo số liệu đã công bố trong cùng báo cáo, doanh thu hoạt động kế hoạch năm 2023 là bao nhiêu?"
+          },
+          {
+            "family_id": "PA02",
+            "category": "PUNCTUATION_VARIANT",
+            "source": "deterministic_generated_question_only",
+            "expected_ir_exact": null,
+            "semantic_invariant": true,
+            "question": "Doanh thu hoạt động kế hoạch năm 2023 là bao nhiêu ?"
+          },
+          {
+            "family_id": "PA02",
+            "category": "BILINGUAL_PARENTHETICAL",
+            "source": "deterministic_generated_question_only",
+            "expected_ir_exact": null,
+            "semantic_invariant": true,
+            "question": "Doanh thu hoạt động kế hoạch năm 2023 là bao nhiêu (đơn vị theo nguồn / source unit)?"
+          },
+          {
+            "family_id": "PA02",
+            "category": "IRRELEVANT_DISTRACTOR_CLAUSE",
+            "source": "deterministic_generated_question_only",
+            "expected_ir_exact": null,
+            "semantic_invariant": true,
+            "question": "Doanh thu hoạt động kế hoạch năm 2023 là bao nhiêu, không yêu cầu phân tích nguyên nhân?"
+          },
+          {
+            "family_id": "PA03",
+            "category": "SHORT_LONG_EQUIVALENT",
+            "source": "frozen_catalog",
+            "expected_ir_exact": true,
+            "semantic_invariant": true,
+            "question": "Căn cứ đúng bảng số liệu tài chính trong báo cáo và giữ nguyên năm, đơn vị, phạm vi cùng vai trò của từng cột, hãy xác định: doanh thu hoạt động thực hiện năm 2023 đạt bao nhiêu phần trăm kế hoạch năm 2023?"
+          },
+          {
+            "family_id": "PA03",
+            "category": "CLAUSE_PERMUTATION",
+            "source": "frozen_catalog",
+            "expected_ir_exact": true,
+            "semantic_invariant": true,
+            "question": "Đối với cùng chỉ tiêu và phạm vi báo cáo, doanh thu hoạt động thực hiện năm 2023 đạt bao nhiêu phần trăm kế hoạch năm 2023?"
+          },
+          {
+            "family_id": "PA03",
+            "category": "NO_DIACRITICS",
+            "source": "frozen_catalog",
+            "expected_ir_exact": true,
+            "semantic_invariant": true,
+            "question": "Doanh thu hoat dong thuc hien nam 2023 dat bao nhieu phan tram ke hoach nam 2023?"
+          },
+          {
+            "family_id": "PA03",
+            "category": "DISCOURSE_PREFIX_SUFFIX",
+            "source": "deterministic_generated_question_only",
+            "expected_ir_exact": null,
+            "semantic_invariant": true,
+            "question": "Theo số liệu đã công bố trong cùng báo cáo, doanh thu hoạt động thực hiện năm 2023 đạt bao nhiêu phần trăm kế hoạch năm 2023?"
+          },
+          {
+            "family_id": "PA03",
+            "category": "PUNCTUATION_VARIANT",
+            "source": "deterministic_generated_question_only",
+            "expected_ir_exact": null,
+            "semantic_invariant": true,
+            "question": "Doanh thu hoạt động thực hiện năm 2023 đạt bao nhiêu phần trăm kế hoạch năm 2023 ?"
+          },
+          {
+            "family_id": "PA03",
+            "category": "BILINGUAL_PARENTHETICAL",
+            "source": "deterministic_generated_question_only",
+            "expected_ir_exact": null,
+            "semantic_invariant": true,
+            "question": "Doanh thu hoạt động thực hiện năm 2023 đạt bao nhiêu phần trăm kế hoạch năm 2023 (đơn vị theo nguồn / source unit)?"
+          },
+          {
+            "family_id": "PA03",
+            "category": "IRRELEVANT_DISTRACTOR_CLAUSE",
+            "source": "deterministic_generated_question_only",
+            "expected_ir_exact": null,
+            "semantic_invariant": true,
+            "question": "Doanh thu hoạt động thực hiện năm 2023 đạt bao nhiêu phần trăm kế hoạch năm 2023, không yêu cầu phân tích nguyên nhân?"
+          },
+          {
+            "family_id": "PA04",
+            "category": "SHORT_LONG_EQUIVALENT",
+            "source": "frozen_catalog",
+            "expected_ir_exact": true,
+            "semantic_invariant": true,
+            "question": "Căn cứ đúng bảng số liệu tài chính trong báo cáo và giữ nguyên năm, đơn vị, phạm vi cùng vai trò của từng cột, hãy xác định: doanh thu hoạt động thực hiện năm 2023 trừ kế hoạch năm 2023 là bao nhiêu?"
+          },
+          {
+            "family_id": "PA04",
+            "category": "CLAUSE_PERMUTATION",
+            "source": "frozen_catalog",
+            "expected_ir_exact": true,
+            "semantic_invariant": true,
+            "question": "Đối với cùng chỉ tiêu và phạm vi báo cáo, doanh thu hoạt động thực hiện năm 2023 trừ kế hoạch năm 2023 là bao nhiêu?"
+          },
+          {
+            "family_id": "PA04",
+            "category": "NO_DIACRITICS",
+            "source": "frozen_catalog",
+            "expected_ir_exact": true,
+            "semantic_invariant": true,
+            "question": "Doanh thu hoat dong thuc hien nam 2023 tru ke hoach nam 2023 la bao nhieu?"
+          },
+          {
+            "family_id": "PA04",
+            "category": "DISCOURSE_PREFIX_SUFFIX",
+            "source": "deterministic_generated_question_only",
+            "expected_ir_exact": null,
+            "semantic_invariant": true,
+            "question": "Theo số liệu đã công bố trong cùng báo cáo, doanh thu hoạt động thực hiện năm 2023 trừ kế hoạch năm 2023 là bao nhiêu?"
+          },
+          {
+            "family_id": "PA04",
+            "category": "PUNCTUATION_VARIANT",
+            "source": "deterministic_generated_question_only",
+            "expected_ir_exact": null,
+            "semantic_invariant": true,
+            "question": "Doanh thu hoạt động thực hiện năm 2023 trừ kế hoạch năm 2023 là bao nhiêu ?"
+          },
+          {
+            "family_id": "PA04",
+            "category": "BILINGUAL_PARENTHETICAL",
+            "source": "deterministic_generated_question_only",
+            "expected_ir_exact": null,
+            "semantic_invariant": true,
+            "question": "Doanh thu hoạt động thực hiện năm 2023 trừ kế hoạch năm 2023 là bao nhiêu (đơn vị theo nguồn / source unit)?"
+          },
+          {
+            "family_id": "PA04",
+            "category": "IRRELEVANT_DISTRACTOR_CLAUSE",
+            "source": "deterministic_generated_question_only",
+            "expected_ir_exact": null,
+            "semantic_invariant": true,
+            "question": "Doanh thu hoạt động thực hiện năm 2023 trừ kế hoạch năm 2023 là bao nhiêu, không yêu cầu phân tích nguyên nhân?"
+          },
+          {
+            "family_id": "PA05",
+            "category": "SHORT_LONG_EQUIVALENT",
+            "source": "frozen_catalog",
+            "expected_ir_exact": true,
+            "semantic_invariant": true,
+            "question": "Căn cứ đúng bảng số liệu tài chính trong báo cáo và giữ nguyên năm, đơn vị, phạm vi cùng vai trò của từng cột, hãy xác định: doanh thu hoạt động thực hiện năm 2023 thấp hơn kế hoạch năm 2023 bao nhiêu đồng?"
+          },
+          {
+            "family_id": "PA05",
+            "category": "CLAUSE_PERMUTATION",
+            "source": "frozen_catalog",
+            "expected_ir_exact": true,
+            "semantic_invariant": true,
+            "question": "Đối với cùng chỉ tiêu và phạm vi báo cáo, doanh thu hoạt động thực hiện năm 2023 thấp hơn kế hoạch năm 2023 bao nhiêu đồng?"
+          },
+          {
+            "family_id": "PA05",
+            "category": "NO_DIACRITICS",
+            "source": "frozen_catalog",
+            "expected_ir_exact": true,
+            "semantic_invariant": true,
+            "question": "Doanh thu hoat dong thuc hien nam 2023 thap hon ke hoach nam 2023 bao nhieu dong?"
+          },
+          {
+            "family_id": "PA05",
+            "category": "DISCOURSE_PREFIX_SUFFIX",
+            "source": "deterministic_generated_question_only",
+            "expected_ir_exact": null,
+            "semantic_invariant": true,
+            "question": "Theo số liệu đã công bố trong cùng báo cáo, doanh thu hoạt động thực hiện năm 2023 thấp hơn kế hoạch năm 2023 bao nhiêu đồng?"
+          },
+          {
+            "family_id": "PA05",
+            "category": "PUNCTUATION_VARIANT",
+            "source": "deterministic_generated_question_only",
+            "expected_ir_exact": null,
+            "semantic_invariant": true,
+            "question": "Doanh thu hoạt động thực hiện năm 2023 thấp hơn kế hoạch năm 2023 bao nhiêu đồng ?"
+          },
+          {
+            "family_id": "PA05",
+            "category": "BILINGUAL_PARENTHETICAL",
+            "source": "deterministic_generated_question_only",
+            "expected_ir_exact": null,
+            "semantic_invariant": true,
+            "question": "Doanh thu hoạt động thực hiện năm 2023 thấp hơn kế hoạch năm 2023 bao nhiêu đồng (đơn vị theo nguồn / source unit)?"
+          },
+          {
+            "family_id": "PA05",
+            "category": "IRRELEVANT_DISTRACTOR_CLAUSE",
+            "source": "deterministic_generated_question_only",
+            "expected_ir_exact": null,
+            "semantic_invariant": true,
+            "question": "Doanh thu hoạt động thực hiện năm 2023 thấp hơn kế hoạch năm 2023 bao nhiêu đồng, không yêu cầu phân tích nguyên nhân?"
+          },
+          {
+            "family_id": "PA06",
+            "category": "SHORT_LONG_EQUIVALENT",
+            "source": "frozen_catalog",
+            "expected_ir_exact": true,
+            "semantic_invariant": true,
+            "question": "Căn cứ đúng bảng số liệu tài chính trong báo cáo và giữ nguyên năm, đơn vị, phạm vi cùng vai trò của từng cột, hãy xác định: doanh thu hoạt động thực hiện năm 2023 vượt kế hoạch năm 2023 bao nhiêu đồng?"
+          },
+          {
+            "family_id": "PA06",
+            "category": "CLAUSE_PERMUTATION",
+            "source": "frozen_catalog",
+            "expected_ir_exact": true,
+            "semantic_invariant": true,
+            "question": "Đối với cùng chỉ tiêu và phạm vi báo cáo, doanh thu hoạt động thực hiện năm 2023 vượt kế hoạch năm 2023 bao nhiêu đồng?"
+          },
+          {
+            "family_id": "PA06",
+            "category": "NO_DIACRITICS",
+            "source": "frozen_catalog",
+            "expected_ir_exact": true,
+            "semantic_invariant": true,
+            "question": "Doanh thu hoat dong thuc hien nam 2023 vuot ke hoach nam 2023 bao nhieu dong?"
+          },
+          {
+            "family_id": "PA06",
+            "category": "DISCOURSE_PREFIX_SUFFIX",
+            "source": "deterministic_generated_question_only",
+            "expected_ir_exact": null,
+            "semantic_invariant": true,
+            "question": "Theo số liệu đã công bố trong cùng báo cáo, doanh thu hoạt động thực hiện năm 2023 vượt kế hoạch năm 2023 bao nhiêu đồng?"
+          },
+          {
+            "family_id": "PA06",
+            "category": "PUNCTUATION_VARIANT",
+            "source": "deterministic_generated_question_only",
+            "expected_ir_exact": null,
+            "semantic_invariant": true,
+            "question": "Doanh thu hoạt động thực hiện năm 2023 vượt kế hoạch năm 2023 bao nhiêu đồng ?"
+          },
+          {
+            "family_id": "PA06",
+            "category": "BILINGUAL_PARENTHETICAL",
+            "source": "deterministic_generated_question_only",
+            "expected_ir_exact": null,
+            "semantic_invariant": true,
+            "question": "Doanh thu hoạt động thực hiện năm 2023 vượt kế hoạch năm 2023 bao nhiêu đồng (đơn vị theo nguồn / source unit)?"
+          },
+          {
+            "family_id": "PA06",
+            "category": "IRRELEVANT_DISTRACTOR_CLAUSE",
+            "source": "deterministic_generated_question_only",
+            "expected_ir_exact": null,
+            "semantic_invariant": true,
+            "question": "Doanh thu hoạt động thực hiện năm 2023 vượt kế hoạch năm 2023 bao nhiêu đồng, không yêu cầu phân tích nguyên nhân?"
+          },
+          {
+            "family_id": "PA07",
+            "category": "SHORT_LONG_EQUIVALENT",
+            "source": "frozen_catalog",
+            "expected_ir_exact": true,
+            "semantic_invariant": true,
+            "question": "Căn cứ đúng bảng số liệu tài chính trong báo cáo và giữ nguyên năm, đơn vị, phạm vi cùng vai trò của từng cột, hãy xác định: doanh thu hoạt động thực hiện năm 2023 thay đổi bao nhiêu phần trăm so với kế hoạch năm 2023?"
+          },
+          {
+            "family_id": "PA07",
+            "category": "CLAUSE_PERMUTATION",
+            "source": "frozen_catalog",
+            "expected_ir_exact": true,
+            "semantic_invariant": true,
+            "question": "Đối với cùng chỉ tiêu và phạm vi báo cáo, doanh thu hoạt động thực hiện năm 2023 thay đổi bao nhiêu phần trăm so với kế hoạch năm 2023?"
+          },
+          {
+            "family_id": "PA07",
+            "category": "NO_DIACRITICS",
+            "source": "frozen_catalog",
+            "expected_ir_exact": true,
+            "semantic_invariant": true,
+            "question": "Doanh thu hoat dong thuc hien nam 2023 thay doi bao nhieu phan tram so voi ke hoach nam 2023?"
+          },
+          {
+            "family_id": "PA07",
+            "category": "DISCOURSE_PREFIX_SUFFIX",
+            "source": "deterministic_generated_question_only",
+            "expected_ir_exact": null,
+            "semantic_invariant": true,
+            "question": "Theo số liệu đã công bố trong cùng báo cáo, doanh thu hoạt động thực hiện năm 2023 thay đổi bao nhiêu phần trăm so với kế hoạch năm 2023?"
+          },
+          {
+            "family_id": "PA07",
+            "category": "PUNCTUATION_VARIANT",
+            "source": "deterministic_generated_question_only",
+            "expected_ir_exact": null,
+            "semantic_invariant": true,
+            "question": "Doanh thu hoạt động thực hiện năm 2023 thay đổi bao nhiêu phần trăm so với kế hoạch năm 2023 ?"
+          },
+          {
+            "family_id": "PA07",
+            "category": "BILINGUAL_PARENTHETICAL",
+            "source": "deterministic_generated_question_only",
+            "expected_ir_exact": null,
+            "semantic_invariant": true,
+            "question": "Doanh thu hoạt động thực hiện năm 2023 thay đổi bao nhiêu phần trăm so với kế hoạch năm 2023 (đơn vị theo nguồn / source unit)?"
+          },
+          {
+            "family_id": "PA07",
+            "category": "IRRELEVANT_DISTRACTOR_CLAUSE",
+            "source": "deterministic_generated_question_only",
+            "expected_ir_exact": null,
+            "semantic_invariant": true,
+            "question": "Doanh thu hoạt động thực hiện năm 2023 thay đổi bao nhiêu phần trăm so với kế hoạch năm 2023, không yêu cầu phân tích nguyên nhân?"
+          },
+          {
+            "family_id": "PA08",
+            "category": "SHORT_LONG_EQUIVALENT",
+            "source": "frozen_catalog",
+            "expected_ir_exact": true,
+            "semantic_invariant": true,
+            "question": "Căn cứ đúng bảng số liệu tài chính trong báo cáo và giữ nguyên năm, đơn vị, phạm vi cùng vai trò của từng cột, hãy xác định: doanh thu hoạt động thực hiện năm 2023 còn thiếu bao nhiêu phần trăm để đạt kế hoạch năm 2023?"
+          },
+          {
+            "family_id": "PA08",
+            "category": "CLAUSE_PERMUTATION",
+            "source": "frozen_catalog",
+            "expected_ir_exact": true,
+            "semantic_invariant": true,
+            "question": "Đối với cùng chỉ tiêu và phạm vi báo cáo, doanh thu hoạt động thực hiện năm 2023 còn thiếu bao nhiêu phần trăm để đạt kế hoạch năm 2023?"
+          },
+          {
+            "family_id": "PA08",
+            "category": "NO_DIACRITICS",
+            "source": "frozen_catalog",
+            "expected_ir_exact": true,
+            "semantic_invariant": true,
+            "question": "Doanh thu hoat dong thuc hien nam 2023 con thieu bao nhieu phan tram de dat ke hoach nam 2023?"
+          },
+          {
+            "family_id": "PA08",
+            "category": "DISCOURSE_PREFIX_SUFFIX",
+            "source": "deterministic_generated_question_only",
+            "expected_ir_exact": null,
+            "semantic_invariant": true,
+            "question": "Theo số liệu đã công bố trong cùng báo cáo, doanh thu hoạt động thực hiện năm 2023 còn thiếu bao nhiêu phần trăm để đạt kế hoạch năm 2023?"
+          },
+          {
+            "family_id": "PA08",
+            "category": "PUNCTUATION_VARIANT",
+            "source": "deterministic_generated_question_only",
+            "expected_ir_exact": null,
+            "semantic_invariant": true,
+            "question": "Doanh thu hoạt động thực hiện năm 2023 còn thiếu bao nhiêu phần trăm để đạt kế hoạch năm 2023 ?"
+          },
+          {
+            "family_id": "PA08",
+            "category": "BILINGUAL_PARENTHETICAL",
+            "source": "deterministic_generated_question_only",
+            "expected_ir_exact": null,
+            "semantic_invariant": true,
+            "question": "Doanh thu hoạt động thực hiện năm 2023 còn thiếu bao nhiêu phần trăm để đạt kế hoạch năm 2023 (đơn vị theo nguồn / source unit)?"
+          },
+          {
+            "family_id": "PA08",
+            "category": "IRRELEVANT_DISTRACTOR_CLAUSE",
+            "source": "deterministic_generated_question_only",
+            "expected_ir_exact": null,
+            "semantic_invariant": true,
+            "question": "Doanh thu hoạt động thực hiện năm 2023 còn thiếu bao nhiêu phần trăm để đạt kế hoạch năm 2023, không yêu cầu phân tích nguyên nhân?"
+          },
+          {
+            "family_id": "PA09",
+            "category": "SHORT_LONG_EQUIVALENT",
+            "source": "frozen_catalog",
+            "expected_ir_exact": true,
+            "semantic_invariant": true,
+            "question": "Căn cứ đúng bảng số liệu tài chính trong báo cáo và giữ nguyên năm, đơn vị, phạm vi cùng vai trò của từng cột, hãy xác định: doanh thu hoạt động thực hiện năm 2023 vượt kế hoạch năm 2023 bao nhiêu phần trăm?"
+          },
+          {
+            "family_id": "PA09",
+            "category": "CLAUSE_PERMUTATION",
+            "source": "frozen_catalog",
+            "expected_ir_exact": true,
+            "semantic_invariant": true,
+            "question": "Đối với cùng chỉ tiêu và phạm vi báo cáo, doanh thu hoạt động thực hiện năm 2023 vượt kế hoạch năm 2023 bao nhiêu phần trăm?"
+          },
+          {
+            "family_id": "PA09",
+            "category": "NO_DIACRITICS",
+            "source": "frozen_catalog",
+            "expected_ir_exact": true,
+            "semantic_invariant": true,
+            "question": "Doanh thu hoat dong thuc hien nam 2023 vuot ke hoach nam 2023 bao nhieu phan tram?"
+          },
+          {
+            "family_id": "PA09",
+            "category": "DISCOURSE_PREFIX_SUFFIX",
+            "source": "deterministic_generated_question_only",
+            "expected_ir_exact": null,
+            "semantic_invariant": true,
+            "question": "Theo số liệu đã công bố trong cùng báo cáo, doanh thu hoạt động thực hiện năm 2023 vượt kế hoạch năm 2023 bao nhiêu phần trăm?"
+          },
+          {
+            "family_id": "PA09",
+            "category": "PUNCTUATION_VARIANT",
+            "source": "deterministic_generated_question_only",
+            "expected_ir_exact": null,
+            "semantic_invariant": true,
+            "question": "Doanh thu hoạt động thực hiện năm 2023 vượt kế hoạch năm 2023 bao nhiêu phần trăm ?"
+          },
+          {
+            "family_id": "PA09",
+            "category": "BILINGUAL_PARENTHETICAL",
+            "source": "deterministic_generated_question_only",
+            "expected_ir_exact": null,
+            "semantic_invariant": true,
+            "question": "Doanh thu hoạt động thực hiện năm 2023 vượt kế hoạch năm 2023 bao nhiêu phần trăm (đơn vị theo nguồn / source unit)?"
+          },
+          {
+            "family_id": "PA09",
+            "category": "IRRELEVANT_DISTRACTOR_CLAUSE",
+            "source": "deterministic_generated_question_only",
+            "expected_ir_exact": null,
+            "semantic_invariant": true,
+            "question": "Doanh thu hoạt động thực hiện năm 2023 vượt kế hoạch năm 2023 bao nhiêu phần trăm, không yêu cầu phân tích nguyên nhân?"
+          },
+          {
+            "family_id": "TY01",
+            "category": "SHORT_LONG_EQUIVALENT",
+            "source": "frozen_catalog",
+            "expected_ir_exact": true,
+            "semantic_invariant": true,
+            "question": "Căn cứ đúng bảng số liệu tài chính trong báo cáo và giữ nguyên năm, đơn vị, phạm vi cùng vai trò của từng cột, hãy xác định: doanh thu thực hiện năm 2023 tăng bao nhiêu so với thực hiện năm 2022?"
+          },
+          {
+            "family_id": "TY01",
+            "category": "CLAUSE_PERMUTATION",
+            "source": "frozen_catalog",
+            "expected_ir_exact": true,
+            "semantic_invariant": true,
+            "question": "Đối với cùng chỉ tiêu và phạm vi báo cáo, doanh thu thực hiện năm 2023 tăng bao nhiêu so với thực hiện năm 2022?"
+          },
+          {
+            "family_id": "TY01",
+            "category": "NO_DIACRITICS",
+            "source": "frozen_catalog",
+            "expected_ir_exact": true,
+            "semantic_invariant": true,
+            "question": "Doanh thu thuc hien nam 2023 tang bao nhieu so voi thuc hien nam 2022?"
+          },
+          {
+            "family_id": "TY01",
+            "category": "DISCOURSE_PREFIX_SUFFIX",
+            "source": "deterministic_generated_question_only",
+            "expected_ir_exact": null,
+            "semantic_invariant": true,
+            "question": "Theo số liệu đã công bố trong cùng báo cáo, doanh thu thực hiện năm 2023 tăng bao nhiêu so với thực hiện năm 2022?"
+          },
+          {
+            "family_id": "TY01",
+            "category": "PUNCTUATION_VARIANT",
+            "source": "deterministic_generated_question_only",
+            "expected_ir_exact": null,
+            "semantic_invariant": true,
+            "question": "Doanh thu thực hiện năm 2023 tăng bao nhiêu so với thực hiện năm 2022 ?"
+          },
+          {
+            "family_id": "TY01",
+            "category": "BILINGUAL_PARENTHETICAL",
+            "source": "deterministic_generated_question_only",
+            "expected_ir_exact": null,
+            "semantic_invariant": true,
+            "question": "Doanh thu thực hiện năm 2023 tăng bao nhiêu so với thực hiện năm 2022 (đơn vị theo nguồn / source unit)?"
+          },
+          {
+            "family_id": "TY01",
+            "category": "IRRELEVANT_DISTRACTOR_CLAUSE",
+            "source": "deterministic_generated_question_only",
+            "expected_ir_exact": null,
+            "semantic_invariant": true,
+            "question": "Doanh thu thực hiện năm 2023 tăng bao nhiêu so với thực hiện năm 2022, không yêu cầu phân tích nguyên nhân?"
+          },
+          {
+            "family_id": "TY02",
+            "category": "SHORT_LONG_EQUIVALENT",
+            "source": "frozen_catalog",
+            "expected_ir_exact": true,
+            "semantic_invariant": true,
+            "question": "Căn cứ đúng bảng số liệu tài chính trong báo cáo và giữ nguyên năm, đơn vị, phạm vi cùng vai trò của từng cột, hãy xác định: doanh thu thực hiện năm 2023 tăng bao nhiêu phần trăm so với thực hiện năm 2022?"
+          },
+          {
+            "family_id": "TY02",
+            "category": "CLAUSE_PERMUTATION",
+            "source": "frozen_catalog",
+            "expected_ir_exact": true,
+            "semantic_invariant": true,
+            "question": "Đối với cùng chỉ tiêu và phạm vi báo cáo, doanh thu thực hiện năm 2023 tăng bao nhiêu phần trăm so với thực hiện năm 2022?"
+          },
+          {
+            "family_id": "TY02",
+            "category": "NO_DIACRITICS",
+            "source": "frozen_catalog",
+            "expected_ir_exact": true,
+            "semantic_invariant": true,
+            "question": "Doanh thu thuc hien nam 2023 tang bao nhieu phan tram so voi thuc hien nam 2022?"
+          },
+          {
+            "family_id": "TY02",
+            "category": "DISCOURSE_PREFIX_SUFFIX",
+            "source": "deterministic_generated_question_only",
+            "expected_ir_exact": null,
+            "semantic_invariant": true,
+            "question": "Theo số liệu đã công bố trong cùng báo cáo, doanh thu thực hiện năm 2023 tăng bao nhiêu phần trăm so với thực hiện năm 2022?"
+          },
+          {
+            "family_id": "TY02",
+            "category": "PUNCTUATION_VARIANT",
+            "source": "deterministic_generated_question_only",
+            "expected_ir_exact": null,
+            "semantic_invariant": true,
+            "question": "Doanh thu thực hiện năm 2023 tăng bao nhiêu phần trăm so với thực hiện năm 2022 ?"
+          },
+          {
+            "family_id": "TY02",
+            "category": "BILINGUAL_PARENTHETICAL",
+            "source": "deterministic_generated_question_only",
+            "expected_ir_exact": null,
+            "semantic_invariant": true,
+            "question": "Doanh thu thực hiện năm 2023 tăng bao nhiêu phần trăm so với thực hiện năm 2022 (đơn vị theo nguồn / source unit)?"
+          },
+          {
+            "family_id": "TY02",
+            "category": "IRRELEVANT_DISTRACTOR_CLAUSE",
+            "source": "deterministic_generated_question_only",
+            "expected_ir_exact": null,
+            "semantic_invariant": true,
+            "question": "Doanh thu thực hiện năm 2023 tăng bao nhiêu phần trăm so với thực hiện năm 2022, không yêu cầu phân tích nguyên nhân?"
+          },
+          {
+            "family_id": "TY04",
+            "category": "SHORT_LONG_EQUIVALENT",
+            "source": "frozen_catalog",
+            "expected_ir_exact": true,
+            "semantic_invariant": true,
+            "question": "Căn cứ đúng bảng số liệu tài chính trong báo cáo và giữ nguyên năm, đơn vị, phạm vi cùng vai trò của từng cột, hãy xác định: kế hoạch doanh thu năm 2024 cao hơn thực hiện năm 2023 bao nhiêu phần trăm?"
+          },
+          {
+            "family_id": "TY04",
+            "category": "CLAUSE_PERMUTATION",
+            "source": "frozen_catalog",
+            "expected_ir_exact": true,
+            "semantic_invariant": true,
+            "question": "Đối với cùng chỉ tiêu và phạm vi báo cáo, kế hoạch doanh thu năm 2024 cao hơn thực hiện năm 2023 bao nhiêu phần trăm?"
+          },
+          {
+            "family_id": "TY04",
+            "category": "NO_DIACRITICS",
+            "source": "frozen_catalog",
+            "expected_ir_exact": true,
+            "semantic_invariant": true,
+            "question": "Ke hoach doanh thu nam 2024 cao hon thuc hien nam 2023 bao nhieu phan tram?"
+          },
+          {
+            "family_id": "TY04",
+            "category": "DISCOURSE_PREFIX_SUFFIX",
+            "source": "deterministic_generated_question_only",
+            "expected_ir_exact": null,
+            "semantic_invariant": true,
+            "question": "Theo số liệu đã công bố trong cùng báo cáo, kế hoạch doanh thu năm 2024 cao hơn thực hiện năm 2023 bao nhiêu phần trăm?"
+          },
+          {
+            "family_id": "TY04",
+            "category": "PUNCTUATION_VARIANT",
+            "source": "deterministic_generated_question_only",
+            "expected_ir_exact": null,
+            "semantic_invariant": true,
+            "question": "Kế hoạch doanh thu năm 2024 cao hơn thực hiện năm 2023 bao nhiêu phần trăm ?"
+          },
+          {
+            "family_id": "TY04",
+            "category": "BILINGUAL_PARENTHETICAL",
+            "source": "deterministic_generated_question_only",
+            "expected_ir_exact": null,
+            "semantic_invariant": true,
+            "question": "Kế hoạch doanh thu năm 2024 cao hơn thực hiện năm 2023 bao nhiêu phần trăm (đơn vị theo nguồn / source unit)?"
+          },
+          {
+            "family_id": "TY04",
+            "category": "IRRELEVANT_DISTRACTOR_CLAUSE",
+            "source": "deterministic_generated_question_only",
+            "expected_ir_exact": null,
+            "semantic_invariant": true,
+            "question": "Kế hoạch doanh thu năm 2024 cao hơn thực hiện năm 2023 bao nhiêu phần trăm, không yêu cầu phân tích nguyên nhân?"
+          },
+          {
+            "family_id": "IBDS01",
+            "category": "SHORT_LONG_EQUIVALENT",
+            "source": "reviewed_supplemental_question_only",
+            "expected_ir_exact": null,
+            "semantic_invariant": true,
+            "question": "Căn cứ đúng bảng số liệu tài chính trong báo cáo và giữ nguyên năm, đơn vị, phạm vi cùng vai trò của từng khoản mục, hãy xác định: nợ vay ngắn hạn và nợ vay dài hạn chịu lãi năm 2023 chiếm bao nhiêu phần trăm tổng nguồn vốn năm 2023?"
+          },
+          {
+            "family_id": "IBDS01",
+            "category": "DISCOURSE_PREFIX_SUFFIX",
+            "source": "reviewed_supplemental_question_only",
+            "expected_ir_exact": null,
+            "semantic_invariant": true,
+            "question": "Theo số liệu đã công bố trong cùng báo cáo, nợ vay ngắn hạn và nợ vay dài hạn chịu lãi năm 2023 chiếm bao nhiêu phần trăm tổng nguồn vốn năm 2023?"
+          },
+          {
+            "family_id": "IBDS01",
+            "category": "CLAUSE_PERMUTATION",
+            "source": "reviewed_supplemental_question_only",
+            "expected_ir_exact": null,
+            "semantic_invariant": true,
+            "question": "Trong năm 2023, nợ vay ngắn hạn và nợ vay dài hạn chịu lãi chiếm bao nhiêu phần trăm tổng nguồn vốn của cùng năm?"
+          },
+          {
+            "family_id": "IBDS01",
+            "category": "PUNCTUATION_VARIANT",
+            "source": "reviewed_supplemental_question_only",
+            "expected_ir_exact": null,
+            "semantic_invariant": true,
+            "question": "Nợ vay ngắn hạn, và nợ vay dài hạn chịu lãi năm 2023, chiếm bao nhiêu phần trăm tổng nguồn vốn năm 2023?"
+          },
+          {
+            "family_id": "IBDS01",
+            "category": "NO_DIACRITICS",
+            "source": "reviewed_supplemental_question_only",
+            "expected_ir_exact": null,
+            "semantic_invariant": true,
+            "question": "No vay ngan han va no vay dai han chiu lai nam 2023 chiem bao nhieu phan tram tong nguon von nam 2023?"
+          },
+          {
+            "family_id": "IBDS01",
+            "category": "BILINGUAL_PARENTHETICAL",
+            "source": "reviewed_supplemental_question_only",
+            "expected_ir_exact": null,
+            "semantic_invariant": true,
+            "question": "Nợ vay ngắn hạn và nợ vay dài hạn chịu lãi (interest-bearing debt) năm 2023 chiếm bao nhiêu phần trăm tổng nguồn vốn (total capital) năm 2023?"
+          },
+          {
+            "family_id": "IBDS01",
+            "category": "IRRELEVANT_DISTRACTOR_CLAUSE",
+            "source": "reviewed_supplemental_question_only",
+            "expected_ir_exact": null,
+            "semantic_invariant": true,
+            "question": "Nợ vay ngắn hạn và nợ vay dài hạn chịu lãi năm 2023 chiếm bao nhiêu phần trăm tổng nguồn vốn năm 2023, không yêu cầu phân tích nguyên nhân?"
+          }
+        ]
+      },
+      "minimal_pairs": {
+        "detected": 57,
+        "total": 57
+      },
+      "isolated_residuals": {
+        "passed": 18,
+        "total": 18
+      },
+      "corrected_hold_ahead": {
+        "exact": 78,
+        "total": 78,
+        "by_category": {
+          "DISCOURSE_PREFIX_SUFFIX": {
+            "exact": 26,
+            "total": 26
+          },
+          "BILINGUAL_PARENTHETICAL": {
+            "exact": 26,
+            "total": 26
+          },
+          "IRRELEVANT_DISTRACTOR_CLAUSE": {
+            "exact": 26,
+            "total": 26
+          }
+        }
+      }
+    },
+    "add_surface_projection": "15/15",
+    "actual_plan_reference_base_projection": "4/4"
+  },
+  "add_source": {
+    "queries": 50,
+    "companies": 5,
+    "sources": 5,
+    "real_layouts": 3,
+    "surface": {
+      "passed": 33,
+      "total": 35,
+      "invariance_rate": 0.9428571428571428,
+      "by_category": {
+        "BILINGUAL_PARENTHETICAL": {
+          "total": 5,
+          "passed": 5,
+          "pass_rate": 1.0
+        },
+        "CLAUSE_PERMUTATION": {
+          "total": 5,
+          "passed": 5,
+          "pass_rate": 1.0
+        },
+        "DISCOURSE_PREFIX_SUFFIX": {
+          "total": 5,
+          "passed": 5,
+          "pass_rate": 1.0
+        },
+        "IRRELEVANT_DISTRACTOR_CLAUSE": {
+          "total": 5,
+          "passed": 5,
+          "pass_rate": 1.0
+        },
+        "NO_DIACRITICS": {
+          "total": 5,
+          "passed": 5,
+          "pass_rate": 1.0
+        },
+        "PUNCTUATION_VARIANT": {
+          "total": 5,
+          "passed": 5,
+          "pass_rate": 1.0
+        },
+        "SHORT_LONG_EQUIVALENT": {
+          "total": 5,
+          "passed": 3,
+          "pass_rate": 0.6
+        }
+      }
+    },
+    "previously_passing_retained": "20/20",
+    "source_errors": 0,
+    "accepted_wrong": 0,
+    "counterfactual_false_accepts": 0
+  },
+  "actual_plan_source": {
+    "queries": 24,
+    "source_errors": 12,
+    "accepted_wrong": 0,
+    "dimensions": {
+      "COLUMN_ROLE": {
+        "pairs": 4,
+        "companies": 4,
+        "sources": 4,
+        "document_layouts": 3,
+        "table_layouts": 4,
+        "base_gold_answers": 0,
+        "mutated_gold_answers": 0,
+        "paired_gold_answers": 0,
+        "old_winner_false_accepts": 0
+      },
+      "DIRECTION": {
+        "pairs": 4,
+        "companies": 4,
+        "sources": 4,
+        "document_layouts": 3,
+        "table_layouts": 4,
+        "base_gold_answers": 0,
+        "mutated_gold_answers": 0,
+        "paired_gold_answers": 0,
+        "old_winner_false_accepts": 0
+      },
+      "REFERENCE_BASE": {
+        "pairs": 4,
+        "companies": 4,
+        "sources": 4,
+        "document_layouts": 3,
+        "table_layouts": 4,
+        "base_gold_answers": 0,
+        "mutated_gold_answers": 0,
+        "paired_gold_answers": 0,
+        "old_winner_false_accepts": 0
+      }
+    }
+  },
+  "regression": {
+    "expected": 360,
+    "observed": 360,
+    "exit_code": 0,
+    "passed": true,
+    "output_tail": "[cache train] 2/4 (saved)\n[cache train] 4/4 (saved)\n[cache train] 2/4 (reused)\n[cache train] 4/4 (reused)\n........................................................................................................................................................................................................................................................................................................................................................................\n----------------------------------------------------------------------\nRan 360 tests in 14.188s\n\nOK\n"
+  },
+  "safe_replay": {
+    "gate": true,
+    "actions": {
+      "ABSTAIN": 92,
+      "ANSWER": 257,
+      "REJECT": 14
+    },
+    "execution": "363/363",
+    "permutation": "363/363",
+    "counterfactuals": 141,
+    "counterfactual_false_accepts": 0
+  },
+  "runtime_before": {
+    "src/hrm_finance_qa/question_planner.py": "3a882445630c3c0c05dfbe6cbc4b7fb22c71c9cfd450ee7c73a929fbe5a9cca1",
+    "src/hrm_finance_qa/symbolic_verifier.py": "2679b1ce55cc070697438c806f19e3e888bfc19bc1a9ae3686a0b7fd7ffb0087",
+    "src/hrm_finance_qa/program_synthesis.py": "e4acc4878d0dfd465ba66ab91f3aaf8be71db5591aa1358fb8cb81f3c7bff550",
+    "src/hrm_finance_qa/evidence_schema.py": "2f16fabf932dc9dabc8203d9642d2503bb2dab43e0e1ee0f78755dd4fb00825d",
+    "src/hrm_finance_qa/document_hrm.py": "b5951bcde79583950b672f7fb6b199b3e5b9904e6784daae7c4c5be0eba65d21",
+    "src/hrm_finance_qa/document_reasoning_engine.py": "3883500011472716bc01f8e04a6d6f925173b35a14bbedd945c5ca4fb0063fa2",
+    "src/hrm_finance_qa/program_data.py": "5199434fc0628b7d270ce62b12657366cbe118901065edd9f1e1f6ca0f1f8d54",
+    "src/hrm_finance_qa/direction_contract.py": "a18aa130419fc74ce647bd92dc9c1b1217007738e636aad0f28c7f78396be937",
+    "src/hrm_finance_qa/answer_presentation.py": "c40bd4a8dff39162b44cf11ef2da12e7b153d907f7254e5d1856157b3ac56d36",
+    "src/hrm_finance_qa/document_sources.py": "e9eb7b3ddcc2ed13060a573a6a0101a216fa49ff21dd65cd5fc2629b92f5fc0b",
+    "src/hrm_finance_qa/document_page_index.py": "c99e011175afef21f302be42ba9454b948caa549d4d445d6bb35c5b974b81f85"
+  },
+  "runtime_after": {
+    "src/hrm_finance_qa/question_planner.py": "334ab6bfb57b883ff2022cdcb39614d7e7a8d3269c14f4bea188640d53111bf4",
+    "src/hrm_finance_qa/symbolic_verifier.py": "2679b1ce55cc070697438c806f19e3e888bfc19bc1a9ae3686a0b7fd7ffb0087",
+    "src/hrm_finance_qa/program_synthesis.py": "e4acc4878d0dfd465ba66ab91f3aaf8be71db5591aa1358fb8cb81f3c7bff550",
+    "src/hrm_finance_qa/evidence_schema.py": "2f16fabf932dc9dabc8203d9642d2503bb2dab43e0e1ee0f78755dd4fb00825d",
+    "src/hrm_finance_qa/document_hrm.py": "b5951bcde79583950b672f7fb6b199b3e5b9904e6784daae7c4c5be0eba65d21",
+    "src/hrm_finance_qa/document_reasoning_engine.py": "3883500011472716bc01f8e04a6d6f925173b35a14bbedd945c5ca4fb0063fa2",
+    "src/hrm_finance_qa/program_data.py": "5199434fc0628b7d270ce62b12657366cbe118901065edd9f1e1f6ca0f1f8d54",
+    "src/hrm_finance_qa/direction_contract.py": "a18aa130419fc74ce647bd92dc9c1b1217007738e636aad0f28c7f78396be937",
+    "src/hrm_finance_qa/answer_presentation.py": "c40bd4a8dff39162b44cf11ef2da12e7b153d907f7254e5d1856157b3ac56d36",
+    "src/hrm_finance_qa/document_sources.py": "e9eb7b3ddcc2ed13060a573a6a0101a216fa49ff21dd65cd5fc2629b92f5fc0b",
+    "src/hrm_finance_qa/document_page_index.py": "c99e011175afef21f302be42ba9454b948caa549d4d445d6bb35c5b974b81f85"
+  },
+  "changed_runtime_files": [
+    "src/hrm_finance_qa/question_planner.py"
+  ],
+  "changed_symbols": [
+    "_addition_role_hypotheses",
+    "_ratio_roles",
+    "compile_question_plan"
+  ],
+  "checkpoint_sha256": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de",
+  "artifact_policy": {
+    "maximum_final_json": 1,
+    "maximum_final_markdown": 1,
+    "maximum_lock_or_manifest": 1,
+    "raw_or_intermediate_artifacts_persisted": false,
+    "temporary_artifacts_deleted_after_verification": true
+  },
+  "invariants": {
+    "abw_used": false,
+    "protected_evaluation_loaded": false,
+    "validation_loaded": false,
+    "blind_loaded": false,
+    "test_data_loaded": false,
+    "sealed_or_holdout_loaded": false,
+    "fine_tuning_performed": false,
+    "threshold_changed": false,
+    "checkpoint_changed": false,
+    "model_changed": false,
+    "synthetic_layout_counted_as_confirmation": false,
+    "candidate_rank_score_or_confidence_used_as_semantic_proof": false,
+    "runtime_changed": true,
+    "qp4_complete": false,
+    "qp5_authorized": false,
+    "phase_d_unlocked": false
+  },
+  "qp4_complete": false,
+  "qp5_authorized": false,
+  "phase_d": "locked",
+  "authorized_next_step": "QP4-POST-QUESTION-SURFACE-RESIDUAL-IMPLEMENTATION-DIAGNOSTIC-REFRESH-PRECOMMIT: freeze one measurement-only replay of remaining source-layer, retrieval, binding and proof residuals without changing runtime."
+}

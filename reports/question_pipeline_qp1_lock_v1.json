@@ -1,0 +1,97 @@
+{
+  "schema": "question-pipeline-qp1-lock-v1",
+  "classification": "development_only_plus_diagnosis_only_exclusion",
+  "status": "qp1_complete_qp2_authorized",
+  "completed_at": "2026-08-13",
+  "evidence_contract": {
+    "cache_schema": "v12b2-applicability-proof-candidate-cache-v5",
+    "evidence_schema_version": "evidence-cell-header-role-v2",
+    "evidence_schema_fingerprint": "de4c47be90bced3f4700a39aeebb53efdad081585a8169cfd547c77c6b3c89b0",
+    "roles": [
+      "actual",
+      "plan",
+      "revised_plan",
+      "forecast",
+      "actual_to_plan_ratio",
+      "actual_to_prior_ratio"
+    ],
+    "confidence_states": [
+      "EXPLICIT",
+      "INHERITED",
+      "CONFLICT",
+      "UNKNOWN"
+    ],
+    "infer_role_from_numeric_position": false,
+    "neural_conflict_resolution": false
+  },
+  "development_audit": {
+    "examples": 1246,
+    "cells": 37781,
+    "known_role_cells": 1766,
+    "unknown_role_cells": 36015,
+    "conflict_cells": 9,
+    "examples_with_known_role": 115,
+    "examples_with_conflict": 6,
+    "counterfactual_cells": 1458,
+    "counterfactual_flip_pass": 1458,
+    "counterfactual_flip_rate": 1.0,
+    "gold_requested_role_examples": 5,
+    "gold_role_exact": 3,
+    "gold_role_unknown": 2,
+    "release_metric_claimed": false
+  },
+  "abw_diagnosis_only": {
+    "confirmation_eligible": false,
+    "page": 10,
+    "actual_2022": "363638445420",
+    "plan_2023": "472723394169",
+    "actual_2023": "304912639828",
+    "actual_to_plan_ratio": "-35.5",
+    "actual_to_prior_ratio": "-16.15"
+  },
+  "regression": {
+    "tests_run": 109,
+    "failures": 0,
+    "compileall_passed": true
+  },
+  "invariants": {
+    "checkpoint_changed": false,
+    "runtime_acceptance_changed": false,
+    "strict_verifier_enabled": false,
+    "threshold_changed": false,
+    "fine_tuning_performed": false,
+    "global_validation_loaded_by_qp1_scripts": false,
+    "sealed_validation_loaded_by_qp1_scripts": false,
+    "blind_test_loaded_by_qp1_scripts": false,
+    "phase_d_unlocked": false,
+    "s4_baseline_replayed_for_release": false
+  },
+  "baseline_remains_locked": {
+    "accepted_precision": 0.8847385272145144,
+    "coverage": 0.9600409836065574,
+    "phase_d_locked": true,
+    "note": "QP1 is representation-only and does not claim a new accepted precision."
+  },
+  "protected_read_hygiene": {
+    "qp1_scripts_use_only_allowlisted_development_or_diagnosis_sources": true,
+    "session_zero_protected_read_claim": false,
+    "note": "The inherited QP0 session record disclosed one earlier broad interactive protected-report read; no protected artifact was loaded by QP1 scripts or used for design/metrics."
+  },
+  "next_allowed_step": "QP2_question_compiler_per_operand_column_role_and_answer_mode",
+  "artifact_hashes": {
+    "strategy.md": "0d474e43f8ddbdecc8710ebd77300ae91fe79f6f1b08e38506ae8d3185646117",
+    "reports/question_pipeline_qp1_development_v1.md": "66bbe02f1a9835875d80cdcb3c92f26091c03d04deacc0818ece08fb1b2ec161",
+    "reports/plan_actual_header_role_audit_development_v1.json": "ca2befec11fe96d699924548baefbee2fef91218ab7bdfa4eaebdeda8712357f",
+    "reports/abw_qp1_diagnosis_only_v1.json": "5e8a3d26e50dcab6f81abf1c6dfe518d86b12289e2b212060429aad60bd3e5e4",
+    "src/hrm_finance_qa/evidence_schema.py": "f55f4dc9104bf303c7445c6bc854128faf4bc8fef185f947b7c85407f6e86d05",
+    "src/hrm_finance_qa/program_data.py": "769fb033fdd74a3b20da4b6e96fb380cc4d8a08280736cf708979db02a3a3a41",
+    "src/hrm_finance_qa/cache_schema.py": "73de59f448cad7585b8215ad954c892ae76b84fb8944e89757cb4658e2c561d4",
+    "scripts/train_document_hrm_v12b_reranker.py": "d273bf29f8c71ab9d155cb498d0242121ce3286948fed358d62ee03afc295642",
+    "scripts/audit_plan_actual_header_roles_qp1.py": "504665923d14c5df8fa1e45deb4ebfcae374c715e54b026b74804e530d14ce67",
+    "scripts/inspect_qp1_page_roles.py": "83028b173701fa4974a656d8f54f60af28301cc6721914bfdaa12c085b3aa1e5",
+    "tests/test_evidence_header_roles_qp1.py": "160ce9d894c9ccd52d819b195ab47dbe16231aa500fc0c0f980fb8889ffb6c22",
+    "tests/test_audit_plan_actual_header_roles_qp1.py": "09fcd78003a2ca8757b29ab796cf55a72432eb7657490cf03618e5f222db4fa8",
+    "models/document_hrm_V8_candidate.pt": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de",
+    "data/document_hrm_v12b2_development_plus_subtract_v3.jsonl": "c6e119519d2dae59933edc5e493de7aef885154c037b95be54a1290b7f529d26"
+  }
+}

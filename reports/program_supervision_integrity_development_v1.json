@@ -1,0 +1,842 @@
+{
+  "schema": "program-supervision-integrity-audit-v1",
+  "inputs": [
+    "/mnt/d/reasoning_model_V4/reasoning_model/data/train.jsonl",
+    "/mnt/d/reasoning_model_V4/reasoning_model/data/document_hrm_development_v1_train.jsonl"
+  ],
+  "blind_test_used": false,
+  "final_eval_used": false,
+  "examples": 2421,
+  "integrity_eligible_examples": 2138,
+  "integrity_excluded_examples": 283,
+  "integrity_coverage": 0.8831061544816192,
+  "operation_examples": {
+    "SELECT": 380,
+    "ADD": 263,
+    "SUBTRACT": 283,
+    "MULTIPLY": 200,
+    "DIVIDE": 207,
+    "RATIO_PERCENT": 250,
+    "PERCENT_CHANGE": 236,
+    "AVERAGE": 200,
+    "SUM3": 201,
+    "SUM4": 201
+  },
+  "excluded_by_operation": {
+    "SELECT": 9,
+    "SUBTRACT": 29,
+    "MULTIPLY": 29,
+    "SUM3": 95,
+    "SUM4": 100,
+    "PERCENT_CHANGE": 17,
+    "RATIO_PERCENT": 1,
+    "DIVIDE": 3
+  },
+  "integrity_issue_counts": {
+    "gold_verifier:missing_requested_period": 1,
+    "question_operation_mismatch": 206,
+    "gold_verifier:operation_match": 206,
+    "multiply_par_value_unit_algebra_unproven": 29,
+    "gold_verifier:invalid_unit_algebra": 1,
+    "gold_verifier:reporting_entity_mismatch": 5,
+    "gold_verifier:named_entity_mismatch": 2,
+    "gold_verifier:entity_match": 1,
+    "gold_verifier:temporal_direction": 2,
+    "gold_verifier:graph_temporal_order": 2,
+    "gold_verifier:temporal_metric_mismatch": 37
+  },
+  "multiply_gold_unit_profiles": {
+    "currency_per_share x share_count": 109,
+    "currency x share_count": 13,
+    "currency_per_share x unknown": 8,
+    "share_count x unknown": 5,
+    "currency x currency_per_share": 3,
+    "share_count x share_count": 1,
+    "currency x currency": 61
+  },
+  "visible_mojibake_examples": 500,
+  "visible_mojibake_is_diagnostic_only": true,
+  "excluded_examples_first_100": [
+    {
+      "example_id": "synthetic-train-select-0096",
+      "operation": "SELECT",
+      "issues": [
+        "gold_verifier:missing_requested_period"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-subtract-0012",
+      "operation": "SUBTRACT",
+      "issues": [
+        "question_operation_mismatch",
+        "gold_verifier:operation_match"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-subtract-0087",
+      "operation": "SUBTRACT",
+      "issues": [
+        "question_operation_mismatch",
+        "gold_verifier:operation_match"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-subtract-0106",
+      "operation": "SUBTRACT",
+      "issues": [
+        "question_operation_mismatch",
+        "gold_verifier:operation_match"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-multiply-0007",
+      "operation": "MULTIPLY",
+      "issues": [
+        "multiply_par_value_unit_algebra_unproven"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-multiply-0011",
+      "operation": "MULTIPLY",
+      "issues": [
+        "multiply_par_value_unit_algebra_unproven"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-multiply-0017",
+      "operation": "MULTIPLY",
+      "issues": [
+        "multiply_par_value_unit_algebra_unproven"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-multiply-0019",
+      "operation": "MULTIPLY",
+      "issues": [
+        "multiply_par_value_unit_algebra_unproven"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-multiply-0030",
+      "operation": "MULTIPLY",
+      "issues": [
+        "multiply_par_value_unit_algebra_unproven"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-multiply-0034",
+      "operation": "MULTIPLY",
+      "issues": [
+        "multiply_par_value_unit_algebra_unproven"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-multiply-0044",
+      "operation": "MULTIPLY",
+      "issues": [
+        "multiply_par_value_unit_algebra_unproven"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-multiply-0046",
+      "operation": "MULTIPLY",
+      "issues": [
+        "multiply_par_value_unit_algebra_unproven"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-multiply-0058",
+      "operation": "MULTIPLY",
+      "issues": [
+        "multiply_par_value_unit_algebra_unproven"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-multiply-0065",
+      "operation": "MULTIPLY",
+      "issues": [
+        "multiply_par_value_unit_algebra_unproven"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-multiply-0068",
+      "operation": "MULTIPLY",
+      "issues": [
+        "multiply_par_value_unit_algebra_unproven"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-multiply-0077",
+      "operation": "MULTIPLY",
+      "issues": [
+        "multiply_par_value_unit_algebra_unproven"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-multiply-0079",
+      "operation": "MULTIPLY",
+      "issues": [
+        "multiply_par_value_unit_algebra_unproven"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-multiply-0083",
+      "operation": "MULTIPLY",
+      "issues": [
+        "multiply_par_value_unit_algebra_unproven"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-multiply-0085",
+      "operation": "MULTIPLY",
+      "issues": [
+        "multiply_par_value_unit_algebra_unproven"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-multiply-0090",
+      "operation": "MULTIPLY",
+      "issues": [
+        "gold_verifier:invalid_unit_algebra",
+        "multiply_par_value_unit_algebra_unproven"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-multiply-0096",
+      "operation": "MULTIPLY",
+      "issues": [
+        "multiply_par_value_unit_algebra_unproven"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-multiply-0112",
+      "operation": "MULTIPLY",
+      "issues": [
+        "multiply_par_value_unit_algebra_unproven"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-multiply-0117",
+      "operation": "MULTIPLY",
+      "issues": [
+        "multiply_par_value_unit_algebra_unproven"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-sum3-0002",
+      "operation": "SUM3",
+      "issues": [
+        "question_operation_mismatch",
+        "gold_verifier:operation_match"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-sum3-0006",
+      "operation": "SUM3",
+      "issues": [
+        "question_operation_mismatch",
+        "gold_verifier:operation_match"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-sum3-0007",
+      "operation": "SUM3",
+      "issues": [
+        "question_operation_mismatch",
+        "gold_verifier:operation_match"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-sum3-0014",
+      "operation": "SUM3",
+      "issues": [
+        "question_operation_mismatch",
+        "gold_verifier:operation_match"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-sum3-0015",
+      "operation": "SUM3",
+      "issues": [
+        "question_operation_mismatch",
+        "gold_verifier:operation_match"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-sum3-0016",
+      "operation": "SUM3",
+      "issues": [
+        "question_operation_mismatch",
+        "gold_verifier:operation_match"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-sum3-0018",
+      "operation": "SUM3",
+      "issues": [
+        "question_operation_mismatch",
+        "gold_verifier:operation_match"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-sum3-0024",
+      "operation": "SUM3",
+      "issues": [
+        "question_operation_mismatch",
+        "gold_verifier:operation_match"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-sum3-0028",
+      "operation": "SUM3",
+      "issues": [
+        "question_operation_mismatch",
+        "gold_verifier:operation_match"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-sum3-0032",
+      "operation": "SUM3",
+      "issues": [
+        "question_operation_mismatch",
+        "gold_verifier:operation_match"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-sum3-0033",
+      "operation": "SUM3",
+      "issues": [
+        "question_operation_mismatch",
+        "gold_verifier:operation_match"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-sum3-0035",
+      "operation": "SUM3",
+      "issues": [
+        "question_operation_mismatch",
+        "gold_verifier:operation_match"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-sum3-0038",
+      "operation": "SUM3",
+      "issues": [
+        "question_operation_mismatch",
+        "gold_verifier:operation_match"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-sum3-0041",
+      "operation": "SUM3",
+      "issues": [
+        "question_operation_mismatch",
+        "gold_verifier:operation_match"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-sum3-0048",
+      "operation": "SUM3",
+      "issues": [
+        "question_operation_mismatch",
+        "gold_verifier:operation_match"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-sum3-0051",
+      "operation": "SUM3",
+      "issues": [
+        "question_operation_mismatch",
+        "gold_verifier:operation_match"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-sum3-0052",
+      "operation": "SUM3",
+      "issues": [
+        "question_operation_mismatch",
+        "gold_verifier:operation_match"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-sum3-0058",
+      "operation": "SUM3",
+      "issues": [
+        "question_operation_mismatch",
+        "gold_verifier:operation_match"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-sum3-0062",
+      "operation": "SUM3",
+      "issues": [
+        "question_operation_mismatch",
+        "gold_verifier:operation_match"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-sum3-0065",
+      "operation": "SUM3",
+      "issues": [
+        "question_operation_mismatch",
+        "gold_verifier:operation_match"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-sum3-0067",
+      "operation": "SUM3",
+      "issues": [
+        "question_operation_mismatch",
+        "gold_verifier:operation_match"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-sum3-0071",
+      "operation": "SUM3",
+      "issues": [
+        "question_operation_mismatch",
+        "gold_verifier:operation_match"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-sum3-0073",
+      "operation": "SUM3",
+      "issues": [
+        "question_operation_mismatch",
+        "gold_verifier:operation_match"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-sum3-0074",
+      "operation": "SUM3",
+      "issues": [
+        "question_operation_mismatch",
+        "gold_verifier:operation_match"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-sum3-0076",
+      "operation": "SUM3",
+      "issues": [
+        "question_operation_mismatch",
+        "gold_verifier:operation_match"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-sum3-0078",
+      "operation": "SUM3",
+      "issues": [
+        "question_operation_mismatch",
+        "gold_verifier:operation_match"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-sum3-0079",
+      "operation": "SUM3",
+      "issues": [
+        "question_operation_mismatch",
+        "gold_verifier:operation_match"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-sum3-0084",
+      "operation": "SUM3",
+      "issues": [
+        "question_operation_mismatch",
+        "gold_verifier:operation_match"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-sum3-0085",
+      "operation": "SUM3",
+      "issues": [
+        "question_operation_mismatch",
+        "gold_verifier:operation_match"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-sum3-0087",
+      "operation": "SUM3",
+      "issues": [
+        "question_operation_mismatch",
+        "gold_verifier:operation_match"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-sum3-0088",
+      "operation": "SUM3",
+      "issues": [
+        "question_operation_mismatch",
+        "gold_verifier:operation_match"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-sum3-0091",
+      "operation": "SUM3",
+      "issues": [
+        "question_operation_mismatch",
+        "gold_verifier:operation_match"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-sum3-0093",
+      "operation": "SUM3",
+      "issues": [
+        "question_operation_mismatch",
+        "gold_verifier:operation_match"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-sum3-0098",
+      "operation": "SUM3",
+      "issues": [
+        "question_operation_mismatch",
+        "gold_verifier:operation_match"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-sum3-0101",
+      "operation": "SUM3",
+      "issues": [
+        "question_operation_mismatch",
+        "gold_verifier:operation_match"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-sum3-0107",
+      "operation": "SUM3",
+      "issues": [
+        "question_operation_mismatch",
+        "gold_verifier:operation_match"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-sum3-0109",
+      "operation": "SUM3",
+      "issues": [
+        "question_operation_mismatch",
+        "gold_verifier:operation_match"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-sum3-0112",
+      "operation": "SUM3",
+      "issues": [
+        "question_operation_mismatch",
+        "gold_verifier:operation_match"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-sum3-0117",
+      "operation": "SUM3",
+      "issues": [
+        "question_operation_mismatch",
+        "gold_verifier:operation_match"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-sum3-0119",
+      "operation": "SUM3",
+      "issues": [
+        "question_operation_mismatch",
+        "gold_verifier:operation_match"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-sum4-0002",
+      "operation": "SUM4",
+      "issues": [
+        "question_operation_mismatch",
+        "gold_verifier:operation_match"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-sum4-0006",
+      "operation": "SUM4",
+      "issues": [
+        "question_operation_mismatch",
+        "gold_verifier:operation_match"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-sum4-0008",
+      "operation": "SUM4",
+      "issues": [
+        "question_operation_mismatch",
+        "gold_verifier:operation_match"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-sum4-0011",
+      "operation": "SUM4",
+      "issues": [
+        "question_operation_mismatch",
+        "gold_verifier:operation_match"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-sum4-0021",
+      "operation": "SUM4",
+      "issues": [
+        "question_operation_mismatch",
+        "gold_verifier:operation_match"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-sum4-0025",
+      "operation": "SUM4",
+      "issues": [
+        "question_operation_mismatch",
+        "gold_verifier:operation_match"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-sum4-0027",
+      "operation": "SUM4",
+      "issues": [
+        "question_operation_mismatch",
+        "gold_verifier:operation_match"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-sum4-0028",
+      "operation": "SUM4",
+      "issues": [
+        "question_operation_mismatch",
+        "gold_verifier:operation_match"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-sum4-0030",
+      "operation": "SUM4",
+      "issues": [
+        "question_operation_mismatch",
+        "gold_verifier:operation_match"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-sum4-0031",
+      "operation": "SUM4",
+      "issues": [
+        "question_operation_mismatch",
+        "gold_verifier:operation_match"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-sum4-0033",
+      "operation": "SUM4",
+      "issues": [
+        "question_operation_mismatch",
+        "gold_verifier:operation_match"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-sum4-0034",
+      "operation": "SUM4",
+      "issues": [
+        "question_operation_mismatch",
+        "gold_verifier:operation_match"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-sum4-0035",
+      "operation": "SUM4",
+      "issues": [
+        "question_operation_mismatch",
+        "gold_verifier:operation_match"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-sum4-0042",
+      "operation": "SUM4",
+      "issues": [
+        "question_operation_mismatch",
+        "gold_verifier:operation_match"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-sum4-0044",
+      "operation": "SUM4",
+      "issues": [
+        "question_operation_mismatch",
+        "gold_verifier:operation_match"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-sum4-0045",
+      "operation": "SUM4",
+      "issues": [
+        "question_operation_mismatch",
+        "gold_verifier:operation_match"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-sum4-0047",
+      "operation": "SUM4",
+      "issues": [
+        "question_operation_mismatch",
+        "gold_verifier:operation_match"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-sum4-0051",
+      "operation": "SUM4",
+      "issues": [
+        "question_operation_mismatch",
+        "gold_verifier:operation_match"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-sum4-0052",
+      "operation": "SUM4",
+      "issues": [
+        "question_operation_mismatch",
+        "gold_verifier:operation_match"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-sum4-0056",
+      "operation": "SUM4",
+      "issues": [
+        "question_operation_mismatch",
+        "gold_verifier:operation_match"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-sum4-0057",
+      "operation": "SUM4",
+      "issues": [
+        "question_operation_mismatch",
+        "gold_verifier:operation_match"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-sum4-0064",
+      "operation": "SUM4",
+      "issues": [
+        "question_operation_mismatch",
+        "gold_verifier:operation_match"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-sum4-0071",
+      "operation": "SUM4",
+      "issues": [
+        "question_operation_mismatch",
+        "gold_verifier:operation_match"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-sum4-0073",
+      "operation": "SUM4",
+      "issues": [
+        "question_operation_mismatch",
+        "gold_verifier:operation_match"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-sum4-0074",
+      "operation": "SUM4",
+      "issues": [
+        "question_operation_mismatch",
+        "gold_verifier:operation_match"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-sum4-0076",
+      "operation": "SUM4",
+      "issues": [
+        "question_operation_mismatch",
+        "gold_verifier:operation_match"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-sum4-0077",
+      "operation": "SUM4",
+      "issues": [
+        "question_operation_mismatch",
+        "gold_verifier:operation_match"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-sum4-0080",
+      "operation": "SUM4",
+      "issues": [
+        "question_operation_mismatch",
+        "gold_verifier:operation_match"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-sum4-0081",
+      "operation": "SUM4",
+      "issues": [
+        "question_operation_mismatch",
+        "gold_verifier:operation_match"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-sum4-0087",
+      "operation": "SUM4",
+      "issues": [
+        "question_operation_mismatch",
+        "gold_verifier:operation_match"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-sum4-0089",
+      "operation": "SUM4",
+      "issues": [
+        "question_operation_mismatch",
+        "gold_verifier:operation_match"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-sum4-0092",
+      "operation": "SUM4",
+      "issues": [
+        "question_operation_mismatch",
+        "gold_verifier:operation_match"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-sum4-0094",
+      "operation": "SUM4",
+      "issues": [
+        "question_operation_mismatch",
+        "gold_verifier:operation_match"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-sum4-0095",
+      "operation": "SUM4",
+      "issues": [
+        "question_operation_mismatch",
+        "gold_verifier:operation_match"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-sum4-0096",
+      "operation": "SUM4",
+      "issues": [
+        "question_operation_mismatch",
+        "gold_verifier:operation_match"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-sum4-0098",
+      "operation": "SUM4",
+      "issues": [
+        "question_operation_mismatch",
+        "gold_verifier:operation_match"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-sum4-0100",
+      "operation": "SUM4",
+      "issues": [
+        "question_operation_mismatch",
+        "gold_verifier:operation_match"
+      ]
+    }
+  ]
+}

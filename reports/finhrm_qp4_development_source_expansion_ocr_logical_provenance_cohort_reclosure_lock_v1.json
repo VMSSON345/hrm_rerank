@@ -1,0 +1,120 @@
+{
+  "schema": "finhrm.qp4.development_source_expansion.ocr_logical_provenance_cohort_reclosure_lock.v1",
+  "created_at": "2026-08-24T16:49:57+07:00",
+  "classification": "development_only_fail_closed_logical_provenance_reclosure_lock_no_runtime_no_model_no_new_ocr",
+  "status": "FAIL_CLOSED",
+  "step": "QP4-DEVELOPMENT-SOURCE-EXPANSION-OCR-LOGICAL-PROVENANCE-COHORT-RECLOSURE",
+  "cohort_reclosure_gate_passed": false,
+  "locked_artifacts": [
+    {
+      "path": "reports/finhrm_qp4_development_source_expansion_ocr_logical_provenance_cohort_reclosure_v1.json",
+      "size_bytes": 12230,
+      "sha256": "f0da9990178a34fb2fef614b2cf04062aa2900f4b8e8deb5966ccabbf9734b4a"
+    },
+    {
+      "path": "reports/finhrm_qp4_development_source_expansion_ocr_logical_provenance_cohort_reclosure_v1.md",
+      "size_bytes": 2941,
+      "sha256": "357c0c486bbd6259eaa10610275a6ef998bea1accdc635a80123df116817b0e5"
+    }
+  ],
+  "parent_lock": {
+    "path": "reports/finhrm_qp4_development_source_expansion_ocr_geometry_and_layout_family_contract_reclosure_precommit_lock_v1.json",
+    "size_bytes": 6305,
+    "sha256": "5d75887e4589ddca38e993982ad1921262a652516982ddd7861eeba1b3eb2c88",
+    "verified": true
+  },
+  "execution_lock": {
+    "frozen_anchors": 3,
+    "source_hashes_verified": "3/3",
+    "ocr_content_list_hashes_verified": "2/2",
+    "ocr_table_html_hashes_verified": "2/2",
+    "new_sources": 0,
+    "new_pages": 0,
+    "new_ocr_jobs": 0,
+    "runtime_edits": 0,
+    "model_edits": 0
+  },
+  "result_lock": {
+    "citation_contract_complete": "2/3",
+    "program_replays": "3/3",
+    "negative_controls": "9/9",
+    "accepted_wrong": 0,
+    "eligible_companies_sources_layouts_instances": "2/2/2/2",
+    "required_companies_sources_layouts_instances": "3/3/3/3",
+    "coverage_gate_passed": false,
+    "fail_closed_anchor": "ad02bcfc694fa4ddf1cbef77d7c74074258353bc0c0df7de49ade21689604279",
+    "fail_closed_decision": "ABSTAIN",
+    "failure_class": "PRECOMMIT_CITATION_SCHEMA_CARRIER_MISMATCH"
+  },
+  "failure_lock": {
+    "native_source_content_and_operands_verified": true,
+    "native_program_replayed": true,
+    "native_provenance_available": "source_hash+physical_page+table_bbox+per_operand_native_cell_bbox",
+    "invalid_global_requirements_for_native": [
+      "content_list_path",
+      "content_list_sha256",
+      "table_html_sha256",
+      "table_id",
+      "logical_row_index",
+      "logical_column_index",
+      "cell_ordinal_span",
+      "logical_cell_id_under_ocr_only_coordinate_space"
+    ],
+    "fields_invented_or_inferred": 0,
+    "source_or_model_failure": false,
+    "metric_beautification_attempted": false
+  },
+  "frozen_replay": {
+    "safe_replay_gate_passed": true,
+    "gold_execution": "363/363",
+    "candidate_permutation": "363/363",
+    "counterfactuals": 141,
+    "counterfactual_false_accepts": 0,
+    "affected_regression": "360/360",
+    "checkpoint": {
+      "path": "models/document_hrm_V8_candidate.pt",
+      "size_bytes": 3413128,
+      "sha256": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de"
+    },
+    "safe_replay_evaluator": {
+      "path": "scripts/evaluate_qp3_core_s4_safe_replay.py",
+      "size_bytes": 24511,
+      "sha256": "ce532ff3406727a8b024f39e80b40b58ca008efa780939e194f11051a981710c"
+    },
+    "regression_evaluator": {
+      "path": "scripts/evaluate_qp4_post_question_surface_residual_implementation.py",
+      "size_bytes": 19382,
+      "sha256": "a5667253d2bde9a6459a0a0c4469e0069c8a4fc150833b34c47d10fa4bd7e03e"
+    }
+  },
+  "existing_geometry_coverage_unchanged": {
+    "hierarchical_companies_sources_layouts_instances": "1/1/1/1",
+    "fragmented_companies_sources_layouts_instances": "0/0/0/0",
+    "synthetic_layout_confirmation": false,
+    "cross_signature_pooling": false
+  },
+  "invariants": {
+    "runtime_changed": false,
+    "model_changed": false,
+    "checkpoint_changed": false,
+    "threshold_changed": false,
+    "fine_tuning_performed": false,
+    "new_ocr_performed": false,
+    "abw_used_as_confirmation_or_gate": false,
+    "protected_evaluation_loaded": false,
+    "candidate_rank_score_or_confidence_used_as_semantic_proof": false,
+    "missing_provenance_synthesized": false,
+    "failed_anchor_coerced_to_answer": false,
+    "answer_presentation_runtime_changed": false,
+    "qp5_unlocked": false,
+    "phase_d_unlocked": false
+  },
+  "authorized_next_action": {
+    "step": "QP4-DEVELOPMENT-SOURCE-EXPANSION-NATIVE-AND-OCR-CITATION-COORDINATE-CONTRACT-RECLOSURE-PRECOMMIT",
+    "same_three_anchors_only": true,
+    "carrier_tagged_locator_union_required": true,
+    "runtime_model_source_search_ocr_renderer_changes_authorized": false,
+    "qp5_authorized": false,
+    "phase_d_unlocked": false
+  }
+}

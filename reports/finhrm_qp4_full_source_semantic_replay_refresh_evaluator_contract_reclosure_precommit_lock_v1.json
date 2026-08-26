@@ -1,0 +1,221 @@
+{
+  "schema": "finhrm.qp4.full_source_semantic_replay_refresh.evaluator_contract_reclosure_precommit_lock.v1",
+  "created_at": "2026-08-24",
+  "classification": "development_only_artifact_only_evaluator_contract_reclosure_precommit_no_runtime_no_model_no_source_execution",
+  "status": "LOCKED_PASS",
+  "step": "QP4-FULL-SOURCE-SEMANTIC-REPLAY-REFRESH-EVALUATOR-CONTRACT-RECLOSURE-PRECOMMIT",
+  "precommit_gate_passed": true,
+  "implementation_gate_passed": false,
+  "failed_gates": [],
+  "parents": {
+    "diagnostic_review_sha256": "da623881af71d22de0efcc0c8686e98573f7dcb288965c3d69c5d8c2d3572f19",
+    "diagnostic_review_markdown_sha256": "57d6c645ffe58292c13c136f087f297837b401a62ba2ae2b56ceee9bd2dffa1b",
+    "diagnostic_review_lock_sha256": "56bbf2256dfca86bde4bf9254ec1bef784bf4c1ed7398b8e7becfe98d0806b67",
+    "full_source_replay_report_sha256": "a693c0b011685dac70be5365d175ce4065dce192b3ce72525a9fa34ad776f56f",
+    "full_source_replay_lock_sha256": "a903a04b6a7f936fdc256616ee9f5e62401afbf3e443070fc89d3111b8c3141b",
+    "full_source_replay_precommit_sha256": "e0aa75cdf6d546fd00a0faac68a8b7f70961e5018894e2afee18086863dcf08b",
+    "original_source_replay_precommit_sha256": "9e9c158c2721a7fa610f88a7c2d27eb26f3f30e0c6aae2b6fc3456bf64f298f3",
+    "frozen_cohort_sha256": "e084ec16312488c1badb5b645cfdf135a623cf89486d0f189648404fc5de35e6",
+    "frozen_cohort_lock_sha256": "811b7aa5c0696af345918b2f92846106321d71cc296653b7fb38e0472a67bdef",
+    "claude_md_sha256": "b3e61c65fd4f36a86d5ba4fac780150960c81bfe7cf5f4a9a685071a408178aa",
+    "thesis_core_sha256": "a9f2f3088f7622c6c8912086eac16252f154fcae1164a3fe7ba75107a0ece502",
+    "generalization_invariant_sha256": "7a8c6e58a47314d522adb782277f6d5bf0cbf761faf681d848e2e9ae4e861846"
+  },
+  "schema_feasibility_lock": {
+    "full_source_rows": "90/90",
+    "unique_observation_ids": "90/90",
+    "unique_oracle_row_ids": "90/90",
+    "primary_results": "90/90",
+    "permutation_results": "90/90",
+    "frozen_cohort_anchors": "6/6",
+    "ledger_anchor_lookup": "90/90",
+    "anchor_program_and_evidence_oracles": "6/6",
+    "question_plan_oracles": "90/90",
+    "exact_pass_oracles": "180/180",
+    "earliest_layer_oracles": "180/180",
+    "hidden_temporary_input_required": false,
+    "source_or_model_replay_required": false,
+    "feasibility": "PASS"
+  },
+  "transform_lock": {
+    "transform_id": "FINHRM_QP4_FULL_SOURCE_EVALUATOR_RECLOSURE_V1",
+    "input": "exact frozen 90-row full-source ledger plus exact six-anchor cohort oracle",
+    "row_question_plan_semantics": "OBSERVED_RUNTIME_TYPED_PLAN",
+    "legacy_question_plan_passed_used_as_oracle": false,
+    "legacy_exact_pass_used_as_oracle": false,
+    "legacy_first_failing_layer_used_as_fallback": false,
+    "output_order": "observation_id ordinal ascending",
+    "random_seed": null,
+    "runtime_invocations": 0,
+    "source_or_ocr_invocations": 0,
+    "gold_passed_to_runtime": false,
+    "question_literal_used": false,
+    "historical_rows_mutated": false
+  },
+  "defect_inventory_lock": {
+    "question_plan_false_pass_rows": 19,
+    "question_plan_false_pass": {
+      "base_target_clause_reordered": {
+        "rows": 6,
+        "coverage": "6 companies / 6 sources / 3 document layouts / 6 table layouts / 2 extraction families"
+      },
+      "reference_base_mutation_target": {
+        "rows": 13,
+        "coverage": "6 companies / 6 sources / 3 document layouts / 6 table layouts / 2 extraction families",
+        "generic_SELECT_reversed_period_signature": 6,
+        "generic_SELECT_missing_reference_base_signature": 6,
+        "non_generic_PERCENT_CHANGE_signature": 1
+      }
+    },
+    "safe_abstention_false_fail": {
+      "category": "PA07_operation_contrast",
+      "primary_rows": 4,
+      "permutation_rows": 5,
+      "primary_coverage": "4 companies / 4 sources / 3 document layouts / 4 table layouts / 2 extraction families"
+    },
+    "diagnostic_inventory_before_full_schema_audit": 17,
+    "full_schema_audit_inventory": 23,
+    "additional_rows": "6 base clause-reordered role/reference-base mismatches"
+  },
+  "semantic_policy_lock": {
+    "positive_target_categories": [
+      "base_target",
+      "reference_base_mutation_target"
+    ],
+    "answerable_safe_control_categories": [
+      "minimal_pair_role_swap",
+      "PA07_operation_contrast"
+    ],
+    "required_abstention_categories": [
+      "minimal_pair_year_shift",
+      "hard_negative_missing_role",
+      "ambiguity_control"
+    ],
+    "safe_abstention": "ABSTAIN/UNKNOWN",
+    "safe_abstention_counts_as_positive_answer": false,
+    "reject_without_explicit_frozen_contradiction_proof_promoted_to_pass": false,
+    "missing_proof": "UNKNOWN_TO_ABSTAIN",
+    "conflict_or_contradiction": "INVALID_TO_REJECT",
+    "candidate_rank_score_or_confidence_as_semantic_proof": false
+  },
+  "expected_reclosed_results": {
+    "question_plan_exact": "71/90",
+    "question_plan_fail": "19/90",
+    "primary_exact_pass": "12/90",
+    "permutation_exact_pass": "15/90",
+    "primary_first_failing_layer": {
+      "QUESTION_PLAN": 19,
+      "SOURCE_LOAD_OR_EXTRACTION": 0,
+      "CANDIDATE_POPULATION_OR_RETRIEVAL": 29,
+      "SEMANTIC_BINDING_OR_PROGRAM_SYNTHESIS": 20,
+      "SYMBOLIC_PROOF_OR_ACTION": 10,
+      "PASS": 12
+    },
+    "permutation_first_failing_layer": {
+      "QUESTION_PLAN": 19,
+      "SOURCE_LOAD_OR_EXTRACTION": 0,
+      "CANDIDATE_POPULATION_OR_RETRIEVAL": 28,
+      "SEMANTIC_BINDING_OR_PROGRAM_SYNTHESIS": 20,
+      "SYMBOLIC_PROOF_OR_ACTION": 8,
+      "PASS": 15
+    },
+    "primary_to_permutation_transition": {
+      "QUESTION_PLAN->QUESTION_PLAN": 19,
+      "CANDIDATE_POPULATION_OR_RETRIEVAL->CANDIDATE_POPULATION_OR_RETRIEVAL": 28,
+      "CANDIDATE_POPULATION_OR_RETRIEVAL->PASS": 1,
+      "SEMANTIC_BINDING_OR_PROGRAM_SYNTHESIS->SEMANTIC_BINDING_OR_PROGRAM_SYNTHESIS": 20,
+      "SYMBOLIC_PROOF_OR_ACTION->SYMBOLIC_PROOF_OR_ACTION": 8,
+      "SYMBOLIC_PROOF_OR_ACTION->PASS": 2,
+      "PASS->PASS": 12
+    },
+    "canonical_row_manifest_sha256": "6d16d35c8abe43f94845949bd1dab354452035677cf8b6decd0a27ad84a52237",
+    "canonical_row_manifest_rows": 90,
+    "target_answers_unchanged": "0/60",
+    "candidate_permutation_exact_unchanged": "37/90",
+    "source_errors_unchanged": 0,
+    "accepted_wrong_unchanged": 0
+  },
+  "corrected_diagnostic_lock": {
+    "runs_inside_reclosure_execution": true,
+    "separate_post_reclosure_diagnostic_review_precommit": false,
+    "expected_generic_failure_strata": 6,
+    "generic_question_plan_failure_rows": 19,
+    "generic_question_plan_exact_signatures": 3,
+    "generic_question_plan_exact_signature_rows": 18,
+    "non_generic_question_plan_remainder_rows": 1,
+    "runtime_symbol_cause_confirmed_by_reclassification": false
+  },
+  "execution_lock": {
+    "authorized_step": "QP4-FULL-SOURCE-SEMANTIC-REPLAY-REFRESH-EVALUATOR-CONTRACT-RECLOSURE",
+    "artifact_only": true,
+    "runtime_file_whitelist": [],
+    "persistent_evaluator_or_test_file_whitelist": [],
+    "temporary_in_memory_evaluator_allowed": true,
+    "temporary_files_must_be_deleted": true,
+    "source_pdf_ocr_cache_or_question_literal_read": false,
+    "runtime_or_model_inference": false,
+    "runtime_or_model_edit": false,
+    "regression_or_safe_replay_rerun_required": false,
+    "failure_policy": "Any hash, row, oracle, count, digest or denominator mismatch fails closed and authorizes no runtime work."
+  },
+  "retained_controls": {
+    "compiler": "242/242",
+    "regression": "360/360",
+    "safe_replay_gate": true,
+    "safe_actions": {
+      "ANSWER": 257,
+      "ABSTAIN": 92,
+      "REJECT": 14
+    },
+    "gold_execution": "363/363",
+    "frozen_safe_permutation": "363/363",
+    "counterfactuals": 141,
+    "counterfactual_false_accepts": 0
+  },
+  "runtime_hashes": {
+    "src/hrm_finance_qa/question_planner.py": "334ab6bfb57b883ff2022cdcb39614d7e7a8d3269c14f4bea188640d53111bf4",
+    "src/hrm_finance_qa/symbolic_verifier.py": "2679b1ce55cc070697438c806f19e3e888bfc19bc1a9ae3686a0b7fd7ffb0087",
+    "src/hrm_finance_qa/program_synthesis.py": "e4acc4878d0dfd465ba66ab91f3aaf8be71db5591aa1358fb8cb81f3c7bff550",
+    "src/hrm_finance_qa/evidence_schema.py": "2f16fabf932dc9dabc8203d9642d2503bb2dab43e0e1ee0f78755dd4fb00825d",
+    "src/hrm_finance_qa/document_hrm.py": "b5951bcde79583950b672f7fb6b199b3e5b9904e6784daae7c4c5be0eba65d21",
+    "src/hrm_finance_qa/document_reasoning_engine.py": "3883500011472716bc01f8e04a6d6f925173b35a14bbedd945c5ca4fb0063fa2",
+    "src/hrm_finance_qa/program_data.py": "5199434fc0628b7d270ce62b12657366cbe118901065edd9f1e1f6ca0f1f8d54",
+    "src/hrm_finance_qa/direction_contract.py": "a18aa130419fc74ce647bd92dc9c1b1217007738e636aad0f28c7f78396be937",
+    "src/hrm_finance_qa/answer_presentation.py": "c40bd4a8dff39162b44cf11ef2da12e7b153d907f7254e5d1856157b3ac56d36",
+    "src/hrm_finance_qa/document_sources.py": "e9eb7b3ddcc2ed13060a573a6a0101a216fa49ff21dd65cd5fc2629b92f5fc0b",
+    "src/hrm_finance_qa/document_page_index.py": "d531f47a22ed051863b41b3de031bb3e9d4bbf60ef71f825217559b7035386b4"
+  },
+  "checkpoint": {
+    "path": "models/document_hrm_V8_candidate.pt",
+    "size_bytes": 3413128,
+    "sha256": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de"
+  },
+  "artifacts": {
+    "final_json": {
+      "path": "config/finhrm_qp4_full_source_semantic_replay_refresh_evaluator_contract_reclosure_precommit_v1.json",
+      "size_bytes": 24938,
+      "sha256": "a05a108f077085e70dbde1c1f7c5e96aac292be83e6b5fc4fca9a5c3c4abcc16"
+    },
+    "final_markdown": {
+      "path": "reports/finhrm_qp4_full_source_semantic_replay_refresh_evaluator_contract_reclosure_precommit_v1.md",
+      "size_bytes": 3263,
+      "sha256": "d4f394271fd9b3a7b379c7688868a66eb1ba1614ee9a6403354a484e768a74be"
+    }
+  },
+  "artifact_policy": {
+    "maximum_final_json": 1,
+    "maximum_final_markdown": 1,
+    "maximum_lock_or_manifest": 1,
+    "raw_or_intermediate_artifacts_persisted": false,
+    "temporary_artifacts_deleted_after_verification": true
+  },
+  "authorization": {
+    "next_allowed_action": "QP4-FULL-SOURCE-SEMANTIC-REPLAY-REFRESH-EVALUATOR-CONTRACT-RECLOSURE",
+    "runtime_or_model_edit_authorized": false,
+    "source_ocr_or_model_execution_authorized": false,
+    "if_reclosure_passes_next_precommit": "QP4-FULL-SOURCE-SEMANTIC-REPLAY-REFRESH-QUESTION-PLAN-ROOT-DECOMPOSITION-PRECOMMIT",
+    "qp4_complete": false,
+    "qp5_authorized": false,
+    "phase_d_unlocked": false
+  }
+}

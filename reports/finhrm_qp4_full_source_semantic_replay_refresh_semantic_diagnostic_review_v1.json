@@ -1,0 +1,355 @@
+{
+  "schema": "finhrm.qp4.full_source_semantic_replay_refresh.semantic_diagnostic_review.v1",
+  "created_at": "2026-08-24",
+  "classification": "development_only_artifact_only_semantic_diagnostic_review_no_runtime_no_model_no_source_execution",
+  "status": "COMPLETE_FAIL_CLOSED",
+  "step": "QP4-FULL-SOURCE-SEMANTIC-REPLAY-REFRESH-SEMANTIC-DIAGNOSTIC-REVIEW",
+  "diagnostic_review_complete": true,
+  "diagnostic_contract_passed": false,
+  "conclusion": "EVALUATOR_CONTRACT_RECLOSURE_REQUIRED",
+  "failed_gates": [
+    "question_plan_oracle_and_earliest_layer_consistency",
+    "safe_abstention_control_exact_pass_consistency"
+  ],
+  "summary": "The source protocol is complete and the runtime is safety-conservative, but the compact replay ledger cannot support a runtime repair decision. Seventeen rows conflict with the frozen semantic/evaluator contract: thirteen reference-base mutation targets carry a non-RATIO_PERCENT question plan while question_plan_passed is true and the earliest layer is reported downstream, and four PA07 controls return the explicitly allowed ABSTAIN/UNKNOWN outcome while exact_pass is false. These inconsistencies are generic across real companies, sources and layouts. Runtime diagnosis stops until the evaluator contract is reclosed on the same frozen 90-row denominator.",
+  "parents": {
+    "precommit": {
+      "path": "config/finhrm_qp4_full_source_semantic_replay_refresh_semantic_diagnostic_review_precommit_v1.json",
+      "size_bytes": 23500,
+      "sha256": "6e066d424af7efb44b121fe4dcce9afa566056cf7f90698d675acdbff459ef45"
+    },
+    "precommit_markdown": {
+      "path": "reports/finhrm_qp4_full_source_semantic_replay_refresh_semantic_diagnostic_review_precommit_v1.md",
+      "size_bytes": 3482,
+      "sha256": "fe602502558e2af532a4118bd94d3bfe4fdcdbc34e4ad4059191203f314d01eb"
+    },
+    "precommit_lock": {
+      "path": "reports/finhrm_qp4_full_source_semantic_replay_refresh_semantic_diagnostic_review_precommit_lock_v1.json",
+      "size_bytes": 8341,
+      "sha256": "2d9707635240953f3c4c0af8085e1064a519a9468dd8e9bd01a48e9d19f2085d"
+    },
+    "full_source_replay_report": {
+      "path": "reports/finhrm_qp4_full_source_semantic_replay_refresh_v1.json",
+      "size_bytes": 247897,
+      "sha256": "a693c0b011685dac70be5365d175ce4065dce192b3ce72525a9fa34ad776f56f"
+    },
+    "full_source_replay_lock": {
+      "path": "reports/finhrm_qp4_full_source_semantic_replay_refresh_lock_v1.json",
+      "size_bytes": 5104,
+      "sha256": "a903a04b6a7f936fdc256616ee9f5e62401afbf3e443070fc89d3111b8c3141b"
+    },
+    "claude_md": {
+      "path": "CLAUDE.md",
+      "size_bytes": 3494,
+      "sha256": "b3e61c65fd4f36a86d5ba4fac780150960c81bfe7cf5f4a9a685071a408178aa"
+    },
+    "thesis_core": {
+      "path": "config/finhrm_thesis_core_v1.json",
+      "size_bytes": 24625,
+      "sha256": "a9f2f3088f7622c6c8912086eac16252f154fcae1164a3fe7ba75107a0ece502"
+    },
+    "generalization_invariant": {
+      "path": "config/finhrm_report_generalization_invariant_v1.json",
+      "size_bytes": 2512,
+      "sha256": "7a8c6e58a47314d522adb782277f6d5bf0cbf761faf681d848e2e9ae4e861846"
+    }
+  },
+  "execution_boundary": {
+    "input": "the frozen compact 90-row replay ledger and the locked contracts named above",
+    "logical_rows_reviewed": 90,
+    "primary_results_reviewed": 90,
+    "permutation_results_reviewed": 90,
+    "source_pdfs_or_ocr_read": false,
+    "ocr_or_mineru_run": false,
+    "source_candidate_or_model_replay_run": false,
+    "runtime_or_model_code_read_for_causality": false,
+    "new_examples_or_sources_selected": false,
+    "gold_used_post_hoc_only": true
+  },
+  "integrity": {
+    "all_parent_hashes_exact": true,
+    "all_runtime_hashes_exact": true,
+    "checkpoint_hash_exact": true,
+    "required_row_field_missing_count": 0,
+    "required_result_field_missing_count": 0,
+    "unique_observation_ids": 90,
+    "unique_oracle_row_ids": 90,
+    "primary_partition_total": 90,
+    "permutation_partition_total": 90,
+    "primary_to_permutation_transition_total": 90,
+    "runtime_changed": false,
+    "model_checkpoint_or_threshold_changed": false
+  },
+  "frozen_parent_measurements": {
+    "target_answers": "0/60",
+    "base_answers": "0/30",
+    "reference_base_mutation_answers": "0/30",
+    "surface_equivalence_groups": "0/12",
+    "candidate_population_exact_before_transform": "90/90",
+    "candidate_permutation_exact": "37/90",
+    "primary_actions": {
+      "ANSWER": 0,
+      "ABSTAIN": 28,
+      "REJECT": 62
+    },
+    "accepted_wrong": 0,
+    "reference_base_old_winner_false_accepts": 0,
+    "semantic_control_false_accepts": 0,
+    "hard_negative_answers": 0,
+    "interpretation": "The current runtime is conservative and has no observed false acceptance in this cohort, but 0/60 target answers means it is not functionally adequate for the frozen positive targets. Safety must not be reported as answer coverage."
+  },
+  "primary_layer_audit": {
+    "reported_partition": {
+      "QUESTION_PLAN": 0,
+      "SOURCE_LOAD_OR_EXTRACTION": 0,
+      "CANDIDATE_POPULATION_OR_RETRIEVAL": 46,
+      "SEMANTIC_BINDING_OR_PROGRAM_SYNTHESIS": 25,
+      "SYMBOLIC_PROOF_OR_ACTION": 11,
+      "PASS": 8
+    },
+    "question_plan_passed_reported": "90/90",
+    "candidate_layer_signature": {
+      "rows": 46,
+      "candidate_support_false": 46,
+      "binding_exact_false": 46,
+      "value_exact_false": 46
+    },
+    "binding_layer_signature": {
+      "rows": 25,
+      "candidate_support_true": 25,
+      "binding_exact_false": 25,
+      "value_exact_false": 25,
+      "coverage": "4 companies / 4 sources / 2 document layouts / 4 table layouts / 1 extraction family",
+      "generic_under_frozen_minimum": false
+    },
+    "proof_action_layer_signature": {
+      "rows": 11,
+      "candidate_support_true": 11,
+      "binding_exact_true": 11,
+      "provenance_complete_true": 11,
+      "value_exact_true": 11,
+      "action_exact_false": 11,
+      "state_exact_false": 11
+    },
+    "audit_result": "The flag hierarchy is internally coherent for most rows, but the two evaluator conflicts below invalidate the frozen earliest-layer partition as a complete runtime-cause ledger."
+  },
+  "confirmed_evaluator_contract_defects": [
+    {
+      "defect_id": "PLAN_ORACLE_LAYER_CONFLICT",
+      "category": "reference_base_mutation_target",
+      "contract_expectation": "RATIO_PERCENT with ordered current_actual and prior_actual operands; a typed-operation mismatch belongs to QUESTION_PLAN before source or candidate diagnosis.",
+      "observed": {
+        "rows": 13,
+        "question_plan_passed_true": 13,
+        "question_plan_operation_SELECT": 12,
+        "question_plan_operation_PERCENT_CHANGE": 1,
+        "primary_operation_exact_false": 13,
+        "reported_candidate_layer": 9,
+        "reported_binding_layer": 4,
+        "reported_question_plan_layer": 0
+      },
+      "coverage": {
+        "companies": 6,
+        "sources": 6,
+        "real_document_layouts": 3,
+        "real_table_layouts": 6,
+        "extraction_families": 2
+      },
+      "generic": true,
+      "effect": "If question_plan is the observed plan, question_plan_passed and the earliest layer are wrong. If question_plan is the frozen oracle plan, the row oracle conflicts with the category oracle. Either interpretation requires evaluator/schema reclosure before runtime attribution.",
+      "historical_rows_relabelled_by_this_review": false
+    },
+    {
+      "defect_id": "SAFE_ABSTENTION_MARKED_FAILURE",
+      "category": "PA07_operation_contrast",
+      "contract_expectation": "PERCENT_CHANGE if answered; ABSTAIN/UNKNOWN is explicitly allowed and does not count as positive target coverage.",
+      "observed": {
+        "rows": 4,
+        "primary_action_ABSTAIN": 4,
+        "primary_state_UNKNOWN": 4,
+        "primary_exact_pass_false": 4,
+        "reported_candidate_layer": 3,
+        "reported_proof_action_layer": 1
+      },
+      "coverage": {
+        "companies": 4,
+        "sources": 4,
+        "real_document_layouts": 3,
+        "real_table_layouts": 4,
+        "extraction_families": 2
+      },
+      "generic": true,
+      "effect": "The ledger treats an explicitly allowed safe abstention as a semantic failure. This does not change 0/60 positive target coverage, but it corrupts control PASS counts and root-cause strata.",
+      "historical_rows_relabelled_by_this_review": false
+    }
+  ],
+  "deterministic_row_disposition": {
+    "rows": 90,
+    "exactly_one_primary_disposition_per_row": true,
+    "priority_order": [
+      "EVALUATOR_OR_LEDGER_INCONSISTENCY",
+      "PASS_CONTROL",
+      "GENERIC_FAILURE_SURFACE_ROOT_UNRESOLVED",
+      "NON_GENERIC_FAILURE_RETAINED"
+    ],
+    "rules": [
+      "EVALUATOR_OR_LEDGER_INCONSISTENCY when reference_base_mutation_target has question_plan.operation other than RATIO_PERCENT, or when PA07_operation_contrast has primary ABSTAIN/UNKNOWN but primary.exact_pass is false",
+      "PASS_CONTROL when primary.exact_pass is true and no evaluator inconsistency applies",
+      "for remaining failures, recompute category x reported earliest-layer coverage after excluding evaluator-inconsistent rows",
+      "GENERIC_FAILURE_SURFACE_ROOT_UNRESOLVED only when the recomputed exact stratum meets every frozen generic minimum; otherwise NON_GENERIC_FAILURE_RETAINED"
+    ],
+    "counts": {
+      "EVALUATOR_OR_LEDGER_INCONSISTENCY": 17,
+      "PASS_CONTROL": 8,
+      "GENERIC_FAILURE_SURFACE_ROOT_UNRESOLVED": 35,
+      "NON_GENERIC_FAILURE_RETAINED": 30
+    },
+    "manifest_canonicalization": "sort lines observation_id|disposition|detail by observation_id ordinal ascending; UTF-8 without BOM; LF separators; no trailing newline",
+    "manifest_sha256": "7740e4963af8551fe356c0b6dcc3cb30f0f36be0ea821beb3b981bc189392ce0",
+    "identity_use_limit": "observation_id is used only for deterministic accounting and hashing, never for semantic selection or runtime logic"
+  },
+  "coverage_after_evaluator_conflicts_are_quarantined": {
+    "generic_failure_strata": [
+      {
+        "layer": "CANDIDATE_POPULATION_OR_RETRIEVAL",
+        "category": "base_target",
+        "rows": 21,
+        "coverage": "5 companies / 5 sources / 3 document layouts / 5 table layouts / 2 extraction families",
+        "distinct_symptom_signatures": 6,
+        "largest_signature_rows": 8
+      },
+      {
+        "layer": "CANDIDATE_POPULATION_OR_RETRIEVAL",
+        "category": "minimal_pair_role_swap",
+        "rows": 4,
+        "coverage": "4 companies / 4 sources / 3 document layouts / 4 table layouts / 2 extraction families",
+        "distinct_symptom_signatures": 3,
+        "largest_signature_rows": 2
+      },
+      {
+        "layer": "SYMBOLIC_PROOF_OR_ACTION",
+        "category": "ambiguity_control",
+        "rows": 4,
+        "coverage": "4 companies / 4 sources / 3 document layouts / 4 table layouts / 2 extraction families",
+        "distinct_symptom_signatures": 1,
+        "largest_signature_rows": 4
+      },
+      {
+        "layer": "SYMBOLIC_PROOF_OR_ACTION",
+        "category": "minimal_pair_year_shift",
+        "rows": 6,
+        "coverage": "6 companies / 6 sources / 3 document layouts / 6 table layouts / 2 extraction families",
+        "distinct_symptom_signatures": 1,
+        "largest_signature_rows": 6
+      }
+    ],
+    "generic_strata_count": 4,
+    "generic_exact_symptom_signatures_count": 2,
+    "generic_exact_symptom_signatures": [
+      {
+        "layer": "SYMBOLIC_PROOF_OR_ACTION",
+        "category": "ambiguity_control",
+        "signature": "candidate support, binding, provenance and value exact; final REJECT/INVALID instead of required ABSTAIN/UNKNOWN",
+        "rows": 4,
+        "coverage": "4 companies / 4 sources / 3 document layouts / 4 table layouts / 2 extraction families"
+      },
+      {
+        "layer": "SYMBOLIC_PROOF_OR_ACTION",
+        "category": "minimal_pair_year_shift",
+        "signature": "candidate support, binding, provenance, operation and value exact; final REJECT/INVALID instead of required ABSTAIN/UNKNOWN without shifted-period proof",
+        "rows": 6,
+        "coverage": "6 companies / 6 sources / 3 document layouts / 6 table layouts / 2 extraction families"
+      }
+    ],
+    "non_generic_strata_count": 6,
+    "important_changes_from_precommit_inventory": [
+      "reference_base_mutation_target candidate/retrieval falls from a claimed generic 17-row stratum to 8 contract-consistent rows across only 2 document layouts",
+      "PA07 candidate/retrieval falls from a claimed generic 4-row stratum to 1 contract-consistent row after three allowed safe abstentions are quarantined",
+      "all binding/synthesis strata remain non-generic"
+    ],
+    "runtime_root_cause_confirmed": false,
+    "reason": "Two proof/action signatures are generic and coherent, but the compact ledger has no proof-clause or runtime-symbol trace. Candidate-layer generic strata are symptom-fragmented. Evaluator consistency must be restored before any root-decomposition or implementation selection."
+  },
+  "candidate_permutation_diagnostic": {
+    "exact": "37/90",
+    "non_exact_rows": 53,
+    "envelope_changed": 53,
+    "observed_value_changed": 52,
+    "provenance_complete_changed": 15,
+    "binding_exact_changed": 2,
+    "candidate_support_changed": 0,
+    "observed_operation_changed": 0,
+    "final_action_changed": 3,
+    "verification_state_changed": 7,
+    "primary_to_permutation_layer_transitions": {
+      "CANDIDATE_POPULATION_OR_RETRIEVAL->CANDIDATE_POPULATION_OR_RETRIEVAL": 46,
+      "SEMANTIC_BINDING_OR_PROGRAM_SYNTHESIS->SEMANTIC_BINDING_OR_PROGRAM_SYNTHESIS": 25,
+      "SYMBOLIC_PROOF_OR_ACTION->SYMBOLIC_PROOF_OR_ACTION": 9,
+      "SYMBOLIC_PROOF_OR_ACTION->PASS": 2,
+      "PASS->PASS": 8
+    },
+    "interpretation": "Candidate availability and planned operation are stable under the frozen transform, while selected value/provenance and the semantic envelope frequently change. This is strong order-sensitivity evidence, but candidate rank or score is not semantic proof and no runtime symbol is nominated from this compact ledger."
+  },
+  "retained_controls": {
+    "compiler": "242/242",
+    "regression": "360/360",
+    "safe_replay_gate": true,
+    "safe_actions": {
+      "ANSWER": 257,
+      "ABSTAIN": 92,
+      "REJECT": 14
+    },
+    "gold_execution": "363/363",
+    "frozen_safe_permutation": "363/363",
+    "counterfactuals": 141,
+    "counterfactual_false_accepts": 0
+  },
+  "decision": {
+    "runtime_or_model_edit_authorized": false,
+    "root_decomposition_cohort_authorized_now": false,
+    "new_source_or_ocr_expansion_authorized": false,
+    "reason": "The evaluator contract is inconsistent on generic real-layout evidence. Deeper runtime diagnosis before reclosure would optimize against a misattributed ledger.",
+    "next_step_scope": [
+      "freeze whether row.question_plan is an observed runtime plan or a frozen oracle projection",
+      "define question_plan_passed as an exact post-hoc comparison to the category oracle without passing gold into runtime",
+      "make QUESTION_PLAN the earliest layer whenever typed operation, ordered roles, periods or reference base differ",
+      "define control exact_pass so an explicitly allowed PA07 ABSTAIN/UNKNOWN is a control PASS but never a positive target answer",
+      "recompute the same 90-row layer and control ledger artifact-only from already frozen fields when feasible",
+      "preserve 90 primary rows, 90 permutation results, 60 positive targets, all safety denominators and all parent source outcomes",
+      "do not read PDFs/OCR, run model inference, add examples, change thresholds or edit runtime reasoning behavior"
+    ]
+  },
+  "invariants": {
+    "abw_used": false,
+    "protected_evaluation_loaded": false,
+    "validation_blind_test_sealed_holdout_or_final_loaded": false,
+    "fine_tuning_performed": false,
+    "runtime_changed": false,
+    "model_changed": false,
+    "threshold_changed": false,
+    "checkpoint_changed": false,
+    "source_pdf_or_ocr_read": false,
+    "source_replay_or_model_inference_run": false,
+    "synthetic_layout_counted_as_confirmation": false,
+    "candidate_rank_score_or_confidence_used_as_semantic_proof": false,
+    "period_or_provenance_inferred_from_absence_nearby_context_or_question": false,
+    "qp4_complete": false,
+    "qp5_authorized": false,
+    "phase_d_unlocked": false
+  },
+  "artifact_policy": {
+    "maximum_final_json": 1,
+    "maximum_final_markdown": 1,
+    "maximum_lock_or_manifest": 1,
+    "raw_or_intermediate_artifacts_persisted": false,
+    "temporary_artifacts_deleted_after_verification": true
+  },
+  "authorized_next_action": {
+    "step": "QP4-FULL-SOURCE-SEMANTIC-REPLAY-REFRESH-EVALUATOR-CONTRACT-RECLOSURE-PRECOMMIT",
+    "artifact_only_reclassification_preferred": true,
+    "runtime_or_model_edit_authorized": false,
+    "new_source_ocr_or_model_execution_authorized": false,
+    "qp5_authorized": false,
+    "phase_d_unlocked": false
+  }
+}

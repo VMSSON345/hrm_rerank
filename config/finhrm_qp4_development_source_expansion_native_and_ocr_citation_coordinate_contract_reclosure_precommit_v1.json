@@ -1,0 +1,429 @@
+{
+  "schema": "finhrm.qp4.development_source_expansion.native_and_ocr_citation_coordinate_contract_reclosure_precommit.v1",
+  "created_at": "2026-08-24T17:18:00+07:00",
+  "classification": "development_only_executable_carrier_tagged_citation_contract_precommit_no_runtime_no_model_no_new_ocr",
+  "status": "PASS",
+  "step": "QP4-DEVELOPMENT-SOURCE-EXPANSION-NATIVE-AND-OCR-CITATION-COORDINATE-CONTRACT-RECLOSURE-PRECOMMIT",
+  "precommit_gate_passed": true,
+  "cohort_reclosure_gate_passed": false,
+  "qp4_complete": false,
+  "purpose": "Replace the invalid globally OCR-only citation coordinate requirement with one common semantic citation envelope and an exact carrier-discriminated locator union, then prove from the frozen parent artifacts that all six operands can be materialized and evaluated without hidden state or invented provenance.",
+  "parent": {
+    "result_json": {
+      "path": "reports/finhrm_qp4_development_source_expansion_ocr_logical_provenance_cohort_reclosure_v1.json",
+      "size_bytes": 12230,
+      "sha256": "f0da9990178a34fb2fef614b2cf04062aa2900f4b8e8deb5966ccabbf9734b4a",
+      "status": "FAIL_CLOSED"
+    },
+    "result_markdown": {
+      "path": "reports/finhrm_qp4_development_source_expansion_ocr_logical_provenance_cohort_reclosure_v1.md",
+      "size_bytes": 2941,
+      "sha256": "357c0c486bbd6259eaa10610275a6ef998bea1accdc635a80123df116817b0e5"
+    },
+    "result_lock": {
+      "path": "reports/finhrm_qp4_development_source_expansion_ocr_logical_provenance_cohort_reclosure_lock_v1.json",
+      "size_bytes": 4727,
+      "sha256": "92a47c337a965f599cc601b4eccac1ad97570aed49b8a88d3e3ed80103b3214e"
+    },
+    "authorization_matches_exactly": true,
+    "failure_class_reclosed": "PRECOMMIT_CITATION_SCHEMA_CARRIER_MISMATCH"
+  },
+  "scope": {
+    "frozen_anchor_count": 3,
+    "frozen_operand_count": 6,
+    "anchor_order": [
+      "ad02bcfc694fa4ddf1cbef77d7c74074258353bc0c0df7de49ade21689604279",
+      "reviewed-proposal-THW-p9",
+      "reviewed-proposal-TVA-p21"
+    ],
+    "allowed_carriers": [
+      "native_pdf_cell_bbox",
+      "mineru_ocr_table_cell_ordinal"
+    ],
+    "new_source_search": false,
+    "new_page_selection": false,
+    "new_ocr": false,
+    "runtime_or_renderer_edit": false,
+    "model_checkpoint_threshold_or_training_change": false
+  },
+  "contract_supersession": {
+    "new_contract_id": "FINHRM_CARRIER_TAGGED_OPERAND_CITATION_V1",
+    "supersedes_only": "The global OCR-only required_fields_per_operand and global half-open table_body ordinal coordinate space in the immediately preceding logical-provenance precommit.",
+    "does_not_weaken": [
+      "source hash binding",
+      "physical page binding",
+      "table binding",
+      "per-operand unique source locator",
+      "role, period, unit, metric and entity proof",
+      "exact raw and decimal operand replay",
+      "missing proof to UNKNOWN then ABSTAIN",
+      "conflict or contradiction to REJECT"
+    ],
+    "old_pixel_geometry_gate_marked_pass": false,
+    "old_hierarchical_geometry_coverage": "1/1/1/1_UNCHANGED",
+    "old_fragmented_geometry_coverage": "0/0/0/0_UNCHANGED",
+    "synthetic_or_cross_signature_coverage": false
+  },
+  "common_semantic_envelope": {
+    "required_fields": [
+      "contract_id",
+      "carrier",
+      "common",
+      "locator",
+      "table_ref_id",
+      "cell_ref_id",
+      "citation_id"
+    ],
+    "common_required_fields": [
+      "source_name",
+      "source_path",
+      "source_sha256",
+      "physical_page",
+      "table_bbox",
+      "raw_text",
+      "decimal_value",
+      "header_path",
+      "role",
+      "period",
+      "unit",
+      "metric_identity",
+      "entity_scope"
+    ],
+    "common_field_policy": "All common semantic fields remain mandatory for both carriers. Carrier selection cannot supply, infer or relax role, period, unit, metric, entity, raw value or normalized decimal value.",
+    "source_path_is_identity_proof": false,
+    "source_sha256_is_identity_proof": true,
+    "table_bbox_cross_carrier_comparable": false,
+    "candidate_rank_score_or_confidence_is_proof": false
+  },
+  "locator_union": {
+    "discriminator": "carrier",
+    "exactly_one_branch_required": true,
+    "unknown_carrier": "REJECT",
+    "native_pdf_cell_bbox": {
+      "coordinate_space_id": "native_source_page_coordinates_as_materialized_v1",
+      "coordinate_semantics": "Opaque extractor-native page coordinates copied exactly from the frozen parent artifact; do not reinterpret as pixels, convert units, infer origin or synthesize missing boxes.",
+      "required_locator_fields": [
+        "coordinate_space_id",
+        "native_cell_bbox"
+      ],
+      "forbidden_locator_fields": [
+        "content_list_path",
+        "content_list_sha256",
+        "table_html_sha256",
+        "table_id",
+        "logical_row_index",
+        "logical_column_index",
+        "cell_ordinal_span"
+      ],
+      "table_ref_id_formula": "sha256(canonical_json({carrier,source_sha256,physical_page,table_bbox}))",
+      "cell_ref_id_formula": "sha256(canonical_json({table_ref_id,native_cell_bbox,header_path,role,period,unit,entity_scope}))"
+    },
+    "mineru_ocr_table_cell_ordinal": {
+      "coordinate_space_id": "mineru_table_body_source_cell_ordinal_half_open_v1",
+      "coordinate_semantics": "Logical grid row/column plus half-open source-cell ordinal interval in the exact hash-bound MinerU table_body.",
+      "required_locator_fields": [
+        "coordinate_space_id",
+        "content_list_path",
+        "content_list_sha256",
+        "table_html_sha256",
+        "table_id",
+        "logical_row_index",
+        "logical_column_index",
+        "cell_ordinal_span"
+      ],
+      "forbidden_locator_fields": [
+        "native_cell_bbox"
+      ],
+      "table_ref_id_formula": "existing table_id = sha256(canonical_json({source_sha256,physical_page,content_list_sha256,table_bbox,table_html_sha256}))",
+      "cell_ref_id_formula": "existing logical_cell_id = sha256(canonical_json({table_id,logical_row_index,logical_column_index,cell_ordinal_span,header_path,role,period,unit,entity_scope}))"
+    }
+  },
+  "deterministic_identity_contract": {
+    "canonical_json_runtime": "Python 3.12 json.dumps",
+    "canonical_json_parameters": {
+      "ensure_ascii": false,
+      "sort_keys": true,
+      "separators": [",", ":"],
+      "allow_nan": false,
+      "encoding": "UTF-8"
+    },
+    "coordinate_numbers": "Copy the exact JSON numeric values from the hash-bound parent artifact without arithmetic, rounding, unit conversion or coordinate transformation.",
+    "citation_id_formula": "sha256(canonical_json(envelope_without_citation_id))",
+    "ordering_seed": "NONE_DETERMINISTIC_PARENT_ORDER",
+    "pointer_or_index_remapping": "NONE"
+  },
+  "validation_order": [
+    "Verify parent and all named source/cache hashes before reading semantic fields.",
+    "Require every common semantic field; a missing required proof field is UNKNOWN_TO_ABSTAIN.",
+    "Require carrier to select exactly one known locator branch; unknown carrier is REJECT.",
+    "Require the exact branch coordinate_space_id; tag/coordinate conflict is REJECT.",
+    "Require every field in the selected branch; absence is UNKNOWN_TO_ABSTAIN.",
+    "Reject any forbidden cross-carrier locator field or contradictory carrier evidence.",
+    "Recompute table_ref_id, cell_ref_id and citation_id and require exact equality; conflict is REJECT.",
+    "Require exactly one ACTUAL and one PLAN operand with matching period, unit, metric and entity and distinct cell_ref_id; missing proof is ABSTAIN and conflict is REJECT.",
+    "Replay the frozen deterministic program only from the admitted cited decimal values."
+  ],
+  "frozen_inputs": [
+    {
+      "anchor_id": "ad02bcfc694fa4ddf1cbef77d7c74074258353bc0c0df7de49ade21689604279",
+      "company_key": "development-company-10",
+      "layout_family_id": "5087511255758afb3acd36e1460fb652cc6631dc63d86dae64a5e3bd16cdb343",
+      "carrier": "native_pdf_cell_bbox",
+      "source_path": "pdf/PDF_24/PDF_24/ABB_24CN_BCTN.pdf",
+      "source_size_bytes": 5039180,
+      "source_sha256": "ad65914c63b5ff346e303d546f71c66ff15b51bb0ab38225dc2621456792c51c",
+      "physical_page": 34,
+      "table_bbox": [666.54, 176.75, 1119.18, 345.14],
+      "table_ref_id": "10340a77aa5960dc80f0fd183bbc16a6fa915de7c822a30fcf968a44f165739c",
+      "common_semantics": {
+        "metric_identity": "profit_before_tax",
+        "period": "2024",
+        "unit": "tỷ đồng",
+        "entity_scope": "reporting_entity"
+      },
+      "operands": [
+        {
+          "role": "ACTUAL",
+          "raw_text": "779",
+          "decimal_value": "779",
+          "header_path": ["2024", "ACTUAL"],
+          "native_cell_bbox": [989.22, 328.94, 1006.31, 342.21],
+          "cell_ref_id": "021b8907e5309143f72dcd5df5afbc504c956d0296d960c6775c5d86e85db8a7",
+          "citation_id": "2d9734e3ded61b3c6a0f9aa6cea2132e5142f14a1183c88d1e983b799be89d29"
+        },
+        {
+          "role": "PLAN",
+          "raw_text": "1.000",
+          "decimal_value": "1000",
+          "header_path": ["2024", "PLAN"],
+          "native_cell_bbox": [1087.93, 328.94, 1113.53, 342.21],
+          "cell_ref_id": "21d005636f48a2d9f71f3222b13604d3e14a504c901be71a1bb406810e0db6ea",
+          "citation_id": "828d79a56e2be072901d14d352645c11c1d04d70a014c9c0255762fe010307b0"
+        }
+      ],
+      "program": "((ACTUAL - PLAN) / PLAN) * 100",
+      "expected_result_percent": "-22.1"
+    },
+    {
+      "anchor_id": "reviewed-proposal-THW-p9",
+      "company_key": "development-company-1d93fc6e0149715f",
+      "layout_family_id": "3880fd0ee1a293947197af509389ef042b549122acf587529b9e2fc5acc740fd",
+      "carrier": "mineru_ocr_table_cell_ordinal",
+      "source_path": "pdf/PDF_24/PDF_24/THW_24CN_BCTN.pdf",
+      "source_size_bytes": 14107716,
+      "source_sha256": "a67ba32e0f55f9da5d99181daf21caf2a2315b9b4df049e70d28a3e52900613c",
+      "physical_page": 9,
+      "table_bbox": [112, 192, 942, 936],
+      "content_list_path": "cache/mineru/THW_24CN_BCTN-d15d9ab8fbd76ca15a9b4ce8/THW_24CN_BCTN/hybrid_ocr/THW_24CN_BCTN_content_list.json",
+      "content_list_size_bytes": 3814,
+      "content_list_sha256": "4a24649228235bf4851244d16830f1bbcd035bf6ce2065492409f9ef274c13ff",
+      "table_html_sha256": "82991d8dd68e1fc9e4b77119c285a83c2d4a03990514a66d63dee1bc8054d6d3",
+      "table_ref_id": "e4dfd3935f622f097566b24a648d53373e21da58cd529b4eb2a2620d757740a8",
+      "common_semantics": {
+        "metric_identity": "doanh thu tien nuoc theo chuan thu sau xu ly",
+        "period": "2024",
+        "unit": "Tr.đồng",
+        "entity_scope": "reporting_entity"
+      },
+      "operands": [
+        {
+          "role": "ACTUAL",
+          "raw_text": "650.619",
+          "decimal_value": "650619",
+          "header_path": ["Năm 2024", "Thực hiện"],
+          "logical_row_index": 5,
+          "logical_column_index": 4,
+          "cell_ordinal_span": [28, 29],
+          "cell_ref_id": "e798f682cdb0af53d3fa87e19b60db8b19e574612ce73fe1b7aca5bea5d1494d",
+          "citation_id": "1dc9adcff340531683f51698ea0766ae96039f8eaa5003c39f6422e5b135d471"
+        },
+        {
+          "role": "PLAN",
+          "raw_text": "631.033",
+          "decimal_value": "631033",
+          "header_path": ["Năm 2024", "Kế hoạch"],
+          "logical_row_index": 5,
+          "logical_column_index": 3,
+          "cell_ordinal_span": [27, 28],
+          "cell_ref_id": "48d9e3a26acc1df36e993ae0fe34a569cb3dcdb03bcf530ba5478898edd8d51d",
+          "citation_id": "e7f2c74e8272c7f2b27b3b9aa36526f31981cc7815c143957f736499b80e468d"
+        }
+      ],
+      "program": "((ACTUAL - PLAN) / PLAN) * 100",
+      "expected_result_percent": "3.103799642807903865566460074"
+    },
+    {
+      "anchor_id": "reviewed-proposal-TVA-p21",
+      "company_key": "development-company-15aa4ce43c3fc979",
+      "layout_family_id": "067dbb7865ad2df4b72baaefb61288bfd7a24354cbebfaf29b6de2ce87d070c4",
+      "carrier": "mineru_ocr_table_cell_ordinal",
+      "source_path": "pdf/PDF_24/PDF_24/TVA_24CN_BCTN.pdf",
+      "source_size_bytes": 10932148,
+      "source_sha256": "2ab79ef997afa54449c0baa80c4ef09f389b10277abe6cb11f08e54c6ee5c23b",
+      "physical_page": 21,
+      "table_bbox": [93, 410, 892, 888],
+      "content_list_path": "cache/mineru/TVA_24CN_BCTN-7f99ad7f983f7bea7a1c2df8/TVA_24CN_BCTN/hybrid_ocr/TVA_24CN_BCTN_content_list.json",
+      "content_list_size_bytes": 3856,
+      "content_list_sha256": "145e9309fbdfadb6d7b18618a98f99ab17ea6cf5db4469c9591729a03fbf03d8",
+      "table_html_sha256": "6086f4aff9e3f9bb7fca2f36bd448c7981a4e13349deace98c621ca895f20670",
+      "table_ref_id": "de812ba74d40b00e364739c8479f994d0844677cb3dcbc6fa9953e46c0455b36",
+      "common_semantics": {
+        "metric_identity": "doanh thu",
+        "period": "2024",
+        "unit": "Tr.đ",
+        "entity_scope": "reporting_entity"
+      },
+      "operands": [
+        {
+          "role": "ACTUAL",
+          "raw_text": "173.831",
+          "decimal_value": "173831",
+          "header_path": ["Năm 2024", "Thực hiện"],
+          "logical_row_index": 4,
+          "logical_column_index": 5,
+          "cell_ordinal_span": [30, 31],
+          "cell_ref_id": "c525110d63576b35a5cfbb352fc8b62056476da476ba8396eb61c48a6447c573",
+          "citation_id": "1b2ee03db9d5d23b35bce94e934f07f17aef47d258d4a0fd6da656ad6ddb5663"
+        },
+        {
+          "role": "PLAN",
+          "raw_text": "173.728",
+          "decimal_value": "173728",
+          "header_path": ["Năm 2024", "Kế hoạch"],
+          "logical_row_index": 4,
+          "logical_column_index": 4,
+          "cell_ordinal_span": [29, 30],
+          "cell_ref_id": "eb045ae3d9fab18f734bb3476dd46fce95c8358b58b430a279ceddbe1e6b3616",
+          "citation_id": "2db81a0bcb884194d0b62ba62a33aefb84cca9b8348d361771920441a03e734d"
+        }
+      ],
+      "program": "((ACTUAL - PLAN) / PLAN) * 100",
+      "expected_result_percent": "0.05928808251980106833671025972"
+    }
+  ],
+  "schema_feasibility": {
+    "status": "PASS",
+    "clean_process_inputs_named_and_hash_locked": true,
+    "parent_hash_verified": true,
+    "source_hashes_verified": "3/3",
+    "content_list_hashes_verified": "2/2",
+    "table_html_hashes_verified": "2/2",
+    "ocr_table_ids_recomputed": "2/2",
+    "carrier_table_refs_materialized": "3/3",
+    "operand_envelopes_materialized": "6/6",
+    "operand_envelopes_admitted": "6/6",
+    "native_table_refs": "1/1",
+    "native_cell_refs": "2/2",
+    "ocr_table_refs": "2/2",
+    "ocr_cell_refs": "4/4",
+    "projected_distinct_companies_sources_layouts_instances": "3/3/3/3",
+    "hidden_temporary_state_required": false,
+    "new_ocr_required": false,
+    "runtime_materialization_required": false
+  },
+  "precommit_negative_controls": [
+    {
+      "mutation": "NATIVE_MISSING_CELL_BBOX",
+      "expected": "ABSTAIN",
+      "observed": "ABSTAIN",
+      "passed": true
+    },
+    {
+      "mutation": "OCR_MISSING_ORDINAL",
+      "expected": "ABSTAIN",
+      "observed": "ABSTAIN",
+      "passed": true
+    },
+    {
+      "mutation": "NATIVE_TAGGED_AS_OCR",
+      "expected": "REJECT",
+      "observed": "REJECT",
+      "passed": true
+    },
+    {
+      "mutation": "OCR_TAGGED_AS_NATIVE",
+      "expected": "REJECT",
+      "observed": "REJECT",
+      "passed": true
+    },
+    {
+      "mutation": "NATIVE_WRONG_COORDINATE_SPACE",
+      "expected": "REJECT",
+      "observed": "REJECT",
+      "passed": true
+    },
+    {
+      "mutation": "OCR_WRONG_COORDINATE_SPACE",
+      "expected": "REJECT",
+      "observed": "REJECT",
+      "passed": true
+    }
+  ],
+  "next_execution_gates": {
+    "all_parent_and_input_hashes_exact": true,
+    "operand_envelopes_complete": "6/6",
+    "carrier_discriminators_and_coordinate_spaces_exact": "6/6",
+    "table_and_cell_reference_ids_exact": "6/6",
+    "logical_binding_positive": "3/3 anchors",
+    "distinct_companies_sources_layouts_instances_minimum": "3/3/3/3",
+    "all_programs_replay_from_cited_operands": true,
+    "accepted_wrong": 0,
+    "semantic_negative_mutations": "9/9 fail closed",
+    "carrier_negative_mutations": "6/6 fail closed",
+    "gold_execution": "363/363",
+    "candidate_permutation": "363/363",
+    "counterfactuals": 141,
+    "counterfactual_false_accepts": 0,
+    "affected_regression": "360/360",
+    "temporary_files_after_verification": 0
+  },
+  "frozen_replay_observed_at_precommit": {
+    "safe_replay_gate_passed": true,
+    "gold_execution": "363/363",
+    "candidate_permutation": "363/363",
+    "counterfactuals": 141,
+    "counterfactual_false_accepts": 0,
+    "affected_regression": "360/360",
+    "checkpoint_sha256": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de"
+  },
+  "failure_behavior": {
+    "missing_common_or_selected_branch_proof": "UNKNOWN_TO_ABSTAIN",
+    "unknown_carrier": "REJECT",
+    "carrier_coordinate_space_conflict": "REJECT",
+    "forbidden_cross_carrier_locator_fields": "REJECT",
+    "hash_reference_or_semantic_conflict": "REJECT",
+    "rank_score_or_confidence_tie_break": "FORBIDDEN",
+    "renderer_may_invent_or_convert_locator": false
+  },
+  "invariants": {
+    "runtime_changed": false,
+    "model_changed": false,
+    "checkpoint_changed": false,
+    "threshold_changed": false,
+    "fine_tuning_performed": false,
+    "new_ocr_performed": false,
+    "new_source_or_page_selected": false,
+    "abw_used_as_confirmation_or_gate": false,
+    "protected_evaluation_loaded": false,
+    "candidate_rank_score_or_confidence_used_as_semantic_proof": false,
+    "period_or_provenance_inferred_from_question_nearby_context_or_absence": false,
+    "missing_locator_inferred_or_synthesized": false,
+    "old_geometry_gate_relabelled_as_pass": false,
+    "answer_presentation_runtime_changed": false,
+    "qp5_unlocked": false,
+    "phase_d_unlocked": false
+  },
+  "artifact_policy": {
+    "final_json_maximum": 1,
+    "final_markdown_maximum": 1,
+    "lock_manifest_maximum": 1,
+    "temporary_execution_files_must_be_deleted_after_verification": true
+  },
+  "authorization": {
+    "next_allowed_action": "QP4-DEVELOPMENT-SOURCE-EXPANSION-NATIVE-AND-OCR-CITATION-COORDINATE-COHORT-RECLOSURE",
+    "next_action_scope": "Replay exactly the same three frozen anchors under FINHRM_CARRIER_TAGGED_OPERAND_CITATION_V1; materialize and verify all six envelopes, three programs, semantic and carrier negative controls, coverage and every frozen gate. No source search, OCR, runtime, model or renderer edit.",
+    "qp4_complete": false,
+    "qp5_authorized": false,
+    "phase_d_unlocked": false
+  }
+}

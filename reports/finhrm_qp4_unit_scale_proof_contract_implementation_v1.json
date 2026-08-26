@@ -1,0 +1,111 @@
+{
+  "schema": "finhrm-qp4-unit-scale-proof-contract-implementation-report-v1",
+  "created_at": "2026-08-21",
+  "classification": "development_only_qp4_generic_unit_scale_proof_contract_implementation",
+  "status": "implementation_executed_gate_not_closed",
+  "implementation_gate_passed": false,
+  "failed_gates": [
+    "safe_actions_exact"
+  ],
+  "runtime_changes": {
+    "src/hrm_finance_qa/question_planner.py": {
+      "before_sha256": "e64c9140ed62cc7289941edf04b58c9748b13bf6bf98edd5699ef1d4ffb38a03",
+      "after_sha256": "0973e72711fccdac6fd8615e5dd5afc8f47fb98024c9080063cd6bac46bd66a2",
+      "symbols": [
+        "_PROOF_CONSTRAINTS",
+        "compile_question_proof_contract"
+      ]
+    },
+    "src/hrm_finance_qa/symbolic_verifier.py": {
+      "before_sha256": "e9efa8d2fa9ce1aedd460cdd11c1eb9321aab7122b0908fc5017687c1491ed88",
+      "after_sha256": "2679b1ce55cc070697438c806f19e3e888bfc19bc1a9ae3686a0b7fd7ffb0087",
+      "symbols": [
+        "currency_unit_scale import",
+        "_unit_scale_match_state",
+        "verify_program"
+      ]
+    }
+  },
+  "implementation_contract": {
+    "new_proof_obligation": "unit_scale_match",
+    "explicit_scale_required": true,
+    "no_scale_not_applicable": true,
+    "matching_explicit_scale_state": "VALID",
+    "missing_raw_scale_state": "UNKNOWN",
+    "different_convertible_unconverted_scale_state": "UNKNOWN",
+    "mixed_explicit_operand_scales_state": "INVALID",
+    "conflicting_requested_scales_state": "INVALID",
+    "monetary_scale_with_percent_or_ratio_state": "INVALID",
+    "conversion_execution_added": false,
+    "candidate_value_rescaling_added": false
+  },
+  "source_replay": {
+    "coverage": {
+      "runs": 5,
+      "companies": 5,
+      "sources": 5,
+      "real_layouts": 3
+    },
+    "summary": {
+      "prior_answer_cases": 4,
+      "prior_answer_to_abstain": 4,
+      "prior_answer_binding_retained": 4,
+      "prior_answer_scale_required_unknown": 4,
+      "old_winner_false_accepts": 0,
+      "errors": 0
+    },
+    "gate_passed": true
+  },
+  "safe_replay": {
+    "actions": {
+      "ABSTAIN": 92,
+      "ANSWER": 257,
+      "REJECT": 14
+    },
+    "expected_actions": {
+      "ANSWER": 259,
+      "ABSTAIN": 90,
+      "REJECT": 14
+    },
+    "execution": "363/363",
+    "permutation": "363/363",
+    "counterfactuals": 141,
+    "counterfactual_false_accepts": 0
+  },
+  "checks": {
+    "explicit_scale_obligation_required": true,
+    "no_scale_obligation_not_applicable": true,
+    "source_5_companies_5_sources_3_layouts": true,
+    "source_zero_old_winner_false_accepts": true,
+    "source_four_answers_to_abstain": true,
+    "source_four_bindings_retained": true,
+    "source_four_required_unknown_scale_proofs": true,
+    "safe_actions_exact": false,
+    "safe_execution_exact": true,
+    "safe_permutation_exact": true,
+    "safe_counterfactual_exact": true
+  },
+  "frozen_action_gate_conflict": {
+    "observed": {
+      "ABSTAIN": 92,
+      "ANSWER": 257,
+      "REJECT": 14
+    },
+    "expected": {
+      "ANSWER": 259,
+      "ABSTAIN": 90,
+      "REJECT": 14
+    },
+    "cause": "Two explicit VND requests have gold candidates with unit_status=missing; the new required proof correctly yields UNKNOWN/ABSTAIN, but the precommit froze their prior ANSWER actions.",
+    "examples": [
+      "159",
+      "621"
+    ],
+    "resolution_requires_new_precommit": true
+  },
+  "further_runtime_change_authorized": false,
+  "qp4_complete": false,
+  "qp5_authorized": false,
+  "phase_d": "locked",
+  "authorized_next_step": "QP4-UNIT-SCALE-FROZEN-ACTION-CONTRACT-REVIEW-PRECOMMIT must resolve the two missing-unit proof cases without forcing ANSWER or changing runtime."
+}

@@ -1,0 +1,436 @@
+{
+  "schema": "finhrm.qp4.post_question_surface.post_cache.residual_coverage.post_source_protocol.semantic_trace.pa07_candidate_population.root_decomposition_cohort_precommit.v1",
+  "created_at": "2026-08-24T10:50:12+07:00",
+  "classification": "development_only_executable_cohort_precommit_no_runtime_no_model_no_ocr",
+  "status": "PASS",
+  "step": "QP4-POST-QUESTION-SURFACE-POST-CACHE-RESIDUAL-COVERAGE-POST-SOURCE-PROTOCOL-SEMANTIC-TRACE-PA07-CANDIDATE-POPULATION-ROOT-DECOMPOSITION-COHORT-PRECOMMIT",
+  "precommit_gate_passed": true,
+  "cohort_build_gate_passed": false,
+  "runtime_implementation_gate_passed": false,
+  "purpose": "Freeze an executable, development-safe and report-identity-independent procedure for building source-backed PA07 cohorts for each of the three unresolved structural subroots. This artifact authorizes only the cohort build. It does not assert that any subroot already meets the generalization minimum and it authorizes no runtime change.",
+  "scope_claim": {
+    "supported_domain": "Financial-report tables containing explicit metric, entity scope, currency unit, requested period, ACTUAL role, PLAN role and source/page/cell provenance.",
+    "report_agnostic_method": true,
+    "universal_every_pdf_claimed": false,
+    "unsupported_or_incomplete_structure": "UNKNOWN_THEN_ABSTAIN",
+    "conflict_or_contradiction": "REJECT",
+    "reason": "Generalization means one structural procedure across companies and real layouts, not forced coverage of every possible PDF. Reports outside the proven structural support remain fail-closed."
+  },
+  "parent": {
+    "path": "reports/finhrm_qp4_post_question_surface_post_cache_residual_coverage_post_source_protocol_semantic_trace_pa07_candidate_population_implementation_precommit_lock_v1.json",
+    "size_bytes": 4524,
+    "sha256": "ea92495085869a22f8e02fa27ab99acbd7ee6c3bcb5b6f76b457d55718855302",
+    "status": "FAIL_CLOSED",
+    "authorized_next_step": "QP4-POST-QUESTION-SURFACE-POST-CACHE-RESIDUAL-COVERAGE-POST-SOURCE-PROTOCOL-SEMANTIC-TRACE-PA07-CANDIDATE-POPULATION-ROOT-DECOMPOSITION-COHORT-PRECOMMIT",
+    "authorization_matches_exactly": true,
+    "runtime_edits_authorized_by_parent": false
+  },
+  "frozen_inputs": {
+    "claude": {
+      "path": "CLAUDE.md",
+      "size_bytes": 3494,
+      "sha256": "b3e61c65fd4f36a86d5ba4fac780150960c81bfe7cf5f4a9a685071a408178aa"
+    },
+    "generalization_invariant": {
+      "path": "config/finhrm_report_generalization_invariant_v1.json",
+      "size_bytes": 2512,
+      "sha256": "7a8c6e58a47314d522adb782277f6d5bf0cbf761faf681d848e2e9ae4e861846"
+    },
+    "thesis_core": {
+      "path": "config/finhrm_thesis_core_v1.json",
+      "size_bytes": 24625,
+      "sha256": "a9f2f3088f7622c6c8912086eac16252f154fcae1164a3fe7ba75107a0ece502"
+    },
+    "development_catalog": {
+      "path": "data/pdf_development_company_catalog_v3.json",
+      "size_bytes": 31784,
+      "sha256": "17f74e49fe1894871453dd0c2b2ec8f13fa3650c4294c324d90bc7e47dd8bb2b",
+      "classification": "development_only",
+      "catalog_documents": 169,
+      "catalog_company_groups": 150
+    },
+    "question_family_catalog": {
+      "path": "config/question_family_catalog_plan_actual_v1.jsonl",
+      "size_bytes": 285544,
+      "sha256": "69c4017afec7731f63407339ae0c3d717ac38690807b17908b77fb1892d8e31b",
+      "pa07_rows": 11,
+      "document_content_used": false,
+      "root_operation": "PERCENT_CHANGE",
+      "variants": [
+        "canonical",
+        "paraphrase_1",
+        "paraphrase_2",
+        "paraphrase_3",
+        "long_clause",
+        "no_diacritics",
+        "clause_reordered",
+        "minimal_pair_role_swap",
+        "minimal_pair_year_shift",
+        "hard_negative_missing_role",
+        "ambiguity_control"
+      ]
+    }
+  },
+  "development_source_universe": {
+    "catalog_only": true,
+    "protected_split_markers_rejected": [
+      "validation",
+      "blind",
+      "test",
+      "sealed",
+      "holdout",
+      "final_evaluation"
+    ],
+    "abw_rejected": true,
+    "catalog_documents_after_abw_exclusion": 167,
+    "catalog_documents_with_exact_unique_pdf_locator": 167,
+    "catalog_documents_with_matching_sha256": 167,
+    "missing_pdf_locators": 0,
+    "duplicate_pdf_locators": 0,
+    "diagnosis_company_keys_excluded_for_split_only": [
+      "development-company-08d33503ee27d4c1",
+      "development-company-0d2016d24a4bb0bd",
+      "development-company-128d077252ff6e80",
+      "development-company-175a680792c1fbf7",
+      "development-company-18",
+      "development-company-2255c8b55faa7d4f"
+    ],
+    "build_universe_documents": 160,
+    "build_universe_companies": 143,
+    "filename_policy": "A catalog filename may only locate the hash-locked PDF. It is forbidden as an eligibility, priority, structural-family or runtime feature.",
+    "company_policy": "Company identity may only enforce disjointness, uniqueness and minimum-company gates. It is forbidden as semantic evidence or a runtime feature."
+  },
+  "schema_feasibility_probe": {
+    "selection": "First three build-universe sources ordered by catalog source_sha256; identity, filename, question text, value and model outcome were not selection inputs.",
+    "sources_probed": 3,
+    "source_hash_matches": "3/3",
+    "page_text_and_method_lengths_match": "3/3",
+    "native_page_count_matches_word_geometry_reader": "3/3",
+    "native_nonempty_pages": [20, 93, 57],
+    "word_geometry_nonempty_pages": [20, 93, 57],
+    "method_domain": ["pypdf"],
+    "native_extraction_api": "src/hrm_finance_qa/document_sources.py::extract_native_pdf_pages",
+    "geometry_api": "PyMuPDF page.get_text('words')",
+    "new_ocr_generated": false,
+    "raw_probe_text_persisted": false,
+    "claim_limit": "This proves input/schema replay feasibility only; it does not prove structural-root prevalence or cohort admission."
+  },
+  "pa07_semantic_contract": {
+    "operation": "PERCENT_CHANGE",
+    "formula": "((ACTUAL - PLAN) / PLAN) * 100",
+    "required_same_metric": true,
+    "required_same_explicit_period": true,
+    "required_roles": ["ACTUAL", "PLAN"],
+    "operand_unit_family": "currency",
+    "answer_unit_family": "percent",
+    "plan_zero": "REJECT_DIVISION_BY_ZERO",
+    "missing_metric_role_period_unit_entity_or_provenance": "UNKNOWN_THEN_ABSTAIN",
+    "conflicting_header_or_cell_binding": "REJECT",
+    "candidate_rank_score_or_confidence_as_proof": false
+  },
+  "structural_signature_taxonomy": [
+    {
+      "signature_id": "PA07_ROOT_HIERARCHICAL_MULTIROW_ROLE_PERIOD_HEADER_V1",
+      "parent_diagnosis": "A visually real multirow table keeps explicit role and period labels on different header levels, while the current binding path fails to materialize the complete same-period ACTUAL/PLAN pair.",
+      "positive_predicate": [
+        "The candidate is a physical financial-report table, not a synthetic projection.",
+        "The table has at least two visually distinct header levels proven by word bounding boxes and column spans.",
+        "ACTUAL and PLAN are explicit child-level role labels for two distinct numeric columns.",
+        "The requested period is explicit in a parent header whose visual span contains both role columns.",
+        "The target metric row contains two distinct numeric cells geometrically aligned to those columns.",
+        "Entity scope, currency unit, source hash, physical page and each cell bounding box are explicit."
+      ],
+      "forbidden_inference": [
+        "cell_order_without_geometry",
+        "nearby_prose",
+        "question_wording",
+        "missing-label inference",
+        "candidate rank or score"
+      ],
+      "candidate_symbols_for_later_diagnosis_only": [
+        "program_data._candidate_context",
+        "evidence_schema._header_path",
+        "evidence_schema._resolve_column_role"
+      ]
+    },
+    {
+      "signature_id": "PA07_ROOT_FLATTENED_COMPACT_ROLE_YEAR_HEADER_V1",
+      "parent_diagnosis": "A compact native table exposes explicit ACTUAL/PLAN and period labels, but the flattened plaintext row path does not materialize typed monetary cells.",
+      "positive_predicate": [
+        "The candidate is a physical financial-report table whose relevant native block is flattened rather than a Markdown pipe table.",
+        "Within the table header block, each of two distinct numeric columns has an explicit role label and explicit period label; the roles are ACTUAL and PLAN for the same period.",
+        "The metric row has numeric-cell geometry aligned with the two header columns.",
+        "The header block boundary is determined by table geometry and at most twelve preceding non-empty native lines, never by nearby prose.",
+        "Entity scope, currency unit, source hash, physical page and each cell bounding box are explicit."
+      ],
+      "forbidden_inference": [
+        "numeric magnitude",
+        "value equality with a known answer",
+        "question wording",
+        "column order without geometry",
+        "candidate rank or score"
+      ],
+      "candidate_symbols_for_later_diagnosis_only": [
+        "program_data._plaintext_financial_row_context",
+        "program_data._nearby_plaintext_column_labels"
+      ]
+    },
+    {
+      "signature_id": "PA07_ROOT_FRAGMENTED_VISUAL_ROW_LABEL_V1",
+      "parent_diagnosis": "A visually continuous financial row is emitted as multiple native text fragments, leaving no complete metric-role-period cell in the current candidate representation.",
+      "positive_predicate": [
+        "The candidate is a physical financial-report table.",
+        "A single visual metric row is emitted as two or more native text fragments or lines.",
+        "Word bounding boxes prove that the metric-label fragments and numeric cells share the same row band or table grid.",
+        "Explicit table headers bind distinct ACTUAL and PLAN columns to the same explicit period.",
+        "The metric label is reconstructed only from fragments in the same geometric row, never from nearby prose.",
+        "Entity scope, currency unit, source hash, physical page and each fragment/cell bounding box are explicit."
+      ],
+      "forbidden_inference": [
+        "nearby-context row completion",
+        "question wording",
+        "filename or company identity",
+        "numeric magnitude",
+        "candidate rank or score"
+      ],
+      "candidate_symbols_for_later_diagnosis_only": [
+        "program_data._merged_flattened_chunk_runs",
+        "program_data._plaintext_financial_row_context",
+        "document_reasoning_engine._native_structured_evidence_gap"
+      ]
+    }
+  ],
+  "canonical_layout_definition": {
+    "real_layout_required": true,
+    "family_descriptor_fields": [
+      "signature_id",
+      "header_level_count_bin",
+      "role_period_axis_topology",
+      "column_grouping_topology",
+      "metric_row_shape",
+      "page_span_class",
+      "page_orientation",
+      "native_table_representation"
+    ],
+    "allowed_bins": {
+      "header_level_count_bin": ["one", "two", "three_or_more"],
+      "role_period_axis_topology": ["same_cell", "nested_parent_child", "parallel_cells"],
+      "column_grouping_topology": ["paired_adjacent", "paired_under_spanner", "repeated_column_blocks"],
+      "metric_row_shape": ["single_line", "wrapped_same_row", "fragmented_same_row"],
+      "page_span_class": ["single_page", "continued_table"],
+      "page_orientation": ["portrait", "landscape"],
+      "native_table_representation": ["aligned_native_text", "flattened_native_text", "fragmented_native_text"]
+    },
+    "family_id": "sha256(canonical_json(family_descriptor_fields))",
+    "instance_fingerprint": "sha256(source_sha256 || physical_page || canonicalized_table_bbox || family_id)",
+    "identity_excluded_from_family_id": [
+      "company_key",
+      "filename",
+      "source_sha256",
+      "page_number",
+      "year",
+      "metric_literal",
+      "numeric_value",
+      "question_literal",
+      "example_id"
+    ],
+    "synthetic_question_variants_count_as_layouts": false,
+    "minor_coordinate_differences_alone_create_new_family": false
+  },
+  "cohort_build_procedure": {
+    "full_universe_scan_required": true,
+    "ordered_steps": [
+      "Verify this precommit lock and every frozen input hash.",
+      "Resolve all 160 development-only build-universe PDFs by catalog filename solely as a locator and verify catalog source_sha256 before reading content.",
+      "Extract native page text and word geometry without generating OCR or a new cache.",
+      "Enumerate anchors using only the frozen structural predicates; do not run the question planner, HRM predictor, candidate ranker or answer evaluator for eligibility.",
+      "Record one explicit rejection reason for every non-eligible inspected table candidate.",
+      "Render each eligible page for structural review; automated geometry and visual structure must agree or the anchor is rejected.",
+      "Compute canonical real-layout family and instance fingerprints before cohort selection.",
+      "Finish the full 160-document audit before deterministic selection.",
+      "Select independently per signature with layout-family diversity first, then source_sha256 and physical page; enforce at most one anchor per company and source per signature.",
+      "Only after source selection, instantiate all eleven frozen PA07 question variants using the reviewed metric label and explicit period. Question text never selects a source.",
+      "Write exactly one final JSON, one final Markdown and one lock manifest for the cohort build; persist no raw extraction payload or temporary render."
+    ],
+    "selection_sort": [
+      "signature_id",
+      "new_canonical_layout_family_first",
+      "canonical_layout_family_id",
+      "source_sha256",
+      "physical_page",
+      "anchor_fingerprint"
+    ],
+    "target_selected_anchors_per_signature": 5,
+    "minimum_selected_anchors_per_signature": 3,
+    "maximum_selected_anchors_per_signature": 9,
+    "maximum_per_company_per_signature": 1,
+    "maximum_per_source_per_signature": 1,
+    "cross_signature_source_reuse": false,
+    "cache_policy": "Existing OCR or parser caches are not eligibility inputs. No cache may replace source-hash verification, native geometry or visual review.",
+    "numeric_value_policy": "Numeric lexical shape may identify a cell, but sign, magnitude, equality to any answer and computed percent are forbidden for source selection."
+  },
+  "anchor_schema": {
+    "required_fields": [
+      "anchor_id",
+      "signature_id",
+      "company_key",
+      "source_name",
+      "source_path",
+      "source_sha256",
+      "physical_page",
+      "printed_page_labels",
+      "document_layout_family",
+      "extraction_family",
+      "canonical_table_layout_descriptor",
+      "canonical_table_layout_family_id",
+      "layout_instance_fingerprint",
+      "table_bbox",
+      "header_cells",
+      "metric_row_fragments",
+      "operand_cells",
+      "metric",
+      "normalized_metric_identity",
+      "entity_scope",
+      "unit",
+      "explicit_period",
+      "visual_review",
+      "provenance",
+      "programs",
+      "questions"
+    ],
+    "header_cell_required_fields": [
+      "raw_text",
+      "normalized_text",
+      "bbox",
+      "header_level",
+      "column_span",
+      "explicit_role",
+      "explicit_period"
+    ],
+    "operand_cell_required_fields": [
+      "raw_text",
+      "decimal_value",
+      "bbox",
+      "role",
+      "period",
+      "unit",
+      "metric_identity",
+      "entity_scope",
+      "source_sha256",
+      "physical_page"
+    ],
+    "program_contract": {
+      "expression": "PERCENT_CHANGE(ACTUAL, PLAN)",
+      "decimal_execution": true,
+      "operand_order_fixed": ["ACTUAL", "PLAN"],
+      "replayable_from_cited_cells": true
+    }
+  },
+  "admission_gates": {
+    "all_gates_required": true,
+    "global": {
+      "parent_and_frozen_hashes_exact": true,
+      "build_universe_documents_processed": "160/160",
+      "source_sha256_matches": "160/160",
+      "protected_split_rows": 0,
+      "abw_rows": 0,
+      "diagnosis_company_overlap": 0,
+      "diagnosis_source_overlap": 0,
+      "diagnosis_layout_instance_overlap": 0,
+      "runtime_or_model_used_for_eligibility": false,
+      "new_ocr_generation": false,
+      "temporary_files_after_final_verification": 0
+    },
+    "per_signature": {
+      "minimum_distinct_companies": 3,
+      "minimum_distinct_sources": 3,
+      "minimum_distinct_real_table_layout_families": 3,
+      "minimum_distinct_layout_instances": 3,
+      "maximum_selected_per_company": 1,
+      "maximum_selected_per_source": 1,
+      "explicit_actual_plan_same_period_pairs": "all selected anchors",
+      "explicit_metric_unit_entity_provenance": "all selected anchors",
+      "geometry_and_visual_review_agreement": "all selected anchors",
+      "conflicting_or_incomplete_anchors": 0,
+      "frozen_question_variants_instantiated_per_anchor": 11
+    },
+    "failure_behavior": "If any signature lacks any minimum after full catalog exhaustion, the cohort build is FAIL_CLOSED, runtime remains locked, and thresholds or layout-family definitions must not be relaxed to beautify the metric.",
+    "no_pooling_rule": "Evidence from different structural signatures cannot be pooled to satisfy a per-signature company or layout-family minimum."
+  },
+  "post_build_sequence": {
+    "if_build_passes": "QP4-POST-QUESTION-SURFACE-POST-CACHE-RESIDUAL-COVERAGE-POST-SOURCE-PROTOCOL-SEMANTIC-TRACE-PA07-CANDIDATE-POPULATION-ROOT-DECOMPOSITION-SOURCE-REPLAY-DIAGNOSTIC-PRECOMMIT",
+    "if_build_fails": "Remain FAIL_CLOSED and report exact structural coverage shortfalls; no runtime edit.",
+    "runtime_edit_after_this_precommit": false,
+    "runtime_edit_after_cohort_build": false,
+    "qp4_complete": false,
+    "qp5_authorized": false,
+    "phase_d_unlocked": false
+  },
+  "authorization": {
+    "next_allowed_action": "QP4-POST-QUESTION-SURFACE-POST-CACHE-RESIDUAL-COVERAGE-POST-SOURCE-PROTOCOL-SEMANTIC-TRACE-PA07-CANDIDATE-POPULATION-ROOT-DECOMPOSITION-COHORT-BUILD",
+    "next_action_may_read": [
+      "the 160 hash-locked development-only build-universe PDFs",
+      "native page text",
+      "native word geometry",
+      "rendered candidate pages for structural review"
+    ],
+    "next_action_may_write": [
+      "one final cohort-build JSON",
+      "one final cohort-build Markdown",
+      "one cohort-build lock manifest",
+      "temporary execution files that are deleted after verification"
+    ],
+    "next_action_runtime_edits": false,
+    "other_pa07_signatures_authorized": false,
+    "qp4_complete": false,
+    "qp5_authorized": false,
+    "phase_d_unlocked": false
+  },
+  "runtime_authorization": {
+    "runtime_edit_authorized": false,
+    "runtime_file_whitelist": [],
+    "runtime_symbol_whitelist": [],
+    "test_file_whitelist": [],
+    "model_or_checkpoint_change_authorized": false,
+    "threshold_change_authorized": false,
+    "fine_tuning_authorized": false
+  },
+  "frozen_integrity": {
+    "runtime_and_extraction_hashes": {
+      "src/hrm_finance_qa/document_sources.py": "e9eb7b3ddcc2ed13060a573a6a0101a216fa49ff21dd65cd5fc2629b92f5fc0b",
+      "src/hrm_finance_qa/document_page_index.py": "d531f47a22ed051863b41b3de031bb3e9d4bbf60ef71f825217559b7035386b4",
+      "src/hrm_finance_qa/program_data.py": "5199434fc0628b7d270ce62b12657366cbe118901065edd9f1e1f6ca0f1f8d54",
+      "src/hrm_finance_qa/evidence_schema.py": "2f16fabf932dc9dabc8203d9642d2503bb2dab43e0e1ee0f78755dd4fb00825d",
+      "src/hrm_finance_qa/document_reasoning_engine.py": "3883500011472716bc01f8e04a6d6f925173b35a14bbedd945c5ca4fb0063fa2"
+    },
+    "checkpoint": {
+      "path": "models/document_hrm_V8_candidate.pt",
+      "size_bytes": 3413128,
+      "sha256": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de",
+      "parameter_count": 843097
+    },
+    "runtime_changed": false,
+    "checkpoint_threshold_or_model_changed": false,
+    "fine_tuning_performed": false,
+    "protected_split_read": false,
+    "abw_used": false,
+    "new_ocr_generation": false
+  },
+  "artifact_policy": {
+    "final_json": 1,
+    "final_markdown": 1,
+    "lock_manifest": 1,
+    "temporary_probe_persisted": false,
+    "temporary_payload_persisted": false,
+    "temporary_files_after_verification": 0
+  },
+  "invariants": {
+    "report_company_filename_page_year_value_example_or_question_literal_rule_added": false,
+    "rank_score_or_confidence_used_as_semantic_proof": false,
+    "period_or_provenance_inferred_from_absence_or_nearby_context": false,
+    "unknown_promoted_to_answer": false,
+    "conflict_promoted_to_answer": false,
+    "synthetic_layout_counted_as_confirmation": false,
+    "metric_beautification_performed": false
+  }
+}

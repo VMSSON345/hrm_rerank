@@ -1,0 +1,66 @@
+{
+  "schema": "finhrm-qp4-question-surface-implementation-precommit-correction-lock-v1",
+  "created_at": "2026-08-22",
+  "classification": "development_only_question_surface_hold_ahead_contract_correction_no_runtime_change",
+  "status": "complete",
+  "correction_gate_passed": true,
+  "runtime_changed": false,
+  "runtime_hashes": {
+    "src/hrm_finance_qa/question_planner.py": "0973e72711fccdac6fd8615e5dd5afc8f47fb98024c9080063cd6bac46bd66a2",
+    "src/hrm_finance_qa/symbolic_verifier.py": "2679b1ce55cc070697438c806f19e3e888bfc19bc1a9ae3686a0b7fd7ffb0087",
+    "src/hrm_finance_qa/program_synthesis.py": "e4acc4878d0dfd465ba66ab91f3aaf8be71db5591aa1358fb8cb81f3c7bff550",
+    "src/hrm_finance_qa/document_hrm.py": "b5951bcde79583950b672f7fb6b199b3e5b9904e6784daae7c4c5be0eba65d21",
+    "src/hrm_finance_qa/document_sources.py": "e9eb7b3ddcc2ed13060a573a6a0101a216fa49ff21dd65cd5fc2629b92f5fc0b",
+    "src/hrm_finance_qa/document_page_index.py": "c99e011175afef21f302be42ba9454b948caa549d4d445d6bb35c5b974b81f85"
+  },
+  "implementation_scope": {
+    "runtime_file_whitelist": [
+      "src/hrm_finance_qa/question_planner.py"
+    ],
+    "exact_symbols": {
+      "new_helper": [
+        "_strip_nonsemantic_metric_surface"
+      ],
+      "existing_function_edit": [
+        "compile_question_plan"
+      ]
+    },
+    "allowed_observable_change": [
+      "metric_text after removal of proven non-semantic surface framing",
+      "operand_slots[*].metric derived from that metric_text"
+    ],
+    "operation_intent_repair_authorized": false,
+    "retrieval_source_binding_verifier_edit_authorized": false
+  },
+  "artifacts": [
+    {
+      "path": "config/finhrm_qp4_question_surface_implementation_precommit_correction_v1.json",
+      "size_bytes": 5055,
+      "sha256": "b5d76489a619a7d971e96fbf0ce4ff8749d0e862d271306301ff6b3aecd927e1"
+    },
+    {
+      "path": "scripts/validate_qp4_question_surface_implementation_precommit_correction.py",
+      "size_bytes": 8379,
+      "sha256": "af9d8696d442253db7adb299ffcad12d08558e9632a1448ac6e512a8b3e8dca2"
+    },
+    {
+      "path": "tests/test_qp4_question_surface_implementation_precommit_correction.py",
+      "size_bytes": 5293,
+      "sha256": "16a7f151c835110f07f2405c81e46c852130bc3e4a0dd1facf2e3b2672bc669c"
+    },
+    {
+      "path": "reports/finhrm_qp4_question_surface_implementation_precommit_correction_v1.json",
+      "size_bytes": 21741,
+      "sha256": "968268fe5fe41ad543e1c835879280c16d3cc3ca53ff810c9c132e0bd02cd4bb"
+    },
+    {
+      "path": "reports/finhrm_qp4_question_surface_implementation_precommit_correction_v1.md",
+      "size_bytes": 422,
+      "sha256": "f5bdfd7920c290242558343773fd5bb3a7e8fd202232f91418afb75674e5ed29"
+    }
+  ],
+  "authorized_next_step": "Resume QP4-QUESTION-SURFACE-IMPLEMENTATION under the unchanged one-file/two-symbol whitelist, using the corrected 78-question effective hold-ahead contract.",
+  "qp4_complete": false,
+  "qp5_authorized": false,
+  "phase_d": "locked"
+}

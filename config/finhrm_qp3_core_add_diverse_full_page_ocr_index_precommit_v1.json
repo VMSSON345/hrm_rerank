@@ -1,0 +1,60 @@
+{
+  "schema": "finhrm-qp3-core-add-diverse-full-page-ocr-index-precommit-v1",
+  "created_at": "2026-08-20",
+  "classification": "development_only_full_physical_page_ocr_index_precommit",
+  "status": "frozen_before_full_page_ocr_index_materialization",
+  "parents": {
+    "cohort_precommit": {
+      "path": "config/finhrm_qp3_core_add_diverse_development_cohort_precommit_v1.json",
+      "sha256": "7b9d0bc6e7ad75a80aead0015d62f8a448f2f945b93413fdb3740ce0cfb52820"
+    },
+    "reviewed_cohort_report": {
+      "path": "reports/finhrm_qp3_core_add_diverse_development_reviewed_cohort_v1.json",
+      "sha256": "f187e5966f47069717cbdc1cdf9fd063ef74d2418a1b5e1850a89bb3cdbca28f"
+    }
+  },
+  "source_scope": {
+    "classification": "development_only",
+    "layout_stratum": "OCR_OR_HYBRID_TABLE",
+    "source_pdf_sha256_must_match_reviewed_cohort": true,
+    "every_physical_page_must_be_processed": true,
+    "source_or_page_priority_uses_question": false,
+    "source_or_page_priority_uses_gold_page_value_or_program": false
+  },
+  "ocr_contract": {
+    "engine": "Tesseract 5 through PyMuPDF",
+    "languages": ["vie", "eng"],
+    "dpi": 250,
+    "layout_order": "top-to-bottom with deterministic left/right landscape regions",
+    "cache_extraction_method": "ocr",
+    "cache_ocr_state": "high_quality",
+    "ocr_text_is_retrieval_and_candidate_provenance_not_semantic_proof": true,
+    "physical_pdf_hash_and_page_remain_mandatory": true
+  },
+  "runtime_compatibility_whitelist": {
+    "allowed_symbol": "document_page_index._has_compatible_high_quality_ocr",
+    "allowed_change": "accept provenance-correct high_quality extraction_method=ocr alongside mineru",
+    "company_filename_page_year_value_example_or_question_literal_branch_allowed": false,
+    "threshold_checkpoint_or_model_change_allowed": false
+  },
+  "output": {
+    "page_index": "cache/document_page_index.sqlite3",
+    "report": "reports/finhrm_qp3_core_add_diverse_full_page_ocr_index_v1.json"
+  },
+  "gates": {
+    "four_hash_locked_sources": true,
+    "all_physical_pages_indexed": true,
+    "zero_ocr_errors": true,
+    "no_question_or_gold_page_inputs": true,
+    "extraction_method_is_ocr": true,
+    "regression_permutation_counterfactual_safe_replay_required": true
+  },
+  "invariants": {
+    "protected_evaluation_loaded": false,
+    "abw_loaded": false,
+    "synthetic_layout_counted": false,
+    "fine_tuning_allowed": false,
+    "answer_presentation_unlocked": false,
+    "qp4_or_phase_d_unlocked": false
+  }
+}

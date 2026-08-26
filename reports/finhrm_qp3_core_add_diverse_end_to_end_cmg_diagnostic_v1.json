@@ -1,0 +1,188 @@
+{
+  "schema": "finhrm-qp3-core-add-diverse-end-to-end-v1",
+  "classification": "development_only_frozen_pdf_question_end_to_end_replay",
+  "status": "diagnostic_incomplete_or_failed",
+  "gate_passed": false,
+  "inputs": {
+    "precommit": "config/finhrm_qp3_core_add_diverse_development_cohort_precommit_v1.json",
+    "cohort": "data/finhrm_qp3_core_add_diverse_development_reviewed_cohort_v1.jsonl",
+    "cohort_report": "reports/finhrm_qp3_core_add_diverse_development_reviewed_cohort_v1.json",
+    "checkpoint": "models/document_hrm_V8_candidate.pt",
+    "checkpoint_sha256": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de"
+  },
+  "inference_boundary": {
+    "engine_inputs": [
+      "question",
+      "source_pdf_path"
+    ],
+    "gold_candidates_or_program_passed_to_engine": false,
+    "engine_defaults_overridden": false,
+    "checkpoint_or_threshold_changed": false
+  },
+  "metrics": {
+    "full_cohort_run": false,
+    "examples": 1,
+    "passed": 0,
+    "failed": 1,
+    "examples_by_layout": {
+      "NATIVE_TEXT_TABLE": 1
+    },
+    "passed_by_layout": {},
+    "passed_layout_families": [],
+    "passed_layout_family_count": 0,
+    "passed_companies_by_layout": {
+      "NATIVE_TEXT_TABLE": [],
+      "OCR_OR_HYBRID_TABLE": []
+    },
+    "passed_sources_by_layout": {
+      "NATIVE_TEXT_TABLE": [],
+      "OCR_OR_HYBRID_TABLE": []
+    },
+    "minimum_companies_per_layout": 3,
+    "layout_minimum_checks": {
+      "NATIVE_TEXT_TABLE": false,
+      "OCR_OR_HYBRID_TABLE": false
+    },
+    "unsafe_false_accepts": 0,
+    "errors": 0
+  },
+  "results": [
+    {
+      "example_id": "synthetic-document-000021",
+      "company_key": "development-company-1ae2af0e40480754",
+      "layout_stratum": "NATIVE_TEXT_TABLE",
+      "layout_family": "native_text_portrait",
+      "source_path": "pdf/PDF_23/CMG_23CN_BCTN.pdf",
+      "source_sha256": "1151a65a8d1028834a84179543d7b721df57e9c6c8f539e419ecbd8d978fd65f",
+      "question": "Tổng Tiền và các khoản tương đương tiền và Tiền tại cuoi nam là bao nhiêu?",
+      "checks": {
+        "document_discovery_ran": true,
+        "native_or_ocr_retrieval_ran": true,
+        "chunk_retrieval_nonempty": true,
+        "gold_page_retrieved": true,
+        "candidate_materialization_nonempty": true,
+        "neural_prediction_ran": true,
+        "operation_add": true,
+        "selected_arity_two": true,
+        "operand_values_exact": false,
+        "operand_roles_and_physical_page_exact": false,
+        "source_spans_present": true,
+        "source_spans_exact_diagnostic": false,
+        "provenance_complete": false,
+        "gold_execution_exact": false,
+        "accepted": false
+      },
+      "end_to_end_positive_passed": false,
+      "observed": {
+        "abstained": true,
+        "value": "3522024355046",
+        "unit": "VND",
+        "operation": "ADD",
+        "operands": [
+          8,
+          55
+        ],
+        "confidence": 0.10117833577463616,
+        "operation_confidence": 0.9825795888900757,
+        "confidence_threshold": 0.5220309066033059,
+        "candidate_count": 64,
+        "retrieved_pages": [
+          58,
+          59,
+          62,
+          65,
+          66,
+          69
+        ],
+        "evidence": [
+          {
+            "value": "12399440394",
+            "source_name": "CMG_23CN_BCTN.pdf",
+            "page": 62,
+            "row_label": "Tiền và tương đương tiền cuối năm",
+            "column_label": "",
+            "period": "",
+            "source_span": [
+              37,
+              52
+            ],
+            "extraction_method": "native",
+            "table_id": "",
+            "subtable_id": ""
+          },
+          {
+            "value": "3509624914652",
+            "source_name": "CMG_23CN_BCTN.pdf",
+            "page": 67,
+            "row_label": "C. NỢ PHẢI TRẢ",
+            "column_label": "so cuoi nam",
+            "period": "cuoi nam",
+            "source_span": [
+              19,
+              37
+            ],
+            "extraction_method": "native",
+            "table_id": "",
+            "subtable_id": ""
+          }
+        ],
+        "grounding_constraints_applied": [],
+        "warnings": [
+          "ABSTAIN: program confidence is below the validation-calibrated threshold (0.101 < 0.522).",
+          "ABSTAIN: grounding gate rejected the selected evidence: missing_requested_operand_roles, operand_roles, add_grounding, required_proof_invalid:add_grounding."
+        ],
+        "stage_timings": {
+          "document_discovery": 0.010167087999999325,
+          "native_retrieval": 0.09163539799999754,
+          "native_chunk_ranking": 0.005042827000000472,
+          "native_candidate_extraction": 0.6075908190000021,
+          "native_prediction": 0.44256845499999997,
+          "native_execution": 1.4564999997190853e-05,
+          "total": 1.2766511719999976
+        }
+      },
+      "gold_for_scoring_only": {
+        "answer_value": "24798880788",
+        "operation": "ADD",
+        "physical_pages": [
+          59
+        ],
+        "selected_candidates": [
+          {
+            "value": "12399440394",
+            "source_name": "CMG_23CN_BCTN.pdf",
+            "page": 59,
+            "row_label": "Tiền và các khoản tương đương tiền",
+            "column_label": "Số cuối năm",
+            "period": "cuoi nam",
+            "source_span": [
+              54,
+              69
+            ]
+          },
+          {
+            "value": "12399440394",
+            "source_name": "CMG_23CN_BCTN.pdf",
+            "page": 59,
+            "row_label": "Tiền",
+            "column_label": "Số cuối năm",
+            "period": "cuoi nam",
+            "source_span": [
+              20,
+              35
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "invariants": {
+    "protected_evaluation_loaded": false,
+    "abw_loaded": false,
+    "synthetic_layout_counted": false,
+    "gold_used_for_inference": false,
+    "candidate_rank_score_or_confidence_used_as_semantic_proof": false,
+    "answer_presentation_unlocked": false,
+    "qp4_or_phase_d_unlocked": false
+  }
+}

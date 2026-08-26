@@ -1,0 +1,486 @@
+{
+  "schema": "finhrm.qp4.full_source_semantic_replay_refresh.evaluator_contract_reclosure_precommit.v1",
+  "created_at": "2026-08-24",
+  "classification": "development_only_artifact_only_evaluator_contract_reclosure_precommit_no_runtime_no_model_no_source_execution",
+  "status": "PASS",
+  "step": "QP4-FULL-SOURCE-SEMANTIC-REPLAY-REFRESH-EVALUATOR-CONTRACT-RECLOSURE-PRECOMMIT",
+  "precommit_gate_passed": true,
+  "implementation_gate_passed": false,
+  "failed_gates": [],
+  "purpose": "Replace the inconsistent question-plan, control exact-pass and earliest-layer classification fields in the frozen 90-row replay ledger with one deterministic artifact-only evaluator transform. The transform uses the already frozen cohort program/evidence oracle and existing runtime outcomes, does not rerun source/model execution, and recomputes the corrected semantic diagnostic in the same execution step so no additional diagnostic-review loop is required.",
+  "parents": {
+    "diagnostic_review": {
+      "path": "reports/finhrm_qp4_full_source_semantic_replay_refresh_semantic_diagnostic_review_v1.json",
+      "size_bytes": 16926,
+      "sha256": "da623881af71d22de0efcc0c8686e98573f7dcb288965c3d69c5d8c2d3572f19"
+    },
+    "diagnostic_review_markdown": {
+      "path": "reports/finhrm_qp4_full_source_semantic_replay_refresh_semantic_diagnostic_review_v1.md",
+      "size_bytes": 3896,
+      "sha256": "57d6c645ffe58292c13c136f087f297837b401a62ba2ae2b56ceee9bd2dffa1b"
+    },
+    "diagnostic_review_lock": {
+      "path": "reports/finhrm_qp4_full_source_semantic_replay_refresh_semantic_diagnostic_review_lock_v1.json",
+      "size_bytes": 8170,
+      "sha256": "56bbf2256dfca86bde4bf9254ec1bef784bf4c1ed7398b8e7becfe98d0806b67"
+    },
+    "full_source_replay_report": {
+      "path": "reports/finhrm_qp4_full_source_semantic_replay_refresh_v1.json",
+      "size_bytes": 247897,
+      "sha256": "a693c0b011685dac70be5365d175ce4065dce192b3ce72525a9fa34ad776f56f"
+    },
+    "full_source_replay_lock": {
+      "path": "reports/finhrm_qp4_full_source_semantic_replay_refresh_lock_v1.json",
+      "size_bytes": 5104,
+      "sha256": "a903a04b6a7f936fdc256616ee9f5e62401afbf3e443070fc89d3111b8c3141b"
+    },
+    "full_source_replay_precommit": {
+      "path": "config/finhrm_qp4_full_source_semantic_replay_refresh_precommit_v1.json",
+      "size_bytes": 20136,
+      "sha256": "e0aa75cdf6d546fd00a0faac68a8b7f70961e5018894e2afee18086863dcf08b"
+    },
+    "original_source_replay_precommit": {
+      "path": "config/finhrm_qp4_post_question_surface_post_cache_residual_coverage_source_replay_precommit_v1.json",
+      "size_bytes": 19532,
+      "sha256": "9e9c158c2721a7fa610f88a7c2d27eb26f3f30e0c6aae2b6fc3456bf64f298f3"
+    },
+    "frozen_cohort": {
+      "path": "reports/finhrm_qp4_post_question_surface_post_cache_residual_coverage_cohort_build_v1.json",
+      "size_bytes": 40607,
+      "sha256": "e084ec16312488c1badb5b645cfdf135a623cf89486d0f189648404fc5de35e6"
+    },
+    "frozen_cohort_lock": {
+      "path": "reports/finhrm_qp4_post_question_surface_post_cache_residual_coverage_cohort_build_lock_v1.json",
+      "size_bytes": 2570,
+      "sha256": "811b7aa5c0696af345918b2f92846106321d71cc296653b7fb38e0472a67bdef"
+    },
+    "claude_md": {
+      "path": "CLAUDE.md",
+      "size_bytes": 3494,
+      "sha256": "b3e61c65fd4f36a86d5ba4fac780150960c81bfe7cf5f4a9a685071a408178aa"
+    },
+    "thesis_core": {
+      "path": "config/finhrm_thesis_core_v1.json",
+      "size_bytes": 24625,
+      "sha256": "a9f2f3088f7622c6c8912086eac16252f154fcae1164a3fe7ba75107a0ece502"
+    },
+    "generalization_invariant": {
+      "path": "config/finhrm_report_generalization_invariant_v1.json",
+      "size_bytes": 2512,
+      "sha256": "7a8c6e58a47314d522adb782277f6d5bf0cbf761faf681d848e2e9ae4e861846"
+    }
+  },
+  "authorization": {
+    "authorized_by_parent_step": "QP4-FULL-SOURCE-SEMANTIC-REPLAY-REFRESH-EVALUATOR-CONTRACT-RECLOSURE-PRECOMMIT",
+    "authorization_exact": true,
+    "runtime_reasoning_edit_authorized": false,
+    "persistent_evaluator_code_edit_authorized": false,
+    "source_pdf_ocr_or_model_execution_authorized": false,
+    "new_example_source_or_cohort_selection_authorized": false,
+    "threshold_checkpoint_or_model_change_authorized": false,
+    "qp5_authorized": false,
+    "phase_d_unlocked": false
+  },
+  "historical_artifact_disposition": {
+    "historical_full_source_report_immutable": true,
+    "historical_question_plan_passed_first_failing_layer_and_exact_pass_fields_used_as_new_oracle": false,
+    "historical_candidate_permutation_exact_retained": "37/90",
+    "historical_target_answer_metrics_retained": {
+      "target_answers": "0/60",
+      "base_answers": "0/30",
+      "reference_base_mutation_answers": "0/30",
+      "surface_equivalence_groups": "0/12"
+    },
+    "historical_safety_metrics_retained": {
+      "accepted_wrong": 0,
+      "reference_base_old_winner_false_accepts": 0,
+      "semantic_control_false_accepts": 0,
+      "hard_negative_answers": 0
+    },
+    "metric_beautification": false,
+    "statement": "The reclosure changes evaluator-version classification only. It does not rewrite runtime outputs, convert an abstention into an answer, or claim a model improvement."
+  },
+  "schema_feasibility_audit": {
+    "performed_before_precommit_pass": true,
+    "full_source_rows": "90/90",
+    "unique_observation_ids": "90/90",
+    "unique_oracle_row_ids": "90/90",
+    "primary_results": "90/90",
+    "permutation_results": "90/90",
+    "frozen_cohort_anchors": "6/6",
+    "ledger_anchor_ids_resolve_to_frozen_cohort": "90/90",
+    "anchor_programs_base_present": "6/6",
+    "anchor_programs_reference_base_mutation_present": "6/6",
+    "anchor_prior_current_plan_evidence_period_and_role_fields_present": "6/6",
+    "ledger_question_plan_fields_present": "90/90",
+    "ledger_primary_and_permutation_source_action_state_and_semantic_flags_present": "180/180",
+    "question_plan_oracle_materializable": "90/90",
+    "control_exact_pass_oracle_materializable": "90/90",
+    "earliest_layer_materializable": "180/180",
+    "question_plan_exact_probe": "71/90",
+    "question_plan_failure_probe": "19/90",
+    "primary_exact_pass_probe": "12/90",
+    "permutation_exact_pass_probe": "15/90",
+    "canonical_reclosed_row_manifest_sha256": "6d16d35c8abe43f94845949bd1dab354452035677cf8b6decd0a27ad84a52237",
+    "hidden_temporary_input_required": false,
+    "source_or_model_replay_required": false,
+    "precommit_feasibility_result": "PASS"
+  },
+  "reclassification_transform": {
+    "transform_id": "FINHRM_QP4_FULL_SOURCE_EVALUATOR_RECLOSURE_V1",
+    "input_rows": "parents.full_source_replay_report.rows in existing parent order",
+    "anchor_lookup": "exact anchor_id lookup in parents.frozen_cohort.anchors; duplicate or missing anchor_id fails execution",
+    "output_order": "observation_id ordinal ascending",
+    "random_seed": null,
+    "hidden_state": false,
+    "question_literal_used": false,
+    "numeric_answer_or_candidate_value_used_for_selection": false,
+    "gold_passed_to_runtime": false,
+    "runtime_invocations": 0,
+    "source_or_ocr_invocations": 0,
+    "fields_recomputed": [
+      "question_plan_exact_v2",
+      "primary.exact_pass_v2",
+      "primary.first_failing_layer_v2",
+      "permutation.exact_pass_v2",
+      "permutation.first_failing_layer_v2"
+    ],
+    "fields_never_mutated": [
+      "all parent row identity and category fields",
+      "observed question_plan",
+      "all primary and permutation runtime result fields",
+      "candidate_population_exact_before_transform",
+      "permutation_exact",
+      "semantic_envelope_sha256",
+      "all target, source, safety, regression and counterfactual denominators"
+    ]
+  },
+  "observed_question_plan_contract": {
+    "row_question_plan_definition": "The observed typed plan emitted by runtime question planning for the frozen observation. It is not an oracle projection.",
+    "evidence_for_definition": "Nineteen positive-target rows differ from their cohort-derived typed oracle. Therefore treating row.question_plan as the oracle would make the parent schema internally contradictory.",
+    "legacy_question_plan_passed_ignored": true,
+    "comparison_is_post_hoc": true,
+    "comparison_dimensions": [
+      "operation",
+      "operation_candidates exact ordered list",
+      "ordered roles",
+      "ordered periods derived from frozen anchor evidence",
+      "reference base",
+      "abstention_reason_present"
+    ],
+    "period_comparison_policy": "Compare exact frozen period identities from the development anchor only in the evaluator. Do not infer a period from absence, nearby context or the question; do not use year literals as runtime logic.",
+    "partial_plan_policy_for_missing_or_ambiguous_controls": "For hard_negative_missing_role and ambiguity_control, abstention_reason_present=true is the required planner oracle. Partial operation fields are ignored because the plan already declares semantic insufficiency."
+  },
+  "typed_question_plan_oracles": {
+    "base_target": {
+      "operation": "RATIO_PERCENT",
+      "operation_candidates": ["RATIO_PERCENT"],
+      "ordered_roles": ["ACTUAL", "PLAN"],
+      "ordered_periods": ["anchor.evidence.current_actual.period", "anchor.evidence.current_plan.period"],
+      "reference_base": "plan",
+      "abstention_reason_present": false
+    },
+    "reference_base_mutation_target": {
+      "operation": "RATIO_PERCENT",
+      "operation_candidates": ["RATIO_PERCENT"],
+      "ordered_roles": ["ACTUAL", "ACTUAL"],
+      "ordered_periods": ["anchor.evidence.current_actual.period", "anchor.evidence.prior_actual.period"],
+      "reference_base": "actual_ + exact anchor.evidence.prior_actual.period",
+      "abstention_reason_present": false
+    },
+    "minimal_pair_role_swap": {
+      "operation": "RATIO_PERCENT",
+      "operation_candidates": ["RATIO_PERCENT"],
+      "ordered_roles": ["PLAN", "ACTUAL"],
+      "ordered_periods": ["anchor.evidence.current_plan.period", "anchor.evidence.current_actual.period"],
+      "reference_base": "actual",
+      "abstention_reason_present": false
+    },
+    "minimal_pair_year_shift": {
+      "operation": "RATIO_PERCENT",
+      "operation_candidates": ["RATIO_PERCENT"],
+      "ordered_roles": ["ACTUAL", "PLAN"],
+      "ordered_periods": ["anchor.evidence.current_actual.period + 1", "anchor.evidence.current_plan.period + 1"],
+      "reference_base": "plan",
+      "abstention_reason_present": false
+    },
+    "PA07_operation_contrast": {
+      "operation": "PERCENT_CHANGE",
+      "operation_candidates": ["PERCENT_CHANGE"],
+      "ordered_roles": ["ACTUAL", "PLAN"],
+      "ordered_periods": ["anchor.evidence.current_actual.period", "anchor.evidence.current_plan.period"],
+      "reference_base": "plan",
+      "abstention_reason_present": false
+    },
+    "hard_negative_missing_role": {
+      "required": "abstention_reason_present=true",
+      "other_question_plan_fields": "NOT_APPLICABLE"
+    },
+    "ambiguity_control": {
+      "required": "abstention_reason_present=true",
+      "other_question_plan_fields": "NOT_APPLICABLE"
+    }
+  },
+  "exact_pass_v2_contract": {
+    "global_prerequisites": [
+      "question_plan_exact_v2=true",
+      "source_outcome=RETURNED",
+      "source_error is null"
+    ],
+    "positive_target_answer": {
+      "categories": ["base_target", "reference_base_mutation_target"],
+      "required": [
+        "candidate_support=true",
+        "binding_exact=true",
+        "provenance_complete=true",
+        "operation_exact=true",
+        "value_exact=true",
+        "source_action=ANSWER",
+        "verification_state=VALID"
+      ],
+      "counts_as_target_answer": true
+    },
+    "answerable_safe_controls": {
+      "categories": ["minimal_pair_role_swap", "PA07_operation_contrast"],
+      "allowed_safe_abstention": "source_action=ABSTAIN and verification_state=UNKNOWN",
+      "allowed_exact_answer": "the same candidate, binding, provenance, operation, value, ANSWER and VALID requirements as a positive target",
+      "counts_as_positive_target_answer": false
+    },
+    "required_abstention_controls": {
+      "categories": ["minimal_pair_year_shift", "hard_negative_missing_role", "ambiguity_control"],
+      "required": "source_action=ABSTAIN and verification_state=UNKNOWN",
+      "counts_as_positive_target_answer": false
+    },
+    "reject_policy": "REJECT/INVALID is exact only with an explicit frozen contradiction proof. The compact ledger contains no such proof field for these controls, so no control REJECT is converted to PASS by this artifact-only transform.",
+    "legacy_action_exact_and_state_exact_used_for_safe_abstention": false,
+    "safe_abstention_counted_as_answered": false,
+    "missing_proof_policy": "UNKNOWN_TO_ABSTAIN",
+    "conflict_or_contradiction_policy": "INVALID_TO_REJECT"
+  },
+  "earliest_layer_v2_contract": {
+    "order": [
+      "QUESTION_PLAN",
+      "SOURCE_LOAD_OR_EXTRACTION",
+      "CANDIDATE_POPULATION_OR_RETRIEVAL",
+      "SEMANTIC_BINDING_OR_PROGRAM_SYNTHESIS",
+      "SYMBOLIC_PROOF_OR_ACTION",
+      "PASS"
+    ],
+    "rules": [
+      "QUESTION_PLAN when question_plan_exact_v2 is false",
+      "SOURCE_LOAD_OR_EXTRACTION when plan passes but source_outcome is not RETURNED or source_error is non-null",
+      "PASS when exact_pass_v2 is true",
+      "CANDIDATE_POPULATION_OR_RETRIEVAL when upstream gates pass but candidate_support is false",
+      "SEMANTIC_BINDING_OR_PROGRAM_SYNTHESIS when candidate support passes but binding_exact or provenance_complete is false",
+      "SEMANTIC_BINDING_OR_PROGRAM_SYNTHESIS for positive or answerable-control rows when binding/provenance pass but operation_exact or value_exact is false",
+      "SYMBOLIC_PROOF_OR_ACTION for every remaining non-pass row"
+    ],
+    "exactly_one_layer_or_pass_per_primary_row": true,
+    "exactly_one_layer_or_pass_per_permutation_row": true,
+    "later_layer_attribution_after_earlier_failure": false,
+    "parent_first_failing_layer_used_as_fallback": false
+  },
+  "frozen_defect_inventory": {
+    "question_plan_false_pass_rows": 19,
+    "question_plan_false_pass_breakdown": {
+      "base_target_clause_reordered": {
+        "rows": 6,
+        "coverage": "6 companies / 6 sources / 3 real document layouts / 6 table layouts / 2 extraction families",
+        "typed_signature": "RATIO_PERCENT with PLAN,ACTUAL and actual reference base instead of ACTUAL,PLAN and plan reference base"
+      },
+      "reference_base_mutation_target": {
+        "rows": 13,
+        "coverage": "6 companies / 6 sources / 3 real document layouts / 6 table layouts / 2 extraction families",
+        "subsignatures": [
+          "6 clause-reordered rows: SELECT, prior/current period order, no reference base",
+          "6 paraphrase rows: SELECT, current/prior period order, no reference base",
+          "1 long-clause row: PERCENT_CHANGE instead of RATIO_PERCENT"
+        ]
+      }
+    },
+    "safe_abstention_false_fail_rows": {
+      "primary": 4,
+      "permutation": 5,
+      "category": "PA07_operation_contrast",
+      "primary_coverage": "4 companies / 4 sources / 3 real document layouts / 4 table layouts / 2 extraction families"
+    },
+    "diagnostic_review_original_inconsistency_count": 17,
+    "precommit_schema_audit_expanded_count": 23,
+    "expansion_reason": "The diagnostic review checked mutation operation mismatch but did not yet compare ordered roles and reference base for base-target clause-reordered surfaces. Schema feasibility must include every locked plan dimension before PASS."
+  },
+  "expected_reclosed_results": {
+    "question_plan_exact": "71/90",
+    "question_plan_fail": "19/90",
+    "primary_exact_pass": "12/90",
+    "permutation_exact_pass": "15/90",
+    "primary_first_failing_layer": {
+      "QUESTION_PLAN": 19,
+      "SOURCE_LOAD_OR_EXTRACTION": 0,
+      "CANDIDATE_POPULATION_OR_RETRIEVAL": 29,
+      "SEMANTIC_BINDING_OR_PROGRAM_SYNTHESIS": 20,
+      "SYMBOLIC_PROOF_OR_ACTION": 10,
+      "PASS": 12
+    },
+    "permutation_first_failing_layer": {
+      "QUESTION_PLAN": 19,
+      "SOURCE_LOAD_OR_EXTRACTION": 0,
+      "CANDIDATE_POPULATION_OR_RETRIEVAL": 28,
+      "SEMANTIC_BINDING_OR_PROGRAM_SYNTHESIS": 20,
+      "SYMBOLIC_PROOF_OR_ACTION": 8,
+      "PASS": 15
+    },
+    "primary_to_permutation_transition": {
+      "QUESTION_PLAN->QUESTION_PLAN": 19,
+      "CANDIDATE_POPULATION_OR_RETRIEVAL->CANDIDATE_POPULATION_OR_RETRIEVAL": 28,
+      "CANDIDATE_POPULATION_OR_RETRIEVAL->PASS": 1,
+      "SEMANTIC_BINDING_OR_PROGRAM_SYNTHESIS->SEMANTIC_BINDING_OR_PROGRAM_SYNTHESIS": 20,
+      "SYMBOLIC_PROOF_OR_ACTION->SYMBOLIC_PROOF_OR_ACTION": 8,
+      "SYMBOLIC_PROOF_OR_ACTION->PASS": 2,
+      "PASS->PASS": 12
+    },
+    "positive_target_metrics_unchanged": true,
+    "candidate_permutation_exact_unchanged": "37/90",
+    "source_errors_unchanged": 0,
+    "accepted_wrong_unchanged": 0,
+    "safe_abstention_counted_as_positive_answer": 0,
+    "canonical_row_manifest": {
+      "line": "observation_id|question_plan_exact_v2|primary_exact_pass_v2|primary_first_failing_layer_v2|permutation_exact_pass_v2|permutation_first_failing_layer_v2",
+      "ordering": "observation_id ordinal ascending",
+      "encoding": "UTF-8 without BOM",
+      "separator": "LF",
+      "trailing_newline": false,
+      "rows": 90,
+      "sha256": "6d16d35c8abe43f94845949bd1dab354452035677cf8b6decd0a27ad84a52237"
+    }
+  },
+  "corrected_diagnostic_in_same_execution": {
+    "required": true,
+    "separate_post_reclosure_diagnostic_review_precommit_required": false,
+    "aggregate_by": [
+      "category x primary_first_failing_layer_v2",
+      "company",
+      "source",
+      "real document layout family",
+      "real table layout family",
+      "extraction family",
+      "typed relational symptom signature"
+    ],
+    "generic_minimum": {
+      "companies": 3,
+      "sources": 3,
+      "real_document_layout_families": 3,
+      "real_table_layout_families_when_layout_relevant": 3,
+      "extraction_families_when_candidate_or_retrieval_relevant": 2
+    },
+    "expected_generic_failure_strata": [
+      "QUESTION_PLAN x base_target: 6 rows / 6 companies / 3 document layouts",
+      "QUESTION_PLAN x reference_base_mutation_target: 13 rows / 6 companies / 3 document layouts",
+      "CANDIDATE_POPULATION_OR_RETRIEVAL x base_target: 16 rows / 5 companies / 3 document layouts / 2 extraction families",
+      "CANDIDATE_POPULATION_OR_RETRIEVAL x minimal_pair_role_swap: 4 rows / 4 companies / 3 document layouts / 2 extraction families",
+      "SYMBOLIC_PROOF_OR_ACTION x ambiguity_control: 4 rows / 4 companies / 3 document layouts",
+      "SYMBOLIC_PROOF_OR_ACTION x minimal_pair_year_shift: 6 rows / 6 companies / 3 document layouts"
+    ],
+    "question_plan_exact_generic_signatures": [
+      "6 base clause-reordered rows with swapped ordered roles and wrong reference base",
+      "6 mutation clause-reordered rows with SELECT, reversed current/prior order and absent reference base",
+      "6 mutation paraphrase rows with SELECT and absent reference base"
+    ],
+    "non_generic_question_plan_remainder": "1 mutation long-clause PERCENT_CHANGE row retained fail-closed",
+    "runtime_symbol_cause_confirmed_by_reclassification_alone": false
+  },
+  "execution_contract": {
+    "authorized_next_step": "QP4-FULL-SOURCE-SEMANTIC-REPLAY-REFRESH-EVALUATOR-CONTRACT-RECLOSURE",
+    "stage": "artifact_only_evaluator_reclassification_and_corrected_diagnostic_aggregation",
+    "runtime_file_whitelist": [],
+    "persistent_evaluator_or_test_file_whitelist": [],
+    "temporary_in_memory_evaluator_allowed": true,
+    "temporary_files_persisted": false,
+    "source_pdf_ocr_cache_or_question_literal_read": false,
+    "runtime_or_model_inference": false,
+    "regression_or_safe_replay_rerun_required": false,
+    "reason_no_runtime_rerun": "No runtime, source, model, checkpoint or threshold changes occur; frozen outputs and retained controls are hash-locked inputs.",
+    "required_outputs": {
+      "final_json": "reports/finhrm_qp4_full_source_semantic_replay_refresh_evaluator_contract_reclosure_v1.json",
+      "final_markdown": "reports/finhrm_qp4_full_source_semantic_replay_refresh_evaluator_contract_reclosure_v1.md",
+      "lock_manifest": "reports/finhrm_qp4_full_source_semantic_replay_refresh_evaluator_contract_reclosure_lock_v1.json"
+    },
+    "failure_policy": "Any parent hash mismatch, missing oracle field, unmatched row, count mismatch, digest mismatch or denominator change fails closed and authorizes no runtime work."
+  },
+  "precommit_gates": {
+    "parent_hashes_exact": true,
+    "runtime_hashes_exact": true,
+    "checkpoint_hash_exact": true,
+    "authorization_exact": true,
+    "schema_feasibility_passed": true,
+    "all_90_rows_map_to_frozen_anchor_oracles": true,
+    "all_plan_dimensions_have_declared_oracle": true,
+    "safe_control_pass_semantics_explicit": true,
+    "reject_without_explicit_contradiction_not_promoted": true,
+    "earliest_layer_order_fully_specified": true,
+    "canonical_reclosed_row_digest_materialized": true,
+    "historical_artifacts_immutable": true,
+    "positive_target_denominators_unchanged": true,
+    "safe_abstention_not_counted_as_answer": true,
+    "candidate_permutation_gate_not_reinterpreted": true,
+    "runtime_or_model_edit_authorized": false,
+    "source_or_model_execution_authorized": false,
+    "qp4_complete": false,
+    "qp5_authorized": false,
+    "phase_d_unlocked": false
+  },
+  "outcome_policy": {
+    "if_all_reclosure_gates_match": "Close the evaluator defect and authorize QP4-FULL-SOURCE-SEMANTIC-REPLAY-REFRESH-QUESTION-PLAN-ROOT-DECOMPOSITION-PRECOMMIT directly. Do not insert another post-evaluator diagnostic-review step; the corrected diagnostic is part of this reclosure execution.",
+    "question_plan_root_decomposition_scope": "All 19 positive-target QUESTION_PLAN failures, with generic runtime work limited to the three exact typed signatures covering 18 rows; the one non-generic PERCENT_CHANGE row remains fail-closed.",
+    "if_any_reclosure_gate_fails": "Remain at evaluator reclosure, preserve every denominator, and authorize no runtime root decomposition or edit.",
+    "runtime_edit_automatic": false,
+    "separate_root_decomposition_precommit_required": true,
+    "missing_proof": "UNKNOWN_TO_ABSTAIN",
+    "conflict_or_contradiction": "INVALID_TO_REJECT"
+  },
+  "checkpoint": {
+    "path": "models/document_hrm_V8_candidate.pt",
+    "size_bytes": 3413128,
+    "sha256": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de"
+  },
+  "frozen_runtime_hashes": {
+    "src/hrm_finance_qa/question_planner.py": "334ab6bfb57b883ff2022cdcb39614d7e7a8d3269c14f4bea188640d53111bf4",
+    "src/hrm_finance_qa/symbolic_verifier.py": "2679b1ce55cc070697438c806f19e3e888bfc19bc1a9ae3686a0b7fd7ffb0087",
+    "src/hrm_finance_qa/program_synthesis.py": "e4acc4878d0dfd465ba66ab91f3aaf8be71db5591aa1358fb8cb81f3c7bff550",
+    "src/hrm_finance_qa/evidence_schema.py": "2f16fabf932dc9dabc8203d9642d2503bb2dab43e0e1ee0f78755dd4fb00825d",
+    "src/hrm_finance_qa/document_hrm.py": "b5951bcde79583950b672f7fb6b199b3e5b9904e6784daae7c4c5be0eba65d21",
+    "src/hrm_finance_qa/document_reasoning_engine.py": "3883500011472716bc01f8e04a6d6f925173b35a14bbedd945c5ca4fb0063fa2",
+    "src/hrm_finance_qa/program_data.py": "5199434fc0628b7d270ce62b12657366cbe118901065edd9f1e1f6ca0f1f8d54",
+    "src/hrm_finance_qa/direction_contract.py": "a18aa130419fc74ce647bd92dc9c1b1217007738e636aad0f28c7f78396be937",
+    "src/hrm_finance_qa/answer_presentation.py": "c40bd4a8dff39162b44cf11ef2da12e7b153d907f7254e5d1856157b3ac56d36",
+    "src/hrm_finance_qa/document_sources.py": "e9eb7b3ddcc2ed13060a573a6a0101a216fa49ff21dd65cd5fc2629b92f5fc0b",
+    "src/hrm_finance_qa/document_page_index.py": "d531f47a22ed051863b41b3de031bb3e9d4bbf60ef71f825217559b7035386b4"
+  },
+  "artifact_policy": {
+    "maximum_final_json": 1,
+    "maximum_final_markdown": 1,
+    "maximum_lock_or_manifest": 1,
+    "raw_or_intermediate_artifacts_persisted": false,
+    "temporary_artifacts_deleted_after_verification": true
+  },
+  "invariants": {
+    "development_only": true,
+    "abw_used": false,
+    "protected_evaluation_loaded": false,
+    "validation_blind_test_sealed_holdout_or_final_loaded": false,
+    "fine_tuning_performed": false,
+    "runtime_changed": false,
+    "model_changed": false,
+    "threshold_changed": false,
+    "checkpoint_changed": false,
+    "source_pdf_or_ocr_read": false,
+    "source_replay_or_model_inference_run": false,
+    "synthetic_layout_counted_as_confirmation": false,
+    "candidate_rank_score_or_confidence_used_as_semantic_proof": false,
+    "period_or_provenance_inferred_from_absence_nearby_context_or_question": false,
+    "metric_beautification_performed": false,
+    "qp4_complete": false,
+    "qp5_authorized": false,
+    "phase_d_unlocked": false
+  },
+  "authorized_next_step_after_lock": "QP4-FULL-SOURCE-SEMANTIC-REPLAY-REFRESH-EVALUATOR-CONTRACT-RECLOSURE"
+}

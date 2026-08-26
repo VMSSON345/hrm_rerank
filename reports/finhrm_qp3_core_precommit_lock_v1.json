@@ -1,0 +1,119 @@
+{
+  "schema": "finhrm-qp3-core-precommit-lock-v1",
+  "created_at": "2026-08-14",
+  "classification": "development_only_synthetic_report_agnostic_proof_precommit_lock",
+  "status": "complete",
+  "phase_d": "locked",
+  "precommit_gate_passed": true,
+  "results": {
+    "oracle_state_and_action": {
+      "exact": 122,
+      "total": 122
+    },
+    "false_accepts": 0,
+    "gold_retention": {
+      "retained": 26,
+      "total": 26
+    },
+    "permutation": {
+      "exact": 16,
+      "total": 16
+    },
+    "companies": {
+      "groups": 6,
+      "exact_rate_by_group": {
+        "SYNTH_QP3CORE_CO_A": 1.0,
+        "SYNTH_QP3CORE_CO_B": 1.0,
+        "SYNTH_QP3CORE_CO_C": 1.0,
+        "SYNTH_QP3CORE_CO_D": 1.0,
+        "SYNTH_QP3CORE_CO_E": 1.0,
+        "SYNTH_QP3CORE_CO_F": 1.0
+      },
+      "macro_exact_rate": 1.0,
+      "worst_group_exact_rate": 1.0
+    },
+    "layouts": {
+      "groups": 6,
+      "exact_rate_by_group": {
+        "SYNTH_HYBRID_MULTIROW_HEADER": 1.0,
+        "SYNTH_NATIVE_FLAT_REPEATED_HEADER": 1.0,
+        "SYNTH_NATIVE_GRID_TWO_LEVEL_HEADER": 1.0,
+        "SYNTH_NATIVE_VERTICAL_METRIC_BLOCK": 1.0,
+        "SYNTH_OCR_BBOX_MERGED_HEADER": 1.0,
+        "SYNTH_OCR_SPARSE_CELL_COORDINATES": 1.0
+      },
+      "macro_exact_rate": 1.0,
+      "worst_group_exact_rate": 1.0
+    },
+    "runtime_hash_mismatches": 0
+  },
+  "invariants": {
+    "runtime_implementation_performed": false,
+    "runtime_acceptance_policy_changed": false,
+    "threshold_changed": false,
+    "checkpoint_changed": false,
+    "fine_tuning_performed": false,
+    "pdf_loaded": false,
+    "model_loaded": false,
+    "global_validation_loaded": false,
+    "sealed_validation_loaded": false,
+    "blind_test_loaded": false,
+    "phase_d_unlocked": false
+  },
+  "artifacts": [
+    {
+      "path": "config/finhrm_qp3_core_precommit_v1.json",
+      "size_bytes": 9539,
+      "sha256": "9fe98064637effcf7da726fd13c3deb1fd457c89ccbf24368e69b883afebc661"
+    },
+    {
+      "path": "data/finhrm_qp3_core_development_v1.jsonl",
+      "size_bytes": 980127,
+      "sha256": "42cbed697eb94eafda143712a8b841dc9420826b7df0d044713adecfc3c26c65"
+    },
+    {
+      "path": "scripts/build_qp3_core_precommit_cohort.py",
+      "size_bytes": 13937,
+      "sha256": "48c14292c4b21bfc1782f30b91e2ccbe67c5fd3e4fa802e948c0baddaa722a39"
+    },
+    {
+      "path": "scripts/validate_qp3_core_precommit.py",
+      "size_bytes": 26942,
+      "sha256": "03a51f845510b33a91d656131de982a601ad14c9b794f198d8921c3549e856b5"
+    },
+    {
+      "path": "tests/test_qp3_core_precommit.py",
+      "size_bytes": 6915,
+      "sha256": "4f74c901aebbadc1e705fb8253891a9e91924aa33a64d87bc75530637c442538"
+    },
+    {
+      "path": "reports/finhrm_qp3_core_precommit_v1.json",
+      "size_bytes": 61274,
+      "sha256": "8982949825a087f98f3587417db52e89e9d8b21970b008cee30e4a01f713e673"
+    },
+    {
+      "path": "reports/finhrm_qp3_core_precommit_v1.md",
+      "size_bytes": 663,
+      "sha256": "024c3ddbb72d69dd48402ca1a227bbc6c181d6a26b6b1cf03587bd67374eebc1"
+    }
+  ],
+  "frozen_dependencies": [
+    {
+      "path": "reports/finhrm_thesis_core_precommit_lock_v1.json",
+      "sha256": "ba38e30f2c2809a7e05c766817b7bdff9e25d1adb1927d0837ed579789dda805"
+    },
+    {
+      "path": "reports/finhrm_report_generalization_invariant_lock_v1.json",
+      "sha256": "9e68934387185fd21f6f3927686ff3bece8366f7babbfe3e15f7d603c0c60bc9"
+    },
+    {
+      "path": "reports/finhrm_qp3f_flattened_table_reconstruction_lock_v1.json",
+      "sha256": "6cacaac726b7f71d5351190077d1bdafc26181349be44051cdf53457edaa2fc5"
+    },
+    {
+      "path": "models/document_hrm_V8_candidate.pt",
+      "sha256": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de"
+    }
+  ],
+  "authorized_next_step": "QP3-CORE-IMPLEMENT: connect typed operand slots and DAG proof to synthesis-verifier-executor consumers; required UNKNOWN must ABSTAIN and INVALID must REJECT; do not expand acceptance or change thresholds."
+}

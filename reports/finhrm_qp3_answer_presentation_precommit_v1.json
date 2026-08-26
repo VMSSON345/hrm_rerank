@@ -1,0 +1,67 @@
+{
+  "schema": "finhrm-qp3-answer-presentation-precommit-report-v1",
+  "created_at": "2026-08-20",
+  "classification": "development_only_deterministic_presentation_contract_runtime_unchanged",
+  "status": "PASS",
+  "precommit_gate_passed": true,
+  "failed_gates": [],
+  "parents_verified": 5,
+  "runtime_changed": false,
+  "runtime_hashes": {
+    "src/hrm_finance_qa/document_reasoning_engine.py": "0e6eabaa4fd00829d0a21091b74e5104cce0675cf69eed9ddd2fa99785208dac",
+    "src/hrm_finance_qa/document_hrm.py": "b5951bcde79583950b672f7fb6b199b3e5b9904e6784daae7c4c5be0eba65d21",
+    "src/hrm_finance_qa/question_planner.py": "58404c5a04ffced2c00056a10e470730a8fb9ef723d3e8c5668f13b0a65571a6",
+    "src/hrm_finance_qa/program_synthesis.py": "e4acc4878d0dfd465ba66ab91f3aaf8be71db5591aa1358fb8cb81f3c7bff550",
+    "src/hrm_finance_qa/symbolic_verifier.py": "e9efa8d2fa9ce1aedd460cdd11c1eb9321aab7122b0908fc5017687c1491ed88",
+    "src/hrm_finance_qa/evidence_schema.py": "2f16fabf932dc9dabc8203d9642d2503bb2dab43e0e1ee0f78755dd4fb00825d",
+    "src/hrm_finance_qa/program_data.py": "5199434fc0628b7d270ce62b12657366cbe118901065edd9f1e1f6ca0f1f8d54",
+    "src/hrm_finance_qa/document_page_index.py": "c99e011175afef21f302be42ba9454b948caa549d4d445d6bb35c5b974b81f85",
+    "src/hrm_finance_qa/document_sources.py": "e9eb7b3ddcc2ed13060a573a6a0101a216fa49ff21dd65cd5fc2629b92f5fc0b",
+    "src/hrm_finance_qa/financial_identities.py": "ee7347885f561d5f5d9c404964ecb7a46f1275186e100f2236e53114aeacd2ee",
+    "src/hrm_finance_qa/direction_contract.py": "a18aa130419fc74ce647bd92dc9c1b1217007738e636aad0f28c7f78396be937"
+  },
+  "checkpoint_sha256": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de",
+  "contract": {
+    "schema_version": "finhrm-verified-answer-envelope-v1",
+    "status_values": [
+      "ANSWER",
+      "ABSTAIN",
+      "REJECT"
+    ],
+    "answer_mode_values": [
+      "FACT",
+      "COMPUTATION",
+      "VERIFIED_SUMMARY"
+    ],
+    "deterministic_templates_only": true,
+    "unsupported_claim_gate": 0,
+    "derivation_replay_exact_rate": 1.0,
+    "minimum_companies_per_mode": 3,
+    "minimum_real_layouts_per_mode": 3
+  },
+  "frozen_safe_replay": {
+    "actions": {
+      "ANSWER": 259,
+      "ABSTAIN": 90,
+      "REJECT": 14
+    },
+    "gold_execution": "363/363",
+    "candidate_permutation": "363/363",
+    "counterfactual_false_accepts": 0
+  },
+  "invariants": {
+    "runtime_changed_by_this_precommit": false,
+    "threshold_changed": false,
+    "checkpoint_changed": false,
+    "model_changed": false,
+    "fine_tuning_performed": false,
+    "abw_used_as_confirmation": false,
+    "protected_evaluation_loaded": false,
+    "synthetic_layout_counted_as_confirmation": false,
+    "qp4_authorized": false,
+    "phase_d_unlocked": false
+  },
+  "qp4_authorized": false,
+  "phase_d": "locked",
+  "authorized_next_step": "QP3-ANSWER-PRESENTATION-IMPLEMENTATION only: implement Verified Answer Envelope v1 and deterministic FACT/COMPUTATION/VERIFIED_SUMMARY rendering within the exact runtime scope, then run all presentation, regression, permutation, counterfactual and frozen safe replay gates. QP4 and Phase D remain locked."
+}

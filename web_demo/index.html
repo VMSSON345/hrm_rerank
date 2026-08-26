@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Giao diện local để trình diễn Document HRM V8 trên báo cáo tài chính Việt Nam."
+    />
+    <title>FinHRM — Hỏi đáp báo cáo tài chính</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Đi tới nội dung chính</a>
+
+    <div class="app-shell">
+      <div class="sidebar-scrim" id="sidebar-scrim" aria-hidden="true"></div>
+      <aside class="sidebar" id="sidebar" aria-label="Thanh điều hướng">
+        <div class="sidebar-header">
+          <a class="brand" href="/" aria-label="FinHRM, trang chính">
+            <span class="brand-mark" aria-hidden="true">H</span>
+            <span>FinHRM</span>
+          </a>
+          <button class="icon-button mobile-close" id="close-sidebar" type="button" aria-label="Đóng thanh điều hướng">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+
+        <button class="new-session-button" id="new-session" type="button">
+          <span class="button-icon" aria-hidden="true">＋</span>
+          <span>Phân tích tài liệu mới</span>
+        </button>
+
+        <nav class="sidebar-section" aria-labelledby="examples-heading">
+          <div class="section-label" id="examples-heading">Câu hỏi gợi ý</div>
+          <button class="nav-row example-question" type="button" data-question="Doanh thu thuần năm nay là bao nhiêu?">
+            <span aria-hidden="true">↳</span>
+            <span>Doanh thu thuần năm nay</span>
+          </button>
+          <button class="nav-row example-question" type="button" data-question="Lợi nhuận sau thuế tăng bao nhiêu phần trăm so với năm trước?">
+            <span aria-hidden="true">↳</span>
+            <span>Tăng trưởng lợi nhuận</span>
+          </button>
+          <button class="nav-row example-question" type="button" data-question="Tổng tài sản và nợ phải trả chênh lệch bao nhiêu?">
+            <span aria-hidden="true">↳</span>
+            <span>So sánh bảng cân đối</span>
+          </button>
+        </nav>
+
+        <div class="sidebar-section recent-section">
+          <div class="section-label">Phiên gần đây</div>
+          <div class="recent-list" id="recent-list">
+            <p class="empty-history">Chưa có phiên phân tích.</p>
+          </div>
+        </div>
+
+        <div class="sidebar-footer">
+          <button class="system-card" id="open-system-dialog" type="button" aria-haspopup="dialog">
+            <span class="status-dot" id="sidebar-status-dot" aria-hidden="true"></span>
+            <span class="system-card-copy">
+              <strong id="sidebar-model-name">Đang kết nối mô hình…</strong>
+              <small id="sidebar-system-status">Kiểm tra dịch vụ local</small>
+            </span>
+            <span aria-hidden="true">›</span>
+          </button>
+          <p>Chạy hoàn toàn trên máy này. Tài liệu không được gửi ra dịch vụ bên ngoài.</p>
+        </div>
+      </aside>
+
+      <main class="main-column" id="main-content">
+        <header class="topbar">
+          <button class="icon-button mobile-menu" id="open-sidebar" type="button" aria-label="Mở thanh điều hướng">
+            <span aria-hidden="true">☰</span>
+          </button>
+          <button class="model-selector" id="top-model-button" type="button" aria-haspopup="dialog">
+            <span id="top-model-name">Document HRM V8</span>
+            <span aria-hidden="true">⌄</span>
+          </button>
+          <div class="document-indicator" id="document-indicator" hidden>
+            <span aria-hidden="true">▤</span>
+            <span id="document-indicator-name"></span>
+          </div>
+          <div class="topbar-spacer"></div>
+          <div class="live-status" id="live-status" role="status">
+            <span class="status-dot" id="topbar-status-dot" aria-hidden="true"></span>
+            <span id="topbar-status-text">Đang khởi động</span>
+          </div>
+        </header>
+
+        <section class="conversation-scroll" id="conversation-scroll">
+          <div class="welcome-state" id="welcome-state">
+            <div class="welcome-copy">
+              <div class="eyebrow">Source-grounded financial reasoning</div>
+              <h1>Hỏi trực tiếp báo cáo tài chính</h1>
+              <p>
+                Tải một báo cáo lên để Document HRM tìm số liệu, lập chương trình
+                tính toán và dẫn lại đúng trang nguồn.
+              </p>
+            </div>
+
+            <div
+              class="upload-panel"
+              id="upload-panel"
+              role="button"
+              tabindex="0"
+              aria-label="Chọn hoặc thả báo cáo PDF hay TXT"
+            >
+              <input id="file-input" type="file" accept=".pdf,.txt,application/pdf,text/plain" hidden />
+              <div class="upload-icon" aria-hidden="true">↑</div>
+              <div class="upload-copy">
+                <strong>Thả báo cáo vào đây</strong>
+                <span>hoặc chọn tệp PDF / TXT từ máy</span>
+              </div>
+              <button class="secondary-button" id="choose-file" type="button">Chọn tài liệu</button>
+            </div>
+
+            <div class="privacy-note">
+              <span aria-hidden="true">⌁</span>
+              <span>Tệp được sao chép vào vùng demo local và có thể dùng lại trong phiên này.</span>
+            </div>
+          </div>
+
+          <section class="processing-card" id="processing-card" aria-live="polite" hidden>
+            <div class="processing-head">
+              <div>
+                <div class="section-label">Đang chuẩn bị tài liệu</div>
+                <h2 id="processing-title">Đang tải lên…</h2>
+              </div>
+              <span class="square-badge" id="processing-percent">0%</span>
+            </div>
+            <progress id="processing-progress" max="100" value="0">0%</progress>
+            <p id="processing-description">Đang chuyển tài liệu vào dịch vụ local.</p>
+            <div class="processing-steps" aria-label="Các bước xử lý">
+              <span class="process-step is-active" id="step-upload">Tải tệp</span>
+              <span class="process-step" id="step-extract">Đọc trang</span>
+              <span class="process-step" id="step-index">Lập chỉ mục</span>
+              <span class="process-step" id="step-ready">Sẵn sàng</span>
+            </div>
+          </section>
+
+          <div class="conversation" id="conversation" aria-live="polite" aria-label="Cuộc hội thoại"></div>
+        </section>
+
+        <button class="jump-to-latest" id="jump-to-latest" type="button" hidden>
+          <span>Tin nhắn mới</span>
+          <span aria-hidden="true">↓</span>
+        </button>
+
+        <section class="composer-wrap" id="composer-wrap" hidden>
+          <form class="composer" id="question-form">
+            <label class="sr-only" for="question-input">Câu hỏi về báo cáo tài chính</label>
+            <textarea
+              id="question-input"
+              rows="1"
+              maxlength="1000"
+              placeholder="Hỏi về số liệu trong báo cáo…"
+              autocomplete="off"
+            ></textarea>
+            <div class="composer-actions">
+              <div class="composer-tools">
+                <button class="text-button" id="export-session" type="button">
+                  <span aria-hidden="true">⇩</span>
+                  <span>Xuất kết quả</span>
+                </button>
+              </div>
+              <span class="keyboard-hint">Enter để gửi · Shift+Enter xuống dòng</span>
+              <button class="send-button" id="send-question" type="submit" aria-label="Gửi câu hỏi">
+                <span aria-hidden="true">↑</span>
+              </button>
+            </div>
+          </form>
+          <p class="disclaimer">
+            Mô hình có thể từ chối khi bằng chứng chưa đủ rõ. Hãy kiểm tra trích dẫn trước khi sử dụng số liệu.
+          </p>
+        </section>
+      </main>
+    </div>
+
+    <dialog class="system-dialog" id="system-dialog">
+      <form method="dialog" class="dialog-surface">
+        <header class="dialog-header">
+          <div>
+            <div class="section-label">Local runtime</div>
+            <h2>Trạng thái hệ thống</h2>
+          </div>
+          <button class="icon-button" value="close" aria-label="Đóng hộp thoại" type="submit">×</button>
+        </header>
+        <div class="dialog-body">
+          <dl class="system-facts">
+            <div>
+              <dt>Checkpoint</dt>
+              <dd id="dialog-checkpoint">—</dd>
+            </div>
+            <div>
+              <dt>Thiết bị</dt>
+              <dd id="dialog-device">—</dd>
+            </div>
+            <div>
+              <dt>Mô hình</dt>
+              <dd id="dialog-model-state">—</dd>
+            </div>
+            <div>
+              <dt>MinerU OCR</dt>
+              <dd id="dialog-mineru-state">—</dd>
+            </div>
+            <div>
+              <dt>Inference</dt>
+              <dd id="dialog-inference-state">—</dd>
+            </div>
+            <div>
+              <dt>Kiến trúc</dt>
+              <dd id="dialog-architecture">—</dd>
+            </div>
+          </dl>
+          <div class="dialog-note" id="dialog-note">
+            Native PDF vẫn hoạt động khi MinerU không chạy. Tài liệu scan cần dịch vụ OCR.
+          </div>
+        </div>
+      </form>
+    </dialog>
+
+    <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+    <script src="/app.js" defer></script>
+  </body>
+</html>

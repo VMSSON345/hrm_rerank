@@ -1,0 +1,73 @@
+{
+  "protocol": "v12c_interest_bearing_debt_share_independent_calibration_adequacy_v1",
+  "classification": "development_only_independent_calibration_adequacy_audit",
+  "protected_evaluation_sources_used": false,
+  "training_performed": false,
+  "model_or_reranker_changed": false,
+  "threshold_changed": false,
+  "repair_cohort_examples_used_for_selection": false,
+  "artifacts": {
+    "discovery": {
+      "path": "reports/v12c_interest_bearing_debt_share_independent_calibration_page_discovery_v1.json",
+      "sha256": "ed025f70c166f67f5931e2afd9f526924f3f9fc23c81246879693a911b3d9a7f"
+    },
+    "render_queue": {
+      "path": "reports/v12c_interest_bearing_debt_share_independent_calibration_render_queue_v1.json",
+      "sha256": "0dd3a1fed66cd976100d370c8d15e0394b2cd7353378c224442ef8ee45f3fe46"
+    },
+    "visual_decisions": {
+      "path": "reports/v12c_interest_bearing_debt_share_independent_calibration_visual_decisions_v1.json",
+      "sha256": "3fcc1b574dcd46d141adcb24c61ae687c39f2598706f013b9cf27d6a78d6dc24"
+    },
+    "frozen_cohort": {
+      "path": "data/v12c_interest_bearing_debt_share_independent_calibration_frozen_v1.jsonl",
+      "sha256": "58b1304afabbfd87f2f12cdf9b9694d996210a40768646368bff8e9274ca7133"
+    },
+    "freeze_audit": {
+      "path": "reports/v12c_interest_bearing_debt_share_independent_calibration_freeze_v1.json",
+      "sha256": "85edacb832c6273bf220c86df13c977a61c9255c9ec2ba0f3c19f9b63bfe69b8"
+    },
+    "frozen_inference": {
+      "path": "reports/v12c_interest_bearing_debt_share_independent_calibration_frozen_inference_v1.json",
+      "sha256": "2475c8057a929cc73ec04071f42d43627a95b9bfe0b4cb01099ff38f3276d094"
+    }
+  },
+  "cohort": {
+    "examples": 20,
+    "company_groups": 9,
+    "source_pages_approved": 11,
+    "company_overlap_with_repair_cohort": 0,
+    "positive_answerable_examples": 20,
+    "negative_or_ambiguity_controls": 0
+  },
+  "frozen_inference": {
+    "program_correct": 20,
+    "execution_correct": 20,
+    "accepted": 0,
+    "abstained": 20,
+    "accepted_coverage": 0.0,
+    "accepted_program_precision": null,
+    "accepted_execution_precision": null,
+    "confidence": 0.9011764705882354,
+    "frozen_ratio_percent_threshold": 0.9909889376955401,
+    "abstain_reason_counts": {
+      "below_frozen_threshold": 20
+    },
+    "model_sha256_before": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de",
+    "model_sha256_after": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de"
+  },
+  "proof_obligations": {
+    "independence_from_repair_cohort": true,
+    "program_and_execution_generalization_observed": true,
+    "acceptance_precision_observable_at_frozen_threshold": false,
+    "false_accept_risk_measurable_from_positive_only_cohort": false,
+    "safe_threshold_operating_point_identified": false
+  },
+  "gate": {
+    "independent_positive_cohort_gate": true,
+    "ready_for_threshold_calibration": false,
+    "threshold_change_authorized": false,
+    "phase_d_unlocked": false
+  },
+  "next_required_evidence": "Freeze a development-only, company-disjoint negative/ambiguity control cohort under the same evidence-conditioned protocol, then measure false-accept risk jointly with this positive cohort before proposing any threshold change."
+}

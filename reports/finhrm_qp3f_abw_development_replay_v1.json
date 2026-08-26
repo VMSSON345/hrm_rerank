@@ -1,0 +1,62 @@
+{
+  "schema": "finhrm-qp3f-abw-development-replay-v1",
+  "created_at": "2026-08-14",
+  "classification": "development_only_real_pdf_replay",
+  "document": {
+    "path": "tmp/demo_uploads/522bbbdbb2-ABW_23CN_BCTN.pdf",
+    "sha256": "9bf280c111ef24985a4fe998fa7c90ea8d9cc7626b42135fa9ff2d3aea0b48be",
+    "pages": 77,
+    "native_pages": 23,
+    "mineru_pages": 0,
+    "page_index_content_version": 8
+  },
+  "query": "Doanh thu hoạt động thực hiện năm 2023 là bao nhiêu?",
+  "result": {
+    "status": "ABSTAIN",
+    "program": "ADD(3, 13)",
+    "confidence": 0.125,
+    "threshold": 0.522,
+    "threshold_passed": false,
+    "grounding_rejection": "missing_explicit_addition_intent",
+    "rejected_answer": "434850411727",
+    "false_accept": false,
+    "candidates": 64,
+    "programs": 1,
+    "proof_score": 0.0,
+    "unknown_constraints": 0,
+    "total_seconds": 7.461
+  },
+  "reconstruction_observation": {
+    "overlapping_page_10_chunks_merged": true,
+    "merged_global_line_run": [1000001, 1000037],
+    "explicit_column_labels_recovered": [
+      "Thực hiện 2022",
+      "Kế hoạch 2023",
+      "Thực hiện 2023",
+      "% TH 2023 / KH 2023",
+      "% TH 2023 / TH 2022"
+    ],
+    "role_inventory_manifest_emitted": false,
+    "reconstructable_complete_asserted": false,
+    "reason": "The native text layer wraps ratio headers across separate lines and does not retain sufficient column-coordinate provenance to prove QP3E geometry alignment. QP3F therefore does not infer columns from ordinal position alone.",
+    "interpretation": "Safe abstention is preserved, but ABW answer coverage remains unresolved."
+  },
+  "checkpoint": {
+    "path": "models/document_hrm_V8_candidate.pt",
+    "sha256": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de"
+  },
+  "invariants": {
+    "typed_program_synthesis_enabled": true,
+    "financial_identity_catalog_enabled": true,
+    "candidate_recall_v12_4_enabled": true,
+    "ocr_used": false,
+    "mineru_used": false,
+    "threshold_changed": false,
+    "checkpoint_changed": false,
+    "fine_tuning_performed": false,
+    "global_validation_loaded": false,
+    "sealed_validation_loaded": false,
+    "blind_test_loaded": false,
+    "phase_d_unlocked": false
+  }
+}

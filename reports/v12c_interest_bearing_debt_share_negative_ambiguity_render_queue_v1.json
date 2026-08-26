@@ -1,0 +1,256 @@
+{
+  "protocol": "v12c-negative-ambiguity-render-queue-v1",
+  "classification": "development_only_negative_control_pending_visual_qa",
+  "protected_evaluation_sources_used": false,
+  "model_invoked": false,
+  "threshold_changed": false,
+  "discovery_path": "/mnt/d/reasoning_model_V4/reasoning_model/reports/v12c_interest_bearing_debt_share_negative_ambiguity_page_discovery_v1.json",
+  "discovery_sha256": "ff3a6f6845bc41d3850fbe804d5b8bb14e24e523b40a5343b44a2a39b2dfa7ba",
+  "pages_rendered": 27,
+  "records": [
+    {
+      "source_name": "ACG_23CN_BCTN.pdf",
+      "source_sha256": "9c4049d5f8740afb7cb4fd29471224cf3c1176401554e39b988b61bc7c7e8f13",
+      "company_key": "development-company-13",
+      "page": 105,
+      "candidate_type": "missing_total_capital",
+      "render_path": "/mnt/d/reasoning_model_V4/reasoning_model/tmp/pdfs/v12c_negative_ambiguity_review_v1/ACG_23CN_BCTN__p105.png",
+      "render_sha256": "3c87ca104f221d294c6062f55f19ac1b2887a8feea5b60e8b1ddcb2580263a48"
+    },
+    {
+      "source_name": "ACG_23CN_BCTN.pdf",
+      "source_sha256": "9c4049d5f8740afb7cb4fd29471224cf3c1176401554e39b988b61bc7c7e8f13",
+      "company_key": "development-company-13",
+      "page": 106,
+      "candidate_type": "missing_long_term_borrowings",
+      "render_path": "/mnt/d/reasoning_model_V4/reasoning_model/tmp/pdfs/v12c_negative_ambiguity_review_v1/ACG_23CN_BCTN__p106.png",
+      "render_sha256": "49627b6449e9bfda9920bbe8a783152a2be40ba4d660e0888e80710d6d17900e"
+    },
+    {
+      "source_name": "ACG_23CN_BCTN.pdf",
+      "source_sha256": "9c4049d5f8740afb7cb4fd29471224cf3c1176401554e39b988b61bc7c7e8f13",
+      "company_key": "development-company-13",
+      "page": 116,
+      "candidate_type": "missing_total_capital",
+      "render_path": "/mnt/d/reasoning_model_V4/reasoning_model/tmp/pdfs/v12c_negative_ambiguity_review_v1/ACG_23CN_BCTN__p116.png",
+      "render_sha256": "25991f37f1bf121c66c937c09db72854ca4ea3712e27680da441849c64359120"
+    },
+    {
+      "source_name": "ACG_23CN_BCTN.pdf",
+      "source_sha256": "9c4049d5f8740afb7cb4fd29471224cf3c1176401554e39b988b61bc7c7e8f13",
+      "company_key": "development-company-13",
+      "page": 129,
+      "candidate_type": "missing_total_capital",
+      "render_path": "/mnt/d/reasoning_model_V4/reasoning_model/tmp/pdfs/v12c_negative_ambiguity_review_v1/ACG_23CN_BCTN__p129.png",
+      "render_sha256": "3b96436bdaf0d9adacbd04402c6f421aabf1fa0c84b80720e5140b522431d246"
+    },
+    {
+      "source_name": "AGM_23CN_BCTN.pdf",
+      "source_sha256": "79af3d0a19f3b570b4370fbec158f10797e632fe1394582db5a6ff6902347734",
+      "company_key": "development-company-07",
+      "page": 62,
+      "candidate_type": "missing_total_capital",
+      "render_path": "/mnt/d/reasoning_model_V4/reasoning_model/tmp/pdfs/v12c_negative_ambiguity_review_v1/AGM_23CN_BCTN__p62.png",
+      "render_sha256": "22f57c1e9883f1599ce816079bb4a4803d55c97ff6e95f4627fcc46264b711f6"
+    },
+    {
+      "source_name": "AGM_23CN_BCTN.pdf",
+      "source_sha256": "79af3d0a19f3b570b4370fbec158f10797e632fe1394582db5a6ff6902347734",
+      "company_key": "development-company-07",
+      "page": 68,
+      "candidate_type": "missing_total_capital",
+      "render_path": "/mnt/d/reasoning_model_V4/reasoning_model/tmp/pdfs/v12c_negative_ambiguity_review_v1/AGM_23CN_BCTN__p68.png",
+      "render_sha256": "e758bbc9da31b781e848d245164e94398a2a6ff4ee94d362fd19d6be82b33d6a"
+    },
+    {
+      "source_name": "AGM_23CN_BCTN.pdf",
+      "source_sha256": "79af3d0a19f3b570b4370fbec158f10797e632fe1394582db5a6ff6902347734",
+      "company_key": "development-company-07",
+      "page": 110,
+      "candidate_type": "missing_total_capital",
+      "render_path": "/mnt/d/reasoning_model_V4/reasoning_model/tmp/pdfs/v12c_negative_ambiguity_review_v1/AGM_23CN_BCTN__p110.png",
+      "render_sha256": "4ffc686e65038af2319f455199b903b79cb1a5a08b8bc6cc8aa45b7cb4d54c46"
+    },
+    {
+      "source_name": "AGM_23CN_BCTN.pdf",
+      "source_sha256": "79af3d0a19f3b570b4370fbec158f10797e632fe1394582db5a6ff6902347734",
+      "company_key": "development-company-07",
+      "page": 112,
+      "candidate_type": "missing_total_capital",
+      "render_path": "/mnt/d/reasoning_model_V4/reasoning_model/tmp/pdfs/v12c_negative_ambiguity_review_v1/AGM_23CN_BCTN__p112.png",
+      "render_sha256": "1ce3734b473e6fc9a44dd15111c3b042c6bb305d8e1ee44881c23532c8c5cc04"
+    },
+    {
+      "source_name": "API_23CN_BCTN.pdf",
+      "source_sha256": "7b21c99bea7730f30d0f82a45f28f71e35cd2ecf59cbe9661d748e572aae0fcd",
+      "company_key": "development-company-14c2529eb4498c5d",
+      "page": 52,
+      "candidate_type": "missing_total_capital",
+      "render_path": "/mnt/d/reasoning_model_V4/reasoning_model/tmp/pdfs/v12c_negative_ambiguity_review_v1/API_23CN_BCTN__p52.png",
+      "render_sha256": "b100204048ed55a3d9614f0bd01d98a63f098d1a49b19f33b226f09abe2a5f29"
+    },
+    {
+      "source_name": "API_23CN_BCTN.pdf",
+      "source_sha256": "7b21c99bea7730f30d0f82a45f28f71e35cd2ecf59cbe9661d748e572aae0fcd",
+      "company_key": "development-company-14c2529eb4498c5d",
+      "page": 53,
+      "candidate_type": "missing_total_capital",
+      "render_path": "/mnt/d/reasoning_model_V4/reasoning_model/tmp/pdfs/v12c_negative_ambiguity_review_v1/API_23CN_BCTN__p53.png",
+      "render_sha256": "5279bd40409135847bb2a8b60fdc8e5837e87368613cb11d1d8875d8d5b1f230"
+    },
+    {
+      "source_name": "DHP_23CN_BCTN.pdf",
+      "source_sha256": "87d922b78778f45546727a7bc23741fe4f844857d05a1d0d1cdc859de1676eb5",
+      "company_key": "development-company-0d0d213f8044dc8f",
+      "page": 24,
+      "candidate_type": "missing_long_term_borrowings",
+      "render_path": "/mnt/d/reasoning_model_V4/reasoning_model/tmp/pdfs/v12c_negative_ambiguity_review_v1/DHP_23CN_BCTN__p24.png",
+      "render_sha256": "48cb707a0fe36d34b177317643bac29eae85531ce28c89532550c47e08e0907e"
+    },
+    {
+      "source_name": "HTI_23CN_BCTN.pdf",
+      "source_sha256": "81c23e8f394f3cb9d932ae5e77eff73738d4b43431bb28ee9ba19f6aca6b54e1",
+      "company_key": "development-company-0edcdb4ac852829d",
+      "page": 26,
+      "candidate_type": "missing_total_capital",
+      "render_path": "/mnt/d/reasoning_model_V4/reasoning_model/tmp/pdfs/v12c_negative_ambiguity_review_v1/HTI_23CN_BCTN__p26.png",
+      "render_sha256": "c09c7464fb6be723c5fddd7e3ef42003b9f2f37068e341d4bed0c8906b5ecd7c"
+    },
+    {
+      "source_name": "LAS_23CN_BCTN.pdf",
+      "source_sha256": "0512d6848014459b74a4293f9ed98a3d0c98c5af54aa21e12e5949df89ce1cf6",
+      "company_key": "development-company-02d5d0522a76608d",
+      "page": 60,
+      "candidate_type": "missing_total_capital",
+      "render_path": "/mnt/d/reasoning_model_V4/reasoning_model/tmp/pdfs/v12c_negative_ambiguity_review_v1/LAS_23CN_BCTN__p60.png",
+      "render_sha256": "9e1808eee021b388391ff2c4da7ca78243997cefddf0f9e64c7695e6c328bb5f"
+    },
+    {
+      "source_name": "LAS_23CN_BCTN.pdf",
+      "source_sha256": "0512d6848014459b74a4293f9ed98a3d0c98c5af54aa21e12e5949df89ce1cf6",
+      "company_key": "development-company-02d5d0522a76608d",
+      "page": 91,
+      "candidate_type": "missing_long_term_borrowings",
+      "render_path": "/mnt/d/reasoning_model_V4/reasoning_model/tmp/pdfs/v12c_negative_ambiguity_review_v1/LAS_23CN_BCTN__p91.png",
+      "render_sha256": "3b5e01aa694fb3f989aa1fc89dcdf47f5c47fef2c0fd3667fed4260d05c3df9a"
+    },
+    {
+      "source_name": "NHA_23CN_BCTN.pdf",
+      "source_sha256": "c827a8c5aa478c419e5c9be36b03d0f106f4c014f76249536aa7e58695c480e6",
+      "company_key": "development-company-1a1d30aab8a585cf",
+      "page": 70,
+      "candidate_type": "missing_short_term_borrowings",
+      "render_path": "/mnt/d/reasoning_model_V4/reasoning_model/tmp/pdfs/v12c_negative_ambiguity_review_v1/NHA_23CN_BCTN__p70.png",
+      "render_sha256": "be83d5026436deb6b3fc37dd27f34048918ff5d9ac82747b0c71148873857b8e"
+    },
+    {
+      "source_name": "NHA_23CN_BCTN.pdf",
+      "source_sha256": "c827a8c5aa478c419e5c9be36b03d0f106f4c014f76249536aa7e58695c480e6",
+      "company_key": "development-company-1a1d30aab8a585cf",
+      "page": 83,
+      "candidate_type": "missing_total_capital",
+      "render_path": "/mnt/d/reasoning_model_V4/reasoning_model/tmp/pdfs/v12c_negative_ambiguity_review_v1/NHA_23CN_BCTN__p83.png",
+      "render_sha256": "746b58cb3b6e698b3fa134bd58ad59c5b348a5c82f2315ecdf908196eeca5023"
+    },
+    {
+      "source_name": "PIC_23CN_BCTN.pdf",
+      "source_sha256": "ae0d9aa6645251025f3f71572205f5ef0f93a6f136ae243c2f3cd0700befb96e",
+      "company_key": "development-company-2255c8b55faa7d4f",
+      "page": 27,
+      "candidate_type": "missing_total_capital",
+      "render_path": "/mnt/d/reasoning_model_V4/reasoning_model/tmp/pdfs/v12c_negative_ambiguity_review_v1/PIC_23CN_BCTN__p27.png",
+      "render_sha256": "734abd9c9925a78c7b58bc8b09e2b7799cd571e2ffb51aa4bc57cbaa2d102639"
+    },
+    {
+      "source_name": "SBB_23CN_BCTN.pdf",
+      "source_sha256": "e2f295b001fc58df82c480a51c1287d3f7316a5e6fdfaa9061cf0ff8b1ed594d",
+      "company_key": "development-company-0492c0e11c3838d3",
+      "page": 24,
+      "candidate_type": "missing_long_term_borrowings",
+      "render_path": "/mnt/d/reasoning_model_V4/reasoning_model/tmp/pdfs/v12c_negative_ambiguity_review_v1/SBB_23CN_BCTN__p24.png",
+      "render_sha256": "e159800b9cf6e7f540abdb7bbc2dca80e409a90cd34f211ec21bfeb9c4ceb475"
+    },
+    {
+      "source_name": "SCG_23CN_BCTN.pdf",
+      "source_sha256": "fabcefdf81e9bf90abdfe4497a4b7ba7960d564e9ce525ecd7dfe8dd05c62ff1",
+      "company_key": "development-company-128d077252ff6e80",
+      "page": 30,
+      "candidate_type": "missing_total_capital",
+      "render_path": "/mnt/d/reasoning_model_V4/reasoning_model/tmp/pdfs/v12c_negative_ambiguity_review_v1/SCG_23CN_BCTN__p30.png",
+      "render_sha256": "9df6d912d2a1b025b191e89ec75f51d6f6ae29926a8b01db2dc9b49f37e7438b"
+    },
+    {
+      "source_name": "SCG_23CN_BCTN.pdf",
+      "source_sha256": "fabcefdf81e9bf90abdfe4497a4b7ba7960d564e9ce525ecd7dfe8dd05c62ff1",
+      "company_key": "development-company-128d077252ff6e80",
+      "page": 45,
+      "candidate_type": "missing_total_capital",
+      "render_path": "/mnt/d/reasoning_model_V4/reasoning_model/tmp/pdfs/v12c_negative_ambiguity_review_v1/SCG_23CN_BCTN__p45.png",
+      "render_sha256": "ded8bd26deef421f5f1289fd56233c800a7c4bc902be1f3757ef11a89e4ebcd0"
+    },
+    {
+      "source_name": "SCG_23CN_BCTN.pdf",
+      "source_sha256": "fabcefdf81e9bf90abdfe4497a4b7ba7960d564e9ce525ecd7dfe8dd05c62ff1",
+      "company_key": "development-company-128d077252ff6e80",
+      "page": 52,
+      "candidate_type": "missing_total_capital",
+      "render_path": "/mnt/d/reasoning_model_V4/reasoning_model/tmp/pdfs/v12c_negative_ambiguity_review_v1/SCG_23CN_BCTN__p52.png",
+      "render_sha256": "db624d76baae08af74071e98a5fdf296e855bca080d11b110705f1b883674ebc"
+    },
+    {
+      "source_name": "SCG_23CN_BCTN.pdf",
+      "source_sha256": "fabcefdf81e9bf90abdfe4497a4b7ba7960d564e9ce525ecd7dfe8dd05c62ff1",
+      "company_key": "development-company-128d077252ff6e80",
+      "page": 55,
+      "candidate_type": "missing_total_capital",
+      "render_path": "/mnt/d/reasoning_model_V4/reasoning_model/tmp/pdfs/v12c_negative_ambiguity_review_v1/SCG_23CN_BCTN__p55.png",
+      "render_sha256": "77e3761d3cb6fa7947941c3862f6af82bbbcc52da6abc61032502606f7562344"
+    },
+    {
+      "source_name": "SCG_23CN_BCTN.pdf",
+      "source_sha256": "fabcefdf81e9bf90abdfe4497a4b7ba7960d564e9ce525ecd7dfe8dd05c62ff1",
+      "company_key": "development-company-128d077252ff6e80",
+      "page": 58,
+      "candidate_type": "missing_total_capital",
+      "render_path": "/mnt/d/reasoning_model_V4/reasoning_model/tmp/pdfs/v12c_negative_ambiguity_review_v1/SCG_23CN_BCTN__p58.png",
+      "render_sha256": "53097dec0c9601596c84111e7a3cf0ac72fa40ea29457748c061c77909b7201d"
+    },
+    {
+      "source_name": "TCR_23CN_BCTN.pdf",
+      "source_sha256": "4f47e37f75f2a5e69238d630612bc8d49c2f513a7aa8e0a29dd64923ae411019",
+      "company_key": "development-company-1fde0b02049a9bea",
+      "page": 29,
+      "candidate_type": "missing_total_capital",
+      "render_path": "/mnt/d/reasoning_model_V4/reasoning_model/tmp/pdfs/v12c_negative_ambiguity_review_v1/TCR_23CN_BCTN__p29.png",
+      "render_sha256": "29ebb92f8571b266d197479882cd0ab118d93dab63ec1893254d7c7541633492"
+    },
+    {
+      "source_name": "TNH_23CN_BCTN.pdf",
+      "source_sha256": "27b78b0c7897aec2c56daec3ce8d4d9dacf20715b9abfdf3180778bc23b3ab7a",
+      "company_key": "development-company-1d180849caa0b38e",
+      "page": 44,
+      "candidate_type": "missing_total_capital",
+      "render_path": "/mnt/d/reasoning_model_V4/reasoning_model/tmp/pdfs/v12c_negative_ambiguity_review_v1/TNH_23CN_BCTN__p44.png",
+      "render_sha256": "24201ca0132f2ceda848d2fada4b8d9accec2414ce4e0cdb92ccce261f69afef"
+    },
+    {
+      "source_name": "VID_23CN_BCTN.pdf",
+      "source_sha256": "39d9fa177669d89a0595acb9938fc0d1e57958970473ff07fb03d3ae815b9b20",
+      "company_key": "development-company-1ff838dc6ca9680d",
+      "page": 24,
+      "candidate_type": "complete_lexical_with_duplicate_role_mentions",
+      "render_path": "/mnt/d/reasoning_model_V4/reasoning_model/tmp/pdfs/v12c_negative_ambiguity_review_v1/VID_23CN_BCTN__p24.png",
+      "render_sha256": "f9d57b9c20d57711c1fecad781e40141ffcbf64f55d795f1d0ea4934fbc07d6a"
+    },
+    {
+      "source_name": "VLW_23CN_BCTN.pdf",
+      "source_sha256": "5bff92d748dae70e2de7309a900bf9b79c7fca893a40a55791de4ad369d69c5f",
+      "company_key": "development-company-035456962822e6bf",
+      "page": 22,
+      "candidate_type": "missing_short_term_borrowings",
+      "render_path": "/mnt/d/reasoning_model_V4/reasoning_model/tmp/pdfs/v12c_negative_ambiguity_review_v1/VLW_23CN_BCTN__p22.png",
+      "render_sha256": "4cda122bb674100121bbe85d5dfcfbe8895db6fb7a627e3134ac01fdbd0447b0"
+    }
+  ],
+  "ready_for_threshold_change": false
+}

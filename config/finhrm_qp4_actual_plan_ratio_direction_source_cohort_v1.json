@@ -1,0 +1,295 @@
+{
+  "schema": "finhrm-qp4-actual-plan-ratio-direction-source-cohort-v1",
+  "created_at": "2026-08-21",
+  "classification": "development_only_independently_reviewed_real_pdf_qp4_source_extension",
+  "status": "frozen_before_any_qp4_runtime_change",
+  "purpose": "Close source-backed coverage for COLUMN_ROLE, DIRECTION and REFERENCE_BASE without changing runtime or using synthetic layout confirmation.",
+  "parents": {
+    "qp4_precommit": {
+      "path": "config/finhrm_qp4_precommit_v1.json",
+      "sha256": "c0fe91086396b63eed46fef15c1bd352d4a701ff76b43887e244f0c324e07c6b"
+    },
+    "qp4_development_baseline_lock": {
+      "path": "reports/finhrm_qp4_development_baseline_lock_v1.json",
+      "sha256": "cbdb085e6a85f6bc59075c5d8e575ec79710b1dd26afe992c3dcfb961d487e75"
+    },
+    "development_pdf_intake": {
+      "path": "data/pdf_v12b2_unseen_development_intake_v2.json",
+      "sha256": "2ffca647d83a65be0f6432bffcba9eb9b3daad9a972580cec0e23cc24189a539"
+    },
+    "development_layout_audit": {
+      "path": "reports/pdf_v12b2_unseen_development_layout_audit_v3.json",
+      "sha256": "d39d6eda3c56cdfee143940647618e33ff4842908967c297c54da425837cea9a"
+    },
+    "development_fold_audit": {
+      "path": "reports/subtract_reviewed_cohort_fold_extension_v3.json",
+      "sha256": "c99a2bb944efbcbfea9b3b2b94dde95d8e8692e62aed04c87e397967ccaca113"
+    }
+  },
+  "checkpoint": {
+    "path": "models/document_hrm_V8_candidate.pt",
+    "sha256": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de"
+  },
+  "selection_contract": {
+    "required": [
+      "source is classified development_only",
+      "source PDF hash matches the frozen intake",
+      "actual 2023, plan 2023 and prior actual 2022 are all explicit",
+      "metric identity and unit are explicit",
+      "PDF page was visually reviewed independently of native markdown discovery",
+      "all three semantic dimensions apply to the same source evidence"
+    ],
+    "forbidden_selection_or_runtime_features": [
+      "company identity",
+      "report filename",
+      "page number",
+      "year literal",
+      "numeric value",
+      "anchor id",
+      "question literal",
+      "candidate rank",
+      "neural score",
+      "confidence"
+    ],
+    "diagnosis_company_keys": [
+      "development-company-02d5d0522a76608d",
+      "development-company-171130f90d122e5d",
+      "development-company-0a3c720ab489e28b",
+      "development-company-02cee318d68057bf",
+      "development-company-03"
+    ],
+    "minimum_positive_anchors_per_dimension": 3,
+    "minimum_distinct_companies_per_dimension": 3,
+    "minimum_distinct_sources_per_dimension": 3,
+    "minimum_distinct_document_layouts_per_dimension": 3,
+    "minimum_distinct_table_layouts_per_dimension": 3,
+    "safe_abstention_counts_as_answer": false,
+    "synthetic_question_counts_as_layout_confirmation": false,
+    "synthetic_layout_counts_as_confirmation": false,
+    "gold_or_parent_winner_passed_to_engine": false,
+    "per_query_timeout_seconds": 15,
+    "mineru_auto_generate_during_baseline": false
+  },
+  "dimensions": [
+    "COLUMN_ROLE",
+    "DIRECTION",
+    "REFERENCE_BASE"
+  ],
+  "anchors": [
+    {
+      "anchor_id": "qp4-aprd-vns-revenue",
+      "company_key": "development-company-388d036c98c1ea95",
+      "source_name": "VNS_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/VNS_23CN_BCTN.pdf",
+      "source_sha256": "5e68d6ae9536f9f7ebe3f9e61165dbcecbcc020349816f6a07b557497bc5380b",
+      "page": 15,
+      "document_layout_family": "native_text_mixed_orientation",
+      "table_layout_family": "two_page_spread_bottom_actual_plan_ratio",
+      "metric": "Doanh thu thuần",
+      "unit": "million_vnd",
+      "markdown": {
+        "path": "cache/subtract_native_financial_markdown_v2/VNS_23CN_BCTN.md",
+        "sha256": "7a70e700ea47aeda2ac27af3c3508535eb7af071b5e6bc7b17265cc2ff3de2a6",
+        "evidence_lines": [15, 25, 26]
+      },
+      "visual_review": {
+        "decision": "pass",
+        "method": "independent_pdf_page_render_against_locked_native_markdown",
+        "render_sha256": "47c2cdf36e89f5a7840c696437e3f1c0b22475c48444c9cc6ceee3a10055be45",
+        "checks": ["metric_exact", "role_headers_explicit", "years_explicit", "unit_explicit", "values_exact", "ratio_printed"]
+      },
+      "evidence": {
+        "actual_2023": {"value": "1218800", "column_role": "ACTUAL", "year": 2023},
+        "plan_2023": {"value": "1345000", "column_role": "PLAN", "year": 2023},
+        "actual_2022": {"value": "1089175", "column_role": "ACTUAL", "year": 2022}
+      },
+      "pairs": {
+        "COLUMN_ROLE": {
+          "base_question": "Doanh thu thuần thực hiện năm 2023 là bao nhiêu?",
+          "mutated_question": "Doanh thu thuần kế hoạch năm 2023 là bao nhiêu?",
+          "base_program": {"operation": "SELECT", "operands": ["actual_2023"]},
+          "mutated_program": {"operation": "SELECT", "operands": ["plan_2023"]}
+        },
+        "DIRECTION": {
+          "base_question": "Doanh thu thuần thực hiện năm 2023 trừ kế hoạch năm 2023 là bao nhiêu?",
+          "mutated_question": "Doanh thu thuần kế hoạch năm 2023 trừ thực hiện năm 2023 là bao nhiêu?",
+          "base_program": {"operation": "SUBTRACT", "operands": ["actual_2023", "plan_2023"]},
+          "mutated_program": {"operation": "SUBTRACT", "operands": ["plan_2023", "actual_2023"]}
+        },
+        "REFERENCE_BASE": {
+          "base_question": "Doanh thu thuần thực hiện năm 2023 đạt bao nhiêu phần trăm kế hoạch năm 2023?",
+          "mutated_question": "Doanh thu thuần thực hiện năm 2023 bằng bao nhiêu phần trăm thực hiện năm 2022?",
+          "base_program": {"operation": "RATIO_PERCENT", "operands": ["actual_2023", "plan_2023"]},
+          "mutated_program": {"operation": "RATIO_PERCENT", "operands": ["actual_2023", "actual_2022"]}
+        }
+      }
+    },
+    {
+      "anchor_id": "qp4-aprd-vsc-revenue",
+      "company_key": "development-company-3a6490b72b5ad015",
+      "source_name": "VSC_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/VSC_23CN_BCTN.pdf",
+      "source_sha256": "879f2814fb4dc02f40fa0155dfab4fdfc1a8ca217d6103fe9fce66950c36e796",
+      "page": 7,
+      "document_layout_family": "native_text_portrait",
+      "table_layout_family": "hierarchical_spanning_header_plan_and_prior_blocks",
+      "metric": "Tổng doanh thu",
+      "unit": "billion_vnd",
+      "markdown": {
+        "path": "cache/subtract_native_financial_markdown_v2/VSC_23CN_BCTN.md",
+        "sha256": "ea0478c61e5a134a110c364e94b0046a8debbea872028fa86c7e73e684d80932",
+        "evidence_lines": [14, 15, 16, 17, 18]
+      },
+      "visual_review": {
+        "decision": "pass",
+        "method": "independent_pdf_page_render_against_locked_native_markdown",
+        "render_sha256": "c1b8c7f4f0b6da7726cd8bd6822dc9540f5e9abde86bb8bfa514df1fd30f385d",
+        "checks": ["metric_exact", "role_headers_explicit", "years_explicit", "unit_explicit", "values_exact", "ratio_printed"]
+      },
+      "evidence": {
+        "actual_2023": {"value": "2180.94", "column_role": "ACTUAL", "year": 2023},
+        "plan_2023": {"value": "2250", "column_role": "PLAN", "year": 2023},
+        "actual_2022": {"value": "2007.40", "column_role": "ACTUAL", "year": 2022}
+      },
+      "pairs": {
+        "COLUMN_ROLE": {
+          "base_question": "Tổng doanh thu thực hiện năm 2023 là bao nhiêu?",
+          "mutated_question": "Tổng doanh thu kế hoạch năm 2023 là bao nhiêu?",
+          "base_program": {"operation": "SELECT", "operands": ["actual_2023"]},
+          "mutated_program": {"operation": "SELECT", "operands": ["plan_2023"]}
+        },
+        "DIRECTION": {
+          "base_question": "Tổng doanh thu thực hiện năm 2023 trừ kế hoạch năm 2023 là bao nhiêu?",
+          "mutated_question": "Tổng doanh thu kế hoạch năm 2023 trừ thực hiện năm 2023 là bao nhiêu?",
+          "base_program": {"operation": "SUBTRACT", "operands": ["actual_2023", "plan_2023"]},
+          "mutated_program": {"operation": "SUBTRACT", "operands": ["plan_2023", "actual_2023"]}
+        },
+        "REFERENCE_BASE": {
+          "base_question": "Tổng doanh thu thực hiện năm 2023 đạt bao nhiêu phần trăm kế hoạch năm 2023?",
+          "mutated_question": "Tổng doanh thu thực hiện năm 2023 bằng bao nhiêu phần trăm thực hiện năm 2022?",
+          "base_program": {"operation": "RATIO_PERCENT", "operands": ["actual_2023", "plan_2023"]},
+          "mutated_program": {"operation": "RATIO_PERCENT", "operands": ["actual_2023", "actual_2022"]}
+        }
+      }
+    },
+    {
+      "anchor_id": "qp4-aprd-ceo-revenue",
+      "company_key": "development-company-31d123108dba5fd3",
+      "source_name": "CEO_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/CEO_23CN_BCTN.pdf",
+      "source_sha256": "cc5361a6b356f1f5ff1a7cb5607bfa0abf36ec527a3fc787f1c73328cbadfaaf",
+      "page": 29,
+      "document_layout_family": "hybrid_scan_text",
+      "table_layout_family": "multi_panel_landscape_plan_actual_prior_delta",
+      "metric": "Tổng doanh thu",
+      "unit": "million_vnd",
+      "markdown": {
+        "path": "cache/subtract_native_financial_markdown_v2/CEO_23CN_BCTN.md",
+        "sha256": "9d402e38025eb837d432fc934fbc8e0cea2e7ff566d3e82c4e1a397dedce6712",
+        "evidence_lines": [108, 110, 111, 112, 113]
+      },
+      "visual_review": {
+        "decision": "pass",
+        "method": "independent_pdf_page_render_against_locked_native_markdown",
+        "render_sha256": "088c4e2f6a95d50a93d764ee23cc7d406e465845fa52ee8cbbe1905027e9dc97",
+        "checks": ["metric_exact", "role_headers_explicit", "years_explicit", "unit_explicit", "values_exact", "ratio_printed"]
+      },
+      "evidence": {
+        "actual_2023": {"value": "1439164", "column_role": "ACTUAL", "year": 2023},
+        "plan_2023": {"value": "3000000", "column_role": "PLAN", "year": 2023},
+        "actual_2022": {"value": "2548999", "column_role": "ACTUAL", "year": 2022}
+      },
+      "pairs": {
+        "COLUMN_ROLE": {
+          "base_question": "Tổng doanh thu thực hiện năm 2023 là bao nhiêu?",
+          "mutated_question": "Tổng doanh thu kế hoạch năm 2023 là bao nhiêu?",
+          "base_program": {"operation": "SELECT", "operands": ["actual_2023"]},
+          "mutated_program": {"operation": "SELECT", "operands": ["plan_2023"]}
+        },
+        "DIRECTION": {
+          "base_question": "Tổng doanh thu thực hiện năm 2023 trừ kế hoạch năm 2023 là bao nhiêu?",
+          "mutated_question": "Tổng doanh thu kế hoạch năm 2023 trừ thực hiện năm 2023 là bao nhiêu?",
+          "base_program": {"operation": "SUBTRACT", "operands": ["actual_2023", "plan_2023"]},
+          "mutated_program": {"operation": "SUBTRACT", "operands": ["plan_2023", "actual_2023"]}
+        },
+        "REFERENCE_BASE": {
+          "base_question": "Tổng doanh thu thực hiện năm 2023 đạt bao nhiêu phần trăm kế hoạch năm 2023?",
+          "mutated_question": "Tổng doanh thu thực hiện năm 2023 bằng bao nhiêu phần trăm thực hiện năm 2022?",
+          "base_program": {"operation": "RATIO_PERCENT", "operands": ["actual_2023", "plan_2023"]},
+          "mutated_program": {"operation": "RATIO_PERCENT", "operands": ["actual_2023", "actual_2022"]}
+        }
+      }
+    },
+    {
+      "anchor_id": "qp4-aprd-szb-revenue",
+      "company_key": "development-company-340e65eda2932452",
+      "source_name": "SZB_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/SZB_23CN_BCTN.pdf",
+      "source_sha256": "1c1b38b4e8705cd75a33c8d14ebadfdfc1fb7ab066f5d45955c8b000d461aec1",
+      "page": 16,
+      "document_layout_family": "native_text_mixed_orientation",
+      "table_layout_family": "dense_actual_prior_plan_actual_dual_ratio_matrix",
+      "metric": "Tổng doanh thu",
+      "unit": "million_vnd",
+      "markdown": {
+        "path": "cache/subtract_native_financial_markdown_v2/SZB_23CN_BCTN.md",
+        "sha256": "e756b940bdca4e48fb936a15506bec1f4070baffdda7349fdf9fd7a2ac61518f",
+        "evidence_lines": [10, 12, 13, 14]
+      },
+      "visual_review": {
+        "decision": "pass",
+        "method": "independent_pdf_page_render_against_locked_native_markdown",
+        "render_sha256": "b927e278439e195e71eaede8905a0eb672a315070d25e098231a7f70a2e19805",
+        "checks": ["metric_exact", "role_headers_explicit", "years_explicit", "unit_explicit", "values_exact", "ratio_printed"]
+      },
+      "evidence": {
+        "actual_2023": {"value": "402314", "column_role": "ACTUAL", "year": 2023},
+        "plan_2023": {"value": "389579", "column_role": "PLAN", "year": 2023},
+        "actual_2022": {"value": "369158", "column_role": "ACTUAL", "year": 2022}
+      },
+      "pairs": {
+        "COLUMN_ROLE": {
+          "base_question": "Tổng doanh thu thực hiện năm 2023 là bao nhiêu?",
+          "mutated_question": "Tổng doanh thu kế hoạch năm 2023 là bao nhiêu?",
+          "base_program": {"operation": "SELECT", "operands": ["actual_2023"]},
+          "mutated_program": {"operation": "SELECT", "operands": ["plan_2023"]}
+        },
+        "DIRECTION": {
+          "base_question": "Tổng doanh thu thực hiện năm 2023 trừ kế hoạch năm 2023 là bao nhiêu?",
+          "mutated_question": "Tổng doanh thu kế hoạch năm 2023 trừ thực hiện năm 2023 là bao nhiêu?",
+          "base_program": {"operation": "SUBTRACT", "operands": ["actual_2023", "plan_2023"]},
+          "mutated_program": {"operation": "SUBTRACT", "operands": ["plan_2023", "actual_2023"]}
+        },
+        "REFERENCE_BASE": {
+          "base_question": "Tổng doanh thu thực hiện năm 2023 đạt bao nhiêu phần trăm kế hoạch năm 2023?",
+          "mutated_question": "Tổng doanh thu thực hiện năm 2023 bằng bao nhiêu phần trăm thực hiện năm 2022?",
+          "base_program": {"operation": "RATIO_PERCENT", "operands": ["actual_2023", "plan_2023"]},
+          "mutated_program": {"operation": "RATIO_PERCENT", "operands": ["actual_2023", "actual_2022"]}
+        }
+      }
+    }
+  ],
+  "runtime_hashes": {
+    "src/hrm_finance_qa/question_planner.py": "58404c5a04ffced2c00056a10e470730a8fb9ef723d3e8c5668f13b0a65571a6",
+    "src/hrm_finance_qa/program_synthesis.py": "e4acc4878d0dfd465ba66ab91f3aaf8be71db5591aa1358fb8cb81f3c7bff550",
+    "src/hrm_finance_qa/symbolic_verifier.py": "e9efa8d2fa9ce1aedd460cdd11c1eb9321aab7122b0908fc5017687c1491ed88",
+    "src/hrm_finance_qa/direction_contract.py": "a18aa130419fc74ce647bd92dc9c1b1217007738e636aad0f28c7f78396be937",
+    "src/hrm_finance_qa/document_hrm.py": "b5951bcde79583950b672f7fb6b199b3e5b9904e6784daae7c4c5be0eba65d21",
+    "src/hrm_finance_qa/document_reasoning_engine.py": "3883500011472716bc01f8e04a6d6f925173b35a14bbedd945c5ca4fb0063fa2",
+    "src/hrm_finance_qa/answer_presentation.py": "c40bd4a8dff39162b44cf11ef2da12e7b153d907f7254e5d1856157b3ac56d36"
+  },
+  "invariants": {
+    "runtime_changed": false,
+    "threshold_changed": false,
+    "checkpoint_changed": false,
+    "model_changed": false,
+    "fine_tuning_performed": false,
+    "abw_used": false,
+    "protected_evaluation_loaded": false,
+    "synthetic_layout_counted": false,
+    "safe_abstention_counted_as_answer": false,
+    "qp4_runtime_change_authorized": false,
+    "qp5_authorized": false,
+    "phase_d_unlocked": false
+  }
+}

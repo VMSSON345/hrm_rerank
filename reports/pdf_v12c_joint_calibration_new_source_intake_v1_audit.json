@@ -1,0 +1,22 @@
+{
+  "protocol": "v12b2-unseen-pdf-overlap-audit-v1",
+  "classification": "development_only",
+  "manifest": "/mnt/d/reasoning_model_V4/reasoning_model/data/pdf_v12c_joint_calibration_new_source_intake_v1.json",
+  "metadata_only_exclusion_policy": true,
+  "questions_answers_or_model_outputs_used": false,
+  "metrics": {
+    "documents": 399,
+    "company_groups": 240,
+    "overlap_violations": 0,
+    "hash_locked_documents_verified": 399
+  },
+  "overlaps": {
+    "existing_development_companies": [],
+    "development_metadata_companies": {},
+    "protected_test_blind_companies": [],
+    "frozen_excluded_companies": [],
+    "protected_document_hashes": [],
+    "selected_hash_duplicates": false,
+    "selected_file_hash_mismatches": []
+  }
+}

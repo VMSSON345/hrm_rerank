@@ -1,0 +1,312 @@
+{
+  "schema": "finhrm-qp4-question-surface-implementation-precommit-v1",
+  "created_at": "2026-08-22",
+  "classification": "development_only_question_surface_semantic_precommit_no_runtime_change",
+  "status": "precommit_pending_validation",
+  "claude_md": {
+    "path": "CLAUDE.md",
+    "sha256": "35a0f66a6531e61b35dc7288884da35eeef79ad1039f5ffdfd29295cee8d566e",
+    "read_before_scope_design": true
+  },
+  "parents": {
+    "thesis_core": {
+      "path": "config/finhrm_thesis_core_v1.json",
+      "sha256": "a9f2f3088f7622c6c8912086eac16252f154fcae1164a3fe7ba75107a0ece502"
+    },
+    "report_generalization_invariant": {
+      "path": "config/finhrm_report_generalization_invariant_v1.json",
+      "sha256": "7a8c6e58a47314d522adb782277f6d5bf0cbf761faf681d848e2e9ae4e861846"
+    },
+    "qp4_precommit": {
+      "path": "config/finhrm_qp4_precommit_v1.json",
+      "sha256": "c0fe91086396b63eed46fef15c1bd352d4a701ff76b43887e244f0c324e07c6b"
+    },
+    "development_cohort": {
+      "path": "config/finhrm_qp4_development_cohort_v1.json",
+      "sha256": "1d8cf947c4af4819f50e9d5384c8c2426fd3cadbe5ca18837b1186f6ef0d1af2"
+    },
+    "post_unit_scale_refresh": {
+      "path": "reports/finhrm_qp4_post_unit_scale_development_baseline_refresh_v1.json",
+      "sha256": "5fedfcff1c70ae0f0e6c878c08132f14ed2743a3d7aefc4640fcd91fe43db84a"
+    },
+    "post_unit_scale_source_baseline": {
+      "path": "reports/finhrm_qp4_post_unit_scale_source_backed_baseline_v1.json",
+      "sha256": "f3f2b46485cfaab8be2132d761f8dd96c5fa180095cd34fdb228de1f04d9ebd9"
+    },
+    "diagnostic_report": {
+      "path": "reports/finhrm_qp4_post_unit_scale_baseline_diagnostic_review_v1.json",
+      "sha256": "b17ceaf934f79d05e8db60dba070a2fbceab50f6551416169fc7fa963fddf089"
+    },
+    "diagnostic_raw": {
+      "path": "reports/finhrm_qp4_post_unit_scale_baseline_diagnostic_review_raw_v1.json",
+      "sha256": "9a23c5a7157827e546c2e2cd5ab1b9e8c95144f3cd2ffea58bd6f0dd622b7a2f"
+    },
+    "diagnostic_lock": {
+      "path": "reports/finhrm_qp4_post_unit_scale_baseline_diagnostic_review_lock_v1.json",
+      "sha256": "b4c90ea617e9ffde94c7650eede481d7d95f0ac1e1e079278b31214b4e82c664"
+    },
+    "safe_replay": {
+      "path": "reports/finhrm_qp4_unit_scale_proof_contract_safe_replay_v1.json",
+      "sha256": "73cc2bc11f3872cf25714de9b6d92ae9f40b4b349a4a63f4c8cc3b25e53d932d"
+    }
+  },
+  "checkpoint": {
+    "path": "models/document_hrm_V8_candidate.pt",
+    "sha256": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de"
+  },
+  "runtime_hashes_before_implementation": {
+    "src/hrm_finance_qa/question_planner.py": "0973e72711fccdac6fd8615e5dd5afc8f47fb98024c9080063cd6bac46bd66a2",
+    "src/hrm_finance_qa/symbolic_verifier.py": "2679b1ce55cc070697438c806f19e3e888bfc19bc1a9ae3686a0b7fd7ffb0087",
+    "src/hrm_finance_qa/program_synthesis.py": "e4acc4878d0dfd465ba66ab91f3aaf8be71db5591aa1358fb8cb81f3c7bff550",
+    "src/hrm_finance_qa/evidence_schema.py": "2f16fabf932dc9dabc8203d9642d2503bb2dab43e0e1ee0f78755dd4fb00825d",
+    "src/hrm_finance_qa/document_hrm.py": "b5951bcde79583950b672f7fb6b199b3e5b9904e6784daae7c4c5be0eba65d21",
+    "src/hrm_finance_qa/document_reasoning_engine.py": "3883500011472716bc01f8e04a6d6f925173b35a14bbedd945c5ca4fb0063fa2",
+    "src/hrm_finance_qa/program_data.py": "5199434fc0628b7d270ce62b12657366cbe118901065edd9f1e1f6ca0f1f8d54",
+    "src/hrm_finance_qa/direction_contract.py": "a18aa130419fc74ce647bd92dc9c1b1217007738e636aad0f28c7f78396be937",
+    "src/hrm_finance_qa/answer_presentation.py": "c40bd4a8dff39162b44cf11ef2da12e7b153d907f7254e5d1856157b3ac56d36",
+    "src/hrm_finance_qa/document_sources.py": "e9eb7b3ddcc2ed13060a573a6a0101a216fa49ff21dd65cd5fc2629b92f5fc0b",
+    "src/hrm_finance_qa/document_page_index.py": "c99e011175afef21f302be42ba9454b948caa549d4d445d6bb35c5b974b81f85"
+  },
+  "generic_failure_evidence": {
+    "first_failing_layer": "QUESTION_PLAN",
+    "compiler_residuals": 18,
+    "exact_changed_projection_fields": [
+      "operand_slots"
+    ],
+    "changed_operand_subfield": "metric",
+    "groups": {
+      "DISCOURSE_PREFIX_SUFFIX": {
+        "failures": 12,
+        "families": 12,
+        "root_semantics": [
+          "SELECT",
+          "SUBTRACT",
+          "RATIO_PERCENT",
+          "PERCENT_CHANGE"
+        ]
+      },
+      "BILINGUAL_PARENTHETICAL": {
+        "failures": 3,
+        "families": 3,
+        "root_semantics": [
+          "SELECT",
+          "RATIO_PERCENT"
+        ]
+      },
+      "IRRELEVANT_DISTRACTOR_CLAUSE": {
+        "failures": 3,
+        "families": 3,
+        "root_semantics": [
+          "SELECT",
+          "RATIO_PERCENT"
+        ]
+      }
+    },
+    "unchanged_projection_fields": [
+      "operation",
+      "operation_candidates",
+      "answer_mode",
+      "requested_output_count",
+      "requested_years",
+      "from_year",
+      "to_year",
+      "entity_mode",
+      "entity_text",
+      "requested_unit_family",
+      "requested_scale",
+      "direction_intent",
+      "reference_base",
+      "abstention_reason",
+      "program_dag"
+    ],
+    "admission_rule": "Pure compiler semantic-invariance failure spanning generic families; no document layout claim is made from compiler questions."
+  },
+  "semantic_diversity_contract": {
+    "core_answer_families": 13,
+    "ambiguity_controls": 3,
+    "root_operation_semantics": [
+      "SELECT",
+      "SUBTRACT",
+      "RATIO_PERCENT",
+      "PERCENT_CHANGE"
+    ],
+    "frozen_surface_categories": 7,
+    "frozen_surface_questions": 91,
+    "frozen_minimal_pairs": 57,
+    "minimal_pair_dimensions": [
+      "COLUMN_ROLE",
+      "OPERAND_YEAR",
+      "ENTITY_SCOPE",
+      "UNIT_SCALE",
+      "DIRECTION",
+      "REFERENCE_BASE"
+    ],
+    "orthogonal_hold_ahead": {
+      "classification": "development_only_compiler_question_matrix_no_company_or_layout_claim",
+      "families": 13,
+      "recipes_per_category": 2,
+      "categories": {
+        "DISCOURSE_PREFIX_SUFFIX": [
+          {
+            "placement": "prefix",
+            "text": "Dựa trên số liệu được trình bày trong báo cáo tài chính, "
+          },
+          {
+            "placement": "prefix",
+            "text": "Trong phạm vi cùng báo cáo và chỉ theo số liệu đã công bố, "
+          }
+        ],
+        "BILINGUAL_PARENTHETICAL": [
+          {
+            "placement": "suffix_parenthetical",
+            "text": "reported in source units / đơn vị theo nguồn"
+          },
+          {
+            "placement": "suffix_parenthetical",
+            "text": "source-disclosed unit / đơn vị công bố"
+          }
+        ],
+        "IRRELEVANT_DISTRACTOR_CLAUSE": [
+          {
+            "placement": "suffix_clause",
+            "text": "không cần giải thích nguyên nhân biến động"
+          },
+          {
+            "placement": "suffix_clause",
+            "text": "không yêu cầu dự báo hay nhận định xu hướng"
+          }
+        ]
+      },
+      "total_questions": 78,
+      "expected_postimplementation_semantic_projection_exact": "78/78",
+      "runtime_may_match_recipe_literals": false,
+      "counts_as_company_or_layout_confirmation": false
+    },
+    "anti_erasure_controls": {
+      "reuse_all_frozen_minimal_pairs": true,
+      "expected_postimplementation_detection": "57/57",
+      "typed_qualifiers_that_must_never_be_discarded_as_surface": [
+        "metric identity",
+        "column role",
+        "operand period",
+        "entity scope",
+        "unit family or scale",
+        "signed direction",
+        "denominator or reference base",
+        "requested output count"
+      ]
+    }
+  },
+  "source_backed_replay_contract": {
+    "anchors": 5,
+    "companies": 5,
+    "source_documents": 5,
+    "real_layout_families": 3,
+    "surface_queries": 35,
+    "currently_passing_surface_queries_to_retain": 20,
+    "current_question_plan_residual_queries": 15,
+    "full_source_surface_replay_required": true,
+    "source_residual_improvement_required_to_close_this_compiler_stage": false,
+    "reason": "The admitted edit is isolated by compiler-only evidence to operand metric normalization. ADD SHORT_LONG/CLAUSE_PERMUTATION and source/extraction strata require separate precommit evidence before broader parser or source edits.",
+    "synthetic_question_counts_as_real_layout_confirmation": false,
+    "safe_abstention_counts_as_answer": false
+  },
+  "implementation_scope": {
+    "stage": "operand_metric_surface_normalization_only",
+    "runtime_file_whitelist": [
+      "src/hrm_finance_qa/question_planner.py"
+    ],
+    "exact_symbols": {
+      "new_helper": [
+        "_strip_nonsemantic_metric_surface"
+      ],
+      "existing_function_edit": [
+        "compile_question_plan"
+      ]
+    },
+    "allowed_observable_change": [
+      "metric_text after removal of proven non-semantic surface framing",
+      "operand_slots[*].metric derived from that metric_text"
+    ],
+    "semantic_rules": [
+      "Preserve QuestionPlan.normalized exactly as the normalized full question.",
+      "Strip only source-attribution framing that is grammatically outside the independent financial request.",
+      "Strip a parenthetical gloss only when it contains no metric, column-role, period, entity, unit-scale, direction, reference-base or output-count qualifier.",
+      "Strip a trailing request-exclusion clause only when it excludes qualitative explanation or prediction and contains no competing financial metric or typed qualifier.",
+      "If a candidate surface span contains any typed qualifier or cannot be proven non-semantic, preserve it and fail closed rather than erase it.",
+      "Do not use company, report, filename, page, fixed year, value, example ID, family ID or question literal in runtime logic."
+    ],
+    "non_goals": [
+      "operation-intent repair",
+      "ADD structural-frame repair",
+      "SHORT_LONG_EQUIVALENT repair",
+      "CLAUSE_PERMUTATION repair",
+      "COLUMN_ROLE repair",
+      "DIRECTION repair",
+      "REFERENCE_BASE repair",
+      "retrieval changes",
+      "source loading or extraction changes",
+      "candidate binding or program synthesis changes",
+      "symbolic verifier or proof changes",
+      "renderer changes",
+      "threshold, checkpoint or model changes"
+    ]
+  },
+  "frozen_runtime_files": [
+    "src/hrm_finance_qa/program_synthesis.py",
+    "src/hrm_finance_qa/symbolic_verifier.py",
+    "src/hrm_finance_qa/evidence_schema.py",
+    "src/hrm_finance_qa/document_hrm.py",
+    "src/hrm_finance_qa/document_reasoning_engine.py",
+    "src/hrm_finance_qa/program_data.py",
+    "src/hrm_finance_qa/direction_contract.py",
+    "src/hrm_finance_qa/answer_presentation.py",
+    "src/hrm_finance_qa/document_sources.py",
+    "src/hrm_finance_qa/document_page_index.py"
+  ],
+  "post_implementation_gates": {
+    "canonical_compiler": "13/13",
+    "ambiguity_controls": "3/3",
+    "frozen_surface_semantic_projection": "91/91",
+    "isolated_residuals_fixed": "18/18",
+    "orthogonal_hold_ahead_semantic_projection": "78/78",
+    "minimal_pair_detection": "57/57",
+    "source_surface_replay": "35/35 executed and reported",
+    "source_passing_surface_retention": "20/20",
+    "candidate_permutation": "363/363",
+    "counterfactual_false_accepts": 0,
+    "frozen_safe_replay_actions": {
+      "ANSWER": 257,
+      "ABSTAIN": 92,
+      "REJECT": 14
+    },
+    "frozen_safe_replay_execution": "363/363",
+    "frozen_safe_replay_counterfactuals": 141,
+    "affected_regression_minimum": "348/348",
+    "runtime_hashes_outside_whitelist_unchanged": true,
+    "checkpoint_sha256_unchanged": true
+  },
+  "invariants": {
+    "abw_used": false,
+    "protected_evaluation_loaded": false,
+    "validation_loaded": false,
+    "blind_loaded": false,
+    "test_data_loaded": false,
+    "sealed_or_holdout_loaded": false,
+    "threshold_changed": false,
+    "checkpoint_changed": false,
+    "model_changed": false,
+    "fine_tuning_performed": false,
+    "synthetic_layout_counted_as_confirmation": false,
+    "safe_abstention_counted_as_answer": false,
+    "candidate_rank_score_or_confidence_used_as_semantic_proof": false,
+    "runtime_changed": false,
+    "qp4_complete": false,
+    "qp5_authorized": false,
+    "phase_d_unlocked": false
+  },
+  "runtime_changed_by_this_precommit": false,
+  "implementation_executed_by_this_precommit": false,
+  "runtime_change_authorized_in_same_step": false,
+  "authorized_next_step_after_lock": "QP4-QUESTION-SURFACE-IMPLEMENTATION may edit only _strip_nonsemantic_metric_surface and its wiring inside compile_question_plan in src/hrm_finance_qa/question_planner.py, then must pass the frozen 91-question surface matrix, 78-question orthogonal hold-ahead, all 57 semantic minimal pairs, source-backed replay, affected regression and full safe replay. QP5 and Phase D remain locked."
+}

@@ -1,0 +1,105 @@
+{
+  "schema": "finhrm-qp4-unit-scale-proof-contract-implementation-lock-v1",
+  "created_at": "2026-08-21",
+  "classification": "development_only_qp4_generic_unit_scale_proof_contract_implementation",
+  "status": "implementation_executed_gate_not_closed",
+  "implementation_gate_passed": false,
+  "source_gate_passed": true,
+  "failed_gates": [
+    "safe_actions_exact"
+  ],
+  "runtime_changes": {
+    "src/hrm_finance_qa/question_planner.py": {
+      "before_sha256": "e64c9140ed62cc7289941edf04b58c9748b13bf6bf98edd5699ef1d4ffb38a03",
+      "after_sha256": "0973e72711fccdac6fd8615e5dd5afc8f47fb98024c9080063cd6bac46bd66a2",
+      "symbols": [
+        "_PROOF_CONSTRAINTS",
+        "compile_question_proof_contract"
+      ]
+    },
+    "src/hrm_finance_qa/symbolic_verifier.py": {
+      "before_sha256": "e9efa8d2fa9ce1aedd460cdd11c1eb9321aab7122b0908fc5017687c1491ed88",
+      "after_sha256": "2679b1ce55cc070697438c806f19e3e888bfc19bc1a9ae3686a0b7fd7ffb0087",
+      "symbols": [
+        "currency_unit_scale import",
+        "_unit_scale_match_state",
+        "verify_program"
+      ]
+    }
+  },
+  "frozen_action_gate_conflict": {
+    "observed": {
+      "ABSTAIN": 92,
+      "ANSWER": 257,
+      "REJECT": 14
+    },
+    "expected": {
+      "ANSWER": 259,
+      "ABSTAIN": 90,
+      "REJECT": 14
+    },
+    "cause": "Two explicit VND requests have gold candidates with unit_status=missing; the new required proof correctly yields UNKNOWN/ABSTAIN, but the precommit froze their prior ANSWER actions.",
+    "examples": [
+      "159",
+      "621"
+    ],
+    "resolution_requires_new_precommit": true
+  },
+  "further_runtime_change_authorized": false,
+  "artifacts": [
+    {
+      "path": "config/finhrm_qp4_unit_scale_proof_contract_implementation_v1.json",
+      "size_bytes": 5183,
+      "sha256": "e5f513e51f91e7f7495bd404fde393c25511816536fd85d6d9b2a8195a345b6c"
+    },
+    {
+      "path": "scripts/evaluate_qp4_unit_scale_proof_contract_implementation.py",
+      "size_bytes": 19248,
+      "sha256": "5111ecd024293c0a7b00ba3f6ac9f156b796e5720ae4911a1fea41a03838dbfb"
+    },
+    {
+      "path": "tests/test_qp4_unit_scale_proof_contract_implementation.py",
+      "size_bytes": 6673,
+      "sha256": "8567ae6fdb4400a52b84a98dcf12b610ffd3c3db29fb4a8d6d048c32031a17d7"
+    },
+    {
+      "path": "tests/test_qp4_unit_scale_proof_contract_implementation_report.py",
+      "size_bytes": 4627,
+      "sha256": "55c9aa4b8975cb7247af2c78d4c10d38bd736e449560742bc548fbac8347b785"
+    },
+    {
+      "path": "reports/finhrm_qp4_unit_scale_proof_contract_source_replay_v1.json",
+      "size_bytes": 33646,
+      "sha256": "8adb8e5b39efc094fe145ec98e3962d9d7d8d02d56fd7ec6f47d6732dc4d7b96"
+    },
+    {
+      "path": "reports/finhrm_qp4_unit_scale_proof_contract_safe_replay_v1.json",
+      "size_bytes": 257450,
+      "sha256": "73cc2bc11f3872cf25714de9b6d92ae9f40b4b349a4a63f4c8cc3b25e53d932d"
+    },
+    {
+      "path": "reports/finhrm_qp4_unit_scale_proof_contract_safe_replay_v1.md",
+      "size_bytes": 615,
+      "sha256": "5ea61943d53b68862a70a69c9744f753faaf15dbe5a646ace6cc3b937e4adb0f"
+    },
+    {
+      "path": "reports/finhrm_qp4_unit_scale_proof_contract_safe_replay_lock_v1.json",
+      "size_bytes": 29564,
+      "sha256": "c9dc786a60975dba34aebe5d17ae131f3eddacbc0504bde86c06bcb0a5353091"
+    },
+    {
+      "path": "reports/finhrm_qp4_unit_scale_proof_contract_implementation_v1.json",
+      "size_bytes": 3657,
+      "sha256": "4c0c001b4e553824730587dafb92c40461b71f395fcf8ee5609c9caa40ffef98"
+    },
+    {
+      "path": "reports/finhrm_qp4_unit_scale_proof_contract_implementation_v1.md",
+      "size_bytes": 873,
+      "sha256": "b2644d176419fab268d3bc598a4cc915cf2bb6588bdcf506840c3637243b5b37"
+    }
+  ],
+  "qp4_complete": false,
+  "qp5_authorized": false,
+  "phase_d": "locked",
+  "authorized_next_step": "QP4-UNIT-SCALE-FROZEN-ACTION-CONTRACT-REVIEW-PRECOMMIT must resolve the two missing-unit proof cases without forcing ANSWER or changing runtime."
+}

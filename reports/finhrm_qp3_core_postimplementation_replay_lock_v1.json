@@ -1,0 +1,117 @@
+{
+  "schema": "finhrm-qp3-core-postimplementation-replay-lock-v1",
+  "created_at": "2026-08-14",
+  "classification": "development_only_validation_free_stress_lock",
+  "status": "safe_s4_stress_complete_unseen_confirmation_locked",
+  "implementation_complete": true,
+  "postimplementation_replay_complete": true,
+  "validation_free_replay_complete": true,
+  "empirical_unseen_generalization_complete": false,
+  "qp4_authorized": false,
+  "phase_d": "locked",
+  "passed_replays": {
+    "qp3a_through_qp3f_and_core": "66/66",
+    "compiler_proof_generalization_company_disjoint": "145/145",
+    "document_runtime": "181/181",
+    "new_company_direction": "19/19",
+    "safe_s4_gold_execution": "363/363",
+    "safe_s4_serialization_permutation": "363/363",
+    "safe_s4_explicit_counterfactual_false_accepts": "0/123"
+  },
+  "safe_s4_scope": {
+    "source": "data/document_hrm_development_v1_train.jsonl",
+    "eligible_examples": 363,
+    "company_groups": 121,
+    "layout_groups": 6,
+    "gold_answered": 187,
+    "gold_abstained": 162,
+    "gold_rejected": 14,
+    "company_macro_answer_rate": 0.346517119244392,
+    "company_worst_answer_rate": 0.0,
+    "layout_macro_answer_rate": 0.5013783496313929,
+    "layout_worst_answer_rate": 0.0,
+    "layout_worst_permutation_consistency": 1.0,
+    "company_worst_counterfactual_false_accept_rate": 0.0,
+    "layout_worst_counterfactual_false_accept_rate": 0.0
+  },
+  "coverage_limit": "The validation-free stress gate establishes invariant execution, permutation consistency, and zero false accepts on available explicit counterfactuals. It does not establish unseen-report confirmation or universal answer coverage; worst-group answer coverage is zero.",
+  "pending_replays": {
+    "frozen_s4_original": "not run because the current audit reads validation_candidates.jsonl and protected validation access is forbidden",
+    "unseen_company_layout_confirmation": "locked; no protected validation, blind, or test data may be read"
+  },
+  "checkpoint_sha256": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de",
+  "invariants": {
+    "abw_used_as_confirmation": false,
+    "protected_evaluation_loaded": false,
+    "threshold_changed": false,
+    "checkpoint_changed": false,
+    "fine_tuning_performed": false,
+    "safe_abstention_counted_as_answered": false,
+    "universal_coverage_claim_made": false,
+    "company_or_layout_specific_runtime_rule_added": false,
+    "candidate_rank_or_score_used_as_proof": false
+  },
+  "artifacts": [
+    {
+      "path": "reports/finhrm_qp3_core_implementation_lock_v1.json",
+      "size_bytes": 4866,
+      "sha256": "19021a8b8b1c69611aa6cd4f32c1aac4f459567b62fb11df0fdf3b8a3a74ca1b"
+    },
+    {
+      "path": "config/finhrm_qp3_core_replay_authorization_v1.json",
+      "size_bytes": 1605,
+      "sha256": "83aea314d656606481bb81a5e0296d2266626ecfbba55738bce84e6ad42c7556"
+    },
+    {
+      "path": "reports/finhrm_qp3_core_postimplementation_replay_v1.json",
+      "size_bytes": 3691,
+      "sha256": "543d27b80e2610eb8ba2b31111988e07a5bd895bfc6f025b0bf0e92374125b74"
+    },
+    {
+      "path": "reports/finhrm_qp3_core_postimplementation_replay_v1.md",
+      "size_bytes": 1333,
+      "sha256": "6642df96c9fb4b86285db5790dbf7aa0ea58139c57b98efd06b437097ebc3f8c"
+    },
+    {
+      "path": "reports/finhrm_qp3_core_new_company_direction_replay_v1.json",
+      "size_bytes": 1779,
+      "sha256": "1135290d66aad2046f224a61227cef3a63b43197b65b67e5da4aca597017a7ee"
+    },
+    {
+      "path": "config/finhrm_qp3_core_s4_safe_replay_precommit_v1.json",
+      "size_bytes": 2463,
+      "sha256": "71bd3a5e7748b9e3b0b5a676177dfddb602c52865d68727f8c7ebc2d8e246691"
+    },
+    {
+      "path": "scripts/evaluate_qp3_core_s4_safe_replay.py",
+      "size_bytes": 24511,
+      "sha256": "ce532ff3406727a8b024f39e80b40b58ca008efa780939e194f11051a981710c"
+    },
+    {
+      "path": "tests/test_qp3_core_s4_safe_replay.py",
+      "size_bytes": 4002,
+      "sha256": "8d1d381c4708e6d67e1324ad325311265b7885d0dc8d2c047966b18d892b7e90"
+    },
+    {
+      "path": "reports/finhrm_qp3_core_s4_safe_replay_v1.json",
+      "size_bytes": 261850,
+      "sha256": "cb0dbbc27de5c9254fd3fa4634183f91bfcbf2b93e96f1703984aaf4d9f146f0"
+    },
+    {
+      "path": "reports/finhrm_qp3_core_s4_safe_replay_v1.md",
+      "size_bytes": 616,
+      "sha256": "976837c6bad5ca1f427c75a15fe6f0fdc5263ba029fb7049fa0d97e5f527652d"
+    },
+    {
+      "path": "reports/finhrm_qp3_core_s4_safe_replay_lock_v1.json",
+      "size_bytes": 29247,
+      "sha256": "b074a2db39757c3005ec4ecdce156ec5e6a6b77748548f6db67c9f1de4ec35b3"
+    },
+    {
+      "path": "strategy.md",
+      "size_bytes": 208618,
+      "sha256": "f29e756300ab16d79858c714b398fb03e7b38828528b67ead1b7dea069c267a5"
+    }
+  ],
+  "authorized_next_step": "QP3-CORE-GENERALIZATION-COVERAGE-PRECOMMIT only; generic proof-coverage work across company/layout groups. QP4 remains locked."
+}

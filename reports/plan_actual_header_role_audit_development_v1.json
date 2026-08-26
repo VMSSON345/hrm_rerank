@@ -1,0 +1,408 @@
+{
+  "schema": "plan-actual-header-role-audit-development-v1",
+  "classification": "development_only_audit",
+  "scope": "QP1 evidence representation and extraction only",
+  "runtime_acceptance_changed": false,
+  "strict_verifier_enabled": false,
+  "threshold_changed": false,
+  "fine_tuning_performed": false,
+  "global_validation_loaded": false,
+  "sealed_validation_loaded": false,
+  "blind_test_loaded": false,
+  "input": "/mnt/d/reasoning_model_V4/reasoning_model/data/document_hrm_v12b2_development_plus_subtract_v3.jsonl",
+  "input_sha256": "c6e119519d2dae59933edc5e493de7aef885154c037b95be54a1290b7f529d26",
+  "cache_identity_contract": {
+    "cache_schema": "v12b2-applicability-proof-candidate-cache-v5",
+    "evidence_schema_version": "evidence-cell-header-role-v2",
+    "evidence_schema_fingerprint": "de4c47be90bced3f4700a39aeebb53efdad081585a8169cfd547c77c6b3c89b0"
+  },
+  "counts": {
+    "cells": 37781,
+    "conflict_cells": 9,
+    "counterfactual_cells": 1458,
+    "counterfactual_flip_pass": 1458,
+    "examples": 1246,
+    "header_context_cells": 33149,
+    "header_path_cells": 37781,
+    "known_role_cells": 1766,
+    "source_span_cells": 37781,
+    "unknown_role_cells": 36015
+  },
+  "role_counts": {
+    "actual": 1299,
+    "actual_to_plan_ratio": 86,
+    "actual_to_prior_ratio": 206,
+    "forecast": 16,
+    "plan": 159,
+    "unknown": 36015
+  },
+  "confidence_counts": {
+    "CONFLICT": 9,
+    "EXPLICIT": 1766,
+    "UNKNOWN": 36006
+  },
+  "role_source_counts": {
+    "column_label": 208,
+    "column_label+explicit_column_label": 26,
+    "column_label+explicit_column_label+header_path_composite": 2,
+    "column_label+explicit_header": 1450,
+    "conflicting_header_evidence": 9,
+    "explicit_header": 80,
+    "none": 36006
+  },
+  "extraction_method_counts": {
+    "mineru": 396,
+    "native": 37385
+  },
+  "examples_with_known_role": 115,
+  "examples_with_conflict": 6,
+  "gold_requested_role_audit": {
+    "examples": 5,
+    "gold_operands_resolved": 5,
+    "gold_role_exact": 3,
+    "gold_role_unknown": 2,
+    "requested_actual": 1,
+    "requested_plan": 4
+  },
+  "counterfactual_role_flip_rate": 1.0,
+  "conflict_samples": [
+    {
+      "example_id": "synthetic-train-select-0097",
+      "candidate_index": 8,
+      "column": "Thực hiện 2025",
+      "header_path": [
+        "Kế hoạch 2025"
+      ],
+      "role_evidence": [
+        "Thực hiện 2025",
+        "Kế hoạch 2025"
+      ],
+      "role_source": "conflicting_header_evidence",
+      "page": 17,
+      "source_name": "CKG_25CN_BCTN.pdf"
+    },
+    {
+      "example_id": "synthetic-train-select-0097",
+      "candidate_index": 16,
+      "column": "Thực hiện 2025",
+      "header_path": [
+        "Kế hoạch 2025"
+      ],
+      "role_evidence": [
+        "Thực hiện 2025",
+        "Kế hoạch 2025"
+      ],
+      "role_source": "conflicting_header_evidence",
+      "page": 17,
+      "source_name": "CKG_25CN_BCTN.pdf"
+    },
+    {
+      "example_id": "synthetic-train-select-0097",
+      "candidate_index": 24,
+      "column": "Thực hiện 2025",
+      "header_path": [
+        "Kế hoạch 2025"
+      ],
+      "role_evidence": [
+        "Thực hiện 2025",
+        "Kế hoạch 2025"
+      ],
+      "role_source": "conflicting_header_evidence",
+      "page": 17,
+      "source_name": "CKG_25CN_BCTN.pdf"
+    },
+    {
+      "example_id": "synthetic-train-divide-0015",
+      "candidate_index": 11,
+      "column": "Thực hiện 2025",
+      "header_path": [
+        "Kế hoạch 2026"
+      ],
+      "role_evidence": [
+        "Thực hiện 2025",
+        "Kế hoạch 2026"
+      ],
+      "role_source": "conflicting_header_evidence",
+      "page": 34,
+      "source_name": "PMG_25CN_BCTN.pdf"
+    },
+    {
+      "example_id": "synthetic-train-divide-0041",
+      "candidate_index": 11,
+      "column": "Thực hiện 2025",
+      "header_path": [
+        "Kế hoạch 2026"
+      ],
+      "role_evidence": [
+        "Thực hiện 2025",
+        "Kế hoạch 2026"
+      ],
+      "role_source": "conflicting_header_evidence",
+      "page": 34,
+      "source_name": "PMG_25CN_BCTN.pdf"
+    },
+    {
+      "example_id": "synthetic-train-ratio_percent-0004",
+      "candidate_index": 11,
+      "column": "Thực hiện 2025",
+      "header_path": [
+        "Kế hoạch 2026"
+      ],
+      "role_evidence": [
+        "Thực hiện 2025",
+        "Kế hoạch 2026"
+      ],
+      "role_source": "conflicting_header_evidence",
+      "page": 34,
+      "source_name": "PMG_25CN_BCTN.pdf"
+    },
+    {
+      "example_id": "synthetic-train-ratio_percent-0120",
+      "candidate_index": 11,
+      "column": "Thực hiện 2025",
+      "header_path": [
+        "Kế hoạch 2026"
+      ],
+      "role_evidence": [
+        "Thực hiện 2025",
+        "Kế hoạch 2026"
+      ],
+      "role_source": "conflicting_header_evidence",
+      "page": 34,
+      "source_name": "PMG_25CN_BCTN.pdf"
+    },
+    {
+      "example_id": "synthetic-train-percent_change-0003",
+      "candidate_index": 1,
+      "column": "Thực hiện 2024",
+      "header_path": [
+        "Kế hoạch 2025"
+      ],
+      "role_evidence": [
+        "Thực hiện 2024",
+        "Kế hoạch 2025"
+      ],
+      "role_source": "conflicting_header_evidence",
+      "page": 46,
+      "source_name": "NKG_25CN_BCTN.pdf"
+    },
+    {
+      "example_id": "synthetic-train-percent_change-0003",
+      "candidate_index": 5,
+      "column": "Thực hiện 2024",
+      "header_path": [
+        "Kế hoạch 2025"
+      ],
+      "role_evidence": [
+        "Thực hiện 2024",
+        "Kế hoạch 2025"
+      ],
+      "role_source": "conflicting_header_evidence",
+      "page": 46,
+      "source_name": "NKG_25CN_BCTN.pdf"
+    }
+  ],
+  "unknown_header_samples": [
+    {
+      "example_id": "synthetic-train-select-0001",
+      "candidate_index": 0,
+      "column": "Số cuối năm",
+      "header_path": [
+        "STT"
+      ],
+      "page": 64,
+      "source_name": "EIB_25CN_BCTN.pdf"
+    },
+    {
+      "example_id": "synthetic-train-select-0001",
+      "candidate_index": 1,
+      "column": "CHỈ TIÊU",
+      "header_path": [
+        "STT"
+      ],
+      "page": 64,
+      "source_name": "EIB_25CN_BCTN.pdf"
+    },
+    {
+      "example_id": "synthetic-train-select-0001",
+      "candidate_index": 2,
+      "column": "Số đầu năm",
+      "header_path": [
+        "Số cuối năm"
+      ],
+      "page": 64,
+      "source_name": "EIB_25CN_BCTN.pdf"
+    },
+    {
+      "example_id": "synthetic-train-select-0001",
+      "candidate_index": 3,
+      "column": "CHỈ TIÊU",
+      "header_path": [
+        "STT"
+      ],
+      "page": 64,
+      "source_name": "EIB_25CN_BCTN.pdf"
+    },
+    {
+      "example_id": "synthetic-train-select-0001",
+      "candidate_index": 4,
+      "column": "Số đầu năm",
+      "header_path": [
+        "Số cuối năm"
+      ],
+      "page": 64,
+      "source_name": "EIB_25CN_BCTN.pdf"
+    },
+    {
+      "example_id": "synthetic-train-select-0001",
+      "candidate_index": 5,
+      "column": "CHỈ TIÊU",
+      "header_path": [
+        "Đơn vị: Triệu VND"
+      ],
+      "page": 64,
+      "source_name": "EIB_25CN_BCTN.pdf"
+    },
+    {
+      "example_id": "synthetic-train-select-0001",
+      "candidate_index": 6,
+      "column": "Số cuối năm",
+      "header_path": [
+        "Đơn vị: Triệu VND"
+      ],
+      "page": 64,
+      "source_name": "EIB_25CN_BCTN.pdf"
+    },
+    {
+      "example_id": "synthetic-train-select-0001",
+      "candidate_index": 7,
+      "column": "Số cuối năm",
+      "header_path": [
+        "Số cuối năm"
+      ],
+      "page": 64,
+      "source_name": "EIB_25CN_BCTN.pdf"
+    },
+    {
+      "example_id": "synthetic-train-select-0001",
+      "candidate_index": 8,
+      "column": "Số cuối năm",
+      "header_path": [
+        "Đơn vị: Triệu VND"
+      ],
+      "page": 64,
+      "source_name": "EIB_25CN_BCTN.pdf"
+    },
+    {
+      "example_id": "synthetic-train-select-0001",
+      "candidate_index": 9,
+      "column": "Số cuối năm",
+      "header_path": [
+        "STT"
+      ],
+      "page": 64,
+      "source_name": "EIB_25CN_BCTN.pdf"
+    },
+    {
+      "example_id": "synthetic-train-select-0001",
+      "candidate_index": 10,
+      "column": "Số cuối năm",
+      "header_path": [
+        "Đơn vị: Triệu VND"
+      ],
+      "page": 64,
+      "source_name": "EIB_25CN_BCTN.pdf"
+    },
+    {
+      "example_id": "synthetic-train-select-0001",
+      "candidate_index": 11,
+      "column": "Số cuối năm",
+      "header_path": [
+        "Số cuối năm"
+      ],
+      "page": 64,
+      "source_name": "EIB_25CN_BCTN.pdf"
+    },
+    {
+      "example_id": "synthetic-train-select-0001",
+      "candidate_index": 12,
+      "column": "Số đầu năm",
+      "header_path": [
+        "Số đầu năm"
+      ],
+      "page": 64,
+      "source_name": "EIB_25CN_BCTN.pdf"
+    },
+    {
+      "example_id": "synthetic-train-select-0001",
+      "candidate_index": 13,
+      "column": "Số cuối năm",
+      "header_path": [
+        "Số cuối năm"
+      ],
+      "page": 64,
+      "source_name": "EIB_25CN_BCTN.pdf"
+    },
+    {
+      "example_id": "synthetic-train-select-0001",
+      "candidate_index": 14,
+      "column": "Số đầu năm",
+      "header_path": [
+        "Số đầu năm"
+      ],
+      "page": 64,
+      "source_name": "EIB_25CN_BCTN.pdf"
+    },
+    {
+      "example_id": "synthetic-train-select-0001",
+      "candidate_index": 15,
+      "column": "Số cuối năm",
+      "header_path": [
+        "Số cuối năm"
+      ],
+      "page": 64,
+      "source_name": "EIB_25CN_BCTN.pdf"
+    },
+    {
+      "example_id": "synthetic-train-select-0001",
+      "candidate_index": 16,
+      "column": "Số đầu năm",
+      "header_path": [
+        "Số đầu năm"
+      ],
+      "page": 64,
+      "source_name": "EIB_25CN_BCTN.pdf"
+    },
+    {
+      "example_id": "synthetic-train-select-0001",
+      "candidate_index": 17,
+      "column": "Số cuối năm",
+      "header_path": [
+        "Số cuối năm"
+      ],
+      "page": 64,
+      "source_name": "EIB_25CN_BCTN.pdf"
+    },
+    {
+      "example_id": "synthetic-train-select-0001",
+      "candidate_index": 18,
+      "column": "Số đầu năm",
+      "header_path": [
+        "Số đầu năm"
+      ],
+      "page": 64,
+      "source_name": "EIB_25CN_BCTN.pdf"
+    },
+    {
+      "example_id": "synthetic-train-select-0001",
+      "candidate_index": 19,
+      "column": "Số cuối năm",
+      "header_path": [
+        "Số cuối năm"
+      ],
+      "page": 64,
+      "source_name": "EIB_25CN_BCTN.pdf"
+    }
+  ],
+  "decision": "QP1 is representation-only. Do not enable strict acceptance; use unknown/conflict inventory to guide QP2/QP3."
+}

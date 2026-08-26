@@ -1,0 +1,244 @@
+{
+  "schema": "finhrm-qp4-post-question-surface-post-cache-residual-coverage-post-source-protocol-diagnostic-review-lock-v1",
+  "created_at": "2026-08-24",
+  "classification": "development_only_qp4_artifact_only_value_prioritized_diagnostic_review_no_runtime_or_source_execution",
+  "status": "complete",
+  "diagnostic_gate_passed": true,
+  "failed_diagnostic_gates": [],
+  "qp4_gate_passed": false,
+  "qp4_blocking_gates": [
+    "proof_complete_exact_target_answers_60",
+    "all_expected_answer_rows_72",
+    "canonical_positive_answers_12",
+    "exact_non_answer_action_contract_18",
+    "smallest_generic_candidate_and_binding_runtime_root_isolated",
+    "surface_equivalence_groups_12",
+    "source_candidate_permutation_exact_90"
+  ],
+  "parents": {
+    "precommit_config_sha256": "421452e64056fd36c42a1c35183ddde4b67de102541be92c51380ed4c871dfd6",
+    "precommit_markdown_sha256": "ebe6f773ac9308a0ad790aa6ba24d7d5a0091c2f70e4c60f0c609d4ad8102cc3",
+    "precommit_lock_sha256": "35d64294e7890da6646159d85a59720c3660df70836ef9ccac98d211d63c5f21",
+    "source_protocol_reclosure_report_sha256": "88907efcf7764217c5aa1d5219e5ef2c997d34cbf45d1f300dd68190b8ae84eb"
+  },
+  "frozen_denominators": {
+    "logical_primary_rows": 90,
+    "nested_candidate_permutation_rows": 90,
+    "expected_answer_rows": 72,
+    "expected_non_answer_rows": 18,
+    "exact_oracle_pass_rows": 8,
+    "proof_complete_exact_targets": "0/60",
+    "all_expected_answer_rows_answered": "0/72",
+    "canonical_positive_answers": "0/12",
+    "exact_non_answer_controls": "8/18",
+    "safe_fail_closed_non_answer_controls": "18/18",
+    "surface_equivalence_groups": "0/12",
+    "source_candidate_permutation_exact": "37/90",
+    "primary_first_failing_layer": {
+      "QUESTION_PLAN": 19,
+      "CANDIDATE_POPULATION_OR_RETRIEVAL": 39,
+      "SEMANTIC_BINDING_OR_PROGRAM_SYNTHESIS": 13,
+      "SYMBOLIC_PROOF_OR_ACTION": 11,
+      "PASS": 8
+    }
+  },
+  "row_disposition_lock": {
+    "each_row_classified_exactly_once": true,
+    "partition_sum": 90,
+    "counts": {
+      "EXACT_PASS_CONTROL": 8,
+      "P0_CONFIRMED_GENERIC": 9,
+      "P1_CONFIRMED_GENERIC": 18,
+      "P1_GENERIC_LAYER_TRACE_INSUFFICIENT": 21,
+      "P2_DEPENDENT_METRIC": 29,
+      "P3_NON_GENERIC_OR_NONESSENTIAL": 5
+    },
+    "cross_category_pooling_used": false,
+    "pass_control_dilution_used": false,
+    "non_generic_rows_hidden": false
+  },
+  "confirmed_generic_signatures": [
+    {
+      "priority": "P0",
+      "name": "YEAR_SHIFT_MISSING_PROOF_COLLAPSED_TO_INVALID_REJECT",
+      "rows": 6,
+      "coverage": "6 companies / 6 sources / 3 real document layouts / 6 real table layouts / 2 extraction families"
+    },
+    {
+      "priority": "P0",
+      "name": "AMBIGUOUS_NULL_PLAN_MATERIALIZED_AS_RATIO_INVALID_REJECT",
+      "rows": 3,
+      "coverage": "3 companies / 3 sources / 3 real document layouts / 3 real table layouts / 2 extraction families"
+    },
+    {
+      "priority": "P1",
+      "name": "CLAUSE_REORDER_REVERSES_ACTUAL_PLAN_ATTACHMENT",
+      "rows": 6,
+      "coverage": "6 companies / 6 sources / 3 real document layouts / 6 real table layouts / 2 extraction families"
+    },
+    {
+      "priority": "P1",
+      "name": "REFERENCE_BASE_CLAUSE_REORDER_COLLAPSES_RATIO_TO_SELECT",
+      "rows": 6,
+      "coverage": "6 companies / 6 sources / 3 real document layouts / 6 real table layouts / 2 extraction families"
+    },
+    {
+      "priority": "P1",
+      "name": "REFERENCE_BASE_PARAPHRASE_COLLAPSES_RATIO_TO_SELECT",
+      "rows": 6,
+      "coverage": "6 companies / 6 sources / 3 real document layouts / 6 real table layouts / 2 extraction families"
+    }
+  ],
+  "core_layer_signatures_requiring_trace": [
+    {
+      "category": "base_target",
+      "surface": "canonical",
+      "layer": "CANDIDATE_POPULATION_OR_RETRIEVAL",
+      "rows": 5,
+      "coverage": "5 companies / 5 sources / 3 real document layouts / 5 real table layouts / 2 extraction families"
+    },
+    {
+      "category": "reference_base_mutation_target",
+      "surface": "canonical",
+      "layer": "CANDIDATE_POPULATION_OR_RETRIEVAL",
+      "rows": 3,
+      "coverage": "3 companies / 3 sources / 2 real document layouts / 3 real table layouts / 2 extraction families"
+    },
+    {
+      "category": "reference_base_mutation_target",
+      "surface": "canonical",
+      "layer": "SEMANTIC_BINDING_OR_PROGRAM_SYNTHESIS",
+      "rows": 3,
+      "coverage": "3 companies / 3 sources / 2 real document layouts / 3 real table layouts / 1 extraction family"
+    },
+    {
+      "category": "minimal_pair_role_swap",
+      "surface": "control",
+      "layer": "CANDIDATE_POPULATION_OR_RETRIEVAL",
+      "rows": 5,
+      "coverage": "5 companies / 5 sources / 3 real document layouts / 5 real table layouts / 2 extraction families"
+    },
+    {
+      "category": "PA07_operation_contrast",
+      "surface": "control",
+      "layer": "CANDIDATE_POPULATION_OR_RETRIEVAL",
+      "rows": 5,
+      "coverage": "5 companies / 5 sources / 3 real document layouts / 5 real table layouts / 2 extraction families"
+    }
+  ],
+  "decision_lock": {
+    "attribution": "GENERIC_PLANNER_AND_PROOF_POLICY_SIGNATURES_CONFIRMED_BUT_CANONICAL_CANDIDATE_BINDING_CAUSE_NOT_PERSISTED",
+    "runtime_edit_authorized": false,
+    "runtime_file_whitelist": [],
+    "implementation_precommit_authorized_now": false,
+    "planner_only_patch_forbidden_now": true,
+    "reason": "Canonical planning already passes, while canonical verified answers remain zero and fail at candidate/binding. The persisted artifact does not retain exact typed rejection reasons or the smallest responsible runtime symbol.",
+    "P2_or_P3_runtime_edit_authorized": false,
+    "semantic_trace_reclosure_precommit_authorized": true
+  },
+  "next_trace_contract_seed": {
+    "logical_rows": 42,
+    "nested_candidate_permutation_rows": 42,
+    "selection": "all 24 canonical/positive-semantic-control observations plus all 18 negative controls across the frozen cohort",
+    "companies": 6,
+    "sources": 6,
+    "real_document_layouts": 3,
+    "real_table_layouts": 6,
+    "extraction_families": 2,
+    "new_cohort_or_questions": false,
+    "new_ocr_generation": false,
+    "raw_ocr_or_question_literal_persistence": false,
+    "required_typed_trace": [
+      "question plan operation, ordered roles, periods and reference base",
+      "per-candidate typed role, period, entity, unit/scale and provenance completeness",
+      "candidate admission/rejection reason",
+      "synthesized operation, ordered slots and binding rejection reason",
+      "per-obligation verifier state and reason",
+      "final proof state and action"
+    ]
+  },
+  "checks": {
+    "parent_hashes_exact": true,
+    "all_90_rows_classified_once": true,
+    "all_90_permutation_rows_retained": true,
+    "partition_sum_90": true,
+    "first_failing_layer_partition_exact": true,
+    "safety_utility_separated": true,
+    "generic_minimum_enforced": true,
+    "cross_category_pooling_forbidden": true,
+    "P2_standalone_patch_forbidden": true,
+    "P3_runtime_patch_forbidden": true,
+    "accepted_wrong_zero": true,
+    "semantic_control_false_accepts_zero": true,
+    "hard_negative_answers_zero": true,
+    "runtime_hashes_exact": true,
+    "checkpoint_hash_exact": true,
+    "runtime_changed": false,
+    "source_or_ocr_execution_performed": false,
+    "qp4_complete": false,
+    "qp5_authorized": false,
+    "phase_d_unlocked": false
+  },
+  "current_step_execution": {
+    "source_pdf_read": false,
+    "cached_ocr_content_read": false,
+    "ocr_or_mineru_run": false,
+    "source_replay_run": false,
+    "candidate_or_model_inference_run": false,
+    "new_question_or_cohort_generation": false,
+    "runtime_changed": false,
+    "checkpoint_changed": false,
+    "threshold_changed": false
+  },
+  "frozen_controls": {
+    "compiler": "242/242",
+    "regression": "360/360",
+    "safe_replay_gate": true,
+    "actions": {
+      "ABSTAIN": 92,
+      "ANSWER": 257,
+      "REJECT": 14
+    },
+    "execution": "363/363",
+    "permutation": "363/363",
+    "counterfactuals": 141,
+    "counterfactual_false_accepts": 0
+  },
+  "runtime_hashes": {
+    "src/hrm_finance_qa/question_planner.py": "334ab6bfb57b883ff2022cdcb39614d7e7a8d3269c14f4bea188640d53111bf4",
+    "src/hrm_finance_qa/symbolic_verifier.py": "2679b1ce55cc070697438c806f19e3e888bfc19bc1a9ae3686a0b7fd7ffb0087",
+    "src/hrm_finance_qa/program_synthesis.py": "e4acc4878d0dfd465ba66ab91f3aaf8be71db5591aa1358fb8cb81f3c7bff550",
+    "src/hrm_finance_qa/evidence_schema.py": "2f16fabf932dc9dabc8203d9642d2503bb2dab43e0e1ee0f78755dd4fb00825d",
+    "src/hrm_finance_qa/document_hrm.py": "b5951bcde79583950b672f7fb6b199b3e5b9904e6784daae7c4c5be0eba65d21",
+    "src/hrm_finance_qa/document_reasoning_engine.py": "3883500011472716bc01f8e04a6d6f925173b35a14bbedd945c5ca4fb0063fa2",
+    "src/hrm_finance_qa/program_data.py": "5199434fc0628b7d270ce62b12657366cbe118901065edd9f1e1f6ca0f1f8d54",
+    "src/hrm_finance_qa/direction_contract.py": "a18aa130419fc74ce647bd92dc9c1b1217007738e636aad0f28c7f78396be937",
+    "src/hrm_finance_qa/answer_presentation.py": "c40bd4a8dff39162b44cf11ef2da12e7b153d907f7254e5d1856157b3ac56d36",
+    "src/hrm_finance_qa/document_sources.py": "e9eb7b3ddcc2ed13060a573a6a0101a216fa49ff21dd65cd5fc2629b92f5fc0b",
+    "src/hrm_finance_qa/document_page_index.py": "d531f47a22ed051863b41b3de031bb3e9d4bbf60ef71f825217559b7035386b4"
+  },
+  "checkpoint_sha256": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de",
+  "artifacts": {
+    "final_json": {
+      "path": "reports/finhrm_qp4_post_question_surface_post_cache_residual_coverage_post_source_protocol_diagnostic_review_v1.json",
+      "size_bytes": 20269,
+      "sha256": "5a0f794f9afb5704710679c955b20dcfbeab08770af039306d49dc25e08bd813"
+    },
+    "final_markdown": {
+      "path": "reports/finhrm_qp4_post_question_surface_post_cache_residual_coverage_post_source_protocol_diagnostic_review_v1.md",
+      "size_bytes": 3330,
+      "sha256": "fb9194761fb97f844075245b2eddd4d3318cf57b2502d65f9261a0a2ddc437be"
+    }
+  },
+  "artifact_policy": {
+    "maximum_final_json": 1,
+    "maximum_final_markdown": 1,
+    "maximum_lock_or_manifest": 1,
+    "raw_or_intermediate_artifacts_persisted": false,
+    "temporary_artifacts_deleted_after_verification": true
+  },
+  "authorized_next_step": "QP4-POST-QUESTION-SURFACE-POST-CACHE-RESIDUAL-COVERAGE-POST-SOURCE-PROTOCOL-SEMANTIC-TRACE-RECLOSURE-PRECOMMIT",
+  "qp4_complete": false,
+  "qp5_authorized": false,
+  "phase_d": "locked"
+}

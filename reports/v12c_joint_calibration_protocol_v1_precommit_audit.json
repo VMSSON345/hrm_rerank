@@ -1,0 +1,19 @@
+{
+  "protocol": "v12c-joint-calibration-protocol-v1",
+  "protocol_sha256": "e797925a706f3a2f61ac4f7e58515919ccc569770fb5217b6543d0c91a53f3bc",
+  "checked_locked_hashes": {
+    "data/pdf_development_company_catalog_v3.json": "17f74e49fe1894871453dd0c2b2ec8f13fa3650c4294c324d90bc7e47dd8bb2b",
+    "models/document_hrm_V8_candidate.pt": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de",
+    "src/hrm_finance_qa/document_reasoning_engine.py": "c63b028387bb0be7fc74a799e3f5a21e09bed07adaffb444bf53bc47d5395bb9"
+  },
+  "checked_exclusion_hashes": {
+    "data/v12c_interest_bearing_debt_share_development_frozen_v1.jsonl": "13e4f290f7301d159edda87ed267607a80963e72bd9853329352726f70cfd520",
+    "data/v12c_interest_bearing_debt_share_independent_calibration_frozen_v1.jsonl": "58b1304afabbfd87f2f12cdf9b9694d996210a40768646368bff8e9274ca7133",
+    "data/v12c_interest_bearing_debt_share_negative_ambiguity_frozen_v1.jsonl": "17d8bc460346409200fa167ad485a7f3b056b497f1b3c4bec19b38618f5e1882"
+  },
+  "excluded_tickers": 27,
+  "excluded_company_keys": 27,
+  "precommit_valid": true,
+  "ready_for_development_only_discovery": true,
+  "ready_for_threshold_change": false
+}

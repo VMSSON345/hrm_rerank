@@ -1,0 +1,140 @@
+{
+  "schema": "finhrm-qp3e-flattened-table-provenance-precommit-v1",
+  "created_at": "2026-08-14",
+  "classification": "development_only_synthetic_flattened_table_provenance_precommit",
+  "status": "precommitted_before_qp3e_flattened_runtime_changes",
+  "objective": "Permit construction of a full-table manifest from flattened native-text or OCR observations only when source boundaries, explicit role-bearing headers, row-cell coverage, physical order, geometry, and extractor provenance are independently complete and conflict-free.",
+  "scope": {
+    "in_scope": [
+      "flattened native-text table blocks",
+      "flattened OCR table blocks",
+      "header-role cardinality",
+      "declared data width and row-cell coverage",
+      "source-line and page-order provenance",
+      "column-band geometry",
+      "repeated-header agreement",
+      "cross-extractor structural agreement",
+      "input-order invariance"
+    ],
+    "out_of_scope": [
+      "runtime producer implementation",
+      "EvidenceGraph acceptance",
+      "question parsing",
+      "program synthesis or ranking",
+      "numeric answer accuracy",
+      "threshold calibration",
+      "global or sealed validation",
+      "blind or test evaluation",
+      "model fine-tuning",
+      "real PDF replay"
+    ]
+  },
+  "reconstruction_contract": {
+    "output_states": ["RECONSTRUCTABLE_COMPLETE", "UNKNOWN"],
+    "complete_requires_all": [
+      "source boundary is COMPLETE and continuation state is CLOSED",
+      "declared data-column IDs are non-empty and unique",
+      "header observations cover exactly all declared data-column IDs",
+      "header role cardinality equals declared data width",
+      "every header has one explicit or anchored-inherited canonical role",
+      "declared row IDs are non-empty and unique",
+      "observed cell coordinates equal the Cartesian product of declared rows and data columns",
+      "each cell belongs to exactly one row and one column",
+      "header, row-descriptor, and cell observations have complete physical provenance",
+      "header precedes its data cells in physical source order on each table segment",
+      "cell column bands agree with the corresponding header column bands",
+      "physical source spans do not map to conflicting logical cells",
+      "repeated headers reproduce the same column-role map",
+      "native/OCR observations do not disagree on boundaries, roles, rows, or columns",
+      "the result is invariant to serialization order"
+    ],
+    "allowed_extraction_methods": [
+      "synthetic_native_line",
+      "synthetic_ocr_bbox",
+      "synthetic_native_ocr_agreement"
+    ],
+    "allowed_role_confidence": ["EXPLICIT", "INHERITED"],
+    "allowed_header_provenance": [
+      "explicit_flattened_header",
+      "inherited_flattened_header"
+    ],
+    "unknown_policy": "Failure or absence of any required proof produces UNKNOWN. UNKNOWN must not be promoted using Top-K candidates, question text, numeric value, answer, candidate score, rank, or input order.",
+    "manifest_policy": "RECONSTRUCTABLE_COMPLETE permits only production of a structural manifest for the existing QP3D inventory audit. It does not directly produce EXPLICIT_COMPLETE, VALID, ACCEPT, or an answer.",
+    "conflict_policy": "Any boundary, role, row-membership, physical-span, repeated-header, geometry, or cross-extractor conflict produces UNKNOWN and retains the conflict reason.",
+    "numeric_policy": "Numeric cell values and answers are forbidden from the precommit cohort and reconstruction decision.",
+    "ordering_policy": "Physical source order is proved by provenance sequence fields; JSON/list serialization order is never a signal."
+  },
+  "layout_specs": [
+    {"id": "F01_NATIVE_SINGLE_PAGE", "roles": ["PLAN", "ACTUAL"], "rows": 3, "extractor": "synthetic_native_line", "layout": "native_single_page_flattened"},
+    {"id": "F02_NATIVE_MULTI_PAGE", "roles": ["PRIOR_ACTUAL", "PLAN", "ACTUAL"], "rows": 4, "extractor": "synthetic_native_line", "layout": "native_multi_page_repeated_header"},
+    {"id": "F03_OCR_BBOX", "roles": ["PLAN", "ACTUAL"], "rows": 3, "extractor": "synthetic_ocr_bbox", "layout": "ocr_bbox_flattened"},
+    {"id": "F04_NATIVE_OCR_AGREE", "roles": ["ACTUAL", "FORECAST"], "rows": 2, "extractor": "synthetic_native_ocr_agreement", "layout": "native_ocr_agreeing_views"},
+    {"id": "F05_MERGED_ROLE_HEADER", "roles": ["PRIOR_ACTUAL", "PLAN", "ACTUAL"], "rows": 3, "extractor": "synthetic_ocr_bbox", "layout": "merged_role_header_flattened"},
+    {"id": "F06_BILINGUAL_HEADER", "roles": ["PLAN", "ACTUAL"], "rows": 2, "extractor": "synthetic_native_line", "layout": "bilingual_flattened_header"},
+    {"id": "F07_REVISED_PLAN", "roles": ["PLAN", "REVISED_PLAN", "ACTUAL"], "rows": 3, "extractor": "synthetic_native_line", "layout": "revised_plan_flattened"},
+    {"id": "F08_VALUE_RATIO", "roles": ["ACTUAL", "PLAN", "ACTUAL_TO_PLAN_RATIO", "ACTUAL_TO_PRIOR_RATIO"], "rows": 2, "extractor": "synthetic_ocr_bbox", "layout": "value_ratio_flattened"}
+  ],
+  "scenario_matrix": [
+    {"id": "complete_explicit", "expected_state": "RECONSTRUCTABLE_COMPLETE", "class": "positive"},
+    {"id": "complete_repeated_header_agreement", "expected_state": "RECONSTRUCTABLE_COMPLETE", "class": "positive"},
+    {"id": "complete_permuted", "expected_state": "RECONSTRUCTABLE_COMPLETE", "class": "positive_counterfactual"},
+    {"id": "partial_source_boundary", "expected_state": "UNKNOWN", "class": "boundary_hard_negative"},
+    {"id": "open_table_continuation", "expected_state": "UNKNOWN", "class": "boundary_hard_negative"},
+    {"id": "header_role_cardinality_mismatch", "expected_state": "UNKNOWN", "class": "header_hard_negative"},
+    {"id": "header_data_width_mismatch", "expected_state": "UNKNOWN", "class": "alignment_hard_negative"},
+    {"id": "unknown_header_role", "expected_state": "UNKNOWN", "class": "role_hard_negative"},
+    {"id": "missing_row_cell", "expected_state": "UNKNOWN", "class": "coverage_hard_negative"},
+    {"id": "overlapping_cell_span", "expected_state": "UNKNOWN", "class": "physical_hard_negative"},
+    {"id": "ambiguous_row_membership", "expected_state": "UNKNOWN", "class": "row_hard_negative"},
+    {"id": "source_order_conflict", "expected_state": "UNKNOWN", "class": "order_hard_negative"},
+    {"id": "cross_extractor_layout_conflict", "expected_state": "UNKNOWN", "class": "extractor_hard_negative"},
+    {"id": "repeated_header_role_conflict", "expected_state": "UNKNOWN", "class": "header_hard_negative"},
+    {"id": "missing_physical_provenance", "expected_state": "UNKNOWN", "class": "provenance_hard_negative"},
+    {"id": "column_geometry_unaligned", "expected_state": "UNKNOWN", "class": "geometry_hard_negative"}
+  ],
+  "quota": {
+    "layout_groups": 8,
+    "scenarios_per_group": 16,
+    "total_examples": 128,
+    "complete_examples": 24,
+    "unknown_examples": 104,
+    "permutation_pairs": 8,
+    "repeated_header_positives": 8,
+    "boundary_hard_negatives": 16,
+    "conflict_hard_negatives": 32,
+    "minimum_distinct_roles": 7,
+    "minimum_distinct_layout_types": 8,
+    "minimum_hard_negative_types": 10
+  },
+  "gate": {
+    "cohort_schema_valid": true,
+    "exact_examples_required": 128,
+    "scenario_balance_required": 8,
+    "state_exact_required": 128,
+    "reason_set_exact_required": 128,
+    "permutation_pairs_required": 8,
+    "repeated_header_positives_required": 8,
+    "boundary_hard_negatives_required": 16,
+    "conflict_hard_negatives_required": 32,
+    "numeric_values_forbidden": true,
+    "candidate_scores_forbidden": true,
+    "question_text_forbidden": true,
+    "runtime_source_changes_allowed": false,
+    "threshold_change_allowed": false
+  },
+  "runtime_baseline": {
+    "program_data.py": "b6f1e1bb901459b2df2ca73bdb22f1db6f699fb452b12c68130ba3fe8c61db66",
+    "evidence_schema.py": "2f16fabf932dc9dabc8203d9642d2503bb2dab43e0e1ee0f78755dd4fb00825d",
+    "symbolic_verifier.py": "b0bc88ae35d5ec1f3a2dccb3ac9a93f1e47185e44947aa30e235af9662848b23",
+    "question_planner.py": "4b6b415dac3e64b76fef9dee2179282a742c5769e30f780393d1dd43242b13d2",
+    "program_synthesis.py": "a37470ad307c04744a5db794258f8bff2f6439ef6a689f8a9b8db67f91a17761",
+    "document_hrm.py": "f07e8f5685527ba76e1a9d74022b4e1e8cd29ba103593cb9a2063ddfcc15c1e5",
+    "document_reasoning_engine.py": "ee2ce9e2d8cea6fc87d307450297dace74727bdf915ba29e22cab67c7da6212f"
+  },
+  "frozen_dependencies": {
+    "qp3d_lock": {"path": "reports/finhrm_qp3d_role_inventory_producer_lock_v1.json", "sha256": "84d1597985eaacb92c6469ba7a8459c52bc952100dd42d2adfd074e69cf5bcbc"},
+    "qp3c_lock": {"path": "reports/finhrm_qp3c_role_inventory_producer_precommit_lock_v1.json", "sha256": "d52605c9dcc250673b8703a1e2dd517320d551f2edbc577096a72b93cba3d44c"},
+    "checkpoint": {"path": "models/document_hrm_V8_candidate.pt", "sha256": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de"}
+  },
+  "authorized_next_step_after_precommit": "QP3F implement the frozen flattened native/OCR reconstruction producer, map only RECONSTRUCTABLE_COMPLETE observations into the existing QP3D manifest, and replay the frozen QP3E cohort plus development-only end-to-end cases; no threshold change."
+}

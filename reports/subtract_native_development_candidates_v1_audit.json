@@ -1,0 +1,36 @@
+{
+  "schema": "subtract-development-cohort-audit-v1",
+  "classification": "development_only_new_company_candidates",
+  "blind_test_used": false,
+  "global_validation_loaded": false,
+  "model_invoked": false,
+  "fine_tuning_performed": false,
+  "threshold_changed": false,
+  "ready_for_phase_c": false,
+  "review_status": "pending_visual_review",
+  "metrics": {
+    "documents_scanned": 21,
+    "pages_scanned": 114,
+    "temporal_pairs_considered": 188,
+    "examples": 11,
+    "company_groups": 11,
+    "direction_outcomes": {
+      "direction_supported": 11
+    },
+    "integrity_issue_counts": {},
+    "rejection_counts": {
+      "ambiguous_endpoint_period": 47,
+      "ambiguous_row_provenance": 42,
+      "equal_values_direction_unobservable": 11,
+      "gold_missing_period": 1,
+      "integrity:gold_verifier:missing_requested_period": 1,
+      "planner_direction_not_new_minus_old": 36
+    }
+  },
+  "inputs": {
+    "page_manifest": "/mnt/d/reasoning_model_V4/reasoning_model/reports/subtract_native_financial_pages_v1.json",
+    "page_manifest_sha256": "1d61fa5bc610c7bf69a6f7ae546b267dde8429a7669022e79e16caf1595963ce",
+    "markdown_dir": "/mnt/d/reasoning_model_V4/reasoning_model/cache/subtract_native_financial_markdown_v1"
+  },
+  "output_sha256": "c9414f75e157996104587d2807fb214ccfaac09dd49ea7fb75904f35ac17919c"
+}

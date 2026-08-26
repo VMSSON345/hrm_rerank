@@ -1,0 +1,112 @@
+{
+  "schema": "qp1-local-page-role-diagnosis-v1",
+  "classification": "local_diagnosis_only",
+  "confirmation_eligible": false,
+  "strict_verifier_enabled": false,
+  "threshold_changed": false,
+  "source_contains": "ABW_23CN_BCTN",
+  "page": 10,
+  "question": "Doanh thu hoạt động thực hiện năm 2023 là bao nhiêu?",
+  "cached_pages": 1,
+  "source_snippets": [
+    [
+      "KQKD của doanh nghi ệp và dòng ti ền thị trường, trền nền mặt bằng lãi su ất được duy trì ở",
+      "mức thấp.",
+      "TÌNH HÌNH HOẠT ĐỘNG TRONG NĂM",
+      "1. Tình hình hoạt động sản xuất kinh doanh",
+      "STT Chỉ tiêu",
+      "Thực hiện Kế hoạch Thực hiện % tăng giảm",
+      "TH2023/",
+      "KH 2023",
+      "% tăng giảm",
+      "TH2023/",
+      "TH 2022 Năm 2022 Năm 2023 Năm 2023",
+      "1 Chỉ số Vn-index 1,007.09 1,129.93 12.20%",
+      "2 Doanh thu hoạt động 363,638,445,420 472,723,394,169 304,912,639,828 -35.50% -16.15%",
+      "3 Chi phí hoạt động kinh doanh 131,744,336,950 229,698,932,824 130,578,661,039 -43.15% -0.88%",
+      "4 Chi phí quản lí doanh nghiệp 71,211,966,307 83,436,471,378 80,218,786,122 -3.86% 12.65%",
+      "5 Dự phòng tài chính"
+    ]
+  ],
+  "cells": [
+    {
+      "value": "363638445420",
+      "metric": "Doanh thu hoạt động",
+      "column": "Thực hiện 2022",
+      "period": "2022",
+      "header_path": [
+        "Thực hiện 2022"
+      ],
+      "header_path_provenance": [
+        "explicit_column_label"
+      ],
+      "column_role": "actual",
+      "column_role_confidence": "EXPLICIT",
+      "column_role_conflict": false
+    },
+    {
+      "value": "472723394169",
+      "metric": "Doanh thu hoạt động",
+      "column": "Kế hoạch 2023",
+      "period": "2023",
+      "header_path": [
+        "Kế hoạch 2023"
+      ],
+      "header_path_provenance": [
+        "explicit_column_label"
+      ],
+      "column_role": "plan",
+      "column_role_confidence": "EXPLICIT",
+      "column_role_conflict": false
+    },
+    {
+      "value": "304912639828",
+      "metric": "Doanh thu hoạt động",
+      "column": "Thực hiện 2023",
+      "period": "2023",
+      "header_path": [
+        "Thực hiện 2023"
+      ],
+      "header_path_provenance": [
+        "explicit_column_label"
+      ],
+      "column_role": "actual",
+      "column_role_confidence": "EXPLICIT",
+      "column_role_conflict": false
+    },
+    {
+      "value": "-35.5",
+      "metric": "Doanh thu hoạt động",
+      "column": "% TH 2023 / KH 2023",
+      "period": "2023",
+      "header_path": [
+        "% TH 2023",
+        "KH 2023"
+      ],
+      "header_path_provenance": [
+        "explicit_column_label",
+        "explicit_column_label"
+      ],
+      "column_role": "actual_to_plan_ratio",
+      "column_role_confidence": "EXPLICIT",
+      "column_role_conflict": false
+    },
+    {
+      "value": "-16.15",
+      "metric": "Doanh thu hoạt động",
+      "column": "% TH 2023 / TH 2022",
+      "period": "2023 2022",
+      "header_path": [
+        "% TH 2023",
+        "TH 2022"
+      ],
+      "header_path_provenance": [
+        "explicit_column_label",
+        "explicit_column_label"
+      ],
+      "column_role": "actual_to_prior_ratio",
+      "column_role_confidence": "EXPLICIT",
+      "column_role_conflict": false
+    }
+  ]
+}

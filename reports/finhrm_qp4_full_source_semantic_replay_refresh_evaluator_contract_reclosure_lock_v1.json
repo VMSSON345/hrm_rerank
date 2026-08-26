@@ -1,0 +1,80 @@
+{
+  "schema": "FINHRM_QP4_FULL_SOURCE_EVALUATOR_RECLOSURE_LOCK_V1",
+  "created_at": "2026-08-24",
+  "status": "PASS",
+  "step": "QP4-FULL-SOURCE-SEMANTIC-REPLAY-REFRESH-EVALUATOR-CONTRACT-RECLOSURE",
+  "execution_gate_passed": true,
+  "precommit": {
+    "path": "config/finhrm_qp4_full_source_semantic_replay_refresh_evaluator_contract_reclosure_precommit_v1.json",
+    "size_bytes": 24938,
+    "sha256": "a05a108f077085e70dbde1c1f7c5e96aac292be83e6b5fc4fca9a5c3c4abcc16"
+  },
+  "execution_inputs": {
+    "full_source_replay": {
+      "path": "reports/finhrm_qp4_full_source_semantic_replay_refresh_v1.json",
+      "size_bytes": 247897,
+      "sha256": "a693c0b011685dac70be5365d175ce4065dce192b3ce72525a9fa34ad776f56f"
+    },
+    "frozen_cohort": {
+      "path": "reports/finhrm_qp4_post_question_surface_post_cache_residual_coverage_cohort_build_v1.json",
+      "size_bytes": 40607,
+      "sha256": "e084ec16312488c1badb5b645cfdf135a623cf89486d0f189648404fc5de35e6"
+    }
+  },
+  "outputs": {
+    "final_json": {
+      "path": "reports/finhrm_qp4_full_source_semantic_replay_refresh_evaluator_contract_reclosure_v1.json",
+      "size_bytes": 48181,
+      "sha256": "15af773a7fd02d66a25bcea056218fe5257cd286f633dd207d4ef5891c1a6e70"
+    },
+    "final_markdown": {
+      "path": "reports/finhrm_qp4_full_source_semantic_replay_refresh_evaluator_contract_reclosure_v1.md",
+      "size_bytes": 3125,
+      "sha256": "e1579699eb17a32b740cdd64935eae75f95f65678b354c092c3cdd13f81297af"
+    }
+  },
+  "integrity": {
+    "all_precommit_parent_size_and_sha256_match": true,
+    "all_11_frozen_runtime_sha256_match": true,
+    "frozen_checkpoint_size_and_sha256_match": true,
+    "input_observations": 90,
+    "anchor_rows": 6,
+    "canonical_row_manifest_sha256": "6d16d35c8abe43f94845949bd1dab354452035677cf8b6decd0a27ad84a52237",
+    "expected_counts_and_hash_match": true,
+    "runtime_edits": 0,
+    "runtime_invocations": 0,
+    "model_invocations": 0,
+    "source_or_ocr_invocations": 0,
+    "temporary_files_retained": 0
+  },
+  "corrected_result": {
+    "question_plan_exact": "71/90",
+    "question_plan_fail": "19/90",
+    "primary_exact_pass": "12/90",
+    "permutation_exact_pass": "15/90",
+    "primary_residual": "78/90",
+    "permutation_residual": "75/90",
+    "positive_target_answers": "0/60",
+    "positive_target_residual": "60/60",
+    "positive_target_residual_by_layer": {
+      "QUESTION_PLAN": 19,
+      "CANDIDATE_POPULATION_OR_RETRIEVAL": 24,
+      "SEMANTIC_BINDING_OR_PROGRAM_SYNTHESIS": 17,
+      "SYMBOLIC_PROOF_OR_ACTION": 0,
+      "PASS": 0
+    },
+    "safe_control_passes_primary": "12/30",
+    "safe_control_residual_primary": "18/30",
+    "source_errors": 0,
+    "accepted_wrong": 0,
+    "generic_failure_strata": 6
+  },
+  "decision": {
+    "evaluator_reclosed": true,
+    "corrected_diagnostic_complete": true,
+    "qp4_complete": false,
+    "qp5_authorized": false,
+    "phase_d_unlocked": false,
+    "authorized_next_action": "QP4-FULL-SOURCE-SEMANTIC-REPLAY-REFRESH-QUESTION-PLAN-ROOT-DECOMPOSITION-PRECOMMIT"
+  }
+}

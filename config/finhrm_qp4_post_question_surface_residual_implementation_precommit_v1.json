@@ -1,0 +1,181 @@
+{
+  "schema": "finhrm-qp4-post-question-surface-residual-implementation-precommit-v1",
+  "created_at": "2026-08-22",
+  "classification": "development_only_qp4_generic_question_plan_residual_precommit_no_runtime_change",
+  "status": "precommit_contract",
+  "parents": {
+    "diagnostic_report": {
+      "path": "reports/finhrm_qp4_post_question_surface_baseline_diagnostic_review_v1.json",
+      "sha256": "d14eef7e4a930cde40e8c1534027d84a0e390798b96a7de7d44d8bcfa9e31e46"
+    },
+    "diagnostic_raw": {
+      "path": "reports/finhrm_qp4_post_question_surface_baseline_diagnostic_review_raw_v1.json",
+      "sha256": "6cfd71aa21a34fd01de774900955ec47367130e0c3f7cecc9e213ceaf37a007c"
+    },
+    "diagnostic_lock": {
+      "path": "reports/finhrm_qp4_post_question_surface_baseline_diagnostic_review_lock_v1.json",
+      "sha256": "0082b21302c1d1ddc6b733607131195ebf17dc206dfab5e48cf051d97a1f7433"
+    },
+    "question_surface_implementation_config": {
+      "path": "config/finhrm_qp4_question_surface_implementation_v1.json",
+      "sha256": "7eea29a22c8c73c21fd385ab5b94e5518c35c4cf9123c5e0b932d9bc6dbea785"
+    },
+    "actual_plan_source_cohort": {
+      "path": "config/finhrm_qp4_actual_plan_ratio_direction_source_cohort_v1.json",
+      "sha256": "20ba00740ffe9ba2686c08bc01d07b8f345847d7ddbc5b8780c157bd7ef8d11f"
+    },
+    "safe_replay_precommit": {
+      "path": "config/finhrm_qp3_core_s4_safe_replay_precommit_v1.json",
+      "sha256": "71bd3a5e7748b9e3b0b5a676177dfddb602c52865d68727f8c7ebc2d8e246691"
+    }
+  },
+  "frozen_diagnostic": {
+    "compiler_control": "242/242",
+    "source_observations": 40,
+    "source_errors": 12,
+    "first_failing_layers": {
+      "QUESTION_PLAN": 16,
+      "SOURCE_LOAD_OR_EXTRACTION": 12,
+      "CANDIDATE_POPULATION_OR_RETRIEVAL": 2,
+      "SEMANTIC_BINDING_OR_PROGRAM_SYNTHESIS": 7,
+      "SYMBOLIC_PROOF_OR_ACTION": 3
+    },
+    "generic_question_plan_strata": [
+      {
+        "track": "ADD_SURFACE",
+        "group": "SHORT_LONG_EQUIVALENT",
+        "queries": 4,
+        "companies": 4,
+        "sources": 4,
+        "real_layouts": 3
+      },
+      {
+        "track": "ADD_SURFACE",
+        "group": "DISCOURSE_PREFIX_SUFFIX",
+        "queries": 4,
+        "companies": 4,
+        "sources": 4,
+        "real_layouts": 3
+      },
+      {
+        "track": "ADD_SURFACE",
+        "group": "CLAUSE_PERMUTATION",
+        "queries": 4,
+        "companies": 4,
+        "sources": 4,
+        "real_layouts": 3
+      },
+      {
+        "track": "ACTUAL_PLAN",
+        "group": "REFERENCE_BASE",
+        "queries": 4,
+        "companies": 4,
+        "sources": 4,
+        "real_layouts": 3
+      }
+    ],
+    "excluded_from_runtime_nomination": [
+      "all SOURCE_LOAD_OR_EXTRACTION strata",
+      "all CANDIDATE_POPULATION_OR_RETRIEVAL strata",
+      "non-generic semantic-binding or proof strata",
+      "the singleton ADD counterfactual source-error observation"
+    ]
+  },
+  "implementation_scope": {
+    "runtime_file_whitelist": [
+      "src/hrm_finance_qa/question_planner.py"
+    ],
+    "exact_existing_symbols": [
+      "_addition_role_hypotheses",
+      "_ratio_roles",
+      "compile_question_plan"
+    ],
+    "new_runtime_symbols_authorized": [],
+    "allowed_observable_changes": [
+      "An explicit two-role ADD request retains its typed ADD projection when preceded only by a source-report discourse frame.",
+      "An explicit two-role ADD request retains its typed ADD projection when an explicit relative-period adjunct is moved to the beginning.",
+      "An explicit A-equals-what-percent-of-B request compiles RATIO_PERCENT with B as the second operand and reference base."
+    ],
+    "forbidden_runtime_signals": [
+      "company identity",
+      "report filename",
+      "page number",
+      "year literal",
+      "numeric value",
+      "example or anchor id",
+      "question literal",
+      "candidate rank",
+      "neural score",
+      "confidence"
+    ],
+    "retrieval_edit_authorized": false,
+    "source_or_extraction_edit_authorized": false,
+    "program_synthesis_edit_authorized": false,
+    "symbolic_verifier_edit_authorized": false,
+    "direction_contract_edit_authorized": false,
+    "threshold_checkpoint_or_model_change_authorized": false
+  },
+  "required_controls": {
+    "add_surface_projection_exact": "15/15",
+    "actual_plan_reference_base_projection_exact": "4/4",
+    "full_compiler_inventory_exact": "242/242",
+    "role_bearing_prefix_preserved": true,
+    "incomplete_add_remains_fail_closed": true,
+    "missing_reference_base_remains_fail_closed": true,
+    "all_source_errors_remain_failures": true,
+    "accepted_wrong": 0,
+    "old_winner_counterfactual_false_accepts": 0,
+    "safe_replay_actions": {
+      "ANSWER": 257,
+      "ABSTAIN": 92,
+      "REJECT": 14
+    },
+    "safe_replay_execution": "363/363",
+    "safe_replay_permutation": "363/363",
+    "safe_replay_counterfactuals": 141,
+    "safe_replay_counterfactual_false_accepts": 0
+  },
+  "checkpoint": {
+    "path": "models/document_hrm_V8_candidate.pt",
+    "sha256": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de"
+  },
+  "frozen_runtime_hashes": {
+    "src/hrm_finance_qa/question_planner.py": "3a882445630c3c0c05dfbe6cbc4b7fb22c71c9cfd450ee7c73a929fbe5a9cca1",
+    "src/hrm_finance_qa/symbolic_verifier.py": "2679b1ce55cc070697438c806f19e3e888bfc19bc1a9ae3686a0b7fd7ffb0087",
+    "src/hrm_finance_qa/program_synthesis.py": "e4acc4878d0dfd465ba66ab91f3aaf8be71db5591aa1358fb8cb81f3c7bff550",
+    "src/hrm_finance_qa/evidence_schema.py": "2f16fabf932dc9dabc8203d9642d2503bb2dab43e0e1ee0f78755dd4fb00825d",
+    "src/hrm_finance_qa/document_hrm.py": "b5951bcde79583950b672f7fb6b199b3e5b9904e6784daae7c4c5be0eba65d21",
+    "src/hrm_finance_qa/document_reasoning_engine.py": "3883500011472716bc01f8e04a6d6f925173b35a14bbedd945c5ca4fb0063fa2",
+    "src/hrm_finance_qa/program_data.py": "5199434fc0628b7d270ce62b12657366cbe118901065edd9f1e1f6ca0f1f8d54",
+    "src/hrm_finance_qa/direction_contract.py": "a18aa130419fc74ce647bd92dc9c1b1217007738e636aad0f28c7f78396be937",
+    "src/hrm_finance_qa/answer_presentation.py": "c40bd4a8dff39162b44cf11ef2da12e7b153d907f7254e5d1856157b3ac56d36",
+    "src/hrm_finance_qa/document_sources.py": "e9eb7b3ddcc2ed13060a573a6a0101a216fa49ff21dd65cd5fc2629b92f5fc0b",
+    "src/hrm_finance_qa/document_page_index.py": "c99e011175afef21f302be42ba9454b948caa549d4d445d6bb35c5b974b81f85"
+  },
+  "artifact_policy": {
+    "maximum_final_json": 1,
+    "maximum_final_markdown": 1,
+    "maximum_lock_or_manifest": 1,
+    "raw_or_intermediate_artifacts_persisted": false,
+    "temporary_artifacts_deleted_after_verification": true
+  },
+  "invariants": {
+    "abw_used": false,
+    "protected_evaluation_loaded": false,
+    "validation_loaded": false,
+    "blind_loaded": false,
+    "test_data_loaded": false,
+    "sealed_or_holdout_loaded": false,
+    "fine_tuning_performed": false,
+    "threshold_changed": false,
+    "checkpoint_changed": false,
+    "model_changed": false,
+    "synthetic_layout_counted_as_confirmation": false,
+    "candidate_rank_score_or_confidence_used_as_semantic_proof": false,
+    "runtime_changed": false,
+    "qp4_complete": false,
+    "qp5_authorized": false,
+    "phase_d_unlocked": false
+  },
+  "authorized_next_step_after_lock": "QP4-POST-QUESTION-SURFACE-RESIDUAL-IMPLEMENTATION: edit only the three authorized question_planner symbols, then replay all frozen compiler, source, regression, permutation, counterfactual and safe gates."
+}

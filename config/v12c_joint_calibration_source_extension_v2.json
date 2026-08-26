@@ -1,0 +1,36 @@
+{
+  "protocol": "v12c-joint-calibration-source-extension-v1",
+  "status": "precommitted_before_source_content_discovery",
+  "classification": "development_only_source_extension",
+  "created_date": "2026-08-12",
+  "purpose": "Register the remaining hash-ordered new development-only PDF block after extension v1 was infeasible, without changing any base rule.",
+  "base_protocol": {
+    "path": "config/v12c_joint_calibration_protocol_v1.json",
+    "sha256": "e797925a706f3a2f61ac4f7e58515919ccc569770fb5217b6543d0c91a53f3bc"
+  },
+  "source_catalog": {
+    "path": "data/pdf_v12c_joint_calibration_new_source_intake_v2.json",
+    "sha256": "9c20c84ccf323c46b8f733cfae0aad2352c59d7fa3bd7823b13d7beb1b8c0015"
+  },
+  "intake_audit": {
+    "path": "reports/pdf_v12c_joint_calibration_new_source_intake_v2_cross_block_audit.json",
+    "sha256": "4219342afc0974241187fe25ea2fa9395a18043b00e65e34566eae1a155a2634"
+  },
+  "selection_freeze": {
+    "ordering": "sha256(company_identity), then company_identity",
+    "company_group_offset": 240,
+    "maximum_company_groups": 239,
+    "documents": 391,
+    "company_groups": 239,
+    "selection_used_financial_content": false,
+    "selection_used_questions_answers_or_model_outputs": false,
+    "selected_before_page_content_discovery": true
+  },
+  "immutability": {
+    "base_protocol_change_allowed": false,
+    "quota_change_allowed": false,
+    "operating_point_change_allowed": false,
+    "threshold_change_allowed": false,
+    "model_or_runtime_change_allowed": false
+  }
+}

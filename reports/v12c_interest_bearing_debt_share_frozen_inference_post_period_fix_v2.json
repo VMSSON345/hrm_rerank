@@ -1,0 +1,804 @@
+{
+  "protocol": "v12c-interest-bearing-debt-share-frozen-inference-v1",
+  "classification": "development_only_frozen_evaluation",
+  "protected_evaluation_sources_used": false,
+  "training_performed": false,
+  "model_or_reranker_changed": false,
+  "threshold_changed": false,
+  "cohort_path": "/mnt/d/reasoning_model_V4/reasoning_model/data/v12c_interest_bearing_debt_share_development_frozen_v1.jsonl",
+  "cohort_sha256": "13e4f290f7301d159edda87ed267607a80963e72bd9853329352726f70cfd520",
+  "model_path": "/mnt/d/reasoning_model_V4/reasoning_model/models/document_hrm_V8_candidate.pt",
+  "model_sha256_before": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de",
+  "model_sha256_after": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de",
+  "evaluator_sha256": "50e15fe4ed00891a63971503e668c445fe3e0ca933be26f31ef602c45954cf31",
+  "runtime_source_sha256": {
+    "src/hrm_finance_qa/document_hrm.py": "b6efd1625309fda5b60213b60e2cf7009d66f18aa0c088fed6f6dc1992a88c7c",
+    "src/hrm_finance_qa/document_reasoning_engine.py": "5d6435c9c5a7270ed817369c91ccfd84a9c18afd3edc74e330514f389f4ba863"
+  },
+  "runtime_flags": {
+    "typed_program_synthesis_enabled": true,
+    "financial_identity_catalog_enabled": true,
+    "candidate_recall_v12_4_enabled": true,
+    "program_reranker_attached": false
+  },
+  "scope": "evidence-conditioned; retrieval is outside this frozen cohort audit",
+  "summary": {
+    "overall": {
+      "examples": 12,
+      "gold_derivation_materialized": 12,
+      "gold_derivation_rate": 1.0,
+      "program_correct": 12,
+      "program_accuracy": 1.0,
+      "execution_correct": 12,
+      "execution_accuracy": 1.0,
+      "accepted": 0,
+      "accepted_coverage": 0.0,
+      "accepted_program_precision": null,
+      "accepted_execution_precision": null,
+      "abstained": 12
+    },
+    "company_groups": {
+      "development-company-248fb276f60f01c8": {
+        "examples": 2,
+        "gold_derivation_materialized": 2,
+        "gold_derivation_rate": 1.0,
+        "program_correct": 2,
+        "program_accuracy": 1.0,
+        "execution_correct": 2,
+        "execution_accuracy": 1.0,
+        "accepted": 0,
+        "accepted_coverage": 0.0,
+        "accepted_program_precision": null,
+        "accepted_execution_precision": null,
+        "abstained": 2
+      },
+      "development-company-26d5fb98b8c88a18": {
+        "examples": 4,
+        "gold_derivation_materialized": 4,
+        "gold_derivation_rate": 1.0,
+        "program_correct": 4,
+        "program_accuracy": 1.0,
+        "execution_correct": 4,
+        "execution_accuracy": 1.0,
+        "accepted": 0,
+        "accepted_coverage": 0.0,
+        "accepted_program_precision": null,
+        "accepted_execution_precision": null,
+        "abstained": 4
+      },
+      "development-company-32f04cd59918b4b9": {
+        "examples": 2,
+        "gold_derivation_materialized": 2,
+        "gold_derivation_rate": 1.0,
+        "program_correct": 2,
+        "program_accuracy": 1.0,
+        "execution_correct": 2,
+        "execution_accuracy": 1.0,
+        "accepted": 0,
+        "accepted_coverage": 0.0,
+        "accepted_program_precision": null,
+        "accepted_execution_precision": null,
+        "abstained": 2
+      },
+      "development-company-355521816b3689f4": {
+        "examples": 2,
+        "gold_derivation_materialized": 2,
+        "gold_derivation_rate": 1.0,
+        "program_correct": 2,
+        "program_accuracy": 1.0,
+        "execution_correct": 2,
+        "execution_accuracy": 1.0,
+        "accepted": 0,
+        "accepted_coverage": 0.0,
+        "accepted_program_precision": null,
+        "accepted_execution_precision": null,
+        "abstained": 2
+      },
+      "development-company-3a6490b72b5ad015": {
+        "examples": 2,
+        "gold_derivation_materialized": 2,
+        "gold_derivation_rate": 1.0,
+        "program_correct": 2,
+        "program_accuracy": 1.0,
+        "execution_correct": 2,
+        "execution_accuracy": 1.0,
+        "accepted": 0,
+        "accepted_coverage": 0.0,
+        "accepted_program_precision": null,
+        "accepted_execution_precision": null,
+        "abstained": 2
+      }
+    },
+    "period_semantics": {
+      "closing_endpoint": {
+        "examples": 8,
+        "gold_derivation_materialized": 8,
+        "gold_derivation_rate": 1.0,
+        "program_correct": 8,
+        "program_accuracy": 1.0,
+        "execution_correct": 8,
+        "execution_accuracy": 1.0,
+        "accepted": 0,
+        "accepted_coverage": 0.0,
+        "accepted_program_precision": null,
+        "accepted_execution_precision": null,
+        "abstained": 8
+      },
+      "opening_endpoint": {
+        "examples": 4,
+        "gold_derivation_materialized": 4,
+        "gold_derivation_rate": 1.0,
+        "program_correct": 4,
+        "program_accuracy": 1.0,
+        "execution_correct": 4,
+        "execution_accuracy": 1.0,
+        "accepted": 0,
+        "accepted_coverage": 0.0,
+        "accepted_program_precision": null,
+        "accepted_execution_precision": null,
+        "abstained": 4
+      }
+    },
+    "abstain_reason_counts": {
+      "below_frozen_threshold": 12
+    }
+  },
+  "records": [
+    {
+      "example_id": "v12c-ibd-6adbaabe69c6d34f7fcf",
+      "company_key": "development-company-248fb276f60f01c8",
+      "report_id": "NAF_24CN_BCTN.pdf",
+      "page": 73,
+      "period": "31/12/2023",
+      "question": "Tổng nợ vay tài chính chịu lãi gồm vay ngắn hạn và dài hạn chiếm bao nhiêu phần trăm Tổng nguồn vốn tại 31/12/2023?",
+      "expected_answer_value": "39.60823630518041325193796046457194",
+      "raw_candidate_count": 3,
+      "runtime_candidate_count": 4,
+      "gold_derivation_materialized": true,
+      "predicted_operation": "RATIO_PERCENT",
+      "predicted_operands": [
+        3,
+        2
+      ],
+      "predicted_dag_operations": [
+        "ADD",
+        "SHARE_OF_TOTAL"
+      ],
+      "predicted_leaf_indices": [
+        0,
+        1,
+        2
+      ],
+      "predicted_leaf_roles": [
+        "short_term_borrowings",
+        "long_term_borrowings",
+        "total_capital"
+      ],
+      "predicted_value": "39.60823630518041325193796046457194",
+      "execution_error": "",
+      "program_correct": true,
+      "execution_correct": true,
+      "confidence": 0.9011764705882354,
+      "confidence_threshold": 0.9909889376955401,
+      "accepted": false,
+      "abstain_reasons": [
+        "below_frozen_threshold"
+      ],
+      "grounding_rejections": [],
+      "grounding_constraints_applied": [
+        "period"
+      ],
+      "generation_sources": [
+        "neural_baseline",
+        "typed_slot_synthesis",
+        "v12_3_reference_winner"
+      ],
+      "program_candidates_considered": 1,
+      "symbolic_program_rejections": 0,
+      "symbolic_unknown_constraints": 5,
+      "synthesized_program_candidates": 1
+    },
+    {
+      "example_id": "v12c-ibd-07d2b3d4836e28c02988",
+      "company_key": "development-company-248fb276f60f01c8",
+      "report_id": "NAF_24CN_BCTN.pdf",
+      "page": 73,
+      "period": "31/12/2024",
+      "question": "Tổng nợ vay tài chính chịu lãi gồm vay ngắn hạn và dài hạn chiếm bao nhiêu phần trăm Tổng nguồn vốn tại 31/12/2024?",
+      "expected_answer_value": "41.77819881983714318497330486965995",
+      "raw_candidate_count": 3,
+      "runtime_candidate_count": 4,
+      "gold_derivation_materialized": true,
+      "predicted_operation": "RATIO_PERCENT",
+      "predicted_operands": [
+        3,
+        2
+      ],
+      "predicted_dag_operations": [
+        "ADD",
+        "SHARE_OF_TOTAL"
+      ],
+      "predicted_leaf_indices": [
+        0,
+        1,
+        2
+      ],
+      "predicted_leaf_roles": [
+        "short_term_borrowings",
+        "long_term_borrowings",
+        "total_capital"
+      ],
+      "predicted_value": "41.77819881983714318497330486965995",
+      "execution_error": "",
+      "program_correct": true,
+      "execution_correct": true,
+      "confidence": 0.9011764705882354,
+      "confidence_threshold": 0.9909889376955401,
+      "accepted": false,
+      "abstain_reasons": [
+        "below_frozen_threshold"
+      ],
+      "grounding_rejections": [],
+      "grounding_constraints_applied": [
+        "period"
+      ],
+      "generation_sources": [
+        "neural_baseline",
+        "typed_slot_synthesis",
+        "v12_3_reference_winner"
+      ],
+      "program_candidates_considered": 1,
+      "symbolic_program_rejections": 0,
+      "symbolic_unknown_constraints": 5,
+      "synthesized_program_candidates": 1
+    },
+    {
+      "example_id": "v12c-ibd-6e36de4732eb46670936",
+      "company_key": "development-company-26d5fb98b8c88a18",
+      "report_id": "PGS_23CN_BCTN.pdf",
+      "page": 68,
+      "period": "01/01/2023",
+      "question": "Tổng nợ vay tài chính chịu lãi gồm vay ngắn hạn và dài hạn chiếm bao nhiêu phần trăm Tổng nguồn vốn tại 01/01/2023?",
+      "expected_answer_value": "12.05175902316985956313618080029494",
+      "raw_candidate_count": 3,
+      "runtime_candidate_count": 4,
+      "gold_derivation_materialized": true,
+      "predicted_operation": "RATIO_PERCENT",
+      "predicted_operands": [
+        3,
+        2
+      ],
+      "predicted_dag_operations": [
+        "ADD",
+        "SHARE_OF_TOTAL"
+      ],
+      "predicted_leaf_indices": [
+        0,
+        1,
+        2
+      ],
+      "predicted_leaf_roles": [
+        "short_term_borrowings",
+        "long_term_borrowings",
+        "total_capital"
+      ],
+      "predicted_value": "12.05175902316985956313618080029494",
+      "execution_error": "",
+      "program_correct": true,
+      "execution_correct": true,
+      "confidence": 0.9011764705882354,
+      "confidence_threshold": 0.9909889376955401,
+      "accepted": false,
+      "abstain_reasons": [
+        "below_frozen_threshold"
+      ],
+      "grounding_rejections": [],
+      "grounding_constraints_applied": [
+        "period"
+      ],
+      "generation_sources": [
+        "neural_baseline",
+        "typed_slot_synthesis",
+        "v12_3_reference_winner"
+      ],
+      "program_candidates_considered": 1,
+      "symbolic_program_rejections": 0,
+      "symbolic_unknown_constraints": 5,
+      "synthesized_program_candidates": 1
+    },
+    {
+      "example_id": "v12c-ibd-167cd30cfd09a92c9750",
+      "company_key": "development-company-26d5fb98b8c88a18",
+      "report_id": "PGS_23CN_BCTN.pdf",
+      "page": 68,
+      "period": "31/12/2023",
+      "question": "Tổng nợ vay tài chính chịu lãi gồm vay ngắn hạn và dài hạn chiếm bao nhiêu phần trăm Tổng nguồn vốn tại 31/12/2023?",
+      "expected_answer_value": "21.42779119581230626966084086210473",
+      "raw_candidate_count": 3,
+      "runtime_candidate_count": 4,
+      "gold_derivation_materialized": true,
+      "predicted_operation": "RATIO_PERCENT",
+      "predicted_operands": [
+        3,
+        2
+      ],
+      "predicted_dag_operations": [
+        "ADD",
+        "SHARE_OF_TOTAL"
+      ],
+      "predicted_leaf_indices": [
+        0,
+        1,
+        2
+      ],
+      "predicted_leaf_roles": [
+        "short_term_borrowings",
+        "long_term_borrowings",
+        "total_capital"
+      ],
+      "predicted_value": "21.42779119581230626966084086210473",
+      "execution_error": "",
+      "program_correct": true,
+      "execution_correct": true,
+      "confidence": 0.9011764705882354,
+      "confidence_threshold": 0.9909889376955401,
+      "accepted": false,
+      "abstain_reasons": [
+        "below_frozen_threshold"
+      ],
+      "grounding_rejections": [],
+      "grounding_constraints_applied": [
+        "period"
+      ],
+      "generation_sources": [
+        "neural_baseline",
+        "typed_slot_synthesis",
+        "v12_3_reference_winner"
+      ],
+      "program_candidates_considered": 1,
+      "symbolic_program_rejections": 0,
+      "symbolic_unknown_constraints": 5,
+      "synthesized_program_candidates": 1
+    },
+    {
+      "example_id": "v12c-ibd-bf921128d362fc78d4d8",
+      "company_key": "development-company-26d5fb98b8c88a18",
+      "report_id": "PGS_24CN_BCTN.pdf",
+      "page": 63,
+      "period": "01/01/2024",
+      "question": "Tổng nợ vay tài chính chịu lãi gồm vay ngắn hạn và dài hạn chiếm bao nhiêu phần trăm Tổng nguồn vốn tại 01/01/2024?",
+      "expected_answer_value": "21.42779119581230626966084086210473",
+      "raw_candidate_count": 3,
+      "runtime_candidate_count": 4,
+      "gold_derivation_materialized": true,
+      "predicted_operation": "RATIO_PERCENT",
+      "predicted_operands": [
+        3,
+        2
+      ],
+      "predicted_dag_operations": [
+        "ADD",
+        "SHARE_OF_TOTAL"
+      ],
+      "predicted_leaf_indices": [
+        0,
+        1,
+        2
+      ],
+      "predicted_leaf_roles": [
+        "short_term_borrowings",
+        "long_term_borrowings",
+        "total_capital"
+      ],
+      "predicted_value": "21.42779119581230626966084086210473",
+      "execution_error": "",
+      "program_correct": true,
+      "execution_correct": true,
+      "confidence": 0.9011764705882354,
+      "confidence_threshold": 0.9909889376955401,
+      "accepted": false,
+      "abstain_reasons": [
+        "below_frozen_threshold"
+      ],
+      "grounding_rejections": [],
+      "grounding_constraints_applied": [
+        "period"
+      ],
+      "generation_sources": [
+        "neural_baseline",
+        "typed_slot_synthesis",
+        "v12_3_reference_winner"
+      ],
+      "program_candidates_considered": 1,
+      "symbolic_program_rejections": 0,
+      "symbolic_unknown_constraints": 5,
+      "synthesized_program_candidates": 1
+    },
+    {
+      "example_id": "v12c-ibd-166bde9910334a4a444a",
+      "company_key": "development-company-26d5fb98b8c88a18",
+      "report_id": "PGS_24CN_BCTN.pdf",
+      "page": 63,
+      "period": "31/12/2024",
+      "question": "Tổng nợ vay tài chính chịu lãi gồm vay ngắn hạn và dài hạn chiếm bao nhiêu phần trăm Tổng nguồn vốn tại 31/12/2024?",
+      "expected_answer_value": "19.02636553242993482629689813806835",
+      "raw_candidate_count": 3,
+      "runtime_candidate_count": 4,
+      "gold_derivation_materialized": true,
+      "predicted_operation": "RATIO_PERCENT",
+      "predicted_operands": [
+        3,
+        2
+      ],
+      "predicted_dag_operations": [
+        "ADD",
+        "SHARE_OF_TOTAL"
+      ],
+      "predicted_leaf_indices": [
+        0,
+        1,
+        2
+      ],
+      "predicted_leaf_roles": [
+        "short_term_borrowings",
+        "long_term_borrowings",
+        "total_capital"
+      ],
+      "predicted_value": "19.02636553242993482629689813806835",
+      "execution_error": "",
+      "program_correct": true,
+      "execution_correct": true,
+      "confidence": 0.9011764705882354,
+      "confidence_threshold": 0.9909889376955401,
+      "accepted": false,
+      "abstain_reasons": [
+        "below_frozen_threshold"
+      ],
+      "grounding_rejections": [],
+      "grounding_constraints_applied": [
+        "period"
+      ],
+      "generation_sources": [
+        "neural_baseline",
+        "typed_slot_synthesis",
+        "v12_3_reference_winner"
+      ],
+      "program_candidates_considered": 1,
+      "symbolic_program_rejections": 0,
+      "symbolic_unknown_constraints": 5,
+      "synthesized_program_candidates": 1
+    },
+    {
+      "example_id": "v12c-ibd-8ebeb806af7bde8b2f48",
+      "company_key": "development-company-32f04cd59918b4b9",
+      "report_id": "VHM_24CN_BCTN.pdf",
+      "page": 89,
+      "period": "01/01/2024",
+      "question": "Tổng nợ vay tài chính chịu lãi gồm vay ngắn hạn và dài hạn chiếm bao nhiêu phần trăm Tổng nguồn vốn tại 01/01/2024?",
+      "expected_answer_value": "12.74846005620282496253772864411570",
+      "raw_candidate_count": 3,
+      "runtime_candidate_count": 4,
+      "gold_derivation_materialized": true,
+      "predicted_operation": "RATIO_PERCENT",
+      "predicted_operands": [
+        3,
+        2
+      ],
+      "predicted_dag_operations": [
+        "ADD",
+        "SHARE_OF_TOTAL"
+      ],
+      "predicted_leaf_indices": [
+        0,
+        1,
+        2
+      ],
+      "predicted_leaf_roles": [
+        "short_term_borrowings",
+        "long_term_borrowings",
+        "total_capital"
+      ],
+      "predicted_value": "12.74846005620282496253772864411570",
+      "execution_error": "",
+      "program_correct": true,
+      "execution_correct": true,
+      "confidence": 0.9011764705882354,
+      "confidence_threshold": 0.9909889376955401,
+      "accepted": false,
+      "abstain_reasons": [
+        "below_frozen_threshold"
+      ],
+      "grounding_rejections": [],
+      "grounding_constraints_applied": [
+        "period"
+      ],
+      "generation_sources": [
+        "neural_baseline",
+        "typed_slot_synthesis",
+        "v12_3_reference_winner"
+      ],
+      "program_candidates_considered": 1,
+      "symbolic_program_rejections": 0,
+      "symbolic_unknown_constraints": 5,
+      "synthesized_program_candidates": 1
+    },
+    {
+      "example_id": "v12c-ibd-e23dae6deaf20f34e427",
+      "company_key": "development-company-32f04cd59918b4b9",
+      "report_id": "VHM_24CN_BCTN.pdf",
+      "page": 89,
+      "period": "31/12/2024",
+      "question": "Tổng nợ vay tài chính chịu lãi gồm vay ngắn hạn và dài hạn chiếm bao nhiêu phần trăm Tổng nguồn vốn tại 31/12/2024?",
+      "expected_answer_value": "14.40815976537503737974144916702552",
+      "raw_candidate_count": 3,
+      "runtime_candidate_count": 4,
+      "gold_derivation_materialized": true,
+      "predicted_operation": "RATIO_PERCENT",
+      "predicted_operands": [
+        3,
+        2
+      ],
+      "predicted_dag_operations": [
+        "ADD",
+        "SHARE_OF_TOTAL"
+      ],
+      "predicted_leaf_indices": [
+        0,
+        1,
+        2
+      ],
+      "predicted_leaf_roles": [
+        "short_term_borrowings",
+        "long_term_borrowings",
+        "total_capital"
+      ],
+      "predicted_value": "14.40815976537503737974144916702552",
+      "execution_error": "",
+      "program_correct": true,
+      "execution_correct": true,
+      "confidence": 0.9011764705882354,
+      "confidence_threshold": 0.9909889376955401,
+      "accepted": false,
+      "abstain_reasons": [
+        "below_frozen_threshold"
+      ],
+      "grounding_rejections": [],
+      "grounding_constraints_applied": [
+        "period"
+      ],
+      "generation_sources": [
+        "neural_baseline",
+        "typed_slot_synthesis",
+        "v12_3_reference_winner"
+      ],
+      "program_candidates_considered": 1,
+      "symbolic_program_rejections": 0,
+      "symbolic_unknown_constraints": 5,
+      "synthesized_program_candidates": 1
+    },
+    {
+      "example_id": "v12c-ibd-8e4778ca7b38ed2b86e2",
+      "company_key": "development-company-355521816b3689f4",
+      "report_id": "DCM_23CN_BCTN.pdf",
+      "page": 138,
+      "period": "01/01/2023",
+      "question": "Tổng nợ vay tài chính chịu lãi gồm vay ngắn hạn và dài hạn chiếm bao nhiêu phần trăm Tổng nguồn vốn tại 01/01/2023?",
+      "expected_answer_value": "0.02546708902772304001133403049082977",
+      "raw_candidate_count": 3,
+      "runtime_candidate_count": 4,
+      "gold_derivation_materialized": true,
+      "predicted_operation": "RATIO_PERCENT",
+      "predicted_operands": [
+        3,
+        2
+      ],
+      "predicted_dag_operations": [
+        "ADD",
+        "SHARE_OF_TOTAL"
+      ],
+      "predicted_leaf_indices": [
+        0,
+        1,
+        2
+      ],
+      "predicted_leaf_roles": [
+        "short_term_borrowings",
+        "long_term_borrowings",
+        "total_capital"
+      ],
+      "predicted_value": "0.02546708902772304001133403049082977",
+      "execution_error": "",
+      "program_correct": true,
+      "execution_correct": true,
+      "confidence": 0.9011764705882354,
+      "confidence_threshold": 0.9909889376955401,
+      "accepted": false,
+      "abstain_reasons": [
+        "below_frozen_threshold"
+      ],
+      "grounding_rejections": [],
+      "grounding_constraints_applied": [
+        "period"
+      ],
+      "generation_sources": [
+        "neural_baseline",
+        "typed_slot_synthesis",
+        "v12_3_reference_winner"
+      ],
+      "program_candidates_considered": 1,
+      "symbolic_program_rejections": 0,
+      "symbolic_unknown_constraints": 5,
+      "synthesized_program_candidates": 1
+    },
+    {
+      "example_id": "v12c-ibd-c14870c41ab4c657a58a",
+      "company_key": "development-company-355521816b3689f4",
+      "report_id": "DCM_23CN_BCTN.pdf",
+      "page": 138,
+      "period": "31/12/2023",
+      "question": "Tổng nợ vay tài chính chịu lãi gồm vay ngắn hạn và dài hạn chiếm bao nhiêu phần trăm Tổng nguồn vốn tại 31/12/2023?",
+      "expected_answer_value": "5.570102105681358020122987501052802",
+      "raw_candidate_count": 3,
+      "runtime_candidate_count": 4,
+      "gold_derivation_materialized": true,
+      "predicted_operation": "RATIO_PERCENT",
+      "predicted_operands": [
+        3,
+        2
+      ],
+      "predicted_dag_operations": [
+        "ADD",
+        "SHARE_OF_TOTAL"
+      ],
+      "predicted_leaf_indices": [
+        0,
+        1,
+        2
+      ],
+      "predicted_leaf_roles": [
+        "short_term_borrowings",
+        "long_term_borrowings",
+        "total_capital"
+      ],
+      "predicted_value": "5.570102105681358020122987501052802",
+      "execution_error": "",
+      "program_correct": true,
+      "execution_correct": true,
+      "confidence": 0.9011764705882354,
+      "confidence_threshold": 0.9909889376955401,
+      "accepted": false,
+      "abstain_reasons": [
+        "below_frozen_threshold"
+      ],
+      "grounding_rejections": [],
+      "grounding_constraints_applied": [
+        "period"
+      ],
+      "generation_sources": [
+        "neural_baseline",
+        "typed_slot_synthesis",
+        "v12_3_reference_winner"
+      ],
+      "program_candidates_considered": 1,
+      "symbolic_program_rejections": 0,
+      "symbolic_unknown_constraints": 5,
+      "synthesized_program_candidates": 1
+    },
+    {
+      "example_id": "v12c-ibd-27931fb101a57355b2a7",
+      "company_key": "development-company-3a6490b72b5ad015",
+      "report_id": "VSC_23CN_BCTN.pdf",
+      "page": 29,
+      "period": "31/12/2022",
+      "question": "Tổng nợ vay tài chính chịu lãi gồm vay ngắn hạn và dài hạn chiếm bao nhiêu phần trăm Tổng nguồn vốn tại 31/12/2022?",
+      "expected_answer_value": "20.80236906531262008551712087874209",
+      "raw_candidate_count": 3,
+      "runtime_candidate_count": 4,
+      "gold_derivation_materialized": true,
+      "predicted_operation": "RATIO_PERCENT",
+      "predicted_operands": [
+        3,
+        2
+      ],
+      "predicted_dag_operations": [
+        "ADD",
+        "SHARE_OF_TOTAL"
+      ],
+      "predicted_leaf_indices": [
+        0,
+        1,
+        2
+      ],
+      "predicted_leaf_roles": [
+        "short_term_borrowings",
+        "long_term_borrowings",
+        "total_capital"
+      ],
+      "predicted_value": "20.80236906531262008551712087874209",
+      "execution_error": "",
+      "program_correct": true,
+      "execution_correct": true,
+      "confidence": 0.9011764705882354,
+      "confidence_threshold": 0.9909889376955401,
+      "accepted": false,
+      "abstain_reasons": [
+        "below_frozen_threshold"
+      ],
+      "grounding_rejections": [],
+      "grounding_constraints_applied": [
+        "period"
+      ],
+      "generation_sources": [
+        "neural_baseline",
+        "typed_slot_synthesis",
+        "v12_3_reference_winner"
+      ],
+      "program_candidates_considered": 1,
+      "symbolic_program_rejections": 0,
+      "symbolic_unknown_constraints": 5,
+      "synthesized_program_candidates": 1
+    },
+    {
+      "example_id": "v12c-ibd-6ad9b7c41cc1702999d4",
+      "company_key": "development-company-3a6490b72b5ad015",
+      "report_id": "VSC_23CN_BCTN.pdf",
+      "page": 29,
+      "period": "31/12/2023",
+      "question": "Tổng nợ vay tài chính chịu lãi gồm vay ngắn hạn và dài hạn chiếm bao nhiêu phần trăm Tổng nguồn vốn tại 31/12/2023?",
+      "expected_answer_value": "30.21782563543448203991275225417382",
+      "raw_candidate_count": 3,
+      "runtime_candidate_count": 4,
+      "gold_derivation_materialized": true,
+      "predicted_operation": "RATIO_PERCENT",
+      "predicted_operands": [
+        3,
+        2
+      ],
+      "predicted_dag_operations": [
+        "ADD",
+        "SHARE_OF_TOTAL"
+      ],
+      "predicted_leaf_indices": [
+        0,
+        1,
+        2
+      ],
+      "predicted_leaf_roles": [
+        "short_term_borrowings",
+        "long_term_borrowings",
+        "total_capital"
+      ],
+      "predicted_value": "30.21782563543448203991275225417382",
+      "execution_error": "",
+      "program_correct": true,
+      "execution_correct": true,
+      "confidence": 0.9011764705882354,
+      "confidence_threshold": 0.9909889376955401,
+      "accepted": false,
+      "abstain_reasons": [
+        "below_frozen_threshold"
+      ],
+      "grounding_rejections": [],
+      "grounding_constraints_applied": [
+        "period"
+      ],
+      "generation_sources": [
+        "neural_baseline",
+        "typed_slot_synthesis",
+        "v12_3_reference_winner"
+      ],
+      "program_candidates_considered": 1,
+      "symbolic_program_rejections": 0,
+      "symbolic_unknown_constraints": 5,
+      "synthesized_program_candidates": 1
+    }
+  ],
+  "gate": {
+    "frozen_inference_completed": true,
+    "overall_program_execution_gate": true,
+    "closing_endpoint_program_execution_gate": true,
+    "acceptance_observable": false,
+    "ready_for_calibration": false,
+    "phase_d_unlocked": false
+  }
+}

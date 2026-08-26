@@ -1,0 +1,63 @@
+{
+  "schema": "finhrm-qp4-post-unit-scale-baseline-diagnostic-review-precommit-lock-v1",
+  "created_at": "2026-08-22",
+  "classification": "development_only_qp4_residual_diagnostic_precommit_no_runtime_change",
+  "status": "complete",
+  "precommit_gate_passed": true,
+  "failed_gates": [],
+  "diagnostic_executed": false,
+  "runtime_changed": false,
+  "runtime_edit_authorized": false,
+  "runtime_hashes": {
+    "src/hrm_finance_qa/question_planner.py": "0973e72711fccdac6fd8615e5dd5afc8f47fb98024c9080063cd6bac46bd66a2",
+    "src/hrm_finance_qa/symbolic_verifier.py": "2679b1ce55cc070697438c806f19e3e888bfc19bc1a9ae3686a0b7fd7ffb0087",
+    "src/hrm_finance_qa/program_synthesis.py": "e4acc4878d0dfd465ba66ab91f3aaf8be71db5591aa1358fb8cb81f3c7bff550",
+    "src/hrm_finance_qa/evidence_schema.py": "2f16fabf932dc9dabc8203d9642d2503bb2dab43e0e1ee0f78755dd4fb00825d",
+    "src/hrm_finance_qa/document_hrm.py": "b5951bcde79583950b672f7fb6b199b3e5b9904e6784daae7c4c5be0eba65d21",
+    "src/hrm_finance_qa/document_reasoning_engine.py": "3883500011472716bc01f8e04a6d6f925173b35a14bbedd945c5ca4fb0063fa2",
+    "src/hrm_finance_qa/program_data.py": "5199434fc0628b7d270ce62b12657366cbe118901065edd9f1e1f6ca0f1f8d54",
+    "src/hrm_finance_qa/direction_contract.py": "a18aa130419fc74ce647bd92dc9c1b1217007738e636aad0f28c7f78396be937",
+    "src/hrm_finance_qa/answer_presentation.py": "c40bd4a8dff39162b44cf11ef2da12e7b153d907f7254e5d1856157b3ac56d36",
+    "src/hrm_finance_qa/document_sources.py": "e9eb7b3ddcc2ed13060a573a6a0101a216fa49ff21dd65cd5fc2629b92f5fc0b",
+    "src/hrm_finance_qa/document_page_index.py": "c99e011175afef21f302be42ba9454b948caa549d4d445d6bb35c5b974b81f85"
+  },
+  "checkpoint_sha256": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de",
+  "runtime_file_whitelist_for_next_step": [],
+  "future_diagnostic_outputs": {
+    "raw": "reports/finhrm_qp4_post_unit_scale_baseline_diagnostic_review_raw_v1.json",
+    "report": "reports/finhrm_qp4_post_unit_scale_baseline_diagnostic_review_v1.json",
+    "markdown": "reports/finhrm_qp4_post_unit_scale_baseline_diagnostic_review_v1.md",
+    "lock": "reports/finhrm_qp4_post_unit_scale_baseline_diagnostic_review_lock_v1.json"
+  },
+  "artifacts": [
+    {
+      "path": "config/finhrm_qp4_post_unit_scale_baseline_diagnostic_review_precommit_v1.json",
+      "size_bytes": 12639,
+      "sha256": "e6c089e42d6de767210bc9614fed843d1415cea25976c187488bbf0e1946afb8"
+    },
+    {
+      "path": "scripts/validate_qp4_post_unit_scale_baseline_diagnostic_review_precommit.py",
+      "size_bytes": 18291,
+      "sha256": "a86b8cfe56e086a27bf74a8ac573a4425e334b8064ac70d9ec6f97bb485c14df"
+    },
+    {
+      "path": "tests/test_qp4_post_unit_scale_baseline_diagnostic_review_precommit.py",
+      "size_bytes": 8142,
+      "sha256": "5bb3eea86a7fae45377e6d8c361f1f12810fcb1a7e90c8f6dac910742764d80d"
+    },
+    {
+      "path": "reports/finhrm_qp4_post_unit_scale_baseline_diagnostic_review_precommit_v1.json",
+      "size_bytes": 11884,
+      "sha256": "9c414049db45c996a63daf639caf424762ea1131e310437b7c1569e7140c7cfa"
+    },
+    {
+      "path": "reports/finhrm_qp4_post_unit_scale_baseline_diagnostic_review_precommit_v1.md",
+      "size_bytes": 1210,
+      "sha256": "ece130e6e5b73e07b9d7f38cece9eb4ba544c8861f18aa73f3d02ec6fcac23e3"
+    }
+  ],
+  "qp4_complete": false,
+  "qp5_authorized": false,
+  "phase_d": "locked",
+  "authorized_next_step": "QP4-POST-UNIT-SCALE-BASELINE-DIAGNOSTIC-REVIEW: run the frozen 18 compiler residual and 39 source diagnostic queries, assign only the earliest failing layer using post-hoc gold comparison, and make no runtime changes."
+}

@@ -1,0 +1,94 @@
+{
+  "schema": "finhrm-qp4-post-unit-scale-baseline-diagnostic-review-lock-v1",
+  "created_at": "2026-08-22",
+  "classification": "development_only_qp4_residual_diagnostic_runtime_unchanged",
+  "status": "complete",
+  "diagnostic_complete": true,
+  "diagnostic_gate_passed": true,
+  "failed_gates": [],
+  "implementation_precommit_candidate": {
+    "nominated": true,
+    "target_file": "src/hrm_finance_qa/question_planner.py",
+    "generic_failure_groups": [
+      {
+        "group": "BILINGUAL_PARENTHETICAL",
+        "families": 3,
+        "first_failing_layer": "QUESTION_PLAN"
+      },
+      {
+        "group": "DISCOURSE_PREFIX_SUFFIX",
+        "families": 12,
+        "first_failing_layer": "QUESTION_PLAN"
+      },
+      {
+        "group": "IRRELEVANT_DISTRACTOR_CLAUSE",
+        "families": 3,
+        "first_failing_layer": "QUESTION_PLAN"
+      }
+    ],
+    "runtime_edit_authorized": false,
+    "new_precommit_required": true
+  },
+  "runtime_changed": false,
+  "runtime_edit_authorized": false,
+  "runtime_hashes": {
+    "src/hrm_finance_qa/question_planner.py": "0973e72711fccdac6fd8615e5dd5afc8f47fb98024c9080063cd6bac46bd66a2",
+    "src/hrm_finance_qa/symbolic_verifier.py": "2679b1ce55cc070697438c806f19e3e888bfc19bc1a9ae3686a0b7fd7ffb0087",
+    "src/hrm_finance_qa/program_synthesis.py": "e4acc4878d0dfd465ba66ab91f3aaf8be71db5591aa1358fb8cb81f3c7bff550",
+    "src/hrm_finance_qa/evidence_schema.py": "2f16fabf932dc9dabc8203d9642d2503bb2dab43e0e1ee0f78755dd4fb00825d",
+    "src/hrm_finance_qa/document_hrm.py": "b5951bcde79583950b672f7fb6b199b3e5b9904e6784daae7c4c5be0eba65d21",
+    "src/hrm_finance_qa/document_reasoning_engine.py": "3883500011472716bc01f8e04a6d6f925173b35a14bbedd945c5ca4fb0063fa2",
+    "src/hrm_finance_qa/program_data.py": "5199434fc0628b7d270ce62b12657366cbe118901065edd9f1e1f6ca0f1f8d54",
+    "src/hrm_finance_qa/direction_contract.py": "a18aa130419fc74ce647bd92dc9c1b1217007738e636aad0f28c7f78396be937",
+    "src/hrm_finance_qa/answer_presentation.py": "c40bd4a8dff39162b44cf11ef2da12e7b153d907f7254e5d1856157b3ac56d36",
+    "src/hrm_finance_qa/document_sources.py": "e9eb7b3ddcc2ed13060a573a6a0101a216fa49ff21dd65cd5fc2629b92f5fc0b",
+    "src/hrm_finance_qa/document_page_index.py": "c99e011175afef21f302be42ba9454b948caa549d4d445d6bb35c5b974b81f85"
+  },
+  "checkpoint_sha256": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de",
+  "artifacts": [
+    {
+      "path": "config/finhrm_qp4_post_unit_scale_baseline_diagnostic_review_precommit_v1.json",
+      "size_bytes": 12639,
+      "sha256": "e6c089e42d6de767210bc9614fed843d1415cea25976c187488bbf0e1946afb8"
+    },
+    {
+      "path": "reports/finhrm_qp4_post_unit_scale_baseline_diagnostic_review_precommit_v1.json",
+      "size_bytes": 11884,
+      "sha256": "9c414049db45c996a63daf639caf424762ea1131e310437b7c1569e7140c7cfa"
+    },
+    {
+      "path": "reports/finhrm_qp4_post_unit_scale_baseline_diagnostic_review_precommit_lock_v1.json",
+      "size_bytes": 3629,
+      "sha256": "0649828ac9ed693c07ebfff2064fdd53b361b033e2031363e2a250b5f158a2a2"
+    },
+    {
+      "path": "scripts/evaluate_qp4_post_unit_scale_baseline_diagnostic_review.py",
+      "size_bytes": 33116,
+      "sha256": "0677ff39f78dc92cb937bb9ed8e48455462baf8729043540601a9b351087e60c"
+    },
+    {
+      "path": "tests/test_qp4_post_unit_scale_baseline_diagnostic_review.py",
+      "size_bytes": 4801,
+      "sha256": "36dd0c6e4c2295324b36ad6c0c170011be8e2630739c5ebe4b593c2e4dc2cc99"
+    },
+    {
+      "path": "reports/finhrm_qp4_post_unit_scale_baseline_diagnostic_review_raw_v1.json",
+      "size_bytes": 416567,
+      "sha256": "9a23c5a7157827e546c2e2cd5ab1b9e8c95144f3cd2ffea58bd6f0dd622b7a2f"
+    },
+    {
+      "path": "reports/finhrm_qp4_post_unit_scale_baseline_diagnostic_review_v1.json",
+      "size_bytes": 10734,
+      "sha256": "b17ceaf934f79d05e8db60dba070a2fbceab50f6551416169fc7fa963fddf089"
+    },
+    {
+      "path": "reports/finhrm_qp4_post_unit_scale_baseline_diagnostic_review_v1.md",
+      "size_bytes": 1655,
+      "sha256": "cd7468a5767127a04b8f0bda0a0c620b89f960efa85a8979cc2b2ee0c95cac1f"
+    }
+  ],
+  "qp4_complete": false,
+  "qp5_authorized": false,
+  "phase_d": "locked",
+  "authorized_next_step": "QP4-QUESTION-SURFACE-IMPLEMENTATION-PRECOMMIT: freeze the smallest generic question_planner symbol scope for the isolated compiler surface groups; no runtime change is authorized by this diagnostic. Source/retrieval strata remain separately locked."
+}

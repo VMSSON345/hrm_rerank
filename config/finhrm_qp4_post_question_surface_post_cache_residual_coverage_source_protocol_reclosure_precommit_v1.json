@@ -1,0 +1,353 @@
+{
+  "schema": "finhrm-qp4-post-question-surface-post-cache-residual-coverage-source-protocol-reclosure-precommit-v1",
+  "created_at": "2026-08-23",
+  "classification": "development_only_qp4_question_triggered_page_selective_source_protocol_reclosure_precommit",
+  "status": "precommit_contract",
+  "parents": {
+    "diagnostic_report": {
+      "path": "reports/finhrm_qp4_post_question_surface_post_cache_residual_coverage_source_replay_diagnostic_review_v1.json",
+      "size_bytes": 18341,
+      "sha256": "5da08d4b2580f9551ed5331a4844959dbe3ce4fd01de1553b99f272ca3a1967d"
+    },
+    "diagnostic_markdown": {
+      "path": "reports/finhrm_qp4_post_question_surface_post_cache_residual_coverage_source_replay_diagnostic_review_v1.md",
+      "size_bytes": 2374,
+      "sha256": "f48cb25160a74bbcb61800204035aad31f155656086283f51c385071b1431461"
+    },
+    "diagnostic_lock": {
+      "path": "reports/finhrm_qp4_post_question_surface_post_cache_residual_coverage_source_replay_diagnostic_review_lock_v1.json",
+      "size_bytes": 5543,
+      "sha256": "b13661c6b0e6c197b2b496f68e2b328a2cafbcb5adb360f3d19903b80e7c0b71"
+    },
+    "generalization_invariant": {
+      "path": "config/finhrm_report_generalization_invariant_v1.json",
+      "size_bytes": 2512,
+      "sha256": "7a8c6e58a47314d522adb782277f6d5bf0cbf761faf681d848e2e9ae4e861846"
+    },
+    "thesis_core": {
+      "path": "config/finhrm_thesis_core_v1.json",
+      "size_bytes": 24625,
+      "sha256": "a9f2f3088f7622c6c8912086eac16252f154fcae1164a3fe7ba75107a0ece502"
+    },
+    "claude_md": {
+      "path": "CLAUDE.md",
+      "size_bytes": 2356,
+      "sha256": "35a0f66a6531e61b35dc7288884da35eeef79ad1039f5ffdfd29295cee8d566e"
+    }
+  },
+  "authorization_basis": {
+    "diagnostic_gate_passed": true,
+    "qp4_gate_passed": false,
+    "attribution": "MULTI_LAYER_GENERIC_SEMANTIC_ROOTS_WITH_UPSTREAM_SOURCE_PROTOCOL_BLOCKER",
+    "source_protocol_reclosure_precommit_authorized": true,
+    "primary_source_error_rows": 41,
+    "earliest_source_failure_rows": 37,
+    "source_errors_after_question_plan_first": 4,
+    "earliest_source_failure_coverage": {
+      "companies": 4,
+      "sources": 4,
+      "real_document_layouts": 3,
+      "real_table_layouts": 4,
+      "extraction_families": 2
+    },
+    "runtime_changed_by_this_precommit": false,
+    "source_or_ocr_execution_by_this_precommit": false
+  },
+  "generic_code_path_evidence": {
+    "scope_is_generic": true,
+    "reason": "The failing behavior is controlled only by page-index state, native usability, selected-page masks and the caller OCR configuration. It does not branch on company, source name, physical page literal, year, value, anchor identity or question literal.",
+    "frozen_observation": {
+      "policy_violations_across_primary_and_permutation": 82,
+      "pre_ranking_generation_attempt_page_events": 571,
+      "unselected_ocr_requested_page_events": 1142,
+      "newly_materialized_page_events": 0,
+      "unselected_ocr_generated_page_events": 0,
+      "whole_document_ocr_jobs": 0,
+      "representative_aggregate_pattern": "The frozen telemetry includes OCR requests outside the post-ranking selected-page set while no OCR page was generated; this pattern is evaluated only as aggregate code-path evidence, not as a report-specific rule."
+    },
+    "symbol_trace": [
+      {
+        "file": "src/hrm_finance_qa/document_page_index.py",
+        "symbol": "build_page_indexed_chunks",
+        "evidence": "DocumentPageIndex.load_or_build is called before _rank_page_records and receives the enabled OCR configuration; a cold/incomplete index may therefore request OCR before the question-specific page ranking boundary."
+      },
+      {
+        "file": "src/hrm_finance_qa/document_page_index.py",
+        "symbol": "DocumentPageIndex.load_or_build and DocumentPageIndex._build_records",
+        "evidence": "When OCR is enabled, missing MinerU state can rebuild the index and _build_records requests every native-unusable page, rather than only the later ranked-plus-neighbor selected mask. These symbols are evidence context and are frozen from direct edit by the minimal implementation plan."
+      },
+      {
+        "file": "src/hrm_finance_qa/document_page_index.py",
+        "symbol": "_materialize_selected_pages",
+        "evidence": "When prefer_mineru_for_selected_pages is true, the function replaces mineru_auto_generate with true even if the public caller explicitly passed false."
+      },
+      {
+        "file": "src/hrm_finance_qa/document_sources.py",
+        "symbol": "_load_or_generate_mineru_pages",
+        "evidence": "The loader already honors mineru_auto_generate=false after cache lookup and already receives a selected-page boolean mask. It is a frozen no-change control, not the admitted defect."
+      }
+    ],
+    "not_established": [
+      "generic OCR recognition defect",
+      "generic table reconstruction defect",
+      "need for whole-document OCR",
+      "need to change page ranking, top-k or neighbor thresholds",
+      "need to change MinerU backend, effort or model",
+      "unseen or universal report generalization"
+    ]
+  },
+  "exact_implementation_whitelist": {
+    "runtime_files": [
+      "src/hrm_finance_qa/document_page_index.py"
+    ],
+    "runtime_symbols": {
+      "src/hrm_finance_qa/document_page_index.py": [
+        "build_page_indexed_chunks: build/load the question-independent page index with OCR generation disabled, then retain the original caller OCR config only for post-ranking selected-page materialization",
+        "_materialize_selected_pages: never promote mineru_auto_generate=false to true; pass the caller policy unchanged to the cache loader/generator"
+      ]
+    },
+    "test_files": [
+      "tests/test_document_page_index.py"
+    ],
+    "allowed_test_scope": [
+      "prove a cold page-index build performs no MinerU call before ranking",
+      "prove auto-generation false remains false during selected-page cache lookup",
+      "prove auto-generation true receives only the ranked-plus-neighbor selected mask",
+      "prove a warm compatible selected-page cache is reused with auto-generation false",
+      "prove a missing selected-page cache with auto-generation false retains native evidence or fails closed without generating OCR",
+      "prove unselected pages are neither requested nor generated after the reclosure"
+    ],
+    "frozen_runtime_files": [
+      "src/hrm_finance_qa/question_planner.py",
+      "src/hrm_finance_qa/symbolic_verifier.py",
+      "src/hrm_finance_qa/program_synthesis.py",
+      "src/hrm_finance_qa/evidence_schema.py",
+      "src/hrm_finance_qa/document_hrm.py",
+      "src/hrm_finance_qa/document_reasoning_engine.py",
+      "src/hrm_finance_qa/program_data.py",
+      "src/hrm_finance_qa/direction_contract.py",
+      "src/hrm_finance_qa/answer_presentation.py",
+      "src/hrm_finance_qa/document_sources.py"
+    ],
+    "forbidden_runtime_changes": [
+      "change page_top_k, page_neighbor_pages, chunk ranking or candidate thresholds",
+      "change OCR backend, effort, parse method, model or checkpoint",
+      "change cache fingerprint or source hash semantics",
+      "change question planner, retrieval scoring, candidate ranking, binding, synthesis, proof, execution, action or rendering semantics",
+      "add company, filename, source hash, page, year, value, anchor ID, example ID or question-literal rules",
+      "infer period or provenance from the question, absence or nearby context",
+      "treat cache availability, candidate rank, neural score or confidence as semantic proof"
+    ],
+    "why_one_runtime_file_is_sufficient": "The page-index call site can enforce a native-only question-independent index boundary without editing index storage internals, and selected-page materialization can preserve the caller generation flag in the same module. The engine and source loader already supply the necessary question, selected mask and fail-closed cache behavior."
+  },
+  "source_protocol_contract": {
+    "phase_order": [
+      "source hash verification",
+      "native-only page-index load or build",
+      "question-specific native page ranking",
+      "frozen neighbor expansion and document-boundary clipping",
+      "explicit native fallback condition",
+      "selected-page compatible-cache lookup",
+      "selected-page generation only when the caller explicitly enables auto-generation",
+      "artifact-only replay with auto-generation disabled",
+      "candidate, binding, proof and action evaluation"
+    ],
+    "native_page_index": {
+      "may_read_native_text_from_all_pages": true,
+      "native_text_read_counts_as_ocr": false,
+      "mineru_call_before_question_page_ranking": false,
+      "rebuild_page_index": false
+    },
+    "page_selection": {
+      "input": "current question plus unchanged runtime retrieval expansion",
+      "page_top_k": 6,
+      "neighbor_pages": 1,
+      "maximum_selected_pages_before_document_clipping": 18,
+      "force_ocr": false,
+      "gold_page_or_provenance_used": false,
+      "unselected_page_ocr_request_allowed": false,
+      "unselected_page_ocr_generation_allowed": false
+    },
+    "generation_policy": {
+      "caller_false_may_be_overridden": false,
+      "caller_true_allows_generation": "only after ranking and only for the selected-page mask",
+      "whole_document_ocr_allowed": false,
+      "whole_corpus_ocr_allowed": false,
+      "missing_cache_with_auto_generation_false": "retain native evidence when available, otherwise remain UNKNOWN/ABSTAIN or source-fail; never generate OCR",
+      "cache_availability_is_semantic_proof": false
+    },
+    "persistence_policy": {
+      "allowed": [
+        "fingerprinted MinerU structured content_list cache for an exact selected contiguous page run",
+        "question-independent page-index state keyed by the exact source fingerprint"
+      ],
+      "forbidden": [
+        "Markdown OCR copy",
+        "whole-document OCR artifact created for a question",
+        "raw question trace",
+        "raw candidate trace",
+        "unselected-page OCR artifact"
+      ],
+      "every_persisted_cache_artifact_requires_source_and_artifact_sha256": true
+    }
+  },
+  "frozen_reclosure_universe": {
+    "anchors": 6,
+    "companies": 6,
+    "sources": 6,
+    "real_document_layouts": 3,
+    "real_table_layouts": 6,
+    "extraction_families": 2,
+    "primary_observations": 90,
+    "permutation_observations": 90,
+    "target_observations": 60,
+    "semantic_control_observations": 30,
+    "surface_equivalence_groups": 12,
+    "source_errors_remain_in_denominator": true,
+    "timeouts_remain_in_denominator": true,
+    "abstentions_remain_in_denominator": true,
+    "failed_observation_may_be_dropped_or_replaced": false,
+    "selection_after_outcome_allowed": false,
+    "gold_used_only_post_hoc": true
+  },
+  "authorized_reclosure_execution": {
+    "step": "QP4-POST-QUESTION-SURFACE-POST-CACHE-RESIDUAL-COVERAGE-SOURCE-PROTOCOL-RECLOSURE",
+    "stage_a_runtime_change": [
+      "edit only the two whitelisted symbol groups in document_page_index.py",
+      "add or update only the whitelisted document-page-index tests",
+      "do not change runtime semantics outside page-index generation-policy ordering"
+    ],
+    "stage_b_question_triggered_materialization": [
+      "run all and only the 90 frozen primary development observations through the public question-plus-hash-matched-PDF boundary",
+      "allow auto-generation only for post-ranking selected-page masks after an explicit native fallback condition",
+      "persist only compatible fingerprinted content_list cache artifacts and page-index state",
+      "record source/artifact hashes and page-selection telemetry",
+      "do not count materialization outcomes as semantic answers or generalization confirmation"
+    ],
+    "stage_c_artifact_only_confirmation": [
+      "rerun all 90 primary observations with mineru_auto_generate=false",
+      "run all 90 frozen candidate permutations with mineru_auto_generate=false",
+      "verify cache reuse and page-selection policy before semantic gates",
+      "retain the same oracle and earliest-layer order",
+      "rerun compiler, regression and frozen safe replay gates"
+    ],
+    "forbidden_actions": [
+      "read validation, blind, test, sealed, holdout or final-evaluation data",
+      "use ABW as confirmation or gate",
+      "OCR a whole PDF or the whole development corpus",
+      "use a gold page, row, column, candidate, pointer, program, action or answer before execution",
+      "drop or replace any frozen observation because of its outcome",
+      "change threshold, checkpoint or model",
+      "fine-tune",
+      "edit any non-whitelisted runtime or test file",
+      "repair the five semantic root signatures in this source-protocol step",
+      "claim unseen or universal generalization"
+    ]
+  },
+  "reclosure_gates": {
+    "unit_and_protocol": {
+      "cold_index_pre_ranking_mineru_calls": 0,
+      "caller_false_promotions_to_true": 0,
+      "unselected_page_ocr_requests": 0,
+      "unselected_page_ocr_generations": 0,
+      "whole_document_ocr_jobs": 0,
+      "whole_corpus_ocr_jobs": 0,
+      "selected_mask_exact_after_neighbor_expansion": true,
+      "warm_cache_reusable_with_auto_generation_false": true
+    },
+    "artifact_only_source_replay": {
+      "primary_observations_classified": "90/90",
+      "permutation_observations_classified": "90/90",
+      "source_hash_mismatches": 0,
+      "protected_sources_loaded": 0,
+      "source_load_or_extraction_failures": 0,
+      "cache_reusable_with_auto_generation_disabled": "90/90",
+      "accepted_wrong": 0,
+      "reference_base_old_winner_false_accepts": 0,
+      "semantic_control_false_accepts": 0,
+      "hard_negative_answers": 0
+    },
+    "frozen_controls": {
+      "compiler": "242/242",
+      "regression": "360/360",
+      "safe_replay_gate": true,
+      "actions": {
+        "ABSTAIN": 92,
+        "ANSWER": 257,
+        "REJECT": 14
+      },
+      "gold_execution": "363/363",
+      "candidate_permutation": "363/363",
+      "counterfactuals": 141,
+      "counterfactual_false_accepts": 0
+    },
+    "semantic_measurements_reported_not_required_to_pass_this_protocol_gate": [
+      "proof_complete_exact_target_answers",
+      "base_exact_answers",
+      "reference_base_mutation_exact_answers",
+      "surface_equivalence_groups",
+      "source-replay candidate permutation exactness"
+    ],
+    "reason": "The source-protocol reclosure isolates page-selection and cache availability. Existing semantic roots remain frozen failures and may not be repaired or treated as protocol regressions in the same step."
+  },
+  "outcome_policy": {
+    "if_all_source_protocol_and_safety_gates_pass": "Authorize QP4-POST-QUESTION-SURFACE-POST-CACHE-RESIDUAL-COVERAGE-POST-SOURCE-PROTOCOL-DIAGNOSTIC-REVIEW-PRECOMMIT; the 37 formerly source-first rows must be reclassified before semantic implementation.",
+    "if_runtime_unit_contract_fails": "Revert only the current-step runtime edits or keep the step open; do not widen the whitelist.",
+    "if_source_protocol_or_cache_gate_fails": "Keep QP4 and runtime semantic edits locked; diagnose the same protocol without weakening denominators, page-selection rules or auto-generation controls.",
+    "if_semantic_metrics_improve_or_regress": "Report them but do not authorize semantic edits or close QP4 from this protocol-only step."
+  },
+  "future_outputs": {
+    "final_json": "reports/finhrm_qp4_post_question_surface_post_cache_residual_coverage_source_protocol_reclosure_v1.json",
+    "final_markdown": "reports/finhrm_qp4_post_question_surface_post_cache_residual_coverage_source_protocol_reclosure_v1.md",
+    "lock": "reports/finhrm_qp4_post_question_surface_post_cache_residual_coverage_source_protocol_reclosure_lock_v1.json"
+  },
+  "checkpoint": {
+    "path": "models/document_hrm_V8_candidate.pt",
+    "sha256": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de"
+  },
+  "frozen_runtime_hashes": {
+    "src/hrm_finance_qa/question_planner.py": "334ab6bfb57b883ff2022cdcb39614d7e7a8d3269c14f4bea188640d53111bf4",
+    "src/hrm_finance_qa/symbolic_verifier.py": "2679b1ce55cc070697438c806f19e3e888bfc19bc1a9ae3686a0b7fd7ffb0087",
+    "src/hrm_finance_qa/program_synthesis.py": "e4acc4878d0dfd465ba66ab91f3aaf8be71db5591aa1358fb8cb81f3c7bff550",
+    "src/hrm_finance_qa/evidence_schema.py": "2f16fabf932dc9dabc8203d9642d2503bb2dab43e0e1ee0f78755dd4fb00825d",
+    "src/hrm_finance_qa/document_hrm.py": "b5951bcde79583950b672f7fb6b199b3e5b9904e6784daae7c4c5be0eba65d21",
+    "src/hrm_finance_qa/document_reasoning_engine.py": "3883500011472716bc01f8e04a6d6f925173b35a14bbedd945c5ca4fb0063fa2",
+    "src/hrm_finance_qa/program_data.py": "5199434fc0628b7d270ce62b12657366cbe118901065edd9f1e1f6ca0f1f8d54",
+    "src/hrm_finance_qa/direction_contract.py": "a18aa130419fc74ce647bd92dc9c1b1217007738e636aad0f28c7f78396be937",
+    "src/hrm_finance_qa/answer_presentation.py": "c40bd4a8dff39162b44cf11ef2da12e7b153d907f7254e5d1856157b3ac56d36",
+    "src/hrm_finance_qa/document_sources.py": "e9eb7b3ddcc2ed13060a573a6a0101a216fa49ff21dd65cd5fc2629b92f5fc0b",
+    "src/hrm_finance_qa/document_page_index.py": "c99e011175afef21f302be42ba9454b948caa549d4d445d6bb35c5b974b81f85"
+  },
+  "frozen_test_hashes": {
+    "tests/test_document_page_index.py": "b3c493cb1a687d867326a9c179caebf794b08de349a8b67cf80b2306a3d7be25"
+  },
+  "artifact_policy": {
+    "maximum_final_json": 1,
+    "maximum_final_markdown": 1,
+    "maximum_lock_or_manifest": 1,
+    "raw_or_intermediate_artifacts_persisted": false,
+    "temporary_artifacts_deleted_after_verification": true
+  },
+  "invariants": {
+    "abw_used": false,
+    "protected_evaluation_loaded": false,
+    "validation_loaded": false,
+    "blind_loaded": false,
+    "test_data_loaded": false,
+    "sealed_or_holdout_loaded": false,
+    "fine_tuning_performed": false,
+    "threshold_changed": false,
+    "checkpoint_changed": false,
+    "model_changed": false,
+    "synthetic_layout_counted_as_confirmation": false,
+    "candidate_rank_score_or_confidence_used_as_semantic_proof": false,
+    "nearby_context_or_absence_used_to_infer_period_or_provenance": false,
+    "runtime_changed": false,
+    "ocr_run": false,
+    "source_replay_run": false,
+    "qp4_complete": false,
+    "qp5_authorized": false,
+    "phase_d_unlocked": false
+  },
+  "authorized_next_step_after_lock": "QP4-POST-QUESTION-SURFACE-POST-CACHE-RESIDUAL-COVERAGE-SOURCE-PROTOCOL-RECLOSURE"
+}

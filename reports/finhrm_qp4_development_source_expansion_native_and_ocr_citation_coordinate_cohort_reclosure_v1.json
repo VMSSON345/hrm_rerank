@@ -1,0 +1,273 @@
+{
+  "schema": "finhrm.qp4.development_source_expansion.native_and_ocr_citation_coordinate_cohort_reclosure.v1",
+  "created_at": "2026-08-24T17:39:53+07:00",
+  "classification": "development_only_carrier_tagged_citation_cohort_reclosure_no_runtime_no_model_no_new_ocr",
+  "status": "PASS",
+  "step": "QP4-DEVELOPMENT-SOURCE-EXPANSION-NATIVE-AND-OCR-CITATION-COORDINATE-COHORT-RECLOSURE",
+  "cohort_reclosure_gate_passed": true,
+  "source_expansion_citation_track_closed": true,
+  "qp4_complete": false,
+  "purpose": "Execute the frozen carrier-tagged citation contract on exactly three development anchors, resolve all six operands to hash-bound native or OCR coordinates, replay the programs and negative controls, and close only this source-expansion citation track when every frozen gate passes.",
+  "parent": {
+    "precommit_json": {
+      "path": "config/finhrm_qp4_development_source_expansion_native_and_ocr_citation_coordinate_contract_reclosure_precommit_v1.json",
+      "size_bytes": 18540,
+      "sha256": "8140014eef73893848cdd5e855ebf5010a46b3f29cea11a320773505428885dd",
+      "status": "PASS"
+    },
+    "precommit_markdown": {
+      "path": "reports/finhrm_qp4_development_source_expansion_native_and_ocr_citation_coordinate_contract_reclosure_precommit_v1.md",
+      "size_bytes": 2714,
+      "sha256": "1599b26fe3a99352335020ce1f85c236cc03609a1faeced94439f7051c34c75a"
+    },
+    "precommit_lock": {
+      "path": "reports/finhrm_qp4_development_source_expansion_native_and_ocr_citation_coordinate_contract_reclosure_precommit_lock_v1.json",
+      "size_bytes": 6648,
+      "sha256": "9a68026aee922b71eb169d501a9702df1803b67909c2e07bc32ac0c248ccf8b9"
+    },
+    "authorization_matches_exactly": true,
+    "executed_only_frozen_three_anchors_and_six_operands": true
+  },
+  "execution_scope": {
+    "contract_id": "FINHRM_CARRIER_TAGGED_OPERAND_CITATION_V1",
+    "anchors": 3,
+    "operands": 6,
+    "native_operands": 2,
+    "ocr_operands": 4,
+    "new_sources": 0,
+    "new_pages": 0,
+    "new_ocr_jobs": 0,
+    "runtime_edits": 0,
+    "model_edits": 0,
+    "renderer_edits": 0
+  },
+  "input_verification": {
+    "precommit_and_parent_artifact_hashes": "6/6",
+    "source_hashes": "3/3",
+    "source_sizes": "3/3",
+    "ocr_content_list_hashes": "2/2",
+    "ocr_content_list_sizes": "2/2",
+    "ocr_table_html_hashes": "2/2",
+    "ocr_table_ids_recomputed": "2/2",
+    "hash_mismatches": 0
+  },
+  "citation_results": {
+    "carrier_table_references": "3/3",
+    "citation_envelopes_complete": "6/6",
+    "citation_ids_unique": "6/6",
+    "native_bbox_containment": "2/2",
+    "ocr_grid_row_column_and_source_ordinal_cells": "4/4",
+    "carrier_discriminator_and_coordinate_space_exact": "6/6",
+    "logical_binding_positive": "3/3",
+    "operand_permutation_exact": "3/3",
+    "accepted_wrong": 0
+  },
+  "coverage": {
+    "companies": 3,
+    "sources": 3,
+    "layout_families": 3,
+    "instances": 3,
+    "companies_sources_layouts_instances": "3/3/3/3",
+    "minimum_required": "3/3/3/3",
+    "coverage_gate_passed": true,
+    "company_keys": [
+      "development-company-10",
+      "development-company-1d93fc6e0149715f",
+      "development-company-15aa4ce43c3fc979"
+    ],
+    "layout_family_ids": [
+      "5087511255758afb3acd36e1460fb652cc6631dc63d86dae64a5e3bd16cdb343",
+      "3880fd0ee1a293947197af509389ef042b549122acf587529b9e2fc5acc740fd",
+      "067dbb7865ad2df4b72baaefb61288bfd7a24354cbebfaf29b6de2ce87d070c4"
+    ],
+    "synthetic_layouts_counted": 0,
+    "cross_signature_pooling": false,
+    "claim_boundary": "Development-only evidence that the carrier-tagged citation contract executes across the three frozen real source/layout instances; not unseen, sealed or universal-report confirmation."
+  },
+  "anchors": [
+    {
+      "anchor_id": "ad02bcfc694fa4ddf1cbef77d7c74074258353bc0c0df7de49ade21689604279",
+      "company_key": "development-company-10",
+      "source_path": "pdf/PDF_24/PDF_24/ABB_24CN_BCTN.pdf",
+      "source_sha256": "ad65914c63b5ff346e303d546f71c66ff15b51bb0ab38225dc2621456792c51c",
+      "physical_page": 34,
+      "layout_family_id": "5087511255758afb3acd36e1460fb652cc6631dc63d86dae64a5e3bd16cdb343",
+      "carrier": "native_pdf_cell_bbox",
+      "table_ref_id": "10340a77aa5960dc80f0fd183bbc16a6fa915de7c822a30fcf968a44f165739c",
+      "operands": [
+        {
+          "role": "ACTUAL",
+          "raw_text": "779",
+          "decimal_value": "779",
+          "cell_ref_id": "021b8907e5309143f72dcd5df5afbc504c956d0296d960c6775c5d86e85db8a7",
+          "citation_id": "2d9734e3ded61b3c6a0f9aa6cea2132e5142f14a1183c88d1e983b799be89d29",
+          "decision": "ADMIT"
+        },
+        {
+          "role": "PLAN",
+          "raw_text": "1.000",
+          "decimal_value": "1000",
+          "cell_ref_id": "21d005636f48a2d9f71f3222b13604d3e14a504c901be71a1bb406810e0db6ea",
+          "citation_id": "828d79a56e2be072901d14d352645c11c1d04d70a014c9c0255762fe010307b0",
+          "decision": "ADMIT"
+        }
+      ],
+      "program": "((ACTUAL - PLAN) / PLAN) * 100",
+      "result_percent": "-22.1",
+      "numeric_replay_exact": true,
+      "operand_permutation_exact": true,
+      "decision": "ADMIT"
+    },
+    {
+      "anchor_id": "reviewed-proposal-THW-p9",
+      "company_key": "development-company-1d93fc6e0149715f",
+      "source_path": "pdf/PDF_24/PDF_24/THW_24CN_BCTN.pdf",
+      "source_sha256": "a67ba32e0f55f9da5d99181daf21caf2a2315b9b4df049e70d28a3e52900613c",
+      "physical_page": 9,
+      "layout_family_id": "3880fd0ee1a293947197af509389ef042b549122acf587529b9e2fc5acc740fd",
+      "carrier": "mineru_ocr_table_cell_ordinal",
+      "table_ref_id": "e4dfd3935f622f097566b24a648d53373e21da58cd529b4eb2a2620d757740a8",
+      "operands": [
+        {
+          "role": "ACTUAL",
+          "raw_text": "650.619",
+          "decimal_value": "650619",
+          "cell_ref_id": "e798f682cdb0af53d3fa87e19b60db8b19e574612ce73fe1b7aca5bea5d1494d",
+          "citation_id": "1dc9adcff340531683f51698ea0766ae96039f8eaa5003c39f6422e5b135d471",
+          "decision": "ADMIT"
+        },
+        {
+          "role": "PLAN",
+          "raw_text": "631.033",
+          "decimal_value": "631033",
+          "cell_ref_id": "48d9e3a26acc1df36e993ae0fe34a569cb3dcdb03bcf530ba5478898edd8d51d",
+          "citation_id": "e7f2c74e8272c7f2b27b3b9aa36526f31981cc7815c143957f736499b80e468d",
+          "decision": "ADMIT"
+        }
+      ],
+      "program": "((ACTUAL - PLAN) / PLAN) * 100",
+      "result_percent": "3.103799642807903865566460074",
+      "numeric_replay_exact": true,
+      "operand_permutation_exact": true,
+      "decision": "ADMIT"
+    },
+    {
+      "anchor_id": "reviewed-proposal-TVA-p21",
+      "company_key": "development-company-15aa4ce43c3fc979",
+      "source_path": "pdf/PDF_24/PDF_24/TVA_24CN_BCTN.pdf",
+      "source_sha256": "2ab79ef997afa54449c0baa80c4ef09f389b10277abe6cb11f08e54c6ee5c23b",
+      "physical_page": 21,
+      "layout_family_id": "067dbb7865ad2df4b72baaefb61288bfd7a24354cbebfaf29b6de2ce87d070c4",
+      "carrier": "mineru_ocr_table_cell_ordinal",
+      "table_ref_id": "de812ba74d40b00e364739c8479f994d0844677cb3dcbc6fa9953e46c0455b36",
+      "operands": [
+        {
+          "role": "ACTUAL",
+          "raw_text": "173.831",
+          "decimal_value": "173831",
+          "cell_ref_id": "c525110d63576b35a5cfbb352fc8b62056476da476ba8396eb61c48a6447c573",
+          "citation_id": "1b2ee03db9d5d23b35bce94e934f07f17aef47d258d4a0fd6da656ad6ddb5663",
+          "decision": "ADMIT"
+        },
+        {
+          "role": "PLAN",
+          "raw_text": "173.728",
+          "decimal_value": "173728",
+          "cell_ref_id": "eb045ae3d9fab18f734bb3476dd46fce95c8358b58b430a279ceddbe1e6b3616",
+          "citation_id": "2db81a0bcb884194d0b62ba62a33aefb84cca9b8348d361771920441a03e734d",
+          "decision": "ADMIT"
+        }
+      ],
+      "program": "((ACTUAL - PLAN) / PLAN) * 100",
+      "result_percent": "0.05928808251980106833671025972",
+      "numeric_replay_exact": true,
+      "operand_permutation_exact": true,
+      "decision": "ADMIT"
+    }
+  ],
+  "program_replay": {
+    "operation": "PERCENT_CHANGE",
+    "expression": "((ACTUAL - PLAN) / PLAN) * 100",
+    "programs_replayed": "3/3",
+    "numeric_comparison": "exact Decimal value equality",
+    "rounding_applied": false,
+    "display_only_trailing_decimal_zero_removal": true,
+    "division_by_zero": 0
+  },
+  "negative_controls": {
+    "semantic": {
+      "MISSING_PERIOD": "3/3_ABSTAIN",
+      "DUPLICATE_ROLE": "3/3_REJECT",
+      "MISSING_UNIT": "3/3_ABSTAIN",
+      "total": "9/9"
+    },
+    "carrier": {
+      "NATIVE_MISSING_CELL_BBOX": "ABSTAIN",
+      "OCR_MISSING_ORDINAL": "ABSTAIN",
+      "NATIVE_TAGGED_AS_OCR": "REJECT",
+      "OCR_TAGGED_AS_NATIVE": "REJECT",
+      "NATIVE_WRONG_COORDINATE_SPACE": "REJECT",
+      "OCR_WRONG_COORDINATE_SPACE": "REJECT",
+      "total": "6/6"
+    },
+    "total": "15/15",
+    "false_accepts": 0
+  },
+  "frozen_replay": {
+    "safe_replay_gate_passed": true,
+    "safe_replay_errors": [],
+    "gold_execution": "363/363",
+    "candidate_permutation": "363/363",
+    "counterfactuals": 141,
+    "counterfactual_false_accepts": 0,
+    "affected_regression": "360/360",
+    "regression_exit_code": 0,
+    "checkpoint_sha256": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de"
+  },
+  "gate_evaluation": {
+    "all_parent_and_input_hashes_exact": true,
+    "operand_envelopes_complete_6_of_6": true,
+    "carrier_discriminators_and_coordinate_spaces_exact_6_of_6": true,
+    "table_and_cell_reference_ids_exact_6_of_6": true,
+    "logical_binding_positive_3_of_3": true,
+    "coverage_minimum_3_3_3_3": true,
+    "program_replays_3_of_3": true,
+    "semantic_negative_mutations_9_of_9": true,
+    "carrier_negative_mutations_6_of_6": true,
+    "accepted_wrong_zero": true,
+    "frozen_safe_replay": true,
+    "affected_regression": true,
+    "overall": "PASS"
+  },
+  "geometry_track_unchanged": {
+    "hierarchical_companies_sources_layouts_instances": "1/1/1/1",
+    "fragmented_companies_sources_layouts_instances": "0/0/0/0",
+    "old_pixel_geometry_gate_marked_pass": false,
+    "synthetic_or_cross_signature_coverage_added": false
+  },
+  "invariants": {
+    "runtime_changed": false,
+    "model_changed": false,
+    "checkpoint_changed": false,
+    "threshold_changed": false,
+    "fine_tuning_performed": false,
+    "new_ocr_performed": false,
+    "new_source_or_page_selected": false,
+    "abw_used_as_confirmation_or_gate": false,
+    "protected_evaluation_loaded": false,
+    "candidate_rank_score_or_confidence_used_as_semantic_proof": false,
+    "period_or_provenance_inferred_from_question_nearby_context_or_absence": false,
+    "missing_locator_inferred_or_synthesized": false,
+    "answer_presentation_runtime_changed": false,
+    "qp5_unlocked": false,
+    "phase_d_unlocked": false
+  },
+  "authorized_next_action": {
+    "step": "QP4-FINAL-GATE-RECLOSURE",
+    "scope": "Read-only aggregation of every locked QP4 contract, implementation, source-backed stress, citation, permutation, counterfactual, regression and safe-replay gate. Do not repair, reinterpret or omit failed gates. Authorize QP5 only if the complete QP4 gate inventory is PASS and all artifact hashes are exact.",
+    "runtime_or_model_edit_authorized": false,
+    "qp4_complete": false,
+    "qp5_authorized": false,
+    "phase_d_unlocked": false
+  }
+}

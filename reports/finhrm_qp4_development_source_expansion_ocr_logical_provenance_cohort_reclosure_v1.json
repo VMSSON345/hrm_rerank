@@ -1,0 +1,278 @@
+{
+  "schema": "finhrm.qp4.development_source_expansion.ocr_logical_provenance_cohort_reclosure.v1",
+  "created_at": "2026-08-24T16:49:57+07:00",
+  "classification": "development_only_fail_closed_logical_provenance_reclosure_no_runtime_no_model_no_new_ocr",
+  "status": "FAIL_CLOSED",
+  "step": "QP4-DEVELOPMENT-SOURCE-EXPANSION-OCR-LOGICAL-PROVENANCE-COHORT-RECLOSURE",
+  "cohort_reclosure_gate_passed": false,
+  "runtime_implementation_gate_passed": false,
+  "purpose": "Replay exactly the three hash-frozen PA07 anchors, bind role-aware operands to source evidence, replay the computation, execute negative controls and frozen gates, and refuse admission when the locked citation schema cannot be satisfied without inventing provenance.",
+  "parent": {
+    "precommit_json": {
+      "path": "config/finhrm_qp4_development_source_expansion_ocr_geometry_and_layout_family_contract_reclosure_precommit_v1.json",
+      "size_bytes": 18813,
+      "sha256": "9f8e82e3cef4e9464915df4d82df4f881c9134545ce145c2963b9e57948f4e4e",
+      "status": "PASS"
+    },
+    "precommit_markdown": {
+      "path": "reports/finhrm_qp4_development_source_expansion_ocr_geometry_and_layout_family_contract_reclosure_precommit_v1.md",
+      "size_bytes": 2568,
+      "sha256": "cdf7722ea0611f1414cd3581abca9ebb96ca297d8e2c6aece1df65d54986c72a"
+    },
+    "precommit_lock": {
+      "path": "reports/finhrm_qp4_development_source_expansion_ocr_geometry_and_layout_family_contract_reclosure_precommit_lock_v1.json",
+      "size_bytes": 6305,
+      "sha256": "5d75887e4589ddca38e993982ad1921262a652516982ddd7861eeba1b3eb2c88"
+    },
+    "authorization_matches_exactly": true,
+    "executed_only_frozen_three_anchors": true,
+    "new_source_search_or_ocr": false
+  },
+  "locked_contract_audit": {
+    "claimed_schema_feasibility": "PASS",
+    "observed_schema_feasibility": "FAIL_FOR_NATIVE_CARRIER",
+    "required_fields_applied_globally": [
+      "content_list_path",
+      "content_list_sha256",
+      "table_html_sha256",
+      "table_id",
+      "logical_row_index",
+      "logical_column_index",
+      "cell_ordinal_span",
+      "logical_cell_id"
+    ],
+    "locked_source_span_coordinate_space": "half-open table_body source-cell ordinal interval",
+    "defect": "The globally required fields and coordinate space exist for MinerU OCR structured HTML but do not exist for the frozen ABB native-PDF carrier. ABB has hash-bound native page, table and operand cell bounding boxes instead. Fabricating OCR content-list, HTML table, row, column or ordinal identifiers would violate provenance.",
+    "classification": "PRECOMMIT_CITATION_SCHEMA_CARRIER_MISMATCH",
+    "not_a_source_content_failure": true,
+    "not_a_model_failure": true,
+    "not_an_execution_failure": true,
+    "fail_closed_action": "ABB remains ABSTAIN under this locked unified schema; no missing field is inferred or synthesized."
+  },
+  "cohort_results": {
+    "frozen_anchors": 3,
+    "source_hashes_verified": "3/3",
+    "ocr_content_list_hashes_verified": "2/2",
+    "ocr_table_html_hashes_verified": "2/2",
+    "citation_contract_complete": "2/3",
+    "logical_binding_positive": "2/3",
+    "program_replays": "3/3",
+    "negative_controls": "9/9",
+    "accepted_wrong": 0,
+    "eligible_distinct_companies_sources_layouts_instances": "2/2/2/2",
+    "required_distinct_companies_sources_layouts_instances": "3/3/3/3",
+    "coverage_gate_passed": false
+  },
+  "anchors": [
+    {
+      "anchor_id": "ad02bcfc694fa4ddf1cbef77d7c74074258353bc0c0df7de49ade21689604279",
+      "company_key": "development-company-10",
+      "source": {
+        "path": "pdf/PDF_24/PDF_24/ABB_24CN_BCTN.pdf",
+        "sha256": "ad65914c63b5ff346e303d546f71c66ff15b51bb0ab38225dc2621456792c51c",
+        "physical_page": 34
+      },
+      "representation": "native_aligned",
+      "layout_family_id": "5087511255758afb3acd36e1460fb652cc6631dc63d86dae64a5e3bd16cdb343",
+      "metric_identity": "profit_before_tax",
+      "period": "2024",
+      "unit": "tỷ đồng",
+      "entity_scope": "reporting_entity",
+      "table_bbox": [666.54, 176.75, 1119.18, 345.14],
+      "operands": [
+        {
+          "role": "ACTUAL",
+          "raw_text": "779",
+          "decimal_value": "779",
+          "header_path": ["2024", "ACTUAL"],
+          "native_cell_bbox": [989.22, 328.94, 1006.31, 342.21]
+        },
+        {
+          "role": "PLAN",
+          "raw_text": "1.000",
+          "decimal_value": "1000",
+          "header_path": ["2024", "PLAN"],
+          "native_cell_bbox": [1087.93, 328.94, 1113.53, 342.21]
+        }
+      ],
+      "program": {
+        "operation": "PERCENT_CHANGE",
+        "expression": "((ACTUAL - PLAN) / PLAN) * 100",
+        "result_percent": "-22.1",
+        "replayed": true
+      },
+      "citation_contract_complete": false,
+      "missing_only_because_of_carrier_mismatch": [
+        "cell_ordinal_span",
+        "content_list_path",
+        "content_list_sha256",
+        "logical_cell_id",
+        "logical_column_index",
+        "logical_row_index",
+        "table_html_sha256",
+        "table_id"
+      ],
+      "decision": "ABSTAIN"
+    },
+    {
+      "anchor_id": "reviewed-proposal-THW-p9",
+      "company_key": "development-company-1d93fc6e0149715f",
+      "source": {
+        "path": "pdf/PDF_24/PDF_24/THW_24CN_BCTN.pdf",
+        "sha256": "a67ba32e0f55f9da5d99181daf21caf2a2315b9b4df049e70d28a3e52900613c",
+        "physical_page": 9,
+        "content_list_path": "cache/mineru/THW_24CN_BCTN-d15d9ab8fbd76ca15a9b4ce8/THW_24CN_BCTN/hybrid_ocr/THW_24CN_BCTN_content_list.json",
+        "content_list_sha256": "4a24649228235bf4851244d16830f1bbcd035bf6ce2065492409f9ef274c13ff",
+        "table_html_sha256": "82991d8dd68e1fc9e4b77119c285a83c2d4a03990514a66d63dee1bc8054d6d3",
+        "table_id": "e4dfd3935f622f097566b24a648d53373e21da58cd529b4eb2a2620d757740a8"
+      },
+      "representation": "ocr_structured_html",
+      "layout_family_id": "3880fd0ee1a293947197af509389ef042b549122acf587529b9e2fc5acc740fd",
+      "metric_identity": "doanh thu tien nuoc theo chuan thu sau xu ly",
+      "period": "2024",
+      "unit": "Tr.đồng",
+      "entity_scope": "reporting_entity",
+      "table_bbox": [112, 192, 942, 936],
+      "operands": [
+        {
+          "role": "ACTUAL",
+          "raw_text": "650.619",
+          "decimal_value": "650619",
+          "header_path": ["Năm 2024", "Thực hiện"],
+          "logical_row_index": 5,
+          "logical_column_index": 4,
+          "cell_ordinal_span": [28, 29],
+          "logical_cell_id": "e798f682cdb0af53d3fa87e19b60db8b19e574612ce73fe1b7aca5bea5d1494d"
+        },
+        {
+          "role": "PLAN",
+          "raw_text": "631.033",
+          "decimal_value": "631033",
+          "header_path": ["Năm 2024", "Kế hoạch"],
+          "logical_row_index": 5,
+          "logical_column_index": 3,
+          "cell_ordinal_span": [27, 28],
+          "logical_cell_id": "48d9e3a26acc1df36e993ae0fe34a569cb3dcdb03bcf530ba5478898edd8d51d"
+        }
+      ],
+      "program": {
+        "operation": "PERCENT_CHANGE",
+        "expression": "((ACTUAL - PLAN) / PLAN) * 100",
+        "result_percent": "3.103799642807903865566460074",
+        "replayed": true
+      },
+      "citation_contract_complete": true,
+      "decision": "ADMIT"
+    },
+    {
+      "anchor_id": "reviewed-proposal-TVA-p21",
+      "company_key": "development-company-15aa4ce43c3fc979",
+      "source": {
+        "path": "pdf/PDF_24/PDF_24/TVA_24CN_BCTN.pdf",
+        "sha256": "2ab79ef997afa54449c0baa80c4ef09f389b10277abe6cb11f08e54c6ee5c23b",
+        "physical_page": 21,
+        "content_list_path": "cache/mineru/TVA_24CN_BCTN-7f99ad7f983f7bea7a1c2df8/TVA_24CN_BCTN/hybrid_ocr/TVA_24CN_BCTN_content_list.json",
+        "content_list_sha256": "145e9309fbdfadb6d7b18618a98f99ab17ea6cf5db4469c9591729a03fbf03d8",
+        "table_html_sha256": "6086f4aff9e3f9bb7fca2f36bd448c7981a4e13349deace98c621ca895f20670",
+        "table_id": "de812ba74d40b00e364739c8479f994d0844677cb3dcbc6fa9953e46c0455b36"
+      },
+      "representation": "ocr_structured_html",
+      "layout_family_id": "067dbb7865ad2df4b72baaefb61288bfd7a24354cbebfaf29b6de2ce87d070c4",
+      "metric_identity": "doanh thu",
+      "period": "2024",
+      "unit": "Tr.đ",
+      "entity_scope": "reporting_entity",
+      "table_bbox": [93, 410, 892, 888],
+      "operands": [
+        {
+          "role": "ACTUAL",
+          "raw_text": "173.831",
+          "decimal_value": "173831",
+          "header_path": ["Năm 2024", "Thực hiện"],
+          "logical_row_index": 4,
+          "logical_column_index": 5,
+          "cell_ordinal_span": [30, 31],
+          "logical_cell_id": "c525110d63576b35a5cfbb352fc8b62056476da476ba8396eb61c48a6447c573"
+        },
+        {
+          "role": "PLAN",
+          "raw_text": "173.728",
+          "decimal_value": "173728",
+          "header_path": ["Năm 2024", "Kế hoạch"],
+          "logical_row_index": 4,
+          "logical_column_index": 4,
+          "cell_ordinal_span": [29, 30],
+          "logical_cell_id": "eb045ae3d9fab18f734bb3476dd46fce95c8358b58b430a279ceddbe1e6b3616"
+        }
+      ],
+      "program": {
+        "operation": "PERCENT_CHANGE",
+        "expression": "((ACTUAL - PLAN) / PLAN) * 100",
+        "result_percent": "0.05928808251980106833671025972",
+        "replayed": true
+      },
+      "citation_contract_complete": true,
+      "decision": "ADMIT"
+    }
+  ],
+  "negative_controls": {
+    "MISSING_PERIOD": "3/3_ABSTAIN",
+    "DUPLICATE_ROLE": "3/3_REJECT",
+    "MISSING_UNIT": "3/3_ABSTAIN",
+    "total": "9/9",
+    "false_accepts": 0
+  },
+  "frozen_replay": {
+    "safe_replay_gate_passed": true,
+    "safe_replay_errors": [],
+    "gold_execution": "363/363",
+    "candidate_permutation": "363/363",
+    "counterfactuals": 141,
+    "counterfactual_false_accepts": 0,
+    "affected_regression": "360/360",
+    "regression_exit_code": 0,
+    "checkpoint_sha256": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de"
+  },
+  "gate_evaluation": {
+    "all_parent_and_input_hashes_exact": true,
+    "logical_binding_positive_3_of_3": false,
+    "distinct_companies_sources_layouts_instances_minimum_3_3_3_3": false,
+    "all_citations_complete": false,
+    "all_programs_replay_from_cited_operands": true,
+    "accepted_wrong_zero": true,
+    "negative_mutations_all_fail_closed": true,
+    "frozen_safe_replay": true,
+    "affected_regression": true,
+    "overall": "FAIL_CLOSED"
+  },
+  "existing_geometry_coverage_unchanged": {
+    "hierarchical_companies_sources_layouts_instances": "1/1/1/1",
+    "fragmented_companies_sources_layouts_instances": "0/0/0/0",
+    "synthetic_or_cross_signature_coverage_added": false
+  },
+  "invariants": {
+    "runtime_changed": false,
+    "model_changed": false,
+    "checkpoint_changed": false,
+    "threshold_changed": false,
+    "fine_tuning_performed": false,
+    "new_ocr_performed": false,
+    "new_source_or_page_selected": false,
+    "abw_used_as_confirmation_or_gate": false,
+    "protected_evaluation_loaded": false,
+    "candidate_rank_score_or_confidence_used_as_semantic_proof": false,
+    "missing_provenance_inferred_or_synthesized": false,
+    "failed_anchor_coerced_to_answer": false,
+    "answer_presentation_runtime_changed": false,
+    "qp5_unlocked": false,
+    "phase_d_unlocked": false
+  },
+  "authorized_next_action": {
+    "step": "QP4-DEVELOPMENT-SOURCE-EXPANSION-NATIVE-AND-OCR-CITATION-COORDINATE-CONTRACT-RECLOSURE-PRECOMMIT",
+    "scope": "Define and hash-lock one common semantic citation envelope with a carrier-tagged locator union. Native PDF operands use hash-bound page, table bbox and native operand cell bbox; OCR structured-HTML operands use hash-bound content-list, table HTML, table id, logical row/column and cell ordinal. OCR-only fields must not be required for native carriers, and native-only fields must not be required for OCR carriers. Reuse the same three frozen anchors; no runtime, model, source search, OCR or renderer change.",
+    "why_required": "The current parent precommit cannot be passed honestly because its globally required OCR coordinate space is undefined for the frozen native ABB anchor.",
+    "qp4_complete": false,
+    "qp5_authorized": false,
+    "phase_d_unlocked": false
+  }
+}

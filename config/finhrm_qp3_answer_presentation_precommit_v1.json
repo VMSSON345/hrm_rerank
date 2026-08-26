@@ -1,0 +1,493 @@
+{
+  "schema": "finhrm-qp3-answer-presentation-precommit-v1",
+  "created_at": "2026-08-20",
+  "classification": "development_only_deterministic_presentation_contract_runtime_unchanged",
+  "status": "precommitted_runtime_unchanged_exact_scope_only",
+  "claude_md": {
+    "path": "CLAUDE.md",
+    "sha256": "35a0f66a6531e61b35dc7288884da35eeef79ad1039f5ffdfd29295cee8d566e",
+    "read_before_scope_design": true
+  },
+  "parents": {
+    "qp3_core_implementation_lock": {
+      "path": "reports/finhrm_qp3_core_generalization_coverage_implementation_lock_v1.json",
+      "sha256": "820f85b4c8b5a8bc2a9d8572258757fb9ae67479af68f3a73010597c6c39152b"
+    },
+    "answer_presentation_design": {
+      "path": "reports/finhrm_reference_strategy_review_answer_presentation_v1.md",
+      "sha256": "4870463a96dcb5df47cf06be07bfb05da6ae553c1848c12c0155654150b926a8"
+    },
+    "report_generalization_invariant": {
+      "path": "config/finhrm_report_generalization_invariant_v1.json",
+      "sha256": "7a8c6e58a47314d522adb782277f6d5bf0cbf761faf681d848e2e9ae4e861846"
+    },
+    "thesis_core": {
+      "path": "config/finhrm_thesis_core_v1.json",
+      "sha256": "a9f2f3088f7622c6c8912086eac16252f154fcae1164a3fe7ba75107a0ece502"
+    }
+  },
+  "entry_condition": {
+    "qp3_core_implementation_gate_passed": true,
+    "qp3_core_failed_gates": [],
+    "checkpoint_sha256": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de",
+    "authorized_parent_next_step_contains": "QP3-ANSWER-PRESENTATION-PRECOMMIT",
+    "qp4_must_remain_locked": true,
+    "phase_d_must_remain_locked": true
+  },
+  "allowed_evidence": {
+    "split": "development_only",
+    "abw_allowed": false,
+    "protected_validation_blind_test_sealed_holdout_final_access_allowed": false,
+    "synthetic_layout_allowed_as_generalization_confirmation": false,
+    "renderer_fixture_policy": "Fixtures may exercise the frozen schema, but company/layout coverage gates require source-backed development evidence and cannot be closed by synthetic projection."
+  },
+  "verified_answer_envelope_v1": {
+    "top_level_required_fields": [
+      "schema_version",
+      "status",
+      "answer_mode",
+      "locale",
+      "claim",
+      "canonical_value",
+      "display",
+      "program",
+      "citations",
+      "proof",
+      "summary_coverage",
+      "warnings"
+    ],
+    "schema_version": "finhrm-verified-answer-envelope-v1",
+    "status_values": [
+      "ANSWER",
+      "ABSTAIN",
+      "REJECT"
+    ],
+    "answer_mode_values": [
+      "FACT",
+      "COMPUTATION",
+      "VERIFIED_SUMMARY"
+    ],
+    "locale_values_v1": [
+      "vi-VN"
+    ],
+    "claim": {
+      "required_fields_for_answer": [
+        "metric",
+        "period",
+        "entity_scope",
+        "value",
+        "unit",
+        "scale"
+      ],
+      "value_must_equal_canonical_value": true,
+      "metric_period_entity_must_be_proof_backed": true,
+      "question_or_nearby_context_may_fill_missing_semantics": false,
+      "missing_required_claim_field_action": "ABSTAIN",
+      "contradictory_claim_field_action": "REJECT"
+    },
+    "canonical_value": {
+      "type": "exact_decimal_string_or_null",
+      "meaning": "Exact unscaled numeric result after deterministic execution.",
+      "required_for_answer": true,
+      "forbidden_as_accepted_value_for_abstain_or_reject": true,
+      "binary_float_as_source_of_truth_allowed": false
+    },
+    "display": {
+      "required_fields_for_answer": [
+        "value",
+        "unit",
+        "scale",
+        "locale"
+      ],
+      "source_of_truth": "canonical_value",
+      "allowed_scale_factors": [
+        "1",
+        "1000",
+        "1000000",
+        "1000000000"
+      ],
+      "conversion_policy": "Decimal division by an explicit proof-backed scale only; preserve the exact finite decimal and never round before or during execution.",
+      "lossy_rounding_allowed_v1": false,
+      "display_value_may_feed_execution": false,
+      "invent_unit_or_scale_allowed": false
+    },
+    "program": {
+      "required_for_computation_answer": true,
+      "representation": "typed_operation_dag_with_leaf_operand_references",
+      "required_node_fields": [
+        "node_id",
+        "operation",
+        "inputs"
+      ],
+      "formula_source": "deterministically_rendered_from_executed_program_dag",
+      "free_text_formula_as_authority_allowed": false,
+      "each_leaf_must_reference_exactly_one_operand_and_citation": true,
+      "each_intermediate_must_replay_exactly": true,
+      "final_replay_must_equal_canonical_value": true,
+      "hidden_unknown_operand_allowed": false
+    },
+    "citations": {
+      "required_for_every_answer_claim": true,
+      "required_physical_fields": [
+        "source_name",
+        "source_span",
+        "logical_cell_id",
+        "extraction_method"
+      ],
+      "nullable_provenance_fields": [
+        "document_title",
+        "statement_or_note",
+        "page",
+        "table_id",
+        "row_label",
+        "column_label"
+      ],
+      "nullable_field_policy": "Omit from rendered citation when source lineage does not prove it; never synthesize a placeholder or infer it from filename, question, candidate order, or nearby context.",
+      "page_render_policy": "Render a page only when the envelope carries a proven page value; never emit page X or an inferred page.",
+      "operand_citation_coverage_required": 1.0,
+      "source_span_must_resolve_to_selected_evidence": true,
+      "citation_order_may_change_semantics": false
+    },
+    "proof": {
+      "required_fields": [
+        "source_action",
+        "verification_state",
+        "obligations",
+        "acceptance_basis"
+      ],
+      "verification_state_values": [
+        "VALID",
+        "UNKNOWN",
+        "INVALID"
+      ],
+      "obligation_applicability_values": [
+        "required",
+        "optional",
+        "not_applicable"
+      ],
+      "status_authority": "The existing runtime action plus an exact verifier/proof snapshot captured over the full candidate evidence graph; renderer output, warning strings, rank, neural score and confidence are not authority.",
+      "promotion_forbidden": "An existing ABSTAIN or REJECT can never become ANSWER in the presentation layer.",
+      "answer_rule": "ANSWER only when the existing runtime accepted and every required applicable obligation is VALID with no contradiction.",
+      "abstain_rule": "Any missing proof, required UNKNOWN, incomplete requested mode, or existing safe abstention remains ABSTAIN.",
+      "reject_rule": "Any verifier INVALID or explicit contradiction remains REJECT.",
+      "candidate_rank_neural_score_confidence_as_semantic_proof_allowed": false,
+      "warning_text_parsing_as_status_authority_allowed": false
+    },
+    "summary_coverage": {
+      "required_for_verified_summary": true,
+      "required_fields": [
+        "requested_count",
+        "verified_count",
+        "missing_fields",
+        "conflicting_fields",
+        "coverage_state",
+        "rows"
+      ],
+      "coverage_state_values": [
+        "COMPLETE",
+        "VERIFIED_PARTIAL",
+        "CONFLICT"
+      ],
+      "complete_answer_rule": "VERIFIED_SUMMARY may be ANSWER only when verified_count equals requested_count, every requested row is independently ANSWER, and answer_mode_complete is VALID.",
+      "partial_rule": "When 0 < verified_count < requested_count, overall status is ABSTAIN; verified rows may be shown only with an explicit Vietnamese N/M verified-partial label and explicit missing fields.",
+      "zero_verified_rule": "ABSTAIN without presenting a summary as complete.",
+      "conflict_rule": "Any contradictory requested row makes the summary REJECT and identifies the conflicting field without choosing a value.",
+      "row_columns": [
+        "Nội dung",
+        "Số liệu/so sánh",
+        "Điểm nổi bật",
+        "Nguồn"
+      ],
+      "each_row_is_independent_verified_subanswer": true,
+      "qualitative_claim_requires_direct_cited_text_span": true,
+      "llm_generated_number_formula_citation_or_uncited_cause_allowed": false
+    },
+    "warnings": {
+      "allowed_categories": [
+        "conversion",
+        "restatement",
+        "conflict",
+        "incomplete",
+        "ocr_review"
+      ],
+      "may_change_status_or_numeric_semantics": false,
+      "may_contain_new_factual_claim": false
+    }
+  },
+  "mode_contracts": {
+    "FACT": {
+      "eligible_program_roots": [
+        "SELECT"
+      ],
+      "minimum_operand_count": 1,
+      "maximum_operand_count": 1,
+      "required": [
+        "one proof-complete typed scalar claim",
+        "one exact logical-cell citation",
+        "metric period entity unit and scale proof VALID"
+      ],
+      "forbidden": [
+        "computed value",
+        "uncited report title",
+        "page placeholder"
+      ]
+    },
+    "COMPUTATION": {
+      "eligible_program_roots": [
+        "ADD",
+        "SUBTRACT",
+        "MULTIPLY",
+        "DIVIDE",
+        "RATIO_PERCENT",
+        "PERCENT_CHANGE",
+        "AVERAGE",
+        "SUM3",
+        "SUM4"
+      ],
+      "required": [
+        "exact deterministic result",
+        "formula derived from executed DAG",
+        "citation for every leaf operand",
+        "exact replay of every intermediate and final node",
+        "typed conclusion containing no unsupported claim"
+      ],
+      "forbidden": [
+        "formula rewritten by renderer",
+        "operand without citation",
+        "rounding before execution",
+        "candidate score as justification"
+      ]
+    },
+    "VERIFIED_SUMMARY": {
+      "eligible_input": "explicit requested-field inventory plus independently verified subanswers",
+      "required": [
+        "deterministic requested-field inventory",
+        "one independent envelope per requested row",
+        "explicit N/M coverage",
+        "answer_mode_complete proof state",
+        "direct citation for every qualitative highlight"
+      ],
+      "forbidden": [
+        "free-form LLM synthesis",
+        "implicit completeness",
+        "uncited causal explanation",
+        "merging conflicting values"
+      ]
+    }
+  },
+  "deterministic_renderer_contract": {
+    "output_language_v1": "Vietnamese",
+    "templates_only": true,
+    "renderer_may_create_number_page_citation_formula_or_claim": false,
+    "renderer_may_change_envelope_status": false,
+    "renderer_may_consume_confidence_or_rank": false,
+    "same_envelope_same_bytes": true,
+    "citation_array_permutation_policy": "Canonicalize by operand reference and physical provenance key before rendering.",
+    "summary_row_permutation_policy": "Render requested inventory order carried by explicit row_id; input candidate order is irrelevant.",
+    "technical_audit_output_must_remain_separate": true
+  },
+  "development_generalization_cohort": {
+    "purpose": "Confirm that presentation consumes generic proof/provenance structures across companies and real report layouts, not report literals.",
+    "selection_inputs_allowed": [
+      "development split membership",
+      "answer mode",
+      "proof completeness",
+      "typed operation",
+      "citation field availability",
+      "real extraction/layout metadata"
+    ],
+    "selection_inputs_forbidden": [
+      "company identity as a preferred runtime rule",
+      "report filename literal",
+      "page number literal",
+      "year literal",
+      "numeric value literal",
+      "example id",
+      "question literal",
+      "candidate rank",
+      "neural score",
+      "confidence"
+    ],
+    "minimum_verified_examples_per_mode": 3,
+    "minimum_distinct_companies_per_mode": 3,
+    "minimum_distinct_real_layout_families_per_mode": 3,
+    "minimum_distinct_source_documents_per_mode": 3,
+    "company_and_layout_disjoint_confirmation_required": true,
+    "real_source_backed_required": true,
+    "synthetic_fixture_counts_toward_coverage": false,
+    "safe_abstention_counts_as_answer": false,
+    "verified_summary_additional_controls": {
+      "minimum_requested_rows": 3,
+      "complete_summary_required": true,
+      "verified_partial_summary_required": true,
+      "conflicting_summary_required": true,
+      "qualitative_claim_with_direct_citation_required": true,
+      "qualitative_claim_without_citation_must_not_render": true
+    }
+  },
+  "implementation_replay_gates": {
+    "schema_validation_exact": "all development presentation records",
+    "numeric_value_unit_scale_exact_rate": 1.0,
+    "citation_exact_rate": 1.0,
+    "operand_citation_coverage": 1.0,
+    "derivation_replay_exact_rate": 1.0,
+    "unsupported_claim_count": 0,
+    "summary_complete_false_claim_count": 0,
+    "answer_promotion_from_parent_abstain_or_reject_count": 0,
+    "candidate_permutation_exact_rate": 1.0,
+    "citation_permutation_exact_rate": 1.0,
+    "summary_input_permutation_exact_rate": 1.0,
+    "hard_negative_false_accept_count": 0,
+    "frozen_safe_replay_gold_execution": "363/363",
+    "frozen_safe_replay_candidate_permutation": "363/363",
+    "frozen_safe_replay_counterfactual_false_accepts": 0,
+    "retain_core_actions": {
+      "ANSWER": 259,
+      "ABSTAIN": 90,
+      "REJECT": 14
+    },
+    "checkpoint_sha256_unchanged": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de",
+    "company_macro_and_worst_group_reported": true,
+    "layout_macro_and_worst_group_reported": true,
+    "safe_abstention_counted_as_answered": false,
+    "unseen_or_universal_claim_allowed": false
+  },
+  "hard_negative_taxonomy": [
+    {
+      "id": "PRES_WRONG_PAGE",
+      "mutation": "replace a proven page with another page",
+      "expected": "REJECT or ABSTAIN; never render the mutated citation as verified"
+    },
+    {
+      "id": "PRES_WRONG_STATEMENT",
+      "mutation": "attach a different statement or note identity",
+      "expected": "REJECT or omit when identity is unproved"
+    },
+    {
+      "id": "PRES_WRONG_YEAR",
+      "mutation": "swap exactly one claim or operand period",
+      "expected": "REJECT"
+    },
+    {
+      "id": "PRES_SWAPPED_OPERAND",
+      "mutation": "swap non-commutative operand references or citations",
+      "expected": "derivation/citation replay fails; no ANSWER"
+    },
+    {
+      "id": "PRES_SCALE_X1000",
+      "mutation": "multiply or divide display scale by 1000 without proof",
+      "expected": "REJECT"
+    },
+    {
+      "id": "PRES_MISSING_SUMMARY_ROW",
+      "mutation": "remove one requested summary row",
+      "expected": "ABSTAIN with explicit verified N/M coverage"
+    },
+    {
+      "id": "PRES_UNCITED_QUALITATIVE_CAUSE",
+      "mutation": "insert a qualitative cause without a direct source span",
+      "expected": "claim omitted and unsupported-claim gate remains zero, or envelope rejected"
+    },
+    {
+      "id": "PRES_PARENT_ACTION_PROMOTION",
+      "mutation": "change a parent ABSTAIN or REJECT into a polished numeric answer",
+      "expected": "forbidden; promotion count remains zero"
+    }
+  ],
+  "exact_runtime_edit_scope_for_implementation": {
+    "src/hrm_finance_qa/answer_presentation.py": {
+      "file_status": "new_file_only",
+      "symbols": [
+        "AnswerStatus",
+        "AnswerMode",
+        "VerifiedClaim",
+        "VerifiedCitation",
+        "VerifiedProof",
+        "SummaryCoverage",
+        "VerifiedAnswerEnvelope",
+        "build_verified_answer_envelope",
+        "validate_verified_answer_envelope",
+        "render_verified_answer"
+      ],
+      "allowed_change": "Define and validate Verified Answer Envelope v1 and render deterministic Vietnamese FACT, COMPUTATION and VERIFIED_SUMMARY outputs from verified fields only."
+    },
+    "src/hrm_finance_qa/document_reasoning_engine.py": {
+      "symbols": [
+        "DocumentReasoningAnswer",
+        "DocumentHRMReasoningEngine.answer"
+      ],
+      "allowed_change": "Add an exact verification/proof snapshot and a presentation adapter without changing retrieval, candidates, selected program, execution, confidence threshold, abstention decision, evidence, or technical audit semantics."
+    }
+  },
+  "runtime_files_explicitly_frozen": [
+    "src/hrm_finance_qa/document_hrm.py",
+    "src/hrm_finance_qa/question_planner.py",
+    "src/hrm_finance_qa/program_synthesis.py",
+    "src/hrm_finance_qa/symbolic_verifier.py",
+    "src/hrm_finance_qa/evidence_schema.py",
+    "src/hrm_finance_qa/program_data.py",
+    "src/hrm_finance_qa/document_page_index.py",
+    "src/hrm_finance_qa/document_sources.py",
+    "src/hrm_finance_qa/financial_identities.py",
+    "src/hrm_finance_qa/direction_contract.py"
+  ],
+  "runtime_hashes_before_implementation": {
+    "src/hrm_finance_qa/document_reasoning_engine.py": "0e6eabaa4fd00829d0a21091b74e5104cce0675cf69eed9ddd2fa99785208dac",
+    "src/hrm_finance_qa/document_hrm.py": "b5951bcde79583950b672f7fb6b199b3e5b9904e6784daae7c4c5be0eba65d21",
+    "src/hrm_finance_qa/question_planner.py": "58404c5a04ffced2c00056a10e470730a8fb9ef723d3e8c5668f13b0a65571a6",
+    "src/hrm_finance_qa/program_synthesis.py": "e4acc4878d0dfd465ba66ab91f3aaf8be71db5591aa1358fb8cb81f3c7bff550",
+    "src/hrm_finance_qa/symbolic_verifier.py": "e9efa8d2fa9ce1aedd460cdd11c1eb9321aab7122b0908fc5017687c1491ed88",
+    "src/hrm_finance_qa/evidence_schema.py": "2f16fabf932dc9dabc8203d9642d2503bb2dab43e0e1ee0f78755dd4fb00825d",
+    "src/hrm_finance_qa/program_data.py": "5199434fc0628b7d270ce62b12657366cbe118901065edd9f1e1f6ca0f1f8d54",
+    "src/hrm_finance_qa/document_page_index.py": "c99e011175afef21f302be42ba9454b948caa549d4d445d6bb35c5b974b81f85",
+    "src/hrm_finance_qa/document_sources.py": "e9eb7b3ddcc2ed13060a573a6a0101a216fa49ff21dd65cd5fc2629b92f5fc0b",
+    "src/hrm_finance_qa/financial_identities.py": "ee7347885f561d5f5d9c404964ecb7a46f1275186e100f2236e53114aeacd2ee",
+    "src/hrm_finance_qa/direction_contract.py": "a18aa130419fc74ce647bd92dc9c1b1217007738e636aad0f28c7f78396be937"
+  },
+  "implementation_test_scope": {
+    "new_test_module": "tests/test_qp3_answer_presentation_implementation.py",
+    "required_controls": [
+      "fact_exact_citation",
+      "fact_missing_page_omits_page_without_invention",
+      "computation_operand_citation_complete",
+      "computation_dag_replay_exact",
+      "summary_complete",
+      "summary_verified_partial_abstains_with_n_of_m_label",
+      "summary_conflict_rejects",
+      "uncited_qualitative_claim_not_rendered",
+      "parent_abstain_or_reject_never_promoted",
+      "wrong_page_statement_year_scale_and_operand_hard_negatives",
+      "candidate_citation_and_summary_permutation_exact",
+      "same_envelope_same_bytes",
+      "technical_audit_renderer_preserved"
+    ]
+  },
+  "forbidden_implementation_actions": [
+    "edit any runtime file or symbol outside exact_runtime_edit_scope_for_implementation",
+    "change retrieval, intent proposal, binding, verification, execution, acceptance, threshold, checkpoint, or model",
+    "fine-tune any model",
+    "use company, report, filename, page, fixed year, fixed value, question literal, example id, or family id as a runtime rule",
+    "use candidate rank, neural score, confidence, warning text, absence, or nearby context as semantic proof",
+    "invent a number, page, citation, statement identity, formula, summary row, or factual claim",
+    "round before execution or use display value as execution input",
+    "promote UNKNOWN to ANSWER or resolve a contradiction by presentation",
+    "use ABW as confirmation or gate",
+    "read validation, blind, test, sealed, holdout, or final evaluation",
+    "count synthetic layout projection as company/layout-disjoint confirmation",
+    "add free-form LLM answer or summary synthesis",
+    "open QP4 or Phase D"
+  ],
+  "frozen_invariants": {
+    "runtime_changed_by_this_precommit": false,
+    "threshold_changed": false,
+    "checkpoint_changed": false,
+    "model_changed": false,
+    "fine_tuning_performed": false,
+    "abw_used_as_confirmation": false,
+    "protected_evaluation_loaded": false,
+    "synthetic_layout_counted_as_confirmation": false,
+    "qp4_authorized": false,
+    "phase_d_unlocked": false
+  },
+  "authorized_next_step": "QP3-ANSWER-PRESENTATION-IMPLEMENTATION only: implement Verified Answer Envelope v1 and deterministic FACT/COMPUTATION/VERIFIED_SUMMARY rendering within the exact runtime scope, then run all presentation, regression, permutation, counterfactual and frozen safe replay gates. QP4 and Phase D remain locked."
+}

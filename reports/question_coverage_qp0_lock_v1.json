@@ -1,0 +1,79 @@
+{
+  "schema": "question-coverage-qp0-lock-v1",
+  "classification": "development_only_company_report_disjoint_plus_synthetic_contract",
+  "status": "qp0_complete_qp1_authorized",
+  "catalog": {
+    "families": 59,
+    "examples": 299,
+    "plan_actual_examples": 132,
+    "two_year_examples": 132
+  },
+  "compiler_baseline": {
+    "exact": 7,
+    "exact_rate": 0.023411371237458192,
+    "plan_actual_exact": 0,
+    "two_year_exact": 0,
+    "column_role_pass_rate": 0.23411371237458195,
+    "operation_pass_rate": 0.5384615384615384
+  },
+  "s4_counterfactual_baseline": {
+    "examples": 976,
+    "accepted": 937,
+    "correct": 829,
+    "false_accept": 108,
+    "accepted_precision": 0.8847385272145144,
+    "coverage": 0.9600409836065574,
+    "accepted_select_add": 227,
+    "minimum_fold_raw_gold_program_recall": 0.9894736842105263
+  },
+  "counterfactual_decision": {
+    "passing_policies": [],
+    "runtime_policy_authorized": false,
+    "best_balanced_audit_policy": "logical_cell_unique",
+    "best_balanced_precision": 0.8964757709251101,
+    "best_balanced_coverage": 0.930327868852459,
+    "combined_precision": 0.9052774018944519,
+    "combined_coverage": 0.757172131147541,
+    "decision": "Do not enable an audit-only strict policy; proceed to QP1 evidence schema and header-role reconstruction."
+  },
+  "invariants": {
+    "checkpoint_changed": false,
+    "runtime_changed": false,
+    "threshold_changed": false,
+    "fine_tuning_performed": false,
+    "global_validation_loaded_by_scripts": false,
+    "sealed_validation_loaded_by_scripts": false,
+    "blind_test_loaded_by_scripts": false,
+    "phase_d_unlocked": false
+  },
+  "protected_read_hygiene": {
+    "zero_protected_read_claim": false,
+    "used_for_metrics_or_design": false,
+    "note": "One broad interactive search printed an old protected report record before the QP0 scripts ran. All QP0 scripts and metrics used only allowlisted development/synthetic artifacts."
+  },
+  "regression": {
+    "tests_run": 67,
+    "failures": 0
+  },
+  "next_allowed_step": "QP1_evidence_schema_and_table_header_reconstruction",
+  "artifact_hashes": {
+    "config/question_family_catalog_plan_actual_v1.jsonl": "69c4017afec7731f63407339ae0c3d717ac38690807b17908b77fb1892d8e31b",
+    "reports/question_family_catalog_plan_actual_v1_lock.json": "ca04d0db91f61fefbb34657e87c17d8ed6f0423ac508a0869aa3d8528a0daf18",
+    "reports/question_plan_compiler_audit_development_v1.json": "9c402bce52cabbdc1d69389b578a458f016c2343b9879110b59752cf292f1ea2",
+    "reports/select_add_counterfactual_s4_development_v1.json": "8b3382a33ac55531a43b8c4e2d0bb522fee427ca3be2b0a7f26c79ea973b8b0e",
+    "scripts/build_question_family_catalog_plan_actual.py": "f385ca7fe1cd88a31c9af90a744c9e290e7a8b1f2ee5d6b75dff39f95c160fb4",
+    "scripts/audit_question_plan_compiler.py": "19ddbab2748f123bf63a80e5bf522aef8335c5270917bc3eb6a951c498951ae6",
+    "scripts/audit_select_add_counterfactual_s4.py": "0b2181901c7c24bedc2456833195c20f87a2b9710d4f97e919d16b82a32301a0",
+    "tests/test_question_family_qp0.py": "d4767c85f2f6f806a46844f98c36ae0f4c8dc33e3fbc564eb75c71bed09937c3",
+    "src/hrm_finance_qa/question_planner.py": "c7d4424216d0c9d2316c5af095fca3fb6dd36608d21561d0cd25c1990bbaf48e",
+    "src/hrm_finance_qa/evidence_schema.py": "f273b31a48429d1a7617a82a6fe41fe23664d2c3aef374978aa129b8cee601f7",
+    "src/hrm_finance_qa/symbolic_verifier.py": "51de203bbf1c00719ac2989feee7edc57b5da746f2454f73a4d9bc4f5c82f5e8",
+    "src/hrm_finance_qa/document_hrm.py": "83351185a6a2e8bf96b0c22686a723880899c1b1288b6e78654fe1e784c544e3",
+    "models/document_hrm_V8_candidate.pt": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de",
+    "data/document_hrm_v12b2_reranker_disjoint_folds_subtract_v4.json": "faf4f0322e87bcb21141d505d417afd1f13f594062a917866b7c88dbae543459",
+    "data/document_hrm_v12b2_development_plus_subtract_v3.jsonl": "c6e119519d2dae59933edc5e493de7aef885154c037b95be54a1290b7f529d26",
+    "cache/v12b2_folds_subtract_v5/manifest.json": "8201493e4599b20a7a20ae49998279c7b9b98a5907dfa7d0b2cb8c091cd238c3",
+    "cache/v12b2_phase_c_subtract_v5/manifest.json": "dcc7fae2880273df013b7252dd7c6f9004b40ceab402aec55eecb111525a2d04"
+  },
+  "lock_script_sha256": "02e31691186bafa9fd4cca6a1b7531c5fd096de5ced53e9e873a74c115d38c4e"
+}

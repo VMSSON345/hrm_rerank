@@ -1,0 +1,819 @@
+{
+  "schema": "finhrm.qp4.development_source_expansion_cohort_build.v1",
+  "created_at": "2026-08-24T12:37:08+07:00",
+  "classification": "development_only_deterministic_random_expansion_cohort_build_no_runtime_no_model_no_ocr",
+  "status": "FAIL_CLOSED",
+  "step": "QP4-DEVELOPMENT-SOURCE-EXPANSION-COHORT-BUILD",
+  "precommit_gate_passed": true,
+  "source_expansion_build_gate_passed": false,
+  "runtime_implementation_gate_passed": false,
+  "purpose": "Execute the frozen outcome-independent 50-source development expansion and audit only the missing hierarchical and fragmented PA07 structural signatures without question, model, runtime or OCR involvement.",
+  "parents": {
+    "precommit_json": {
+      "path": "config/finhrm_qp4_development_source_expansion_reclosure_precommit_v1.json",
+      "size_bytes": 21238,
+      "sha256": "f6103a5c1e5e44209ea4e037915ba33e67c014d6099fcb55125d043039306b0a"
+    },
+    "precommit_markdown": {
+      "path": "reports/finhrm_qp4_development_source_expansion_reclosure_precommit_v1.md",
+      "size_bytes": 3288,
+      "sha256": "b9974b886c56bebf630374081165f9853081a1691052a652dd60e73775762da2"
+    },
+    "precommit_lock": {
+      "path": "reports/finhrm_qp4_development_source_expansion_reclosure_precommit_lock_v1.json",
+      "size_bytes": 5798,
+      "sha256": "4a6560c231bbc3b1131a69d0bcc0393cfebaf2499fee93d7c799893b7526d8a5",
+      "authorized_next_action_matches_exactly": true
+    }
+  },
+  "frozen_selection_replay": {
+    "eligible_sources": 112,
+    "eligible_distinct_companies": 112,
+    "eligible_pool_sha256_expected": "8711cfdf491bc14fe5dbed6a161dd754c6de89f4d918be4b410006d6acc2c5ab",
+    "eligible_pool_sha256_observed": "8711cfdf491bc14fe5dbed6a161dd754c6de89f4d918be4b410006d6acc2c5ab",
+    "eligible_pool_sha256_exact": true,
+    "transform_id": "FINHRM_QP4_DEV_SOURCE_EXPANSION_RANDOM_V1",
+    "selected_sources": 50,
+    "selected_distinct_companies": 50,
+    "selected_manifest_sha256_expected": "4af6cebd661df6cebf9249343de16c7b6740a40f8e9cd600b6b423f2a48ab238",
+    "selected_manifest_sha256_observed": "4af6cebd661df6cebf9249343de16c7b6740a40f8e9cd600b6b423f2a48ab238",
+    "selected_manifest_sha256_exact": true,
+    "post_hoc_source_replacements": 0,
+    "question_page_value_layout_or_content_used_for_selection": false,
+    "model_rank_score_confidence_or_action_used_for_selection": false
+  },
+  "execution": {
+    "selected_sources_processed": "50/50",
+    "selected_source_hash_matches": "50/50",
+    "source_read_errors": 0,
+    "physical_pages_scanned": 2425,
+    "native_nonempty_pages": 1541,
+    "geometry_nonempty_pages": 1541,
+    "broad_candidate_pages": 19,
+    "sources_with_broad_candidate_pages": 8,
+    "native_table_grids_detected_on_candidate_pages": 13,
+    "visual_candidate_pages_reviewed": 4,
+    "visual_source_documents_reviewed": 3,
+    "admitted_target_anchors": 0,
+    "new_ocr_generated": false,
+    "existing_ocr_used_for_eligibility": false,
+    "question_planner_run": false,
+    "hrm_or_ranker_run": false,
+    "answer_evaluator_run": false,
+    "protected_split_read": false,
+    "abw_used": false
+  },
+  "terminal_summary": {
+    "REJECT_NO_NATIVE_TEXT_OR_GEOMETRY": 25,
+    "REJECT_NO_TARGET_STRUCTURE": 24,
+    "REJECT_MISSING_EXPLICIT_SAME_PERIOD": 1,
+    "ADMITTED": 0,
+    "SOURCE_ERROR": 0,
+    "interpretation": "The 25 no-native-geometry sources are not claimed to lack target tables physically. Their non-cover pages are image-dominant under the native-only build, and the frozen contract forbids generating OCR. They remain unavailable evidence, not negative prevalence proof."
+  },
+  "source_results": [
+    {
+      "company_key": "development-company-1a1d30aab8a585cf",
+      "source_path": "pdf/PDF_24/PDF_24/NHA_24CN_BCTN.pdf",
+      "source_sha256": "7e22914d45b6e2040128f957e6dd0cca5e18ccb60ff5be75fc85bad3c08f7297",
+      "source_hash_match": true,
+      "physical_pages": 152,
+      "native_nonempty_pages": 152,
+      "geometry_nonempty_pages": 152,
+      "target_candidate_pages": [
+        20,
+        97,
+        99,
+        100,
+        108,
+        147
+      ],
+      "terminal_status": "REJECTED",
+      "terminal_reason": "REJECT_NO_TARGET_STRUCTURE"
+    },
+    {
+      "company_key": "development-company-0afd7c65e655ce13",
+      "source_path": "pdf/PDF_24/PDF_24/CCP_24CN_BCTN.pdf",
+      "source_sha256": "5b41ecd5600334e8556814cc2a5654c1033a37fdbbabf095d887c7e700b2fcca",
+      "source_hash_match": true,
+      "physical_pages": 9,
+      "native_nonempty_pages": 1,
+      "geometry_nonempty_pages": 1,
+      "target_candidate_pages": [],
+      "terminal_status": "REJECTED",
+      "terminal_reason": "REJECT_NO_NATIVE_TEXT_OR_GEOMETRY"
+    },
+    {
+      "company_key": "development-company-17339e636a0aec77",
+      "source_path": "pdf/PDF_24/PDF_24/MBB_24CN_BCTN.pdf",
+      "source_sha256": "25325fe208bd565c45e0ac92587df429199b050a5eac7d0309eb05968511f2ae",
+      "source_hash_match": true,
+      "physical_pages": 184,
+      "native_nonempty_pages": 175,
+      "geometry_nonempty_pages": 175,
+      "target_candidate_pages": [],
+      "terminal_status": "REJECTED",
+      "terminal_reason": "REJECT_NO_TARGET_STRUCTURE"
+    },
+    {
+      "company_key": "development-company-0efb6600fc9c3e95",
+      "source_path": "pdf/PDF_24/PDF_24/BHC_24CN_BCTN.pdf",
+      "source_sha256": "db4cd89e096991f34d572f8a6de7f00d4f8c3fda6471b31d46b1088a17c03472",
+      "source_hash_match": true,
+      "physical_pages": 8,
+      "native_nonempty_pages": 1,
+      "geometry_nonempty_pages": 1,
+      "target_candidate_pages": [],
+      "terminal_status": "REJECTED",
+      "terminal_reason": "REJECT_NO_NATIVE_TEXT_OR_GEOMETRY"
+    },
+    {
+      "company_key": "development-company-035456962822e6bf",
+      "source_path": "pdf/PDF_24/PDF_24/VLW_24CN_BCTN.pdf",
+      "source_sha256": "d1cda8eb8cce39f9ca1c08a553c8d56e728fea0b7488d39e96341a30adf61c52",
+      "source_hash_match": true,
+      "physical_pages": 68,
+      "native_nonempty_pages": 68,
+      "geometry_nonempty_pages": 68,
+      "target_candidate_pages": [
+        21
+      ],
+      "terminal_status": "REJECTED",
+      "terminal_reason": "REJECT_NO_TARGET_STRUCTURE"
+    },
+    {
+      "company_key": "development-company-1d6031fc629bf13d",
+      "source_path": "pdf/PDF_24/PDF_24/KKC_24CN_BCTN.pdf",
+      "source_sha256": "696cd216dd4c7a676fec762d315eef85d0ddd9a1884517203ecc17e4d6da0467",
+      "source_hash_match": true,
+      "physical_pages": 24,
+      "native_nonempty_pages": 1,
+      "geometry_nonempty_pages": 1,
+      "target_candidate_pages": [],
+      "terminal_status": "REJECTED",
+      "terminal_reason": "REJECT_NO_NATIVE_TEXT_OR_GEOMETRY"
+    },
+    {
+      "company_key": "development-company-1fe2d28f0996841e",
+      "source_path": "pdf/PDF_24/PDF_24/VCA_24CN_BCTN.pdf",
+      "source_sha256": "e5f61a6a7ffd43170fc13a5bf67478d86ffec2a6e3eff93f4f180a3b9802a406",
+      "source_hash_match": true,
+      "physical_pages": 25,
+      "native_nonempty_pages": 1,
+      "geometry_nonempty_pages": 1,
+      "target_candidate_pages": [],
+      "terminal_status": "REJECTED",
+      "terminal_reason": "REJECT_NO_NATIVE_TEXT_OR_GEOMETRY"
+    },
+    {
+      "company_key": "development-company-12a5d18ee896e599",
+      "source_path": "pdf/PDF_24/PDF_24/PHP_24CN_BCTN.pdf",
+      "source_sha256": "14561c8b64c9ca2cd2e28264d61c6546bfd0b75b4cfd999203605987e2e15004",
+      "source_hash_match": true,
+      "physical_pages": 15,
+      "native_nonempty_pages": 15,
+      "geometry_nonempty_pages": 15,
+      "target_candidate_pages": [],
+      "terminal_status": "REJECTED",
+      "terminal_reason": "REJECT_NO_TARGET_STRUCTURE"
+    },
+    {
+      "company_key": "development-company-189e377bafb9ffd6",
+      "source_path": "pdf/PDF_24/PDF_24/VTM_24CN_BCTN.pdf",
+      "source_sha256": "7a8922c60424ca4561f964a64103cfa2d37305810f655484ed0540cadf380d35",
+      "source_hash_match": true,
+      "physical_pages": 29,
+      "native_nonempty_pages": 1,
+      "geometry_nonempty_pages": 1,
+      "target_candidate_pages": [],
+      "terminal_status": "REJECTED",
+      "terminal_reason": "REJECT_NO_NATIVE_TEXT_OR_GEOMETRY"
+    },
+    {
+      "company_key": "development-company-1d93fc6e0149715f",
+      "source_path": "pdf/PDF_24/PDF_24/THW_24CN_BCTN.pdf",
+      "source_sha256": "a67ba32e0f55f9da5d99181daf21caf2a2315b9b4df049e70d28a3e52900613c",
+      "source_hash_match": true,
+      "physical_pages": 44,
+      "native_nonempty_pages": 1,
+      "geometry_nonempty_pages": 1,
+      "target_candidate_pages": [],
+      "terminal_status": "REJECTED",
+      "terminal_reason": "REJECT_NO_NATIVE_TEXT_OR_GEOMETRY"
+    },
+    {
+      "company_key": "development-company-0a5b3e98c2ea32da",
+      "source_path": "pdf/PDF_24/PDF_24/VRE_24CN_BCTN.pdf",
+      "source_sha256": "0fc2cdd897691ddd9da9c8017710b00c9d374b7dc84b2c3fe1b485281d4ccc01",
+      "source_hash_match": true,
+      "physical_pages": 85,
+      "native_nonempty_pages": 85,
+      "geometry_nonempty_pages": 85,
+      "target_candidate_pages": [
+        67
+      ],
+      "terminal_status": "REJECTED",
+      "terminal_reason": "REJECT_NO_TARGET_STRUCTURE"
+    },
+    {
+      "company_key": "development-company-050be1e2f4531f6d",
+      "source_path": "pdf/PDF_24/PDF_24/HES_24CN_BCTN.pdf",
+      "source_sha256": "08c222506ec54d985c42f0c123c928464e8e2b845e15580dadd9cf795614bb42",
+      "source_hash_match": true,
+      "physical_pages": 60,
+      "native_nonempty_pages": 1,
+      "geometry_nonempty_pages": 1,
+      "target_candidate_pages": [],
+      "terminal_status": "REJECTED",
+      "terminal_reason": "REJECT_NO_NATIVE_TEXT_OR_GEOMETRY"
+    },
+    {
+      "company_key": "development-company-1e13e778d2398758",
+      "source_path": "pdf/PDF_24/PDF_24/BHG_24CN_BCTN.pdf",
+      "source_sha256": "ab8a8aa2cef2c6d6526c2424aa9cd881e9d4ce77fe03676d36aa635fcb00e592",
+      "source_hash_match": true,
+      "physical_pages": 21,
+      "native_nonempty_pages": 21,
+      "geometry_nonempty_pages": 21,
+      "target_candidate_pages": [],
+      "terminal_status": "REJECTED",
+      "terminal_reason": "REJECT_NO_TARGET_STRUCTURE"
+    },
+    {
+      "company_key": "development-company-0c1eeccce6f114bf",
+      "source_path": "pdf/PDF_24/PDF_24/IDP_24CN_BCTN.pdf",
+      "source_sha256": "a9570d1ab3407341ccb8b33aeba1f4c0f7fd14341c620a8f8faa90fdb06442d5",
+      "source_hash_match": true,
+      "physical_pages": 36,
+      "native_nonempty_pages": 1,
+      "geometry_nonempty_pages": 1,
+      "target_candidate_pages": [],
+      "terminal_status": "REJECTED",
+      "terminal_reason": "REJECT_NO_NATIVE_TEXT_OR_GEOMETRY"
+    },
+    {
+      "company_key": "development-company-08881a566ac8b9ee",
+      "source_path": "pdf/PDF_24/PDF_24/HLY_24CN_BCTN.pdf",
+      "source_sha256": "53ffed057ae27c09d44f024ee2b18fdd0647434427451bfab8dc2c04fe91dcc9",
+      "source_hash_match": true,
+      "physical_pages": 46,
+      "native_nonempty_pages": 1,
+      "geometry_nonempty_pages": 1,
+      "target_candidate_pages": [],
+      "terminal_status": "REJECTED",
+      "terminal_reason": "REJECT_NO_NATIVE_TEXT_OR_GEOMETRY"
+    },
+    {
+      "company_key": "development-company-17665df03cb820c8",
+      "source_path": "pdf/PDF_24/PDF_24/UEM_24CN_BCTN.pdf",
+      "source_sha256": "1417f7b6aa9be2954dff54cbd0445d07f6dd411481306fcf9fd403fc532c2192",
+      "source_hash_match": true,
+      "physical_pages": 14,
+      "native_nonempty_pages": 1,
+      "geometry_nonempty_pages": 1,
+      "target_candidate_pages": [],
+      "terminal_status": "REJECTED",
+      "terminal_reason": "REJECT_NO_NATIVE_TEXT_OR_GEOMETRY"
+    },
+    {
+      "company_key": "development-company-094f686e92c888ae",
+      "source_path": "pdf/PDF_24/PDF_24/VNT_24CN_BCTN.pdf",
+      "source_sha256": "7469a5b3b9c25359b1a0afeee9115037fee55a0d5a1c017db811f65b2641a0af",
+      "source_hash_match": true,
+      "physical_pages": 33,
+      "native_nonempty_pages": 23,
+      "geometry_nonempty_pages": 23,
+      "target_candidate_pages": [],
+      "terminal_status": "REJECTED",
+      "terminal_reason": "REJECT_NO_TARGET_STRUCTURE"
+    },
+    {
+      "company_key": "development-company-0cc2f53c87ada142",
+      "source_path": "pdf/PDF_24/PDF_24/CLX_24CN_BCTN.pdf",
+      "source_sha256": "b82136010310b485def04b37f4f36b67c7d1945f38727e8925af9d28ef4a2cb3",
+      "source_hash_match": true,
+      "physical_pages": 39,
+      "native_nonempty_pages": 1,
+      "geometry_nonempty_pages": 1,
+      "target_candidate_pages": [],
+      "terminal_status": "REJECTED",
+      "terminal_reason": "REJECT_NO_NATIVE_TEXT_OR_GEOMETRY"
+    },
+    {
+      "company_key": "development-company-060c4dee1f4216c9",
+      "source_path": "pdf/PDF_24/PDF_24/SDC_24CN_BCTN.pdf",
+      "source_sha256": "9918fe74e10d54963f5f592f44af8eb238ccc7f8a637d0f38260f40d233bb9a6",
+      "source_hash_match": true,
+      "physical_pages": 23,
+      "native_nonempty_pages": 1,
+      "geometry_nonempty_pages": 1,
+      "target_candidate_pages": [],
+      "terminal_status": "REJECTED",
+      "terminal_reason": "REJECT_NO_NATIVE_TEXT_OR_GEOMETRY"
+    },
+    {
+      "company_key": "development-company-1ae2af0e40480754",
+      "source_path": "pdf/PDF_24/PDF_24/CMG_24CN_BCTN.pdf",
+      "source_sha256": "8946a531f3ddc9ad7ffae44495663536461d75a1cbfa215909e459b78fbc8df0",
+      "source_hash_match": true,
+      "physical_pages": 77,
+      "native_nonempty_pages": 76,
+      "geometry_nonempty_pages": 76,
+      "target_candidate_pages": [
+        4,
+        60
+      ],
+      "terminal_status": "REJECTED",
+      "terminal_reason": "REJECT_NO_TARGET_STRUCTURE"
+    },
+    {
+      "company_key": "development-company-083c4cd5ba767988",
+      "source_path": "pdf/PDF_24/PDF_24/MTS_24CN_BCTN.pdf",
+      "source_sha256": "12093c4b3fa1b1a090dedb3289260a187aae56500ba7de4de64a6406c402db67",
+      "source_hash_match": true,
+      "physical_pages": 53,
+      "native_nonempty_pages": 53,
+      "geometry_nonempty_pages": 53,
+      "target_candidate_pages": [],
+      "terminal_status": "REJECTED",
+      "terminal_reason": "REJECT_NO_TARGET_STRUCTURE"
+    },
+    {
+      "company_key": "development-company-18a728617eab1b41",
+      "source_path": "pdf/PDF_24/PDF_24/PVV_24CN_BCTN.pdf",
+      "source_sha256": "001785ceb76c6d7bcb83cc114a4d3476c3f14785a387c2c75a76676ae9b76dc1",
+      "source_hash_match": true,
+      "physical_pages": 21,
+      "native_nonempty_pages": 1,
+      "geometry_nonempty_pages": 1,
+      "target_candidate_pages": [],
+      "terminal_status": "REJECTED",
+      "terminal_reason": "REJECT_NO_NATIVE_TEXT_OR_GEOMETRY"
+    },
+    {
+      "company_key": "development-company-21df76478c63f536",
+      "source_path": "pdf/PDF_24/PDF_24/VIG_24CN_BCTN.pdf",
+      "source_sha256": "18c8a550779d6051691ec9db60412b73d4081810f26ac9cb0dc29d6c8ea27b80",
+      "source_hash_match": true,
+      "physical_pages": 32,
+      "native_nonempty_pages": 1,
+      "geometry_nonempty_pages": 1,
+      "target_candidate_pages": [],
+      "terminal_status": "REJECTED",
+      "terminal_reason": "REJECT_NO_NATIVE_TEXT_OR_GEOMETRY"
+    },
+    {
+      "company_key": "development-company-0d4ba031e63f23c0",
+      "source_path": "pdf/PDF_24/PDF_24/GIC_24CN_BCTN.pdf",
+      "source_sha256": "2730d3b2fde6ac292ed3da739752d224447b68eab8f7201a0b9778926f8b381b",
+      "source_hash_match": true,
+      "physical_pages": 51,
+      "native_nonempty_pages": 1,
+      "geometry_nonempty_pages": 1,
+      "target_candidate_pages": [],
+      "terminal_status": "REJECTED",
+      "terminal_reason": "REJECT_NO_NATIVE_TEXT_OR_GEOMETRY"
+    },
+    {
+      "company_key": "development-company-0532018263446433",
+      "source_path": "pdf/PDF_24/PDF_24/BIO_24CN_BCTN.pdf",
+      "source_sha256": "5c8084a5dbef02f4f45892fbd60d9e1b06ea2f0049731cea632eb44a22312197",
+      "source_hash_match": true,
+      "physical_pages": 20,
+      "native_nonempty_pages": 1,
+      "geometry_nonempty_pages": 1,
+      "target_candidate_pages": [],
+      "terminal_status": "REJECTED",
+      "terminal_reason": "REJECT_NO_NATIVE_TEXT_OR_GEOMETRY"
+    },
+    {
+      "company_key": "development-company-13032acd8761af05",
+      "source_path": "pdf/PDF_24/PDF_24/MCM_24CN_BCTN.pdf",
+      "source_sha256": "fecf06789f3c8a45b5a1f6e6676c0e2f389a4354dd0fcd9c111d4171acac3c10",
+      "source_hash_match": true,
+      "physical_pages": 109,
+      "native_nonempty_pages": 109,
+      "geometry_nonempty_pages": 109,
+      "target_candidate_pages": [],
+      "terminal_status": "REJECTED",
+      "terminal_reason": "REJECT_NO_TARGET_STRUCTURE"
+    },
+    {
+      "company_key": "development-company-17f76fe91c554529",
+      "source_path": "pdf/PDF_24/PDF_24/BMV_24CN_BCTN.pdf",
+      "source_sha256": "efb7873be1ff74d004cd2a3e2aa8fa6b699a0f60ceb4e40579e0219dc7ee0d07",
+      "source_hash_match": true,
+      "physical_pages": 16,
+      "native_nonempty_pages": 1,
+      "geometry_nonempty_pages": 1,
+      "target_candidate_pages": [],
+      "terminal_status": "REJECTED",
+      "terminal_reason": "REJECT_NO_NATIVE_TEXT_OR_GEOMETRY"
+    },
+    {
+      "company_key": "development-company-109e3945b5072c8e",
+      "source_path": "pdf/PDF_24/PDF_24/CRE_24CN_BCTN.pdf",
+      "source_sha256": "149df780468ccac809e3b5949e21de9f7492f88fa3262041b7deca30b6e86b6b",
+      "source_hash_match": true,
+      "physical_pages": 97,
+      "native_nonempty_pages": 97,
+      "geometry_nonempty_pages": 97,
+      "target_candidate_pages": [],
+      "terminal_status": "REJECTED",
+      "terminal_reason": "REJECT_NO_TARGET_STRUCTURE"
+    },
+    {
+      "company_key": "development-company-0492c0e11c3838d3",
+      "source_path": "pdf/PDF_24/PDF_24/SBB_24CN_BCTN.pdf",
+      "source_sha256": "4d13662dbd76d307e6f4d0767b926d26bf7d91bee78e53caed705d82d251925f",
+      "source_hash_match": true,
+      "physical_pages": 80,
+      "native_nonempty_pages": 56,
+      "geometry_nonempty_pages": 56,
+      "target_candidate_pages": [],
+      "terminal_status": "REJECTED",
+      "terminal_reason": "REJECT_NO_TARGET_STRUCTURE"
+    },
+    {
+      "company_key": "development-company-102b69eac137d9ca",
+      "source_path": "pdf/PDF_24/PDF_24/ASG_24CN_BCTN.pdf",
+      "source_sha256": "6c2f3c493cfe811eceeb630cab5cb329c869f40acf8c1ca66e0740310169e1df",
+      "source_hash_match": true,
+      "physical_pages": 72,
+      "native_nonempty_pages": 72,
+      "geometry_nonempty_pages": 72,
+      "target_candidate_pages": [],
+      "terminal_status": "REJECTED",
+      "terminal_reason": "REJECT_NO_TARGET_STRUCTURE"
+    },
+    {
+      "company_key": "development-company-1f8a0616f0de5464",
+      "source_path": "pdf/PDF_24/PDF_24/HNF_24CN_BCTN.pdf",
+      "source_sha256": "dbafcf8458f4672142682422c2b88c2deb0bc3bbbea258f1bba9788e007d57dd",
+      "source_hash_match": true,
+      "physical_pages": 30,
+      "native_nonempty_pages": 1,
+      "geometry_nonempty_pages": 1,
+      "target_candidate_pages": [],
+      "terminal_status": "REJECTED",
+      "terminal_reason": "REJECT_NO_NATIVE_TEXT_OR_GEOMETRY"
+    },
+    {
+      "company_key": "development-company-0c67b2c1fcfba9fb",
+      "source_path": "pdf/PDF_24/PDF_24/TET_24CN_BCTN.pdf",
+      "source_sha256": "cc7bccff9ae015a8b52b5587d6f29941141039faa1eb407639b126a1914fbb1f",
+      "source_hash_match": true,
+      "physical_pages": 16,
+      "native_nonempty_pages": 1,
+      "geometry_nonempty_pages": 1,
+      "target_candidate_pages": [],
+      "terminal_status": "REJECTED",
+      "terminal_reason": "REJECT_NO_NATIVE_TEXT_OR_GEOMETRY"
+    },
+    {
+      "company_key": "development-company-0cf6c2d4d5bab184",
+      "source_path": "pdf/PDF_24/PDF_24/TMC_24CN_BCTN.pdf",
+      "source_sha256": "1ba8dbd4437138556dd14d6da320ee524d128fc05703c85365006aa3153676a7",
+      "source_hash_match": true,
+      "physical_pages": 66,
+      "native_nonempty_pages": 1,
+      "geometry_nonempty_pages": 1,
+      "target_candidate_pages": [],
+      "terminal_status": "REJECTED",
+      "terminal_reason": "REJECT_NO_NATIVE_TEXT_OR_GEOMETRY"
+    },
+    {
+      "company_key": "development-company-117abaa98da56632",
+      "source_path": "pdf/PDF_24/PDF_24/PBT_24CN_BCTN.pdf",
+      "source_sha256": "ae9f05faf92f820dc6e172a28454ac7e85677c45837f12e68c40e43445bb3035",
+      "source_hash_match": true,
+      "physical_pages": 25,
+      "native_nonempty_pages": 2,
+      "geometry_nonempty_pages": 2,
+      "target_candidate_pages": [],
+      "terminal_status": "REJECTED",
+      "terminal_reason": "REJECT_NO_TARGET_STRUCTURE"
+    },
+    {
+      "company_key": "development-company-1a13a1d7e90611ba",
+      "source_path": "pdf/PDF_24/PDF_24/SRF_24CN_BCTN.pdf",
+      "source_sha256": "33fe8e64a0f1cb30bdbbc7b5e9f165b9b648e8e79bff29cbd604a31b97bde669",
+      "source_hash_match": true,
+      "physical_pages": 59,
+      "native_nonempty_pages": 57,
+      "geometry_nonempty_pages": 57,
+      "target_candidate_pages": [
+        13,
+        40,
+        54
+      ],
+      "terminal_status": "REJECTED",
+      "terminal_reason": "REJECT_NO_TARGET_STRUCTURE"
+    },
+    {
+      "company_key": "development-company-0edcdb4ac852829d",
+      "source_path": "pdf/PDF_24/PDF_24/HTI_24CN_BCTN.pdf",
+      "source_sha256": "dc05d94ef76e891ecd85422ea667358c1d58fcc7f55f7b91bff87258cfaae20e",
+      "source_hash_match": true,
+      "physical_pages": 88,
+      "native_nonempty_pages": 88,
+      "geometry_nonempty_pages": 88,
+      "target_candidate_pages": [
+        31,
+        40,
+        73
+      ],
+      "terminal_status": "REJECTED",
+      "terminal_reason": "REJECT_MISSING_EXPLICIT_SAME_PERIOD"
+    },
+    {
+      "company_key": "development-company-047de0f543c7e359",
+      "source_path": "pdf/PDF_24/PDF_24/NAS_24CN_BCTN.pdf",
+      "source_sha256": "7586edb8321d476aaca81dd32f568a334224eef41e84ffe54d13a74c9f01606d",
+      "source_hash_match": true,
+      "physical_pages": 78,
+      "native_nonempty_pages": 35,
+      "geometry_nonempty_pages": 35,
+      "target_candidate_pages": [],
+      "terminal_status": "REJECTED",
+      "terminal_reason": "REJECT_NO_TARGET_STRUCTURE"
+    },
+    {
+      "company_key": "development-company-2230a64fe703897f",
+      "source_path": "pdf/PDF_24/PDF_24/BSH_24CN_BCTN.pdf",
+      "source_sha256": "42d54e026f155fbc06ac5f896b056e387f012adfcf756991642dbff79d29b952",
+      "source_hash_match": true,
+      "physical_pages": 40,
+      "native_nonempty_pages": 3,
+      "geometry_nonempty_pages": 3,
+      "target_candidate_pages": [],
+      "terminal_status": "REJECTED",
+      "terminal_reason": "REJECT_NO_TARGET_STRUCTURE"
+    },
+    {
+      "company_key": "development-company-02005c8731c7bacd",
+      "source_path": "pdf/PDF_24/PDF_24/TMX_24CN_BCTN.pdf",
+      "source_sha256": "bd397fd9e73e5dfc8aab72aacf678e2ce3ae6675b659c8bc10a9fb869a940bb3",
+      "source_hash_match": true,
+      "physical_pages": 16,
+      "native_nonempty_pages": 1,
+      "geometry_nonempty_pages": 1,
+      "target_candidate_pages": [],
+      "terminal_status": "REJECTED",
+      "terminal_reason": "REJECT_NO_NATIVE_TEXT_OR_GEOMETRY"
+    },
+    {
+      "company_key": "development-company-1947e2bdf9b8b693",
+      "source_path": "pdf/PDF_24/PDF_24/CMK_24CN_BCTN.pdf",
+      "source_sha256": "d6893f08970205639879b3e1391846e37f90a056312e4a229fbe7a57b3bda4ac",
+      "source_hash_match": true,
+      "physical_pages": 17,
+      "native_nonempty_pages": 17,
+      "geometry_nonempty_pages": 17,
+      "target_candidate_pages": [
+        3
+      ],
+      "terminal_status": "REJECTED",
+      "terminal_reason": "REJECT_NO_TARGET_STRUCTURE"
+    },
+    {
+      "company_key": "development-company-069df57a3a645590",
+      "source_path": "pdf/PDF_24/PDF_24/CMS_24CN_BCTN.pdf",
+      "source_sha256": "b680d9c1f517e85b0613f93f4dcc8bb94f51f9f5d8cf3b50aa11e8732c30c07c",
+      "source_hash_match": true,
+      "physical_pages": 28,
+      "native_nonempty_pages": 28,
+      "geometry_nonempty_pages": 28,
+      "target_candidate_pages": [],
+      "terminal_status": "REJECTED",
+      "terminal_reason": "REJECT_NO_TARGET_STRUCTURE"
+    },
+    {
+      "company_key": "development-company-01eb9c15769d6c2c",
+      "source_path": "pdf/PDF_24/PDF_24/FDC_24CN_BCTN.pdf",
+      "source_sha256": "d143a3f3e20cce72ebc0374db5f26a010e75ea2f1416f6fc5fc9ec6c82d3eca9",
+      "source_hash_match": true,
+      "physical_pages": 13,
+      "native_nonempty_pages": 1,
+      "geometry_nonempty_pages": 1,
+      "target_candidate_pages": [],
+      "terminal_status": "REJECTED",
+      "terminal_reason": "REJECT_NO_NATIVE_TEXT_OR_GEOMETRY"
+    },
+    {
+      "company_key": "development-company-14c2529eb4498c5d",
+      "source_path": "pdf/PDF_24/PDF_24/API_24CN_BCTN.pdf",
+      "source_sha256": "741e2d5ba3dd92cff99c1913697a5512376f5ea69cd93212d64ece8da866d0ec",
+      "source_hash_match": true,
+      "physical_pages": 54,
+      "native_nonempty_pages": 53,
+      "geometry_nonempty_pages": 53,
+      "target_candidate_pages": [
+        10,
+        52
+      ],
+      "terminal_status": "REJECTED",
+      "terminal_reason": "REJECT_NO_TARGET_STRUCTURE"
+    },
+    {
+      "company_key": "development-company-1f4daa4c7f71a319",
+      "source_path": "pdf/PDF_24/PDF_24/APL_24CN_BCTN.pdf",
+      "source_sha256": "69861ebac382649c1b6451d2164075c085d4c6512f745fff1c1ee6df10687e0f",
+      "source_hash_match": true,
+      "physical_pages": 20,
+      "native_nonempty_pages": 20,
+      "geometry_nonempty_pages": 20,
+      "target_candidate_pages": [],
+      "terminal_status": "REJECTED",
+      "terminal_reason": "REJECT_NO_TARGET_STRUCTURE"
+    },
+    {
+      "company_key": "development-company-18b5487f02e71dfd",
+      "source_path": "pdf/PDF_24/PDF_24/VSN_24CN_BCTN.pdf",
+      "source_sha256": "2a2e912883bf29899b4a34e6de3ab55c78eac47179f3ba998f4c3fabc6a36de3",
+      "source_hash_match": true,
+      "physical_pages": 82,
+      "native_nonempty_pages": 82,
+      "geometry_nonempty_pages": 82,
+      "target_candidate_pages": [],
+      "terminal_status": "REJECTED",
+      "terminal_reason": "REJECT_NO_TARGET_STRUCTURE"
+    },
+    {
+      "company_key": "development-company-0a7cb27e52927eac",
+      "source_path": "pdf/PDF_24/PDF_24/DAS_24CN_BCTN.pdf",
+      "source_sha256": "91051b46c9828817c49259a53c829e920b78a734840cf5e79144fc08d59d9d88",
+      "source_hash_match": true,
+      "physical_pages": 16,
+      "native_nonempty_pages": 16,
+      "geometry_nonempty_pages": 16,
+      "target_candidate_pages": [],
+      "terminal_status": "REJECTED",
+      "terminal_reason": "REJECT_NO_TARGET_STRUCTURE"
+    },
+    {
+      "company_key": "development-company-0c7371bc44f1c673",
+      "source_path": "pdf/PDF_24/PDF_24/ECI_24CN_BCTN.pdf",
+      "source_sha256": "5476e6a0644b14353ba7f682bfe010c7e654fe1e641b1e501fb8f1e8c1c763c3",
+      "source_hash_match": true,
+      "physical_pages": 30,
+      "native_nonempty_pages": 1,
+      "geometry_nonempty_pages": 1,
+      "target_candidate_pages": [],
+      "terminal_status": "REJECTED",
+      "terminal_reason": "REJECT_NO_NATIVE_TEXT_OR_GEOMETRY"
+    },
+    {
+      "company_key": "development-company-0705e1308e777598",
+      "source_path": "pdf/PDF_24/PDF_24/BMF_24CN_BCTN.pdf",
+      "source_sha256": "321f5d89f24eba7cc3686cb542e2bda2d955f5ace308dc65cd375241f47e0e15",
+      "source_hash_match": true,
+      "physical_pages": 26,
+      "native_nonempty_pages": 1,
+      "geometry_nonempty_pages": 1,
+      "target_candidate_pages": [],
+      "terminal_status": "REJECTED",
+      "terminal_reason": "REJECT_NO_NATIVE_TEXT_OR_GEOMETRY"
+    },
+    {
+      "company_key": "development-company-21d7832498861b16",
+      "source_path": "pdf/PDF_24/PDF_24/BKG_24CN_BCTN.pdf",
+      "source_sha256": "ac20893ed25e0a70bcf23821bed298849c5ba3afa7d94f65ec1b68b578bb2c67",
+      "source_hash_match": true,
+      "physical_pages": 151,
+      "native_nonempty_pages": 113,
+      "geometry_nonempty_pages": 113,
+      "target_candidate_pages": [],
+      "terminal_status": "REJECTED",
+      "terminal_reason": "REJECT_NO_TARGET_STRUCTURE"
+    },
+    {
+      "company_key": "development-company-15aa4ce43c3fc979",
+      "source_path": "pdf/PDF_24/PDF_24/TVA_24CN_BCTN.pdf",
+      "source_sha256": "2ab79ef997afa54449c0baa80c4ef09f389b10277abe6cb11f08e54c6ee5c23b",
+      "source_hash_match": true,
+      "physical_pages": 27,
+      "native_nonempty_pages": 1,
+      "geometry_nonempty_pages": 1,
+      "target_candidate_pages": [],
+      "terminal_status": "REJECTED",
+      "terminal_reason": "REJECT_NO_NATIVE_TEXT_OR_GEOMETRY"
+    }
+  ],
+  "material_visual_reviews": [
+    {
+      "source_name": "NHA_24CN_BCTN.pdf",
+      "physical_page": 100,
+      "candidate_signature": "PA07_ROOT_HIERARCHICAL_MULTIROW_ROLE_PERIOD_HEADER_V1",
+      "visual_review": "PASS_REVIEW_EXECUTED",
+      "eligibility": "REJECTED",
+      "reason": "REJECT_NO_TARGET_STRUCTURE",
+      "detail": "The physical table has Plan and Actual columns and the page section is titled BUSINESS PERFORMANCE IN 2024, but there is no physical parent period header or spanner binding 2024 to both role columns. The period cannot be inherited from a section title as semantic proof."
+    },
+    {
+      "source_name": "NHA_24CN_BCTN.pdf",
+      "physical_page": 108,
+      "candidate_signature": "PA07_ROOT_HIERARCHICAL_MULTIROW_ROLE_PERIOD_HEADER_V1",
+      "visual_review": "PASS_REVIEW_EXECUTED",
+      "eligibility": "REJECTED",
+      "reason": "REJECT_NO_TARGET_STRUCTURE",
+      "detail": "The physical one-row header is Plan, Actual, % Planning and Change (%). The year is only in the surrounding section title, not an explicit parent table header spanning the Plan and Actual columns."
+    },
+    {
+      "source_name": "HTI_24CN_BCTN.pdf",
+      "physical_page": 73,
+      "candidate_signature": "PA07_ROOT_FRAGMENTED_VISUAL_ROW_LABEL_V1",
+      "visual_review": "PASS_REVIEW_EXECUTED",
+      "eligibility": "REJECTED",
+      "reason": "REJECT_MISSING_EXPLICIT_SAME_PERIOD",
+      "detail": "The physical table contains wrapped metric labels and explicit role-year headers, but the roles are Actual in 2024 and Plan in 2025. Different explicit periods cannot form the same-period PA07 pair."
+    },
+    {
+      "source_name": "CMK_24CN_BCTN.pdf",
+      "physical_page": 3,
+      "candidate_signature": "PA07_ROOT_FLATTENED_COMPACT_ROLE_YEAR_HEADER_V1",
+      "visual_review": "PASS_REVIEW_EXECUTED",
+      "eligibility": "OUT_OF_TARGET_CONTROL_NOT_COUNTED",
+      "reason": "REJECT_NO_TARGET_STRUCTURE",
+      "detail": "The real table explicitly shows Kế hoạch 2024 and Thực hiện 2024 in separate compact header cells with row-level Tr.đ units. This is a valid flattened structure, not a hierarchical parent-child header or fragmented metric row, so it is not counted toward either missing gate."
+    }
+  ],
+  "admitted_anchors": [],
+  "per_signature_coverage": {
+    "PA07_ROOT_HIERARCHICAL_MULTIROW_ROLE_PERIOD_HEADER_V1": {
+      "frozen_prior_companies": 1,
+      "new_companies": 0,
+      "combined_companies": 1,
+      "combined_sources": 1,
+      "combined_real_layout_families": 1,
+      "combined_layout_instances": 1,
+      "minimum_each": 3,
+      "shortfall_each": 2,
+      "gate": "FAIL"
+    },
+    "PA07_ROOT_FRAGMENTED_VISUAL_ROW_LABEL_V1": {
+      "frozen_prior_companies": 0,
+      "new_companies": 0,
+      "combined_companies": 0,
+      "combined_sources": 0,
+      "combined_real_layout_families": 0,
+      "combined_layout_instances": 0,
+      "minimum_each": 3,
+      "shortfall_each": 3,
+      "gate": "FAIL"
+    },
+    "PA07_ROOT_FLATTENED_COMPACT_ROLE_YEAR_HEADER_V1": {
+      "frozen_status": "PASS_3_3_3",
+      "expansion_target": false,
+      "new_out_of_target_control_observed": 1,
+      "new_out_of_target_control_counted": 0,
+      "gate": "PASS_FROZEN"
+    }
+  },
+  "global_admission": {
+    "all_target_signatures_required": true,
+    "target_signatures_passed": "0/2",
+    "cross_signature_pooling_used": false,
+    "source_expansion_build_gate_passed": false,
+    "failure_behavior": "FAIL_CLOSED"
+  },
+  "integrity": {
+    "runtime_hashes": {
+      "src/hrm_finance_qa/document_sources.py": "e9eb7b3ddcc2ed13060a573a6a0101a216fa49ff21dd65cd5fc2629b92f5fc0b",
+      "src/hrm_finance_qa/document_page_index.py": "d531f47a22ed051863b41b3de031bb3e9d4bbf60ef71f825217559b7035386b4",
+      "src/hrm_finance_qa/program_data.py": "5199434fc0628b7d270ce62b12657366cbe118901065edd9f1e1f6ca0f1f8d54",
+      "src/hrm_finance_qa/evidence_schema.py": "2f16fabf932dc9dabc8203d9642d2503bb2dab43e0e1ee0f78755dd4fb00825d",
+      "src/hrm_finance_qa/document_reasoning_engine.py": "3883500011472716bc01f8e04a6d6f925173b35a14bbedd945c5ca4fb0063fa2"
+    },
+    "checkpoint_sha256": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de",
+    "runtime_changed": false,
+    "test_files_changed": false,
+    "model_checkpoint_or_threshold_changed": false,
+    "fine_tuning_performed": false,
+    "report_specific_runtime_rule_added": false,
+    "candidate_rank_score_or_confidence_used_as_semantic_proof": false,
+    "period_or_provenance_inferred_from_section_title_nearby_context_absence_or_question": false,
+    "unknown_promoted_to_answer": false,
+    "conflict_promoted_to_answer": false,
+    "synthetic_layout_counted": false,
+    "metric_beautification_performed": false
+  },
+  "authorization": {
+    "runtime_edit_authorized": false,
+    "runtime_file_whitelist": [],
+    "test_file_whitelist": [],
+    "source_replay_diagnostic_precommit_authorized": false,
+    "required_state": "Remain FAIL_CLOSED and report exact deterministic-sample structural shortfalls; no runtime edit.",
+    "publication_pilot_30_to_50_authorized": false,
+    "qp4_complete": false,
+    "qp5_authorized": false,
+    "phase_d_unlocked": false
+  },
+  "artifact_policy": {
+    "final_json": 1,
+    "final_markdown": 1,
+    "lock_manifest": 1,
+    "persistent_script_or_raw_trace": false,
+    "temporary_files_after_verification": 0
+  }
+}

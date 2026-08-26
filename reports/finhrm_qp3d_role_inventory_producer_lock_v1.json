@@ -1,0 +1,69 @@
+{
+  "schema": "finhrm-qp3d-role-inventory-producer-lock-v1",
+  "created_at": "2026-08-13",
+  "classification": "development_only_role_inventory_producer_implementation_lock",
+  "status": "complete",
+  "phase_d": "locked",
+  "implementation_gate_passed": true,
+  "results": {
+    "frozen_qp3c_inventory_state": {"exact": 96, "total": 96},
+    "frozen_qp3c_reason_set": {"exact": 96, "total": 96},
+    "development_end_to_end": {"pass": 8, "total": 8},
+    "pre_top_k_manifest": {"table_cells": 80, "retained_candidates": 64, "passed": true},
+    "real_abw_replays": 2,
+    "real_abw_safe_abstentions": 2,
+    "real_abw_semantically_correct_pointer_runs": 1,
+    "real_abw_neural_proposal_stable": false,
+    "real_abw_false_accepts": 0,
+    "runtime_regression_tests": {"pass": 483, "fail": 0},
+    "unexpected_runtime_changes": 0
+  },
+  "implementation_decisions": {
+    "manifest_timing": "full table structure is captured before candidate Top-K pruning",
+    "inventory_scope": "source and table scoped",
+    "ordinary_period_only_table": "role-inventory proof not applicable",
+    "plaintext_without_full_manifest": "legacy undeclared state",
+    "complete_role_bearing_table": "EXPLICIT_COMPLETE only after all QP3C proofs",
+    "incomplete_or_conflicting_role_bearing_table": "UNKNOWN",
+    "verifier_scope": "only the selected logical evidence table may supply column-role inventory",
+    "candidate_order": "not a signal"
+  },
+  "runtime_hashes": {
+    "program_data.py": "b6f1e1bb901459b2df2ca73bdb22f1db6f699fb452b12c68130ba3fe8c61db66",
+    "evidence_schema.py": "2f16fabf932dc9dabc8203d9642d2503bb2dab43e0e1ee0f78755dd4fb00825d",
+    "symbolic_verifier.py": "b0bc88ae35d5ec1f3a2dccb3ac9a93f1e47185e44947aa30e235af9662848b23",
+    "question_planner.py": "4b6b415dac3e64b76fef9dee2179282a742c5769e30f780393d1dd43242b13d2",
+    "program_synthesis.py": "a37470ad307c04744a5db794258f8bff2f6439ef6a689f8a9b8db67f91a17761",
+    "document_hrm.py": "f07e8f5685527ba76e1a9d74022b4e1e8cd29ba103593cb9a2063ddfcc15c1e5",
+    "document_reasoning_engine.py": "ee2ce9e2d8cea6fc87d307450297dace74727bdf915ba29e22cab67c7da6212f"
+  },
+  "invariants": {
+    "manifest_created_before_top_k": true,
+    "table_scoped_inventory": true,
+    "question_text_used_by_producer": false,
+    "numeric_value_used_by_producer": false,
+    "candidate_score_used_by_producer": false,
+    "threshold_changed": false,
+    "checkpoint_changed": false,
+    "fine_tuning_performed": false,
+    "global_validation_loaded": false,
+    "sealed_validation_loaded": false,
+    "blind_test_loaded": false,
+    "phase_d_unlocked": false
+  },
+  "artifacts": [
+    {"path": "src/hrm_finance_qa/program_data.py", "size_bytes": 118977, "sha256": "b6f1e1bb901459b2df2ca73bdb22f1db6f699fb452b12c68130ba3fe8c61db66"},
+    {"path": "src/hrm_finance_qa/evidence_schema.py", "size_bytes": 41137, "sha256": "2f16fabf932dc9dabc8203d9642d2503bb2dab43e0e1ee0f78755dd4fb00825d"},
+    {"path": "src/hrm_finance_qa/symbolic_verifier.py", "size_bytes": 32702, "sha256": "b0bc88ae35d5ec1f3a2dccb3ac9a93f1e47185e44947aa30e235af9662848b23"},
+    {"path": "scripts/evaluate_qp3d_role_inventory_producer.py", "size_bytes": 14048, "sha256": "0684c4d20d3619055bfe37c0a7b433345137b6eff68e9bc6ed717fdf75fd39c9"},
+    {"path": "tests/test_qp3d_role_inventory_producer.py", "size_bytes": 5850, "sha256": "8ba6a9b5ac622b5536200d53e3fa08c058a36b9863fdf626d137c3b1c8cf3702"},
+    {"path": "reports/finhrm_qp3d_role_inventory_producer_development_v1.json", "size_bytes": 36102, "sha256": "022fcc1c90612a20e8711518bfab37c5637936fd526c37f993cf698403f9f8e2"},
+    {"path": "reports/finhrm_qp3d_role_inventory_producer_development_v1.md", "size_bytes": 3844, "sha256": "73a56900c60e5f04f818221e7d6dbadb73e5af5a525ca62098aa4fabe0b483fb"},
+    {"path": "reports/finhrm_qp3d_abw_development_replay_v1.json", "size_bytes": 3061, "sha256": "cd5735ae389ab61727daa82a5672366ed09fdf69818aac55f263857f8bb1e97a"}
+  ],
+  "frozen_dependencies": [
+    {"path": "reports/finhrm_qp3c_role_inventory_producer_precommit_lock_v1.json", "size_bytes": 5021, "sha256": "d52605c9dcc250673b8703a1e2dd517320d551f2edbc577096a72b93cba3d44c"},
+    {"path": "models/document_hrm_V8_candidate.pt", "size_bytes": 3413128, "sha256": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de"}
+  ],
+  "authorized_next_step": "QP3E precommit a development-only flattened native/OCR table-provenance contract before extending the producer; no question/answer/Top-K signals and no threshold change."
+}

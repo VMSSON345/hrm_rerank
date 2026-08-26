@@ -1,0 +1,466 @@
+{
+  "protocol": "requested-period-dominance-development-audit-v1",
+  "protected_evaluation_sources_used": false,
+  "policy": "Within a role-equivalent row, explicit evidence matching a requested period dominates period-unknown percentage/change evidence; unknown period remains eligible when no explicit match exists.",
+  "sources": [
+    {
+      "path": "/mnt/d/reasoning_model_V4/reasoning_model/data/train.jsonl",
+      "sha256": "03642bca3865f875a1aea0b7c95477b5ac8de20c9a2a72ae25f98119d32abd2b",
+      "source_rows": 1400,
+      "rows_with_requested_year": 864,
+      "structural_examples": 399,
+      "structural_groups": 1735,
+      "passed_groups": 1735,
+      "failed_groups": 0,
+      "samples": [
+        {
+          "example_id": "synthetic-train-select-0002",
+          "requested_years": [
+            "2025"
+          ],
+          "row_label": "nợ ngắn hạn",
+          "absolute_columns": [
+            "31/12/2025"
+          ],
+          "unknown_percent_columns": [
+            "%Tăng/Giảm"
+          ]
+        },
+        {
+          "example_id": "synthetic-train-select-0002",
+          "requested_years": [
+            "2025"
+          ],
+          "row_label": "vay và nợ thuê tài chính ngắn hạn",
+          "absolute_columns": [
+            "31/12/2025"
+          ],
+          "unknown_percent_columns": [
+            "%Tăng/Giảm"
+          ]
+        },
+        {
+          "example_id": "synthetic-train-select-0002",
+          "requested_years": [
+            "2025"
+          ],
+          "row_label": "tình hình tài sản",
+          "absolute_columns": [
+            "31/12/2025"
+          ],
+          "unknown_percent_columns": [
+            "%Tăng/Giảm"
+          ]
+        },
+        {
+          "example_id": "synthetic-train-select-0002",
+          "requested_years": [
+            "2025"
+          ],
+          "row_label": "các khoản phải thu ngắn hạn",
+          "absolute_columns": [
+            "31/12/2025"
+          ],
+          "unknown_percent_columns": [
+            "%Tăng/GiảmVay và nợ thuê tài chính dài hạn"
+          ]
+        },
+        {
+          "example_id": "synthetic-train-select-0002",
+          "requested_years": [
+            "2025"
+          ],
+          "row_label": "27%sung vốn lưu động nhằm hỗ trợ tăng trưởng doanh ty tiếp tục đảm bảo khả năng kiểm soát rủi ro tài",
+          "absolute_columns": [
+            "31/12/2025"
+          ],
+          "unknown_percent_columns": [
+            "-"
+          ]
+        },
+        {
+          "example_id": "synthetic-train-select-0006",
+          "requested_years": [
+            "2024"
+          ],
+          "row_label": "để mở rộng hoạt động kinh doanh và tăng cường sự hiện diện trên thị trường, gdt đã thực hiện đầu tư vào các công ty",
+          "absolute_columns": [
+            "Năm 2024"
+          ],
+          "unknown_percent_columns": [
+            "giảm"
+          ]
+        },
+        {
+          "example_id": "synthetic-train-select-0006",
+          "requested_years": [
+            "2024"
+          ],
+          "row_label": "doanh thu thuần",
+          "absolute_columns": [
+            "Năm 2024"
+          ],
+          "unknown_percent_columns": [
+            "giảm"
+          ]
+        },
+        {
+          "example_id": "synthetic-train-select-0006",
+          "requested_years": [
+            "2024"
+          ],
+          "row_label": "lợi nhuận trước thuế",
+          "absolute_columns": [
+            "Năm 2024"
+          ],
+          "unknown_percent_columns": [
+            "102,48trưởng ấn tượng 33,79% so với thực hiện năm trước."
+          ]
+        },
+        {
+          "example_id": "synthetic-train-select-0007",
+          "requested_years": [
+            "2025"
+          ],
+          "row_label": "tổng giá trị tài sản",
+          "absolute_columns": [
+            "2025"
+          ],
+          "unknown_percent_columns": [
+            "% TĂNG/GIẢM"
+          ]
+        },
+        {
+          "example_id": "synthetic-train-select-0007",
+          "requested_years": [
+            "2025"
+          ],
+          "row_label": "năm 2025, hoạt động sản xuất kinh doanh của avg diễn ra trong bối cảnh thị trường còn nhiều yếu tố biến động, đặc biệt",
+          "absolute_columns": [
+            "2025"
+          ],
+          "unknown_percent_columns": [
+            "% TĂNG/GIẢM"
+          ]
+        }
+      ],
+      "failures": []
+    },
+    {
+      "path": "/mnt/d/reasoning_model_V4/reasoning_model/data/document_hrm_development_v1_train.jsonl",
+      "sha256": "8d445cbc776ec10ffb9b94bf4fd0693eb1ab3857837d6cd509e49b6f4a1a5bb0",
+      "source_rows": 1021,
+      "rows_with_requested_year": 877,
+      "structural_examples": 64,
+      "structural_groups": 373,
+      "passed_groups": 373,
+      "failed_groups": 0,
+      "samples": [
+        {
+          "example_id": "49",
+          "requested_years": [
+            "2024"
+          ],
+          "row_label": "các khoản phải thu của khách hàng chiếm từ 10% trở lên trên tổng phải thu khách hàng",
+          "absolute_columns": [
+            "31/12/2024 (VND)"
+          ],
+          "unknown_percent_columns": [
+            "Chỉ tiêu"
+          ]
+        },
+        {
+          "example_id": "138",
+          "requested_years": [
+            "2024"
+          ],
+          "row_label": "chi tiết các khoản phải thu thương mại từ khách hàng chiếm 10% hoặc hơn tổng các khoản phải thu ngắn hạn",
+          "absolute_columns": [
+            "31/12/2024"
+          ],
+          "unknown_percent_columns": [
+            "CHỈ TIÊU"
+          ]
+        },
+        {
+          "example_id": "604",
+          "requested_years": [
+            "2024"
+          ],
+          "row_label": "công ty cổ phần xây dựng ikcons",
+          "absolute_columns": [
+            "Ngày 31/12/2024 (Nguyên giá)"
+          ],
+          "unknown_percent_columns": [
+            "Tỷ lệ góp vốn",
+            "Tỷ lệ quyền biểu quyết"
+          ]
+        },
+        {
+          "example_id": "604",
+          "requested_years": [
+            "2024"
+          ],
+          "row_label": "công ty cổ phần bao bì việt nam",
+          "absolute_columns": [
+            "Ngày 31/12/2024 (Nguyên giá)"
+          ],
+          "unknown_percent_columns": [
+            "Tỷ lệ góp vốn",
+            "Tỷ lệ quyền biểu quyết"
+          ]
+        },
+        {
+          "example_id": "604",
+          "requested_years": [
+            "2024"
+          ],
+          "row_label": "công ty cổ phần đầu tư và xây dựng 4.2",
+          "absolute_columns": [
+            "Ngày 31/12/2024 (Nguyên giá)"
+          ],
+          "unknown_percent_columns": [
+            "Tỷ lệ góp vốn",
+            "Tỷ lệ quyền biểu quyết"
+          ]
+        },
+        {
+          "example_id": "604",
+          "requested_years": [
+            "2024"
+          ],
+          "row_label": "công ty cổ phần sahabak",
+          "absolute_columns": [
+            "Ngày 31/12/2024 (Nguyên giá)",
+            "Ngày 31/12/2024 (Dự phòng)"
+          ],
+          "unknown_percent_columns": [
+            "Tỷ lệ góp vốn",
+            "Tỷ lệ quyền biểu quyết"
+          ]
+        },
+        {
+          "example_id": "831",
+          "requested_years": [
+            "2024"
+          ],
+          "row_label": "ngân hàng shinhan việt nam - chi nhánh hà nội",
+          "absolute_columns": [
+            "31/12/2024 (VND)"
+          ],
+          "unknown_percent_columns": [
+            "Kỳ hạn"
+          ]
+        },
+        {
+          "example_id": "831",
+          "requested_years": [
+            "2024"
+          ],
+          "row_label": "ngân hàng tmcp ngoại thương việt nam - chi nhánh phú thọ",
+          "absolute_columns": [
+            "31/12/2024 (VND)"
+          ],
+          "unknown_percent_columns": [
+            "Kỳ hạn"
+          ]
+        },
+        {
+          "example_id": "831",
+          "requested_years": [
+            "2024"
+          ],
+          "row_label": "các khoản vay cá nhân",
+          "absolute_columns": [
+            "31/12/2024 (VND)"
+          ],
+          "unknown_percent_columns": [
+            "Kỳ hạn",
+            "Kỳ hạn"
+          ]
+        },
+        {
+          "example_id": "synthetic-document-development-v1-000055",
+          "requested_years": [
+            "2022"
+          ],
+          "row_label": "tổng tài sản",
+          "absolute_columns": [
+            "Năm 2022"
+          ],
+          "unknown_percent_columns": [
+            "Thay đổi so với cùng kỳ năm trước"
+          ]
+        }
+      ],
+      "failures": []
+    },
+    {
+      "path": "/mnt/d/reasoning_model_V4/reasoning_model/data/document_pointer_common_development_semantic_canonical_v5.jsonl",
+      "sha256": "a7e27ab226b824b412de2d661eb856d9ba8fbd3b12a1a4de0f44ed6ae71d2396",
+      "source_rows": 121,
+      "rows_with_requested_year": 107,
+      "structural_examples": 53,
+      "structural_groups": 237,
+      "passed_groups": 237,
+      "failed_groups": 0,
+      "samples": [
+        {
+          "example_id": "synthetic-document-development-pointer-common-v1-000001",
+          "requested_years": [
+            "2022",
+            "2023"
+          ],
+          "row_label": "tổng giá trị tài sản",
+          "absolute_columns": [
+            "2023",
+            "2022"
+          ],
+          "unknown_percent_columns": [
+            "%tăng giảm/"
+          ]
+        },
+        {
+          "example_id": "synthetic-document-development-pointer-common-v1-000001",
+          "requested_years": [
+            "2022",
+            "2023"
+          ],
+          "row_label": "doanh thu thuần",
+          "absolute_columns": [
+            "2023",
+            "2022"
+          ],
+          "unknown_percent_columns": [
+            "%tăng giảm/"
+          ]
+        },
+        {
+          "example_id": "synthetic-document-development-pointer-common-v1-000001",
+          "requested_years": [
+            "2022",
+            "2023"
+          ],
+          "row_label": "lợi nhuận từ hoạt động kinh doanh",
+          "absolute_columns": [
+            "2023",
+            "2022"
+          ],
+          "unknown_percent_columns": [
+            "%tăng giảm/"
+          ]
+        },
+        {
+          "example_id": "synthetic-document-development-pointer-common-v1-000001",
+          "requested_years": [
+            "2022",
+            "2023"
+          ],
+          "row_label": "lợi nhuận khác",
+          "absolute_columns": [
+            "2023",
+            "2022"
+          ],
+          "unknown_percent_columns": [
+            "%tăng giảm/"
+          ]
+        },
+        {
+          "example_id": "synthetic-document-development-pointer-common-v1-000001",
+          "requested_years": [
+            "2022",
+            "2023"
+          ],
+          "row_label": "lợi nhuận trước thuế",
+          "absolute_columns": [
+            "2023",
+            "2022"
+          ],
+          "unknown_percent_columns": [
+            "%tăng giảm/"
+          ]
+        },
+        {
+          "example_id": "synthetic-document-development-pointer-common-v1-000001",
+          "requested_years": [
+            "2022",
+            "2023"
+          ],
+          "row_label": "lợi nhuận sau thuế",
+          "absolute_columns": [
+            "2023",
+            "2022"
+          ],
+          "unknown_percent_columns": [
+            "%tăng giảm/"
+          ]
+        },
+        {
+          "example_id": "synthetic-document-development-pointer-common-v1-000001",
+          "requested_years": [
+            "2022",
+            "2023"
+          ],
+          "row_label": "hệ số lợi nhuận sau thuế / vốn chủ sở hữu",
+          "absolute_columns": [
+            "Năm 2023"
+          ],
+          "unknown_percent_columns": [
+            "Ghi chú"
+          ]
+        },
+        {
+          "example_id": "synthetic-document-development-pointer-common-v1-000001",
+          "requested_years": [
+            "2022",
+            "2023"
+          ],
+          "row_label": "hệ số lợi nhuận sau thuế / tổng tài sản",
+          "absolute_columns": [
+            "Năm 2023"
+          ],
+          "unknown_percent_columns": [
+            "Ghi chú"
+          ]
+        },
+        {
+          "example_id": "synthetic-document-development-pointer-common-v1-000002",
+          "requested_years": [
+            "2022",
+            "2023"
+          ],
+          "row_label": "tổng giá trị tài sản",
+          "absolute_columns": [
+            "2023",
+            "2022"
+          ],
+          "unknown_percent_columns": [
+            "%tăng giảm/"
+          ]
+        },
+        {
+          "example_id": "synthetic-document-development-pointer-common-v1-000002",
+          "requested_years": [
+            "2022",
+            "2023"
+          ],
+          "row_label": "doanh thu thuần",
+          "absolute_columns": [
+            "2023",
+            "2022"
+          ],
+          "unknown_percent_columns": [
+            "%tăng giảm/"
+          ]
+        }
+      ],
+      "failures": []
+    }
+  ],
+  "summary": {
+    "structural_groups": 2345,
+    "passed_groups": 2345,
+    "failed_groups": 0,
+    "gate_passed": true
+  }
+}

@@ -1,0 +1,851 @@
+{
+  "protocol": "v12c-interest-bearing-debt-share-cohort-discovery-v2",
+  "classification": "development_only_discovery_pending_visual_qa",
+  "protected_evaluation_sources_used": false,
+  "model_output_used_for_selection": false,
+  "training_performed": false,
+  "threshold_changed": false,
+  "inputs": [
+    {
+      "path": "/mnt/d/reasoning_model_V4/reasoning_model/reports/subtract_native_financial_pages_v1.json",
+      "sha256": "1d61fa5bc610c7bf69a6f7ae546b267dde8429a7669022e79e16caf1595963ce"
+    },
+    {
+      "path": "/mnt/d/reasoning_model_V4/reasoning_model/reports/subtract_native_financial_pages_v2.json",
+      "sha256": "8de910def4ebd84d23f1a9fae12fead0f5b085382143f63d78f708d6cdacce3b"
+    }
+  ],
+  "summary": {
+    "documents_considered": 56,
+    "candidate_records": 12,
+    "company_groups": 5,
+    "report_groups": 6,
+    "positive_records": 0,
+    "ready_for_visual_qa": true,
+    "ready_for_frozen_evaluation": false,
+    "ready_for_calibration": false
+  },
+  "exclusion_counts": {
+    "page_without_explicit_period": 210,
+    "short_term_borrowings:missing": 185,
+    "long_term_borrowings:missing": 183,
+    "total_capital:missing": 211,
+    "long_term_borrowings:ambiguous": 11,
+    "short_term_borrowings:ambiguous": 12,
+    "total_capital:ambiguous": 3,
+    "total_capital:incomplete_values": 4,
+    "short_term_borrowings:incomplete_values": 11,
+    "long_term_borrowings:incomplete_values": 19
+  },
+  "documents": [
+    {
+      "source_name": "ACE_23CN_BCTN.pdf",
+      "company_key": "development-company-2a0b6287a0e65cff",
+      "source_sha256": "06cee08a9cacdde0d3f0ad0222bfb1ff62be69988fd3e4bcc281fe16d88bd4f4",
+      "markdown_path": "/mnt/d/reasoning_model_V4/reasoning_model/cache/subtract_native_financial_markdown_v1/ACE_23CN_BCTN.md",
+      "markdown_sha256": "8604f6f28c7271af902de169feb81f05a6b454de892afff562d2d311d39b321a",
+      "pages_considered": 3,
+      "candidate_pages": 0,
+      "exclusion_reasons": {
+        "page_without_explicit_period": 2,
+        "short_term_borrowings:missing": 1,
+        "long_term_borrowings:missing": 1,
+        "total_capital:missing": 1
+      }
+    },
+    {
+      "source_name": "ACE_24CN_BCTN.pdf",
+      "company_key": "development-company-2a0b6287a0e65cff",
+      "source_sha256": "8e93046b0c0d91ec65b9a6ad57c0c96dc232905edbd4e790783c2bffc6ab9fa3",
+      "markdown_path": "/mnt/d/reasoning_model_V4/reasoning_model/cache/subtract_native_financial_markdown_v1/ACE_24CN_BCTN.md",
+      "markdown_sha256": "ffc149f0934c3e9c4f5b9982fa2143a21a77d6ef012c7c04f218d8318c77a8b9",
+      "pages_considered": 4,
+      "candidate_pages": 0,
+      "exclusion_reasons": {
+        "page_without_explicit_period": 2,
+        "short_term_borrowings:missing": 2,
+        "long_term_borrowings:missing": 1,
+        "total_capital:missing": 2,
+        "long_term_borrowings:ambiguous": 1
+      }
+    },
+    {
+      "source_name": "BIG_24CN_BCTN.pdf",
+      "company_key": "development-company-2a21fe6d592a19b7",
+      "source_sha256": "5c110e88687fd982b34d5dd7a9a1c3f0d8373b2d95bdb56dd8a2939489fe0b84",
+      "markdown_path": "/mnt/d/reasoning_model_V4/reasoning_model/cache/subtract_native_financial_markdown_v1/BIG_24CN_BCTN.md",
+      "markdown_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "pages_considered": 0,
+      "candidate_pages": 0,
+      "exclusion_reasons": {}
+    },
+    {
+      "source_name": "DBM_23CN_BCTN.pdf",
+      "company_key": "development-company-2a2a3143b07d2833",
+      "source_sha256": "b6ce2a736759a93c1d23b2600cfd0db3e900037c0684304912f9444160013193",
+      "markdown_path": "/mnt/d/reasoning_model_V4/reasoning_model/cache/subtract_native_financial_markdown_v1/DBM_23CN_BCTN.md",
+      "markdown_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "pages_considered": 0,
+      "candidate_pages": 0,
+      "exclusion_reasons": {}
+    },
+    {
+      "source_name": "DOC_24CN_BCTN.pdf",
+      "company_key": "development-company-139d544b821b13eb",
+      "source_sha256": "00688e9774057a3f1a30367e4761c981eb126ef86a8cf480f7d3a2b748e02c9f",
+      "markdown_path": "/mnt/d/reasoning_model_V4/reasoning_model/cache/subtract_native_financial_markdown_v1/DOC_24CN_BCTN.md",
+      "markdown_sha256": "79fdc6881b373620042a5d6ca23c94cbf6005d8565d8ddd807f85bb82bc918e1",
+      "pages_considered": 7,
+      "candidate_pages": 0,
+      "exclusion_reasons": {
+        "short_term_borrowings:missing": 4,
+        "long_term_borrowings:missing": 4,
+        "total_capital:missing": 4,
+        "page_without_explicit_period": 3
+      }
+    },
+    {
+      "source_name": "HMD_24CN_BCTN.pdf",
+      "company_key": "development-company-1e2c9c22d672bd03",
+      "source_sha256": "df261ea53ee4f80b4bd902b46dc2915f114a41b79bd265e009ad6ed698fbbc79",
+      "markdown_path": "/mnt/d/reasoning_model_V4/reasoning_model/cache/subtract_native_financial_markdown_v1/HMD_24CN_BCTN.md",
+      "markdown_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "pages_considered": 0,
+      "candidate_pages": 0,
+      "exclusion_reasons": {}
+    },
+    {
+      "source_name": "MIC_24CN_BCTN.pdf",
+      "company_key": "development-company-224948ca810fc2bc",
+      "source_sha256": "d6ddc8e823a29a1014756c29ad06d9defd4e9f576fce7db8eb13d25c740fbe0d",
+      "markdown_path": "/mnt/d/reasoning_model_V4/reasoning_model/cache/subtract_native_financial_markdown_v1/MIC_24CN_BCTN.md",
+      "markdown_sha256": "83409a3ad9034623ba6987265e1a07d5991e395d6e361fbd49cf2bda7c2700a6",
+      "pages_considered": 3,
+      "candidate_pages": 0,
+      "exclusion_reasons": {
+        "page_without_explicit_period": 3
+      }
+    },
+    {
+      "source_name": "NAF_24CN_BCTN.pdf",
+      "company_key": "development-company-248fb276f60f01c8",
+      "source_sha256": "58904d31163720fffc97df6861f2d513bef650a92e3bb2f04f86721818fffcf3",
+      "markdown_path": "/mnt/d/reasoning_model_V4/reasoning_model/cache/subtract_native_financial_markdown_v1/NAF_24CN_BCTN.md",
+      "markdown_sha256": "2d6b0b2aefd9687a1d7bda76833a898f5de7027dc086221fa342e2403cb7c615",
+      "pages_considered": 11,
+      "candidate_pages": 1,
+      "exclusion_reasons": {
+        "page_without_explicit_period": 4,
+        "short_term_borrowings:missing": 4,
+        "long_term_borrowings:missing": 5,
+        "total_capital:missing": 4,
+        "short_term_borrowings:ambiguous": 1,
+        "long_term_borrowings:ambiguous": 1,
+        "total_capital:ambiguous": 1,
+        "total_capital:incomplete_values": 1
+      }
+    },
+    {
+      "source_name": "NSS_24CN_BCTN.pdf",
+      "company_key": "development-company-1cb291036cdcd448",
+      "source_sha256": "560b2b14abcc483540edc79e366867bf9d8ef33e22936856ebf02d0677b7e69e",
+      "markdown_path": "/mnt/d/reasoning_model_V4/reasoning_model/cache/subtract_native_financial_markdown_v1/NSS_24CN_BCTN.md",
+      "markdown_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "pages_considered": 0,
+      "candidate_pages": 0,
+      "exclusion_reasons": {}
+    },
+    {
+      "source_name": "PGS_23CN_BCTN.pdf",
+      "company_key": "development-company-26d5fb98b8c88a18",
+      "source_sha256": "a152611fd19c41af7c37f2cfbf840de0ba4c6a4382c2bac26c4c550a09b557fd",
+      "markdown_path": "/mnt/d/reasoning_model_V4/reasoning_model/cache/subtract_native_financial_markdown_v1/PGS_23CN_BCTN.md",
+      "markdown_sha256": "21fb9418ef71af363dcdee2eec56245b54bf79bb36b7900999d3ff72312763ad",
+      "pages_considered": 12,
+      "candidate_pages": 1,
+      "exclusion_reasons": {
+        "page_without_explicit_period": 3,
+        "short_term_borrowings:missing": 8,
+        "long_term_borrowings:missing": 8,
+        "total_capital:missing": 8
+      }
+    },
+    {
+      "source_name": "PGS_24CN_BCTN.pdf",
+      "company_key": "development-company-26d5fb98b8c88a18",
+      "source_sha256": "036abed522192f124acdd915cc530b3839710821120fd65d2ac2f6a31be4f47f",
+      "markdown_path": "/mnt/d/reasoning_model_V4/reasoning_model/cache/subtract_native_financial_markdown_v1/PGS_24CN_BCTN.md",
+      "markdown_sha256": "7634162a0b525cd4eee59f58ab620517cafee68fc8533789884b375ad3f1c376",
+      "pages_considered": 10,
+      "candidate_pages": 1,
+      "exclusion_reasons": {
+        "short_term_borrowings:missing": 6,
+        "long_term_borrowings:missing": 6,
+        "total_capital:missing": 7,
+        "page_without_explicit_period": 2,
+        "short_term_borrowings:ambiguous": 1,
+        "long_term_borrowings:ambiguous": 1
+      }
+    },
+    {
+      "source_name": "PWS_24CN_BCTN.pdf",
+      "company_key": "development-company-1ac8abc0e034c503",
+      "source_sha256": "98fbb90c4030f2e3893c54c42f2c19d83eea63d61c274d7f3f27791edd835186",
+      "markdown_path": "/mnt/d/reasoning_model_V4/reasoning_model/cache/subtract_native_financial_markdown_v1/PWS_24CN_BCTN.md",
+      "markdown_sha256": "67dbd495758fd95d0343ee05deb5cce79081d4e261ee60f11c2720daf4eb1a02",
+      "pages_considered": 4,
+      "candidate_pages": 0,
+      "exclusion_reasons": {
+        "page_without_explicit_period": 4
+      }
+    },
+    {
+      "source_name": "PXI_24CN_BCTN.pdf",
+      "company_key": "development-company-07770303d0ed41af",
+      "source_sha256": "23aaaf9d8ac149b96fe6edcb28c78a053e25fbed338e1e4eaf35e4a10969db91",
+      "markdown_path": "/mnt/d/reasoning_model_V4/reasoning_model/cache/subtract_native_financial_markdown_v1/PXI_24CN_BCTN.md",
+      "markdown_sha256": "4effecabdd2392efcca43a86622cb71a5bca327aa1e862e71bc189bb5fbe4a8c",
+      "pages_considered": 3,
+      "candidate_pages": 0,
+      "exclusion_reasons": {
+        "page_without_explicit_period": 2,
+        "short_term_borrowings:missing": 1,
+        "long_term_borrowings:missing": 1,
+        "total_capital:missing": 1
+      }
+    },
+    {
+      "source_name": "SCD_24CN_BCTN.pdf",
+      "company_key": "development-company-17277118161de85c",
+      "source_sha256": "f73129a80762570ea07170db8bfb972be2ddf4c95e4d25f30a7bb101b71d62ac",
+      "markdown_path": "/mnt/d/reasoning_model_V4/reasoning_model/cache/subtract_native_financial_markdown_v1/SCD_24CN_BCTN.md",
+      "markdown_sha256": "b3664cd33d8a85f48fc4e6072d65fe1955806166111843890b36dea51be66be9",
+      "pages_considered": 6,
+      "candidate_pages": 0,
+      "exclusion_reasons": {
+        "page_without_explicit_period": 6
+      }
+    },
+    {
+      "source_name": "SCR_24CN_BCTN.pdf",
+      "company_key": "development-company-07ac44e362f92f1f",
+      "source_sha256": "8b0cf53d3043432c251ee93bea2726a4254a2726e5e75183c2690561167ac2b1",
+      "markdown_path": "/mnt/d/reasoning_model_V4/reasoning_model/cache/subtract_native_financial_markdown_v1/SCR_24CN_BCTN.md",
+      "markdown_sha256": "4ac389f7945720623593157b85e9e32679778a6ad365db6b5e1be09809878001",
+      "pages_considered": 8,
+      "candidate_pages": 0,
+      "exclusion_reasons": {
+        "page_without_explicit_period": 7,
+        "short_term_borrowings:missing": 1,
+        "long_term_borrowings:missing": 1,
+        "total_capital:missing": 1
+      }
+    },
+    {
+      "source_name": "SGC_23CN_BCTN.pdf",
+      "company_key": "development-company-24c6ff6dfda27974",
+      "source_sha256": "380e80201da348b8ec9050dafbfba9eb134c05d987e890ecbe00b0244e14ca3a",
+      "markdown_path": "/mnt/d/reasoning_model_V4/reasoning_model/cache/subtract_native_financial_markdown_v1/SGC_23CN_BCTN.md",
+      "markdown_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "pages_considered": 0,
+      "candidate_pages": 0,
+      "exclusion_reasons": {}
+    },
+    {
+      "source_name": "SWC_24CN_BCTN.pdf",
+      "company_key": "development-company-198d967944e995b8",
+      "source_sha256": "c18f0c4f03d4b1220b55fe267858ca95b86fade913bbfbd275c7a9693a96e6cf",
+      "markdown_path": "/mnt/d/reasoning_model_V4/reasoning_model/cache/subtract_native_financial_markdown_v1/SWC_24CN_BCTN.md",
+      "markdown_sha256": "f666c026cf6f8b52aca483c1a62e93c354c5df7712327a034a50890f91105365",
+      "pages_considered": 8,
+      "candidate_pages": 0,
+      "exclusion_reasons": {
+        "page_without_explicit_period": 5,
+        "short_term_borrowings:missing": 2,
+        "long_term_borrowings:missing": 2,
+        "total_capital:incomplete_values": 1,
+        "short_term_borrowings:incomplete_values": 1,
+        "long_term_borrowings:incomplete_values": 1,
+        "total_capital:missing": 2
+      }
+    },
+    {
+      "source_name": "TDT_23CN_BCTN.pdf",
+      "company_key": "development-company-24664e0e89b1b20b",
+      "source_sha256": "c34a16c9779e7971d673b80a013bf2f816d88343d375b4867b0a3d97f7fa0051",
+      "markdown_path": "/mnt/d/reasoning_model_V4/reasoning_model/cache/subtract_native_financial_markdown_v1/TDT_23CN_BCTN.md",
+      "markdown_sha256": "989327f4d17dbd8910f91d209a9eb5a003b1b13b00b769577d20adf78dcdec81",
+      "pages_considered": 5,
+      "candidate_pages": 0,
+      "exclusion_reasons": {
+        "short_term_borrowings:missing": 3,
+        "long_term_borrowings:missing": 3,
+        "total_capital:missing": 2,
+        "page_without_explicit_period": 2,
+        "total_capital:incomplete_values": 1
+      }
+    },
+    {
+      "source_name": "TDT_24CN_BCTN.pdf",
+      "company_key": "development-company-24664e0e89b1b20b",
+      "source_sha256": "35b128d8103521ccf87a91632c14297ca5288a7bbe1a103f3799b3ac8649017c",
+      "markdown_path": "/mnt/d/reasoning_model_V4/reasoning_model/cache/subtract_native_financial_markdown_v1/TDT_24CN_BCTN.md",
+      "markdown_sha256": "93cec4965fda863604ba6bb697547230d84a4fba2fbbbbb80a03d9bc32678042",
+      "pages_considered": 5,
+      "candidate_pages": 0,
+      "exclusion_reasons": {
+        "short_term_borrowings:missing": 2,
+        "long_term_borrowings:missing": 2,
+        "total_capital:missing": 3,
+        "short_term_borrowings:incomplete_values": 1,
+        "page_without_explicit_period": 2,
+        "long_term_borrowings:ambiguous": 1
+      }
+    },
+    {
+      "source_name": "VBB_24CN_BCTN.pdf",
+      "company_key": "development-company-0a2ee8a203331f7f",
+      "source_sha256": "40085bf3645cd953bb23d89692c94e7c62266d67e500947273b804c1374082ba",
+      "markdown_path": "/mnt/d/reasoning_model_V4/reasoning_model/cache/subtract_native_financial_markdown_v1/VBB_24CN_BCTN.md",
+      "markdown_sha256": "dd26aa136c1aba4075aaa302b4e0690a92b26e375d971e8e0da3fba85f756824",
+      "pages_considered": 20,
+      "candidate_pages": 0,
+      "exclusion_reasons": {
+        "short_term_borrowings:missing": 11,
+        "long_term_borrowings:missing": 11,
+        "total_capital:missing": 11,
+        "page_without_explicit_period": 9
+      }
+    },
+    {
+      "source_name": "VSF_24CN_BCTN.pdf",
+      "company_key": "development-company-02cdc5daeafbc4dd",
+      "source_sha256": "0ca2ceefd5660f613727f8772bd4ea42058ffa73c5a8f8d6e10039d180acefe1",
+      "markdown_path": "/mnt/d/reasoning_model_V4/reasoning_model/cache/subtract_native_financial_markdown_v1/VSF_24CN_BCTN.md",
+      "markdown_sha256": "a024ee1ae6372215c501e83bfd785c23510dceafac8b3ba8469925f01165f8d2",
+      "pages_considered": 5,
+      "candidate_pages": 0,
+      "exclusion_reasons": {
+        "short_term_borrowings:missing": 1,
+        "long_term_borrowings:missing": 1,
+        "total_capital:missing": 1,
+        "page_without_explicit_period": 4
+      }
+    },
+    {
+      "source_name": "BDW_23CN_BCTN.pdf",
+      "company_key": "development-company-31badf6cbf339541",
+      "source_sha256": "0c4c0d118b6dbd22522bdf4e75a60e1b3b4dcbd66103ae76953983c3b8672c18",
+      "markdown_path": "/mnt/d/reasoning_model_V4/reasoning_model/cache/subtract_native_financial_markdown_v2/BDW_23CN_BCTN.md",
+      "markdown_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "pages_considered": 0,
+      "candidate_pages": 0,
+      "exclusion_reasons": {}
+    },
+    {
+      "source_name": "CEO_23CN_BCTN.pdf",
+      "company_key": "development-company-31d123108dba5fd3",
+      "source_sha256": "cc5361a6b356f1f5ff1a7cb5607bfa0abf36ec527a3fc787f1c73328cbadfaaf",
+      "markdown_path": "/mnt/d/reasoning_model_V4/reasoning_model/cache/subtract_native_financial_markdown_v2/CEO_23CN_BCTN.md",
+      "markdown_sha256": "9d402e38025eb837d432fc934fbc8e0cea2e7ff566d3e82c4e1a397dedce6712",
+      "pages_considered": 5,
+      "candidate_pages": 0,
+      "exclusion_reasons": {
+        "page_without_explicit_period": 4,
+        "short_term_borrowings:missing": 1,
+        "long_term_borrowings:missing": 1,
+        "total_capital:missing": 1
+      }
+    },
+    {
+      "source_name": "CEO_24CN_BCTN.pdf",
+      "company_key": "development-company-31d123108dba5fd3",
+      "source_sha256": "4c18549f05a10b5da6510bccb3206b983dd299fe10c2ded627c12e0d2097446d",
+      "markdown_path": "/mnt/d/reasoning_model_V4/reasoning_model/cache/subtract_native_financial_markdown_v2/CEO_24CN_BCTN.md",
+      "markdown_sha256": "3a48add6c77497d26b279aa2148f293b7777600a9a4ead83a030a54d71d8530c",
+      "pages_considered": 5,
+      "candidate_pages": 0,
+      "exclusion_reasons": {
+        "page_without_explicit_period": 3,
+        "short_term_borrowings:missing": 2,
+        "long_term_borrowings:missing": 2,
+        "total_capital:missing": 2
+      }
+    },
+    {
+      "source_name": "CHS_23CN_BCTN.pdf",
+      "company_key": "development-company-376bc6693a933b1c",
+      "source_sha256": "28efffab494b7e775091a2f15030e42e2b6260dfbb186faaccef8285a031d488",
+      "markdown_path": "/mnt/d/reasoning_model_V4/reasoning_model/cache/subtract_native_financial_markdown_v2/CHS_23CN_BCTN.md",
+      "markdown_sha256": "d20c385bdff793c3b1953d5a0bff9ff166e54bcc7a616d7c6292cc0b9df93c37",
+      "pages_considered": 8,
+      "candidate_pages": 0,
+      "exclusion_reasons": {
+        "page_without_explicit_period": 5,
+        "short_term_borrowings:missing": 2,
+        "long_term_borrowings:missing": 3,
+        "total_capital:missing": 3,
+        "short_term_borrowings:incomplete_values": 1
+      }
+    },
+    {
+      "source_name": "CHS_24CN_BCTN.pdf",
+      "company_key": "development-company-376bc6693a933b1c",
+      "source_sha256": "ce188d6bf7e61a8ff703efaaa2f357c346325fdecccd9659722303ce0840f631",
+      "markdown_path": "/mnt/d/reasoning_model_V4/reasoning_model/cache/subtract_native_financial_markdown_v2/CHS_24CN_BCTN.md",
+      "markdown_sha256": "feeb72fe8df8d8e7b72ebdf5acd9124d2ab181131607c3380dffefe0a9d6d9c1",
+      "pages_considered": 8,
+      "candidate_pages": 0,
+      "exclusion_reasons": {
+        "page_without_explicit_period": 7,
+        "short_term_borrowings:missing": 1,
+        "long_term_borrowings:missing": 1,
+        "total_capital:missing": 1
+      }
+    },
+    {
+      "source_name": "CII_23CN_BCTN.pdf",
+      "company_key": "development-company-31c12e95826e6b4d",
+      "source_sha256": "0764363475b3fbe04031f2baa2e07350a2b4534c1ffb12e6d52606550b15e0a7",
+      "markdown_path": "/mnt/d/reasoning_model_V4/reasoning_model/cache/subtract_native_financial_markdown_v2/CII_23CN_BCTN.md",
+      "markdown_sha256": "1d449a289ed839a759545e9a0f8445a62c8c0265dd52e349ce251fc16692ffd8",
+      "pages_considered": 42,
+      "candidate_pages": 0,
+      "exclusion_reasons": {
+        "long_term_borrowings:missing": 24,
+        "total_capital:missing": 33,
+        "short_term_borrowings:missing": 26,
+        "page_without_explicit_period": 9,
+        "short_term_borrowings:ambiguous": 4,
+        "long_term_borrowings:incomplete_values": 7,
+        "long_term_borrowings:ambiguous": 1
+      }
+    },
+    {
+      "source_name": "CII_24CN_BCTN.pdf",
+      "company_key": "development-company-31c12e95826e6b4d",
+      "source_sha256": "02a147055fef3a767b561f14183937a65cbea1e3559ff705015263280f129917",
+      "markdown_path": "/mnt/d/reasoning_model_V4/reasoning_model/cache/subtract_native_financial_markdown_v2/CII_24CN_BCTN.md",
+      "markdown_sha256": "14a81a819752817276fe2d7e7d7eda12d46347bd85644f474896dfcbcd475182",
+      "pages_considered": 55,
+      "candidate_pages": 0,
+      "exclusion_reasons": {
+        "page_without_explicit_period": 7,
+        "short_term_borrowings:missing": 42,
+        "long_term_borrowings:missing": 34,
+        "total_capital:missing": 46,
+        "long_term_borrowings:incomplete_values": 7,
+        "long_term_borrowings:ambiguous": 4,
+        "short_term_borrowings:incomplete_values": 1,
+        "total_capital:incomplete_values": 1,
+        "short_term_borrowings:ambiguous": 1
+      }
+    },
+    {
+      "source_name": "DAE_23CN_BCTN.pdf",
+      "company_key": "development-company-3ad5012628bd1c9d",
+      "source_sha256": "4d5cac6eb08fda2dc5487d2a4031cefe7da23d0f9314dcadb667c340103a2163",
+      "markdown_path": "/mnt/d/reasoning_model_V4/reasoning_model/cache/subtract_native_financial_markdown_v2/DAE_23CN_BCTN.md",
+      "markdown_sha256": "65d909e16d2a945368b3b6e19da5043c806767017894444fac47800b90aa7cb9",
+      "pages_considered": 1,
+      "candidate_pages": 0,
+      "exclusion_reasons": {
+        "page_without_explicit_period": 1
+      }
+    },
+    {
+      "source_name": "DCM_23CN_BCTN.pdf",
+      "company_key": "development-company-355521816b3689f4",
+      "source_sha256": "3c171ea1ea3c0dabce3415260bbbd8e88562c06780741304a8e59fdd1f557bec",
+      "markdown_path": "/mnt/d/reasoning_model_V4/reasoning_model/cache/subtract_native_financial_markdown_v2/DCM_23CN_BCTN.md",
+      "markdown_sha256": "c2ea59ec3242511a8869084c62b4b7ce105662e1115f898ac05d0187ab10d261",
+      "pages_considered": 17,
+      "candidate_pages": 1,
+      "exclusion_reasons": {
+        "page_without_explicit_period": 12,
+        "short_term_borrowings:missing": 4,
+        "long_term_borrowings:missing": 4,
+        "total_capital:missing": 4
+      }
+    },
+    {
+      "source_name": "GAS_23CN_BCTN.pdf",
+      "company_key": "development-company-2fe840e13244a9d7",
+      "source_sha256": "39a650dedeb60efd4565abb7f56c59d8cb1b9603e7d71977c3bebdfeb58e1582",
+      "markdown_path": "/mnt/d/reasoning_model_V4/reasoning_model/cache/subtract_native_financial_markdown_v2/GAS_23CN_BCTN.md",
+      "markdown_sha256": "1ea132cab56752d1280de1e2efe4626ec7e21496482b68ae860d742acc74b8ce",
+      "pages_considered": 16,
+      "candidate_pages": 0,
+      "exclusion_reasons": {
+        "page_without_explicit_period": 7,
+        "short_term_borrowings:incomplete_values": 2,
+        "long_term_borrowings:missing": 8,
+        "total_capital:missing": 8,
+        "short_term_borrowings:ambiguous": 1,
+        "total_capital:ambiguous": 1,
+        "short_term_borrowings:missing": 6
+      }
+    },
+    {
+      "source_name": "GAS_24CN_BCTN.pdf",
+      "company_key": "development-company-2fe840e13244a9d7",
+      "source_sha256": "390179ab664283cbd5e52074ca83d6999954cef723ea7d0762c92c7d95f1970f",
+      "markdown_path": "/mnt/d/reasoning_model_V4/reasoning_model/cache/subtract_native_financial_markdown_v2/GAS_24CN_BCTN.md",
+      "markdown_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "pages_considered": 0,
+      "candidate_pages": 0,
+      "exclusion_reasons": {}
+    },
+    {
+      "source_name": "HDC_23CN_BCTN.pdf",
+      "company_key": "development-company-37a84ad404bcb3a8",
+      "source_sha256": "4cac69e493ad471309a345b2b396947b46c5ec63c0cac60ff6daefd64a95eaae",
+      "markdown_path": "/mnt/d/reasoning_model_V4/reasoning_model/cache/subtract_native_financial_markdown_v2/HDC_23CN_BCTN.md",
+      "markdown_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "pages_considered": 0,
+      "candidate_pages": 0,
+      "exclusion_reasons": {}
+    },
+    {
+      "source_name": "HDC_24CN_BCTN.pdf",
+      "company_key": "development-company-37a84ad404bcb3a8",
+      "source_sha256": "c4455559b2cc08f2c764b067016bef3e33499cf5c0445ca4db4bcb05237ac226",
+      "markdown_path": "/mnt/d/reasoning_model_V4/reasoning_model/cache/subtract_native_financial_markdown_v2/HDC_24CN_BCTN.md",
+      "markdown_sha256": "aef786e83e69cb9344cb1ef0262e54da533bac3bdc93ae80b860ac198824e2e3",
+      "pages_considered": 5,
+      "candidate_pages": 0,
+      "exclusion_reasons": {
+        "page_without_explicit_period": 4,
+        "short_term_borrowings:missing": 1,
+        "long_term_borrowings:missing": 1,
+        "total_capital:missing": 1
+      }
+    },
+    {
+      "source_name": "HPX_24CN_BCTN.pdf",
+      "company_key": "development-company-393f10866d4a9354",
+      "source_sha256": "e35e30194c5b2d8ee316564cce2a2699f5186b789b4258494e7fa24e1bf196b7",
+      "markdown_path": "/mnt/d/reasoning_model_V4/reasoning_model/cache/subtract_native_financial_markdown_v2/HPX_24CN_BCTN.md",
+      "markdown_sha256": "77a5446d850010fee85ae85a93ba6136001d40c22985f94184287e9c746f3d47",
+      "pages_considered": 2,
+      "candidate_pages": 0,
+      "exclusion_reasons": {
+        "short_term_borrowings:missing": 1,
+        "long_term_borrowings:missing": 1,
+        "total_capital:missing": 1,
+        "page_without_explicit_period": 1
+      }
+    },
+    {
+      "source_name": "HVH_23CN_BCTN.pdf",
+      "company_key": "development-company-3816475f00681fdb",
+      "source_sha256": "5e62f780926f9cb043715e27075c1d59a6c238f059dd9d9d2298a5e1ef969450",
+      "markdown_path": "/mnt/d/reasoning_model_V4/reasoning_model/cache/subtract_native_financial_markdown_v2/HVH_23CN_BCTN.md",
+      "markdown_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "pages_considered": 0,
+      "candidate_pages": 0,
+      "exclusion_reasons": {}
+    },
+    {
+      "source_name": "HVH_24CN_BCTN.pdf",
+      "company_key": "development-company-3816475f00681fdb",
+      "source_sha256": "d7f2abeaa90627717de4b4613c1cc420feb4099794e26e5a9c8b25016e61d856",
+      "markdown_path": "/mnt/d/reasoning_model_V4/reasoning_model/cache/subtract_native_financial_markdown_v2/HVH_24CN_BCTN.md",
+      "markdown_sha256": "ad4175d67eef22cb4b32c1b8f5b903944aa16a4c5e16d5c04ed48dd5055df371",
+      "pages_considered": 7,
+      "candidate_pages": 0,
+      "exclusion_reasons": {
+        "page_without_explicit_period": 6,
+        "short_term_borrowings:missing": 1,
+        "long_term_borrowings:missing": 1,
+        "total_capital:missing": 1
+      }
+    },
+    {
+      "source_name": "ILC_24CN_BCTN.pdf",
+      "company_key": "development-company-31a57a42060aaf34",
+      "source_sha256": "e0f5fb151f0850ea473e5a2bd39d583999726ce77f9d2908fbb5da4610d9325a",
+      "markdown_path": "/mnt/d/reasoning_model_V4/reasoning_model/cache/subtract_native_financial_markdown_v2/ILC_24CN_BCTN.md",
+      "markdown_sha256": "f94f6a01c850a293455c3ebd865a33e54c17b755db6f74165e44fc00e0eb76ae",
+      "pages_considered": 3,
+      "candidate_pages": 0,
+      "exclusion_reasons": {
+        "page_without_explicit_period": 3
+      }
+    },
+    {
+      "source_name": "PSL_24CN_BCTN.pdf",
+      "company_key": "development-company-343cb40628bfd83d",
+      "source_sha256": "f6c94c45437ca3e092375ab287a6f38fb5d47b6698bf5b51b01d2faa8778a6f3",
+      "markdown_path": "/mnt/d/reasoning_model_V4/reasoning_model/cache/subtract_native_financial_markdown_v2/PSL_24CN_BCTN.md",
+      "markdown_sha256": "4611905eef636ebeac291927cfa0f28bd1009dd3df9bfd26d80f58f9ec0a0adb",
+      "pages_considered": 7,
+      "candidate_pages": 0,
+      "exclusion_reasons": {
+        "page_without_explicit_period": 6,
+        "short_term_borrowings:ambiguous": 1,
+        "long_term_borrowings:incomplete_values": 1,
+        "total_capital:missing": 1
+      }
+    },
+    {
+      "source_name": "PVS_23CN_BCTN.pdf",
+      "company_key": "development-company-2b3cb2a878e69116",
+      "source_sha256": "f3a4fa579dfccf6c526212c3f3df1b24118ee0dfb56e237a0a5a4c39e4ac9bc2",
+      "markdown_path": "/mnt/d/reasoning_model_V4/reasoning_model/cache/subtract_native_financial_markdown_v2/PVS_23CN_BCTN.md",
+      "markdown_sha256": "962ec2b4da8922a82d4eb1e3dcb4e4b94ba203c5fe85fd5cded9c2e7b3d793c2",
+      "pages_considered": 3,
+      "candidate_pages": 0,
+      "exclusion_reasons": {
+        "page_without_explicit_period": 1,
+        "short_term_borrowings:missing": 1,
+        "long_term_borrowings:missing": 1,
+        "total_capital:missing": 2,
+        "short_term_borrowings:incomplete_values": 1,
+        "long_term_borrowings:incomplete_values": 1
+      }
+    },
+    {
+      "source_name": "PVS_24CN_BCTN.pdf",
+      "company_key": "development-company-2b3cb2a878e69116",
+      "source_sha256": "5760c0526ad3486814fb9061fc5d856707b2c748bead42b782bcb21b6c957b7a",
+      "markdown_path": "/mnt/d/reasoning_model_V4/reasoning_model/cache/subtract_native_financial_markdown_v2/PVS_24CN_BCTN.md",
+      "markdown_sha256": "69ce37922deb83839db321521bcf9472bfb659d06fc734aa5989ff5fb2ed50de",
+      "pages_considered": 2,
+      "candidate_pages": 0,
+      "exclusion_reasons": {
+        "page_without_explicit_period": 2
+      }
+    },
+    {
+      "source_name": "SZB_23CN_BCTN.pdf",
+      "company_key": "development-company-340e65eda2932452",
+      "source_sha256": "1c1b38b4e8705cd75a33c8d14ebadfdfc1fb7ab066f5d45955c8b000d461aec1",
+      "markdown_path": "/mnt/d/reasoning_model_V4/reasoning_model/cache/subtract_native_financial_markdown_v2/SZB_23CN_BCTN.md",
+      "markdown_sha256": "e756b940bdca4e48fb936a15506bec1f4070baffdda7349fdf9fd7a2ac61518f",
+      "pages_considered": 7,
+      "candidate_pages": 0,
+      "exclusion_reasons": {
+        "page_without_explicit_period": 5,
+        "short_term_borrowings:missing": 2,
+        "long_term_borrowings:missing": 1,
+        "total_capital:missing": 2,
+        "long_term_borrowings:ambiguous": 1
+      }
+    },
+    {
+      "source_name": "SZB_24CN_BCTN.pdf",
+      "company_key": "development-company-340e65eda2932452",
+      "source_sha256": "56b56bface84350a0608a6e92933a37c720c83f9d5b2f165522f296b08702125",
+      "markdown_path": "/mnt/d/reasoning_model_V4/reasoning_model/cache/subtract_native_financial_markdown_v2/SZB_24CN_BCTN.md",
+      "markdown_sha256": "db56d6acc811bc97189f9903da0b8b738dc250843fb4292a8aa7d3bfb672f127",
+      "pages_considered": 7,
+      "candidate_pages": 0,
+      "exclusion_reasons": {
+        "page_without_explicit_period": 6,
+        "short_term_borrowings:missing": 1,
+        "long_term_borrowings:missing": 1,
+        "total_capital:missing": 1
+      }
+    },
+    {
+      "source_name": "TTD_23CN_BCTN.pdf",
+      "company_key": "development-company-3a81699fae1e5524",
+      "source_sha256": "a105d60a5417adae7e76fe8daa03f1a9076970d83994c87bb415e191f835d6a7",
+      "markdown_path": "/mnt/d/reasoning_model_V4/reasoning_model/cache/subtract_native_financial_markdown_v2/TTD_23CN_BCTN.md",
+      "markdown_sha256": "778d2ce20ffa84b9e5b4ce62affd4568b902b9d0078373f5255eea5bfcda5cb0",
+      "pages_considered": 1,
+      "candidate_pages": 0,
+      "exclusion_reasons": {
+        "page_without_explicit_period": 1
+      }
+    },
+    {
+      "source_name": "TTS_24CN_BCTN.pdf",
+      "company_key": "development-company-317e938a489b10da",
+      "source_sha256": "bc0e1252b3c2a7b0343a16ed0880f69299474c68fa1f2e30ca7795f4c60f72b2",
+      "markdown_path": "/mnt/d/reasoning_model_V4/reasoning_model/cache/subtract_native_financial_markdown_v2/TTS_24CN_BCTN.md",
+      "markdown_sha256": "c39535a574950d8830ff37c0f0a10289e5a1d247f903547b02e7ef511a1a58c4",
+      "pages_considered": 7,
+      "candidate_pages": 0,
+      "exclusion_reasons": {
+        "page_without_explicit_period": 6,
+        "short_term_borrowings:missing": 1,
+        "long_term_borrowings:missing": 1,
+        "total_capital:missing": 1
+      }
+    },
+    {
+      "source_name": "TVC_23CN_BCTN.pdf",
+      "company_key": "development-company-330834ee015086e1",
+      "source_sha256": "aaa2bad17dfc34b8e4b898f9100b99a04eb404dcb58a4fbf14e71ff37718887e",
+      "markdown_path": "/mnt/d/reasoning_model_V4/reasoning_model/cache/subtract_native_financial_markdown_v2/TVC_23CN_BCTN.md",
+      "markdown_sha256": "70b63b9fd778a7efc0c7dec81fc328cec6cbf62ec3cce3f765b427fc62633a13",
+      "pages_considered": 1,
+      "candidate_pages": 0,
+      "exclusion_reasons": {
+        "page_without_explicit_period": 1
+      }
+    },
+    {
+      "source_name": "UDL_24CN_BCTN.pdf",
+      "company_key": "development-company-31feb2daaf10e74c",
+      "source_sha256": "e8f59c36a618fa221f93d6528a1e7aaebe9d676e16ff33a97d8d775825fb44df",
+      "markdown_path": "/mnt/d/reasoning_model_V4/reasoning_model/cache/subtract_native_financial_markdown_v2/UDL_24CN_BCTN.md",
+      "markdown_sha256": "bfd85b947797c830f08aa319feae6e3fbe043647d60c5e1c5d9f7d11d05e6693",
+      "pages_considered": 9,
+      "candidate_pages": 0,
+      "exclusion_reasons": {
+        "page_without_explicit_period": 5,
+        "short_term_borrowings:missing": 4,
+        "long_term_borrowings:missing": 4,
+        "total_capital:missing": 4
+      }
+    },
+    {
+      "source_name": "VBC_23CN_BCTN.pdf",
+      "company_key": "development-company-35076f03cba58ac2",
+      "source_sha256": "4dd5f7948b014423a61a0713ee46ae76c0dbda26b44e45025e3f995a9e0c696f",
+      "markdown_path": "/mnt/d/reasoning_model_V4/reasoning_model/cache/subtract_native_financial_markdown_v2/VBC_23CN_BCTN.md",
+      "markdown_sha256": "2ff8e245caa876143e35770e8088114bfd8fd9d28bf8d407d84e3954d9a3673f",
+      "pages_considered": 5,
+      "candidate_pages": 0,
+      "exclusion_reasons": {
+        "page_without_explicit_period": 3,
+        "short_term_borrowings:missing": 2,
+        "long_term_borrowings:missing": 2,
+        "total_capital:missing": 2
+      }
+    },
+    {
+      "source_name": "VBC_24CN_BCTN.pdf",
+      "company_key": "development-company-35076f03cba58ac2",
+      "source_sha256": "da0733e052855590751c096a5c88c220ce817e907905bd3b2c25725981b3e038",
+      "markdown_path": "/mnt/d/reasoning_model_V4/reasoning_model/cache/subtract_native_financial_markdown_v2/VBC_24CN_BCTN.md",
+      "markdown_sha256": "4499ee02eb09794b27b750180c3981160b3b4879af7d50ca21cc3c0a4f82bc65",
+      "pages_considered": 2,
+      "candidate_pages": 0,
+      "exclusion_reasons": {
+        "page_without_explicit_period": 2
+      }
+    },
+    {
+      "source_name": "VHM_23CN_BCTN.pdf",
+      "company_key": "development-company-32f04cd59918b4b9",
+      "source_sha256": "e7d2c01504c2084107a566e5162a19cbf8e40ea4b54990bb9bd20e5d39f21026",
+      "markdown_path": "/mnt/d/reasoning_model_V4/reasoning_model/cache/subtract_native_financial_markdown_v2/VHM_23CN_BCTN.md",
+      "markdown_sha256": "4209c5ed8950923cf3106e361fc621b5250bd02bc04abc6ae9d99207c9c29535",
+      "pages_considered": 21,
+      "candidate_pages": 0,
+      "exclusion_reasons": {
+        "page_without_explicit_period": 11,
+        "short_term_borrowings:incomplete_values": 1,
+        "long_term_borrowings:missing": 9,
+        "total_capital:missing": 9,
+        "short_term_borrowings:missing": 6,
+        "long_term_borrowings:ambiguous": 1
+      }
+    },
+    {
+      "source_name": "VHM_24CN_BCTN.pdf",
+      "company_key": "development-company-32f04cd59918b4b9",
+      "source_sha256": "6414ca8970f2c4d3e1410bd493da3c9ef8f6770dc8913a268a65e2ed903bb061",
+      "markdown_path": "/mnt/d/reasoning_model_V4/reasoning_model/cache/subtract_native_financial_markdown_v2/VHM_24CN_BCTN.md",
+      "markdown_sha256": "d00c361fb28f263a9919b182fd34696fd81d45fd3f486357e60149ad71e6f5b0",
+      "pages_considered": 23,
+      "candidate_pages": 1,
+      "exclusion_reasons": {
+        "page_without_explicit_period": 4,
+        "short_term_borrowings:ambiguous": 2,
+        "long_term_borrowings:missing": 17,
+        "total_capital:missing": 18,
+        "short_term_borrowings:missing": 14,
+        "short_term_borrowings:incomplete_values": 1
+      }
+    },
+    {
+      "source_name": "VNS_23CN_BCTN.pdf",
+      "company_key": "development-company-388d036c98c1ea95",
+      "source_sha256": "5e68d6ae9536f9f7ebe3f9e61165dbcecbcc020349816f6a07b557497bc5380b",
+      "markdown_path": "/mnt/d/reasoning_model_V4/reasoning_model/cache/subtract_native_financial_markdown_v2/VNS_23CN_BCTN.md",
+      "markdown_sha256": "7a70e700ea47aeda2ac27af3c3508535eb7af071b5e6bc7b17265cc2ff3de2a6",
+      "pages_considered": 6,
+      "candidate_pages": 0,
+      "exclusion_reasons": {
+        "page_without_explicit_period": 4,
+        "short_term_borrowings:missing": 2,
+        "long_term_borrowings:incomplete_values": 1,
+        "total_capital:ambiguous": 1,
+        "long_term_borrowings:missing": 1,
+        "total_capital:missing": 1
+      }
+    },
+    {
+      "source_name": "VNS_24CN_BCTN.pdf",
+      "company_key": "development-company-388d036c98c1ea95",
+      "source_sha256": "92a00c94fb14ebe9ff9102ad37e3df92f1a445df0c3fd0f1f2a4d2e91bc25edb",
+      "markdown_path": "/mnt/d/reasoning_model_V4/reasoning_model/cache/subtract_native_financial_markdown_v2/VNS_24CN_BCTN.md",
+      "markdown_sha256": "098d9ddabb52cc5835b969be6485e127c212e3f5536c0eb56624e2101f7dbd38",
+      "pages_considered": 7,
+      "candidate_pages": 0,
+      "exclusion_reasons": {
+        "short_term_borrowings:missing": 1,
+        "long_term_borrowings:missing": 1,
+        "total_capital:missing": 1,
+        "page_without_explicit_period": 6
+      }
+    },
+    {
+      "source_name": "VPB_23CN_BCTN.pdf",
+      "company_key": "development-company-2db8de8af2bfa10a",
+      "source_sha256": "85e2ac85751e8d23359e65a058d8dfd9787f93e5796e96b21d594f38fb80dff3",
+      "markdown_path": "/mnt/d/reasoning_model_V4/reasoning_model/cache/subtract_native_financial_markdown_v2/VPB_23CN_BCTN.md",
+      "markdown_sha256": "44e03f5dfdc657a98bb2adefe8620e894b6c7accb85b80043a1f0a9873e3f6d3",
+      "pages_considered": 11,
+      "candidate_pages": 0,
+      "exclusion_reasons": {
+        "page_without_explicit_period": 3,
+        "short_term_borrowings:missing": 7,
+        "total_capital:missing": 8,
+        "long_term_borrowings:missing": 7,
+        "short_term_borrowings:incomplete_values": 1
+      }
+    },
+    {
+      "source_name": "VPB_24CN_BCTN.pdf",
+      "company_key": "development-company-2db8de8af2bfa10a",
+      "source_sha256": "d9073d5a3599e4a9c99849292405b6fff10af2dc52340f4e8052f0cf403d3b75",
+      "markdown_path": "/mnt/d/reasoning_model_V4/reasoning_model/cache/subtract_native_financial_markdown_v2/VPB_24CN_BCTN.md",
+      "markdown_sha256": "62b2e2092f72d25efb0c27c6fbad08789877f8fd3dc3ab4b59a7f5be45f2a37c",
+      "pages_considered": 10,
+      "candidate_pages": 0,
+      "exclusion_reasons": {
+        "short_term_borrowings:missing": 4,
+        "long_term_borrowings:missing": 5,
+        "total_capital:missing": 5,
+        "page_without_explicit_period": 5,
+        "short_term_borrowings:incomplete_values": 1
+      }
+    },
+    {
+      "source_name": "VSC_23CN_BCTN.pdf",
+      "company_key": "development-company-3a6490b72b5ad015",
+      "source_sha256": "879f2814fb4dc02f40fa0155dfab4fdfc1a8ca217d6103fe9fce66950c36e796",
+      "markdown_path": "/mnt/d/reasoning_model_V4/reasoning_model/cache/subtract_native_financial_markdown_v2/VSC_23CN_BCTN.md",
+      "markdown_sha256": "ea0478c61e5a134a110c364e94b0046a8debbea872028fa86c7e73e684d80932",
+      "pages_considered": 19,
+      "candidate_pages": 1,
+      "exclusion_reasons": {
+        "page_without_explicit_period": 10,
+        "short_term_borrowings:missing": 7,
+        "long_term_borrowings:missing": 7,
+        "total_capital:missing": 8,
+        "short_term_borrowings:ambiguous": 1,
+        "long_term_borrowings:incomplete_values": 1
+      }
+    }
+  ],
+  "candidate_path": "/mnt/d/reasoning_model_V4/reasoning_model/data/v12c_interest_bearing_debt_share_development_candidates_v2.jsonl",
+  "candidate_sha256": "82ca3d5d9c381d052f367da8e8e7bdc3ad89ff8b8bcfb64325b29161d7f3a2b5",
+  "builder_sha256": "7bdbd6441c9cecafecee3326d6915e774c2eb581167706c70094256bb7f3fe81"
+}

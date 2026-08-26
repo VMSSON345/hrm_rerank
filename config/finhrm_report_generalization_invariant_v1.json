@@ -1,0 +1,71 @@
+{
+  "schema": "finhrm-report-generalization-invariant-v1",
+  "created_date": "2026-08-14",
+  "classification": "development_only_research_protocol_addendum",
+  "parent_contract": {
+    "path": "config/finhrm_thesis_core_v1.json",
+    "sha256": "a9f2f3088f7622c6c8912086eac16252f154fcae1164a3fe7ba75107a0ece502"
+  },
+  "normative_statement": "One report-agnostic method must be applied unchanged to every report in the declared supported domain. A report outside that domain must fail closed or ABSTAIN; it must never trigger a report-specific repair.",
+  "supported_domain_dimensions": [
+    "company",
+    "report",
+    "year",
+    "industry",
+    "native_or_ocr_extraction",
+    "table_layout",
+    "question_surface",
+    "metric",
+    "numeric_value"
+  ],
+  "forbidden_runtime_signals": [
+    "company_identity",
+    "document_filename_or_hash",
+    "fixed_page_number",
+    "fixed_year",
+    "fixed_numeric_value_or_answer",
+    "single_question_literal",
+    "example_or_family_id_used_as_runtime_rule",
+    "candidate_rank_or_order_used_as_semantic_proof"
+  ],
+  "allowed_runtime_signals": [
+    "typed_question_intent",
+    "metric_semantics",
+    "period_semantics",
+    "column_role",
+    "entity_scope",
+    "unit_and_scale",
+    "logical_and_physical_cell_provenance",
+    "table_structure_and_geometry",
+    "extractor_agreement_or_conflict",
+    "typed_program_and_proof_state"
+  ],
+  "repair_admission_rule": {
+    "precommit_required": true,
+    "diagnosis_documents_excluded_from_confirmation": true,
+    "minimum_distinct_companies": 3,
+    "minimum_distinct_layout_families": 3,
+    "company_disjoint_from_diagnosis": true,
+    "layout_disjoint_confirmation_required_when_repair_targets_layout": true,
+    "positive_and_hard_negative_required": true,
+    "counterfactual_required": true,
+    "permutation_invariance_required": true,
+    "no_regression_on_all_frozen_development_cohorts": true
+  },
+  "release_reporting": {
+    "report_macro_results_by_company": true,
+    "report_results_by_layout": true,
+    "report_worst_group": true,
+    "report_unseen_company_results": true,
+    "report_unseen_layout_results": true,
+    "safe_abstention_is_not_counted_as_answered": true,
+    "universal_coverage_claim_allowed": false,
+    "unsupported_layout_policy": "ABSTAIN_WITH_EXPLICIT_PROOF_OR_PROVENANCE_REASON"
+  },
+  "invariants": {
+    "protected_evaluation_sources_allowed": false,
+    "fine_tuning_allowed": false,
+    "threshold_change_allowed": false,
+    "phase_d_unlocked": false
+  }
+}

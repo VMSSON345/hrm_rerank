@@ -1,0 +1,130 @@
+{
+  "schema": "finhrm-qp3-core-implementation-lock-v1",
+  "created_at": "2026-08-14",
+  "classification": "development_only_report_agnostic_proof_implementation_lock",
+  "status": "complete",
+  "phase_d": "locked",
+  "implementation_gate_passed": true,
+  "results": {
+    "runtime_oracle_exact": 122,
+    "total": 122,
+    "false_accepts": 0,
+    "gold_retained": 26,
+    "gold_total": 26,
+    "actions": {
+      "ABSTAIN": 41,
+      "ANSWER": 26,
+      "REJECT": 55
+    },
+    "company": {
+      "groups": 6,
+      "exact_rate_by_group": {
+        "SYNTH_QP3CORE_CO_A": 1.0,
+        "SYNTH_QP3CORE_CO_B": 1.0,
+        "SYNTH_QP3CORE_CO_C": 1.0,
+        "SYNTH_QP3CORE_CO_D": 1.0,
+        "SYNTH_QP3CORE_CO_E": 1.0,
+        "SYNTH_QP3CORE_CO_F": 1.0
+      },
+      "macro_exact_rate": 1.0,
+      "worst_group_exact_rate": 1.0
+    },
+    "layout": {
+      "groups": 6,
+      "exact_rate_by_group": {
+        "SYNTH_HYBRID_MULTIROW_HEADER": 1.0,
+        "SYNTH_NATIVE_FLAT_REPEATED_HEADER": 1.0,
+        "SYNTH_NATIVE_GRID_TWO_LEVEL_HEADER": 1.0,
+        "SYNTH_NATIVE_VERTICAL_METRIC_BLOCK": 1.0,
+        "SYNTH_OCR_BBOX_MERGED_HEADER": 1.0,
+        "SYNTH_OCR_SPARSE_CELL_COORDINATES": 1.0
+      },
+      "macro_exact_rate": 1.0,
+      "worst_group_exact_rate": 1.0
+    },
+    "unseen_company_oracle_exact_rate": 1.0,
+    "unseen_layout_oracle_exact_rate": 1.0
+  },
+  "runtime_hashes": {
+    "src/hrm_finance_qa/question_planner.py": "76ddcd2cb64ced25e3f7737552cc8b93e69e0048a1d6a6499f15f9d8059e2b56",
+    "src/hrm_finance_qa/program_synthesis.py": "3dd00b6633136b7d3d4edc6eb6763747263330f8ed3c570e9720ba22cb51b592",
+    "src/hrm_finance_qa/symbolic_verifier.py": "2436bae3895146044c1f40158426545363df50ade1ba2d1fcc977b346435e1a2",
+    "src/hrm_finance_qa/direction_contract.py": "a18aa130419fc74ce647bd92dc9c1b1217007738e636aad0f28c7f78396be937",
+    "src/hrm_finance_qa/document_hrm.py": "f40345b8696063cd41a5d2c69daa816ffae3db926900e3af3de2becbae03e91e",
+    "src/hrm_finance_qa/document_reasoning_engine.py": "f01865c508241b27f459cc14ba47bea17e040ff0ebad8b437fb97c2b42e3a762"
+  },
+  "expected_changed_runtime_files": [
+    "question_planner.py",
+    "program_synthesis.py",
+    "symbolic_verifier.py",
+    "direction_contract.py",
+    "document_hrm.py",
+    "document_reasoning_engine.py"
+  ],
+  "checkpoint_sha256": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de",
+  "precommit_lock_sha256": "ffaf5fb6400ea3803ac2e058ef2b9dcca043c2d44078c61aa16c4450b09b8319",
+  "invariants": {
+    "diagnosis_document_used_as_confirmation": false,
+    "real_pdf_loaded": false,
+    "protected_evaluation_loaded": false,
+    "threshold_changed": false,
+    "checkpoint_changed": false,
+    "fine_tuning_performed": false,
+    "phase_d_unlocked": false,
+    "safe_abstention_counted_as_answered": false,
+    "universal_coverage_claim_made": false
+  },
+  "artifacts": [
+    {
+      "path": "src/hrm_finance_qa/question_planner.py",
+      "size_bytes": 55028,
+      "sha256": "76ddcd2cb64ced25e3f7737552cc8b93e69e0048a1d6a6499f15f9d8059e2b56"
+    },
+    {
+      "path": "src/hrm_finance_qa/program_synthesis.py",
+      "size_bytes": 33020,
+      "sha256": "3dd00b6633136b7d3d4edc6eb6763747263330f8ed3c570e9720ba22cb51b592"
+    },
+    {
+      "path": "src/hrm_finance_qa/symbolic_verifier.py",
+      "size_bytes": 49818,
+      "sha256": "2436bae3895146044c1f40158426545363df50ade1ba2d1fcc977b346435e1a2"
+    },
+    {
+      "path": "src/hrm_finance_qa/direction_contract.py",
+      "size_bytes": 7421,
+      "sha256": "a18aa130419fc74ce647bd92dc9c1b1217007738e636aad0f28c7f78396be937"
+    },
+    {
+      "path": "src/hrm_finance_qa/document_hrm.py",
+      "size_bytes": 341563,
+      "sha256": "f40345b8696063cd41a5d2c69daa816ffae3db926900e3af3de2becbae03e91e"
+    },
+    {
+      "path": "src/hrm_finance_qa/document_reasoning_engine.py",
+      "size_bytes": 49032,
+      "sha256": "f01865c508241b27f459cc14ba47bea17e040ff0ebad8b437fb97c2b42e3a762"
+    },
+    {
+      "path": "tests/test_qp3_core_implementation.py",
+      "size_bytes": 13870,
+      "sha256": "47e44cd4b1f6fb9fbf3deea215de4c3d3d91cf71c12c74047b8fea18148049e0"
+    },
+    {
+      "path": "scripts/evaluate_qp3_core_implementation.py",
+      "size_bytes": 18706,
+      "sha256": "e49a9d46b7c4c0e3e618c47e19cdb7797c059d80f9b4dd2eac8bb3d3c7d14880"
+    },
+    {
+      "path": "reports/finhrm_qp3_core_implementation_development_v1.json",
+      "size_bytes": 598906,
+      "sha256": "af7c4cbb0f5029ee673c3d2d9e556610372cde1be1622d4349d94c31045af539"
+    },
+    {
+      "path": "reports/finhrm_qp3_core_implementation_development_v1.md",
+      "size_bytes": 402,
+      "sha256": "adcf84cfe718bdcb858ffa52b238319569358dcfad783064de4619f7c1ddd442"
+    }
+  ],
+  "authorized_next_step": "Replay every frozen compiler/proof/S4/company-layout development cohort; report results without changing thresholds."
+}

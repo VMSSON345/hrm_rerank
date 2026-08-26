@@ -1,0 +1,208 @@
+{
+  "schema": "finhrm-qp4-unit-scale-question-planner-implementation-precommit-v1",
+  "created_at": "2026-08-21",
+  "classification": "development_only_qp4_generic_unit_scale_precommit",
+  "status": "precommitted_before_runtime_implementation",
+  "parents": {
+    "qp4_precommit": {
+      "path": "config/finhrm_qp4_precommit_v1.json",
+      "sha256": "c0fe91086396b63eed46fef15c1bd352d4a701ff76b43887e244f0c324e07c6b"
+    },
+    "qp4_precommit_lock": {
+      "path": "reports/finhrm_qp4_precommit_lock_v1.json",
+      "sha256": "de5432f62cee5d8dbce854e40756a5ab7435723f465c93587cd9459dd148a7e7"
+    },
+    "qp4_development_cohort": {
+      "path": "config/finhrm_qp4_development_cohort_v1.json",
+      "sha256": "1d8cf947c4af4819f50e9d5384c8c2426fd3cadbe5ca18837b1186f6ef0d1af2"
+    },
+    "qp4_development_baseline": {
+      "path": "reports/finhrm_qp4_development_baseline_v1.json",
+      "sha256": "6e323a3625ce563cee79b1d50a5dc76688ee1b2622333c889a96c5d0d0119216"
+    },
+    "qp4_development_baseline_lock": {
+      "path": "reports/finhrm_qp4_development_baseline_lock_v1.json",
+      "sha256": "cbdb085e6a85f6bc59075c5d8e575ec79710b1dd26afe992c3dcfb961d487e75"
+    },
+    "qp4_source_raw_baseline": {
+      "path": "reports/finhrm_qp4_source_backed_baseline_v1.json",
+      "sha256": "bffefd307ea0f99aaad581ac092eb6fed3067e7de6eda24a688aa4405fa88fce"
+    },
+    "qp4_actual_plan_source_cohort": {
+      "path": "reports/finhrm_qp4_actual_plan_source_cohort_v1.json",
+      "sha256": "91363d02adbd24e9026e73e4e30664012b5d34bf8aa6832c47464fac45f6a8cf"
+    },
+    "qp4_actual_plan_source_cohort_lock": {
+      "path": "reports/finhrm_qp4_actual_plan_source_cohort_lock_v1.json",
+      "sha256": "3f16ccb7c399cf4b40b3d19c6b510c3a0b0e2c57ab7722ed0c60a28209c3d31d"
+    }
+  },
+  "checkpoint": {
+    "path": "models/document_hrm_V8_candidate.pt",
+    "sha256": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de"
+  },
+  "generic_failure_evidence": {
+    "compiler": {
+      "dimension": "UNIT_SCALE",
+      "pairs": 13,
+      "families": 13,
+      "detected": 0,
+      "detection_rate": 0.0,
+      "failure_group": "compiler_counterfactual:UNIT_SCALE",
+      "attributed_layer": "question_planner"
+    },
+    "source_backed": {
+      "dimension": "UNIT_SCALE",
+      "runs": 5,
+      "companies": 5,
+      "sources": 5,
+      "real_layouts": 3,
+      "old_winner_false_accepts": 4,
+      "generic_failure_companies": 4,
+      "generic_failure_sources": 4,
+      "generic_failure_real_layouts": 3,
+      "failure_group": "source_counterfactual:UNIT_SCALE",
+      "attributed_layer": "question_planner"
+    },
+    "root_cause": "QuestionPlan represents currency as requested_unit_family but does not represent the explicitly requested output scale, so VND, thousand-VND, million-VND and billion-VND requests have the same semantic projection.",
+    "genericity_basis": [
+      "all 13 compiler answer families",
+      "four independent development companies",
+      "four source PDFs",
+      "three real layout families"
+    ],
+    "forbidden_as_proof": [
+      "candidate rank",
+      "neural score",
+      "confidence",
+      "question length",
+      "report filename",
+      "company identity",
+      "page number",
+      "year literal",
+      "numeric answer value"
+    ]
+  },
+  "implementation_scope": {
+    "stage": "typed_question_intent_only",
+    "runtime_file_whitelist": [
+      "src/hrm_finance_qa/question_planner.py"
+    ],
+    "exact_symbols": {
+      "QuestionPlan": [
+        "requested_scale"
+      ],
+      "new_helper": [
+        "_compile_requested_scale"
+      ],
+      "existing_function_edit": [
+        "compile_question_plan"
+      ]
+    },
+    "typed_scale_values": [
+      "vnd",
+      "thousand_vnd",
+      "million_vnd",
+      "billion_vnd",
+      "conflict"
+    ],
+    "missing_scale_value": null,
+    "generic_parser_contract": {
+      "vnd": [
+        "VND",
+        "bao nhiêu đồng",
+        "đơn vị đồng",
+        "theo đồng"
+      ],
+      "thousand_vnd": [
+        "nghìn đồng"
+      ],
+      "million_vnd": [
+        "triệu đồng"
+      ],
+      "billion_vnd": [
+        "tỷ đồng"
+      ],
+      "conflict": "Two or more distinct explicit output scales in one question."
+    },
+    "semantic_rules": [
+      "Parse scale only from explicit question text.",
+      "Never infer scale from source cells, nearby context, report layout, candidate metadata or the answer value.",
+      "Scale is orthogonal to requested_unit_family; all four monetary scales retain requested_unit_family=currency.",
+      "No explicit scale yields requested_scale=None and preserves every existing semantic field.",
+      "Conflicting explicit scales yield requested_scale=conflict and abstention_reason=conflicting_requested_scale unless an earlier stricter abstention reason already exists.",
+      "A monetary scale combined with percent or ratio output yields abstention_reason=incompatible_requested_scale unless an earlier stricter abstention reason already exists.",
+      "The helper uses normalized lexical patterns only and contains no company, filename, page, year, value, example-id or question-literal branch."
+    ],
+    "non_goals": [
+      "unit conversion execution",
+      "candidate value rescaling",
+      "retrieval changes",
+      "binding changes",
+      "verifier relaxation",
+      "answer renderer changes",
+      "COLUMN_ROLE repair",
+      "DIRECTION repair",
+      "REFERENCE_BASE repair",
+      "surface discourse repair"
+    ]
+  },
+  "frozen_files": [
+    "src/hrm_finance_qa/program_synthesis.py",
+    "src/hrm_finance_qa/symbolic_verifier.py",
+    "src/hrm_finance_qa/direction_contract.py",
+    "src/hrm_finance_qa/document_hrm.py",
+    "src/hrm_finance_qa/document_reasoning_engine.py",
+    "src/hrm_finance_qa/answer_presentation.py",
+    "src/hrm_finance_qa/program_data.py"
+  ],
+  "post_implementation_gates": {
+    "compiler_unit_scale_detection": "13/13",
+    "compiler_non_scale_semantic_projection_retention": "100%",
+    "canonical_and_ambiguity_retention": "16/16",
+    "explicit_scale_parser_cases": "all pass",
+    "missing_scale_does_not_infer": true,
+    "conflicting_scale_fails_closed": true,
+    "incompatible_output_scale_fails_closed": true,
+    "source_backed_unit_scale_replay_required": true,
+    "source_backed_old_winner_false_accept_target": 0,
+    "source_target_is_not_required_to_close_typed_intent_stage": true,
+    "source_residual_must_be_reported_before_any_downstream_preauthorization": true,
+    "candidate_permutation_exact_rate": 1.0,
+    "frozen_safe_replay_actions": {
+      "ANSWER": 259,
+      "ABSTAIN": 90,
+      "REJECT": 14
+    },
+    "frozen_safe_replay_execution": "363/363",
+    "frozen_safe_replay_permutation": "363/363",
+    "frozen_safe_replay_counterfactuals": 141,
+    "frozen_safe_replay_counterfactual_false_accepts": 0
+  },
+  "runtime_hashes_before_implementation": {
+    "src/hrm_finance_qa/question_planner.py": "58404c5a04ffced2c00056a10e470730a8fb9ef723d3e8c5668f13b0a65571a6",
+    "src/hrm_finance_qa/program_synthesis.py": "e4acc4878d0dfd465ba66ab91f3aaf8be71db5591aa1358fb8cb81f3c7bff550",
+    "src/hrm_finance_qa/symbolic_verifier.py": "e9efa8d2fa9ce1aedd460cdd11c1eb9321aab7122b0908fc5017687c1491ed88",
+    "src/hrm_finance_qa/direction_contract.py": "a18aa130419fc74ce647bd92dc9c1b1217007738e636aad0f28c7f78396be937",
+    "src/hrm_finance_qa/document_hrm.py": "b5951bcde79583950b672f7fb6b199b3e5b9904e6784daae7c4c5be0eba65d21",
+    "src/hrm_finance_qa/document_reasoning_engine.py": "3883500011472716bc01f8e04a6d6f925173b35a14bbedd945c5ca4fb0063fa2",
+    "src/hrm_finance_qa/answer_presentation.py": "c40bd4a8dff39162b44cf11ef2da12e7b153d907f7254e5d1856157b3ac56d36",
+    "src/hrm_finance_qa/program_data.py": "5199434fc0628b7d270ce62b12657366cbe118901065edd9f1e1f6ca0f1f8d54"
+  },
+  "invariants": {
+    "runtime_changed_by_precommit": false,
+    "threshold_changed": false,
+    "checkpoint_changed": false,
+    "model_changed": false,
+    "fine_tuning_performed": false,
+    "abw_used": false,
+    "protected_evaluation_loaded": false,
+    "synthetic_layout_counted": false,
+    "safe_abstention_counted_as_answer": false,
+    "qp4_runtime_change_authorized_in_same_step": false,
+    "retrieval_or_binding_edit_authorized": false,
+    "qp5_authorized": false,
+    "phase_d_unlocked": false
+  },
+  "authorized_next_step_after_lock": "QP4-UNIT-SCALE-QUESTION-PLANNER-IMPLEMENTATION may edit only src/hrm_finance_qa/question_planner.py under the exact symbol and semantic contract above, then must run all post-implementation gates. No other QP4 runtime group, QP5 or Phase D is authorized."
+}

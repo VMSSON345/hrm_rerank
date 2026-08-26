@@ -1,0 +1,232 @@
+{
+  "schema": "finhrm-qp4-unit-scale-question-planner-implementation-report-v1",
+  "created_at": "2026-08-21",
+  "classification": "development_only_qp4_generic_unit_scale_typed_intent_implementation",
+  "typed_intent_stage_passed": true,
+  "failed_gates": [],
+  "runtime_change": {
+    "whitelist": [
+      "src/hrm_finance_qa/question_planner.py"
+    ],
+    "before_sha256": "58404c5a04ffced2c00056a10e470730a8fb9ef723d3e8c5668f13b0a65571a6",
+    "after_sha256": "e64c9140ed62cc7289941edf04b58c9748b13bf6bf98edd5699ef1d4ffb38a03",
+    "symbols": [
+      "QuestionPlan.requested_scale",
+      "_compile_requested_scale",
+      "compile_question_plan"
+    ],
+    "stage": "typed_question_intent_only"
+  },
+  "compiler": {
+    "unit_scale_detection": {
+      "detected": 13,
+      "total": 13
+    },
+    "non_unit_semantics_retained": {
+      "passed": 13,
+      "total": 13
+    },
+    "canonical": {
+      "exact": 13,
+      "total": 13,
+      "details": [
+        {
+          "family_id": "IBDS01",
+          "question": "Nợ vay ngắn hạn và nợ vay dài hạn chịu lãi năm 2023 chiếm bao nhiêu phần trăm tổng nguồn vốn năm 2023?",
+          "exact": true,
+          "failed_dimensions": []
+        },
+        {
+          "family_id": "PA01",
+          "question": "Doanh thu hoạt động thực hiện năm 2023 là bao nhiêu?",
+          "exact": true,
+          "failed_dimensions": []
+        },
+        {
+          "family_id": "PA02",
+          "question": "Doanh thu hoạt động kế hoạch năm 2023 là bao nhiêu?",
+          "exact": true,
+          "failed_dimensions": []
+        },
+        {
+          "family_id": "PA03",
+          "question": "Doanh thu hoạt động thực hiện năm 2023 đạt bao nhiêu phần trăm kế hoạch năm 2023?",
+          "exact": true,
+          "failed_dimensions": []
+        },
+        {
+          "family_id": "PA04",
+          "question": "Doanh thu hoạt động thực hiện năm 2023 trừ kế hoạch năm 2023 là bao nhiêu?",
+          "exact": true,
+          "failed_dimensions": []
+        },
+        {
+          "family_id": "PA05",
+          "question": "Doanh thu hoạt động thực hiện năm 2023 thấp hơn kế hoạch năm 2023 bao nhiêu đồng?",
+          "exact": true,
+          "failed_dimensions": []
+        },
+        {
+          "family_id": "PA06",
+          "question": "Doanh thu hoạt động thực hiện năm 2023 vượt kế hoạch năm 2023 bao nhiêu đồng?",
+          "exact": true,
+          "failed_dimensions": []
+        },
+        {
+          "family_id": "PA07",
+          "question": "Doanh thu hoạt động thực hiện năm 2023 thay đổi bao nhiêu phần trăm so với kế hoạch năm 2023?",
+          "exact": true,
+          "failed_dimensions": []
+        },
+        {
+          "family_id": "PA08",
+          "question": "Doanh thu hoạt động thực hiện năm 2023 còn thiếu bao nhiêu phần trăm để đạt kế hoạch năm 2023?",
+          "exact": true,
+          "failed_dimensions": []
+        },
+        {
+          "family_id": "PA09",
+          "question": "Doanh thu hoạt động thực hiện năm 2023 vượt kế hoạch năm 2023 bao nhiêu phần trăm?",
+          "exact": true,
+          "failed_dimensions": []
+        },
+        {
+          "family_id": "TY01",
+          "question": "Doanh thu thực hiện năm 2023 tăng bao nhiêu so với thực hiện năm 2022?",
+          "exact": true,
+          "failed_dimensions": []
+        },
+        {
+          "family_id": "TY02",
+          "question": "Doanh thu thực hiện năm 2023 tăng bao nhiêu phần trăm so với thực hiện năm 2022?",
+          "exact": true,
+          "failed_dimensions": []
+        },
+        {
+          "family_id": "TY04",
+          "question": "Kế hoạch doanh thu năm 2024 cao hơn thực hiện năm 2023 bao nhiêu phần trăm?",
+          "exact": true,
+          "failed_dimensions": []
+        }
+      ]
+    },
+    "ambiguity": {
+      "exact": 3,
+      "total": 3,
+      "details": [
+        {
+          "family_id": "C13",
+          "question": "Chênh lệch giữa doanh thu thực hiện và kế hoạch năm 2023 là bao nhiêu?",
+          "exact": true,
+          "expected_reason": "ambiguous_signed_direction",
+          "actual_reason": "ambiguous_signed_direction",
+          "failed_dimensions": []
+        },
+        {
+          "family_id": "C14",
+          "question": "Doanh thu năm 2023 lớn hơn bao nhiêu phần trăm?",
+          "exact": true,
+          "expected_reason": "missing_reference_base",
+          "actual_reason": "missing_reference_base",
+          "failed_dimensions": []
+        },
+        {
+          "family_id": "C15",
+          "question": "Doanh thu hoạt động năm 2023 là bao nhiêu khi bảng có cả kế hoạch và thực hiện?",
+          "exact": true,
+          "expected_reason": "missing_column_role",
+          "actual_reason": "missing_column_role",
+          "failed_dimensions": []
+        }
+      ]
+    },
+    "surface": {
+      "exact": 73,
+      "total": 91
+    }
+  },
+  "parser": {
+    "explicit": {
+      "passed": 7,
+      "total": 7,
+      "details": [
+        {
+          "expected": "vnd",
+          "actual": "vnd"
+        },
+        {
+          "expected": "vnd",
+          "actual": "vnd"
+        },
+        {
+          "expected": "vnd",
+          "actual": "vnd"
+        },
+        {
+          "expected": "vnd",
+          "actual": "vnd"
+        },
+        {
+          "expected": "thousand_vnd",
+          "actual": "thousand_vnd"
+        },
+        {
+          "expected": "million_vnd",
+          "actual": "million_vnd"
+        },
+        {
+          "expected": "billion_vnd",
+          "actual": "billion_vnd"
+        }
+      ]
+    },
+    "missing_scale_is_none": true,
+    "conflict_fails_closed": true,
+    "incompatible_fails_closed": true
+  },
+  "source_replay": {
+    "runs": 5,
+    "companies": 5,
+    "sources": 5,
+    "real_layouts": 3,
+    "typed_scale_detected": 5,
+    "old_winner_false_accepts": 4,
+    "old_winner_false_accept_target": 0,
+    "target_met": false,
+    "target_required_to_close_typed_intent_stage": false
+  },
+  "safe_replay": {
+    "actions": {
+      "ABSTAIN": 90,
+      "ANSWER": 259,
+      "REJECT": 14
+    },
+    "execution": "363/363",
+    "permutation": "363/363",
+    "counterfactuals": 141,
+    "counterfactual_false_accepts": 0
+  },
+  "checks": {
+    "compiler_unit_scale_13_of_13": true,
+    "compiler_non_unit_semantics_13_of_13": true,
+    "canonical_13_of_13": true,
+    "ambiguity_3_of_3": true,
+    "surface_baseline_73_of_91": true,
+    "explicit_parser_7_of_7": true,
+    "missing_scale_is_none": true,
+    "conflict_fails_closed": true,
+    "incompatible_fails_closed": true,
+    "source_replay_5_companies_5_sources_3_layouts": true,
+    "source_typed_detection_5_of_5": true,
+    "safe_actions_exact": true,
+    "safe_execution_363_of_363": true,
+    "safe_permutation_363_of_363": true,
+    "safe_counterfactual_141_zero_false_accept": true
+  },
+  "source_residual_reported": true,
+  "downstream_runtime_change_authorized": false,
+  "qp4_complete": false,
+  "qp5_authorized": false,
+  "phase_d": "locked",
+  "authorized_next_step": "QP4-UNIT-SCALE-SOURCE-RESIDUAL-ISOLATION-PRECOMMIT: isolate the development-only downstream failure without editing runtime; retrieval, binding, verification, conversion, QP5 and Phase D remain locked."
+}

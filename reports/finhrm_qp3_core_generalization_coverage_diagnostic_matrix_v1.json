@@ -1,0 +1,576 @@
+{
+  "schema": "finhrm-qp3-core-generalization-coverage-diagnostic-matrix-report-v1",
+  "created_at": "2026-08-14",
+  "classification": "development_only_aggregate_diagnostic_controls_not_confirmation",
+  "matrix_gate_passed": true,
+  "errors": [],
+  "source": {
+    "path": "reports/finhrm_qp3_core_s4_safe_replay_v1.json",
+    "sha256": "cb0dbbc27de5c9254fd3fa4634183f91bfcbf2b93e96f1703984aaf4d9f146f0",
+    "split": "development_train_only",
+    "company_identifiers_persisted": false,
+    "example_identifiers_persisted": false
+  },
+  "diversity_gate": {
+    "minimum_distinct_companies_per_track_and_control": 3,
+    "minimum_distinct_layouts_per_track_and_control": 3,
+    "synthetic_layout_counts_as_unseen_confirmation": false,
+    "source_company_identifiers_persisted": false
+  },
+  "tracks": {
+    "period_and_provenance": {
+      "operation": "SELECT",
+      "selected_unknown_obligations": [
+        "period_coverage"
+      ],
+      "source_examples": 74,
+      "source_companies": 73,
+      "source_layouts": 2,
+      "synthetic_layout_projection_instances": 3,
+      "matrix_instances": 77,
+      "matrix_companies": 73,
+      "matrix_layouts": 3,
+      "controls": {
+        "positive": {
+          "recipe": "KEEP_GOLD_PROGRAM_AND_EVIDENCE_UNCHANGED",
+          "oracle": "GOLD_PROGRAM_AND_EVIDENCE_SEMANTICS_PRESERVED",
+          "instances": 77,
+          "distinct_companies": 73,
+          "distinct_layouts": 3,
+          "matrix_cells": [
+            {
+              "layout_family": "DEVELOPMENT_NATIVE_MULTI_TABLE",
+              "instances": 5,
+              "distinct_companies": 4,
+              "source_kind": [
+                "source"
+              ]
+            },
+            {
+              "layout_family": "DEVELOPMENT_NATIVE_STRUCTURED_SPARSE",
+              "instances": 69,
+              "distinct_companies": 69,
+              "source_kind": [
+                "source"
+              ]
+            },
+            {
+              "layout_family": "DEVELOPMENT_SYNTHETIC_OCR_CHANNEL_SEMANTICS_PRESERVING",
+              "instances": 3,
+              "distinct_companies": 3,
+              "source_kind": [
+                "synthetic_layout_projection"
+              ]
+            }
+          ]
+        },
+        "hard_negative": {
+          "recipe": "DUPLICATE_LOGICAL_CELL_WITH_CONFLICTING_OR_MISSING_PROVENANCE",
+          "oracle": "ABSTAIN_OR_REJECT_NEVER_ANSWER",
+          "instances": 77,
+          "distinct_companies": 73,
+          "distinct_layouts": 3,
+          "matrix_cells": [
+            {
+              "layout_family": "DEVELOPMENT_NATIVE_MULTI_TABLE",
+              "instances": 5,
+              "distinct_companies": 4,
+              "source_kind": [
+                "source"
+              ]
+            },
+            {
+              "layout_family": "DEVELOPMENT_NATIVE_STRUCTURED_SPARSE",
+              "instances": 69,
+              "distinct_companies": 69,
+              "source_kind": [
+                "source"
+              ]
+            },
+            {
+              "layout_family": "DEVELOPMENT_SYNTHETIC_OCR_CHANNEL_SEMANTICS_PRESERVING",
+              "instances": 3,
+              "distinct_companies": 3,
+              "source_kind": [
+                "synthetic_layout_projection"
+              ]
+            }
+          ]
+        },
+        "counterfactual": {
+          "recipe": "EXPLICIT_WRONG_PERIOD_OR_COLUMN_QUALIFIER",
+          "oracle": "REJECT_NEVER_ANSWER",
+          "instances": 77,
+          "distinct_companies": 73,
+          "distinct_layouts": 3,
+          "matrix_cells": [
+            {
+              "layout_family": "DEVELOPMENT_NATIVE_MULTI_TABLE",
+              "instances": 5,
+              "distinct_companies": 4,
+              "source_kind": [
+                "source"
+              ]
+            },
+            {
+              "layout_family": "DEVELOPMENT_NATIVE_STRUCTURED_SPARSE",
+              "instances": 69,
+              "distinct_companies": 69,
+              "source_kind": [
+                "source"
+              ]
+            },
+            {
+              "layout_family": "DEVELOPMENT_SYNTHETIC_OCR_CHANNEL_SEMANTICS_PRESERVING",
+              "instances": 3,
+              "distinct_companies": 3,
+              "source_kind": [
+                "synthetic_layout_projection"
+              ]
+            }
+          ]
+        },
+        "permutation": {
+          "recipe": "REVERSE_ALL_CANDIDATES_AND_REMAP_POINTERS",
+          "oracle": "EXACT_PROOF_DECISION_AND_EXECUTION_INVARIANCE",
+          "instances": 77,
+          "distinct_companies": 73,
+          "distinct_layouts": 3,
+          "matrix_cells": [
+            {
+              "layout_family": "DEVELOPMENT_NATIVE_MULTI_TABLE",
+              "instances": 5,
+              "distinct_companies": 4,
+              "source_kind": [
+                "source"
+              ]
+            },
+            {
+              "layout_family": "DEVELOPMENT_NATIVE_STRUCTURED_SPARSE",
+              "instances": 69,
+              "distinct_companies": 69,
+              "source_kind": [
+                "source"
+              ]
+            },
+            {
+              "layout_family": "DEVELOPMENT_SYNTHETIC_OCR_CHANNEL_SEMANTICS_PRESERVING",
+              "instances": 3,
+              "distinct_companies": 3,
+              "source_kind": [
+                "synthetic_layout_projection"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "operation_and_add_grounding": {
+      "operation": "ADD",
+      "selected_unknown_obligations": [
+        "operation_match",
+        "add_grounding"
+      ],
+      "source_examples": 67,
+      "source_companies": 47,
+      "source_layouts": 3,
+      "synthetic_layout_projection_instances": 0,
+      "matrix_instances": 67,
+      "matrix_companies": 47,
+      "matrix_layouts": 3,
+      "controls": {
+        "positive": {
+          "recipe": "KEEP_GOLD_TWO_ROLE_ADD_PROGRAM_AND_EVIDENCE_UNCHANGED",
+          "oracle": "GOLD_TWO_ROLE_COMPOSITION_AND_EXECUTION_PRESERVED",
+          "instances": 67,
+          "distinct_companies": 47,
+          "distinct_layouts": 3,
+          "matrix_cells": [
+            {
+              "layout_family": "DEVELOPMENT_NATIVE_MULTI_TABLE",
+              "instances": 2,
+              "distinct_companies": 2,
+              "source_kind": [
+                "source"
+              ]
+            },
+            {
+              "layout_family": "DEVELOPMENT_NATIVE_RELATIVE_PERIOD_TABLE",
+              "instances": 1,
+              "distinct_companies": 1,
+              "source_kind": [
+                "source"
+              ]
+            },
+            {
+              "layout_family": "DEVELOPMENT_NATIVE_STRUCTURED_SPARSE",
+              "instances": 64,
+              "distinct_companies": 44,
+              "source_kind": [
+                "source"
+              ]
+            }
+          ]
+        },
+        "hard_negative": {
+          "recipe": "BIND_TWO_POINTERS_TO_ONE_LOGICAL_CELL",
+          "oracle": "REJECT_NEVER_ANSWER",
+          "instances": 67,
+          "distinct_companies": 47,
+          "distinct_layouts": 3,
+          "matrix_cells": [
+            {
+              "layout_family": "DEVELOPMENT_NATIVE_MULTI_TABLE",
+              "instances": 2,
+              "distinct_companies": 2,
+              "source_kind": [
+                "source"
+              ]
+            },
+            {
+              "layout_family": "DEVELOPMENT_NATIVE_RELATIVE_PERIOD_TABLE",
+              "instances": 1,
+              "distinct_companies": 1,
+              "source_kind": [
+                "source"
+              ]
+            },
+            {
+              "layout_family": "DEVELOPMENT_NATIVE_STRUCTURED_SPARSE",
+              "instances": 64,
+              "distinct_companies": 44,
+              "source_kind": [
+                "source"
+              ]
+            }
+          ]
+        },
+        "counterfactual": {
+          "recipe": "REPLACE_ONE_OPERAND_WITH_EXPLICIT_WRONG_ROLE_PERIOD_ENTITY_OR_UNIT",
+          "oracle": "REJECT_NEVER_ANSWER",
+          "instances": 67,
+          "distinct_companies": 47,
+          "distinct_layouts": 3,
+          "matrix_cells": [
+            {
+              "layout_family": "DEVELOPMENT_NATIVE_MULTI_TABLE",
+              "instances": 2,
+              "distinct_companies": 2,
+              "source_kind": [
+                "source"
+              ]
+            },
+            {
+              "layout_family": "DEVELOPMENT_NATIVE_RELATIVE_PERIOD_TABLE",
+              "instances": 1,
+              "distinct_companies": 1,
+              "source_kind": [
+                "source"
+              ]
+            },
+            {
+              "layout_family": "DEVELOPMENT_NATIVE_STRUCTURED_SPARSE",
+              "instances": 64,
+              "distinct_companies": 44,
+              "source_kind": [
+                "source"
+              ]
+            }
+          ]
+        },
+        "permutation": {
+          "recipe": "REVERSE_ALL_CANDIDATES_AND_REMAP_POINTERS",
+          "oracle": "EXACT_PROOF_DECISION_AND_EXECUTION_INVARIANCE",
+          "instances": 67,
+          "distinct_companies": 47,
+          "distinct_layouts": 3,
+          "matrix_cells": [
+            {
+              "layout_family": "DEVELOPMENT_NATIVE_MULTI_TABLE",
+              "instances": 2,
+              "distinct_companies": 2,
+              "source_kind": [
+                "source"
+              ]
+            },
+            {
+              "layout_family": "DEVELOPMENT_NATIVE_RELATIVE_PERIOD_TABLE",
+              "instances": 1,
+              "distinct_companies": 1,
+              "source_kind": [
+                "source"
+              ]
+            },
+            {
+              "layout_family": "DEVELOPMENT_NATIVE_STRUCTURED_SPARSE",
+              "instances": 64,
+              "distinct_companies": 44,
+              "source_kind": [
+                "source"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "query_metric": {
+      "operation": "SELECT",
+      "selected_unknown_obligations": [
+        "query_metric"
+      ],
+      "source_examples": 33,
+      "source_companies": 26,
+      "source_layouts": 6,
+      "synthetic_layout_projection_instances": 0,
+      "matrix_instances": 33,
+      "matrix_companies": 26,
+      "matrix_layouts": 6,
+      "controls": {
+        "positive": {
+          "recipe": "KEEP_GOLD_METRIC_BINDING_AND_EVIDENCE_UNCHANGED",
+          "oracle": "GOLD_METRIC_BINDING_AND_EXECUTION_PRESERVED",
+          "instances": 33,
+          "distinct_companies": 26,
+          "distinct_layouts": 6,
+          "matrix_cells": [
+            {
+              "layout_family": "DEVELOPMENT_NATIVE_EXPLICIT_YEAR_TABLE",
+              "instances": 3,
+              "distinct_companies": 3,
+              "source_kind": [
+                "source"
+              ]
+            },
+            {
+              "layout_family": "DEVELOPMENT_NATIVE_MULTI_TABLE",
+              "instances": 15,
+              "distinct_companies": 14,
+              "source_kind": [
+                "source"
+              ]
+            },
+            {
+              "layout_family": "DEVELOPMENT_NATIVE_RELATIVE_PERIOD_TABLE",
+              "instances": 3,
+              "distinct_companies": 3,
+              "source_kind": [
+                "source"
+              ]
+            },
+            {
+              "layout_family": "DEVELOPMENT_NATIVE_STRUCTURED_SPARSE",
+              "instances": 6,
+              "distinct_companies": 6,
+              "source_kind": [
+                "source"
+              ]
+            },
+            {
+              "layout_family": "DEVELOPMENT_OCR_OR_HYBRID_TABLE",
+              "instances": 5,
+              "distinct_companies": 1,
+              "source_kind": [
+                "source"
+              ]
+            },
+            {
+              "layout_family": "DEVELOPMENT_PLAINTEXT_SPARSE",
+              "instances": 1,
+              "distinct_companies": 1,
+              "source_kind": [
+                "source"
+              ]
+            }
+          ]
+        },
+        "hard_negative": {
+          "recipe": "ADD_SECOND_SEMANTICALLY_COMPATIBLE_LOGICAL_CELL_WITHOUT_DISAMBIGUATING_LINEAGE",
+          "oracle": "ABSTAIN_OR_REJECT_NEVER_ANSWER",
+          "instances": 33,
+          "distinct_companies": 26,
+          "distinct_layouts": 6,
+          "matrix_cells": [
+            {
+              "layout_family": "DEVELOPMENT_NATIVE_EXPLICIT_YEAR_TABLE",
+              "instances": 3,
+              "distinct_companies": 3,
+              "source_kind": [
+                "source"
+              ]
+            },
+            {
+              "layout_family": "DEVELOPMENT_NATIVE_MULTI_TABLE",
+              "instances": 15,
+              "distinct_companies": 14,
+              "source_kind": [
+                "source"
+              ]
+            },
+            {
+              "layout_family": "DEVELOPMENT_NATIVE_RELATIVE_PERIOD_TABLE",
+              "instances": 3,
+              "distinct_companies": 3,
+              "source_kind": [
+                "source"
+              ]
+            },
+            {
+              "layout_family": "DEVELOPMENT_NATIVE_STRUCTURED_SPARSE",
+              "instances": 6,
+              "distinct_companies": 6,
+              "source_kind": [
+                "source"
+              ]
+            },
+            {
+              "layout_family": "DEVELOPMENT_OCR_OR_HYBRID_TABLE",
+              "instances": 5,
+              "distinct_companies": 1,
+              "source_kind": [
+                "source"
+              ]
+            },
+            {
+              "layout_family": "DEVELOPMENT_PLAINTEXT_SPARSE",
+              "instances": 1,
+              "distinct_companies": 1,
+              "source_kind": [
+                "source"
+              ]
+            }
+          ]
+        },
+        "counterfactual": {
+          "recipe": "REPLACE_SELECTED_CELL_WITH_EXPLICIT_NON_ALIAS_METRIC",
+          "oracle": "REJECT_NEVER_ANSWER",
+          "instances": 33,
+          "distinct_companies": 26,
+          "distinct_layouts": 6,
+          "matrix_cells": [
+            {
+              "layout_family": "DEVELOPMENT_NATIVE_EXPLICIT_YEAR_TABLE",
+              "instances": 3,
+              "distinct_companies": 3,
+              "source_kind": [
+                "source"
+              ]
+            },
+            {
+              "layout_family": "DEVELOPMENT_NATIVE_MULTI_TABLE",
+              "instances": 15,
+              "distinct_companies": 14,
+              "source_kind": [
+                "source"
+              ]
+            },
+            {
+              "layout_family": "DEVELOPMENT_NATIVE_RELATIVE_PERIOD_TABLE",
+              "instances": 3,
+              "distinct_companies": 3,
+              "source_kind": [
+                "source"
+              ]
+            },
+            {
+              "layout_family": "DEVELOPMENT_NATIVE_STRUCTURED_SPARSE",
+              "instances": 6,
+              "distinct_companies": 6,
+              "source_kind": [
+                "source"
+              ]
+            },
+            {
+              "layout_family": "DEVELOPMENT_OCR_OR_HYBRID_TABLE",
+              "instances": 5,
+              "distinct_companies": 1,
+              "source_kind": [
+                "source"
+              ]
+            },
+            {
+              "layout_family": "DEVELOPMENT_PLAINTEXT_SPARSE",
+              "instances": 1,
+              "distinct_companies": 1,
+              "source_kind": [
+                "source"
+              ]
+            }
+          ]
+        },
+        "permutation": {
+          "recipe": "REVERSE_ALL_CANDIDATES_AND_REMAP_POINTERS",
+          "oracle": "EXACT_PROOF_DECISION_AND_EXECUTION_INVARIANCE",
+          "instances": 33,
+          "distinct_companies": 26,
+          "distinct_layouts": 6,
+          "matrix_cells": [
+            {
+              "layout_family": "DEVELOPMENT_NATIVE_EXPLICIT_YEAR_TABLE",
+              "instances": 3,
+              "distinct_companies": 3,
+              "source_kind": [
+                "source"
+              ]
+            },
+            {
+              "layout_family": "DEVELOPMENT_NATIVE_MULTI_TABLE",
+              "instances": 15,
+              "distinct_companies": 14,
+              "source_kind": [
+                "source"
+              ]
+            },
+            {
+              "layout_family": "DEVELOPMENT_NATIVE_RELATIVE_PERIOD_TABLE",
+              "instances": 3,
+              "distinct_companies": 3,
+              "source_kind": [
+                "source"
+              ]
+            },
+            {
+              "layout_family": "DEVELOPMENT_NATIVE_STRUCTURED_SPARSE",
+              "instances": 6,
+              "distinct_companies": 6,
+              "source_kind": [
+                "source"
+              ]
+            },
+            {
+              "layout_family": "DEVELOPMENT_OCR_OR_HYBRID_TABLE",
+              "instances": 5,
+              "distinct_companies": 1,
+              "source_kind": [
+                "source"
+              ]
+            },
+            {
+              "layout_family": "DEVELOPMENT_PLAINTEXT_SPARSE",
+              "instances": 1,
+              "distinct_companies": 1,
+              "source_kind": [
+                "source"
+              ]
+            }
+          ]
+        }
+      }
+    }
+  },
+  "totals": {
+    "track_control_instances": 708,
+    "aggregate_matrix_cells": 48
+  },
+  "invariants": {
+    "runtime_changed": false,
+    "abw_used_as_confirmation": false,
+    "protected_evaluation_loaded": false,
+    "threshold_changed": false,
+    "checkpoint_changed": false,
+    "fine_tuning_performed": false,
+    "synthetic_layout_counted_as_unseen_confirmation": false,
+    "qp4_authorized": false
+  },
+  "interpretation": "This matrix freezes aggregate development-only control recipes. Synthetic layout projections close diagnostic diversity only and are not unseen evidence.",
+  "authorized_next_step": "QP3-CORE-GENERALIZATION-COVERAGE-IMPLEMENTATION-PRECOMMIT only; runtime remains locked until that separate precommit freezes admitted generic edits and replay gates."
+}

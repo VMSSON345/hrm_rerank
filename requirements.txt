@@ -1,0 +1,16 @@
+# Core source-grounded Hierarchical Reasoning Model.
+torch>=2.2,<3
+
+# Extracts the real text layer from PDF files.
+pypdf>=4.2,<7
+PyMuPDF>=1.24,<2
+PyYAML>=6,<7
+
+# OCR is MinerU-only and intentionally lives in the isolated .venv-mineru.
+# Install it with scripts/setup_mineru_venv.sh; it is launched as a subprocess.
+
+# Optional legacy dense retrieval backend. Document HRM v2 can run without it.
+fastembed==0.8.0
+
+# Test runner.
+pytest>=8,<10

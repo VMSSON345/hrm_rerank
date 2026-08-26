@@ -1,0 +1,101 @@
+{
+  "schema": "finhrm.qp4.full_source_semantic_replay_refresh_precommit_lock.v1",
+  "created_at": "2026-08-24T18:10:12+07:00",
+  "classification": "development_only_read_only_full_source_semantic_replay_refresh_precommit_lock",
+  "status": "COMPLETE_PASS",
+  "step": "QP4-FULL-SOURCE-SEMANTIC-REPLAY-REFRESH-PRECOMMIT",
+  "precommit_gate_passed": true,
+  "locked_artifacts": [
+    {
+      "path": "config/finhrm_qp4_full_source_semantic_replay_refresh_precommit_v1.json",
+      "size_bytes": 20136,
+      "sha256": "e0aa75cdf6d546fd00a0faac68a8b7f70961e5018894e2afee18086863dcf08b"
+    },
+    {
+      "path": "reports/finhrm_qp4_full_source_semantic_replay_refresh_precommit_v1.md",
+      "size_bytes": 2496,
+      "sha256": "b30dcecc804b990bb35e2e963356d7f99d635bd0abfce09677283d38bba67d66"
+    }
+  ],
+  "authorization_lock": {
+    "parent_final_gate_status": "FAIL_CLOSED",
+    "parent_authorized_step_exact": true,
+    "source_replay_run": false,
+    "runtime_or_model_edit_authorized": false
+  },
+  "input_integrity_lock": {
+    "parent_artifacts": "14/14",
+    "development_sources": "6/6",
+    "runtime_files": "11/11",
+    "checkpoint": "1/1",
+    "missing_files": 0,
+    "hash_mismatches": 0,
+    "protected_sources": 0
+  },
+  "cohort_lock": {
+    "anchors_companies_sources": "6/6/6",
+    "real_document_layouts": 3,
+    "real_table_layouts": 6,
+    "extraction_families": 2,
+    "base_targets": 30,
+    "reference_base_mutation_targets": 30,
+    "semantic_controls": 30,
+    "primary_observations": 90,
+    "candidate_permutation_observations": 90,
+    "new_or_replaced_examples": 0,
+    "synthetic_layouts_counted": 0
+  },
+  "oracle_and_evaluator_lock": {
+    "complete_anchor_oracles": "6/6",
+    "primary_inventory_materializable": "90/90",
+    "permutation_inventory_materializable": "90/90",
+    "permutation_transform_id": "FINHRM_CANDIDATE_REVERSE_REINDEX_REMAP_V1",
+    "transform_fully_specified": true,
+    "candidate_prediction_remap_schema_probe_passed": true,
+    "hidden_state_required": false,
+    "legacy_unknown_transform_37_of_90_used_as_baseline": false,
+    "schema_feasibility": "PASS"
+  },
+  "release_gate_lock": {
+    "proof_complete_exact_target_answers": "60/60",
+    "base_exact_answers": "30/30",
+    "reference_base_mutation_exact_answers": "30/30",
+    "surface_equivalence_groups": "12/12",
+    "source_candidate_permutation": "90/90",
+    "accepted_wrong": 0,
+    "reference_base_old_winner_false_accepts": 0,
+    "semantic_control_false_accepts": 0,
+    "hard_negative_answers": 0,
+    "compiler": "242/242",
+    "regression": "360/360",
+    "gold_execution": "363/363",
+    "frozen_safe_permutation": "363/363",
+    "counterfactuals": 141,
+    "counterfactual_false_accepts": 0
+  },
+  "mutation_lock": {
+    "runtime_edits": 0,
+    "model_edits": 0,
+    "checkpoint_edits": 0,
+    "threshold_edits": 0,
+    "gold_edits": 0,
+    "new_ocr_generations": 0,
+    "fine_tuning": false,
+    "abw_used": false,
+    "protected_evaluation_loaded": false
+  },
+  "artifact_policy": {
+    "maximum_final_json": 1,
+    "maximum_final_markdown": 1,
+    "maximum_lock_or_manifest": 1,
+    "temporary_execution_payloads_must_be_deleted": true
+  },
+  "authorized_next_action": {
+    "step": "QP4-FULL-SOURCE-SEMANTIC-REPLAY-REFRESH",
+    "scope": "Execute all and only the frozen 90 primary observations and their 90 deterministic candidate permutations, then rerun all retained controls and report every gate without repair or reinterpretation.",
+    "runtime_or_model_edit_authorized": false,
+    "qp4_complete": false,
+    "qp5_authorized": false,
+    "phase_d_unlocked": false
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "protocol": "v12c-independent-calibration-cohort-freeze-v1",
+  "classification": "development_only",
+  "protected_evaluation_sources_used": false,
+  "training_performed": false,
+  "model_or_reranker_changed": false,
+  "threshold_changed": false,
+  "discovery_sha256": "6d28c436fe7c6bc3b38a698ef75b5a3978666bb339592178d088c3c59c0c6eb6",
+  "render_queue_sha256": "638261c213f5d70a16598a8a181bbdffafb1c41a745d19b5f34fec843ad6a00e",
+  "visual_decisions_sha256": "86fefa24f9252fed4e0508ed0d8e5528383e7c237e52e4b691b5ec3c6359b4bc",
+  "repair_exclusion_cohort_sha256": "13e4f290f7301d159edda87ed267607a80963e72bd9853329352726f70cfd520",
+  "repair_excluded_tickers": [
+    "DCM",
+    "NAF",
+    "PGS",
+    "VHM",
+    "VSC"
+  ],
+  "summary": {
+    "frozen_records": 36,
+    "independent_company_groups": 18,
+    "minimum_company_groups": 15,
+    "approved_pages": 18,
+    "approved_partial_pages": 0,
+    "rejected_pages": 2,
+    "excluded_non_numeric_periods": 0,
+    "company_overlap_with_repair_cohort": 0,
+    "visual_qa_pass": true,
+    "ready_for_frozen_inference": true,
+    "ready_for_threshold_calibration": false
+  },
+  "cohort_path": "/mnt/d/reasoning_model_V4/reasoning_model/data/v12c_interest_bearing_debt_share_joint_calibration_fresh_positive_v1.jsonl",
+  "cohort_sha256": "41c873a0cdb5ceb5fa5a22448693ebdf72d961fbd5b6987854f5d0c4a9a5a28f",
+  "builder_sha256": "bc8b8b421ed2e8d9b9a32081cbd3dea28eab010745e03517d0d1b2b0387605e1"
+}

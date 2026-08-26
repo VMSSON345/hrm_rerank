@@ -1,0 +1,53 @@
+{
+  "protocol": "v12c-joint-positive-negative-calibration-adequacy-v1",
+  "classification": "development_only_joint_calibration_adequacy",
+  "protected_evaluation_sources_used": false,
+  "training_performed": false,
+  "model_or_reranker_changed": false,
+  "threshold_changed": false,
+  "alternative_thresholds_evaluated": false,
+  "positive_report": {
+    "path": "/mnt/d/reasoning_model_V4/reasoning_model/reports/v12c_interest_bearing_debt_share_independent_calibration_post_semantic_gate_v1.json",
+    "sha256": "007bfb7234adae603d6594b252bebdeae23c46299647d805fd2293929c457500"
+  },
+  "negative_report": {
+    "path": "/mnt/d/reasoning_model_V4/reasoning_model/reports/v12c_interest_bearing_debt_share_negative_ambiguity_post_semantic_gate_v1.json",
+    "sha256": "cf22ce1a1a3322c0d0b975696fb2b71ccacfabd8908613284f0becf3b7f02b99"
+  },
+  "model_sha256": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de",
+  "frozen_ratio_percent_threshold": 0.9909889376955401,
+  "positive": {
+    "controls": 20,
+    "program_and_execution_correct": 20,
+    "accepted": 0,
+    "confidence_min": 0.9011764705882354,
+    "confidence_max": 0.9011764705882354
+  },
+  "negative": {
+    "controls": 26,
+    "false_accepts_at_frozen_threshold": 0,
+    "structurally_rejected": 26,
+    "confidence_min": 0.5056006898380476,
+    "confidence_max": 0.9386331582993088,
+    "unblocked_controls_at_or_above_positive_confidence_floor": 0,
+    "unblocked_overlap_examples": []
+  },
+  "separation": {
+    "positive_confidence_floor": 0.9011764705882354,
+    "negative_confidence_ceiling": 0.9386331582993088,
+    "floor_minus_ceiling": -0.037456687711073466,
+    "confidence_only_separable": false,
+    "structural_gate_complete_on_negative_controls": true
+  },
+  "gate": {
+    "current_threshold_zero_false_accept_gate": true,
+    "current_threshold_positive_coverage_gate": false,
+    "confidence_separation_gate": false,
+    "structural_negative_gate": true,
+    "ready_for_threshold_calibration": false,
+    "threshold_change_authorized": false,
+    "phase_d_unlocked": false
+  },
+  "conclusion": "The frozen threshold prevents false accepts but also accepts no positive controls. Six structurally unblocked semantic-confound controls overlap or exceed the correct-positive confidence floor, so confidence-only threshold lowering is not supported.",
+  "next_required_evidence": "Repair the general semantic distinction between liabilities and interest-bearing borrowings on development-only data, replay both frozen cohorts, and keep the threshold unchanged."
+}

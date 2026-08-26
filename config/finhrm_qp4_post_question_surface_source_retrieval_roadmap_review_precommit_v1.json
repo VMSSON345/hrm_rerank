@@ -1,0 +1,149 @@
+{
+  "schema": "finhrm-qp4-post-question-surface-source-retrieval-roadmap-review-precommit-v1",
+  "created_at": "2026-08-22",
+  "classification": "development_only_qp4_source_retrieval_roadmap_review_precommit_no_runtime_change",
+  "status": "precommit_contract",
+  "parents": {
+    "diagnostic_report": {
+      "path": "reports/finhrm_qp4_post_question_surface_residual_implementation_diagnostic_refresh_v1.json",
+      "sha256": "05c75b2b3dc73fec5912fc6b3ba9a9c6a9f55015151c2dcaf39e133aa1351f63"
+    },
+    "diagnostic_lock": {
+      "path": "reports/finhrm_qp4_post_question_surface_residual_implementation_diagnostic_refresh_lock_v1.json",
+      "sha256": "f10e3d1d4746b83a0538012a4d2da92730faf5988186dc0b3586157cc96fae07"
+    },
+    "actual_plan_source_baseline": {
+      "path": "reports/finhrm_qp4_post_question_surface_actual_plan_source_baseline_v1.json",
+      "sha256": "c18273cc2930b96df260af4a900d406cd366628bd73835d58c7cd3277673b030"
+    },
+    "actual_plan_source_cohort": {
+      "path": "config/finhrm_qp4_actual_plan_ratio_direction_source_cohort_v1.json",
+      "sha256": "20ba00740ffe9ba2686c08bc01d07b8f345847d7ddbc5b8780c157bd7ef8d11f"
+    },
+    "claude_md": {
+      "path": "CLAUDE.md",
+      "sha256": "35a0f66a6531e61b35dc7288884da35eeef79ad1039f5ffdfd29295cee8d566e"
+    }
+  },
+  "review_evidence": {
+    "selection_predicate": {
+      "track": "ACTUAL_PLAN",
+      "group": "REFERENCE_BASE",
+      "first_failing_layer": "SOURCE_LOAD_OR_EXTRACTION",
+      "select_all_matching_development_records": true,
+      "select_by_company_filename_page_year_value_example_id_or_question_literal": false
+    },
+    "observations": 8,
+    "companies": 4,
+    "source_documents": 4,
+    "real_layout_families": 3,
+    "generic_evidence_minimum": {
+      "companies": 3,
+      "source_documents": 3,
+      "real_layout_families": 3
+    },
+    "observed_source_error_type": "DocumentSourceError",
+    "observed_source_error_message": "MinerU OCR is required but no compatible cached artifact exists and auto-generation is disabled",
+    "accepted_wrong": 0,
+    "counterfactual_false_accepts": 0
+  },
+  "roadmap_review": {
+    "generic_core_bottleneck_evidence_sufficient": true,
+    "attribution": "DEVELOPMENT_OCR_CACHE_AVAILABILITY",
+    "broad_ocr_or_layout_algorithm_extension_authorized": false,
+    "retrieval_algorithm_change_authorized": false,
+    "runtime_edit_authorized": false,
+    "runtime_file_whitelist": [],
+    "reason": "The same fail-closed cache-availability error occurs across four development companies, four source PDFs, and three real layout families. The evidence authorizes materializing missing development OCR artifacts and replaying the frozen observations; it does not demonstrate an OCR-quality, layout-parser, retrieval, binding, verifier, or model defect.",
+    "not_established": [
+      "OCR accuracy improvement",
+      "layout reconstruction improvement",
+      "candidate retrieval improvement",
+      "semantic binding improvement",
+      "symbolic proof improvement",
+      "unseen or universal generalization"
+    ]
+  },
+  "authorized_execution_contract": {
+    "step": "QP4-POST-QUESTION-SURFACE-DEVELOPMENT-OCR-CACHE-MATERIALIZATION-AND-SOURCE-REPLAY",
+    "source_selection": "all and only development ACTUAL_PLAN REFERENCE_BASE sources in the frozen cohort whose observation first failed at SOURCE_LOAD_OR_EXTRACTION because no compatible cache existed",
+    "expected_source_documents": 4,
+    "expected_observations": 8,
+    "materialization_phase": {
+      "use_frozen_existing_mineru_pipeline": true,
+      "mineru_auto_generate": true,
+      "protected_evaluation_sources_allowed": false,
+      "source_sha256_must_match_frozen_cohort": true,
+      "persist_structured_content_list_only": true,
+      "record_input_source_sha256_and_output_artifact_sha256_in_final_lock": true,
+      "runtime_code_change_allowed": false
+    },
+    "replay_phase": {
+      "mineru_auto_generate": false,
+      "public_boundary": [
+        "question",
+        "source PDF path"
+      ],
+      "gold_candidate_or_program_passed_to_engine": false,
+      "gold_used_post_hoc_only": true,
+      "source_errors_remain_in_denominator": true,
+      "safe_abstention_counts_as_answer": false
+    },
+    "required_gates": {
+      "all_selected_source_hashes_match": true,
+      "all_materialized_artifacts_are_reusable_with_auto_generation_disabled": true,
+      "source_load_or_extraction_failures": 0,
+      "accepted_wrong": 0,
+      "counterfactual_false_accepts": 0,
+      "compiler_inventory": "242/242",
+      "gold_execution": "363/363",
+      "candidate_permutation": "363/363",
+      "frozen_counterfactuals": 141,
+      "frozen_counterfactual_false_accepts": 0,
+      "frozen_safe_replay_gate": true
+    },
+    "failure_policy": "If replay reaches a downstream failing layer, classify that residual and precommit the smallest generic layer before any runtime edit. Do not add report-specific rules or widen scope automatically."
+  },
+  "checkpoint": {
+    "path": "models/document_hrm_V8_candidate.pt",
+    "sha256": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de"
+  },
+  "frozen_runtime_hashes": {
+    "src/hrm_finance_qa/question_planner.py": "334ab6bfb57b883ff2022cdcb39614d7e7a8d3269c14f4bea188640d53111bf4",
+    "src/hrm_finance_qa/symbolic_verifier.py": "2679b1ce55cc070697438c806f19e3e888bfc19bc1a9ae3686a0b7fd7ffb0087",
+    "src/hrm_finance_qa/program_synthesis.py": "e4acc4878d0dfd465ba66ab91f3aaf8be71db5591aa1358fb8cb81f3c7bff550",
+    "src/hrm_finance_qa/evidence_schema.py": "2f16fabf932dc9dabc8203d9642d2503bb2dab43e0e1ee0f78755dd4fb00825d",
+    "src/hrm_finance_qa/document_hrm.py": "b5951bcde79583950b672f7fb6b199b3e5b9904e6784daae7c4c5be0eba65d21",
+    "src/hrm_finance_qa/document_reasoning_engine.py": "3883500011472716bc01f8e04a6d6f925173b35a14bbedd945c5ca4fb0063fa2",
+    "src/hrm_finance_qa/program_data.py": "5199434fc0628b7d270ce62b12657366cbe118901065edd9f1e1f6ca0f1f8d54",
+    "src/hrm_finance_qa/direction_contract.py": "a18aa130419fc74ce647bd92dc9c1b1217007738e636aad0f28c7f78396be937",
+    "src/hrm_finance_qa/answer_presentation.py": "c40bd4a8dff39162b44cf11ef2da12e7b153d907f7254e5d1856157b3ac56d36",
+    "src/hrm_finance_qa/document_sources.py": "e9eb7b3ddcc2ed13060a573a6a0101a216fa49ff21dd65cd5fc2629b92f5fc0b",
+    "src/hrm_finance_qa/document_page_index.py": "c99e011175afef21f302be42ba9454b948caa549d4d445d6bb35c5b974b81f85"
+  },
+  "artifact_policy": {
+    "maximum_final_json": 1,
+    "maximum_final_markdown": 1,
+    "maximum_lock_or_manifest": 1,
+    "raw_or_intermediate_artifacts_persisted": false,
+    "temporary_artifacts_deleted_after_verification": true
+  },
+  "invariants": {
+    "abw_used": false,
+    "protected_evaluation_loaded": false,
+    "validation_loaded": false,
+    "blind_loaded": false,
+    "test_data_loaded": false,
+    "sealed_or_holdout_loaded": false,
+    "fine_tuning_performed": false,
+    "threshold_changed": false,
+    "checkpoint_changed": false,
+    "model_changed": false,
+    "synthetic_layout_counted_as_confirmation": false,
+    "candidate_rank_score_or_confidence_used_as_semantic_proof": false,
+    "runtime_changed": false,
+    "qp4_complete": false,
+    "qp5_authorized": false,
+    "phase_d_unlocked": false
+  }
+}

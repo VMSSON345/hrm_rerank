@@ -1,0 +1,137 @@
+{
+  "schema": "finhrm-qp4-unit-scale-source-residual-isolation-precommit-report-v1",
+  "created_at": "2026-08-21",
+  "classification": "development_only_qp4_generic_unit_scale_proof_boundary_precommit",
+  "precommit_gate_passed": true,
+  "failed_gates": [],
+  "generic_residual_evidence": {
+    "dimension": "UNIT_SCALE",
+    "runs": 5,
+    "companies": 5,
+    "sources": 5,
+    "real_layouts": 3,
+    "planner_typed": 5,
+    "answers": 4,
+    "old_winner_false_accepts": 4,
+    "answered_with_raw_unit_scale_preserved": 4,
+    "answered_with_unit_match_valid": 4,
+    "answered_with_unit_scale_obligation_declared": 0,
+    "answered_with_unit_scale_match_state": 0,
+    "answered_with_all_required_proofs_valid": 4,
+    "genericity_basis": [
+      "five independent development companies",
+      "five source PDFs",
+      "three real layout families",
+      "four reproduced ANSWER false accepts with identical proof-boundary failure"
+    ]
+  },
+  "layer_attribution": {
+    "planner_requested_scale_retained": true,
+    "evidence_raw_unit_scale_retained": true,
+    "retrieval_or_binding_winner_changed": false,
+    "program_synthesis_requires_only_unit_family": true,
+    "first_missing_semantic_boundary": "question_proof_contract",
+    "first_missing_runtime_assessment": "symbolic_verifier",
+    "engine_action_policy_already_fails_closed_on_required_unknown": true,
+    "root_cause": "An explicit requested monetary scale is absent from QuestionProofContract, so verify_program can mark currency-family unit_match VALID without assessing the raw evidence scale. The engine consequently sees all existing required obligations as VALID and preserves the old ANSWER.",
+    "not_attributed_to": [
+      "retrieval",
+      "candidate binding",
+      "neural rank",
+      "neural score",
+      "confidence",
+      "report layout",
+      "company identity",
+      "answer renderer"
+    ]
+  },
+  "next_implementation_scope": {
+    "stage": "typed_unit_scale_proof_only",
+    "runtime_file_whitelist": [
+      "src/hrm_finance_qa/question_planner.py",
+      "src/hrm_finance_qa/symbolic_verifier.py"
+    ],
+    "exact_symbols": {
+      "src/hrm_finance_qa/question_planner.py": [
+        "_PROOF_CONSTRAINTS",
+        "compile_question_proof_contract"
+      ],
+      "src/hrm_finance_qa/symbolic_verifier.py": [
+        "currency_unit_scale import",
+        "_unit_scale_match_state",
+        "verify_program"
+      ]
+    },
+    "new_proof_obligation": "unit_scale_match",
+    "semantic_contract": [
+      "An explicit requested_scale creates a required unit_scale_match obligation.",
+      "No requested_scale keeps unit_scale_match not_applicable and preserves all existing decisions.",
+      "Matching explicit question and evidence currency scales yield VALID.",
+      "Missing raw evidence scale yields UNKNOWN and therefore ABSTAIN.",
+      "A different but convertible explicit evidence scale without a conversion DAG yields UNKNOWN and therefore ABSTAIN, never an unconverted ANSWER.",
+      "Mixed explicit operand currency scales without a conversion DAG yield INVALID and therefore REJECT.",
+      "requested_scale=conflict yields INVALID and therefore REJECT.",
+      "A monetary requested_scale combined with percent or ratio output yields INVALID and therefore REJECT.",
+      "The proof uses only explicit question scale and raw evidence units; candidate rank, neural score and confidence are forbidden as semantic proof."
+    ],
+    "non_goals": [
+      "unit conversion execution",
+      "candidate value rescaling",
+      "retrieval changes",
+      "candidate binding changes",
+      "program synthesis changes",
+      "evidence schema changes",
+      "document reasoning engine changes",
+      "answer renderer changes",
+      "threshold changes",
+      "checkpoint or model changes",
+      "COLUMN_ROLE repair",
+      "DIRECTION repair",
+      "REFERENCE_BASE repair"
+    ]
+  },
+  "post_implementation_gates": {
+    "source_unit_scale_runs": 5,
+    "source_unit_scale_companies": 5,
+    "source_unit_scale_sources": 5,
+    "source_unit_scale_real_layouts": 3,
+    "source_old_winner_false_accept_target": 0,
+    "source_expected_existing_answer_residual_action": "ABSTAIN",
+    "source_operation_value_evidence_binding_retained": "4/4",
+    "matching_scale_valid_cases": "all pass",
+    "missing_scale_proof_unknown_cases": "all pass",
+    "mismatched_unconverted_scale_unknown_cases": "all pass",
+    "mixed_operand_scale_invalid_cases": "all pass",
+    "conflicting_request_invalid_cases": "all pass",
+    "incompatible_output_invalid_cases": "all pass",
+    "no_requested_scale_decision_retention": "100%",
+    "candidate_permutation_exact_rate": 1.0,
+    "frozen_safe_replay_actions": {
+      "ANSWER": 259,
+      "ABSTAIN": 90,
+      "REJECT": 14
+    },
+    "frozen_safe_replay_execution": "363/363",
+    "frozen_safe_replay_permutation": "363/363",
+    "frozen_safe_replay_counterfactuals": 141,
+    "frozen_safe_replay_counterfactual_false_accepts": 0
+  },
+  "runtime_changed": false,
+  "runtime_hashes": {
+    "src/hrm_finance_qa/question_planner.py": "e64c9140ed62cc7289941edf04b58c9748b13bf6bf98edd5699ef1d4ffb38a03",
+    "src/hrm_finance_qa/symbolic_verifier.py": "e9efa8d2fa9ce1aedd460cdd11c1eb9321aab7122b0908fc5017687c1491ed88",
+    "src/hrm_finance_qa/program_synthesis.py": "e4acc4878d0dfd465ba66ab91f3aaf8be71db5591aa1358fb8cb81f3c7bff550",
+    "src/hrm_finance_qa/evidence_schema.py": "2f16fabf932dc9dabc8203d9642d2503bb2dab43e0e1ee0f78755dd4fb00825d",
+    "src/hrm_finance_qa/document_hrm.py": "b5951bcde79583950b672f7fb6b199b3e5b9904e6784daae7c4c5be0eba65d21",
+    "src/hrm_finance_qa/document_reasoning_engine.py": "3883500011472716bc01f8e04a6d6f925173b35a14bbedd945c5ca4fb0063fa2",
+    "src/hrm_finance_qa/program_data.py": "5199434fc0628b7d270ce62b12657366cbe118901065edd9f1e1f6ca0f1f8d54",
+    "src/hrm_finance_qa/direction_contract.py": "a18aa130419fc74ce647bd92dc9c1b1217007738e636aad0f28c7f78396be937",
+    "src/hrm_finance_qa/answer_presentation.py": "c40bd4a8dff39162b44cf11ef2da12e7b153d907f7254e5d1856157b3ac56d36"
+  },
+  "checkpoint_sha256": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de",
+  "downstream_runtime_change_authorized_in_same_step": false,
+  "qp4_complete": false,
+  "qp5_authorized": false,
+  "phase_d": "locked",
+  "authorized_next_step": "QP4-UNIT-SCALE-PROOF-CONTRACT-IMPLEMENTATION may edit only the exact symbols in src/hrm_finance_qa/question_planner.py and src/hrm_finance_qa/symbolic_verifier.py, then must run all post-implementation gates. Conversion, retrieval, binding, synthesis, engine, renderer, other QP4 dimensions, QP5 and Phase D remain locked."
+}

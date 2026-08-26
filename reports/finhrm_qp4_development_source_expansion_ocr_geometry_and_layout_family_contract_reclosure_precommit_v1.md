@@ -1,0 +1,11 @@
+# FinHRM QP4 OCR logical-provenance contract reclosure precommit
+
+- Gate: **PASS**. Đây là precommit schema/evaluator; chưa sửa runtime, model, checkpoint, threshold, OCR hay renderer.
+- Mục tiêu được khóa lại theo content correctness: một operand được dẫn chứng đầy đủ khi truy ngược deterministically tới đúng `source SHA → physical page → table bbox → OCR artifact SHA → table SHA/ID → logical row/column → header path → raw value`. Bbox pixel từng ô là metadata tùy chọn, không phải semantic gate và không được tự tạo.
+- Safety không nới: period, `ACTUAL/PLAN`, metric, unit, entity và hai logical cells phải explicit và duy nhất. Thiếu hoặc mơ hồ là `UNKNOWN → ABSTAIN`; duplicate/conflict hoặc replay sai là `REJECT`. Rank, neural score và confidence không được phá hòa semantic.
+- Chuẩn pixel-geometry cũ không bị báo thành PASS: hierarchical cũ vẫn `1/1/1/1`, fragmented-native vẫn `0/0/0/0`. Chúng được giữ ở M7 OCR robustness extension; fragmented không còn chặn QP4 content-correctness, nhưng mọi fragmented row không tái dựng duy nhất vẫn phải ABSTAIN.
+- Signature mới là `PA07_VERIFIED_LOGICAL_TABLE_BINDING_V1`. Layout family dùng các field cấu trúc cũ và đổi field carrier thành `table_representation`, có bốn bin trung thực: `native_aligned`, `native_flattened`, `native_fragmented`, `ocr_structured_html`. Không gắn company, filename, year, metric hay value vào family ID.
+- Feasibility replay đã xác minh một native anchor ABB và hai OCR proposal THW/TVA: `3` company, `3` PDF, `3` real layout family, `3` instance. THW/TVA tái dựng đúng rowspan/colspan, header path, period, role, unit, logical address và operand; hai OCR family khác nhau bởi `wrapped_same_row` và `single_line`, không phải bởi identity hoặc tọa độ nhỏ.
+- Sáu in-memory negative mutation đều fail-safe: thiếu period `2/2` ABSTAIN, duplicate role `2/2` REJECT, thiếu unit `2/2` ABSTAIN.
+- Frozen replay tại precommit vẫn sạch: execution `363/363`, permutation `363/363`, `141` counterfactual với `0` false accept, affected regression `360/360`.
+- Bước duy nhất được mở tiếp theo là `QP4-DEVELOPMENT-SOURCE-EXPANSION-OCR-LOGICAL-PROVENANCE-COHORT-RECLOSURE`: replay đúng ba anchor đã khóa, materialize citation/program/negative controls và chạy lại toàn bộ frozen gates. Không tìm thêm source/page, không OCR thêm và không sửa runtime.

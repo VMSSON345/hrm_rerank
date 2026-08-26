@@ -1,0 +1,40 @@
+{
+  "schema": "finhrm-qp3-core-replay-authorization-v1",
+  "created_at": "2026-08-14",
+  "classification": "development_only_replay_harness_authorization",
+  "parent_implementation_lock": {
+    "path": "reports/finhrm_qp3_core_implementation_lock_v1.json",
+    "sha256": "19021a8b8b1c69611aa6cd4f32c1aac4f459567b62fb11df0fdf3b8a3a74ca1b"
+  },
+  "scope": "Replay-harness compatibility only; this manifest authorizes no runtime, threshold, checkpoint, training, acceptance, validation, blind, or test-data change.",
+  "authorized_harness_artifacts": [
+    {
+      "path": "scripts/validate_qp3a_column_role_proof_precommit.py",
+      "size_bytes": 16874,
+      "sha256": "c8e2872e08b89bf92b56af9fa7dd1ad077d356e6a619ea449dd73bcbba821b0b"
+    },
+    {
+      "path": "scripts/validate_qp3c_role_inventory_producer_precommit.py",
+      "size_bytes": 19781,
+      "sha256": "79cf1211a84251ddab402b98d4ebe57d4b662e4d7b6a0ad899c99d97fb67e601"
+    },
+    {
+      "path": "scripts/validate_qp3e_flattened_table_provenance_precommit.py",
+      "size_bytes": 23614,
+      "sha256": "f1b10a1d4ec47b0ea472432b65ddbfc81a150260ce675d5b3741a70a1c126399"
+    },
+    {
+      "path": "scripts/validate_qp3_core_precommit.py",
+      "size_bytes": 27923,
+      "sha256": "e82a220f1c76a5d5d172a9e53c4c8fad66dfe02776419c4e63ac2a494d4e8117"
+    }
+  ],
+  "invariants": {
+    "runtime_change_authorized": false,
+    "threshold_change_authorized": false,
+    "checkpoint_change_authorized": false,
+    "fine_tuning_authorized": false,
+    "protected_evaluation_access_authorized": false,
+    "phase_d_unlock_authorized": false
+  }
+}

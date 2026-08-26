@@ -1,0 +1,1750 @@
+{
+  "schema": "finhrm.qp4.development_source_expansion_page_selective_ocr_reclosure_precommit.v1",
+  "created_at": "2026-08-24T13:52:57+07:00",
+  "classification": "development_only_frozen_source_page_selective_ocr_reclosure_precommit_no_runtime_no_model_no_ocr_execution",
+  "status": "PASS",
+  "step": "QP4-DEVELOPMENT-SOURCE-EXPANSION-PAGE-SELECTIVE-OCR-RECLOSURE-PRECOMMIT",
+  "precommit_gate_passed": true,
+  "runtime_implementation_gate_passed": false,
+  "ocr_performed": false,
+  "purpose": "Freeze an outcome-independent, bounded page-selection and MinerU materialization contract for the 25 image-dominant development sources that were unavailable to the native-only source-expansion build; evaluate only missing hierarchical and fragmented PA07 structural coverage.",
+  "parents": {
+    "cohort_build_json": {
+      "path": "reports/finhrm_qp4_development_source_expansion_cohort_build_v1.json",
+      "size_bytes": 33686,
+      "sha256": "16511e98bea58c41b2366be4e5820784a7c5f6e2a6671947e5632c153c315514"
+    },
+    "cohort_build_markdown": {
+      "path": "reports/finhrm_qp4_development_source_expansion_cohort_build_v1.md",
+      "size_bytes": 3945,
+      "sha256": "216ae25245c89cd616f43e48adc8e372c93b64dce5e20b34eaf8b6038c9f7886"
+    },
+    "cohort_build_lock": {
+      "path": "reports/finhrm_qp4_development_source_expansion_cohort_build_lock_v1.json",
+      "size_bytes": 5895,
+      "sha256": "784676a4fd50c385fffe47c7c2b702cef6bd762d1dfe4de548fd80b00f2f6b46"
+    },
+    "parent_status": "FAIL_CLOSED",
+    "parent_gate_passed": false,
+    "parent_no_native_terminal_count": 25
+  },
+  "locked_scope": {
+    "parent_selected_manifest_sha256": "4af6cebd661df6cebf9249343de16c7b6740a40f8e9cd600b6b423f2a48ab238",
+    "source_predicate": "exactly parent source_results rows whose terminal_reason is REJECT_NO_NATIVE_TEXT_OR_GEOMETRY",
+    "sources": 25,
+    "distinct_companies": 25,
+    "physical_pages": 721,
+    "post_hoc_source_replacements": 0,
+    "additional_sources_allowed_during_build": 0,
+    "question_or_answer_outcome_used_for_source_selection": false,
+    "company_filename_page_year_value_example_or_question_literal_used_by_selector": false
+  },
+  "page_selection_contract": {
+    "transform_id": "FINHRM_QP4_DEV_IMAGE_DOMINANT_PAGE_SELECTIVE_OCR_V1",
+    "renderer": {
+      "library": "PyMuPDF",
+      "version": "1.28.0",
+      "dpi": 96,
+      "colorspace": "GRAY",
+      "alpha": false
+    },
+    "raster_transform": {
+      "binarization": "cv2.threshold(gray,0,255,THRESH_BINARY_INV+THRESH_OTSU)",
+      "opencv_version": "5.0.0",
+      "horizontal_kernel": "MORPH_RECT(max(12,round(width*0.035)),1)",
+      "vertical_kernel": "MORPH_RECT(1,max(12,round(height*0.025)))",
+      "morphology": "MORPH_OPEN",
+      "horizontal_component": "bounding_width >= 0.08*page_width",
+      "vertical_component": "bounding_height >= 0.06*page_height",
+      "grid_candidate": "horizontal_count>=4 and vertical_count>=3 and intersection_components>=8",
+      "row_band_candidate": "horizontal_count>=7 and horizontal_pixel_ratio>=0.006 and ink_ratio>=0.02",
+      "candidate_range_filters": "0.02<=ink_ratio<=0.22 and horizontal_pixel_ratio<=0.18 and vertical_pixel_ratio<=0.18"
+    },
+    "structural_order": [
+      "row_band_candidate descending",
+      "grid_candidate descending",
+      "horizontal_count descending",
+      "vertical_count descending",
+      "min(intersection_components,200) descending",
+      "one_based_page ascending"
+    ],
+    "structural_pages_per_source": 4,
+    "stratified_pages_per_source": 4,
+    "stratified_formula": "for q in [1,2,3,4], one_based_page=1+floor((physical_pages-1)*q/5)",
+    "merge": "set union; sort by one_based_page ascending; preserve both reasons on overlap",
+    "maximum_selected_pages_per_source": 8,
+    "neighbor_expansion_pages": 0,
+    "fallback_replacement_after_ocr_outcome": false,
+    "selector_role": "OCR routing only; raster metrics, ordering and page membership are never semantic proof or admission evidence"
+  },
+  "selection_replay": {
+    "selected_pages": 179,
+    "sources_with_selected_pages": 25,
+    "structural_reason_memberships": 99,
+    "stratified_reason_memberships": 100,
+    "selected_fraction_of_physical_pages": 0.248266,
+    "selection_manifest_sha256": "ab463443df08a2d8a41dd064cc0a1f8281429b8ace0355b61fb54feb18199bf9",
+    "all_source_hashes_verified": true,
+    "all_pages_rendered_for_schema_probe": true,
+    "whole_document_ocr_sources": 0
+  },
+  "ocr_materialization_contract": {
+    "existing_executor": {
+      "path": "scripts/ocr_financial_review_pages.py",
+      "size_bytes": 8507,
+      "sha256": "3a68a1c25fe243795fe88c083f11e90dce29ffd90e1f2b40e9c5a5e50b96f87a"
+    },
+    "mineru_service_launcher": {
+      "path": "scripts/run_mineru_api.sh",
+      "size_bytes": 1316,
+      "sha256": "c92432b3912499bdcf106e0b02baddb2cc2334cef77885f760acdbfe9eb37a3f"
+    },
+    "mineru_version": "3.4.4",
+    "api_url": "http://127.0.0.1:8000",
+    "health_gate": "GET /health must return JSON object with status=healthy before the first request",
+    "engine": "MinerU API",
+    "backend": "hybrid-engine",
+    "effort": "medium",
+    "parse_method": "ocr",
+    "table_enable": true,
+    "formula_enable": false,
+    "image_analysis": false,
+    "api_page_batch_size": 4,
+    "selected_mask_must_equal_manifest": true,
+    "unselected_page_generation_allowed": false,
+    "whole_document_ocr_allowed": false,
+    "cache_dir": "cache/mineru",
+    "temporary_markdown_dir": "tmp/pdfs/qp4_development_source_expansion_page_selective_ocr_v1",
+    "temporary_executor_report": "tmp/pdfs/qp4_development_source_expansion_page_selective_ocr_executor_v1.json",
+    "temporary_outputs_must_be_deleted_after_final_verification": true,
+    "runtime_source_hash": {
+      "path": "src/hrm_finance_qa/document_sources.py",
+      "size_bytes": 57613,
+      "sha256": "e9eb7b3ddcc2ed13060a573a6a0101a216fa49ff21dd65cd5fc2629b92f5fc0b"
+    }
+  },
+  "documents": [
+    {
+      "company_key": "development-company-0afd7c65e655ce13",
+      "document": "pdf/PDF_24/PDF_24/CCP_24CN_BCTN.pdf",
+      "sha256": "5b41ecd5600334e8556814cc2a5654c1033a37fdbbabf095d887c7e700b2fcca",
+      "total_pages": 9,
+      "parent_terminal_reason": "REJECT_NO_NATIVE_TEXT_OR_GEOMETRY",
+      "pages": [
+        {
+          "page": 2,
+          "selection": "core",
+          "reasons": [
+            "raster_table_structure",
+            "stratified_physical_coverage"
+          ]
+        },
+        {
+          "page": 4,
+          "selection": "discovery",
+          "reasons": [
+            "stratified_physical_coverage"
+          ]
+        },
+        {
+          "page": 5,
+          "selection": "discovery",
+          "reasons": [
+            "stratified_physical_coverage"
+          ]
+        },
+        {
+          "page": 6,
+          "selection": "core",
+          "reasons": [
+            "raster_table_structure"
+          ]
+        },
+        {
+          "page": 7,
+          "selection": "core",
+          "reasons": [
+            "raster_table_structure",
+            "stratified_physical_coverage"
+          ]
+        },
+        {
+          "page": 8,
+          "selection": "core",
+          "reasons": [
+            "raster_table_structure"
+          ]
+        }
+      ]
+    },
+    {
+      "company_key": "development-company-0efb6600fc9c3e95",
+      "document": "pdf/PDF_24/PDF_24/BHC_24CN_BCTN.pdf",
+      "sha256": "db4cd89e096991f34d572f8a6de7f00d4f8c3fda6471b31d46b1088a17c03472",
+      "total_pages": 8,
+      "parent_terminal_reason": "REJECT_NO_NATIVE_TEXT_OR_GEOMETRY",
+      "pages": [
+        {
+          "page": 2,
+          "selection": "discovery",
+          "reasons": [
+            "stratified_physical_coverage"
+          ]
+        },
+        {
+          "page": 3,
+          "selection": "core",
+          "reasons": [
+            "raster_table_structure",
+            "stratified_physical_coverage"
+          ]
+        },
+        {
+          "page": 4,
+          "selection": "core",
+          "reasons": [
+            "raster_table_structure"
+          ]
+        },
+        {
+          "page": 5,
+          "selection": "core",
+          "reasons": [
+            "raster_table_structure",
+            "stratified_physical_coverage"
+          ]
+        },
+        {
+          "page": 6,
+          "selection": "discovery",
+          "reasons": [
+            "stratified_physical_coverage"
+          ]
+        },
+        {
+          "page": 7,
+          "selection": "core",
+          "reasons": [
+            "raster_table_structure"
+          ]
+        }
+      ]
+    },
+    {
+      "company_key": "development-company-1d6031fc629bf13d",
+      "document": "pdf/PDF_24/PDF_24/KKC_24CN_BCTN.pdf",
+      "sha256": "696cd216dd4c7a676fec762d315eef85d0ddd9a1884517203ecc17e4d6da0467",
+      "total_pages": 24,
+      "parent_terminal_reason": "REJECT_NO_NATIVE_TEXT_OR_GEOMETRY",
+      "pages": [
+        {
+          "page": 3,
+          "selection": "core",
+          "reasons": [
+            "raster_table_structure"
+          ]
+        },
+        {
+          "page": 4,
+          "selection": "core",
+          "reasons": [
+            "raster_table_structure"
+          ]
+        },
+        {
+          "page": 5,
+          "selection": "discovery",
+          "reasons": [
+            "stratified_physical_coverage"
+          ]
+        },
+        {
+          "page": 6,
+          "selection": "core",
+          "reasons": [
+            "raster_table_structure"
+          ]
+        },
+        {
+          "page": 10,
+          "selection": "discovery",
+          "reasons": [
+            "stratified_physical_coverage"
+          ]
+        },
+        {
+          "page": 14,
+          "selection": "discovery",
+          "reasons": [
+            "stratified_physical_coverage"
+          ]
+        },
+        {
+          "page": 19,
+          "selection": "discovery",
+          "reasons": [
+            "stratified_physical_coverage"
+          ]
+        },
+        {
+          "page": 21,
+          "selection": "core",
+          "reasons": [
+            "raster_table_structure"
+          ]
+        }
+      ]
+    },
+    {
+      "company_key": "development-company-1fe2d28f0996841e",
+      "document": "pdf/PDF_24/PDF_24/VCA_24CN_BCTN.pdf",
+      "sha256": "e5f61a6a7ffd43170fc13a5bf67478d86ffec2a6e3eff93f4f180a3b9802a406",
+      "total_pages": 25,
+      "parent_terminal_reason": "REJECT_NO_NATIVE_TEXT_OR_GEOMETRY",
+      "pages": [
+        {
+          "page": 3,
+          "selection": "core",
+          "reasons": [
+            "raster_table_structure"
+          ]
+        },
+        {
+          "page": 5,
+          "selection": "discovery",
+          "reasons": [
+            "stratified_physical_coverage"
+          ]
+        },
+        {
+          "page": 10,
+          "selection": "discovery",
+          "reasons": [
+            "stratified_physical_coverage"
+          ]
+        },
+        {
+          "page": 15,
+          "selection": "discovery",
+          "reasons": [
+            "stratified_physical_coverage"
+          ]
+        },
+        {
+          "page": 20,
+          "selection": "discovery",
+          "reasons": [
+            "stratified_physical_coverage"
+          ]
+        },
+        {
+          "page": 23,
+          "selection": "core",
+          "reasons": [
+            "raster_table_structure"
+          ]
+        },
+        {
+          "page": 24,
+          "selection": "core",
+          "reasons": [
+            "raster_table_structure"
+          ]
+        },
+        {
+          "page": 25,
+          "selection": "core",
+          "reasons": [
+            "raster_table_structure"
+          ]
+        }
+      ]
+    },
+    {
+      "company_key": "development-company-189e377bafb9ffd6",
+      "document": "pdf/PDF_24/PDF_24/VTM_24CN_BCTN.pdf",
+      "sha256": "7a8922c60424ca4561f964a64103cfa2d37305810f655484ed0540cadf380d35",
+      "total_pages": 29,
+      "parent_terminal_reason": "REJECT_NO_NATIVE_TEXT_OR_GEOMETRY",
+      "pages": [
+        {
+          "page": 6,
+          "selection": "discovery",
+          "reasons": [
+            "stratified_physical_coverage"
+          ]
+        },
+        {
+          "page": 10,
+          "selection": "core",
+          "reasons": [
+            "raster_table_structure"
+          ]
+        },
+        {
+          "page": 11,
+          "selection": "core",
+          "reasons": [
+            "raster_table_structure"
+          ]
+        },
+        {
+          "page": 12,
+          "selection": "core",
+          "reasons": [
+            "raster_table_structure",
+            "stratified_physical_coverage"
+          ]
+        },
+        {
+          "page": 17,
+          "selection": "discovery",
+          "reasons": [
+            "stratified_physical_coverage"
+          ]
+        },
+        {
+          "page": 23,
+          "selection": "discovery",
+          "reasons": [
+            "stratified_physical_coverage"
+          ]
+        },
+        {
+          "page": 25,
+          "selection": "core",
+          "reasons": [
+            "raster_table_structure"
+          ]
+        }
+      ]
+    },
+    {
+      "company_key": "development-company-1d93fc6e0149715f",
+      "document": "pdf/PDF_24/PDF_24/THW_24CN_BCTN.pdf",
+      "sha256": "a67ba32e0f55f9da5d99181daf21caf2a2315b9b4df049e70d28a3e52900613c",
+      "total_pages": 44,
+      "parent_terminal_reason": "REJECT_NO_NATIVE_TEXT_OR_GEOMETRY",
+      "pages": [
+        {
+          "page": 5,
+          "selection": "core",
+          "reasons": [
+            "raster_table_structure"
+          ]
+        },
+        {
+          "page": 6,
+          "selection": "core",
+          "reasons": [
+            "raster_table_structure"
+          ]
+        },
+        {
+          "page": 9,
+          "selection": "core",
+          "reasons": [
+            "raster_table_structure",
+            "stratified_physical_coverage"
+          ]
+        },
+        {
+          "page": 14,
+          "selection": "core",
+          "reasons": [
+            "raster_table_structure"
+          ]
+        },
+        {
+          "page": 18,
+          "selection": "discovery",
+          "reasons": [
+            "stratified_physical_coverage"
+          ]
+        },
+        {
+          "page": 26,
+          "selection": "discovery",
+          "reasons": [
+            "stratified_physical_coverage"
+          ]
+        },
+        {
+          "page": 35,
+          "selection": "discovery",
+          "reasons": [
+            "stratified_physical_coverage"
+          ]
+        }
+      ]
+    },
+    {
+      "company_key": "development-company-050be1e2f4531f6d",
+      "document": "pdf/PDF_24/PDF_24/HES_24CN_BCTN.pdf",
+      "sha256": "08c222506ec54d985c42f0c123c928464e8e2b845e15580dadd9cf795614bb42",
+      "total_pages": 60,
+      "parent_terminal_reason": "REJECT_NO_NATIVE_TEXT_OR_GEOMETRY",
+      "pages": [
+        {
+          "page": 4,
+          "selection": "core",
+          "reasons": [
+            "raster_table_structure"
+          ]
+        },
+        {
+          "page": 12,
+          "selection": "discovery",
+          "reasons": [
+            "stratified_physical_coverage"
+          ]
+        },
+        {
+          "page": 24,
+          "selection": "discovery",
+          "reasons": [
+            "stratified_physical_coverage"
+          ]
+        },
+        {
+          "page": 31,
+          "selection": "core",
+          "reasons": [
+            "raster_table_structure"
+          ]
+        },
+        {
+          "page": 32,
+          "selection": "core",
+          "reasons": [
+            "raster_table_structure"
+          ]
+        },
+        {
+          "page": 33,
+          "selection": "core",
+          "reasons": [
+            "raster_table_structure"
+          ]
+        },
+        {
+          "page": 36,
+          "selection": "discovery",
+          "reasons": [
+            "stratified_physical_coverage"
+          ]
+        },
+        {
+          "page": 48,
+          "selection": "discovery",
+          "reasons": [
+            "stratified_physical_coverage"
+          ]
+        }
+      ]
+    },
+    {
+      "company_key": "development-company-0c1eeccce6f114bf",
+      "document": "pdf/PDF_24/PDF_24/IDP_24CN_BCTN.pdf",
+      "sha256": "a9570d1ab3407341ccb8b33aeba1f4c0f7fd14341c620a8f8faa90fdb06442d5",
+      "total_pages": 36,
+      "parent_terminal_reason": "REJECT_NO_NATIVE_TEXT_OR_GEOMETRY",
+      "pages": [
+        {
+          "page": 8,
+          "selection": "discovery",
+          "reasons": [
+            "stratified_physical_coverage"
+          ]
+        },
+        {
+          "page": 11,
+          "selection": "core",
+          "reasons": [
+            "raster_table_structure"
+          ]
+        },
+        {
+          "page": 15,
+          "selection": "core",
+          "reasons": [
+            "raster_table_structure",
+            "stratified_physical_coverage"
+          ]
+        },
+        {
+          "page": 21,
+          "selection": "core",
+          "reasons": [
+            "raster_table_structure"
+          ]
+        },
+        {
+          "page": 22,
+          "selection": "discovery",
+          "reasons": [
+            "stratified_physical_coverage"
+          ]
+        },
+        {
+          "page": 25,
+          "selection": "core",
+          "reasons": [
+            "raster_table_structure"
+          ]
+        },
+        {
+          "page": 29,
+          "selection": "discovery",
+          "reasons": [
+            "stratified_physical_coverage"
+          ]
+        }
+      ]
+    },
+    {
+      "company_key": "development-company-08881a566ac8b9ee",
+      "document": "pdf/PDF_24/PDF_24/HLY_24CN_BCTN.pdf",
+      "sha256": "53ffed057ae27c09d44f024ee2b18fdd0647434427451bfab8dc2c04fe91dcc9",
+      "total_pages": 46,
+      "parent_terminal_reason": "REJECT_NO_NATIVE_TEXT_OR_GEOMETRY",
+      "pages": [
+        {
+          "page": 6,
+          "selection": "core",
+          "reasons": [
+            "raster_table_structure"
+          ]
+        },
+        {
+          "page": 10,
+          "selection": "discovery",
+          "reasons": [
+            "stratified_physical_coverage"
+          ]
+        },
+        {
+          "page": 15,
+          "selection": "core",
+          "reasons": [
+            "raster_table_structure"
+          ]
+        },
+        {
+          "page": 19,
+          "selection": "discovery",
+          "reasons": [
+            "stratified_physical_coverage"
+          ]
+        },
+        {
+          "page": 28,
+          "selection": "discovery",
+          "reasons": [
+            "stratified_physical_coverage"
+          ]
+        },
+        {
+          "page": 29,
+          "selection": "core",
+          "reasons": [
+            "raster_table_structure"
+          ]
+        },
+        {
+          "page": 37,
+          "selection": "discovery",
+          "reasons": [
+            "stratified_physical_coverage"
+          ]
+        },
+        {
+          "page": 40,
+          "selection": "core",
+          "reasons": [
+            "raster_table_structure"
+          ]
+        }
+      ]
+    },
+    {
+      "company_key": "development-company-17665df03cb820c8",
+      "document": "pdf/PDF_24/PDF_24/UEM_24CN_BCTN.pdf",
+      "sha256": "1417f7b6aa9be2954dff54cbd0445d07f6dd411481306fcf9fd403fc532c2192",
+      "total_pages": 14,
+      "parent_terminal_reason": "REJECT_NO_NATIVE_TEXT_OR_GEOMETRY",
+      "pages": [
+        {
+          "page": 3,
+          "selection": "discovery",
+          "reasons": [
+            "stratified_physical_coverage"
+          ]
+        },
+        {
+          "page": 5,
+          "selection": "core",
+          "reasons": [
+            "raster_table_structure"
+          ]
+        },
+        {
+          "page": 6,
+          "selection": "discovery",
+          "reasons": [
+            "stratified_physical_coverage"
+          ]
+        },
+        {
+          "page": 8,
+          "selection": "discovery",
+          "reasons": [
+            "stratified_physical_coverage"
+          ]
+        },
+        {
+          "page": 10,
+          "selection": "core",
+          "reasons": [
+            "raster_table_structure"
+          ]
+        },
+        {
+          "page": 11,
+          "selection": "discovery",
+          "reasons": [
+            "stratified_physical_coverage"
+          ]
+        },
+        {
+          "page": 12,
+          "selection": "core",
+          "reasons": [
+            "raster_table_structure"
+          ]
+        },
+        {
+          "page": 13,
+          "selection": "core",
+          "reasons": [
+            "raster_table_structure"
+          ]
+        }
+      ]
+    },
+    {
+      "company_key": "development-company-0cc2f53c87ada142",
+      "document": "pdf/PDF_24/PDF_24/CLX_24CN_BCTN.pdf",
+      "sha256": "b82136010310b485def04b37f4f36b67c7d1945f38727e8925af9d28ef4a2cb3",
+      "total_pages": 39,
+      "parent_terminal_reason": "REJECT_NO_NATIVE_TEXT_OR_GEOMETRY",
+      "pages": [
+        {
+          "page": 8,
+          "selection": "discovery",
+          "reasons": [
+            "stratified_physical_coverage"
+          ]
+        },
+        {
+          "page": 13,
+          "selection": "core",
+          "reasons": [
+            "raster_table_structure"
+          ]
+        },
+        {
+          "page": 14,
+          "selection": "core",
+          "reasons": [
+            "raster_table_structure"
+          ]
+        },
+        {
+          "page": 15,
+          "selection": "core",
+          "reasons": [
+            "raster_table_structure"
+          ]
+        },
+        {
+          "page": 16,
+          "selection": "discovery",
+          "reasons": [
+            "stratified_physical_coverage"
+          ]
+        },
+        {
+          "page": 23,
+          "selection": "discovery",
+          "reasons": [
+            "stratified_physical_coverage"
+          ]
+        },
+        {
+          "page": 28,
+          "selection": "core",
+          "reasons": [
+            "raster_table_structure"
+          ]
+        },
+        {
+          "page": 31,
+          "selection": "discovery",
+          "reasons": [
+            "stratified_physical_coverage"
+          ]
+        }
+      ]
+    },
+    {
+      "company_key": "development-company-060c4dee1f4216c9",
+      "document": "pdf/PDF_24/PDF_24/SDC_24CN_BCTN.pdf",
+      "sha256": "9918fe74e10d54963f5f592f44af8eb238ccc7f8a637d0f38260f40d233bb9a6",
+      "total_pages": 23,
+      "parent_terminal_reason": "REJECT_NO_NATIVE_TEXT_OR_GEOMETRY",
+      "pages": [
+        {
+          "page": 5,
+          "selection": "core",
+          "reasons": [
+            "raster_table_structure",
+            "stratified_physical_coverage"
+          ]
+        },
+        {
+          "page": 8,
+          "selection": "core",
+          "reasons": [
+            "raster_table_structure"
+          ]
+        },
+        {
+          "page": 9,
+          "selection": "discovery",
+          "reasons": [
+            "stratified_physical_coverage"
+          ]
+        },
+        {
+          "page": 14,
+          "selection": "discovery",
+          "reasons": [
+            "stratified_physical_coverage"
+          ]
+        },
+        {
+          "page": 17,
+          "selection": "core",
+          "reasons": [
+            "raster_table_structure"
+          ]
+        },
+        {
+          "page": 18,
+          "selection": "core",
+          "reasons": [
+            "raster_table_structure",
+            "stratified_physical_coverage"
+          ]
+        }
+      ]
+    },
+    {
+      "company_key": "development-company-18a728617eab1b41",
+      "document": "pdf/PDF_24/PDF_24/PVV_24CN_BCTN.pdf",
+      "sha256": "001785ceb76c6d7bcb83cc114a4d3476c3f14785a387c2c75a76676ae9b76dc1",
+      "total_pages": 21,
+      "parent_terminal_reason": "REJECT_NO_NATIVE_TEXT_OR_GEOMETRY",
+      "pages": [
+        {
+          "page": 3,
+          "selection": "core",
+          "reasons": [
+            "raster_table_structure"
+          ]
+        },
+        {
+          "page": 5,
+          "selection": "discovery",
+          "reasons": [
+            "stratified_physical_coverage"
+          ]
+        },
+        {
+          "page": 7,
+          "selection": "core",
+          "reasons": [
+            "raster_table_structure"
+          ]
+        },
+        {
+          "page": 8,
+          "selection": "core",
+          "reasons": [
+            "raster_table_structure"
+          ]
+        },
+        {
+          "page": 9,
+          "selection": "core",
+          "reasons": [
+            "raster_table_structure",
+            "stratified_physical_coverage"
+          ]
+        },
+        {
+          "page": 13,
+          "selection": "discovery",
+          "reasons": [
+            "stratified_physical_coverage"
+          ]
+        },
+        {
+          "page": 17,
+          "selection": "discovery",
+          "reasons": [
+            "stratified_physical_coverage"
+          ]
+        }
+      ]
+    },
+    {
+      "company_key": "development-company-21df76478c63f536",
+      "document": "pdf/PDF_24/PDF_24/VIG_24CN_BCTN.pdf",
+      "sha256": "18c8a550779d6051691ec9db60412b73d4081810f26ac9cb0dc29d6c8ea27b80",
+      "total_pages": 32,
+      "parent_terminal_reason": "REJECT_NO_NATIVE_TEXT_OR_GEOMETRY",
+      "pages": [
+        {
+          "page": 6,
+          "selection": "core",
+          "reasons": [
+            "raster_table_structure"
+          ]
+        },
+        {
+          "page": 7,
+          "selection": "discovery",
+          "reasons": [
+            "stratified_physical_coverage"
+          ]
+        },
+        {
+          "page": 13,
+          "selection": "discovery",
+          "reasons": [
+            "stratified_physical_coverage"
+          ]
+        },
+        {
+          "page": 17,
+          "selection": "core",
+          "reasons": [
+            "raster_table_structure"
+          ]
+        },
+        {
+          "page": 19,
+          "selection": "discovery",
+          "reasons": [
+            "stratified_physical_coverage"
+          ]
+        },
+        {
+          "page": 25,
+          "selection": "discovery",
+          "reasons": [
+            "stratified_physical_coverage"
+          ]
+        },
+        {
+          "page": 28,
+          "selection": "core",
+          "reasons": [
+            "raster_table_structure"
+          ]
+        },
+        {
+          "page": 29,
+          "selection": "core",
+          "reasons": [
+            "raster_table_structure"
+          ]
+        }
+      ]
+    },
+    {
+      "company_key": "development-company-0d4ba031e63f23c0",
+      "document": "pdf/PDF_24/PDF_24/GIC_24CN_BCTN.pdf",
+      "sha256": "2730d3b2fde6ac292ed3da739752d224447b68eab8f7201a0b9778926f8b381b",
+      "total_pages": 51,
+      "parent_terminal_reason": "REJECT_NO_NATIVE_TEXT_OR_GEOMETRY",
+      "pages": [
+        {
+          "page": 4,
+          "selection": "core",
+          "reasons": [
+            "raster_table_structure"
+          ]
+        },
+        {
+          "page": 6,
+          "selection": "core",
+          "reasons": [
+            "raster_table_structure"
+          ]
+        },
+        {
+          "page": 7,
+          "selection": "core",
+          "reasons": [
+            "raster_table_structure"
+          ]
+        },
+        {
+          "page": 11,
+          "selection": "discovery",
+          "reasons": [
+            "stratified_physical_coverage"
+          ]
+        },
+        {
+          "page": 12,
+          "selection": "core",
+          "reasons": [
+            "raster_table_structure"
+          ]
+        },
+        {
+          "page": 21,
+          "selection": "discovery",
+          "reasons": [
+            "stratified_physical_coverage"
+          ]
+        },
+        {
+          "page": 31,
+          "selection": "discovery",
+          "reasons": [
+            "stratified_physical_coverage"
+          ]
+        },
+        {
+          "page": 41,
+          "selection": "discovery",
+          "reasons": [
+            "stratified_physical_coverage"
+          ]
+        }
+      ]
+    },
+    {
+      "company_key": "development-company-0532018263446433",
+      "document": "pdf/PDF_24/PDF_24/BIO_24CN_BCTN.pdf",
+      "sha256": "5c8084a5dbef02f4f45892fbd60d9e1b06ea2f0049731cea632eb44a22312197",
+      "total_pages": 20,
+      "parent_terminal_reason": "REJECT_NO_NATIVE_TEXT_OR_GEOMETRY",
+      "pages": [
+        {
+          "page": 4,
+          "selection": "discovery",
+          "reasons": [
+            "stratified_physical_coverage"
+          ]
+        },
+        {
+          "page": 5,
+          "selection": "core",
+          "reasons": [
+            "raster_table_structure"
+          ]
+        },
+        {
+          "page": 6,
+          "selection": "core",
+          "reasons": [
+            "raster_table_structure"
+          ]
+        },
+        {
+          "page": 8,
+          "selection": "discovery",
+          "reasons": [
+            "stratified_physical_coverage"
+          ]
+        },
+        {
+          "page": 12,
+          "selection": "discovery",
+          "reasons": [
+            "stratified_physical_coverage"
+          ]
+        },
+        {
+          "page": 13,
+          "selection": "core",
+          "reasons": [
+            "raster_table_structure"
+          ]
+        },
+        {
+          "page": 16,
+          "selection": "discovery",
+          "reasons": [
+            "stratified_physical_coverage"
+          ]
+        },
+        {
+          "page": 19,
+          "selection": "core",
+          "reasons": [
+            "raster_table_structure"
+          ]
+        }
+      ]
+    },
+    {
+      "company_key": "development-company-17f76fe91c554529",
+      "document": "pdf/PDF_24/PDF_24/BMV_24CN_BCTN.pdf",
+      "sha256": "efb7873be1ff74d004cd2a3e2aa8fa6b699a0f60ceb4e40579e0219dc7ee0d07",
+      "total_pages": 16,
+      "parent_terminal_reason": "REJECT_NO_NATIVE_TEXT_OR_GEOMETRY",
+      "pages": [
+        {
+          "page": 3,
+          "selection": "core",
+          "reasons": [
+            "raster_table_structure"
+          ]
+        },
+        {
+          "page": 4,
+          "selection": "discovery",
+          "reasons": [
+            "stratified_physical_coverage"
+          ]
+        },
+        {
+          "page": 7,
+          "selection": "core",
+          "reasons": [
+            "raster_table_structure",
+            "stratified_physical_coverage"
+          ]
+        },
+        {
+          "page": 10,
+          "selection": "discovery",
+          "reasons": [
+            "stratified_physical_coverage"
+          ]
+        },
+        {
+          "page": 11,
+          "selection": "core",
+          "reasons": [
+            "raster_table_structure"
+          ]
+        },
+        {
+          "page": 13,
+          "selection": "discovery",
+          "reasons": [
+            "stratified_physical_coverage"
+          ]
+        }
+      ]
+    },
+    {
+      "company_key": "development-company-1f8a0616f0de5464",
+      "document": "pdf/PDF_24/PDF_24/HNF_24CN_BCTN.pdf",
+      "sha256": "dbafcf8458f4672142682422c2b88c2deb0bc3bbbea258f1bba9788e007d57dd",
+      "total_pages": 30,
+      "parent_terminal_reason": "REJECT_NO_NATIVE_TEXT_OR_GEOMETRY",
+      "pages": [
+        {
+          "page": 6,
+          "selection": "discovery",
+          "reasons": [
+            "stratified_physical_coverage"
+          ]
+        },
+        {
+          "page": 8,
+          "selection": "core",
+          "reasons": [
+            "raster_table_structure"
+          ]
+        },
+        {
+          "page": 9,
+          "selection": "core",
+          "reasons": [
+            "raster_table_structure"
+          ]
+        },
+        {
+          "page": 11,
+          "selection": "core",
+          "reasons": [
+            "raster_table_structure"
+          ]
+        },
+        {
+          "page": 12,
+          "selection": "discovery",
+          "reasons": [
+            "stratified_physical_coverage"
+          ]
+        },
+        {
+          "page": 15,
+          "selection": "core",
+          "reasons": [
+            "raster_table_structure"
+          ]
+        },
+        {
+          "page": 18,
+          "selection": "discovery",
+          "reasons": [
+            "stratified_physical_coverage"
+          ]
+        },
+        {
+          "page": 24,
+          "selection": "discovery",
+          "reasons": [
+            "stratified_physical_coverage"
+          ]
+        }
+      ]
+    },
+    {
+      "company_key": "development-company-0c67b2c1fcfba9fb",
+      "document": "pdf/PDF_24/PDF_24/TET_24CN_BCTN.pdf",
+      "sha256": "cc7bccff9ae015a8b52b5587d6f29941141039faa1eb407639b126a1914fbb1f",
+      "total_pages": 16,
+      "parent_terminal_reason": "REJECT_NO_NATIVE_TEXT_OR_GEOMETRY",
+      "pages": [
+        {
+          "page": 4,
+          "selection": "discovery",
+          "reasons": [
+            "stratified_physical_coverage"
+          ]
+        },
+        {
+          "page": 7,
+          "selection": "discovery",
+          "reasons": [
+            "stratified_physical_coverage"
+          ]
+        },
+        {
+          "page": 8,
+          "selection": "core",
+          "reasons": [
+            "raster_table_structure"
+          ]
+        },
+        {
+          "page": 10,
+          "selection": "core",
+          "reasons": [
+            "raster_table_structure",
+            "stratified_physical_coverage"
+          ]
+        },
+        {
+          "page": 13,
+          "selection": "core",
+          "reasons": [
+            "raster_table_structure",
+            "stratified_physical_coverage"
+          ]
+        },
+        {
+          "page": 15,
+          "selection": "core",
+          "reasons": [
+            "raster_table_structure"
+          ]
+        }
+      ]
+    },
+    {
+      "company_key": "development-company-0cf6c2d4d5bab184",
+      "document": "pdf/PDF_24/PDF_24/TMC_24CN_BCTN.pdf",
+      "sha256": "1ba8dbd4437138556dd14d6da320ee524d128fc05703c85365006aa3153676a7",
+      "total_pages": 66,
+      "parent_terminal_reason": "REJECT_NO_NATIVE_TEXT_OR_GEOMETRY",
+      "pages": [
+        {
+          "page": 9,
+          "selection": "core",
+          "reasons": [
+            "raster_table_structure"
+          ]
+        },
+        {
+          "page": 11,
+          "selection": "core",
+          "reasons": [
+            "raster_table_structure"
+          ]
+        },
+        {
+          "page": 14,
+          "selection": "discovery",
+          "reasons": [
+            "stratified_physical_coverage"
+          ]
+        },
+        {
+          "page": 16,
+          "selection": "core",
+          "reasons": [
+            "raster_table_structure"
+          ]
+        },
+        {
+          "page": 27,
+          "selection": "discovery",
+          "reasons": [
+            "stratified_physical_coverage"
+          ]
+        },
+        {
+          "page": 28,
+          "selection": "core",
+          "reasons": [
+            "raster_table_structure"
+          ]
+        },
+        {
+          "page": 40,
+          "selection": "discovery",
+          "reasons": [
+            "stratified_physical_coverage"
+          ]
+        },
+        {
+          "page": 53,
+          "selection": "discovery",
+          "reasons": [
+            "stratified_physical_coverage"
+          ]
+        }
+      ]
+    },
+    {
+      "company_key": "development-company-02005c8731c7bacd",
+      "document": "pdf/PDF_24/PDF_24/TMX_24CN_BCTN.pdf",
+      "sha256": "bd397fd9e73e5dfc8aab72aacf678e2ce3ae6675b659c8bc10a9fb869a940bb3",
+      "total_pages": 16,
+      "parent_terminal_reason": "REJECT_NO_NATIVE_TEXT_OR_GEOMETRY",
+      "pages": [
+        {
+          "page": 4,
+          "selection": "discovery",
+          "reasons": [
+            "stratified_physical_coverage"
+          ]
+        },
+        {
+          "page": 7,
+          "selection": "core",
+          "reasons": [
+            "raster_table_structure",
+            "stratified_physical_coverage"
+          ]
+        },
+        {
+          "page": 8,
+          "selection": "core",
+          "reasons": [
+            "raster_table_structure"
+          ]
+        },
+        {
+          "page": 10,
+          "selection": "core",
+          "reasons": [
+            "raster_table_structure",
+            "stratified_physical_coverage"
+          ]
+        },
+        {
+          "page": 13,
+          "selection": "core",
+          "reasons": [
+            "raster_table_structure",
+            "stratified_physical_coverage"
+          ]
+        }
+      ]
+    },
+    {
+      "company_key": "development-company-01eb9c15769d6c2c",
+      "document": "pdf/PDF_24/PDF_24/FDC_24CN_BCTN.pdf",
+      "sha256": "d143a3f3e20cce72ebc0374db5f26a010e75ea2f1416f6fc5fc9ec6c82d3eca9",
+      "total_pages": 13,
+      "parent_terminal_reason": "REJECT_NO_NATIVE_TEXT_OR_GEOMETRY",
+      "pages": [
+        {
+          "page": 3,
+          "selection": "discovery",
+          "reasons": [
+            "stratified_physical_coverage"
+          ]
+        },
+        {
+          "page": 4,
+          "selection": "core",
+          "reasons": [
+            "raster_table_structure"
+          ]
+        },
+        {
+          "page": 5,
+          "selection": "core",
+          "reasons": [
+            "raster_table_structure",
+            "stratified_physical_coverage"
+          ]
+        },
+        {
+          "page": 8,
+          "selection": "discovery",
+          "reasons": [
+            "stratified_physical_coverage"
+          ]
+        },
+        {
+          "page": 10,
+          "selection": "core",
+          "reasons": [
+            "raster_table_structure",
+            "stratified_physical_coverage"
+          ]
+        },
+        {
+          "page": 11,
+          "selection": "core",
+          "reasons": [
+            "raster_table_structure"
+          ]
+        }
+      ]
+    },
+    {
+      "company_key": "development-company-0c7371bc44f1c673",
+      "document": "pdf/PDF_24/PDF_24/ECI_24CN_BCTN.pdf",
+      "sha256": "5476e6a0644b14353ba7f682bfe010c7e654fe1e641b1e501fb8f1e8c1c763c3",
+      "total_pages": 30,
+      "parent_terminal_reason": "REJECT_NO_NATIVE_TEXT_OR_GEOMETRY",
+      "pages": [
+        {
+          "page": 3,
+          "selection": "core",
+          "reasons": [
+            "raster_table_structure"
+          ]
+        },
+        {
+          "page": 6,
+          "selection": "discovery",
+          "reasons": [
+            "stratified_physical_coverage"
+          ]
+        },
+        {
+          "page": 8,
+          "selection": "core",
+          "reasons": [
+            "raster_table_structure"
+          ]
+        },
+        {
+          "page": 9,
+          "selection": "core",
+          "reasons": [
+            "raster_table_structure"
+          ]
+        },
+        {
+          "page": 12,
+          "selection": "discovery",
+          "reasons": [
+            "stratified_physical_coverage"
+          ]
+        },
+        {
+          "page": 18,
+          "selection": "discovery",
+          "reasons": [
+            "stratified_physical_coverage"
+          ]
+        },
+        {
+          "page": 22,
+          "selection": "core",
+          "reasons": [
+            "raster_table_structure"
+          ]
+        },
+        {
+          "page": 24,
+          "selection": "discovery",
+          "reasons": [
+            "stratified_physical_coverage"
+          ]
+        }
+      ]
+    },
+    {
+      "company_key": "development-company-0705e1308e777598",
+      "document": "pdf/PDF_24/PDF_24/BMF_24CN_BCTN.pdf",
+      "sha256": "321f5d89f24eba7cc3686cb542e2bda2d955f5ace308dc65cd375241f47e0e15",
+      "total_pages": 26,
+      "parent_terminal_reason": "REJECT_NO_NATIVE_TEXT_OR_GEOMETRY",
+      "pages": [
+        {
+          "page": 1,
+          "selection": "core",
+          "reasons": [
+            "raster_table_structure"
+          ]
+        },
+        {
+          "page": 6,
+          "selection": "discovery",
+          "reasons": [
+            "stratified_physical_coverage"
+          ]
+        },
+        {
+          "page": 11,
+          "selection": "core",
+          "reasons": [
+            "raster_table_structure",
+            "stratified_physical_coverage"
+          ]
+        },
+        {
+          "page": 12,
+          "selection": "core",
+          "reasons": [
+            "raster_table_structure"
+          ]
+        },
+        {
+          "page": 13,
+          "selection": "core",
+          "reasons": [
+            "raster_table_structure"
+          ]
+        },
+        {
+          "page": 16,
+          "selection": "discovery",
+          "reasons": [
+            "stratified_physical_coverage"
+          ]
+        },
+        {
+          "page": 21,
+          "selection": "discovery",
+          "reasons": [
+            "stratified_physical_coverage"
+          ]
+        }
+      ]
+    },
+    {
+      "company_key": "development-company-15aa4ce43c3fc979",
+      "document": "pdf/PDF_24/PDF_24/TVA_24CN_BCTN.pdf",
+      "sha256": "2ab79ef997afa54449c0baa80c4ef09f389b10277abe6cb11f08e54c6ee5c23b",
+      "total_pages": 27,
+      "parent_terminal_reason": "REJECT_NO_NATIVE_TEXT_OR_GEOMETRY",
+      "pages": [
+        {
+          "page": 6,
+          "selection": "discovery",
+          "reasons": [
+            "stratified_physical_coverage"
+          ]
+        },
+        {
+          "page": 9,
+          "selection": "core",
+          "reasons": [
+            "raster_table_structure"
+          ]
+        },
+        {
+          "page": 11,
+          "selection": "core",
+          "reasons": [
+            "raster_table_structure",
+            "stratified_physical_coverage"
+          ]
+        },
+        {
+          "page": 14,
+          "selection": "core",
+          "reasons": [
+            "raster_table_structure"
+          ]
+        },
+        {
+          "page": 15,
+          "selection": "core",
+          "reasons": [
+            "raster_table_structure"
+          ]
+        },
+        {
+          "page": 16,
+          "selection": "discovery",
+          "reasons": [
+            "stratified_physical_coverage"
+          ]
+        },
+        {
+          "page": 21,
+          "selection": "discovery",
+          "reasons": [
+            "stratified_physical_coverage"
+          ]
+        }
+      ]
+    }
+  ],
+  "admission_contract": {
+    "target_signatures_only": [
+      "PA07_ROOT_HIERARCHICAL_MULTIROW_ROLE_PERIOD_HEADER_V1",
+      "PA07_ROOT_FRAGMENTED_VISUAL_ROW_LABEL_V1"
+    ],
+    "flattened_signature_status": "PASS_FROZEN_3_3_3_NOT_REOPENED",
+    "ocr_text_is_semantic_proof": false,
+    "every_admitted_anchor_requires_visual_review_of_the_physical_page": true,
+    "required_explicit_proof": [
+      "same entity boundary",
+      "same explicit period bound to both role columns",
+      "exactly two explicit role-bearing headers among PLAN and ACTUAL",
+      "physical row-label and both operand cells",
+      "explicit or statement-bound unit provenance",
+      "page, row, column and extraction provenance",
+      "no contradiction across native, OCR and visual evidence"
+    ],
+    "forbidden_inference": [
+      "period or provenance from absence",
+      "period or provenance from nearby context or section title",
+      "period from the question",
+      "semantic admission from raster rank, OCR confidence, candidate rank, neural score or model confidence",
+      "cross-signature pooling",
+      "synthetic layout as unseen confirmation"
+    ],
+    "missing_proof": "UNKNOWN_TO_ABSTAIN",
+    "conflict_or_contradiction": "REJECT"
+  },
+  "execution_gates": {
+    "source_hashes_exact": "25/25",
+    "selection_manifest_sha256_exact": "ab463443df08a2d8a41dd064cc0a1f8281429b8ace0355b61fb54feb18199bf9",
+    "requested_pages_exact": 179,
+    "whole_document_ocr_jobs": 0,
+    "unselected_pages_materialized": 0,
+    "source_read_or_ocr_errors": 0,
+    "visual_review_for_every_admitted_anchor": true,
+    "hierarchical_combined_minimum_companies_sources_layouts_instances": "3/3/3/3",
+    "fragmented_combined_minimum_companies_sources_layouts_instances": "3/3/3/3",
+    "accepted_wrong": 0,
+    "counterfactual_false_accepts": 0,
+    "gold_execution": "363/363",
+    "candidate_permutation": "363/363",
+    "frozen_counterfactuals": 141,
+    "frozen_counterfactual_false_accepts": 0,
+    "affected_regression_expected": "360/360",
+    "runtime_hashes_unchanged": {
+      "src/hrm_finance_qa/document_sources.py": "e9eb7b3ddcc2ed13060a573a6a0101a216fa49ff21dd65cd5fc2629b92f5fc0b",
+      "src/hrm_finance_qa/document_page_index.py": "d531f47a22ed051863b41b3de031bb3e9d4bbf60ef71f825217559b7035386b4",
+      "src/hrm_finance_qa/program_data.py": "5199434fc0628b7d270ce62b12657366cbe118901065edd9f1e1f6ca0f1f8d54",
+      "src/hrm_finance_qa/evidence_schema.py": "2f16fabf932dc9dabc8203d9642d2503bb2dab43e0e1ee0f78755dd4fb00825d",
+      "src/hrm_finance_qa/document_reasoning_engine.py": "3883500011472716bc01f8e04a6d6f925173b35a14bbedd945c5ca4fb0063fa2"
+    },
+    "checkpoint_sha256_unchanged": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de"
+  },
+  "failure_policy": {
+    "no_page_replacement_or_extra_ocr_in_same_build_after_observing_results": true,
+    "coverage_shortfall": "FAIL_CLOSED; report exact per-signature company/source/layout/instance counts; QP4 remains incomplete",
+    "ocr_or_source_error": "SOURCE_ERROR; never coerce to a negative structural finding or ANSWER",
+    "runtime_edit_on_failure": false,
+    "metric_beautification": false
+  },
+  "genericity_evidence": {
+    "why_generic": "The 25 sources were frozen by the parent outcome-independent source sample. Page routing uses only report-independent raster morphology and deterministic physical quantiles, applies the same transform and cap to every source, and cannot see company identity, filename, year, values, questions, answer outcomes or model outputs.",
+    "claim_limit": "This precommit proves executable, bounded development coverage acquisition only. It does not claim unseen generalization, answer accuracy, or that selected pages contain either target signature."
+  },
+  "schema_feasibility": {
+    "parent_has_exact_source_path_hash_company_page_count_and_terminal_reason": true,
+    "renderer_completed_all_frozen_pages": "721/721",
+    "selector_returned_bounded_pages_for_all_sources": "25/25",
+    "manifest_schema_is_accepted_by_existing_executor": true,
+    "existing_source_loader_accepts_sparse_boolean_page_masks": true,
+    "existing_source_loader_splits_noncontiguous_runs": true,
+    "existing_source_loader_fingerprints_cache_by_source_range_backend_effort_and_endpoint": true,
+    "mineru_cli_version_probe_passed": true,
+    "all_required_execution_oracles_present": true
+  },
+  "precommit_verification": {
+    "schema_and_manifest_gate": "PASS",
+    "source_hashes": "25/25",
+    "artifact_and_lock_hashes_exact": true,
+    "runtime_hashes_exact": true,
+    "gold_execution": "363/363",
+    "candidate_permutation": "363/363",
+    "counterfactuals": 141,
+    "counterfactual_false_accepts": 0,
+    "affected_regression": "360/360",
+    "affected_regression_exit_code": 0,
+    "safe_replay_gate_passed": true
+  },
+  "invariants": {
+    "abw_used": false,
+    "protected_evaluation_loaded": false,
+    "validation_blind_test_sealed_holdout_or_final_evaluation_loaded": false,
+    "fine_tuning_performed": false,
+    "threshold_checkpoint_or_model_changed": false,
+    "runtime_changed": false,
+    "test_files_changed": false,
+    "new_ocr_generated_in_precommit": false,
+    "question_planner_hrm_ranker_or_answer_evaluator_run": false,
+    "candidate_rank_score_or_confidence_used_as_semantic_proof": false,
+    "nearby_context_or_absence_used_to_infer_period_or_provenance": false,
+    "synthetic_layout_counted_as_confirmation": false,
+    "qp4_complete": false,
+    "qp5_authorized": false,
+    "phase_d_unlocked": false
+  },
+  "artifact_policy": {
+    "final_json": 1,
+    "final_markdown": 1,
+    "lock_manifest": 1,
+    "persistent_script_or_raw_trace": false,
+    "temporary_files_after_verification": 0
+  },
+  "authorization": {
+    "runtime_edit_authorized": false,
+    "runtime_file_whitelist": [],
+    "test_file_whitelist": [],
+    "ocr_execution_authorized_now": false,
+    "authorized_next_action_exact": "QP4-DEVELOPMENT-SOURCE-EXPANSION-PAGE-SELECTIVE-OCR-COHORT-BUILD",
+    "required_next_state": "Execute exactly this manifest. PASS only if both missing PA07 signature gates and every frozen replay gate pass; otherwise remain FAIL_CLOSED without page/source replacement or runtime edit.",
+    "qp4_complete": false,
+    "qp5_authorized": false,
+    "phase_d_unlocked": false
+  }
+}

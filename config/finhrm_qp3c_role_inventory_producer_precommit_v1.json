@@ -1,0 +1,134 @@
+{
+  "schema": "finhrm-qp3c-role-inventory-producer-precommit-v1",
+  "created_at": "2026-08-13",
+  "classification": "development_only_synthetic_table_provenance_precommit",
+  "status": "precommitted_before_qp3c_runtime_producer_changes",
+  "objective": "Permit EXPLICIT_COMPLETE only when table reconstruction proves complete role-bearing header and cell coverage with conflict-free physical provenance.",
+  "scope": {
+    "in_scope": [
+      "table-level role inventory state",
+      "header coverage",
+      "cell-coordinate coverage",
+      "merged-header inheritance anchors",
+      "physical provenance completeness",
+      "cross-extractor agreement",
+      "candidate-order invariance"
+    ],
+    "out_of_scope": [
+      "question parsing",
+      "retrieval ranking",
+      "numeric answer accuracy",
+      "threshold calibration",
+      "global or sealed validation",
+      "blind or test evaluation",
+      "model fine-tuning",
+      "real PDF replay"
+    ]
+  },
+  "producer_contract": {
+    "output_states": ["EXPLICIT_COMPLETE", "UNKNOWN"],
+    "complete_requires_all": [
+      "table_boundary_state is COMPLETE",
+      "header_alignment_state is ALIGNED",
+      "expected data-column IDs are non-empty and exactly match reconstructed header-column IDs",
+      "expected cell coordinates equal the complete Cartesian product of expected row IDs and expected data-column IDs",
+      "observed cell coordinates exactly match expected cell coordinates",
+      "every data column has one non-empty canonical role",
+      "every role confidence is EXPLICIT or INHERITED",
+      "every header-path element has allowed provenance",
+      "every INHERITED role has a matching explicit inheritance anchor",
+      "every observed cell has document/page/source-span/extraction-method provenance",
+      "extractor alignment is not CONFLICT",
+      "no header, cell, or physical-equivalence role conflict exists"
+    ],
+    "allowed_header_provenance": [
+      "explicit_header",
+      "inherited_merged_header",
+      "explicit_column_label"
+    ],
+    "allowed_role_confidence": ["EXPLICIT", "INHERITED"],
+    "unknown_policy": "Failure or absence of any required completeness proof produces UNKNOWN; the producer must never guess completeness from Top-K candidates, column order, numeric value, candidate score, or question text.",
+    "conflict_policy": "Any explicit disagreement produces UNKNOWN at producer level; QP3B consumes the retained conflict evidence and safely abstains.",
+    "permutation_policy": "Inventory state and reason set are invariant to header-column, cell-coordinate, and physical-observation ordering.",
+    "numeric_policy": "Numeric values and answers are forbidden from the cohort and producer decision."
+  },
+  "layout_specs": [
+    {"id": "L01_FLAT_PLAN_ACTUAL", "roles": ["PLAN", "ACTUAL"], "rows": 2, "layout": "flat_header"},
+    {"id": "L02_HIERARCHICAL_MERGED", "roles": ["ACTUAL", "PLAN", "ACTUAL"], "rows": 2, "layout": "hierarchical_merged_header"},
+    {"id": "L03_REPEATED_HEADER", "roles": ["PLAN", "ACTUAL"], "rows": 3, "layout": "repeated_header_after_page_break"},
+    {"id": "L04_PARALLEL_ENTITY_PANELS", "roles": ["PLAN", "ACTUAL", "PLAN", "ACTUAL"], "rows": 2, "layout": "parallel_entity_panels"},
+    {"id": "L05_REVISED_PLAN", "roles": ["PLAN", "REVISED_PLAN", "ACTUAL"], "rows": 2, "layout": "revised_plan_columns"},
+    {"id": "L06_FORECAST", "roles": ["ACTUAL", "FORECAST"], "rows": 2, "layout": "actual_forecast_columns"},
+    {"id": "L07_RATIO_COLUMNS", "roles": ["ACTUAL", "PLAN", "ACTUAL_TO_PLAN_RATIO", "ACTUAL_TO_PRIOR_RATIO"], "rows": 2, "layout": "value_and_ratio_columns"},
+    {"id": "L08_BILINGUAL_HEADER", "roles": ["PLAN", "ACTUAL"], "rows": 2, "layout": "bilingual_role_aliases"}
+  ],
+  "scenario_matrix": [
+    {"id": "complete_explicit", "expected_state": "EXPLICIT_COMPLETE", "class": "positive"},
+    {"id": "complete_inherited_with_anchor", "expected_state": "EXPLICIT_COMPLETE", "class": "positive"},
+    {"id": "complete_permuted", "expected_state": "EXPLICIT_COMPLETE", "class": "positive_counterfactual"},
+    {"id": "missing_header_column", "expected_state": "UNKNOWN", "class": "coverage_negative"},
+    {"id": "unknown_role_label", "expected_state": "UNKNOWN", "class": "role_negative"},
+    {"id": "conflicting_header_role", "expected_state": "UNKNOWN", "class": "conflict_negative"},
+    {"id": "cross_extractor_role_conflict", "expected_state": "UNKNOWN", "class": "conflict_negative"},
+    {"id": "incomplete_cell_coverage", "expected_state": "UNKNOWN", "class": "coverage_negative"},
+    {"id": "partial_table_boundary", "expected_state": "UNKNOWN", "class": "coverage_negative"},
+    {"id": "unaligned_header_width", "expected_state": "UNKNOWN", "class": "coverage_negative"},
+    {"id": "missing_physical_provenance", "expected_state": "UNKNOWN", "class": "provenance_negative"},
+    {"id": "duplicate_physical_role_conflict", "expected_state": "UNKNOWN", "class": "conflict_negative"}
+  ],
+  "quota": {
+    "layout_groups": 8,
+    "scenarios_per_group": 12,
+    "total_examples": 96,
+    "complete_examples": 24,
+    "unknown_examples": 72,
+    "permutation_pairs": 8,
+    "inherited_anchor_positives": 8,
+    "conflict_negatives": 24,
+    "minimum_distinct_roles": 6,
+    "minimum_distinct_layout_types": 8
+  },
+  "gate": {
+    "cohort_schema_valid": true,
+    "exact_examples_required": 96,
+    "scenario_balance_required": 8,
+    "state_exact_required": 96,
+    "reason_set_exact_required": 96,
+    "permutation_pairs_required": 8,
+    "inherited_anchor_positives_required": 8,
+    "conflict_negatives_required": 24,
+    "numeric_values_forbidden": true,
+    "candidate_scores_forbidden": true,
+    "question_text_forbidden": true,
+    "runtime_source_changes_allowed": false,
+    "threshold_change_allowed": false
+  },
+  "runtime_baseline": {
+    "evidence_schema.py": "eed8a207f5ac3b25ff596f810229d9bcd30d78622ab063eb07e0416a645e12ac",
+    "question_planner.py": "4b6b415dac3e64b76fef9dee2179282a742c5769e30f780393d1dd43242b13d2",
+    "program_synthesis.py": "a37470ad307c04744a5db794258f8bff2f6439ef6a689f8a9b8db67f91a17761",
+    "symbolic_verifier.py": "70f4b9a68a701c00fbbac378a8ebb5e7be6caa555af12d8d30f070ca6d166e84",
+    "document_hrm.py": "f07e8f5685527ba76e1a9d74022b4e1e8cd29ba103593cb9a2063ddfcc15c1e5",
+    "document_reasoning_engine.py": "ee2ce9e2d8cea6fc87d307450297dace74727bdf915ba29e22cab67c7da6212f",
+    "program_data.py": "769fb033fdd74a3b20da4b6e96fb380cc4d8a08280736cf708979db02a3a3a41"
+  },
+  "frozen_dependencies": {
+    "qp3b_lock": {
+      "path": "reports/finhrm_qp3b_column_role_proof_lock_v1.json",
+      "sha256": "491e6bdb6a316bf4777629f738bf0b2e35a8223ca52226830213a86b07b8312a"
+    },
+    "qp3a_precommit": {
+      "path": "config/finhrm_qp3a_column_role_proof_precommit_v1.json",
+      "sha256": "75cf5124b5107fce112c0e394cb7077c7c7e209b27fe461a23eb86af779d3c9f"
+    },
+    "qp3a_cohort": {
+      "path": "data/finhrm_qp3a_column_role_proof_development_v1.jsonl",
+      "sha256": "cfb7c5b38a55a721f81cc06cc4f00602e9df5f145c57590faf3bd5cb6634d1bf"
+    },
+    "checkpoint": {
+      "path": "models/document_hrm_V8_candidate.pt",
+      "sha256": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de"
+    }
+  },
+  "authorized_next_step_after_precommit": "QP3D implement the frozen table-level role-inventory producer, connect it to EvidenceGraph, and replay the frozen QP3C cohort plus development-only end-to-end cases; no threshold change."
+}

@@ -1,0 +1,189 @@
+{
+  "schema": "finhrm-qp3-core-precommit-v1",
+  "created_at": "2026-08-14",
+  "classification": "development_only_synthetic_report_agnostic_proof_precommit",
+  "status": "precommitted_before_qp3_core_consumer_changes",
+  "objective": "Freeze oracle proof states, actions, gold retention, false-accept gates, and runtime hashes for the missing thesis-core QP3 obligations before changing synthesis, verifier, executor, or acceptance consumers.",
+  "parent_contracts": [
+    {
+      "path": "config/finhrm_thesis_core_v1.json",
+      "sha256": "a9f2f3088f7622c6c8912086eac16252f154fcae1164a3fe7ba75107a0ece502"
+    },
+    {
+      "path": "config/finhrm_report_generalization_invariant_v1.json",
+      "sha256": "7a8c6e58a47314d522adb782277f6d5bf0cbf761faf681d848e2e9ae4e861846"
+    }
+  ],
+  "scope": {
+    "required_family_ids": [
+      "PA01", "PA02", "PA03", "PA04", "PA05", "PA06", "PA07", "PA08", "PA09",
+      "TY01", "TY02", "TY04", "IBDS01", "C13", "C14", "C15"
+    ],
+    "answer_family_ids": [
+      "PA01", "PA02", "PA03", "PA04", "PA05", "PA06", "PA07", "PA08", "PA09",
+      "TY01", "TY02", "TY04", "IBDS01"
+    ],
+    "abstain_family_ids": ["C13", "C14", "C15"],
+    "missing_obligations": [
+      "reference_base_match",
+      "logical_cell_unique",
+      "source_provenance_complete",
+      "answer_mode_complete",
+      "all_leaf_nodes_valid",
+      "all_intermediate_nodes_valid",
+      "dag_execution_valid"
+    ],
+    "out_of_scope": [
+      "runtime consumer implementation",
+      "acceptance expansion",
+      "threshold or checkpoint changes",
+      "model training or fine-tuning",
+      "global or sealed validation",
+      "blind or test evaluation",
+      "real-PDF replay",
+      "ABW confirmation or calibration",
+      "QP4 counterfactual or long-question stress",
+      "OCR word or bbox extension"
+    ]
+  },
+  "proof_contract_addendum": {
+    "states": ["VALID", "UNKNOWN", "INVALID", "NOT_APPLICABLE"],
+    "required_for_all_answer_families": [
+      "execution_valid",
+      "pointer_uniqueness",
+      "operation_match",
+      "operand_arity_intent",
+      "query_metric",
+      "period_coverage",
+      "entity_scope_match",
+      "unit_algebra",
+      "logical_cell_unique",
+      "source_provenance_complete",
+      "column_role_match"
+    ],
+    "required_for_directional_operations": ["direction_match"],
+    "required_for_ratio_or_percent_change": [
+      "reference_base_match", "denominator_safe", "unit_compatibility"
+    ],
+    "required_when_multi_output_or_partial_answer_is_possible": ["answer_mode_complete"],
+    "required_for_multi_step": [
+      "all_leaf_nodes_valid", "all_intermediate_nodes_valid", "dag_execution_valid"
+    ],
+    "unknown_required_obligation_policy": "ABSTAIN",
+    "invalid_required_obligation_policy": "REJECT",
+    "all_valid_required_obligations_policy": "ANSWER",
+    "abstain_family_policy": "ABSTAIN without materializing a candidate program",
+    "safe_abstention_counts_as_answered": false
+  },
+  "confirmation_partition": {
+    "namespace": "synthetic:qp3-core-confirmation-v1",
+    "source_kind": "synthetic_typed_proof_fixture",
+    "real_document_content_used": false,
+    "diagnosis_documents_excluded": true,
+    "diagnosis_company_overlap_allowed": false,
+    "diagnosis_layout_overlap_allowed": false,
+    "companies": [
+      "SYNTH_QP3CORE_CO_A", "SYNTH_QP3CORE_CO_B", "SYNTH_QP3CORE_CO_C",
+      "SYNTH_QP3CORE_CO_D", "SYNTH_QP3CORE_CO_E", "SYNTH_QP3CORE_CO_F"
+    ],
+    "layout_families": [
+      "SYNTH_NATIVE_GRID_TWO_LEVEL_HEADER",
+      "SYNTH_NATIVE_FLAT_REPEATED_HEADER",
+      "SYNTH_OCR_BBOX_MERGED_HEADER",
+      "SYNTH_HYBRID_MULTIROW_HEADER",
+      "SYNTH_NATIVE_VERTICAL_METRIC_BLOCK",
+      "SYNTH_OCR_SPARSE_CELL_COORDINATES"
+    ],
+    "minimum_distinct_companies": 3,
+    "minimum_distinct_layout_families": 3,
+    "all_companies_unseen_from_diagnosis_by_construction": true,
+    "all_layouts_unseen_from_diagnosis_by_construction": true,
+    "construction_note": "Synthetic company and layout identities live in a dedicated confirmation namespace; no real diagnosis source, company identity, filename, hash, page, numeric value, or answer is loaded or copied."
+  },
+  "scenario_matrix": {
+    "all_answer_families": [
+      {"id": "valid_gold", "class": "positive", "expected_action": "ANSWER"},
+      {"id": "candidate_permuted", "class": "permutation_control", "expected_action": "ANSWER"},
+      {"id": "swapped_role", "class": "semantic_counterfactual", "expected_action": "REJECT"},
+      {"id": "swapped_year", "class": "semantic_counterfactual", "expected_action": "REJECT"},
+      {"id": "duplicate_logical_cell", "class": "provenance_hard_negative", "expected_action": "REJECT"},
+      {"id": "missing_source_provenance", "class": "provenance_hard_negative", "expected_action": "ABSTAIN"},
+      {"id": "partial_multi_output", "class": "answer_completeness_control", "expected_action": "ABSTAIN"}
+    ],
+    "ratio_or_percent_change_only": [
+      {"id": "wrong_reference_base", "class": "semantic_counterfactual", "expected_action": "REJECT"}
+    ],
+    "multi_step_only": [
+      {"id": "leaf_unknown", "class": "node_proof_hard_negative", "expected_action": "ABSTAIN"},
+      {"id": "leaf_invalid", "class": "node_proof_hard_negative", "expected_action": "REJECT"},
+      {"id": "intermediate_unknown", "class": "node_proof_hard_negative", "expected_action": "ABSTAIN"},
+      {"id": "intermediate_invalid", "class": "node_proof_hard_negative", "expected_action": "REJECT"},
+      {"id": "dag_execution_invalid", "class": "node_proof_hard_negative", "expected_action": "REJECT"}
+    ],
+    "all_abstain_families": [
+      {"id": "ambiguity_gold", "class": "ambiguity_control", "expected_action": "ABSTAIN"},
+      {"id": "candidate_permuted", "class": "permutation_control", "expected_action": "ABSTAIN"},
+      {"id": "tempting_candidate", "class": "semantic_hard_negative", "expected_action": "ABSTAIN"}
+    ]
+  },
+  "quota": {
+    "exact_examples": 122,
+    "exact_answer_examples": 113,
+    "exact_abstain_examples": 9,
+    "exact_positive_answer_examples": 26,
+    "exact_permutation_pairs": 16,
+    "exact_reference_base_negatives": 7,
+    "exact_multi_step_node_negatives": 15,
+    "exact_false_accepts": 0,
+    "minimum_gold_retention": 1.0,
+    "required_company_groups": 6,
+    "required_layout_groups": 6,
+    "required_family_coverage": 16
+  },
+  "gate": {
+    "schema_and_oracle_exact_required": true,
+    "all_required_families_present": true,
+    "all_missing_obligations_exercised": true,
+    "positive_and_semantic_hard_negative_required": true,
+    "counterfactual_required": true,
+    "candidate_permutation_invariant": true,
+    "company_and_layout_disjoint_from_diagnosis": true,
+    "company_macro_and_worst_group_required": true,
+    "layout_macro_and_worst_group_required": true,
+    "unseen_company_and_layout_reporting_required": true,
+    "runtime_hash_match_required": true,
+    "runtime_source_changes_allowed": false,
+    "threshold_change_allowed": false,
+    "checkpoint_change_allowed": false,
+    "fine_tuning_allowed": false,
+    "protected_evaluation_sources_allowed": false,
+    "phase_d_unlocked": false
+  },
+  "runtime_baseline": {
+    "src/hrm_finance_qa/flattened_table_reconstruction.py": "1e67aa3f2e3acc068d30ece065fc0a0365358c7aa75da660e065af83fa265d4c",
+    "src/hrm_finance_qa/program_data.py": "b6acccfed88117c6632d493b22eec3a3cf93f5eab83062703b7d06ceea8e7e0f",
+    "src/hrm_finance_qa/document_sources.py": "a42d158f7125e6dc618c166e5b04705f24853ebdc72210ce37219a1d4f40c2fe",
+    "src/hrm_finance_qa/document_page_index.py": "f931f235525a2fb8cc8a3743fb6a833bdea172181e4f2aa599481a3057c3d9d2",
+    "src/hrm_finance_qa/evidence_schema.py": "2f16fabf932dc9dabc8203d9642d2503bb2dab43e0e1ee0f78755dd4fb00825d",
+    "src/hrm_finance_qa/symbolic_verifier.py": "b0bc88ae35d5ec1f3a2dccb3ac9a93f1e47185e44947aa30e235af9662848b23",
+    "src/hrm_finance_qa/question_planner.py": "4b6b415dac3e64b76fef9dee2179282a742c5769e30f780393d1dd43242b13d2",
+    "src/hrm_finance_qa/program_synthesis.py": "a37470ad307c04744a5db794258f8bff2f6439ef6a689f8a9b8db67f91a17761",
+    "src/hrm_finance_qa/document_hrm.py": "f07e8f5685527ba76e1a9d74022b4e1e8cd29ba103593cb9a2063ddfcc15c1e5",
+    "src/hrm_finance_qa/document_reasoning_engine.py": "ee2ce9e2d8cea6fc87d307450297dace74727bdf915ba29e22cab67c7da6212f"
+  },
+  "frozen_dependencies": [
+    {"path": "reports/finhrm_thesis_core_precommit_lock_v1.json", "sha256": "ba38e30f2c2809a7e05c766817b7bdff9e25d1adb1927d0837ed579789dda805"},
+    {"path": "reports/finhrm_report_generalization_invariant_lock_v1.json", "sha256": "9e68934387185fd21f6f3927686ff3bece8366f7babbfe3e15f7d603c0c60bc9"},
+    {"path": "reports/finhrm_qp3f_flattened_table_reconstruction_lock_v1.json", "sha256": "6cacaac726b7f71d5351190077d1bdafc26181349be44051cdf53457edaa2fc5"},
+    {"path": "models/document_hrm_V8_candidate.pt", "sha256": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de"}
+  ],
+  "required_replay_after_implementation": [
+    "thesis-core contract tests",
+    "QP2 compiler suite",
+    "QP3A-QP3F frozen development cohorts",
+    "frozen S4 compatibility suite",
+    "QP3-CORE confirmation cohort",
+    "company/layout macro, worst-group, unseen-company, and unseen-layout report"
+  ],
+  "authorized_next_step_after_precommit": "QP3-CORE-IMPLEMENT: connect typed operand slots and DAG proof to synthesis-verifier-executor consumers; required UNKNOWN must ABSTAIN and INVALID must REJECT; do not expand acceptance or change thresholds."
+}

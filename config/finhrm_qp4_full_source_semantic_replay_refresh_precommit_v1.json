@@ -1,0 +1,416 @@
+{
+  "schema": "finhrm.qp4.full_source_semantic_replay_refresh_precommit.v1",
+  "created_at": "2026-08-24T18:10:12+07:00",
+  "classification": "development_only_read_only_full_source_semantic_replay_refresh_precommit_no_runtime_no_model_no_threshold_change",
+  "status": "PASS",
+  "step": "QP4-FULL-SOURCE-SEMANTIC-REPLAY-REFRESH-PRECOMMIT",
+  "precommit_gate_passed": true,
+  "purpose": "Freeze one executable rerun of the unchanged six-anchor, 90-primary-observation QP4 development source cohort against the current runtime, with a separately frozen deterministic candidate permutation for all 90 observations and the original exact-answer and surface-equivalence denominators.",
+  "claude_md": {
+    "path": "CLAUDE.md",
+    "size_bytes": 3494,
+    "sha256": "b3e61c65fd4f36a86d5ba4fac780150960c81bfe7cf5f4a9a685071a408178aa",
+    "read_completely_before_precommit": true,
+    "executable_precommit_rule_applied": true
+  },
+  "parents": {
+    "final_gate_report": {
+      "path": "reports/finhrm_qp4_final_gate_reclosure_v1.json",
+      "size_bytes": 8784,
+      "sha256": "1013f5c5a7edbf809dd11287d8cf14824d4077a5815baeb91754bf5e6a6ace32"
+    },
+    "final_gate_lock": {
+      "path": "reports/finhrm_qp4_final_gate_reclosure_lock_v1.json",
+      "size_bytes": 2632,
+      "sha256": "df4b88085776c952795c6799e4ac55cd72d3b81bc5740b199e62eb1a6a7dd11c"
+    },
+    "frozen_cohort": {
+      "path": "reports/finhrm_qp4_post_question_surface_post_cache_residual_coverage_cohort_build_v1.json",
+      "size_bytes": 40607,
+      "sha256": "e084ec16312488c1badb5b645cfdf135a623cf89486d0f189648404fc5de35e6"
+    },
+    "frozen_cohort_lock": {
+      "path": "reports/finhrm_qp4_post_question_surface_post_cache_residual_coverage_cohort_build_lock_v1.json",
+      "size_bytes": 2570,
+      "sha256": "811b7aa5c0696af345918b2f92846106321d71cc296653b7fb38e0472a67bdef"
+    },
+    "original_source_replay_precommit": {
+      "path": "config/finhrm_qp4_post_question_surface_post_cache_residual_coverage_source_replay_precommit_v1.json",
+      "size_bytes": 19532,
+      "sha256": "9e9c158c2721a7fa610f88a7c2d27eb26f3f30e0c6aae2b6fc3456bf64f298f3"
+    },
+    "original_source_replay_precommit_lock": {
+      "path": "reports/finhrm_qp4_post_question_surface_post_cache_residual_coverage_source_replay_precommit_lock_v1.json",
+      "size_bytes": 5878,
+      "sha256": "d1d03e133d9d276b702cf9c7a0e73d53c39fb71b873071ef555a52299a08b1ee"
+    },
+    "source_protocol_reclosure": {
+      "path": "reports/finhrm_qp4_post_question_surface_post_cache_residual_coverage_source_protocol_reclosure_v1.json",
+      "size_bytes": 764361,
+      "sha256": "88907efcf7764217c5aa1d5219e5ef2c997d34cbf45d1f300dd68190b8ae84eb"
+    },
+    "source_protocol_reclosure_lock": {
+      "path": "reports/finhrm_qp4_post_question_surface_post_cache_residual_coverage_source_protocol_reclosure_lock_v1.json",
+      "size_bytes": 28633,
+      "sha256": "e3edc7103c3a366d7ce57e62df2a7e1f7dc1af8affa20ef59f46533e947fdf95"
+    },
+    "permutation_evaluator_contract": {
+      "path": "config/finhrm_qp4_post_question_surface_post_cache_residual_coverage_post_source_protocol_semantic_trace_evaluator_contract_reclosure_precommit_v1.json",
+      "size_bytes": 20765,
+      "sha256": "a465975b7bc0cc71dce6063ddb4a1bd75e3c2f12eb955392d3bfabddea8cfd7e"
+    },
+    "permutation_evaluator_reclosure": {
+      "path": "reports/finhrm_qp4_post_question_surface_post_cache_residual_coverage_post_source_protocol_semantic_trace_evaluator_contract_reclosure_v1.json",
+      "size_bytes": 9662,
+      "sha256": "4248a3a63f9f7b23b6430c1f600dac60a06aae838bf64307ab2a08c65bc103c7"
+    },
+    "permutation_evaluator_reclosure_lock": {
+      "path": "reports/finhrm_qp4_post_question_surface_post_cache_residual_coverage_post_source_protocol_semantic_trace_evaluator_contract_reclosure_lock_v1.json",
+      "size_bytes": 5142,
+      "sha256": "908966eae176466e0e973cbabb32d6bfc7566e56177513f928f82dc79693a53d"
+    },
+    "citation_track_lock_non_substitute": {
+      "path": "reports/finhrm_qp4_development_source_expansion_native_and_ocr_citation_coordinate_cohort_reclosure_lock_v1.json",
+      "size_bytes": 6097,
+      "sha256": "263c7d37bfd6563e5d378e9c268314d5a2a59090a17ba285f756224a75594403"
+    },
+    "thesis_core": {
+      "path": "config/finhrm_thesis_core_v1.json",
+      "size_bytes": 24625,
+      "sha256": "a9f2f3088f7622c6c8912086eac16252f154fcae1164a3fe7ba75107a0ece502"
+    },
+    "report_generalization_invariant": {
+      "path": "config/finhrm_report_generalization_invariant_v1.json",
+      "size_bytes": 2512,
+      "sha256": "7a8c6e58a47314d522adb782277f6d5bf0cbf761faf681d848e2e9ae4e861846"
+    }
+  },
+  "authorization": {
+    "parent_authorized_step": "QP4-FULL-SOURCE-SEMANTIC-REPLAY-REFRESH-PRECOMMIT",
+    "parent_final_gate_status": "FAIL_CLOSED",
+    "precommit_only": true,
+    "source_replay_run_by_this_step": false,
+    "runtime_or_model_edit_authorized": false,
+    "qp4_complete": false,
+    "qp5_authorized": false,
+    "phase_d_unlocked": false
+  },
+  "frozen_selection": {
+    "source": "parents.frozen_cohort.anchors",
+    "selection_rule": "all and only the six frozen anchors, ordered lexicographically by anchor_id; no selection, replacement, retry-selection or dropping after observing runtime output",
+    "anchors": 6,
+    "companies": 6,
+    "sources": 6,
+    "real_document_layout_families": 3,
+    "real_table_layout_families": 6,
+    "extraction_families": 2,
+    "synthetic_layouts_counted": 0,
+    "protected_sources": 0,
+    "diagnosis_company_source_or_layout_reselection": false,
+    "source_hashes": [
+      {
+        "anchor_id": "qp4-rcc-agr-total-expense",
+        "path": "pdf/PDF_24/PDF_24/AGR_24CN_BCTN.pdf",
+        "sha256": "29cda4b451aa6e180334489db732ce77b94df32a8f19d6ee93afd234ce1a7d6e"
+      },
+      {
+        "anchor_id": "qp4-rcc-hub-parent-profit-after-tax",
+        "path": "pdf/PDF_23/HUB_23CN_BCTN.pdf",
+        "sha256": "daad4aaec36be97b5ae6f99d1d822fb9efe12d2b92110e81be7df150e991f695"
+      },
+      {
+        "anchor_id": "qp4-rcc-ict-total-revenue",
+        "path": "pdf/PDF_23/ICT_23CN_BCTN.pdf",
+        "sha256": "ee2061e29c1923da0e38ba33a7e25c7d0d2a2f6f22f045b8b30bd4c1bb539ac1"
+      },
+      {
+        "anchor_id": "qp4-rcc-pic-total-revenue",
+        "path": "pdf/PDF_23/PIC_23CN_BCTN.pdf",
+        "sha256": "ae0d9aa6645251025f3f71572205f5ef0f93a6f136ae243c2f3cd0700befb96e"
+      },
+      {
+        "anchor_id": "qp4-rcc-scg-total-revenue",
+        "path": "pdf/PDF_23/SCG_23CN_BCTN.pdf",
+        "sha256": "fabcefdf81e9bf90abdfe4497a4b7ba7960d564e9ce525ecd7dfe8dd05c62ff1"
+      },
+      {
+        "anchor_id": "qp4-rcc-vnl-profit-before-tax",
+        "path": "pdf/PDF_23/VNL_23CN_BCTN.pdf",
+        "sha256": "c1f20dffb1a4ed818cd4d3d78f5d47ce2e1517b8a78e6c8e9eee1aaafca51c2b"
+      }
+    ]
+  },
+  "deterministic_observation_inventory": {
+    "anchor_order": "lexicographic anchor_id",
+    "category_order": [
+      "BASE_TARGET",
+      "REFERENCE_BASE_MUTATION_TARGET",
+      "MINIMAL_PAIR_ROLE_SWAP",
+      "MINIMAL_PAIR_YEAR_SHIFT",
+      "HARD_NEGATIVE_MISSING_ROLE",
+      "AMBIGUITY_CONTROL",
+      "PA07_OPERATION_CONTRAST"
+    ],
+    "surface_order": "the frozen list order inside each anchor; controls use the declared category order",
+    "observation_id": "sha256(anchor_id + LF + category + LF + zero_based_surface_or_control_index + LF + exact_frozen_question_utf8)",
+    "base_target_surfaces": 30,
+    "reference_base_mutation_surfaces": 30,
+    "semantic_controls": 30,
+    "primary_observations": 90,
+    "candidate_permutation_observations": 90,
+    "source_errors_timeouts_abstentions_remain_in_denominator": true,
+    "failed_member_or_anchor_may_be_dropped": false
+  },
+  "public_execution_boundary": {
+    "runtime_inputs": [
+      "exact frozen question UTF-8 string",
+      "hash-matched development PDF path"
+    ],
+    "mineru_auto_generate": false,
+    "new_ocr_generation_allowed": false,
+    "per_query_timeout_seconds": 300,
+    "gold_candidate_page_row_column_program_answer_or_action_passed_to_runtime": false,
+    "gold_use": "post_hoc oracle comparison only after the complete runtime result and captured predictor candidate sequence exist",
+    "candidate_rank_neural_score_or_confidence_as_proof": false,
+    "question_company_filename_page_year_value_or_example_id_specific_runtime_rule": false
+  },
+  "semantic_oracle_contract": {
+    "decimal_comparison": "Decimal(str(observed)) equals Decimal(str(frozen expected)); no tolerance, metric rounding, candidate rank or confidence substitution",
+    "base_target": {
+      "expected_action": "ANSWER",
+      "expected_operation": "RATIO_PERCENT",
+      "ordered_operands": [
+        "current_actual",
+        "current_plan"
+      ],
+      "expected_value_field": "anchor.programs.base.expected_exact_percent",
+      "proof_state": "VALID",
+      "required_provenance": "both ordered operands must resolve to the frozen source, physical page, metric row, role/period column identity, value and unit"
+    },
+    "reference_base_mutation_target": {
+      "expected_action": "ANSWER",
+      "expected_operation": "RATIO_PERCENT",
+      "ordered_operands": [
+        "current_actual",
+        "prior_actual"
+      ],
+      "expected_value_field": "anchor.programs.reference_base_mutation.expected_exact_percent",
+      "proof_state": "VALID",
+      "required_provenance": "both ordered operands must resolve to the frozen source, physical page, metric row, role/period column identity, value and unit"
+    },
+    "minimal_pair_role_swap": {
+      "expected_operation": "RATIO_PERCENT",
+      "ordered_operands": [
+        "current_plan",
+        "current_actual"
+      ],
+      "old_base_target_winner_allowed": false,
+      "safe_abstention_allowed_but_not_counted_as_target_answer": true
+    },
+    "minimal_pair_year_shift": {
+      "expected_without_explicit_shifted_period_proof": "UNKNOWN_TO_ABSTAIN",
+      "old_period_answer_allowed": false
+    },
+    "hard_negative_missing_role": {
+      "expected": "UNKNOWN_TO_ABSTAIN",
+      "answer_allowed": false
+    },
+    "ambiguity_control": {
+      "expected": "UNKNOWN_TO_ABSTAIN",
+      "arbitrary_cell_selection_allowed": false
+    },
+    "PA07_operation_contrast": {
+      "expected_operation_if_answered": "PERCENT_CHANGE",
+      "ordered_operands": [
+        "current_actual",
+        "current_plan"
+      ],
+      "RATIO_PERCENT_or_old_winner_allowed": false,
+      "safe_abstention_allowed": true,
+      "counts_as_target_answer_coverage": false
+    },
+    "missing_proof": "UNKNOWN_TO_ABSTAIN",
+    "conflict_or_contradiction": "INVALID_TO_REJECT",
+    "same_numeric_value_without_same_semantics_and_provenance_is_exact": false
+  },
+  "candidate_permutation_contract": {
+    "transform_id": "FINHRM_CANDIDATE_REVERSE_REINDEX_REMAP_V1",
+    "definition_source": "parents.permutation_evaluator_contract.deterministic_candidate_permutation_contract",
+    "input": "the exact post-extraction candidate sequence passed by DocumentHRMReasoningEngine to bundle.predict during the corresponding primary observation",
+    "order_new_to_old": "for N candidates, new position j reads old position N-1-j",
+    "candidate_reindex_and_derived_operand_remap": true,
+    "prediction_program_trace_dag_and_slot_binding_remap": true,
+    "engine_downstream_candidates": "original unpermuted sequence after exact new-to-old prediction remap",
+    "seed_required": false,
+    "hidden_state_required": false,
+    "same_numeric_result_alone_counts_as_exact": false,
+    "exact_comparison_envelope": [
+      "typed question plan",
+      "source outcome",
+      "operation",
+      "ordered physical operand identities and provenance",
+      "exact Decimal execution",
+      "proof state and obligations",
+      "final action"
+    ],
+    "legacy_unknown_transform_37_of_90_used_as_baseline_or_gate": false,
+    "legacy_metric_disposition": "non-comparable historical observation; it is neither rewritten nor described as an improvement or regression",
+    "required_current_exactness": "90/90"
+  },
+  "first_failing_layer_contract": {
+    "order": [
+      "QUESTION_PLAN",
+      "SOURCE_LOAD_OR_EXTRACTION",
+      "CANDIDATE_POPULATION_OR_RETRIEVAL",
+      "SEMANTIC_BINDING_OR_PROGRAM_SYNTHESIS",
+      "SYMBOLIC_PROOF_OR_ACTION",
+      "PASS"
+    ],
+    "exactly_one_layer_or_pass_per_primary_observation": true,
+    "gold_may_only_attribute_the_earliest_failure_post_hoc": true,
+    "later_layer_attribution_after_earlier_failure": false,
+    "raw_neural_trace_persisted": false
+  },
+  "required_release_gates": {
+    "replay_completeness": {
+      "primary_observations": "90/90",
+      "candidate_permutation_observations": "90/90",
+      "source_hash_mismatches": 0,
+      "protected_sources_loaded": 0,
+      "source_errors_or_timeouts": 0,
+      "new_ocr_generations": 0
+    },
+    "target_answer_coverage": {
+      "proof_complete_exact_target_answers": "60/60",
+      "base_exact_answers": "30/30",
+      "reference_base_mutation_exact_answers": "30/30",
+      "surface_equivalence_groups": "12/12",
+      "safe_abstention_counts_as_answered": false
+    },
+    "semantic_safety": {
+      "accepted_wrong": 0,
+      "reference_base_old_winner_false_accepts": 0,
+      "semantic_control_false_accepts": 0,
+      "hard_negative_answers": 0,
+      "candidate_permutation_exact": "90/90",
+      "candidate_rank_neural_score_or_confidence_proof_uses": 0
+    },
+    "retained_controls": {
+      "compiler_inventory": "242/242",
+      "affected_regression": "360/360",
+      "safe_actions": {
+        "ANSWER": 257,
+        "ABSTAIN": 92,
+        "REJECT": 14
+      },
+      "gold_execution": "363/363",
+      "frozen_safe_candidate_permutation": "363/363",
+      "counterfactuals": 141,
+      "counterfactual_false_accepts": 0,
+      "checkpoint_unchanged": true,
+      "runtime_hashes_unchanged_before_and_after": true
+    },
+    "group_reporting": {
+      "company_macro_and_worst_group": true,
+      "document_layout_macro_and_worst_group": true,
+      "table_layout_macro_and_worst_group": true,
+      "extraction_family_macro_and_worst_group": true
+    }
+  },
+  "schema_feasibility_audit": {
+    "status": "PASS",
+    "anchors": "6/6",
+    "sources_exist_and_hash_exact": "6/6",
+    "complete_operand_program_provenance_oracles": "6/6",
+    "base_surfaces": "30/30",
+    "reference_base_mutation_surfaces": "30/30",
+    "semantic_controls": "30/30",
+    "primary_inventory_materializable": "90/90",
+    "permutation_inventory_materializable": "90/90",
+    "original_denominators_exact": true,
+    "permutation_transform_fully_specified": true,
+    "candidate_and_prediction_remap_schema_probe_passed_by_locked_parent": true,
+    "evaluator_contract_executable_without_hidden_persistent_state": true,
+    "unobserved_baseline_needed_for_this_performance_refresh": false,
+    "reason": "This refresh compares each current observation directly with frozen semantic/numeric/provenance oracles and compares its deterministic permutation with its own current primary envelope; it does not claim observer no-interference or reproduce the legacy unknown transform."
+  },
+  "checkpoint": {
+    "path": "models/document_hrm_V8_candidate.pt",
+    "size_bytes": 3413128,
+    "sha256": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de"
+  },
+  "frozen_runtime_hashes": {
+    "src/hrm_finance_qa/question_planner.py": "334ab6bfb57b883ff2022cdcb39614d7e7a8d3269c14f4bea188640d53111bf4",
+    "src/hrm_finance_qa/symbolic_verifier.py": "2679b1ce55cc070697438c806f19e3e888bfc19bc1a9ae3686a0b7fd7ffb0087",
+    "src/hrm_finance_qa/program_synthesis.py": "e4acc4878d0dfd465ba66ab91f3aaf8be71db5591aa1358fb8cb81f3c7bff550",
+    "src/hrm_finance_qa/evidence_schema.py": "2f16fabf932dc9dabc8203d9642d2503bb2dab43e0e1ee0f78755dd4fb00825d",
+    "src/hrm_finance_qa/document_hrm.py": "b5951bcde79583950b672f7fb6b199b3e5b9904e6784daae7c4c5be0eba65d21",
+    "src/hrm_finance_qa/document_reasoning_engine.py": "3883500011472716bc01f8e04a6d6f925173b35a14bbedd945c5ca4fb0063fa2",
+    "src/hrm_finance_qa/program_data.py": "5199434fc0628b7d270ce62b12657366cbe118901065edd9f1e1f6ca0f1f8d54",
+    "src/hrm_finance_qa/direction_contract.py": "a18aa130419fc74ce647bd92dc9c1b1217007738e636aad0f28c7f78396be937",
+    "src/hrm_finance_qa/answer_presentation.py": "c40bd4a8dff39162b44cf11ef2da12e7b153d907f7254e5d1856157b3ac56d36",
+    "src/hrm_finance_qa/document_sources.py": "e9eb7b3ddcc2ed13060a573a6a0101a216fa49ff21dd65cd5fc2629b92f5fc0b",
+    "src/hrm_finance_qa/document_page_index.py": "d531f47a22ed051863b41b3de031bb3e9d4bbf60ef71f825217559b7035386b4"
+  },
+  "authorized_execution_contract": {
+    "step": "QP4-FULL-SOURCE-SEMANTIC-REPLAY-REFRESH",
+    "allowed_actions": [
+      "verify every parent, source, runtime and checkpoint hash before execution",
+      "run all and only the 90 frozen primary observations through the public question-plus-development-PDF boundary with MinerU auto-generation disabled",
+      "capture the exact candidate sequence passed to the predictor without changing primary execution",
+      "run FINHRM_CANDIDATE_REVERSE_REINDEX_REMAP_V1 exactly once for each corresponding primary candidate sequence",
+      "compare runtime outputs with frozen gold only post hoc",
+      "classify exactly one earliest failing layer or PASS per primary observation",
+      "rerun compiler, 360 regression tests and the frozen 363-example safe replay",
+      "persist one final JSON, one final Markdown and one lock; delete all execution-temporary payloads after verification"
+    ],
+    "forbidden_actions": [
+      "read validation, blind, test, sealed, holdout or final-evaluation data",
+      "use ABW as confirmation or gate",
+      "add, remove, replace, retry-select or relabel any anchor, question, program, value or expected action",
+      "change runtime, threshold, checkpoint or model",
+      "fine-tune",
+      "generate new OCR or OCR a whole PDF/corpus",
+      "pass gold page, row, column, candidate, pointer, program, answer or action into runtime selection",
+      "use company, filename, page, year, value, example ID, question literal, candidate rank, neural score or confidence as semantic proof",
+      "use the three-anchor citation cohort or frozen 363-example replay as a substitute for any 90-observation source gate",
+      "reinterpret the legacy unknown-transform 37/90 as the baseline for FINHRM_CANDIDATE_REVERSE_REINDEX_REMAP_V1"
+    ],
+    "outcome_policy": {
+      "if_every_required_gate_passes": "Authorize QP4-FINAL-GATE-RECLOSURE only; do not authorize QP5 directly.",
+      "if_any_semantic_gate_fails": "Keep QP4/QP5/Phase D locked and authorize only a generic earliest-layer diagnostic-review precommit; no runtime edit is automatic.",
+      "if_source_hash_protocol_or_execution_completeness_fails": "Fail closed and reclose the source replay/protocol without weakening denominators."
+    }
+  },
+  "future_outputs": {
+    "final_json": "reports/finhrm_qp4_full_source_semantic_replay_refresh_v1.json",
+    "final_markdown": "reports/finhrm_qp4_full_source_semantic_replay_refresh_v1.md",
+    "lock_manifest": "reports/finhrm_qp4_full_source_semantic_replay_refresh_lock_v1.json"
+  },
+  "artifact_policy": {
+    "maximum_final_json": 1,
+    "maximum_final_markdown": 1,
+    "maximum_lock_or_manifest": 1,
+    "persistent_raw_or_intermediate_payloads": false,
+    "temporary_execution_payloads_deleted_after_final_verification": true
+  },
+  "invariants": {
+    "runtime_changed": false,
+    "model_changed": false,
+    "checkpoint_changed": false,
+    "threshold_changed": false,
+    "fine_tuning_performed": false,
+    "source_replay_run": false,
+    "new_ocr_generated": false,
+    "protected_evaluation_loaded": false,
+    "abw_used": false,
+    "synthetic_layout_counted_as_confirmation": false,
+    "candidate_rank_score_or_confidence_used_as_semantic_proof": false,
+    "nearby_context_or_absence_used_to_infer_period_or_provenance": false,
+    "missing_proof_policy": "UNKNOWN_TO_ABSTAIN",
+    "conflict_policy": "INVALID_TO_REJECT",
+    "qp4_complete": false,
+    "qp5_authorized": false,
+    "phase_d_unlocked": false
+  }
+}

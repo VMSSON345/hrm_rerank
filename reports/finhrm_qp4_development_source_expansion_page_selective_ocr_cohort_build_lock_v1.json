@@ -1,0 +1,99 @@
+{
+  "schema": "finhrm.qp4.development_source_expansion.page_selective_ocr_cohort_build_lock.v1",
+  "created_at": "2026-08-24T15:07:13+07:00",
+  "classification": "development_only_fail_closed_cohort_build_lock_no_runtime_no_model",
+  "status": "FAIL_CLOSED",
+  "step": "QP4-DEVELOPMENT-SOURCE-EXPANSION-PAGE-SELECTIVE-OCR-COHORT-BUILD",
+  "cohort_build_gate_passed": false,
+  "locked_artifacts": [
+    {
+      "path": "reports/finhrm_qp4_development_source_expansion_page_selective_ocr_cohort_build_v1.json",
+      "size_bytes": 14627,
+      "sha256": "57581e04486d265e0a1dc408c4be9b213f6a77d2931876cdbca3a1c3b5ec1142"
+    },
+    {
+      "path": "reports/finhrm_qp4_development_source_expansion_page_selective_ocr_cohort_build_v1.md",
+      "size_bytes": 2954,
+      "sha256": "a47d361dd1a0f261f3c42c8730874969b0424c47d60ba9cca56b8475a4fd4b9f"
+    }
+  ],
+  "parent_lock": {
+    "path": "reports/finhrm_qp4_development_source_expansion_page_selective_ocr_reclosure_precommit_lock_v1.json",
+    "size_bytes": 7637,
+    "sha256": "dcb476b3d696567d63ce182d7df636f04640411bbeb44ea095159624a96bba3b",
+    "verified": true
+  },
+  "execution_identity": {
+    "selection_manifest_sha256": "ab463443df08a2d8a41dd064cc0a1f8281429b8ace0355b61fb54feb18199bf9",
+    "sources": 25,
+    "selected_pages": 179,
+    "verified_cache_batches": 127,
+    "mineru_version": "3.4.4",
+    "backend": "hybrid-engine",
+    "effort": "medium",
+    "ocr_executor": {
+      "path": "scripts/ocr_financial_review_pages.py",
+      "size_bytes": 8507,
+      "sha256": "3a68a1c25fe243795fe88c083f11e90dce29ffd90e1f2b40e9c5a5e50b96f87a"
+    },
+    "document_source_runtime": {
+      "path": "src/hrm_finance_qa/document_sources.py",
+      "size_bytes": 57613,
+      "sha256": "e9eb7b3ddcc2ed13060a573a6a0101a216fa49ff21dd65cd5fc2629b92f5fc0b"
+    }
+  },
+  "terminal_materialization": {
+    "source_hashes": "25/25",
+    "sources": "25/25",
+    "pages": "179/179",
+    "cache_batches": "127/127",
+    "whole_document_ocr_jobs": 0,
+    "unselected_pages_materialized": 0,
+    "terminal_errors": 0,
+    "transient_engine_dead_errors": 1,
+    "transient_failed_immediate_restarts": 1,
+    "successful_identical_configuration_resumes": 1
+  },
+  "coverage_lock": {
+    "flattened_companies_sources_layouts_instances": "3/3/3/3_FROZEN",
+    "hierarchical_companies_sources_layouts_instances": "1/1/1/1",
+    "hierarchical_reviewed_not_admitted": "2/2/UNCOMPUTABLE/2",
+    "fragmented_companies_sources_layouts_instances": "0/0/0/0",
+    "hierarchical_minimum": "3/3/3/3",
+    "fragmented_minimum": "3/3/3/3",
+    "cross_signature_pooling": false,
+    "coverage_gate_passed": false
+  },
+  "fail_closed_reasons": [
+    "MINERU_TABLE_OUTPUT_LACKS_REQUIRED_PER_HEADER_AND_PER_OPERAND_CELL_BBOX",
+    "CANONICAL_NATIVE_TABLE_REPRESENTATION_HAS_NO_OCR_OR_HYBRID_ALLOWED_BIN",
+    "FRAGMENTED_NATIVE_FRAGMENT_PREDICATE_UNSATISFIABLE_FROM_CURRENT_OCR_ONLY_ARTIFACTS",
+    "HIERARCHICAL_AND_FRAGMENTED_MINIMUM_COVERAGE_NOT_MET"
+  ],
+  "frozen_replay": {
+    "safe_replay_gate_passed": true,
+    "gold_execution": "363/363",
+    "candidate_permutation": "363/363",
+    "counterfactuals": 141,
+    "counterfactual_false_accepts": 0,
+    "affected_regression": "360/360",
+    "checkpoint_sha256": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de"
+  },
+  "invariants": {
+    "runtime_changed": false,
+    "model_changed": false,
+    "checkpoint_changed": false,
+    "threshold_changed": false,
+    "fine_tuning_performed": false,
+    "abw_used_as_confirmation_or_gate": false,
+    "protected_evaluation_loaded": false,
+    "candidate_rank_or_score_used_as_semantic_proof": false,
+    "missing_geometry_or_family_oracle_coerced_to_admission": false,
+    "source_or_page_replacement_after_outcome": false,
+    "synthetic_layout_confirmation": false,
+    "answer_presentation_runtime_changed": false,
+    "qp5_unlocked": false,
+    "phase_d_unlocked": false
+  },
+  "authorized_next_action": "QP4-DEVELOPMENT-SOURCE-EXPANSION-OCR-GEOMETRY-AND-LAYOUT-FAMILY-CONTRACT-RECLOSURE-PRECOMMIT"
+}

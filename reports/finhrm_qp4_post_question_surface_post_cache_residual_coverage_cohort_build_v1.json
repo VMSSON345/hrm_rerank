@@ -1,0 +1,642 @@
+{
+  "schema": "finhrm-qp4-post-question-surface-post-cache-residual-coverage-cohort-build-v1",
+  "created_at": "2026-08-23",
+  "classification": "development_only_qp4_residual_coverage_cohort_build_no_runtime_no_ocr_no_replay",
+  "status": "complete",
+  "gate": "PASS",
+  "step": "QP4-POST-QUESTION-SURFACE-POST-CACHE-RESIDUAL-COVERAGE-COHORT-BUILD",
+  "purpose": "Freeze a company-disjoint and layout-diverse development cohort for ACTUAL_PLAN / REFERENCE_BASE / RATIO_PERCENT before any source replay or QP4 runtime proposal.",
+  "parents": {
+    "precommit": {
+      "path": "config/finhrm_qp4_post_question_surface_post_cache_residual_coverage_cohort_precommit_v1.json",
+      "sha256": "2997e17f14565340d91e830e3cef031e40fbb239dc915dce89e557cb5ed8b509"
+    },
+    "precommit_markdown": {
+      "path": "reports/finhrm_qp4_post_question_surface_post_cache_residual_coverage_cohort_precommit_v1.md",
+      "sha256": "4b5fe5dd7ac873f8ba2d6052d3f5e857be4b33db8ac8a62f8214bb305fc3f599"
+    },
+    "precommit_lock": {
+      "path": "reports/finhrm_qp4_post_question_surface_post_cache_residual_coverage_cohort_precommit_lock_v1.json",
+      "sha256": "88de4d8f481f94784f93e096f8ddfbe88da602cafe5213cd93ba45f1749ce73f"
+    },
+    "diagnostic_report": {
+      "path": "reports/finhrm_qp4_post_question_surface_post_cache_source_error_diagnostic_review_v1.json",
+      "sha256": "22258f523aa408467474d098a4a72981c03cc4fb0a99434b89d51a75f8969e69"
+    },
+    "diagnostic_lock": {
+      "path": "reports/finhrm_qp4_post_question_surface_post_cache_source_error_diagnostic_review_lock_v1.json",
+      "sha256": "fb50a0d655b470f0a31589963a15d31f7947d3bbe0ba457c0aaa3335553fedc7"
+    },
+    "development_company_catalog": {
+      "path": "data/pdf_development_company_catalog_v3.json",
+      "sha256": "17f74e49fe1894871453dd0c2b2ec8f13fa3650c4294c324d90bc7e47dd8bb2b"
+    },
+    "diagnosis_source_cohort": {
+      "path": "config/finhrm_qp4_actual_plan_ratio_direction_source_cohort_v1.json",
+      "sha256": "20ba00740ffe9ba2686c08bc01d07b8f345847d7ddbc5b8780c157bd7ef8d11f"
+    },
+    "question_family_catalog": {
+      "path": "config/question_family_catalog_plan_actual_v1.jsonl",
+      "sha256": "69c4017afec7731f63407339ae0c3d717ac38690807b17908b77fb1892d8e31b"
+    },
+    "development_layout_audit": {
+      "path": "reports/finhrm_qp3_core_add_diverse_development_source_audit_v1.json",
+      "sha256": "1c186dcb2b0711dbebabf01ceeca3f5d3c976fb884565d312ae05144a15f886f"
+    },
+    "thesis_core": {
+      "path": "config/finhrm_thesis_core_v1.json",
+      "sha256": "a9f2f3088f7622c6c8912086eac16252f154fcae1164a3fe7ba75107a0ece502"
+    },
+    "claude_md": {
+      "path": "CLAUDE.md",
+      "sha256": "35a0f66a6531e61b35dc7288884da35eeef79ad1039f5ffdfd29295cee8d566e"
+    }
+  },
+  "catalog_audit": {
+    "catalog_documents": 169,
+    "catalog_company_groups": 150,
+    "documents_hash_checked_before_content_read": 169,
+    "documents_admitted_for_native_discovery": 167,
+    "company_groups_admitted": 149,
+    "protected_marker_exclusions": 2,
+    "hash_mismatches": 0,
+    "document_read_errors": 0,
+    "native_candidate_documents": 60,
+    "native_candidate_pages": 185,
+    "documents_without_generic_native_role_period_unit_prefilter": 107,
+    "existing_catalog_matched_cache_documents": 0,
+    "new_ocr_generated": 0,
+    "protected_evaluation_loaded": false,
+    "abw_used": false,
+    "selection_stop_reason": "target_six_reached_with_all_mandatory_diversity_gates",
+    "selection_priority_used_runtime_outcome": false
+  },
+  "aggregate_rejection_and_stop_summary": {
+    "protected_source_marker": 2,
+    "no_generic_native_role_period_unit_candidate_page": 107,
+    "visible_operand_or_printed_ratio_contradiction": 2,
+    "conservative_diagnosis_company_membership_exclusion": 1,
+    "selected_after_explicit_proof_and_visual_review": 6,
+    "remaining_native_candidate_documents_not_selected_after_target_or_without_complete_explicit_proof": 51,
+    "notes": [
+      "A source with a printed ratio inconsistent with its visible operands was rejected, never repaired by a question or report-specific rule.",
+      "A company key appearing in the broader diagnosis-company set was conservatively excluded even though it was not one of the four diagnosis anchors.",
+      "The scan stopped only after the target and every mandatory diversity dimension were satisfied."
+    ]
+  },
+  "semantic_stratum": {
+    "track": "ACTUAL_PLAN",
+    "group": "REFERENCE_BASE",
+    "operation": "RATIO_PERCENT",
+    "answer_mode": "SINGLE_SCALAR",
+    "base_program": "current_actual / same_period_plan * 100",
+    "reference_base_mutation": "current_actual / explicit_prior_actual * 100",
+    "missing_proof_policy": "UNKNOWN_TO_ABSTAIN",
+    "contradiction_policy": "REJECT",
+    "nearby_or_question_period_inference": false,
+    "candidate_rank_score_or_confidence_used_as_proof": false
+  },
+  "question_contract": {
+    "target_family": "PA03",
+    "target_operation": "RATIO_PERCENT",
+    "operation_contrast_family": "PA07",
+    "operation_contrast_policy": "CONTROL_ONLY_OUTSIDE_TARGET_STRATUM; PERCENT_CHANGE is not counted as a target program or coverage confirmation",
+    "meaning_preserving_variants": [
+      "canonical",
+      "paraphrase_1",
+      "long_clause",
+      "clause_reordered",
+      "no_diacritics"
+    ],
+    "minimum_surface_variants_per_semantic_program": 4,
+    "instantiated_surface_variants_per_semantic_program": 5,
+    "semantic_controls_per_anchor": [
+      "reference_base_mutation",
+      "minimal_pair_role_swap",
+      "minimal_pair_year_shift",
+      "hard_negative_missing_role",
+      "ambiguity_control",
+      "PA07_operation_contrast"
+    ],
+    "synthetic_surfaces_count_as_real_layout_confirmation": false
+  },
+  "anchors": [
+    {
+      "anchor_id": "qp4-rcc-pic-total-revenue",
+      "company_key": "development-company-2255c8b55faa7d4f",
+      "source_name": "PIC_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/PIC_23CN_BCTN.pdf",
+      "source_sha256": "ae0d9aa6645251025f3f71572205f5ef0f93a6f136ae243c2f3cd0700befb96e",
+      "physical_page": 17,
+      "printed_page_labels": [17, 18],
+      "document_layout_family": "native_text_mixed_orientation",
+      "extraction_family": "native_vector_text_table",
+      "table_layout_family": "dense_single_matrix_prior_actual_current_plan_current_actual_dual_ratio",
+      "header_role_topology": "prior_actual_then_current_group_plan_actual_then_dual_ratio",
+      "orientation": "landscape",
+      "page_span": "single_physical_page",
+      "layout_instance_fingerprint": "native_text_mixed_orientation|dense_single_matrix_prior_actual_current_plan_current_actual_dual_ratio|prior_actual_then_current_group_plan_actual_then_dual_ratio|landscape|single_physical_page",
+      "metric": "Tổng doanh thu",
+      "normalized_metric_identity": "total_revenue",
+      "entity_scope": "reporting_entity_company",
+      "unit": "million_vnd",
+      "unit_label": "Tr.đ",
+      "visual_review": {
+        "decision": "PASS",
+        "method": "independent_pdf_page_render_after_hash_match",
+        "render_sha256": "89f20db68c19dbaf13e7ddeae14532df32cf66ef94f6caa221dad68a48938a9c",
+        "checks": ["metric_row", "role_headers", "periods", "unit", "three_operands", "printed_ratio_consistency"]
+      },
+      "provenance": {
+        "table_span": "Kết quả hoạt động SXKD trong năm",
+        "row_label": "II Tổng doanh thu",
+        "prior_actual_column": "Thực hiện năm 2022",
+        "plan_column": "Năm 2023 - Kế hoạch",
+        "current_actual_column": "Năm 2023 - Thực hiện"
+      },
+      "evidence": {
+        "prior_actual": {"value": "151646.93", "role": "ACTUAL", "period": 2022},
+        "current_plan": {"value": "126038.25", "role": "PLAN", "period": 2023},
+        "current_actual": {"value": "139527.28", "role": "ACTUAL", "period": 2023}
+      },
+      "programs": {
+        "base": {"operation": "RATIO_PERCENT", "operands": ["current_actual", "current_plan"], "expected_exact_percent": "110.702330"},
+        "reference_base_mutation": {"operation": "RATIO_PERCENT", "operands": ["current_actual", "prior_actual"], "expected_exact_percent": "92.007982"}
+      },
+      "questions": {
+        "base_surfaces": [
+          "Tổng doanh thu thực hiện năm 2023 đạt bao nhiêu phần trăm kế hoạch năm 2023?",
+          "Hãy cho biết tổng doanh thu thực hiện năm 2023 bằng bao nhiêu phần trăm mức kế hoạch cùng năm?",
+          "Căn cứ đúng bảng kết quả hoạt động và giữ nguyên đơn vị, phạm vi cùng vai trò từng cột, hãy xác định tổng doanh thu thực hiện năm 2023 đạt bao nhiêu phần trăm kế hoạch năm 2023?",
+          "Đối với cùng chỉ tiêu và phạm vi báo cáo, so với kế hoạch năm 2023 thì tổng doanh thu thực hiện năm 2023 đạt bao nhiêu phần trăm?",
+          "Tong doanh thu thuc hien nam 2023 dat bao nhieu phan tram ke hoach nam 2023?"
+        ],
+        "reference_base_mutation_surfaces": [
+          "Tổng doanh thu thực hiện năm 2023 bằng bao nhiêu phần trăm thực hiện năm 2022?",
+          "Hãy cho biết tổng doanh thu thực hiện năm 2023 đạt bao nhiêu phần trăm so với số thực hiện năm 2022?",
+          "Căn cứ đúng bảng kết quả hoạt động và giữ nguyên đơn vị, phạm vi cùng vai trò từng cột, hãy xác định tổng doanh thu thực hiện năm 2023 bằng bao nhiêu phần trăm thực hiện năm 2022?",
+          "Đối với cùng chỉ tiêu và phạm vi báo cáo, so với thực hiện năm 2022 thì tổng doanh thu thực hiện năm 2023 bằng bao nhiêu phần trăm?",
+          "Tong doanh thu thuc hien nam 2023 bang bao nhieu phan tram thuc hien nam 2022?"
+        ],
+        "controls": {
+          "minimal_pair_role_swap": "Tổng doanh thu kế hoạch năm 2023 bằng bao nhiêu phần trăm thực hiện năm 2023?",
+          "minimal_pair_year_shift": "Tổng doanh thu thực hiện năm 2024 đạt bao nhiêu phần trăm kế hoạch năm 2024?",
+          "hard_negative_missing_role": "Tổng doanh thu năm 2023 đạt bao nhiêu phần trăm năm 2023?",
+          "ambiguity_control": "Tổng doanh thu trong năm đạt bao nhiêu phần trăm khi không xác định vai trò và kỳ của hai cột?",
+          "PA07_operation_contrast": "Tổng doanh thu thực hiện năm 2023 thay đổi bao nhiêu phần trăm so với kế hoạch năm 2023?"
+        }
+      }
+    },
+    {
+      "anchor_id": "qp4-rcc-agr-total-expense",
+      "company_key": "development-company-18",
+      "source_name": "AGR_24CN_BCTN.pdf",
+      "source_path": "pdf/PDF_24/PDF_24/AGR_24CN_BCTN.pdf",
+      "source_sha256": "29cda4b451aa6e180334489db732ce77b94df32a8f19d6ee93afd234ce1a7d6e",
+      "physical_page": 13,
+      "printed_page_labels": [24, 25],
+      "document_layout_family": "native_text_mixed_orientation",
+      "extraction_family": "native_vector_text_table",
+      "table_layout_family": "compact_current_year_plan_actual_with_prior_and_ratio_spanner",
+      "header_role_topology": "prior_actual_plan_actual_then_two_current_comparison_columns",
+      "orientation": "landscape",
+      "page_span": "single_physical_page",
+      "layout_instance_fingerprint": "native_text_mixed_orientation|compact_current_year_plan_actual_with_prior_and_ratio_spanner|prior_actual_plan_actual_then_two_current_comparison_columns|landscape|single_physical_page",
+      "metric": "Tổng chi phí",
+      "normalized_metric_identity": "total_expense",
+      "entity_scope": "reporting_entity_company",
+      "unit": "billion_vnd",
+      "unit_label": "Tỷ đồng",
+      "visual_review": {
+        "decision": "PASS",
+        "method": "independent_pdf_page_render_after_hash_match",
+        "render_sha256": "1e3fc8834bd9c84c8f06b60186ea3dc1b13ee58896372183b99a03c3540698a8",
+        "checks": ["metric_row", "role_headers", "periods", "unit", "three_operands", "printed_ratio_consistency"]
+      },
+      "provenance": {
+        "table_span": "1.1 Báo cáo kết quả hoạt động sản xuất kinh doanh",
+        "row_label": "Tổng chi phí",
+        "prior_actual_column": "TH 2023",
+        "plan_column": "KH 2024",
+        "current_actual_column": "TH 2024"
+      },
+      "evidence": {
+        "prior_actual": {"value": "177.8", "role": "ACTUAL", "period": 2023},
+        "current_plan": {"value": "215.0", "role": "PLAN", "period": 2024},
+        "current_actual": {"value": "245.6", "role": "ACTUAL", "period": 2024}
+      },
+      "programs": {
+        "base": {"operation": "RATIO_PERCENT", "operands": ["current_actual", "current_plan"], "expected_exact_percent": "114.232558"},
+        "reference_base_mutation": {"operation": "RATIO_PERCENT", "operands": ["current_actual", "prior_actual"], "expected_exact_percent": "138.132733"}
+      },
+      "questions": {
+        "base_surfaces": [
+          "Tổng chi phí thực hiện năm 2024 đạt bao nhiêu phần trăm kế hoạch năm 2024?",
+          "Hãy cho biết tổng chi phí thực hiện năm 2024 bằng bao nhiêu phần trăm mức kế hoạch cùng năm?",
+          "Căn cứ đúng bảng kết quả hoạt động và giữ nguyên đơn vị, phạm vi cùng vai trò từng cột, hãy xác định tổng chi phí thực hiện năm 2024 đạt bao nhiêu phần trăm kế hoạch năm 2024?",
+          "Đối với cùng chỉ tiêu và phạm vi báo cáo, so với kế hoạch năm 2024 thì tổng chi phí thực hiện năm 2024 đạt bao nhiêu phần trăm?",
+          "Tong chi phi thuc hien nam 2024 dat bao nhieu phan tram ke hoach nam 2024?"
+        ],
+        "reference_base_mutation_surfaces": [
+          "Tổng chi phí thực hiện năm 2024 bằng bao nhiêu phần trăm thực hiện năm 2023?",
+          "Hãy cho biết tổng chi phí thực hiện năm 2024 đạt bao nhiêu phần trăm so với số thực hiện năm 2023?",
+          "Căn cứ đúng bảng kết quả hoạt động và giữ nguyên đơn vị, phạm vi cùng vai trò từng cột, hãy xác định tổng chi phí thực hiện năm 2024 bằng bao nhiêu phần trăm thực hiện năm 2023?",
+          "Đối với cùng chỉ tiêu và phạm vi báo cáo, so với thực hiện năm 2023 thì tổng chi phí thực hiện năm 2024 bằng bao nhiêu phần trăm?",
+          "Tong chi phi thuc hien nam 2024 bang bao nhieu phan tram thuc hien nam 2023?"
+        ],
+        "controls": {
+          "minimal_pair_role_swap": "Tổng chi phí kế hoạch năm 2024 bằng bao nhiêu phần trăm thực hiện năm 2024?",
+          "minimal_pair_year_shift": "Tổng chi phí thực hiện năm 2025 đạt bao nhiêu phần trăm kế hoạch năm 2025?",
+          "hard_negative_missing_role": "Tổng chi phí năm 2024 đạt bao nhiêu phần trăm năm 2024?",
+          "ambiguity_control": "Tổng chi phí trong năm đạt bao nhiêu phần trăm khi không xác định vai trò và kỳ của hai cột?",
+          "PA07_operation_contrast": "Tổng chi phí thực hiện năm 2024 thay đổi bao nhiêu phần trăm so với kế hoạch năm 2024?"
+        }
+      }
+    },
+    {
+      "anchor_id": "qp4-rcc-hub-parent-profit-after-tax",
+      "company_key": "development-company-08d33503ee27d4c1",
+      "source_name": "HUB_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/HUB_23CN_BCTN.pdf",
+      "source_sha256": "daad4aaec36be97b5ae6f99d1d822fb9efe12d2b92110e81be7df150e991f695",
+      "physical_page": 21,
+      "printed_page_labels": [19],
+      "document_layout_family": "native_text_portrait",
+      "extraction_family": "native_vector_text_table",
+      "table_layout_family": "portrait_table_above_grouped_bar_chart",
+      "header_role_topology": "prior_actual_plan_actual_then_two_comparison_columns",
+      "orientation": "portrait",
+      "page_span": "single_physical_page",
+      "layout_instance_fingerprint": "native_text_portrait|portrait_table_above_grouped_bar_chart|prior_actual_plan_actual_then_two_comparison_columns|portrait|single_physical_page",
+      "metric": "Lợi nhuận sau thuế riêng công ty",
+      "normalized_metric_identity": "parent_company_profit_after_tax",
+      "entity_scope": "parent_company_separate_financial_report",
+      "unit": "billion_vnd",
+      "unit_label": "Tỷ đồng",
+      "visual_review": {
+        "decision": "PASS",
+        "method": "independent_pdf_page_render_after_hash_match",
+        "render_sha256": "1f97e467da6472bcd0bfb1da7c0bb3b3c513fa58a485e00b71c89862753365d9",
+        "checks": ["separate_scope_heading", "metric_row", "role_headers", "periods", "unit", "three_operands", "printed_comparison_consistency"]
+      },
+      "provenance": {
+        "table_span": "1.2.2 Báo cáo tài chính riêng công ty",
+        "row_label": "Lợi nhuận sau thuế",
+        "prior_actual_column": "Thực hiện 2022",
+        "plan_column": "Kế hoạch 2023",
+        "current_actual_column": "Thực hiện 2023"
+      },
+      "evidence": {
+        "prior_actual": {"value": "39.98", "role": "ACTUAL", "period": 2022},
+        "current_plan": {"value": "35.00", "role": "PLAN", "period": 2023},
+        "current_actual": {"value": "46.42", "role": "ACTUAL", "period": 2023}
+      },
+      "programs": {
+        "base": {"operation": "RATIO_PERCENT", "operands": ["current_actual", "current_plan"], "expected_exact_percent": "132.628571"},
+        "reference_base_mutation": {"operation": "RATIO_PERCENT", "operands": ["current_actual", "prior_actual"], "expected_exact_percent": "116.108054"}
+      },
+      "questions": {
+        "base_surfaces": [
+          "Lợi nhuận sau thuế riêng công ty thực hiện năm 2023 đạt bao nhiêu phần trăm kế hoạch năm 2023?",
+          "Hãy cho biết lợi nhuận sau thuế riêng công ty thực hiện năm 2023 bằng bao nhiêu phần trăm mức kế hoạch cùng năm?",
+          "Căn cứ đúng bảng báo cáo tài chính riêng công ty và giữ nguyên đơn vị, phạm vi cùng vai trò từng cột, hãy xác định lợi nhuận sau thuế thực hiện năm 2023 đạt bao nhiêu phần trăm kế hoạch năm 2023?",
+          "Trong phạm vi báo cáo riêng công ty, so với kế hoạch năm 2023 thì lợi nhuận sau thuế thực hiện năm 2023 đạt bao nhiêu phần trăm?",
+          "Loi nhuan sau thue rieng cong ty thuc hien nam 2023 dat bao nhieu phan tram ke hoach nam 2023?"
+        ],
+        "reference_base_mutation_surfaces": [
+          "Lợi nhuận sau thuế riêng công ty thực hiện năm 2023 bằng bao nhiêu phần trăm thực hiện năm 2022?",
+          "Hãy cho biết lợi nhuận sau thuế riêng công ty thực hiện năm 2023 đạt bao nhiêu phần trăm so với số thực hiện năm 2022?",
+          "Căn cứ đúng bảng báo cáo tài chính riêng công ty và giữ nguyên đơn vị, phạm vi cùng vai trò từng cột, hãy xác định lợi nhuận sau thuế thực hiện năm 2023 bằng bao nhiêu phần trăm thực hiện năm 2022?",
+          "Trong phạm vi báo cáo riêng công ty, so với thực hiện năm 2022 thì lợi nhuận sau thuế thực hiện năm 2023 bằng bao nhiêu phần trăm?",
+          "Loi nhuan sau thue rieng cong ty thuc hien nam 2023 bang bao nhieu phan tram thuc hien nam 2022?"
+        ],
+        "controls": {
+          "minimal_pair_role_swap": "Lợi nhuận sau thuế riêng công ty kế hoạch năm 2023 bằng bao nhiêu phần trăm thực hiện năm 2023?",
+          "minimal_pair_year_shift": "Lợi nhuận sau thuế riêng công ty thực hiện năm 2024 đạt bao nhiêu phần trăm kế hoạch năm 2024?",
+          "hard_negative_missing_role": "Lợi nhuận sau thuế riêng công ty năm 2023 đạt bao nhiêu phần trăm năm 2023?",
+          "ambiguity_control": "Lợi nhuận sau thuế trong năm đạt bao nhiêu phần trăm khi không xác định báo cáo riêng hay hợp nhất và không xác định vai trò cột?",
+          "PA07_operation_contrast": "Lợi nhuận sau thuế riêng công ty thực hiện năm 2023 thay đổi bao nhiêu phần trăm so với kế hoạch năm 2023?"
+        }
+      }
+    },
+    {
+      "anchor_id": "qp4-rcc-ict-total-revenue",
+      "company_key": "development-company-175a680792c1fbf7",
+      "source_name": "ICT_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/ICT_23CN_BCTN.pdf",
+      "source_sha256": "ee2061e29c1923da0e38ba33a7e25c7d0d2a2f6f22f045b8b30bd4c1bb539ac1",
+      "physical_page": 13,
+      "printed_page_labels": [24, 25],
+      "document_layout_family": "native_text_mixed_orientation",
+      "extraction_family": "native_vector_text_table",
+      "table_layout_family": "stacked_plan_actual_and_prior_actual_comparison_tables",
+      "header_role_topology": "top_table_plan_actual_then_bottom_table_prior_actual",
+      "orientation": "landscape",
+      "page_span": "single_physical_page",
+      "layout_instance_fingerprint": "native_text_mixed_orientation|stacked_plan_actual_and_prior_actual_comparison_tables|top_table_plan_actual_then_bottom_table_prior_actual|landscape|single_physical_page",
+      "metric": "Tổng doanh thu",
+      "normalized_metric_identity": "total_revenue",
+      "entity_scope": "reporting_entity_company",
+      "unit": "billion_vnd",
+      "unit_label": "Tỷ đồng",
+      "visual_review": {
+        "decision": "PASS",
+        "method": "independent_pdf_page_render_after_hash_match",
+        "render_sha256": "a53f7e308d279574f33ab1c39b02c60daa056c972ceeb04106b9d2d9610b55a2",
+        "checks": ["same_metric_across_two_tables", "role_headers", "periods", "unit", "three_operands", "printed_comparison_consistency"]
+      },
+      "provenance": {
+        "table_span": "2.1 Tình hình hoạt động sản xuất kinh doanh - two stacked tables",
+        "row_label": "Tổng doanh thu",
+        "prior_actual_column": "Năm 2022 in lower table",
+        "plan_column": "Kế hoạch năm 2023 in upper table",
+        "current_actual_column": "Thực hiện năm 2023 in upper and lower tables"
+      },
+      "evidence": {
+        "prior_actual": {"value": "1382.40", "role": "ACTUAL", "period": 2022},
+        "current_plan": {"value": "1600", "role": "PLAN", "period": 2023},
+        "current_actual": {"value": "1526.69", "role": "ACTUAL", "period": 2023}
+      },
+      "programs": {
+        "base": {"operation": "RATIO_PERCENT", "operands": ["current_actual", "current_plan"], "expected_exact_percent": "95.418125"},
+        "reference_base_mutation": {"operation": "RATIO_PERCENT", "operands": ["current_actual", "prior_actual"], "expected_exact_percent": "110.437645"}
+      },
+      "questions": {
+        "base_surfaces": [
+          "Tổng doanh thu thực hiện năm 2023 đạt bao nhiêu phần trăm kế hoạch năm 2023?",
+          "Hãy cho biết tổng doanh thu thực hiện năm 2023 bằng bao nhiêu phần trăm mức kế hoạch cùng năm?",
+          "Căn cứ đúng hai bảng so sánh trên cùng trang và giữ nguyên đơn vị, phạm vi cùng vai trò từng cột, hãy xác định tổng doanh thu thực hiện năm 2023 đạt bao nhiêu phần trăm kế hoạch năm 2023?",
+          "Đối với cùng chỉ tiêu và phạm vi báo cáo, so với kế hoạch năm 2023 thì tổng doanh thu thực hiện năm 2023 đạt bao nhiêu phần trăm?",
+          "Tong doanh thu thuc hien nam 2023 dat bao nhieu phan tram ke hoach nam 2023?"
+        ],
+        "reference_base_mutation_surfaces": [
+          "Tổng doanh thu thực hiện năm 2023 bằng bao nhiêu phần trăm thực hiện năm 2022?",
+          "Hãy cho biết tổng doanh thu thực hiện năm 2023 đạt bao nhiêu phần trăm so với số thực hiện năm 2022?",
+          "Căn cứ đúng hai bảng so sánh trên cùng trang và giữ nguyên đơn vị, phạm vi cùng vai trò từng cột, hãy xác định tổng doanh thu thực hiện năm 2023 bằng bao nhiêu phần trăm thực hiện năm 2022?",
+          "Đối với cùng chỉ tiêu và phạm vi báo cáo, so với thực hiện năm 2022 thì tổng doanh thu thực hiện năm 2023 bằng bao nhiêu phần trăm?",
+          "Tong doanh thu thuc hien nam 2023 bang bao nhieu phan tram thuc hien nam 2022?"
+        ],
+        "controls": {
+          "minimal_pair_role_swap": "Tổng doanh thu kế hoạch năm 2023 bằng bao nhiêu phần trăm thực hiện năm 2023?",
+          "minimal_pair_year_shift": "Tổng doanh thu thực hiện năm 2024 đạt bao nhiêu phần trăm kế hoạch năm 2024?",
+          "hard_negative_missing_role": "Tổng doanh thu năm 2023 đạt bao nhiêu phần trăm năm 2023?",
+          "ambiguity_control": "Tổng doanh thu trong năm đạt bao nhiêu phần trăm khi không xác định lấy cột ở bảng kế hoạch hay bảng năm trước?",
+          "PA07_operation_contrast": "Tổng doanh thu thực hiện năm 2023 thay đổi bao nhiêu phần trăm so với kế hoạch năm 2023?"
+        }
+      }
+    },
+    {
+      "anchor_id": "qp4-rcc-scg-total-revenue",
+      "company_key": "development-company-128d077252ff6e80",
+      "source_name": "SCG_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/SCG_23CN_BCTN.pdf",
+      "source_sha256": "fabcefdf81e9bf90abdfe4497a4b7ba7960d564e9ce525ecd7dfe8dd05c62ff1",
+      "physical_page": 17,
+      "printed_page_labels": [30, 31],
+      "document_layout_family": "native_text_mixed_orientation",
+      "extraction_family": "native_vector_text_table",
+      "table_layout_family": "wide_left_panel_plan_actual_prior_growth_matrix",
+      "header_role_topology": "plan_actual_prior_actual_then_completion_and_growth",
+      "orientation": "landscape",
+      "page_span": "single_physical_page",
+      "layout_instance_fingerprint": "native_text_mixed_orientation|wide_left_panel_plan_actual_prior_growth_matrix|plan_actual_prior_actual_then_completion_and_growth|landscape|single_physical_page",
+      "metric": "Tổng doanh thu",
+      "normalized_metric_identity": "total_revenue",
+      "entity_scope": "consolidated_group_as_presented",
+      "unit": "billion_vnd",
+      "unit_label": "Tỷ đồng",
+      "visual_review": {
+        "decision": "PASS",
+        "method": "independent_pdf_page_render_after_hash_match",
+        "render_sha256": "2271c7df0f2e4ba40ffb8e1fd9f78d7b5ae88abb53809d247aa697d8a8e0c4cc",
+        "checks": ["metric_row", "role_headers", "periods", "unit", "three_operands", "printed_completion_and_growth_consistency"]
+      },
+      "provenance": {
+        "table_span": "1.1 Kết quả hoạt động sản xuất kinh doanh trong năm",
+        "row_label": "Tổng doanh thu",
+        "prior_actual_column": "Thực hiện 2022",
+        "plan_column": "Kế hoạch 2023",
+        "current_actual_column": "Thực hiện 2023"
+      },
+      "evidence": {
+        "prior_actual": {"value": "2011", "role": "ACTUAL", "period": 2022},
+        "current_plan": {"value": "2000", "role": "PLAN", "period": 2023},
+        "current_actual": {"value": "1272", "role": "ACTUAL", "period": 2023}
+      },
+      "programs": {
+        "base": {"operation": "RATIO_PERCENT", "operands": ["current_actual", "current_plan"], "expected_exact_percent": "63.600000"},
+        "reference_base_mutation": {"operation": "RATIO_PERCENT", "operands": ["current_actual", "prior_actual"], "expected_exact_percent": "63.252113"}
+      },
+      "questions": {
+        "base_surfaces": [
+          "Tổng doanh thu thực hiện năm 2023 đạt bao nhiêu phần trăm kế hoạch năm 2023?",
+          "Hãy cho biết tổng doanh thu thực hiện năm 2023 bằng bao nhiêu phần trăm mức kế hoạch cùng năm?",
+          "Căn cứ đúng bảng kết quả kinh doanh và giữ nguyên đơn vị, phạm vi cùng vai trò từng cột, hãy xác định tổng doanh thu thực hiện năm 2023 đạt bao nhiêu phần trăm kế hoạch năm 2023?",
+          "Đối với cùng chỉ tiêu và phạm vi báo cáo, so với kế hoạch năm 2023 thì tổng doanh thu thực hiện năm 2023 đạt bao nhiêu phần trăm?",
+          "Tong doanh thu thuc hien nam 2023 dat bao nhieu phan tram ke hoach nam 2023?"
+        ],
+        "reference_base_mutation_surfaces": [
+          "Tổng doanh thu thực hiện năm 2023 bằng bao nhiêu phần trăm thực hiện năm 2022?",
+          "Hãy cho biết tổng doanh thu thực hiện năm 2023 đạt bao nhiêu phần trăm so với số thực hiện năm 2022?",
+          "Căn cứ đúng bảng kết quả kinh doanh và giữ nguyên đơn vị, phạm vi cùng vai trò từng cột, hãy xác định tổng doanh thu thực hiện năm 2023 bằng bao nhiêu phần trăm thực hiện năm 2022?",
+          "Đối với cùng chỉ tiêu và phạm vi báo cáo, so với thực hiện năm 2022 thì tổng doanh thu thực hiện năm 2023 bằng bao nhiêu phần trăm?",
+          "Tong doanh thu thuc hien nam 2023 bang bao nhieu phan tram thuc hien nam 2022?"
+        ],
+        "controls": {
+          "minimal_pair_role_swap": "Tổng doanh thu kế hoạch năm 2023 bằng bao nhiêu phần trăm thực hiện năm 2023?",
+          "minimal_pair_year_shift": "Tổng doanh thu thực hiện năm 2024 đạt bao nhiêu phần trăm kế hoạch năm 2024?",
+          "hard_negative_missing_role": "Tổng doanh thu năm 2023 đạt bao nhiêu phần trăm năm 2023?",
+          "ambiguity_control": "Tổng doanh thu trong năm đạt bao nhiêu phần trăm khi không xác định cột kế hoạch, thực hiện và năm so sánh?",
+          "PA07_operation_contrast": "Tổng doanh thu thực hiện năm 2023 thay đổi bao nhiêu phần trăm so với kế hoạch năm 2023?"
+        }
+      }
+    },
+    {
+      "anchor_id": "qp4-rcc-vnl-profit-before-tax",
+      "company_key": "development-company-0d2016d24a4bb0bd",
+      "source_name": "VNL_23CN_BCTN.pdf",
+      "source_path": "pdf/PDF_23/VNL_23CN_BCTN.pdf",
+      "source_sha256": "c1f20dffb1a4ed818cd4d3d78f5d47ce2e1517b8a78e6c8e9eee1aaafca51c2b",
+      "physical_page": 44,
+      "printed_page_labels": [44],
+      "document_layout_family": "hybrid_scan_text",
+      "extraction_family": "hybrid_scan_text_existing_text_layer",
+      "table_layout_family": "portrait_audit_committee_table_with_interleaved_ratio_columns",
+      "header_role_topology": "current_actual_plan_completion_prior_actual_prior_ratio",
+      "orientation": "portrait",
+      "page_span": "single_physical_page",
+      "layout_instance_fingerprint": "hybrid_scan_text|portrait_audit_committee_table_with_interleaved_ratio_columns|current_actual_plan_completion_prior_actual_prior_ratio|portrait|single_physical_page",
+      "metric": "Lợi nhuận trước thuế",
+      "normalized_metric_identity": "profit_before_tax",
+      "entity_scope": "reporting_entity_company",
+      "unit": "billion_vnd",
+      "unit_label": "tỷ VNĐ",
+      "visual_review": {
+        "decision": "PASS",
+        "method": "independent_pdf_page_render_after_hash_match_against_existing_text_layer",
+        "render_sha256": "b1359aa5f8758c64d96b203616476436209b2f0d67268eaecad70c3821c2e621",
+        "checks": ["metric_row", "visible_role_header_tokens", "periods", "unit", "three_operands", "printed_ratio_rounding_consistency"],
+        "font_note": "Some Vietnamese glyphs are visually incomplete in the source PDF, but ACTUAL/PLAN role words, years, unit, row position, values and both rounded ratios remain independently distinguishable; no missing glyph was reconstructed as evidence."
+      },
+      "provenance": {
+        "table_span": "2.3.1 Về kết quả kinh doanh",
+        "row_label": "Lãi trước thuế",
+        "prior_actual_column": "Thực hiện 2022",
+        "plan_column": "Kế hoạch 2023",
+        "current_actual_column": "Thực hiện 2023"
+      },
+      "evidence": {
+        "prior_actual": {"value": "53.90", "role": "ACTUAL", "period": 2022},
+        "current_plan": {"value": "51.00", "role": "PLAN", "period": 2023},
+        "current_actual": {"value": "43.70", "role": "ACTUAL", "period": 2023}
+      },
+      "programs": {
+        "base": {"operation": "RATIO_PERCENT", "operands": ["current_actual", "current_plan"], "expected_exact_percent": "85.686275"},
+        "reference_base_mutation": {"operation": "RATIO_PERCENT", "operands": ["current_actual", "prior_actual"], "expected_exact_percent": "81.076067"}
+      },
+      "questions": {
+        "base_surfaces": [
+          "Lợi nhuận trước thuế thực hiện năm 2023 đạt bao nhiêu phần trăm kế hoạch năm 2023?",
+          "Hãy cho biết lợi nhuận trước thuế thực hiện năm 2023 bằng bao nhiêu phần trăm mức kế hoạch cùng năm?",
+          "Căn cứ đúng bảng kết quả kinh doanh và giữ nguyên đơn vị, phạm vi cùng vai trò từng cột, hãy xác định lợi nhuận trước thuế thực hiện năm 2023 đạt bao nhiêu phần trăm kế hoạch năm 2023?",
+          "Đối với cùng chỉ tiêu và phạm vi báo cáo, so với kế hoạch năm 2023 thì lợi nhuận trước thuế thực hiện năm 2023 đạt bao nhiêu phần trăm?",
+          "Loi nhuan truoc thue thuc hien nam 2023 dat bao nhieu phan tram ke hoach nam 2023?"
+        ],
+        "reference_base_mutation_surfaces": [
+          "Lợi nhuận trước thuế thực hiện năm 2023 bằng bao nhiêu phần trăm thực hiện năm 2022?",
+          "Hãy cho biết lợi nhuận trước thuế thực hiện năm 2023 đạt bao nhiêu phần trăm so với số thực hiện năm 2022?",
+          "Căn cứ đúng bảng kết quả kinh doanh và giữ nguyên đơn vị, phạm vi cùng vai trò từng cột, hãy xác định lợi nhuận trước thuế thực hiện năm 2023 bằng bao nhiêu phần trăm thực hiện năm 2022?",
+          "Đối với cùng chỉ tiêu và phạm vi báo cáo, so với thực hiện năm 2022 thì lợi nhuận trước thuế thực hiện năm 2023 bằng bao nhiêu phần trăm?",
+          "Loi nhuan truoc thue thuc hien nam 2023 bang bao nhieu phan tram thuc hien nam 2022?"
+        ],
+        "controls": {
+          "minimal_pair_role_swap": "Lợi nhuận trước thuế kế hoạch năm 2023 bằng bao nhiêu phần trăm thực hiện năm 2023?",
+          "minimal_pair_year_shift": "Lợi nhuận trước thuế thực hiện năm 2024 đạt bao nhiêu phần trăm kế hoạch năm 2024?",
+          "hard_negative_missing_role": "Lợi nhuận trước thuế năm 2023 đạt bao nhiêu phần trăm năm 2023?",
+          "ambiguity_control": "Lợi nhuận trong năm đạt bao nhiêu phần trăm khi không xác định trước hay sau thuế, vai trò cột và kỳ?",
+          "PA07_operation_contrast": "Lợi nhuận trước thuế thực hiện năm 2023 thay đổi bao nhiêu phần trăm so với kế hoạch năm 2023?"
+        }
+      }
+    }
+  ],
+  "diversity_metrics": {
+    "selected_anchors": 6,
+    "distinct_companies": 6,
+    "distinct_sources": 6,
+    "distinct_real_document_layout_families": 3,
+    "real_document_layout_families": [
+      "hybrid_scan_text",
+      "native_text_mixed_orientation",
+      "native_text_portrait"
+    ],
+    "distinct_real_table_layout_families": 6,
+    "distinct_layout_instance_fingerprints": 6,
+    "distinct_normalized_metric_identities": 4,
+    "normalized_metric_identities": [
+      "parent_company_profit_after_tax",
+      "profit_before_tax",
+      "total_expense",
+      "total_revenue"
+    ],
+    "distinct_extraction_families": 2,
+    "extraction_families": [
+      "hybrid_scan_text_existing_text_layer",
+      "native_vector_text_table"
+    ],
+    "maximum_anchors_per_company": 1,
+    "maximum_anchors_per_source": 1,
+    "synthetic_layouts_counted": 0
+  },
+  "disjointness": {
+    "diagnosis_company_overlap": 0,
+    "diagnosis_source_sha256_overlap": 0,
+    "diagnosis_layout_instance_overlap": 0,
+    "conservative_broader_diagnosis_company_set_checked": true,
+    "protected_sources_selected": 0
+  },
+  "gate_results": {
+    "parent_hashes_exact": true,
+    "catalog_classification_development_only": true,
+    "catalog_documents_audited_169": true,
+    "catalog_company_groups_audited_150": true,
+    "protected_sources_selected_zero": true,
+    "diagnosis_overlap_zero": true,
+    "selected_anchor_minimum_3": true,
+    "target_selected_anchors_6": true,
+    "distinct_company_minimum_3": true,
+    "distinct_source_minimum_3": true,
+    "real_document_layout_minimum_3": true,
+    "real_table_layout_minimum_3": true,
+    "layout_instance_minimum_3": true,
+    "normalized_metric_identity_minimum_3": true,
+    "extraction_family_minimum_2": true,
+    "maximum_one_anchor_per_company_source": true,
+    "every_anchor_independently_visually_reviewed": true,
+    "every_anchor_has_explicit_role_period_unit_and_provenance": true,
+    "every_anchor_has_base_and_reference_base_mutation": true,
+    "minimum_surface_variants_per_semantic_program": true,
+    "required_semantic_controls_present": true,
+    "runtime_hashes_exact": true,
+    "checkpoint_hash_exact": true,
+    "runtime_changed": false,
+    "ocr_generated_zero": true,
+    "source_replay_queries_zero": true,
+    "overall": "PASS"
+  },
+  "checkpoint": {
+    "path": "models/document_hrm_V8_candidate.pt",
+    "sha256": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de"
+  },
+  "frozen_runtime_hashes": {
+    "src/hrm_finance_qa/question_planner.py": "334ab6bfb57b883ff2022cdcb39614d7e7a8d3269c14f4bea188640d53111bf4",
+    "src/hrm_finance_qa/symbolic_verifier.py": "2679b1ce55cc070697438c806f19e3e888bfc19bc1a9ae3686a0b7fd7ffb0087",
+    "src/hrm_finance_qa/program_synthesis.py": "e4acc4878d0dfd465ba66ab91f3aaf8be71db5591aa1358fb8cb81f3c7bff550",
+    "src/hrm_finance_qa/evidence_schema.py": "2f16fabf932dc9dabc8203d9642d2503bb2dab43e0e1ee0f78755dd4fb00825d",
+    "src/hrm_finance_qa/document_hrm.py": "b5951bcde79583950b672f7fb6b199b3e5b9904e6784daae7c4c5be0eba65d21",
+    "src/hrm_finance_qa/document_reasoning_engine.py": "3883500011472716bc01f8e04a6d6f925173b35a14bbedd945c5ca4fb0063fa2",
+    "src/hrm_finance_qa/program_data.py": "5199434fc0628b7d270ce62b12657366cbe118901065edd9f1e1f6ca0f1f8d54",
+    "src/hrm_finance_qa/direction_contract.py": "a18aa130419fc74ce647bd92dc9c1b1217007738e636aad0f28c7f78396be937",
+    "src/hrm_finance_qa/answer_presentation.py": "c40bd4a8dff39162b44cf11ef2da12e7b153d907f7254e5d1856157b3ac56d36",
+    "src/hrm_finance_qa/document_sources.py": "e9eb7b3ddcc2ed13060a573a6a0101a216fa49ff21dd65cd5fc2629b92f5fc0b",
+    "src/hrm_finance_qa/document_page_index.py": "c99e011175afef21f302be42ba9454b948caa549d4d445d6bb35c5b974b81f85"
+  },
+  "retained_frozen_controls": {
+    "compiler": "242/242",
+    "regression": "360/360",
+    "safe_replay_gate": true,
+    "actions": {"ABSTAIN": 92, "ANSWER": 257, "REJECT": 14},
+    "execution": "363/363",
+    "permutation": "363/363",
+    "counterfactuals": 141,
+    "counterfactual_false_accepts": 0,
+    "accepted_wrong": 0,
+    "rerun_in_this_build": false,
+    "reason_not_rerun": "No runtime/model/checkpoint/threshold changed, and this build contract requires zero source replay and forbids the reasoning engine. Integrity is established by exact frozen hashes."
+  },
+  "authorization": {
+    "next_allowed_action": "QP4-POST-QUESTION-SURFACE-POST-CACHE-RESIDUAL-COVERAGE-SOURCE-REPLAY-PRECOMMIT",
+    "next_action_scope": "Freeze question-triggered page-selective OCR policy, denominators and per-layer coverage gates before any source replay.",
+    "source_replay_authorized_now": false,
+    "runtime_edit_authorized": false,
+    "qp4_complete": false,
+    "qp5_authorized": false,
+    "phase_d_unlocked": false
+  },
+  "invariants": {
+    "abw_used": false,
+    "protected_evaluation_loaded": false,
+    "validation_loaded": false,
+    "blind_loaded": false,
+    "test_data_loaded": false,
+    "sealed_or_holdout_loaded": false,
+    "fine_tuning_performed": false,
+    "threshold_changed": false,
+    "checkpoint_changed": false,
+    "model_changed": false,
+    "synthetic_layout_counted_as_confirmation": false,
+    "candidate_rank_score_or_confidence_used_as_semantic_proof": false,
+    "runtime_changed": false,
+    "ocr_run": false,
+    "source_replay_run": false
+  }
+}

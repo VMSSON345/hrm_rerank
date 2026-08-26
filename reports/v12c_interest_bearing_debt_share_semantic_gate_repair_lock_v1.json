@@ -1,0 +1,59 @@
+{
+  "protocol": "v12c-interest-bearing-debt-semantic-gate-repair-lock-v1",
+  "classification": "development_only_semantic_gate_repair",
+  "protected_evaluation_sources_used": false,
+  "training_performed": false,
+  "model_or_reranker_changed": false,
+  "threshold_changed": false,
+  "alternative_thresholds_evaluated": false,
+  "repair_scope": "Distinguish interest-bearing borrowing roles from broad liability and lending-asset rows before fuzzy alias scoring.",
+  "runtime_source": {
+    "path": "src/hrm_finance_qa/document_reasoning_engine.py",
+    "sha256": "c63b028387bb0be7fc74a799e3f5a21e09bed07adaffb444bf53bc47d5395bb9"
+  },
+  "frozen_inputs": {
+    "positive_cohort": {
+      "path": "data/v12c_interest_bearing_debt_share_independent_calibration_frozen_v1.jsonl",
+      "sha256": "58b1304afabbfd87f2f12cdf9b9694d996210a40768646368bff8e9274ca7133"
+    },
+    "negative_cohort": {
+      "path": "data/v12c_interest_bearing_debt_share_negative_ambiguity_frozen_v1.jsonl",
+      "sha256": "17d8bc460346409200fa167ad485a7f3b056b497f1b3c4bec19b38618f5e1882"
+    }
+  },
+  "replay_outputs": {
+    "positive": {
+      "path": "reports/v12c_interest_bearing_debt_share_independent_calibration_post_semantic_gate_v1.json",
+      "sha256": "007bfb7234adae603d6594b252bebdeae23c46299647d805fd2293929c457500"
+    },
+    "negative": {
+      "path": "reports/v12c_interest_bearing_debt_share_negative_ambiguity_post_semantic_gate_v1.json",
+      "sha256": "cf22ce1a1a3322c0d0b975696fb2b71ccacfabd8908613284f0becf3b7f02b99"
+    },
+    "joint_adequacy": {
+      "path": "reports/v12c_interest_bearing_debt_share_joint_calibration_post_semantic_gate_v1.json",
+      "sha256": "1c37da8407aa31822246f75ebe9701fd7dee52cc0524e289ff8aebf26fc05bf8"
+    }
+  },
+  "checkpoint_sha256_before": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de",
+  "checkpoint_sha256_after": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de",
+  "results": {
+    "positive_program_and_execution_correct": "20/20",
+    "positive_accepted": "0/20",
+    "negative_false_accepts": "0/26",
+    "negative_structurally_rejected_before": "20/26",
+    "negative_structurally_rejected_after": "26/26",
+    "previously_unblocked_semantic_confounds_after": "6/6 structurally rejected",
+    "frozen_ratio_percent_threshold": 0.9909889376955401,
+    "regression_tests": "293/293"
+  },
+  "gate": {
+    "semantic_liability_borrowing_gate_repaired": true,
+    "positive_program_execution_regression_free": true,
+    "structural_negative_gate": true,
+    "current_threshold_positive_coverage_gate": false,
+    "ready_for_threshold_calibration": false,
+    "threshold_change_authorized": false,
+    "phase_d_unlocked": false
+  }
+}

@@ -1,0 +1,774 @@
+{
+  "schema": "program-supervision-integrity-audit-v2",
+  "inputs": [
+    "/mnt/d/reasoning_model_V4/reasoning_model/data/train.jsonl",
+    "/mnt/d/reasoning_model_V4/reasoning_model/data/document_hrm_development_v1_train.jsonl"
+  ],
+  "blind_test_used": false,
+  "final_eval_used": false,
+  "examples": 2221,
+  "protected_records_detected_and_excluded": 200,
+  "protected_record_reasons": {
+    "example_id:validation": 200
+  },
+  "integrity_eligible_examples": 2094,
+  "integrity_excluded_examples": 127,
+  "integrity_coverage": 0.9428185502026114,
+  "operation_examples": {
+    "SELECT": 360,
+    "ADD": 243,
+    "SUBTRACT": 263,
+    "MULTIPLY": 180,
+    "DIVIDE": 187,
+    "RATIO_PERCENT": 230,
+    "PERCENT_CHANGE": 216,
+    "AVERAGE": 180,
+    "SUM3": 181,
+    "SUM4": 181
+  },
+  "excluded_by_operation": {
+    "SELECT": 6,
+    "SUBTRACT": 67,
+    "MULTIPLY": 19,
+    "PERCENT_CHANGE": 34,
+    "RATIO_PERCENT": 1
+  },
+  "integrity_issue_counts": {
+    "gold_verifier:missing_requested_period": 1,
+    "gold_direction_ambiguous": 44,
+    "gold_direction_reversed": 19,
+    "multiply_par_value_unit_algebra_unproven": 19,
+    "gold_verifier:invalid_unit_algebra": 1,
+    "gold_verifier:reporting_entity_mismatch": 5,
+    "gold_verifier:named_entity_mismatch": 2,
+    "gold_verifier:entity_match": 1,
+    "gold_verifier:graph_temporal_order": 2,
+    "gold_verifier:temporal_metric_mismatch": 37
+  },
+  "multiply_gold_unit_profiles": {
+    "currency_per_share x share_count": 99,
+    "currency x share_count": 7,
+    "currency_per_share x unknown": 7,
+    "share_count x unknown": 4,
+    "currency x currency_per_share": 2,
+    "share_count x share_count": 1,
+    "currency x currency": 60
+  },
+  "question_operation_mismatches_diagnostic": {
+    "SUBTRACT->PERCENT_CHANGE": 3,
+    "AVERAGE->SUBTRACT": 1,
+    "SUM3->ADD": 94,
+    "SUM4->ADD": 99,
+    "PERCENT_CHANGE->SUBTRACT": 2,
+    "SELECT->DIVIDE": 1,
+    "DIVIDE->RATIO_PERCENT": 3
+  },
+  "visible_mojibake_examples": 399,
+  "visible_mojibake_is_diagnostic_only": true,
+  "excluded_examples_first_100": [
+    {
+      "example_id": "synthetic-train-select-0096",
+      "operation": "SELECT",
+      "issues": [
+        "gold_verifier:missing_requested_period"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-subtract-0001",
+      "operation": "SUBTRACT",
+      "issues": [
+        "gold_direction_ambiguous"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-subtract-0067",
+      "operation": "SUBTRACT",
+      "issues": [
+        "gold_direction_ambiguous"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-subtract-0088",
+      "operation": "SUBTRACT",
+      "issues": [
+        "gold_direction_ambiguous"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-subtract-0090",
+      "operation": "SUBTRACT",
+      "issues": [
+        "gold_direction_reversed"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-subtract-0112",
+      "operation": "SUBTRACT",
+      "issues": [
+        "gold_direction_ambiguous"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-subtract-0113",
+      "operation": "SUBTRACT",
+      "issues": [
+        "gold_direction_ambiguous"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-multiply-0007",
+      "operation": "MULTIPLY",
+      "issues": [
+        "multiply_par_value_unit_algebra_unproven"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-multiply-0011",
+      "operation": "MULTIPLY",
+      "issues": [
+        "multiply_par_value_unit_algebra_unproven"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-multiply-0017",
+      "operation": "MULTIPLY",
+      "issues": [
+        "multiply_par_value_unit_algebra_unproven"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-multiply-0019",
+      "operation": "MULTIPLY",
+      "issues": [
+        "multiply_par_value_unit_algebra_unproven"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-multiply-0030",
+      "operation": "MULTIPLY",
+      "issues": [
+        "multiply_par_value_unit_algebra_unproven"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-multiply-0034",
+      "operation": "MULTIPLY",
+      "issues": [
+        "multiply_par_value_unit_algebra_unproven"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-multiply-0044",
+      "operation": "MULTIPLY",
+      "issues": [
+        "multiply_par_value_unit_algebra_unproven"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-multiply-0046",
+      "operation": "MULTIPLY",
+      "issues": [
+        "multiply_par_value_unit_algebra_unproven"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-multiply-0058",
+      "operation": "MULTIPLY",
+      "issues": [
+        "multiply_par_value_unit_algebra_unproven"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-multiply-0065",
+      "operation": "MULTIPLY",
+      "issues": [
+        "multiply_par_value_unit_algebra_unproven"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-multiply-0068",
+      "operation": "MULTIPLY",
+      "issues": [
+        "multiply_par_value_unit_algebra_unproven"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-multiply-0077",
+      "operation": "MULTIPLY",
+      "issues": [
+        "multiply_par_value_unit_algebra_unproven"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-multiply-0079",
+      "operation": "MULTIPLY",
+      "issues": [
+        "multiply_par_value_unit_algebra_unproven"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-multiply-0083",
+      "operation": "MULTIPLY",
+      "issues": [
+        "multiply_par_value_unit_algebra_unproven"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-multiply-0085",
+      "operation": "MULTIPLY",
+      "issues": [
+        "multiply_par_value_unit_algebra_unproven"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-multiply-0090",
+      "operation": "MULTIPLY",
+      "issues": [
+        "gold_verifier:invalid_unit_algebra",
+        "multiply_par_value_unit_algebra_unproven"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-multiply-0096",
+      "operation": "MULTIPLY",
+      "issues": [
+        "multiply_par_value_unit_algebra_unproven"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-multiply-0112",
+      "operation": "MULTIPLY",
+      "issues": [
+        "multiply_par_value_unit_algebra_unproven"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-multiply-0117",
+      "operation": "MULTIPLY",
+      "issues": [
+        "multiply_par_value_unit_algebra_unproven"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-percent_change-0006",
+      "operation": "PERCENT_CHANGE",
+      "issues": [
+        "gold_direction_ambiguous"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-percent_change-0030",
+      "operation": "PERCENT_CHANGE",
+      "issues": [
+        "gold_direction_ambiguous"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-percent_change-0031",
+      "operation": "PERCENT_CHANGE",
+      "issues": [
+        "gold_direction_ambiguous"
+      ]
+    },
+    {
+      "example_id": "synthetic-train-percent_change-0079",
+      "operation": "PERCENT_CHANGE",
+      "issues": [
+        "gold_direction_ambiguous"
+      ]
+    },
+    {
+      "example_id": "15",
+      "operation": "SUBTRACT",
+      "issues": [
+        "gold_direction_reversed"
+      ]
+    },
+    {
+      "example_id": "32",
+      "operation": "SELECT",
+      "issues": [
+        "gold_verifier:reporting_entity_mismatch"
+      ]
+    },
+    {
+      "example_id": "49",
+      "operation": "SELECT",
+      "issues": [
+        "gold_verifier:named_entity_mismatch"
+      ]
+    },
+    {
+      "example_id": "68",
+      "operation": "SELECT",
+      "issues": [
+        "gold_verifier:named_entity_mismatch"
+      ]
+    },
+    {
+      "example_id": "71",
+      "operation": "SUBTRACT",
+      "issues": [
+        "gold_direction_reversed",
+        "gold_verifier:reporting_entity_mismatch"
+      ]
+    },
+    {
+      "example_id": "106",
+      "operation": "SUBTRACT",
+      "issues": [
+        "gold_direction_reversed"
+      ]
+    },
+    {
+      "example_id": "164",
+      "operation": "RATIO_PERCENT",
+      "issues": [
+        "gold_verifier:entity_match"
+      ]
+    },
+    {
+      "example_id": "176",
+      "operation": "SUBTRACT",
+      "issues": [
+        "gold_direction_reversed",
+        "gold_verifier:graph_temporal_order"
+      ]
+    },
+    {
+      "example_id": "186",
+      "operation": "SUBTRACT",
+      "issues": [
+        "gold_direction_reversed",
+        "gold_verifier:graph_temporal_order"
+      ]
+    },
+    {
+      "example_id": "205",
+      "operation": "SUBTRACT",
+      "issues": [
+        "gold_verifier:reporting_entity_mismatch"
+      ]
+    },
+    {
+      "example_id": "283",
+      "operation": "SUBTRACT",
+      "issues": [
+        "gold_direction_reversed"
+      ]
+    },
+    {
+      "example_id": "303",
+      "operation": "SELECT",
+      "issues": [
+        "gold_verifier:reporting_entity_mismatch"
+      ]
+    },
+    {
+      "example_id": "314",
+      "operation": "SUBTRACT",
+      "issues": [
+        "gold_direction_reversed"
+      ]
+    },
+    {
+      "example_id": "362",
+      "operation": "SUBTRACT",
+      "issues": [
+        "gold_direction_reversed"
+      ]
+    },
+    {
+      "example_id": "375",
+      "operation": "SUBTRACT",
+      "issues": [
+        "gold_direction_reversed"
+      ]
+    },
+    {
+      "example_id": "412",
+      "operation": "SELECT",
+      "issues": [
+        "gold_verifier:reporting_entity_mismatch"
+      ]
+    },
+    {
+      "example_id": "428",
+      "operation": "SUBTRACT",
+      "issues": [
+        "gold_verifier:temporal_metric_mismatch"
+      ]
+    },
+    {
+      "example_id": "448",
+      "operation": "SUBTRACT",
+      "issues": [
+        "gold_direction_reversed"
+      ]
+    },
+    {
+      "example_id": "485",
+      "operation": "SUBTRACT",
+      "issues": [
+        "gold_direction_reversed"
+      ]
+    },
+    {
+      "example_id": "520",
+      "operation": "SUBTRACT",
+      "issues": [
+        "gold_direction_reversed"
+      ]
+    },
+    {
+      "example_id": "641",
+      "operation": "SUBTRACT",
+      "issues": [
+        "gold_direction_reversed"
+      ]
+    },
+    {
+      "example_id": "671",
+      "operation": "SUBTRACT",
+      "issues": [
+        "gold_direction_reversed"
+      ]
+    },
+    {
+      "example_id": "719",
+      "operation": "SUBTRACT",
+      "issues": [
+        "gold_direction_reversed"
+      ]
+    },
+    {
+      "example_id": "737",
+      "operation": "SUBTRACT",
+      "issues": [
+        "gold_verifier:temporal_metric_mismatch"
+      ]
+    },
+    {
+      "example_id": "754",
+      "operation": "SUBTRACT",
+      "issues": [
+        "gold_direction_reversed"
+      ]
+    },
+    {
+      "example_id": "795",
+      "operation": "SUBTRACT",
+      "issues": [
+        "gold_direction_reversed"
+      ]
+    },
+    {
+      "example_id": "810",
+      "operation": "SUBTRACT",
+      "issues": [
+        "gold_direction_reversed"
+      ]
+    },
+    {
+      "example_id": "synthetic-subtract-0",
+      "operation": "SUBTRACT",
+      "issues": [
+        "gold_direction_ambiguous"
+      ]
+    },
+    {
+      "example_id": "synthetic-subtract-3",
+      "operation": "SUBTRACT",
+      "issues": [
+        "gold_direction_ambiguous"
+      ]
+    },
+    {
+      "example_id": "synthetic-subtract-4",
+      "operation": "SUBTRACT",
+      "issues": [
+        "gold_verifier:temporal_metric_mismatch"
+      ]
+    },
+    {
+      "example_id": "synthetic-subtract-5",
+      "operation": "SUBTRACT",
+      "issues": [
+        "gold_verifier:temporal_metric_mismatch"
+      ]
+    },
+    {
+      "example_id": "synthetic-subtract-6",
+      "operation": "SUBTRACT",
+      "issues": [
+        "gold_direction_ambiguous"
+      ]
+    },
+    {
+      "example_id": "synthetic-subtract-9",
+      "operation": "SUBTRACT",
+      "issues": [
+        "gold_direction_ambiguous"
+      ]
+    },
+    {
+      "example_id": "synthetic-subtract-10",
+      "operation": "SUBTRACT",
+      "issues": [
+        "gold_verifier:temporal_metric_mismatch"
+      ]
+    },
+    {
+      "example_id": "synthetic-subtract-11",
+      "operation": "SUBTRACT",
+      "issues": [
+        "gold_verifier:temporal_metric_mismatch"
+      ]
+    },
+    {
+      "example_id": "synthetic-subtract-12",
+      "operation": "SUBTRACT",
+      "issues": [
+        "gold_direction_ambiguous"
+      ]
+    },
+    {
+      "example_id": "synthetic-subtract-15",
+      "operation": "SUBTRACT",
+      "issues": [
+        "gold_direction_ambiguous"
+      ]
+    },
+    {
+      "example_id": "synthetic-subtract-16",
+      "operation": "SUBTRACT",
+      "issues": [
+        "gold_verifier:temporal_metric_mismatch"
+      ]
+    },
+    {
+      "example_id": "synthetic-subtract-17",
+      "operation": "SUBTRACT",
+      "issues": [
+        "gold_verifier:temporal_metric_mismatch"
+      ]
+    },
+    {
+      "example_id": "synthetic-subtract-18",
+      "operation": "SUBTRACT",
+      "issues": [
+        "gold_direction_ambiguous"
+      ]
+    },
+    {
+      "example_id": "synthetic-subtract-21",
+      "operation": "SUBTRACT",
+      "issues": [
+        "gold_direction_ambiguous"
+      ]
+    },
+    {
+      "example_id": "synthetic-subtract-22",
+      "operation": "SUBTRACT",
+      "issues": [
+        "gold_verifier:temporal_metric_mismatch"
+      ]
+    },
+    {
+      "example_id": "synthetic-subtract-23",
+      "operation": "SUBTRACT",
+      "issues": [
+        "gold_verifier:temporal_metric_mismatch"
+      ]
+    },
+    {
+      "example_id": "synthetic-subtract-24",
+      "operation": "SUBTRACT",
+      "issues": [
+        "gold_direction_ambiguous"
+      ]
+    },
+    {
+      "example_id": "synthetic-subtract-27",
+      "operation": "SUBTRACT",
+      "issues": [
+        "gold_direction_ambiguous"
+      ]
+    },
+    {
+      "example_id": "synthetic-subtract-28",
+      "operation": "SUBTRACT",
+      "issues": [
+        "gold_verifier:temporal_metric_mismatch"
+      ]
+    },
+    {
+      "example_id": "synthetic-subtract-29",
+      "operation": "SUBTRACT",
+      "issues": [
+        "gold_verifier:temporal_metric_mismatch"
+      ]
+    },
+    {
+      "example_id": "synthetic-subtract-30",
+      "operation": "SUBTRACT",
+      "issues": [
+        "gold_direction_ambiguous"
+      ]
+    },
+    {
+      "example_id": "synthetic-subtract-33",
+      "operation": "SUBTRACT",
+      "issues": [
+        "gold_direction_ambiguous"
+      ]
+    },
+    {
+      "example_id": "synthetic-subtract-34",
+      "operation": "SUBTRACT",
+      "issues": [
+        "gold_verifier:temporal_metric_mismatch"
+      ]
+    },
+    {
+      "example_id": "synthetic-subtract-35",
+      "operation": "SUBTRACT",
+      "issues": [
+        "gold_verifier:temporal_metric_mismatch"
+      ]
+    },
+    {
+      "example_id": "synthetic-subtract-36",
+      "operation": "SUBTRACT",
+      "issues": [
+        "gold_direction_ambiguous"
+      ]
+    },
+    {
+      "example_id": "synthetic-subtract-39",
+      "operation": "SUBTRACT",
+      "issues": [
+        "gold_direction_ambiguous"
+      ]
+    },
+    {
+      "example_id": "synthetic-subtract-40",
+      "operation": "SUBTRACT",
+      "issues": [
+        "gold_verifier:temporal_metric_mismatch"
+      ]
+    },
+    {
+      "example_id": "synthetic-subtract-41",
+      "operation": "SUBTRACT",
+      "issues": [
+        "gold_verifier:temporal_metric_mismatch"
+      ]
+    },
+    {
+      "example_id": "synthetic-subtract-42",
+      "operation": "SUBTRACT",
+      "issues": [
+        "gold_direction_ambiguous"
+      ]
+    },
+    {
+      "example_id": "synthetic-subtract-45",
+      "operation": "SUBTRACT",
+      "issues": [
+        "gold_direction_ambiguous"
+      ]
+    },
+    {
+      "example_id": "synthetic-subtract-46",
+      "operation": "SUBTRACT",
+      "issues": [
+        "gold_verifier:temporal_metric_mismatch"
+      ]
+    },
+    {
+      "example_id": "synthetic-subtract-47",
+      "operation": "SUBTRACT",
+      "issues": [
+        "gold_verifier:temporal_metric_mismatch"
+      ]
+    },
+    {
+      "example_id": "synthetic-subtract-48",
+      "operation": "SUBTRACT",
+      "issues": [
+        "gold_direction_ambiguous"
+      ]
+    },
+    {
+      "example_id": "synthetic-subtract-51",
+      "operation": "SUBTRACT",
+      "issues": [
+        "gold_direction_ambiguous"
+      ]
+    },
+    {
+      "example_id": "synthetic-subtract-52",
+      "operation": "SUBTRACT",
+      "issues": [
+        "gold_verifier:temporal_metric_mismatch"
+      ]
+    },
+    {
+      "example_id": "synthetic-subtract-53",
+      "operation": "SUBTRACT",
+      "issues": [
+        "gold_verifier:temporal_metric_mismatch"
+      ]
+    },
+    {
+      "example_id": "synthetic-subtract-54",
+      "operation": "SUBTRACT",
+      "issues": [
+        "gold_direction_ambiguous"
+      ]
+    },
+    {
+      "example_id": "synthetic-subtract-57",
+      "operation": "SUBTRACT",
+      "issues": [
+        "gold_direction_ambiguous"
+      ]
+    },
+    {
+      "example_id": "synthetic-subtract-58",
+      "operation": "SUBTRACT",
+      "issues": [
+        "gold_verifier:temporal_metric_mismatch"
+      ]
+    },
+    {
+      "example_id": "synthetic-subtract-59",
+      "operation": "SUBTRACT",
+      "issues": [
+        "gold_verifier:temporal_metric_mismatch"
+      ]
+    },
+    {
+      "example_id": "synthetic-percent_change-1",
+      "operation": "PERCENT_CHANGE",
+      "issues": [
+        "gold_verifier:temporal_metric_mismatch"
+      ]
+    },
+    {
+      "example_id": "synthetic-percent_change-2",
+      "operation": "PERCENT_CHANGE",
+      "issues": [
+        "gold_direction_ambiguous"
+      ]
+    },
+    {
+      "example_id": "synthetic-percent_change-5",
+      "operation": "PERCENT_CHANGE",
+      "issues": [
+        "gold_verifier:temporal_metric_mismatch"
+      ]
+    }
+  ]
+}

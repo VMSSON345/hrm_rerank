@@ -1,0 +1,209 @@
+{
+  "schema": "finhrm-qp4-post-question-surface-post-cache-source-error-diagnostic-review-precommit-v1",
+  "created_at": "2026-08-23",
+  "classification": "development_only_qp4_post_cache_source_error_diagnostic_review_precommit_no_runtime_change",
+  "status": "precommit_contract",
+  "parents": {
+    "materialization_report": {
+      "path": "reports/finhrm_qp4_post_question_surface_development_ocr_cache_materialization_and_source_replay_v1.json",
+      "sha256": "52b6e8d6814375695bcd209c9d3df6430158de592c8a949edcc750a7e7a90efd"
+    },
+    "materialization_lock": {
+      "path": "reports/finhrm_qp4_post_question_surface_development_ocr_cache_materialization_and_source_replay_lock_v1.json",
+      "sha256": "4748e4604c74fc21cf940f636b29443d23dbc92bf108713bd5aafb2f76288b8a"
+    },
+    "claude_md": {
+      "path": "CLAUDE.md",
+      "sha256": "35a0f66a6531e61b35dc7288884da35eeef79ad1039f5ffdfd29295cee8d566e"
+    }
+  },
+  "frozen_parent_state": {
+    "report_status": "GATE_FAILED",
+    "lock_status": "failed",
+    "implementation_gate_passed": false,
+    "failed_gates": [
+      "all_materialized_artifacts_are_reusable_with_auto_generation_disabled",
+      "source_load_or_extraction_failures"
+    ],
+    "selection": {
+      "observations": 8,
+      "companies": 4,
+      "sources": 4,
+      "real_layouts": 3,
+      "question_triggered": true,
+      "whole_corpus_ocr": false
+    },
+    "cache_manifest": {
+      "structured_content_list_artifacts": 16,
+      "non_content_list_artifacts": 0,
+      "source_documents": 4
+    },
+    "replay": {
+      "queries": 8,
+      "source_errors": 2,
+      "paired_pass": 0,
+      "accepted_wrong": 0,
+      "counterfactual_false_accepts": 0
+    }
+  },
+  "coverage_review": {
+    "generic_evidence_minimum": {
+      "companies": 3,
+      "sources": 3,
+      "real_layouts": 3
+    },
+    "strata": [
+      {
+        "first_failing_layer": "SOURCE_LOAD_OR_EXTRACTION",
+        "queries": 2,
+        "companies": 1,
+        "sources": 1,
+        "real_layouts": 1,
+        "generic_evidence": false
+      },
+      {
+        "first_failing_layer": "CANDIDATE_POPULATION_OR_RETRIEVAL",
+        "queries": 2,
+        "companies": 2,
+        "sources": 2,
+        "real_layouts": 2,
+        "generic_evidence": false
+      },
+      {
+        "first_failing_layer": "SEMANTIC_BINDING_OR_PROGRAM_SYNTHESIS",
+        "queries": 4,
+        "companies": 3,
+        "sources": 3,
+        "real_layouts": 2,
+        "generic_evidence": false
+      }
+    ],
+    "source_error_variants": [
+      "base",
+      "mutated"
+    ],
+    "source_error_is_repeatable_within_one_source": true,
+    "source_error_is_generic_across_company_and_layout": false,
+    "generic_downstream_strata": [],
+    "runtime_evidence_sufficient": false,
+    "reason": "The two remaining source errors repeat across two question variants but share one development company, one source PDF, and one real layout family. Retrieval reaches only 2/2/2 coverage, while binding reaches 3/3/2. No residual stratum satisfies the frozen 3-company, 3-source, 3-real-layout minimum."
+  },
+  "review_decision": {
+    "attribution": "POST_CACHE_RESIDUAL_NOT_YET_GENERIC",
+    "runtime_edit_authorized": false,
+    "runtime_file_whitelist": [],
+    "ocr_or_layout_algorithm_change_authorized": false,
+    "page_selection_change_authorized": false,
+    "retrieval_change_authorized": false,
+    "semantic_binding_change_authorized": false,
+    "symbolic_verifier_change_authorized": false,
+    "model_or_checkpoint_change_authorized": false,
+    "source_error_policy": "Keep both source errors in the denominator and fail closed. Repeatability within one source/layout is diagnostic evidence, not generic confirmation.",
+    "not_established": [
+      "generic OCR or source-loader defect",
+      "generic page-selection defect",
+      "generic candidate-retrieval defect",
+      "generic semantic-binding defect",
+      "unseen or universal generalization",
+      "QP4 completion"
+    ]
+  },
+  "authorized_execution_contract": {
+    "step": "QP4-POST-QUESTION-SURFACE-POST-CACHE-SOURCE-ERROR-DIAGNOSTIC-REVIEW",
+    "purpose": "Recompute the frozen residual partition and coverage decision from the final materialization report and lock only; do not rerun OCR, source replay, or runtime evaluation.",
+    "allowed_inputs": [
+      "reports/finhrm_qp4_post_question_surface_development_ocr_cache_materialization_and_source_replay_v1.json",
+      "reports/finhrm_qp4_post_question_surface_development_ocr_cache_materialization_and_source_replay_lock_v1.json",
+      "config/finhrm_qp4_post_question_surface_post_cache_source_error_diagnostic_review_precommit_v1.json",
+      "frozen runtime files for SHA-256 verification only",
+      "models/document_hrm_V8_candidate.pt for SHA-256 verification only"
+    ],
+    "forbidden_actions": [
+      "read validation, blind, test, sealed, holdout, or final-evaluation data",
+      "use ABW as confirmation or gate",
+      "run MinerU or create additional OCR artifacts",
+      "rerun the completed materialization/source replay",
+      "read source PDFs or cached OCR content for semantic diagnosis",
+      "change runtime, threshold, checkpoint, or model",
+      "use company, filename, page, year, value, example ID, or question literal as a runtime rule",
+      "use candidate rank, neural score, or confidence as semantic proof",
+      "count synthetic layouts as unseen confirmation"
+    ],
+    "required_checks": {
+      "parent_hashes_exact": true,
+      "parent_failed_gates_exact": true,
+      "all_eight_observations_partitioned_once": true,
+      "coverage_recomputed_from_rows": true,
+      "source_error_coverage": "1/1/1",
+      "candidate_retrieval_coverage": "2/2/2",
+      "semantic_binding_coverage": "3/3/2",
+      "generic_residual_strata": 0,
+      "cache_manifest_hashes_exact": true,
+      "accepted_wrong": 0,
+      "counterfactual_false_accepts": 0,
+      "compiler_inventory": "242/242",
+      "regression": "360/360",
+      "gold_execution": "363/363",
+      "candidate_permutation": "363/363",
+      "frozen_counterfactuals": 141,
+      "frozen_counterfactual_false_accepts": 0,
+      "frozen_safe_replay_gate": true,
+      "runtime_hashes_exact": true,
+      "checkpoint_hash_exact": true
+    },
+    "decision_policy": {
+      "generic_minimum": "A runtime implementation candidate requires at least 3 development companies, 3 source PDFs, and 3 real layout families in one semantically coherent residual stratum.",
+      "if_minimum_not_met": "Keep runtime whitelist empty, keep QP4 incomplete, and authorize only a development-safe coverage-cohort precommit after the diagnostic review.",
+      "if_minimum_met": "Require a separate implementation precommit with an explicit minimal generic whitelist before any runtime edit."
+    },
+    "artifact_policy": {
+      "maximum_final_json": 1,
+      "maximum_final_markdown": 1,
+      "maximum_lock_or_manifest": 1,
+      "raw_or_intermediate_artifacts_persisted": false,
+      "temporary_artifacts_deleted_after_verification": true
+    }
+  },
+  "checkpoint": {
+    "path": "models/document_hrm_V8_candidate.pt",
+    "sha256": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de"
+  },
+  "frozen_runtime_hashes": {
+    "src/hrm_finance_qa/question_planner.py": "334ab6bfb57b883ff2022cdcb39614d7e7a8d3269c14f4bea188640d53111bf4",
+    "src/hrm_finance_qa/symbolic_verifier.py": "2679b1ce55cc070697438c806f19e3e888bfc19bc1a9ae3686a0b7fd7ffb0087",
+    "src/hrm_finance_qa/program_synthesis.py": "e4acc4878d0dfd465ba66ab91f3aaf8be71db5591aa1358fb8cb81f3c7bff550",
+    "src/hrm_finance_qa/evidence_schema.py": "2f16fabf932dc9dabc8203d9642d2503bb2dab43e0e1ee0f78755dd4fb00825d",
+    "src/hrm_finance_qa/document_hrm.py": "b5951bcde79583950b672f7fb6b199b3e5b9904e6784daae7c4c5be0eba65d21",
+    "src/hrm_finance_qa/document_reasoning_engine.py": "3883500011472716bc01f8e04a6d6f925173b35a14bbedd945c5ca4fb0063fa2",
+    "src/hrm_finance_qa/program_data.py": "5199434fc0628b7d270ce62b12657366cbe118901065edd9f1e1f6ca0f1f8d54",
+    "src/hrm_finance_qa/direction_contract.py": "a18aa130419fc74ce647bd92dc9c1b1217007738e636aad0f28c7f78396be937",
+    "src/hrm_finance_qa/answer_presentation.py": "c40bd4a8dff39162b44cf11ef2da12e7b153d907f7254e5d1856157b3ac56d36",
+    "src/hrm_finance_qa/document_sources.py": "e9eb7b3ddcc2ed13060a573a6a0101a216fa49ff21dd65cd5fc2629b92f5fc0b",
+    "src/hrm_finance_qa/document_page_index.py": "c99e011175afef21f302be42ba9454b948caa549d4d445d6bb35c5b974b81f85"
+  },
+  "artifact_policy": {
+    "maximum_final_json": 1,
+    "maximum_final_markdown": 1,
+    "maximum_lock_or_manifest": 1,
+    "raw_or_intermediate_artifacts_persisted": false,
+    "temporary_artifacts_deleted_after_verification": true
+  },
+  "invariants": {
+    "abw_used": false,
+    "protected_evaluation_loaded": false,
+    "validation_loaded": false,
+    "blind_loaded": false,
+    "test_data_loaded": false,
+    "sealed_or_holdout_loaded": false,
+    "fine_tuning_performed": false,
+    "threshold_changed": false,
+    "checkpoint_changed": false,
+    "model_changed": false,
+    "synthetic_layout_counted_as_confirmation": false,
+    "candidate_rank_score_or_confidence_used_as_semantic_proof": false,
+    "runtime_changed": false,
+    "qp4_complete": false,
+    "qp5_authorized": false,
+    "phase_d_unlocked": false
+  }
+}
