@@ -1,0 +1,1363 @@
+{
+  "schema": "finhrm-qp4-generic-structured-evidence-admission-repair-precommit-v1",
+  "status": "PASS",
+  "classification": "one_shot_runtime_repair_freeze",
+  "created_at": "2026-08-29T13:00:00+07:00",
+  "seed": 271828,
+  "governance": {
+    "head": "ca83acc4e0dfa2e4c0167a9324c2855ec81532b7",
+    "adaptive_second_edit": false
+  },
+  "runtime_scope": {
+    "allowed_file": "src/hrm_finance_qa/program_data.py",
+    "allowed_function": "merge_candidates",
+    "pre_repair_file_sha256": "0f75194c2f99dd591b5a84ae866eef9aa9d442acf3aab8cdaf6329f652ae4271",
+    "pre_repair_merge_sha256": "c86f374d23bf5b8f9d9256531818b86be1ff731be6fbf0f4c51b048aaa2e1d44",
+    "unchanged_top_level_hashes": {
+      "FunctionDef:currency_unit_scale": "0043a085b112d138c0486657af0cf2d906ff09786bb9992920b62adace0304af",
+      "ClassDef:ProgramDataError": "2bfb6dab91d422a6a36c632daec1567e36b136b691e7217a871889a9ac20751d",
+      "ClassDef:NumericCandidate": "bc11580c291793d92e16e95c585f69884451874cb92a4685caf5c0231c542e0e",
+      "ClassDef:ReasoningProgram": "7a0d49e58cbdcaddd9d4d7375dbb0edb5f071b3fe5992df781c14a80cbd91c01",
+      "FunctionDef:canonicalize_program": "c4b862d0ed5bd75337e8041a156a242ad3a711959f12faf0c6a62b5bae5021c9",
+      "FunctionDef:canonical_program_equal": "b5b7d1b7ee69558148026aef7034d4603ffb553e901472342f7d1df0f98829f0",
+      "FunctionDef:canonical_pointer_equal": "509d3071cf33a425d478a069a29de4a06717c5f65f3a61adcff39fb2c7daa12a",
+      "ClassDef:ProgramDAGInput": "3788599bab5e36f42dc2ef296a8d14e8529a1a005fbc6892b394b729accc3dd3",
+      "ClassDef:ProgramDAGNode": "57c150bfc9b7fd5339c20c450277d9f5e696c3b785b06e1a7d6f539987ec6df7",
+      "ClassDef:ReasoningDAGProgram": "bdc3f688f1700226d25604991497444977dd76d429998bb51d23917335c33fee",
+      "ClassDef:ProgramExample": "5aea0bc7f9405db4d551a5acb6f3430c893d670ae3ea5e29e2b28112d70da0be",
+      "ClassDef:ProgramBuildReport": "f05aa7ee9fb4ce59d955f0afdb2b38a435e236c83943cc0ef35cab7d22bef23b",
+      "FunctionDef:parse_decimal": "6c1f8383c17124dc6f7b723ff4d2fed33f6c43394ed4e3a76b2c4a106e7a7ff9",
+      "FunctionDef:_is_natural_date_component": "c35aa4bdad1e2ccf3133455391af4e9d4e8678f735010a611822f9faf45302b2",
+      "FunctionDef:_is_ordinal_number": "8f6affb9adfe64a513f70457f849de34d74a2fe8f345f039eafb78ec4ee56004",
+      "FunctionDef:_is_context_metadata_number": "dbe17c90ba8348f7ef1e5a895a6e26dca5a1b37f07c3e4b092831245ad3ecab9",
+      "FunctionDef:_is_table_metadata_cell_code": "54432430684ac5ce026f71af8f9ccdaa2668fb40eebe9ec5f930d8ff5a4af206",
+      "FunctionDef:_is_leading_table_code": "8367961d24a66e976eeabec02feab22e7e78096139b492041e9afa609cf496f7",
+      "FunctionDef:_is_leading_plaintext_code": "7988db2e05470edf872ae6d6f894cfca47cca011e56e2d4b1b2a61280e121cd0",
+      "FunctionDef:_is_plaintext_note_code": "2b5f40360a6edb0564de47daf567a8d648a7187aa65766ca9bdaff0ac70e30db",
+      "FunctionDef:_is_answer_metadata_number": "8ce97e8a0ce8d1ca50662d1d231384f05ee06a25ca8a459e96e37ddeb6157cbe",
+      "FunctionDef:extract_numeric_candidates": "bbc47ff23d15331a218139c8cbf617d02fb1442046a450e8cc8f2500648fc1d4",
+      "FunctionDef:_implied_plaintext_blank_zero_candidates": "901879eadba824d0efdb9b508c538e004b55fe86f223bacc953365b53c702f00",
+      "FunctionDef:_blank_zero_supported_by_nearby_narrative": "bf0bbbe267b314d08a75872fe4fefe5130a1aa0bc396371385e101e994770eb1",
+      "FunctionDef:_merged_flattened_chunk_runs": "2993ce09df35935450953d94054763be3999d83b7a2eede19ba9e6ef5d5c7782",
+      "FunctionDef:_candidate_rank_key": "63c8a368806c769d230eb714532e1fdd104ed61df8fe7395d1f5466c6ae8eb47",
+      "FunctionDef:_candidate_provenance_richness": "8a0f9fe90f455415f62a84ca26e5b97a04751eeba5179f831bb895bc9b232c35",
+      "FunctionDef:_ocr_row_metric_score": "e92c2cedced559c51a84f78198c165bb5c6c77373d2b61f8986e88f51e072bc7",
+      "FunctionDef:_metric_alignment_tokens": "7bf27e7cc2f8680ad3486d4492713f751c59a87dc47c0cfea1ca7b840446e622",
+      "FunctionDef:_candidate_quota_indices": "bdd9a146f4c20ec2202a1aa166238d30b51299fe724227ae294ab3253ed836da",
+      "FunctionDef:_quota_candidate_row": "c8373f5821ea460d6570be37b7c6efa65909349576f6d462841285db6d4de00f",
+      "FunctionDef:_quota_metric_score": "073e48423f7c15dd44242593563d2ee71fe08f01396aeb2eabb8dbb9ed92b53e",
+      "FunctionDef:_quota_operand_role_parts": "626b478ba3c809237c8fd86c5c9b7f3a92094dbd2ec4b8594ffe8feea9021903",
+      "FunctionDef:_quota_required_role_parts": "32495f71bd92e2daeec70e29b7a1637d5c87ae8fdbd5af4d88fabe105e49238a",
+      "FunctionDef:_chunk_extraction_method": "bdba63451d436bf264acefba977fd05f9f658eb35c96a87a58451de9dd63a148",
+      "FunctionDef:_execute_operation_values": "44dddd19a2507cbe7e7d7d846e22132d1c2d9f511bae1ff6f19272cd4b8b67f0",
+      "FunctionDef:execute_program": "ef5ff207a87c8193c2eb7ef379e9ed4a676993ad27efd57281ad1ff3f0cb98b7",
+      "FunctionDef:execute_program_dag": "9aecd258cc4a2b8e3afdedb4f76e3562eb252982ed42aba73e4a1e0e9fba10f8",
+      "FunctionDef:materialize_program_dag": "5618452a4350d7611da92c679461d1b574a3ccb98a33047260d0e607a00a9634",
+      "FunctionDef:program_row_rejection_reason": "8e1ec9628a0be565d765c72bde701457fdcbfb38ae29ef9d2e5f4856c7ce7369",
+      "FunctionDef:induced_program_rejection_reason": "3ede52652cf6bee9725c04b0c0319553806146eb1442d090dc78475ad738267d",
+      "FunctionDef:_is_degenerate_arithmetic": "f3951a62a06d0f9bdd37f9a3672e49acdc4244d13cdc74c998e2f6c2be9035bf",
+      "FunctionDef:induce_program_example": "ad51d55126504f3fefd3661eb97e17d6026ce838c01ba9f1f92bf68bee120766",
+      "FunctionDef:build_program_dataset": "2630269e661e7c8d271cf2284a4889f4639ec52a37b1b682da4c119d5f44ae81",
+      "FunctionDef:load_program_examples": "f2c32569b5024e9d05583bc70d0a08a40d0b98a7552cde19ea22d9475dbfca7d",
+      "FunctionDef:program_example_to_dict": "b466d03eec17d186b61779a4440b767acb09b0e17404d44bc0815a475feb2a9f",
+      "FunctionDef:_answer_numbers": "28ba2300f62b613c472b6b6cb57fe453dd1b73dab72db0a685c59f35c2007139",
+      "FunctionDef:_explicit_result_values": "02dcb2267b5baa65ab78bead0e33760becfc5be20651411cc318fab879873616",
+      "FunctionDef:_labeled_result_values": "a8d4da81213219243c8ceec4e41ef1f719c4aacba373469c9cb6d1b4c7ee6afc",
+      "FunctionDef:_target_values": "426eac9bf51535215ca4bdf80a3488790d55f106b545721920f29dc275501e6e",
+      "FunctionDef:_answer_grounded_candidate_indices": "7f0dbf671c578532cd6bbb5c63dd724dfdf8fb7f7c7a700f1eb36938412e3299",
+      "FunctionDef:_operation_preference": "a493f2effbb878b8eaa88b0f8d13390b335a17c7a6919fd7dce2a94f2fe0351b",
+      "FunctionDef:_operand_tuples": "ea8fee23f4f34962ca51cee208ca92c252662845639ac97c68b5793689a0fa98",
+      "FunctionDef:_close": "5494eb1f0f3f2bb506c932838d382303d176edaf81b28c4d8d9eaafb4e85ef31",
+      "FunctionDef:_decimal_string": "6924f8be9738d15f04e36017c0a78c05271d3451b145734bbf268f76af87ec26",
+      "FunctionDef:_is_probable_year": "7880912b37eaf881630abbab070020e52fd73ec57b2e88830b5ebc71ec94638e",
+      "FunctionDef:_question_implies_calculation": "d41391af1405647a514b6be52427a036da745e6eb7c0505dfc765091893ef741",
+      "FunctionDef:_question_requires_arithmetic": "b9e7b5366b4ec2d1c715db713103893184c62172ee07e28443d1d7a5169adb6e",
+      "FunctionDef:_content_tokens": "91032e22ebaeaf21f48dddfe3c6565dc36c53b51e5a3641a2eabc7c60c42fda7",
+      "FunctionDef:_question_focus_text": "6ad20873425ddcfcc83268301e5fedd5cfc00eb01368a416a74faf2275b1dcc6",
+      "FunctionDef:_fuzzy_content_overlap": "85095600b2127c94525111f1c8e126443247ea5c039a85317596058df6b19724",
+      "FunctionDef:_markdown_cells": "7b7dfd559f743ef04c1ebf9498dae114a221bf65c90d6de99f7e8ed81704f1c7",
+      "FunctionDef:_is_markdown_separator": "5c13dd52208ff2a5e287f618f00218eb661be363d28c4fcc22159007ac7b7440",
+      "FunctionDef:_is_table_header_or_separator": "14b389ab3a090b6b8304679fafcc771707e977271e4e784d3ab7a03788c64626",
+      "FunctionDef:_table_header_lines": "43009db5fde377bea0da2d7c06f5ae9fd2a25864e8d878d9f0c2400b300d330b",
+      "FunctionDef:_row_type": "8ca289fb532a3a3ffd4f2635f62bf88f347ba6a83d41fe0c5b7f0a4481252715",
+      "FunctionDef:_column_period": "2af9bbf98ae93a5a5c3c4005030dcbf8e52695125b3beee3ded22c7cfef6b181",
+      "FunctionDef:_best_row_label": "26b3e98d09f3aca8a8e6924c908e035faeff1227eb90e707f0ed5c5b87c4c697",
+      "FunctionDef:_candidate_context": "69b9af0632fe6e1b5739c81106da50a61dbf1bb49afeff5165fbba9a5b2eb5c7",
+      "FunctionDef:_table_block_bounds": "9dd2999130e5f2d099a7762aed97990ed15415c3c603f26707795fcd8843d756",
+      "FunctionDef:_table_identifier": "84834c040fa1b818742de04bea7823ba940ac52b70b163604b26cbf330081ba4",
+      "FunctionDef:_markdown_cells_with_spans": "20cf1c8ec0806c75407d7908d38ff775b07dcde9c8735fa2729a92f2a5cdb0a4",
+      "FunctionDef:_table_role_inventory_manifest": "ed8a66cfc9beea88f8ce9b2bf6ed532386e8c150a22c241895b359f6bd6b19eb",
+      "FunctionDef:_subtable_anchor_indices": "4ea466597bc8c2a735a84d78acc113ea6b3327c896c30f06dcc5f26ec4efc938",
+      "FunctionDef:_section_entities": "5c0b454bc68c2b5c4d2f1241d7e5e1052b7270a794168a60269b9396f30af6d7",
+      "FunctionDef:_table_subtable_provenance": "64d793d82d6ca5f4ea759dbdb0963d26dd4457b4924549c9b6263dc78de010fe",
+      "FunctionDef:_source_entity_id": "f3f1fb189c077bcb632baba797d7239a16c980a4050d3f7873e0452af5c6d279",
+      "FunctionDef:_nearest_table_section": "c81b406d981bcf56caccf872b4c7d755656fbdd5ada72f7081bff705cc0d209e",
+      "FunctionDef:_table_scope": "095f423138c5e62ab57e1305c7aaa6a359b14bbff7df245462466922f1800bc8",
+      "FunctionDef:_plaintext_financial_row_context": "46951b7172afad7017e0e32584745d18e1e025d4165984662cddc4dabdc3cbd6",
+      "FunctionDef:_flattened_role_key": "e6546d34077aaff248ce7bd7a8ba1895ec66ebfb32dbae985755f86c1eb58980",
+      "FunctionDef:_flattened_numeric_cell_slots": "c68ae94b2b3f450b1b14a60a93b8b30d09dc6761cd7d1ac6dd3dd22e2631d5fc",
+      "FunctionDef:_flattened_header_slot_sources": "d72171d918975110012088b8baa4a00d383b7e790f68faa8e5866d518d684c49",
+      "FunctionDef:_flattened_source_observation": "82df05a0651ef448d4281bf6c4ef16ae38129b96570b42cd1d7b6a69ad4ea92a",
+      "FunctionDef:_flattened_table_role_inventory_manifest": "0558e08e5a0dd02d2298e73fcec35937fabc4e6441937e0ec2f83af021e85e58",
+      "FunctionDef:_nearby_plaintext_column_labels": "b34dd37caae99708825a117e81aa886b97b9b795362e6e38b1a1969e3d7c634c",
+      "FunctionDef:_nearby_plaintext_table_provenance": "605e81dfd3deac5b394344c95bfda18ac1973f15a96afdb8030137a5e0abf294",
+      "FunctionDef:_nearby_plaintext_period_labels": "f7d90c4d565b4fc96183c5b1eb065cccccfbe30b45104874aff68312f3f11191",
+      "FunctionDef:_inline_period_column": "ad8cfd79ffe047817b8a2aa643dcac72109c8e5c1979a793dd63fda0302417d1",
+      "FunctionDef:_financial_value_cell_indices": "243950187c8273fb500511a30e527534f89c0397d22dd9f5b2bd7e5c915778ab",
+      "FunctionDef:_infer_unit": "48b671f822720edb650520e82e9c0c57654735b1f7ea60d81dd260b40f21d3bf",
+      "FunctionDef:_explicit_page_unit": "a1b8a22bb943524f487e54c805c9ea15bc4272fac467b5308ac41b5673cb0665",
+      "FunctionDef:_is_percent_candidate_column": "f8a841e0849623e8b46d0b8747645f5652a99a63313d1989b1260ffb7878f3a1",
+      "FunctionDef:generate_synthetic_program_examples": "18096dee15eb0dcb9e485e3f076bdd6df39e01e2f440cd7d32c5757d877a600f",
+      "FunctionDef:write_program_examples": "a86a0225f636d1263609acdc032aac500cc6786fbd3f5e54c6d8d0ec5068ffb4",
+      "FunctionDef:_synthetic_question": "b607aa3c94dcd46393c183655c020c87b5f26d42dd6f1ea1bd2ebcdf6ac431b3",
+      "FunctionDef:_format_vietnamese": "8c22c30a6bf31cbdcde6124d40b06c45aab3d5facb01e95163739dc61126064d"
+    },
+    "locked_other_runtime_files": {
+      "src/hrm_finance_qa/document_sources.py": "5d25d873ac5f6fe70297cd5b0fee783eb69f259ea3510e6d1f1d18a4ea09c38d",
+      "src/hrm_finance_qa/document_page_index.py": "97d356533734bb09bdeb318038d720ac2daf700046e753d1d134804f7bb7c884",
+      "src/hrm_finance_qa/evidence_schema.py": "828748a50c16a1d01ac731e86e4903d92cc0f9a2a8eefb588bf47a8455ec2677"
+    }
+  },
+  "invariant": {
+    "name": "unique_query_typed_conflict_free_physical_row_admission_and_one_to_one_reconciliation_before_quota",
+    "steps": [
+      "materialize plaintext candidates unchanged before structured admission",
+      "deduplicate structured observations by physical source/page/table/row/column identity",
+      "group structured cells into physical row inventories",
+      "retain only normalized metric-compatible cells for typed role/period slots requested by compile_question_plan",
+      "fail closed when any requested slot is claimed by more than one physical row or has multiple exact Decimal values",
+      "require exactly one complete physical row inventory for all requested slots",
+      "fail closed on a typed plaintext value conflict",
+      "reconcile a structured/plaintext equivalent only for a unique source/page/metric/role/period/exact-Decimal mapping",
+      "overlay identity on the unique plaintext representative without changing relevance/order/value",
+      "admit unmatched structured cells only from the unique complete conflict-free row before the unchanged quota"
+    ],
+    "forbidden": [
+      "gold or expected answer",
+      "numeric tolerance or rounding",
+      "retrieval rank as authority",
+      "company/source/page/year/value/case/layout-specific constants"
+    ]
+  },
+  "frozen_inputs": [
+    {
+      "path": "reports/finhrm_qp4_post_question_surface_post_cache_residual_coverage_cohort_build_v1.json",
+      "bytes": 40607,
+      "sha256": "e084ec16312488c1badb5b645cfdf135a623cf89486d0f189648404fc5de35e6"
+    },
+    {
+      "path": "reports/finhrm_qp4_candidate_plaintext_sub1000_deterministic_pre_edit_baseline_v1.json",
+      "bytes": 53029211,
+      "sha256": "0ec3f5736d2b0420c4f4f2ca1deb25e02d486d13057924810970725c04196702"
+    },
+    {
+      "path": "data/pdf_v12b2_unseen_financial_qa_candidates_v3.jsonl",
+      "bytes": 21274,
+      "sha256": "6c1a670362c74051234aad0a922f71bee22a2c967a51c0a529b1ae29cb6e6c95"
+    },
+    {
+      "path": "config/finhrm_qp4_candidate_development_diagnosis_clean_v2.json",
+      "bytes": 13904,
+      "sha256": "af9bf6fb38a49bbb7f9b291a595946eb305086412936d94f17d2b46b304189f3"
+    },
+    {
+      "path": "scripts/run_qp4_candidate_development_diagnosis_clean_v2.py",
+      "bytes": 49215,
+      "sha256": "fe692903c1269bf0325f781db98d112964c278c7807b84722a4fa1a0a1bd2582"
+    }
+  ],
+  "cohorts": {
+    "development": {
+      "count": 60,
+      "repair": 30,
+      "ict": 10,
+      "pic_scg": 20
+    },
+    "prior_candidate": {
+      "count": 50
+    },
+    "validation": {
+      "reports": [
+        {
+          "source_name": "CFM_24CN_BCTN.pdf",
+          "source_path": "pdf/PDF_24/PDF_24/CFM_24CN_BCTN.pdf",
+          "source_sha256": "9f6c540589db491086ebacd47730ffa5a9783db8a1c5e7d858abe33ebbe3a8e4",
+          "company_key": "development-company-005cdbb7800de194",
+          "layout_family": "mineru:financial_summary"
+        },
+        {
+          "source_name": "NVT_24CN_BCTN.pdf",
+          "source_path": "pdf/PDF_24/PDF_24/NVT_24CN_BCTN.pdf",
+          "source_sha256": "a667efb440c640f705e32c891a7da8028e2b16260a5e6a52cec5ab7cd374684b",
+          "company_key": "development-company-2af4f0c705cd7ea2",
+          "layout_family": "mineru:financial_summary"
+        },
+        {
+          "source_name": "NWT_24CN_BCTN.pdf",
+          "source_path": "pdf/PDF_24/PDF_24/NWT_24CN_BCTN.pdf",
+          "source_sha256": "5cf90668479dd20deaf90e0e1fe73e36da556f72e8a9c8570e4aba2a1018849c",
+          "company_key": "development-company-026c0c72f8061fb7",
+          "layout_family": "mineru:financial_summary"
+        },
+        {
+          "source_name": "TVH_24CN_BCTN.pdf",
+          "source_path": "pdf/PDF_24/PDF_24/TVH_24CN_BCTN.pdf",
+          "source_sha256": "bad16a38d77462f6e9ee22b0ef6261064c38ab7d455588ac9b0c6d6ae2b5f259",
+          "company_key": "development-company-19beb7ac29f9f622",
+          "layout_family": "mineru:financial_summary"
+        }
+      ],
+      "cases": [
+        {
+          "case_id": "unseen-CFM_24CN_BCTN-p13-2023-total_liabilities_components::surface::canonical",
+          "example_id": "unseen-CFM_24CN_BCTN-p13-2023-total_liabilities_components",
+          "source_name": "CFM_24CN_BCTN.pdf",
+          "source_path": "pdf/PDF_24/PDF_24/CFM_24CN_BCTN.pdf",
+          "source_sha256": "9f6c540589db491086ebacd47730ffa5a9783db8a1c5e7d858abe33ebbe3a8e4",
+          "company_key": "development-company-005cdbb7800de194",
+          "page": 13,
+          "layout_family": "mineru:financial_summary",
+          "surface": "canonical",
+          "question": "Tổng nợ phải trả năm 2023 là bao nhiêu? Hãy liệt kê nợ ngắn hạn và nợ dài hạn để kiểm tra.",
+          "question_sha256": "86fb88fffe439af39614939ce035852f6215e3bff58d8cf47c30aa6132a89411",
+          "required_evidence": [
+            {
+              "source_name": "CFM_24CN_BCTN.pdf",
+              "page": 13,
+              "value": "297231519",
+              "row_label": "I. Nợ ngắn hạn",
+              "period": "2023",
+              "unit": "VND"
+            },
+            {
+              "source_name": "CFM_24CN_BCTN.pdf",
+              "page": 13,
+              "value": "26000000",
+              "row_label": "II.Nợ dài hạn",
+              "period": "2023",
+              "unit": "VND"
+            }
+          ]
+        },
+        {
+          "case_id": "unseen-CFM_24CN_BCTN-p13-2023-total_liabilities_components::surface::no_diacritics",
+          "example_id": "unseen-CFM_24CN_BCTN-p13-2023-total_liabilities_components",
+          "source_name": "CFM_24CN_BCTN.pdf",
+          "source_path": "pdf/PDF_24/PDF_24/CFM_24CN_BCTN.pdf",
+          "source_sha256": "9f6c540589db491086ebacd47730ffa5a9783db8a1c5e7d858abe33ebbe3a8e4",
+          "company_key": "development-company-005cdbb7800de194",
+          "page": 13,
+          "layout_family": "mineru:financial_summary",
+          "surface": "no_diacritics",
+          "question": "tong no phai tra nam 2023 la bao nhieu hay liet ke no ngan han va no dai han de kiem tra?",
+          "question_sha256": "4bc11fb7c38065646e1d45ab1f0b10d0969d17bcc57f685d0247d056e1e6417b",
+          "required_evidence": [
+            {
+              "source_name": "CFM_24CN_BCTN.pdf",
+              "page": 13,
+              "value": "297231519",
+              "row_label": "I. Nợ ngắn hạn",
+              "period": "2023",
+              "unit": "VND"
+            },
+            {
+              "source_name": "CFM_24CN_BCTN.pdf",
+              "page": 13,
+              "value": "26000000",
+              "row_label": "II.Nợ dài hạn",
+              "period": "2023",
+              "unit": "VND"
+            }
+          ]
+        },
+        {
+          "case_id": "unseen-CFM_24CN_BCTN-p13-2023-total_liabilities_components::surface::source_prefix",
+          "example_id": "unseen-CFM_24CN_BCTN-p13-2023-total_liabilities_components",
+          "source_name": "CFM_24CN_BCTN.pdf",
+          "source_path": "pdf/PDF_24/PDF_24/CFM_24CN_BCTN.pdf",
+          "source_sha256": "9f6c540589db491086ebacd47730ffa5a9783db8a1c5e7d858abe33ebbe3a8e4",
+          "company_key": "development-company-005cdbb7800de194",
+          "page": 13,
+          "layout_family": "mineru:financial_summary",
+          "surface": "source_prefix",
+          "question": "Theo đúng số liệu trong cùng báo cáo, tổng nợ phải trả năm 2023 là bao nhiêu? Hãy liệt kê nợ ngắn hạn và nợ dài hạn để kiểm tra.",
+          "question_sha256": "fdee90a8b28ac9dbe3b003945bf9c6854d1098c345d56919d4ceaffb80df1ff9",
+          "required_evidence": [
+            {
+              "source_name": "CFM_24CN_BCTN.pdf",
+              "page": 13,
+              "value": "297231519",
+              "row_label": "I. Nợ ngắn hạn",
+              "period": "2023",
+              "unit": "VND"
+            },
+            {
+              "source_name": "CFM_24CN_BCTN.pdf",
+              "page": 13,
+              "value": "26000000",
+              "row_label": "II.Nợ dài hạn",
+              "period": "2023",
+              "unit": "VND"
+            }
+          ]
+        },
+        {
+          "case_id": "unseen-CFM_24CN_BCTN-p13-2024-total_liabilities_components::surface::canonical",
+          "example_id": "unseen-CFM_24CN_BCTN-p13-2024-total_liabilities_components",
+          "source_name": "CFM_24CN_BCTN.pdf",
+          "source_path": "pdf/PDF_24/PDF_24/CFM_24CN_BCTN.pdf",
+          "source_sha256": "9f6c540589db491086ebacd47730ffa5a9783db8a1c5e7d858abe33ebbe3a8e4",
+          "company_key": "development-company-005cdbb7800de194",
+          "page": 13,
+          "layout_family": "mineru:financial_summary",
+          "surface": "canonical",
+          "question": "Tổng nợ phải trả năm 2024 là bao nhiêu? Hãy liệt kê nợ ngắn hạn và nợ dài hạn để kiểm tra.",
+          "question_sha256": "8b02754df516615ee4b0a5e45bbdd2889b7406220b22d4dc6977affeda42f7e7",
+          "required_evidence": [
+            {
+              "source_name": "CFM_24CN_BCTN.pdf",
+              "page": 13,
+              "value": "226997898",
+              "row_label": "I. Nợ ngắn hạn",
+              "period": "2024",
+              "unit": "VND"
+            },
+            {
+              "source_name": "CFM_24CN_BCTN.pdf",
+              "page": 13,
+              "value": "0",
+              "row_label": "II.Nợ dài hạn",
+              "period": "2024",
+              "unit": "VND"
+            }
+          ]
+        },
+        {
+          "case_id": "unseen-CFM_24CN_BCTN-p13-2024-total_liabilities_components::surface::no_diacritics",
+          "example_id": "unseen-CFM_24CN_BCTN-p13-2024-total_liabilities_components",
+          "source_name": "CFM_24CN_BCTN.pdf",
+          "source_path": "pdf/PDF_24/PDF_24/CFM_24CN_BCTN.pdf",
+          "source_sha256": "9f6c540589db491086ebacd47730ffa5a9783db8a1c5e7d858abe33ebbe3a8e4",
+          "company_key": "development-company-005cdbb7800de194",
+          "page": 13,
+          "layout_family": "mineru:financial_summary",
+          "surface": "no_diacritics",
+          "question": "tong no phai tra nam 2024 la bao nhieu hay liet ke no ngan han va no dai han de kiem tra?",
+          "question_sha256": "77ed10d3ff97acbcf4bafaf70d1461e1791244cd49d8c0c15673e436f22e04da",
+          "required_evidence": [
+            {
+              "source_name": "CFM_24CN_BCTN.pdf",
+              "page": 13,
+              "value": "226997898",
+              "row_label": "I. Nợ ngắn hạn",
+              "period": "2024",
+              "unit": "VND"
+            },
+            {
+              "source_name": "CFM_24CN_BCTN.pdf",
+              "page": 13,
+              "value": "0",
+              "row_label": "II.Nợ dài hạn",
+              "period": "2024",
+              "unit": "VND"
+            }
+          ]
+        },
+        {
+          "case_id": "unseen-CFM_24CN_BCTN-p13-2024-total_liabilities_components::surface::source_prefix",
+          "example_id": "unseen-CFM_24CN_BCTN-p13-2024-total_liabilities_components",
+          "source_name": "CFM_24CN_BCTN.pdf",
+          "source_path": "pdf/PDF_24/PDF_24/CFM_24CN_BCTN.pdf",
+          "source_sha256": "9f6c540589db491086ebacd47730ffa5a9783db8a1c5e7d858abe33ebbe3a8e4",
+          "company_key": "development-company-005cdbb7800de194",
+          "page": 13,
+          "layout_family": "mineru:financial_summary",
+          "surface": "source_prefix",
+          "question": "Theo đúng số liệu trong cùng báo cáo, tổng nợ phải trả năm 2024 là bao nhiêu? Hãy liệt kê nợ ngắn hạn và nợ dài hạn để kiểm tra.",
+          "question_sha256": "61abdfa8b3eb70112abf6fa2d975f56e8c9fc7389f54fbda64a607ac7942b834",
+          "required_evidence": [
+            {
+              "source_name": "CFM_24CN_BCTN.pdf",
+              "page": 13,
+              "value": "226997898",
+              "row_label": "I. Nợ ngắn hạn",
+              "period": "2024",
+              "unit": "VND"
+            },
+            {
+              "source_name": "CFM_24CN_BCTN.pdf",
+              "page": 13,
+              "value": "0",
+              "row_label": "II.Nợ dài hạn",
+              "period": "2024",
+              "unit": "VND"
+            }
+          ]
+        },
+        {
+          "case_id": "unseen-NVT_24CN_BCTN-p15-2023-accounting_equation_check::surface::canonical",
+          "example_id": "unseen-NVT_24CN_BCTN-p15-2023-accounting_equation_check",
+          "source_name": "NVT_24CN_BCTN.pdf",
+          "source_path": "pdf/PDF_24/PDF_24/NVT_24CN_BCTN.pdf",
+          "source_sha256": "a667efb440c640f705e32c891a7da8028e2b16260a5e6a52cec5ab7cd374684b",
+          "company_key": "development-company-2af4f0c705cd7ea2",
+          "page": 15,
+          "layout_family": "mineru:financial_summary",
+          "surface": "canonical",
+          "question": "Tổng tài sản năm 2023 có bằng Tổng nguồn vốn không? Nếu lệch thì chênh lệch là bao nhiêu?",
+          "question_sha256": "5e709317ff3f582224eda510f0d67ff03f40008057970e5792694c49a60ec179",
+          "required_evidence": [
+            {
+              "source_name": "NVT_24CN_BCTN.pdf",
+              "page": 15,
+              "value": "1078634597717",
+              "row_label": "Tổng tài sản",
+              "period": "2023",
+              "unit": "VND"
+            },
+            {
+              "source_name": "NVT_24CN_BCTN.pdf",
+              "page": 15,
+              "value": "1078634597717",
+              "row_label": "Tổng nguồn vốn",
+              "period": "2023",
+              "unit": "VND"
+            }
+          ]
+        },
+        {
+          "case_id": "unseen-NVT_24CN_BCTN-p15-2023-accounting_equation_check::surface::no_diacritics",
+          "example_id": "unseen-NVT_24CN_BCTN-p15-2023-accounting_equation_check",
+          "source_name": "NVT_24CN_BCTN.pdf",
+          "source_path": "pdf/PDF_24/PDF_24/NVT_24CN_BCTN.pdf",
+          "source_sha256": "a667efb440c640f705e32c891a7da8028e2b16260a5e6a52cec5ab7cd374684b",
+          "company_key": "development-company-2af4f0c705cd7ea2",
+          "page": 15,
+          "layout_family": "mineru:financial_summary",
+          "surface": "no_diacritics",
+          "question": "tong tai san nam 2023 co bang tong nguon von khong neu lech thi chenh lech la bao nhieu?",
+          "question_sha256": "738522bef5e4a0517099fd4453ff1f8fafdc449a1f0f4c90f8f7d60dc52049aa",
+          "required_evidence": [
+            {
+              "source_name": "NVT_24CN_BCTN.pdf",
+              "page": 15,
+              "value": "1078634597717",
+              "row_label": "Tổng tài sản",
+              "period": "2023",
+              "unit": "VND"
+            },
+            {
+              "source_name": "NVT_24CN_BCTN.pdf",
+              "page": 15,
+              "value": "1078634597717",
+              "row_label": "Tổng nguồn vốn",
+              "period": "2023",
+              "unit": "VND"
+            }
+          ]
+        },
+        {
+          "case_id": "unseen-NVT_24CN_BCTN-p15-2023-accounting_equation_check::surface::source_prefix",
+          "example_id": "unseen-NVT_24CN_BCTN-p15-2023-accounting_equation_check",
+          "source_name": "NVT_24CN_BCTN.pdf",
+          "source_path": "pdf/PDF_24/PDF_24/NVT_24CN_BCTN.pdf",
+          "source_sha256": "a667efb440c640f705e32c891a7da8028e2b16260a5e6a52cec5ab7cd374684b",
+          "company_key": "development-company-2af4f0c705cd7ea2",
+          "page": 15,
+          "layout_family": "mineru:financial_summary",
+          "surface": "source_prefix",
+          "question": "Theo đúng số liệu trong cùng báo cáo, tổng tài sản năm 2023 có bằng Tổng nguồn vốn không? Nếu lệch thì chênh lệch là bao nhiêu?",
+          "question_sha256": "6637d1c6723803ce5f78b2e94996e71ebe2fbc650ade83b98d511e1594201f40",
+          "required_evidence": [
+            {
+              "source_name": "NVT_24CN_BCTN.pdf",
+              "page": 15,
+              "value": "1078634597717",
+              "row_label": "Tổng tài sản",
+              "period": "2023",
+              "unit": "VND"
+            },
+            {
+              "source_name": "NVT_24CN_BCTN.pdf",
+              "page": 15,
+              "value": "1078634597717",
+              "row_label": "Tổng nguồn vốn",
+              "period": "2023",
+              "unit": "VND"
+            }
+          ]
+        },
+        {
+          "case_id": "unseen-NVT_24CN_BCTN-p15-2023-current_ratio::surface::canonical",
+          "example_id": "unseen-NVT_24CN_BCTN-p15-2023-current_ratio",
+          "source_name": "NVT_24CN_BCTN.pdf",
+          "source_path": "pdf/PDF_24/PDF_24/NVT_24CN_BCTN.pdf",
+          "source_sha256": "a667efb440c640f705e32c891a7da8028e2b16260a5e6a52cec5ab7cd374684b",
+          "company_key": "development-company-2af4f0c705cd7ea2",
+          "page": 15,
+          "layout_family": "mineru:financial_summary",
+          "surface": "canonical",
+          "question": "Tính hệ số thanh toán hiện hành (Current Ratio) năm 2023 và cho biết doanh nghiệp có đủ khả năng trả nợ ngắn hạn không?",
+          "question_sha256": "6c7802de22baa61f796d24dde56f1b4a16e8350558ced3d65ca61af78c27c183",
+          "required_evidence": [
+            {
+              "source_name": "NVT_24CN_BCTN.pdf",
+              "page": 15,
+              "value": "133477027862",
+              "row_label": "Tài sản ngắn hạn",
+              "period": "2023",
+              "unit": "VND"
+            },
+            {
+              "source_name": "NVT_24CN_BCTN.pdf",
+              "page": 15,
+              "value": "134450361474",
+              "row_label": "Nợ ngắn hạn",
+              "period": "2023",
+              "unit": "VND"
+            }
+          ]
+        },
+        {
+          "case_id": "unseen-NVT_24CN_BCTN-p15-2023-current_ratio::surface::no_diacritics",
+          "example_id": "unseen-NVT_24CN_BCTN-p15-2023-current_ratio",
+          "source_name": "NVT_24CN_BCTN.pdf",
+          "source_path": "pdf/PDF_24/PDF_24/NVT_24CN_BCTN.pdf",
+          "source_sha256": "a667efb440c640f705e32c891a7da8028e2b16260a5e6a52cec5ab7cd374684b",
+          "company_key": "development-company-2af4f0c705cd7ea2",
+          "page": 15,
+          "layout_family": "mineru:financial_summary",
+          "surface": "no_diacritics",
+          "question": "tinh he so thanh toan hien hanh current ratio nam 2023 va cho biet doanh nghiep co du kha nang tra no ngan han khong?",
+          "question_sha256": "e806d18a65dd61336c42ec9cfeae7288660d12ee00abaa1dc89b9660963445bf",
+          "required_evidence": [
+            {
+              "source_name": "NVT_24CN_BCTN.pdf",
+              "page": 15,
+              "value": "133477027862",
+              "row_label": "Tài sản ngắn hạn",
+              "period": "2023",
+              "unit": "VND"
+            },
+            {
+              "source_name": "NVT_24CN_BCTN.pdf",
+              "page": 15,
+              "value": "134450361474",
+              "row_label": "Nợ ngắn hạn",
+              "period": "2023",
+              "unit": "VND"
+            }
+          ]
+        },
+        {
+          "case_id": "unseen-NVT_24CN_BCTN-p15-2023-current_ratio::surface::source_prefix",
+          "example_id": "unseen-NVT_24CN_BCTN-p15-2023-current_ratio",
+          "source_name": "NVT_24CN_BCTN.pdf",
+          "source_path": "pdf/PDF_24/PDF_24/NVT_24CN_BCTN.pdf",
+          "source_sha256": "a667efb440c640f705e32c891a7da8028e2b16260a5e6a52cec5ab7cd374684b",
+          "company_key": "development-company-2af4f0c705cd7ea2",
+          "page": 15,
+          "layout_family": "mineru:financial_summary",
+          "surface": "source_prefix",
+          "question": "Theo đúng số liệu trong cùng báo cáo, tính hệ số thanh toán hiện hành (Current Ratio) năm 2023 và cho biết doanh nghiệp có đủ khả năng trả nợ ngắn hạn không?",
+          "question_sha256": "50353317d3cc77983c9afbcaea60ad9e7007ea84575767b1c6d3049e0b7918d3",
+          "required_evidence": [
+            {
+              "source_name": "NVT_24CN_BCTN.pdf",
+              "page": 15,
+              "value": "133477027862",
+              "row_label": "Tài sản ngắn hạn",
+              "period": "2023",
+              "unit": "VND"
+            },
+            {
+              "source_name": "NVT_24CN_BCTN.pdf",
+              "page": 15,
+              "value": "134450361474",
+              "row_label": "Nợ ngắn hạn",
+              "period": "2023",
+              "unit": "VND"
+            }
+          ]
+        },
+        {
+          "case_id": "unseen-NVT_24CN_BCTN-p15-2023-total_liabilities_components::surface::canonical",
+          "example_id": "unseen-NVT_24CN_BCTN-p15-2023-total_liabilities_components",
+          "source_name": "NVT_24CN_BCTN.pdf",
+          "source_path": "pdf/PDF_24/PDF_24/NVT_24CN_BCTN.pdf",
+          "source_sha256": "a667efb440c640f705e32c891a7da8028e2b16260a5e6a52cec5ab7cd374684b",
+          "company_key": "development-company-2af4f0c705cd7ea2",
+          "page": 15,
+          "layout_family": "mineru:financial_summary",
+          "surface": "canonical",
+          "question": "Tổng nợ phải trả năm 2023 là bao nhiêu? Hãy liệt kê nợ ngắn hạn và nợ dài hạn để kiểm tra.",
+          "question_sha256": "86fb88fffe439af39614939ce035852f6215e3bff58d8cf47c30aa6132a89411",
+          "required_evidence": [
+            {
+              "source_name": "NVT_24CN_BCTN.pdf",
+              "page": 15,
+              "value": "134450361474",
+              "row_label": "Nợ ngắn hạn",
+              "period": "2023",
+              "unit": "VND"
+            },
+            {
+              "source_name": "NVT_24CN_BCTN.pdf",
+              "page": 15,
+              "value": "405858825129",
+              "row_label": "Nợ phải trả dài hạn",
+              "period": "2023",
+              "unit": "VND"
+            }
+          ]
+        },
+        {
+          "case_id": "unseen-NVT_24CN_BCTN-p15-2023-total_liabilities_components::surface::no_diacritics",
+          "example_id": "unseen-NVT_24CN_BCTN-p15-2023-total_liabilities_components",
+          "source_name": "NVT_24CN_BCTN.pdf",
+          "source_path": "pdf/PDF_24/PDF_24/NVT_24CN_BCTN.pdf",
+          "source_sha256": "a667efb440c640f705e32c891a7da8028e2b16260a5e6a52cec5ab7cd374684b",
+          "company_key": "development-company-2af4f0c705cd7ea2",
+          "page": 15,
+          "layout_family": "mineru:financial_summary",
+          "surface": "no_diacritics",
+          "question": "tong no phai tra nam 2023 la bao nhieu hay liet ke no ngan han va no dai han de kiem tra?",
+          "question_sha256": "4bc11fb7c38065646e1d45ab1f0b10d0969d17bcc57f685d0247d056e1e6417b",
+          "required_evidence": [
+            {
+              "source_name": "NVT_24CN_BCTN.pdf",
+              "page": 15,
+              "value": "134450361474",
+              "row_label": "Nợ ngắn hạn",
+              "period": "2023",
+              "unit": "VND"
+            },
+            {
+              "source_name": "NVT_24CN_BCTN.pdf",
+              "page": 15,
+              "value": "405858825129",
+              "row_label": "Nợ phải trả dài hạn",
+              "period": "2023",
+              "unit": "VND"
+            }
+          ]
+        },
+        {
+          "case_id": "unseen-NVT_24CN_BCTN-p15-2023-total_liabilities_components::surface::source_prefix",
+          "example_id": "unseen-NVT_24CN_BCTN-p15-2023-total_liabilities_components",
+          "source_name": "NVT_24CN_BCTN.pdf",
+          "source_path": "pdf/PDF_24/PDF_24/NVT_24CN_BCTN.pdf",
+          "source_sha256": "a667efb440c640f705e32c891a7da8028e2b16260a5e6a52cec5ab7cd374684b",
+          "company_key": "development-company-2af4f0c705cd7ea2",
+          "page": 15,
+          "layout_family": "mineru:financial_summary",
+          "surface": "source_prefix",
+          "question": "Theo đúng số liệu trong cùng báo cáo, tổng nợ phải trả năm 2023 là bao nhiêu? Hãy liệt kê nợ ngắn hạn và nợ dài hạn để kiểm tra.",
+          "question_sha256": "fdee90a8b28ac9dbe3b003945bf9c6854d1098c345d56919d4ceaffb80df1ff9",
+          "required_evidence": [
+            {
+              "source_name": "NVT_24CN_BCTN.pdf",
+              "page": 15,
+              "value": "134450361474",
+              "row_label": "Nợ ngắn hạn",
+              "period": "2023",
+              "unit": "VND"
+            },
+            {
+              "source_name": "NVT_24CN_BCTN.pdf",
+              "page": 15,
+              "value": "405858825129",
+              "row_label": "Nợ phải trả dài hạn",
+              "period": "2023",
+              "unit": "VND"
+            }
+          ]
+        },
+        {
+          "case_id": "unseen-NVT_24CN_BCTN-p15-2024-accounting_equation_check::surface::canonical",
+          "example_id": "unseen-NVT_24CN_BCTN-p15-2024-accounting_equation_check",
+          "source_name": "NVT_24CN_BCTN.pdf",
+          "source_path": "pdf/PDF_24/PDF_24/NVT_24CN_BCTN.pdf",
+          "source_sha256": "a667efb440c640f705e32c891a7da8028e2b16260a5e6a52cec5ab7cd374684b",
+          "company_key": "development-company-2af4f0c705cd7ea2",
+          "page": 15,
+          "layout_family": "mineru:financial_summary",
+          "surface": "canonical",
+          "question": "Tổng tài sản năm 2024 có bằng Tổng nguồn vốn không? Nếu lệch thì chênh lệch là bao nhiêu?",
+          "question_sha256": "c906745ac2baa7b399a25ee0d365a02228e9cc4314fa8be1245c87f7738e49ea",
+          "required_evidence": [
+            {
+              "source_name": "NVT_24CN_BCTN.pdf",
+              "page": 15,
+              "value": "1071502256963",
+              "row_label": "Tổng tài sản",
+              "period": "2024",
+              "unit": "VND"
+            },
+            {
+              "source_name": "NVT_24CN_BCTN.pdf",
+              "page": 15,
+              "value": "1071502256963",
+              "row_label": "Tổng nguồn vốn",
+              "period": "2024",
+              "unit": "VND"
+            }
+          ]
+        },
+        {
+          "case_id": "unseen-NVT_24CN_BCTN-p15-2024-accounting_equation_check::surface::no_diacritics",
+          "example_id": "unseen-NVT_24CN_BCTN-p15-2024-accounting_equation_check",
+          "source_name": "NVT_24CN_BCTN.pdf",
+          "source_path": "pdf/PDF_24/PDF_24/NVT_24CN_BCTN.pdf",
+          "source_sha256": "a667efb440c640f705e32c891a7da8028e2b16260a5e6a52cec5ab7cd374684b",
+          "company_key": "development-company-2af4f0c705cd7ea2",
+          "page": 15,
+          "layout_family": "mineru:financial_summary",
+          "surface": "no_diacritics",
+          "question": "tong tai san nam 2024 co bang tong nguon von khong neu lech thi chenh lech la bao nhieu?",
+          "question_sha256": "781253372b2afb208be5135c68688240d34efca2e9b32fb6a1feb2e87e3eff00",
+          "required_evidence": [
+            {
+              "source_name": "NVT_24CN_BCTN.pdf",
+              "page": 15,
+              "value": "1071502256963",
+              "row_label": "Tổng tài sản",
+              "period": "2024",
+              "unit": "VND"
+            },
+            {
+              "source_name": "NVT_24CN_BCTN.pdf",
+              "page": 15,
+              "value": "1071502256963",
+              "row_label": "Tổng nguồn vốn",
+              "period": "2024",
+              "unit": "VND"
+            }
+          ]
+        },
+        {
+          "case_id": "unseen-NVT_24CN_BCTN-p15-2024-accounting_equation_check::surface::source_prefix",
+          "example_id": "unseen-NVT_24CN_BCTN-p15-2024-accounting_equation_check",
+          "source_name": "NVT_24CN_BCTN.pdf",
+          "source_path": "pdf/PDF_24/PDF_24/NVT_24CN_BCTN.pdf",
+          "source_sha256": "a667efb440c640f705e32c891a7da8028e2b16260a5e6a52cec5ab7cd374684b",
+          "company_key": "development-company-2af4f0c705cd7ea2",
+          "page": 15,
+          "layout_family": "mineru:financial_summary",
+          "surface": "source_prefix",
+          "question": "Theo đúng số liệu trong cùng báo cáo, tổng tài sản năm 2024 có bằng Tổng nguồn vốn không? Nếu lệch thì chênh lệch là bao nhiêu?",
+          "question_sha256": "d21e98af82dc7b1f871beb84b0caf4f0d40af67d0cb4dffdad6451093b60bfb6",
+          "required_evidence": [
+            {
+              "source_name": "NVT_24CN_BCTN.pdf",
+              "page": 15,
+              "value": "1071502256963",
+              "row_label": "Tổng tài sản",
+              "period": "2024",
+              "unit": "VND"
+            },
+            {
+              "source_name": "NVT_24CN_BCTN.pdf",
+              "page": 15,
+              "value": "1071502256963",
+              "row_label": "Tổng nguồn vốn",
+              "period": "2024",
+              "unit": "VND"
+            }
+          ]
+        },
+        {
+          "case_id": "unseen-NVT_24CN_BCTN-p15-2024-current_ratio::surface::canonical",
+          "example_id": "unseen-NVT_24CN_BCTN-p15-2024-current_ratio",
+          "source_name": "NVT_24CN_BCTN.pdf",
+          "source_path": "pdf/PDF_24/PDF_24/NVT_24CN_BCTN.pdf",
+          "source_sha256": "a667efb440c640f705e32c891a7da8028e2b16260a5e6a52cec5ab7cd374684b",
+          "company_key": "development-company-2af4f0c705cd7ea2",
+          "page": 15,
+          "layout_family": "mineru:financial_summary",
+          "surface": "canonical",
+          "question": "Tính hệ số thanh toán hiện hành (Current Ratio) năm 2024 và cho biết doanh nghiệp có đủ khả năng trả nợ ngắn hạn không?",
+          "question_sha256": "17260a7e48f1ed48310f7537ba47cb1ad3390a3b7ac427c9b9f7bf8fa513091b",
+          "required_evidence": [
+            {
+              "source_name": "NVT_24CN_BCTN.pdf",
+              "page": 15,
+              "value": "180662443452",
+              "row_label": "Tài sản ngắn hạn",
+              "period": "2024",
+              "unit": "VND"
+            },
+            {
+              "source_name": "NVT_24CN_BCTN.pdf",
+              "page": 15,
+              "value": "152665594978",
+              "row_label": "Nợ ngắn hạn",
+              "period": "2024",
+              "unit": "VND"
+            }
+          ]
+        },
+        {
+          "case_id": "unseen-NVT_24CN_BCTN-p15-2024-current_ratio::surface::no_diacritics",
+          "example_id": "unseen-NVT_24CN_BCTN-p15-2024-current_ratio",
+          "source_name": "NVT_24CN_BCTN.pdf",
+          "source_path": "pdf/PDF_24/PDF_24/NVT_24CN_BCTN.pdf",
+          "source_sha256": "a667efb440c640f705e32c891a7da8028e2b16260a5e6a52cec5ab7cd374684b",
+          "company_key": "development-company-2af4f0c705cd7ea2",
+          "page": 15,
+          "layout_family": "mineru:financial_summary",
+          "surface": "no_diacritics",
+          "question": "tinh he so thanh toan hien hanh current ratio nam 2024 va cho biet doanh nghiep co du kha nang tra no ngan han khong?",
+          "question_sha256": "eae7fc657b54b655adb3749007e0f5f00d6c67a766511a89cbf4a43a35d85e06",
+          "required_evidence": [
+            {
+              "source_name": "NVT_24CN_BCTN.pdf",
+              "page": 15,
+              "value": "180662443452",
+              "row_label": "Tài sản ngắn hạn",
+              "period": "2024",
+              "unit": "VND"
+            },
+            {
+              "source_name": "NVT_24CN_BCTN.pdf",
+              "page": 15,
+              "value": "152665594978",
+              "row_label": "Nợ ngắn hạn",
+              "period": "2024",
+              "unit": "VND"
+            }
+          ]
+        },
+        {
+          "case_id": "unseen-NVT_24CN_BCTN-p15-2024-current_ratio::surface::source_prefix",
+          "example_id": "unseen-NVT_24CN_BCTN-p15-2024-current_ratio",
+          "source_name": "NVT_24CN_BCTN.pdf",
+          "source_path": "pdf/PDF_24/PDF_24/NVT_24CN_BCTN.pdf",
+          "source_sha256": "a667efb440c640f705e32c891a7da8028e2b16260a5e6a52cec5ab7cd374684b",
+          "company_key": "development-company-2af4f0c705cd7ea2",
+          "page": 15,
+          "layout_family": "mineru:financial_summary",
+          "surface": "source_prefix",
+          "question": "Theo đúng số liệu trong cùng báo cáo, tính hệ số thanh toán hiện hành (Current Ratio) năm 2024 và cho biết doanh nghiệp có đủ khả năng trả nợ ngắn hạn không?",
+          "question_sha256": "6af342ae5f1d50be998d134ee6c7988e7617967ac92a649a52e71a7ff03874da",
+          "required_evidence": [
+            {
+              "source_name": "NVT_24CN_BCTN.pdf",
+              "page": 15,
+              "value": "180662443452",
+              "row_label": "Tài sản ngắn hạn",
+              "period": "2024",
+              "unit": "VND"
+            },
+            {
+              "source_name": "NVT_24CN_BCTN.pdf",
+              "page": 15,
+              "value": "152665594978",
+              "row_label": "Nợ ngắn hạn",
+              "period": "2024",
+              "unit": "VND"
+            }
+          ]
+        },
+        {
+          "case_id": "unseen-NVT_24CN_BCTN-p15-2024-total_liabilities_components::surface::canonical",
+          "example_id": "unseen-NVT_24CN_BCTN-p15-2024-total_liabilities_components",
+          "source_name": "NVT_24CN_BCTN.pdf",
+          "source_path": "pdf/PDF_24/PDF_24/NVT_24CN_BCTN.pdf",
+          "source_sha256": "a667efb440c640f705e32c891a7da8028e2b16260a5e6a52cec5ab7cd374684b",
+          "company_key": "development-company-2af4f0c705cd7ea2",
+          "page": 15,
+          "layout_family": "mineru:financial_summary",
+          "surface": "canonical",
+          "question": "Tổng nợ phải trả năm 2024 là bao nhiêu? Hãy liệt kê nợ ngắn hạn và nợ dài hạn để kiểm tra.",
+          "question_sha256": "8b02754df516615ee4b0a5e45bbdd2889b7406220b22d4dc6977affeda42f7e7",
+          "required_evidence": [
+            {
+              "source_name": "NVT_24CN_BCTN.pdf",
+              "page": 15,
+              "value": "152665594978",
+              "row_label": "Nợ ngắn hạn",
+              "period": "2024",
+              "unit": "VND"
+            },
+            {
+              "source_name": "NVT_24CN_BCTN.pdf",
+              "page": 15,
+              "value": "389295757373",
+              "row_label": "Nợ phải trả dài hạn",
+              "period": "2024",
+              "unit": "VND"
+            }
+          ]
+        },
+        {
+          "case_id": "unseen-NVT_24CN_BCTN-p15-2024-total_liabilities_components::surface::no_diacritics",
+          "example_id": "unseen-NVT_24CN_BCTN-p15-2024-total_liabilities_components",
+          "source_name": "NVT_24CN_BCTN.pdf",
+          "source_path": "pdf/PDF_24/PDF_24/NVT_24CN_BCTN.pdf",
+          "source_sha256": "a667efb440c640f705e32c891a7da8028e2b16260a5e6a52cec5ab7cd374684b",
+          "company_key": "development-company-2af4f0c705cd7ea2",
+          "page": 15,
+          "layout_family": "mineru:financial_summary",
+          "surface": "no_diacritics",
+          "question": "tong no phai tra nam 2024 la bao nhieu hay liet ke no ngan han va no dai han de kiem tra?",
+          "question_sha256": "77ed10d3ff97acbcf4bafaf70d1461e1791244cd49d8c0c15673e436f22e04da",
+          "required_evidence": [
+            {
+              "source_name": "NVT_24CN_BCTN.pdf",
+              "page": 15,
+              "value": "152665594978",
+              "row_label": "Nợ ngắn hạn",
+              "period": "2024",
+              "unit": "VND"
+            },
+            {
+              "source_name": "NVT_24CN_BCTN.pdf",
+              "page": 15,
+              "value": "389295757373",
+              "row_label": "Nợ phải trả dài hạn",
+              "period": "2024",
+              "unit": "VND"
+            }
+          ]
+        },
+        {
+          "case_id": "unseen-NVT_24CN_BCTN-p15-2024-total_liabilities_components::surface::source_prefix",
+          "example_id": "unseen-NVT_24CN_BCTN-p15-2024-total_liabilities_components",
+          "source_name": "NVT_24CN_BCTN.pdf",
+          "source_path": "pdf/PDF_24/PDF_24/NVT_24CN_BCTN.pdf",
+          "source_sha256": "a667efb440c640f705e32c891a7da8028e2b16260a5e6a52cec5ab7cd374684b",
+          "company_key": "development-company-2af4f0c705cd7ea2",
+          "page": 15,
+          "layout_family": "mineru:financial_summary",
+          "surface": "source_prefix",
+          "question": "Theo đúng số liệu trong cùng báo cáo, tổng nợ phải trả năm 2024 là bao nhiêu? Hãy liệt kê nợ ngắn hạn và nợ dài hạn để kiểm tra.",
+          "question_sha256": "61abdfa8b3eb70112abf6fa2d975f56e8c9fc7389f54fbda64a607ac7942b834",
+          "required_evidence": [
+            {
+              "source_name": "NVT_24CN_BCTN.pdf",
+              "page": 15,
+              "value": "152665594978",
+              "row_label": "Nợ ngắn hạn",
+              "period": "2024",
+              "unit": "VND"
+            },
+            {
+              "source_name": "NVT_24CN_BCTN.pdf",
+              "page": 15,
+              "value": "389295757373",
+              "row_label": "Nợ phải trả dài hạn",
+              "period": "2024",
+              "unit": "VND"
+            }
+          ]
+        },
+        {
+          "case_id": "unseen-NWT_24CN_BCTN-p18-2024-total_liabilities_components::surface::canonical",
+          "example_id": "unseen-NWT_24CN_BCTN-p18-2024-total_liabilities_components",
+          "source_name": "NWT_24CN_BCTN.pdf",
+          "source_path": "pdf/PDF_24/PDF_24/NWT_24CN_BCTN.pdf",
+          "source_sha256": "5cf90668479dd20deaf90e0e1fe73e36da556f72e8a9c8570e4aba2a1018849c",
+          "company_key": "development-company-026c0c72f8061fb7",
+          "page": 18,
+          "layout_family": "mineru:financial_summary",
+          "surface": "canonical",
+          "question": "Tổng nợ phải trả năm 2024 là bao nhiêu? Hãy liệt kê nợ ngắn hạn và nợ dài hạn để kiểm tra.",
+          "question_sha256": "8b02754df516615ee4b0a5e45bbdd2889b7406220b22d4dc6977affeda42f7e7",
+          "required_evidence": [
+            {
+              "source_name": "NWT_24CN_BCTN.pdf",
+              "page": 18,
+              "value": "37346690410",
+              "row_label": "Nợ ngắn hạn",
+              "period": "2024",
+              "unit": "VND"
+            },
+            {
+              "source_name": "NWT_24CN_BCTN.pdf",
+              "page": 18,
+              "value": "19593563000",
+              "row_label": "Nợ dài hạn",
+              "period": "2024",
+              "unit": "VND"
+            }
+          ]
+        },
+        {
+          "case_id": "unseen-NWT_24CN_BCTN-p18-2024-total_liabilities_components::surface::no_diacritics",
+          "example_id": "unseen-NWT_24CN_BCTN-p18-2024-total_liabilities_components",
+          "source_name": "NWT_24CN_BCTN.pdf",
+          "source_path": "pdf/PDF_24/PDF_24/NWT_24CN_BCTN.pdf",
+          "source_sha256": "5cf90668479dd20deaf90e0e1fe73e36da556f72e8a9c8570e4aba2a1018849c",
+          "company_key": "development-company-026c0c72f8061fb7",
+          "page": 18,
+          "layout_family": "mineru:financial_summary",
+          "surface": "no_diacritics",
+          "question": "tong no phai tra nam 2024 la bao nhieu hay liet ke no ngan han va no dai han de kiem tra?",
+          "question_sha256": "77ed10d3ff97acbcf4bafaf70d1461e1791244cd49d8c0c15673e436f22e04da",
+          "required_evidence": [
+            {
+              "source_name": "NWT_24CN_BCTN.pdf",
+              "page": 18,
+              "value": "37346690410",
+              "row_label": "Nợ ngắn hạn",
+              "period": "2024",
+              "unit": "VND"
+            },
+            {
+              "source_name": "NWT_24CN_BCTN.pdf",
+              "page": 18,
+              "value": "19593563000",
+              "row_label": "Nợ dài hạn",
+              "period": "2024",
+              "unit": "VND"
+            }
+          ]
+        },
+        {
+          "case_id": "unseen-NWT_24CN_BCTN-p18-2024-total_liabilities_components::surface::source_prefix",
+          "example_id": "unseen-NWT_24CN_BCTN-p18-2024-total_liabilities_components",
+          "source_name": "NWT_24CN_BCTN.pdf",
+          "source_path": "pdf/PDF_24/PDF_24/NWT_24CN_BCTN.pdf",
+          "source_sha256": "5cf90668479dd20deaf90e0e1fe73e36da556f72e8a9c8570e4aba2a1018849c",
+          "company_key": "development-company-026c0c72f8061fb7",
+          "page": 18,
+          "layout_family": "mineru:financial_summary",
+          "surface": "source_prefix",
+          "question": "Theo đúng số liệu trong cùng báo cáo, tổng nợ phải trả năm 2024 là bao nhiêu? Hãy liệt kê nợ ngắn hạn và nợ dài hạn để kiểm tra.",
+          "question_sha256": "61abdfa8b3eb70112abf6fa2d975f56e8c9fc7389f54fbda64a607ac7942b834",
+          "required_evidence": [
+            {
+              "source_name": "NWT_24CN_BCTN.pdf",
+              "page": 18,
+              "value": "37346690410",
+              "row_label": "Nợ ngắn hạn",
+              "period": "2024",
+              "unit": "VND"
+            },
+            {
+              "source_name": "NWT_24CN_BCTN.pdf",
+              "page": 18,
+              "value": "19593563000",
+              "row_label": "Nợ dài hạn",
+              "period": "2024",
+              "unit": "VND"
+            }
+          ]
+        },
+        {
+          "case_id": "unseen-TVH_24CN_BCTN-p17-2023-total_liabilities_components::surface::canonical",
+          "example_id": "unseen-TVH_24CN_BCTN-p17-2023-total_liabilities_components",
+          "source_name": "TVH_24CN_BCTN.pdf",
+          "source_path": "pdf/PDF_24/PDF_24/TVH_24CN_BCTN.pdf",
+          "source_sha256": "bad16a38d77462f6e9ee22b0ef6261064c38ab7d455588ac9b0c6d6ae2b5f259",
+          "company_key": "development-company-19beb7ac29f9f622",
+          "page": 17,
+          "layout_family": "mineru:financial_summary",
+          "surface": "canonical",
+          "question": "Tổng nợ phải trả năm 2023 là bao nhiêu? Hãy liệt kê nợ ngắn hạn và nợ dài hạn để kiểm tra.",
+          "question_sha256": "86fb88fffe439af39614939ce035852f6215e3bff58d8cf47c30aa6132a89411",
+          "required_evidence": [
+            {
+              "source_name": "TVH_24CN_BCTN.pdf",
+              "page": 17,
+              "value": "323695033778",
+              "row_label": "1.Nợ ngắn hạn",
+              "period": "2023",
+              "unit": "VND"
+            },
+            {
+              "source_name": "TVH_24CN_BCTN.pdf",
+              "page": 17,
+              "value": "177173250",
+              "row_label": "2.Nợ dài hạn",
+              "period": "2023",
+              "unit": "VND"
+            }
+          ]
+        },
+        {
+          "case_id": "unseen-TVH_24CN_BCTN-p17-2023-total_liabilities_components::surface::no_diacritics",
+          "example_id": "unseen-TVH_24CN_BCTN-p17-2023-total_liabilities_components",
+          "source_name": "TVH_24CN_BCTN.pdf",
+          "source_path": "pdf/PDF_24/PDF_24/TVH_24CN_BCTN.pdf",
+          "source_sha256": "bad16a38d77462f6e9ee22b0ef6261064c38ab7d455588ac9b0c6d6ae2b5f259",
+          "company_key": "development-company-19beb7ac29f9f622",
+          "page": 17,
+          "layout_family": "mineru:financial_summary",
+          "surface": "no_diacritics",
+          "question": "tong no phai tra nam 2023 la bao nhieu hay liet ke no ngan han va no dai han de kiem tra?",
+          "question_sha256": "4bc11fb7c38065646e1d45ab1f0b10d0969d17bcc57f685d0247d056e1e6417b",
+          "required_evidence": [
+            {
+              "source_name": "TVH_24CN_BCTN.pdf",
+              "page": 17,
+              "value": "323695033778",
+              "row_label": "1.Nợ ngắn hạn",
+              "period": "2023",
+              "unit": "VND"
+            },
+            {
+              "source_name": "TVH_24CN_BCTN.pdf",
+              "page": 17,
+              "value": "177173250",
+              "row_label": "2.Nợ dài hạn",
+              "period": "2023",
+              "unit": "VND"
+            }
+          ]
+        },
+        {
+          "case_id": "unseen-TVH_24CN_BCTN-p17-2023-total_liabilities_components::surface::source_prefix",
+          "example_id": "unseen-TVH_24CN_BCTN-p17-2023-total_liabilities_components",
+          "source_name": "TVH_24CN_BCTN.pdf",
+          "source_path": "pdf/PDF_24/PDF_24/TVH_24CN_BCTN.pdf",
+          "source_sha256": "bad16a38d77462f6e9ee22b0ef6261064c38ab7d455588ac9b0c6d6ae2b5f259",
+          "company_key": "development-company-19beb7ac29f9f622",
+          "page": 17,
+          "layout_family": "mineru:financial_summary",
+          "surface": "source_prefix",
+          "question": "Theo đúng số liệu trong cùng báo cáo, tổng nợ phải trả năm 2023 là bao nhiêu? Hãy liệt kê nợ ngắn hạn và nợ dài hạn để kiểm tra.",
+          "question_sha256": "fdee90a8b28ac9dbe3b003945bf9c6854d1098c345d56919d4ceaffb80df1ff9",
+          "required_evidence": [
+            {
+              "source_name": "TVH_24CN_BCTN.pdf",
+              "page": 17,
+              "value": "323695033778",
+              "row_label": "1.Nợ ngắn hạn",
+              "period": "2023",
+              "unit": "VND"
+            },
+            {
+              "source_name": "TVH_24CN_BCTN.pdf",
+              "page": 17,
+              "value": "177173250",
+              "row_label": "2.Nợ dài hạn",
+              "period": "2023",
+              "unit": "VND"
+            }
+          ]
+        },
+        {
+          "case_id": "unseen-TVH_24CN_BCTN-p17-2024-total_liabilities_components::surface::canonical",
+          "example_id": "unseen-TVH_24CN_BCTN-p17-2024-total_liabilities_components",
+          "source_name": "TVH_24CN_BCTN.pdf",
+          "source_path": "pdf/PDF_24/PDF_24/TVH_24CN_BCTN.pdf",
+          "source_sha256": "bad16a38d77462f6e9ee22b0ef6261064c38ab7d455588ac9b0c6d6ae2b5f259",
+          "company_key": "development-company-19beb7ac29f9f622",
+          "page": 17,
+          "layout_family": "mineru:financial_summary",
+          "surface": "canonical",
+          "question": "Tổng nợ phải trả năm 2024 là bao nhiêu? Hãy liệt kê nợ ngắn hạn và nợ dài hạn để kiểm tra.",
+          "question_sha256": "8b02754df516615ee4b0a5e45bbdd2889b7406220b22d4dc6977affeda42f7e7",
+          "required_evidence": [
+            {
+              "source_name": "TVH_24CN_BCTN.pdf",
+              "page": 17,
+              "value": "337052659325",
+              "row_label": "1.Nợ ngắn hạn",
+              "period": "2024",
+              "unit": "VND"
+            },
+            {
+              "source_name": "TVH_24CN_BCTN.pdf",
+              "page": 17,
+              "value": "131000000",
+              "row_label": "2.Nợ dài hạn",
+              "period": "2024",
+              "unit": "VND"
+            }
+          ]
+        },
+        {
+          "case_id": "unseen-TVH_24CN_BCTN-p17-2024-total_liabilities_components::surface::no_diacritics",
+          "example_id": "unseen-TVH_24CN_BCTN-p17-2024-total_liabilities_components",
+          "source_name": "TVH_24CN_BCTN.pdf",
+          "source_path": "pdf/PDF_24/PDF_24/TVH_24CN_BCTN.pdf",
+          "source_sha256": "bad16a38d77462f6e9ee22b0ef6261064c38ab7d455588ac9b0c6d6ae2b5f259",
+          "company_key": "development-company-19beb7ac29f9f622",
+          "page": 17,
+          "layout_family": "mineru:financial_summary",
+          "surface": "no_diacritics",
+          "question": "tong no phai tra nam 2024 la bao nhieu hay liet ke no ngan han va no dai han de kiem tra?",
+          "question_sha256": "77ed10d3ff97acbcf4bafaf70d1461e1791244cd49d8c0c15673e436f22e04da",
+          "required_evidence": [
+            {
+              "source_name": "TVH_24CN_BCTN.pdf",
+              "page": 17,
+              "value": "337052659325",
+              "row_label": "1.Nợ ngắn hạn",
+              "period": "2024",
+              "unit": "VND"
+            },
+            {
+              "source_name": "TVH_24CN_BCTN.pdf",
+              "page": 17,
+              "value": "131000000",
+              "row_label": "2.Nợ dài hạn",
+              "period": "2024",
+              "unit": "VND"
+            }
+          ]
+        },
+        {
+          "case_id": "unseen-TVH_24CN_BCTN-p17-2024-total_liabilities_components::surface::source_prefix",
+          "example_id": "unseen-TVH_24CN_BCTN-p17-2024-total_liabilities_components",
+          "source_name": "TVH_24CN_BCTN.pdf",
+          "source_path": "pdf/PDF_24/PDF_24/TVH_24CN_BCTN.pdf",
+          "source_sha256": "bad16a38d77462f6e9ee22b0ef6261064c38ab7d455588ac9b0c6d6ae2b5f259",
+          "company_key": "development-company-19beb7ac29f9f622",
+          "page": 17,
+          "layout_family": "mineru:financial_summary",
+          "surface": "source_prefix",
+          "question": "Theo đúng số liệu trong cùng báo cáo, tổng nợ phải trả năm 2024 là bao nhiêu? Hãy liệt kê nợ ngắn hạn và nợ dài hạn để kiểm tra.",
+          "question_sha256": "61abdfa8b3eb70112abf6fa2d975f56e8c9fc7389f54fbda64a607ac7942b834",
+          "required_evidence": [
+            {
+              "source_name": "TVH_24CN_BCTN.pdf",
+              "page": 17,
+              "value": "337052659325",
+              "row_label": "1.Nợ ngắn hạn",
+              "period": "2024",
+              "unit": "VND"
+            },
+            {
+              "source_name": "TVH_24CN_BCTN.pdf",
+              "page": 17,
+              "value": "131000000",
+              "row_label": "2.Nợ dài hạn",
+              "period": "2024",
+              "unit": "VND"
+            }
+          ]
+        }
+      ],
+      "count": 33,
+      "case_id_order_sha256": "0691745f5934f5657eff84de08bd3d108432c9bb466cf6e0f66686084d724ece",
+      "selection_policy": "all 11 existing unseen-v3 cases from report/company-disjoint CFM/NVT/NWT/TVH, three surfaces each, selected before runtime edit"
+    }
+  },
+  "controls": [
+    {
+      "id": "single_relevant_structured_table",
+      "category": "one_relevant_structured_table",
+      "expected": {
+        "structured": 2,
+        "enriched": 0
+      }
+    },
+    {
+      "id": "multiple_valid_only_one_metric_relevant",
+      "category": "multiple_valid_tables",
+      "expected": {
+        "structured": 2,
+        "enriched": 0
+      }
+    },
+    {
+      "id": "relevant_plus_unrelated_financial_table",
+      "category": "relevant_plus_unrelated",
+      "expected": {
+        "structured": 2,
+        "enriched": 0
+      }
+    },
+    {
+      "id": "same_metric_period_multiple_physical_tables",
+      "category": "same_metric_period_multiple_tables",
+      "expected": {
+        "structured": 0,
+        "enriched": 0
+      }
+    },
+    {
+      "id": "alternate_rounded_plaintext_conflict",
+      "category": "alternate_rounded_representation",
+      "expected": {
+        "structured": 0,
+        "enriched": 0
+      }
+    },
+    {
+      "id": "structured_plaintext_unique_equivalence",
+      "category": "structured_plaintext_duplicate",
+      "expected": {
+        "structured": 0,
+        "enriched": 2
+      }
+    },
+    {
+      "id": "conflicting_structured_values",
+      "category": "conflicting_structured_values",
+      "expected": {
+        "structured": 0,
+        "enriched": 0
+      }
+    },
+    {
+      "id": "conflicting_structured_role",
+      "category": "conflicting_role",
+      "expected": {
+        "structured": 0,
+        "enriched": 0
+      }
+    },
+    {
+      "id": "conflicting_structured_period",
+      "category": "conflicting_period",
+      "expected": {
+        "structured": 0,
+        "enriched": 0
+      }
+    },
+    {
+      "id": "incomplete_structured_identity",
+      "category": "incomplete_identity",
+      "expected": {
+        "structured": 0,
+        "enriched": 0
+      }
+    },
+    {
+      "id": "duplicate_physical_structured_cell",
+      "category": "duplicate_physical_cell",
+      "expected": {
+        "structured": 2,
+        "enriched": 0
+      }
+    },
+    {
+      "id": "no_structured_evidence",
+      "category": "no_structured_evidence",
+      "expected": {
+        "structured": 0,
+        "enriched": 0
+      }
+    }
+  ],
+  "evaluation_order": [
+    "syntax_import_scope",
+    "development_60",
+    "prior_candidate_50",
+    "validation_plaintext_then_structured_33",
+    "structural_controls_12"
+  ],
+  "evaluation_contract": {
+    "candidate_case_calls": 188,
+    "model_calls": 0,
+    "binding_calls": 0,
+    "development_repair": "30/30 physical support",
+    "ict": "10/10 governing non-identity Candidate projection",
+    "pic_scg": "20/20 governing non-identity Candidate projection",
+    "prior_candidate": "50/50 governing non-identity Candidate projection",
+    "validation": "per-report no support regression versus same-runtime plaintext-only control",
+    "controls": "12/12 exact structural behavior"
+  },
+  "artifacts": {
+    "script": "scripts/run_qp4_generic_structured_evidence_admission_repair_v1.py",
+    "config": "config/finhrm_qp4_generic_structured_evidence_admission_repair_precommit_v1.json",
+    "markdown": "reports/finhrm_qp4_generic_structured_evidence_admission_repair_precommit_v1.md",
+    "lock": "reports/finhrm_qp4_generic_structured_evidence_admission_repair_precommit_lock_v1.json",
+    "post": "reports/finhrm_qp4_generic_structured_evidence_admission_repair_post_evaluation_v1.json"
+  }
+}

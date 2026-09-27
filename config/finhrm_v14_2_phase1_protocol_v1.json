@@ -1,0 +1,85 @@
+{
+  "schema": "finhrm-v14.2-phase1-gate-diagnosis-protocol-v1",
+  "status": "PASS_SCHEMA_FEASIBILITY_BEFORE_OBSERVED_REPLAY",
+  "phase0": {
+    "path": "reports/finhrm_v14_2_baseline_manifest_v1.json",
+    "sha256": "6b222da28b1b047fee9b092d89fea7cfea61def83b894f61b937981e955e5758"
+  },
+  "unobserved_oracle": {
+    "path": "reports/finhrm_v14_2_fixed_unobserved_v1.json",
+    "sha256": "ba44b60f8f74c36ba2ddf23ffdc07ef5e2acf0c3c0056b5aebe9b6208b5db0a0"
+  },
+  "supporting_files": [
+    {
+      "path": "scripts/run_finhrm_v14_2_gate_diagnosis.py",
+      "sha256": "09bfa3487521c569f998eb890d3c7a1d1d454479fe921690090e6fa1196ecca3"
+    },
+    {
+      "path": "scripts/finhrm_v14_2_gate_observer.py",
+      "sha256": "460bfe03b9aa8d8bd822369cfb1dd9b69f701669e11c1b3fa3a521a078845bfd"
+    },
+    {
+      "path": "tests/test_finhrm_v14_2_gate_diagnosis.py",
+      "sha256": "dca53a01c17a36d3efde45f2c3aa154edfa1ff1ffc8e515820b8ebcefe4fd0bc"
+    },
+    {
+      "path": "config/finhrm_v14_2_action_contract_draft_v1.json",
+      "sha256": "618c2b370e136fa39f3b3737bd4c0bbf8da18345534baa9beab98592de326b9c"
+    },
+    {
+      "path": "reports/finhrm_v14_2_phase1_tests_v1.xml",
+      "sha256": "b68f53c8075f828d660b1613a0d8f180d084c82f1b0763dce377c95fe3f896d9"
+    }
+  ],
+  "profile": {
+    "name": "fixed_max_segments_batch",
+    "device": "cpu",
+    "encoder_device": "cpu",
+    "max_segments": 3,
+    "batch_size": 32,
+    "seed": 31,
+    "pythonhashseed": 31,
+    "torch_threads": 4,
+    "torch_interop_threads": 1,
+    "deterministic_algorithms": true,
+    "cache": "fresh per-run vector DB, pinned local encoder snapshot",
+    "order": "all 462 JSONL rows, no shuffle or pointer remapping"
+  },
+  "data_policy": {
+    "development_examples": 462,
+    "protected_payload_access": false,
+    "calibration_changes": false,
+    "model_training": false
+  },
+  "scope": {
+    "program_diagnosis": "all 462 scalar SyntheticDocument rows",
+    "adaptive_serving": "NOT_RUN",
+    "full_document_service": "NOT_RUN"
+  },
+  "observer_hook": "External context-managed wrapper of _search_symbolic_programs; capture only outer call. Original function and return value preserved.",
+  "before_search_scope": "Already structurally constrained decoder program; raw neural operation argmax reported separately. No neural-only accuracy claim.",
+  "top10_proof_origin": "Original verification_cache from the search invocation; public winner and flat gold replays separately labeled.",
+  "noninterference": {
+    "oracle_available": true,
+    "schema_checked_rows": 462,
+    "compare": "Every serialized ProgramPrediction field, candidate fingerprints, ordered example IDs, public source action, calibration acceptance, correctness flags and every evaluator metric",
+    "tolerance": "exact equality; fail on any drift",
+    "before_after_input_immutability": true,
+    "unchecked_diagnostics": "Additional pre-search and proof-cache observations absent from baseline are not claimed as independent before/after measurements",
+    "failure_action": "No final diagnosis output published"
+  },
+  "counting": {
+    "gold_search_buckets": "exclusive exhaustive partition using evaluator precedence, total 462",
+    "winner_first_failure": "separate exclusive diagnostic ordering, total 462; not claimed as evaluator short-circuit order",
+    "unmet_proofs": "separate winner/public, gold-flat and beam scopes; unique per example/name/state within scope; overlap allowed",
+    "gold_flat_scope": "serialized dataset operation, may use legacy ADD/SUM3/SUM4; do not equate its proof contract to logical SUM_N beam programs",
+    "downstream": "NOT_RUN, final_action null, answer null, certificate validity null"
+  },
+  "outputs": [
+    "reports/finhrm_v14_2_fixed_development_v1.json",
+    "reports/finhrm_v14_2_gate_diagnosis_v1.jsonl",
+    "reports/finhrm_v14_2_gate_diagnosis_v1.md"
+  ],
+  "runtime_policy_changes": false,
+  "certification": "HOLD"
+}

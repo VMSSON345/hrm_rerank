@@ -1,16 +1,25 @@
 from __future__ import annotations
 
+from .physical_coordinates import LEGACY_SPAN, physical_coordinate_key
+
 from dataclasses import dataclass
 from dataclasses import replace
 from decimal import Decimal
 from enum import Enum
+from functools import cached_property
 from hashlib import sha256
 import json
 import re
 from typing import Any, Mapping, Sequence
 
 from .ontology import normalize_text
-from .program_data import NumericCandidate
+from .source_assertions import validated_source_assertion
+from .report_context import validated_report_field
+from .program_data import (
+    NumericCandidate,
+    _markdown_cells as _source_markdown_cells,
+    _aligned_table_header_cells as _source_aligned_header_cells,
+)
 from .question_planner import QuestionPlan
 
 
@@ -48,10 +57,8 @@ def _context_field(context: str, name: str) -> str:
 
 
 def _markdown_cells(line: str) -> list[str]:
-    stripped = line.strip()
-    if "|" not in stripped:
-        return []
-    return [cell.strip() for cell in stripped.strip("|").split("|")]
+    """Use the extractor's cell boundaries, including explicit empty cells."""
+    return _source_markdown_cells(line)
 
 
 def _marked_cell_index(context: str) -> tuple[int | None, int]:
@@ -68,14 +75,11 @@ def _marked_cell_index(context: str) -> tuple[int | None, int]:
 
 
 def _aligned_header_cells(raw: str, data_width: int) -> list[str]:
+    """Proofs must reconstruct the same header columns as extraction."""
     cells = _markdown_cells(raw)
     if not cells or data_width <= 0:
         return cells
-    if len(cells) < data_width:
-        return [""] * (data_width - len(cells)) + cells
-    if len(cells) > data_width:
-        return cells[len(cells) - data_width :]
-    return cells
+    return _source_aligned_header_cells(cells, data_width)
 
 
 def _header_path(
@@ -155,10 +159,10 @@ def _column_role_from_header(value: str) -> str:
     tokens = set(normalized.split())
     has_actual = _contains_phrase(
         value, ("thuc hien", "thuc te", "actual", "realized", "realised")
-    ) or "th" in tokens
+    ) or "th" in tokens or bool(re.search(r"\bth\s+c\s+hi\s+n\b", normalized))
     has_plan = _contains_phrase(
         value, ("ke hoach", "plan", "target", "muc tieu")
-    ) or "kh" in tokens
+    ) or "kh" in tokens or bool(re.search(r"\bk\s+ho\s+ch\b", normalized))
     has_revised = _contains_phrase(
         value,
         (
@@ -411,12 +415,22 @@ class EvidenceGraph:
     column_role_inventory_reasons: tuple[str, ...] = ()
     table_role_inventories: tuple[TableRoleInventory, ...] = ()
 
+    @cached_property
+    def _relations_by_pair(
+        self,
+    ) -> dict[tuple[int, int], frozenset[EvidenceRelation]]:
+        grouped: dict[tuple[int, int], set[EvidenceRelation]] = {}
+        for edge in self.edges:
+            grouped.setdefault((edge.source, edge.target), set()).add(
+                edge.relation
+            )
+        return {
+            pair: frozenset(relations)
+            for pair, relations in grouped.items()
+        }
+
     def relations(self, source: int, target: int) -> frozenset[EvidenceRelation]:
-        return frozenset(
-            edge.relation
-            for edge in self.edges
-            if edge.source == source and edge.target == target
-        )
+        return self._relations_by_pair.get((source, target), frozenset())
 
     def has_relation(
         self,
@@ -463,30 +477,35 @@ class EvidenceCell:
     raw_header: tuple[str, ...] = ()
     extraction_method: str = ""
     source_span: tuple[int, int] | None = None
+    source_span_scope: str = LEGACY_SPAN
+    source_line_sha256: str = ""
+    line_number: int | None = None
+    source_bbox: tuple[float, float, float, float] | None = None
+
+    source_section_path: tuple[str, ...] = ()
+    table_semantics: dict | None = None
+    source_assertion: dict | None = None
+    report_field: dict | None = None
+    source_numeric_text: str = ""
+    unit_assumption: str = ""
+    number_format: dict | None = None
 
     @property
     def embedded_entity(self) -> bool:
-        return normalize_text(self.entity_id or self.entity).startswith("entity ")
+        identity = normalize_text(self.entity_id or self.entity)
+        return identity.startswith("entity ") and not identity.startswith(
+            "entity source "
+        )
 
     def effective_years(self, plan: QuestionPlan) -> set[str]:
-        explicit = set(self.explicit_years)
-        requested = sorted(plan.requested_years, key=int)
-        if explicit and requested and not (
-            plan.temporal_change and len(requested) >= 2
-        ):
-            return explicit
-        if self.period_role == "prior":
-            if requested:
-                return {
-                    requested[-2]
-                    if len(requested) >= 2
-                    else str(int(requested[-1]) - 1)
-                }
-            if explicit:
-                return {str(max(int(item) for item in explicit) - 1)}
-        if self.period_role == "current" and not explicit and requested:
-            return {requested[-1]}
-        return explicit
+        from .column_context import resolved_relative_year
+        source_year = resolved_relative_year(self)
+        if source_year:
+            return {source_year}
+        # A question constrains the source period; it cannot establish it.
+        # In particular, an explicit opening date retains its calendar year
+        # even when the question compares two years.
+        return set(self.explicit_years)
 
 
 @dataclass(frozen=True)
@@ -840,6 +859,7 @@ def evidence_cells(
 ) -> tuple[EvidenceCell, ...]:
     output: list[EvidenceCell] = []
     for candidate in candidates:
+        assertion_source = validated_source_assertion(candidate)
         row = _context_field(candidate.context, "ROW") or candidate.row_label
         column = (
             _context_field(candidate.context, "COLUMN")
@@ -862,7 +882,61 @@ def evidence_cells(
             column_role_evidence,
             column_role_conflict,
         ) = _resolve_column_role(column, header_path, header_path_provenance)
-        descriptor = normalize_text(f"{period} {column}")
+        explicit_role = normalize_text(candidate.column_role).replace(" ", "_")
+        if explicit_role:
+            if column_role_conflict or (
+                column_role and column_role != explicit_role
+            ):
+                column_role = ""
+                column_role_source = "structured_identity_conflict"
+                column_role_confidence = "CONFLICT"
+                column_role_evidence = tuple(
+                    dict.fromkeys((*column_role_evidence, candidate.column_label))
+                )
+                column_role_conflict = True
+            else:
+                column_role = explicit_role
+                column_role_source = "structured_source_cell"
+                column_role_confidence = "EXPLICIT"
+                column_role_evidence = tuple(
+                    dict.fromkeys((*column_role_evidence, candidate.column_label))
+                )
+        if assertion_source is not None and not column_role_conflict:
+            column_role_source = "source_sentence_assertion"
+            column_role_evidence = (assertion_source["text"],)
+        semantic = candidate.table_semantics or {}
+        if semantic.get("header_evidence"):
+            from .table_semantics import accounting_scope
+            header_scope = accounting_scope(" / ".join(header_path) or column)
+            if header_scope:
+                semantic = {**semantic,
+                    "accounting_scope": header_scope if header_scope != "conflict" else "",
+                    "scope_conflict": header_scope == "conflict",
+                    "scope_evidence": semantic["header_evidence"],
+                    "scope_origin": "column_header"}
+        from .table_semantics import bound_column_context
+        _,context_role=bound_column_context(candidate)
+        if not column_role and not column_role_conflict and context_role:
+            column_role=context_role
+            column_role_source="source_actual_year_context"
+            column_role_confidence="INHERITED"
+            column_role_evidence=tuple(w['text'] for w in semantic['actual_year_evidence'])
+        if not column_role and not column_role_conflict and semantic.get("role"):
+            from .table_semantics import annual_data_column
+            if (annual_data_column(column, period) and semantic.get("role_evidence")
+                    and (not semantic.get("role_years") or period in semantic["role_years"])):
+                column_role = semantic["role"]
+                column_role_source = "source_table_context"
+                column_role_confidence = "INHERITED"
+                column_role_evidence = tuple(item["text"] for item in semantic["role_evidence"])
+        from .column_context import resolved_relative_year
+        if resolved_relative_year(candidate) and not column_role and not column_role_conflict:
+            column_role = "actual"
+            column_role_source = "source_financial_statement_period"
+            column_role_confidence = "INHERITED"
+            column_role_evidence = (semantic["statement_period"]["text"],)
+        from .column_context import normalize_period_text
+        descriptor = normalize_period_text(f"{period} {column}")
         if any(
             marker in f" {descriptor} "
             for marker in (" nam truoc ", " dau nam ", " dau ky ", " 01 01 ")
@@ -886,7 +960,13 @@ def evidence_cells(
         output.append(
             EvidenceCell(
                 index=candidate.index,
+                source_section_path=tuple(candidate.source_section_path),
+                table_semantics=semantic or None,
+                source_assertion=assertion_source,
+                report_field=validated_report_field(candidate),
                 value=candidate.decimal,
+                source_numeric_text=candidate.raw,
+                number_format=candidate.number_format,
                 metric_label=row,
                 metric_key=_metric_key(row),
                 column=column,
@@ -895,7 +975,7 @@ def evidence_cells(
                     dict.fromkeys(
                         re.findall(
                             r"\b(?:19|20)\d{2}\b",
-                            normalize_text(f"{period} {column}"),
+                            descriptor,
                         )
                     )
                 ),
@@ -913,6 +993,7 @@ def evidence_cells(
                 page=candidate.page,
                 value_status=value_status,
                 unit=candidate.unit,
+                unit_assumption=candidate.unit_assumption,
                 unit_key=_unit_key(
                     candidate.unit,
                     is_percent=candidate.is_percent,
@@ -920,7 +1001,8 @@ def evidence_cells(
                     context=candidate.context,
                 ),
                 row_id=(
-                    _context_field(candidate.context, "ROW_ID")
+                    candidate.row_id
+                    or _context_field(candidate.context, "ROW_ID")
                     or _identifier(
                         "|".join(
                             part
@@ -934,7 +1016,8 @@ def evidence_cells(
                     )
                 ),
                 column_id=(
-                    _context_field(candidate.context, "COLUMN_ID")
+                    candidate.column_id
+                    or _context_field(candidate.context, "COLUMN_ID")
                     or _identifier(column)
                 ),
                 entity_id=(
@@ -962,6 +1045,10 @@ def evidence_cells(
                 raw_header=raw_header,
                 extraction_method=candidate.extraction_method,
                 source_span=candidate.source_span,
+                source_span_scope=candidate.source_span_scope,
+                source_line_sha256=candidate.source_line_sha256,
+                line_number=candidate.line_number,
+                source_bbox=candidate.source_bbox,
             )
         )
 
@@ -975,7 +1062,7 @@ def evidence_cells(
                 "span",
                 cell.source_name,
                 cell.page,
-                cell.source_span,
+                physical_coordinate_key(cell),
                 str(cell.value),
             )
             logical_groups.setdefault(span_key, []).append(position)

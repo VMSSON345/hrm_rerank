@@ -1,0 +1,2032 @@
+{
+  "schema": "finhrm-v14.2-phase2-protocol-v1",
+  "status": "PASS_SCHEMA_FEASIBILITY_BEFORE_INFERENCE",
+  "checkpoint": {
+    "path": "models/document_hrm_V14_1_bkai_scratch_seed31_v1.pt",
+    "bytes": 5632331,
+    "sha256": "e6641d13f169dc674728c32aafb508946495027985ce1fde6e2b1095a8d55413"
+  },
+  "dataset": {
+    "path": "data/tmp/v14_2_phase2_v1/validation_coordinates_v2.jsonl",
+    "bytes": 25306378,
+    "sha256": "310f5f5455681e760aa9938ac9b68ed998c5e20e273cedd6817e3fe7b6b612af"
+  },
+  "phase1_reference": {
+    "path": "reports/finhrm_v14_2_fixed_unobserved_v1.json",
+    "bytes": 22857287,
+    "sha256": "ba44b60f8f74c36ba2ddf23ffdc07ef5e2acf0c3c0056b5aebe9b6208b5db0a0"
+  },
+  "runtime": {
+    "entries": [
+      {
+        "path": "src/hrm_finance_qa/__init__.py",
+        "bytes": 2812,
+        "sha256": "c316966feb7929c62f81d9d6f0c7807985c7176b1401bbee59fb2a59bbe7de1e"
+      },
+      {
+        "path": "src/hrm_finance_qa/answer_presentation.py",
+        "bytes": 49538,
+        "sha256": "24e86a53f0fab5b373accf356a25fa69f7aea0634bb2cc6336b421140095b541"
+      },
+      {
+        "path": "src/hrm_finance_qa/cache_schema.py",
+        "bytes": 534,
+        "sha256": "73de59f448cad7585b8215ad954c892ae76b84fb8944e89757cb4658e2c561d4"
+      },
+      {
+        "path": "src/hrm_finance_qa/calibration_policy.py",
+        "bytes": 8416,
+        "sha256": "e568ad4957f5fb8dbf2a27c6e6e48bf869b796e7bcb1335d70918f909bea37d3"
+      },
+      {
+        "path": "src/hrm_finance_qa/candidate_evaluation.py",
+        "bytes": 11137,
+        "sha256": "21ba9da22fa8ebf1b8c77f148be1a35116af33c07e9a970f2aed6470514182f2"
+      },
+      {
+        "path": "src/hrm_finance_qa/cli.py",
+        "bytes": 107354,
+        "sha256": "fd342a5f150ad05af54c2df44d3416ef08cc9a5deb01629bdc89518c308a3d22"
+      },
+      {
+        "path": "src/hrm_finance_qa/dense_retrieval.py",
+        "bytes": 14134,
+        "sha256": "6896d217e79b730f0c8555c0b4d8cf8b72fa722cf3af6a1f06093a318e577dc3"
+      },
+      {
+        "path": "src/hrm_finance_qa/direction_contract.py",
+        "bytes": 7421,
+        "sha256": "a18aa130419fc74ce647bd92dc9c1b1217007738e636aad0f28c7f78396be937"
+      },
+      {
+        "path": "src/hrm_finance_qa/document_agent.py",
+        "bytes": 11479,
+        "sha256": "932250766ebb63da8f99fdfe8ab390fee82bcbc5aea866ca9bb057e818c64290"
+      },
+      {
+        "path": "src/hrm_finance_qa/document_hrm.py",
+        "bytes": 544563,
+        "sha256": "cba83a8cb57fa4592698be56ba29759123dfcf6f4e20332d3e99aabadd6ed101"
+      },
+      {
+        "path": "src/hrm_finance_qa/document_page_index.py",
+        "bytes": 25484,
+        "sha256": "97d356533734bb09bdeb318038d720ac2daf700046e753d1d134804f7bb7c884"
+      },
+      {
+        "path": "src/hrm_finance_qa/document_reasoning_engine.py",
+        "bytes": 74272,
+        "sha256": "1a70fc210e2448c56356f85cba6565a83f804d2638eb883a76344aa804e714b0"
+      },
+      {
+        "path": "src/hrm_finance_qa/document_search.py",
+        "bytes": 23635,
+        "sha256": "3aa79ffd648c8e6d9764ff73e09d88e2deec387d3168f94d7ffc54bb41aaf089"
+      },
+      {
+        "path": "src/hrm_finance_qa/document_service.py",
+        "bytes": 32863,
+        "sha256": "c436f0d911b282f96c019406f3ca466508ba3d0656365363180dc52bcb4af805"
+      },
+      {
+        "path": "src/hrm_finance_qa/document_sources.py",
+        "bytes": 59748,
+        "sha256": "79b4c7eddb80119ed8f355236b2baaa72dc7a2ef82b7fb8a367d1bd87a71fb2e"
+      },
+      {
+        "path": "src/hrm_finance_qa/engine.py",
+        "bytes": 14286,
+        "sha256": "bc8494556dd5bb15e925978bd8cc5c4a98ac188af580e0d9537f42f5566d128c"
+      },
+      {
+        "path": "src/hrm_finance_qa/evaluation_metrics.py",
+        "bytes": 13054,
+        "sha256": "2a3b19f9ae8f08f9e9742c094e874af7c28d54cfb7838b1c39e02b5d1e6a7a76"
+      },
+      {
+        "path": "src/hrm_finance_qa/evidence_schema.py",
+        "bytes": 45298,
+        "sha256": "fbd613d579e0aecbb1ea6bedc03b4bce27a68cf7489a5c27f6f1de7f62062089"
+      },
+      {
+        "path": "src/hrm_finance_qa/exact_dag_executor.py",
+        "bytes": 20524,
+        "sha256": "ee1aa0f90c4f71913108a1dd8ea28d966188c8e9c4993786f2bb9b3a7e422fa5"
+      },
+      {
+        "path": "src/hrm_finance_qa/exact_executor.py",
+        "bytes": 34081,
+        "sha256": "97a897e7e76f6d1a089c625017464cf1755143440928eb5ced819c6b7294fd9d"
+      },
+      {
+        "path": "src/hrm_finance_qa/external_evaluation.py",
+        "bytes": 9658,
+        "sha256": "96d3a3aa79637507dd73cb776e2d70f71aaf1b977a1e192762b5b696b706ff2c"
+      },
+      {
+        "path": "src/hrm_finance_qa/financial_hrm_features.py",
+        "bytes": 33015,
+        "sha256": "b5c0d351b6acf94bf4b2ced08e5b2aebc91c7b1bc7b53c6dbbbd405183c30a59"
+      },
+      {
+        "path": "src/hrm_finance_qa/financial_identities.py",
+        "bytes": 12245,
+        "sha256": "a4b2249fcd8a7d633b874eb67da8dc86e1c556dec5d7757d3c3e8450d586d72a"
+      },
+      {
+        "path": "src/hrm_finance_qa/flattened_table_reconstruction.py",
+        "bytes": 9925,
+        "sha256": "1e67aa3f2e3acc068d30ece065fc0a0365358c7aa75da660e065af83fa265d4c"
+      },
+      {
+        "path": "src/hrm_finance_qa/hrm.py",
+        "bytes": 11883,
+        "sha256": "3f6cfe5e864c9c4b4e9ec7beb995d8813fe7ee6acfe39af89f0f55dd932505e5"
+      },
+      {
+        "path": "src/hrm_finance_qa/neural.py",
+        "bytes": 20766,
+        "sha256": "ff2e2c0c3d7a62702bd2b2b1f80d5bad2521e8ec2d347f93050fb875bb4f1d7f"
+      },
+      {
+        "path": "src/hrm_finance_qa/ontology.py",
+        "bytes": 9472,
+        "sha256": "47375f6a95057ddda75433fd40a8e9c2be3448165e288c2764d1d54bc83e400b"
+      },
+      {
+        "path": "src/hrm_finance_qa/physical_coordinates.py",
+        "bytes": 2019,
+        "sha256": "8b805eb0ba991710edad6af7eb46f6c421f57643fcc5efb6b5663e90691da6ea"
+      },
+      {
+        "path": "src/hrm_finance_qa/program_data.py",
+        "bytes": 181666,
+        "sha256": "8fcd3f8eab6028c7cfb96107688cce0a78f6fbff14b06a480807a5cbf3d0ddce"
+      },
+      {
+        "path": "src/hrm_finance_qa/program_reranker.py",
+        "bytes": 43682,
+        "sha256": "7d7f456649ce0639a808b809985751c38c9a4bb1d70209a65d3bc3bbc97671f4"
+      },
+      {
+        "path": "src/hrm_finance_qa/program_synthesis.py",
+        "bytes": 42895,
+        "sha256": "756ca351ae05259b4b24f4f62cbe74eeff89033d3a1ec8912671ea976c44a0ea"
+      },
+      {
+        "path": "src/hrm_finance_qa/question_planner.py",
+        "bytes": 86337,
+        "sha256": "9731bfa8ddc4459bb16cf587a55435786dbb85bfac4d36915498cdcc41910eba"
+      },
+      {
+        "path": "src/hrm_finance_qa/question_request_planner.py",
+        "bytes": 19929,
+        "sha256": "19579ec98d5b9e95c6973fe11805ead3214b27e97c6da0dc337a31cf3ee01f51"
+      },
+      {
+        "path": "src/hrm_finance_qa/reasoning.py",
+        "bytes": 28180,
+        "sha256": "d3244c224dbec45f62f95e64a30f1c48fb2566830c457416bf691eca6a107f74"
+      },
+      {
+        "path": "src/hrm_finance_qa/reasoning_engine.py",
+        "bytes": 11815,
+        "sha256": "fee38cd78d0949f4c3172290199a1b50ce0fc934cd4c8f0002f188881ca658cc"
+      },
+      {
+        "path": "src/hrm_finance_qa/repository.py",
+        "bytes": 5900,
+        "sha256": "8e83ad3f7f676eb0eacbe038b064582e7659d35f98363cb552555d2a6b9f994a"
+      },
+      {
+        "path": "src/hrm_finance_qa/request_answer.py",
+        "bytes": 12474,
+        "sha256": "ef7eba8b388cfb1c573bf1d3f9538677a36906c85d488fb970887d8c9818b5ec"
+      },
+      {
+        "path": "src/hrm_finance_qa/semantic_encoder.py",
+        "bytes": 10132,
+        "sha256": "870bd5bcd04cf54ac1343e16ba3445f2216551a49bac6cf19ada92c842ab2ebe"
+      },
+      {
+        "path": "src/hrm_finance_qa/source_action_policy.py",
+        "bytes": 4414,
+        "sha256": "88ebdddc05f7775919258b36886733b6775a5f6f99639aa76666963cdbaba170"
+      },
+      {
+        "path": "src/hrm_finance_qa/symbolic_verifier.py",
+        "bytes": 115681,
+        "sha256": "7b00e40416027c61fe6bd68fad0221facb9534901de96a76b412e3c4625d778a"
+      },
+      {
+        "path": "src/hrm_finance_qa/training_state.py",
+        "bytes": 4297,
+        "sha256": "d1548b9ab06d289dfd37168da7954a0493db0abdcf6732e04e8c915ab763018b"
+      },
+      {
+        "path": "src/hrm_finance_qa/v11_pipeline.py",
+        "bytes": 40417,
+        "sha256": "b6611c2b2c0ba7cd2c726b4d48f29a9b1fd01be09a4da2200865379f07ba4387"
+      },
+      {
+        "path": "src/hrm_finance_qa/v12b2_supervision.py",
+        "bytes": 16342,
+        "sha256": "100272f4bb46a3bd51e05914c6080ddaa7f48fea3c96337aa4b6cd9a0e8db0da"
+      }
+    ],
+    "files": 43,
+    "sha256": "172d98cc20694a1b25ddb7294ce73ec64277fc3eb97b581744692b5d31ddfdfc"
+  },
+  "frozen_inputs": [
+    {
+      "path": "models/document_hrm_V14_1_bkai_scratch_seed31_v1.pt",
+      "bytes": 5632331,
+      "sha256": "e6641d13f169dc674728c32aafb508946495027985ce1fde6e2b1095a8d55413"
+    },
+    {
+      "path": "data/tmp/v14_2_phase2_v1/validation_coordinates_v2.jsonl",
+      "bytes": 25306378,
+      "sha256": "310f5f5455681e760aa9938ac9b68ed998c5e20e273cedd6817e3fe7b6b612af"
+    },
+    {
+      "path": "data/tmp/v14_development_v1/validation.jsonl",
+      "bytes": 22224294,
+      "sha256": "3ddcb5e0a88e431787133b36edacd28a4bbb8b0fd2d1ac29494c0e9ffeec0758"
+    },
+    {
+      "path": "config/finhrm_v14_1_semantic_program_search_precommit_v1.json",
+      "bytes": 3749,
+      "sha256": "46fbf9408bea4e6eb7980bf5d30f679a83dbf5cdc1c2b84cd445f13f04aa6b1d"
+    },
+    {
+      "path": "models/document_hrm_V14_1_bkai_retrieval_dev_seed31.pt",
+      "bytes": 5636927,
+      "sha256": "9e7862b4dc1ebc32e1cc4129cc6184f02efee1b0d7efbaed5069a779fe707431"
+    },
+    {
+      "path": "models/document_hrm_V14_1_bkai_retrieval_dev_seed31_integrity_v2.pt",
+      "bytes": 5638731,
+      "sha256": "63ffef02387737eb3038ef51f6a3f5eb20fae3439c82f4717552367c471f46d1"
+    },
+    {
+      "path": "models/training_state/document_hrm_V14_1_bkai_scratch_seed31_v1.best.train.pt",
+      "bytes": 22488474,
+      "sha256": "82908089260f051e5369b3a67ca6ab33af410e55c178e4d5a07584afd43bcf3c"
+    },
+    {
+      "path": "models/training_state/document_hrm_V14_1_bkai_scratch_seed31_v1.last.train.pt",
+      "bytes": 22488538,
+      "sha256": "3925725efeaab0cc2941ce78641dce347f9cfe0627ff1a7d06ba57cffcb95fba"
+    },
+    {
+      "path": "reports/finhrm_v14_1_bkai_integration_smoke_v1.json",
+      "bytes": 812,
+      "sha256": "59ee6601c5801df9d4e19a170167af634985b6ba6a13f4c1f95ecc4e425ad589"
+    },
+    {
+      "path": "reports/finhrm_v14_1_bkai_scratch_seed31_development_evaluation_v1.json",
+      "bytes": 18177,
+      "sha256": "8f597790bfb7ad6a90161e7cd3beb074284b2dd24fe53183022272d6f9538c38"
+    },
+    {
+      "path": "reports/finhrm_v14_1_bkai_scratch_seed31_development_evaluation_v2.json",
+      "bytes": 23105,
+      "sha256": "d3c3544a2716cfad0bf28fd78e2805efd57e01ca2e69111fc44be19b5e3500db"
+    },
+    {
+      "path": "reports/finhrm_v14_1_bkai_scratch_seed31_training_v1.log",
+      "bytes": 14339,
+      "sha256": "e26ffd63139eb31e48014b4894038a9abbf446a301bda27d067128c2430323df"
+    },
+    {
+      "path": "reports/finhrm_v14_1_confidence_threshold_counterfactual_v1.json",
+      "bytes": 2622,
+      "sha256": "2a6530980b88e50060ec0f0897902af6e026d49782a3a51e68f68c68d26eb104"
+    },
+    {
+      "path": "reports/finhrm_v14_1_contrastive_train_v1.json",
+      "bytes": 785,
+      "sha256": "d363490e81695a5a362854db340b8824a65e4f677b94bc43fe90cae7fe4b744c"
+    },
+    {
+      "path": "reports/finhrm_v14_1_dependency_lock_v1.json",
+      "bytes": 26494,
+      "sha256": "e55ce692548f4ea6841ac7d9105a30a3db09baaf08e369854c705973bcfe03d1"
+    },
+    {
+      "path": "reports/finhrm_v14_1_dependency_lock_v1.md",
+      "bytes": 694,
+      "sha256": "b6007efcc9017f15ccdd8190df4119d0ed966179c30e3f90495d76182a1031e8"
+    },
+    {
+      "path": "reports/finhrm_v14_1_development_cycle_v1.json",
+      "bytes": 9389,
+      "sha256": "8c745c80d3d0bd46624b4834c96b9e8f7448388c8c78c1e7a865d228aa180d06"
+    },
+    {
+      "path": "reports/finhrm_v14_1_development_cycle_v1.md",
+      "bytes": 2565,
+      "sha256": "2d9fdec43715a0138c25ebade291d4b919f2315f4e261fad1da737ecf57878e5"
+    },
+    {
+      "path": "reports/finhrm_v14_1_development_validation_baseline_beam_v4.json",
+      "bytes": 18195,
+      "sha256": "3643138128c64351f3884e3df3f5abb11536a2e700f626316afc80627fc7db9f"
+    },
+    {
+      "path": "reports/finhrm_v14_1_development_validation_multisource_pool_v3.json",
+      "bytes": 18208,
+      "sha256": "9783df8b17d95e7a1d65778844fd9d2b01f1cd368284464d47978eaef41d7219"
+    },
+    {
+      "path": "reports/finhrm_v14_1_development_validation_seed31_metrics_v2.json",
+      "bytes": 18210,
+      "sha256": "cd1fd42cbe0e87cdfa392214b266bd8c2089870354366336db37529fc34b7b34"
+    },
+    {
+      "path": "reports/finhrm_v14_1_development_validation_seed31_v1.json",
+      "bytes": 16059,
+      "sha256": "97ae139c3e7a2d6260d8e023cc7a1b1512305c8da2bb00979e7a202b09b5e1d7"
+    },
+    {
+      "path": "reports/finhrm_v14_1_exact_symbolic_execution_v1.md",
+      "bytes": 9302,
+      "sha256": "ba6519e777809c6915826661ac90cc78d8d02bbbc11c33839f1e43c0ed39d09f"
+    },
+    {
+      "path": "reports/finhrm_v14_1_scratch_training_guide_v1.md",
+      "bytes": 4540,
+      "sha256": "b7f1924603a0a332b750726c46dd13ab56b33ac366a78e6f9457d56bdbde173e"
+    },
+    {
+      "path": "scripts/build_finhrm_v14_1_contrastive_dataset.py",
+      "bytes": 12707,
+      "sha256": "25e74c9cf2356c9ba0ce48fcfbe1c880d4d0e5f547ee8fe54ad0577ef7350888"
+    },
+    {
+      "path": "scripts/build_finhrm_v14_1_dependency_lock.py",
+      "bytes": 13636,
+      "sha256": "02d04ef65e8cfb11e6ef6d0f483ac2ed20f50138b8f47673ed58dd3f0985ff58"
+    },
+    {
+      "path": "scripts/evaluate_finhrm_v14_1_scratch.sh",
+      "bytes": 986,
+      "sha256": "65b4592fd902a60bb6cd4e7b33d2a68aac4ebdb1c9422c83d18170734f0882e8"
+    },
+    {
+      "path": "scripts/smoke_finhrm_v14_1_semantic_encoder.py",
+      "bytes": 4452,
+      "sha256": "e07a40fc8ffe2e40b8e7ece2b21dc7181ed63c2b4fbc5f53c3fd4d10289c5d91"
+    },
+    {
+      "path": "scripts/train_finhrm_v14_1_scratch.sh",
+      "bytes": 4954,
+      "sha256": "1a48e0b14407d96a378139f7ecd1c73e4b3f27f9d26117c54db00ec3be8c67f7"
+    },
+    {
+      "path": "scripts/train_finhrm_v14_1_scratch.sh.orig",
+      "bytes": 4799,
+      "sha256": "dd6856f642463b52b65e317c8e276e9f57342128d768a8d6329b0259b04fc5c8"
+    },
+    {
+      "path": "models/embedding_cache/models--bkai-foundation-models--vietnamese-bi-encoder/snapshots/84f9d9ada0d1a3c37557398b9ae9fcedcdf40be0/1_Pooling/config.json",
+      "bytes": 270,
+      "sha256": "f2fa6333d3899e2f9368e2e2741ece8e74160337b3698f475f6e0f7f28e396fe"
+    },
+    {
+      "path": "models/embedding_cache/models--bkai-foundation-models--vietnamese-bi-encoder/snapshots/84f9d9ada0d1a3c37557398b9ae9fcedcdf40be0/README.md",
+      "bytes": 6465,
+      "sha256": "1433a6a36fb9b991999ce5eab31de89f6ebf31ef3c3a0c30c7b61685fa2ed878"
+    },
+    {
+      "path": "models/embedding_cache/models--bkai-foundation-models--vietnamese-bi-encoder/snapshots/84f9d9ada0d1a3c37557398b9ae9fcedcdf40be0/added_tokens.json",
+      "bytes": 22,
+      "sha256": "956163bbe8b0625fcc779207447308285eab218ffe0551d3e0deeae5538da326"
+    },
+    {
+      "path": "models/embedding_cache/models--bkai-foundation-models--vietnamese-bi-encoder/snapshots/84f9d9ada0d1a3c37557398b9ae9fcedcdf40be0/bpe.codes",
+      "bytes": 1135173,
+      "sha256": "9dfe53fb8abbddd3387da99641c36e00bee757a3679aad9cf0a7cdc4b30f6ef8"
+    },
+    {
+      "path": "models/embedding_cache/models--bkai-foundation-models--vietnamese-bi-encoder/snapshots/84f9d9ada0d1a3c37557398b9ae9fcedcdf40be0/config.json",
+      "bytes": 777,
+      "sha256": "5f28d12a2d641db00b6dfaff47517b9cf6175437ceb0e18ec0763938ab4b086f"
+    },
+    {
+      "path": "models/embedding_cache/models--bkai-foundation-models--vietnamese-bi-encoder/snapshots/84f9d9ada0d1a3c37557398b9ae9fcedcdf40be0/config_sentence_transformers.json",
+      "bytes": 123,
+      "sha256": "5a6d09833ba6faaf8b7e35d805fc6ecc42577b78173a76b6a97ea00e25a2bbb2"
+    },
+    {
+      "path": "models/embedding_cache/models--bkai-foundation-models--vietnamese-bi-encoder/snapshots/84f9d9ada0d1a3c37557398b9ae9fcedcdf40be0/model.safetensors",
+      "bytes": 540015464,
+      "sha256": "e681accadaec87e79901db0c3f68e33d996cba334633b6dd0b2483dba4f398e0"
+    },
+    {
+      "path": "models/embedding_cache/models--bkai-foundation-models--vietnamese-bi-encoder/snapshots/84f9d9ada0d1a3c37557398b9ae9fcedcdf40be0/modules.json",
+      "bytes": 229,
+      "sha256": "8f4b264b80206c830bebbdcae377e137925650a433b689343a63bdc9b3145460"
+    },
+    {
+      "path": "models/embedding_cache/models--bkai-foundation-models--vietnamese-bi-encoder/snapshots/84f9d9ada0d1a3c37557398b9ae9fcedcdf40be0/sentence_bert_config.json",
+      "bytes": 53,
+      "sha256": "fc1993fde0a95c24ec6c022539d41cf6e2f7c9721e5415d6fb6897472a9cd4b7"
+    },
+    {
+      "path": "models/embedding_cache/models--bkai-foundation-models--vietnamese-bi-encoder/snapshots/84f9d9ada0d1a3c37557398b9ae9fcedcdf40be0/special_tokens_map.json",
+      "bytes": 167,
+      "sha256": "d05497f1da52c5e09554c0cd874037a083e1dc1b9cfd48034d1c717f1afc07a7"
+    },
+    {
+      "path": "models/embedding_cache/models--bkai-foundation-models--vietnamese-bi-encoder/snapshots/84f9d9ada0d1a3c37557398b9ae9fcedcdf40be0/tokenizer_config.json",
+      "bytes": 1172,
+      "sha256": "9410af29b3eebbe69a1a0d8f3e1104e131409223cffcec9cf6ee46afd5892b88"
+    },
+    {
+      "path": "models/embedding_cache/models--bkai-foundation-models--vietnamese-bi-encoder/snapshots/84f9d9ada0d1a3c37557398b9ae9fcedcdf40be0/vocab.txt",
+      "bytes": 895321,
+      "sha256": "dffd7543c401fb6567253ae7c3313004532c33d062525250049c616544bad777"
+    },
+    {
+      "path": "config/finhrm_v14_2_phase1_protocol_v1.json",
+      "bytes": 4011,
+      "sha256": "59835b40d9ff326f4544b2fbe0b6e352f83f12d038e5846b964e4c45154325c3"
+    },
+    {
+      "path": "reports/finhrm_v14_2_fixed_unobserved_v1.json",
+      "bytes": 22857287,
+      "sha256": "ba44b60f8f74c36ba2ddf23ffdc07ef5e2acf0c3c0056b5aebe9b6208b5db0a0"
+    },
+    {
+      "path": "reports/finhrm_v14_2_fixed_development_v1.json",
+      "bytes": 22862176,
+      "sha256": "c1b2ed910cdb43e91abae9e53d9e295521cd3827d855ba3a010a853b4e75883c"
+    },
+    {
+      "path": "reports/finhrm_v14_2_gate_diagnosis_v1.jsonl",
+      "bytes": 86164767,
+      "sha256": "c8a9655e718114eebe41c8870cf91fc7f3b1835c13ad2b3b2342aee9716a03cf"
+    },
+    {
+      "path": "reports/finhrm_v14_2_gate_diagnosis_v1.md",
+      "bytes": 12675,
+      "sha256": "fa92eff01912b2b937324a9398d74cac16a8dae7342178ce89ad856b8d46a0eb"
+    },
+    {
+      "path": "reports/finhrm_v14_2_gate_review_v1.json",
+      "bytes": 16558,
+      "sha256": "10ac0d145709f87e7fd26eb316e420c5e4ff75a356f57495ea3a6cb69d383989"
+    },
+    {
+      "path": "reports/finhrm_v14_2_phase1_tests_v1.xml",
+      "bytes": 6730,
+      "sha256": "b68f53c8075f828d660b1613a0d8f180d084c82f1b0763dce377c95fe3f896d9"
+    },
+    {
+      "path": "scripts/run_finhrm_v14_2_gate_diagnosis.py",
+      "bytes": 9970,
+      "sha256": "09bfa3487521c569f998eb890d3c7a1d1d454479fe921690090e6fa1196ecca3"
+    },
+    {
+      "path": "scripts/finhrm_v14_2_gate_observer.py",
+      "bytes": 16950,
+      "sha256": "460bfe03b9aa8d8bd822369cfb1dd9b69f701669e11c1b3fa3a521a078845bfd"
+    },
+    {
+      "path": "tests/test_finhrm_v14_2_gate_diagnosis.py",
+      "bytes": 13293,
+      "sha256": "dca53a01c17a36d3efde45f2c3aa154edfa1ff1ffc8e515820b8ebcefe4fd0bc"
+    },
+    {
+      "path": "config/finhrm_v14_2_action_contract_draft_v1.json",
+      "bytes": 3036,
+      "sha256": "618c2b370e136fa39f3b3737bd4c0bbf8da18345534baa9beab98592de326b9c"
+    },
+    {
+      "path": "reports/finhrm_v14_2_phase1_manifest_v1.json",
+      "bytes": 2514,
+      "sha256": "6f7df4f117c9851cac36f81454e93555653039d5dd609f3d70c3b513203ffcf7"
+    },
+    {
+      "path": "reports/finhrm_v14_2_baseline_manifest_v1.json",
+      "bytes": 148146,
+      "sha256": "6b222da28b1b047fee9b092d89fea7cfea61def83b894f61b937981e955e5758"
+    },
+    {
+      "path": "config/finhrm_v14_2_protocol_v1.json",
+      "bytes": 6770,
+      "sha256": "01b804b16d8826428973710df1a3686203821e518b45de11213d0de889361d08"
+    },
+    {
+      "path": "config/financial_identities.yaml",
+      "bytes": 14263,
+      "sha256": "cc566b3093060ac7b98badbbd38b6ab8ae51004046d49ca4ee33619e6cbf1aa5"
+    },
+    {
+      "path": "requirements.txt",
+      "bytes": 615,
+      "sha256": "c0305c554bb03b92625a106a0eeea0d2e32dba4780fd6058fdf47a17757b9d8c"
+    },
+    {
+      "path": "scripts/run_finhrm_v14_2_phase2.py",
+      "bytes": 10075,
+      "sha256": "d638dc22c67480d3b2ece5ddd85d09167538c07243a7266730bfc419ae29d52c"
+    },
+    {
+      "path": "scripts/build_finhrm_v14_2_coordinate_dataset.py",
+      "bytes": 3513,
+      "sha256": "1a77e4c42e1a5bc7b6f5a50b869d00bbe3b2f93c420c7925bb21421f3b34f5a1"
+    },
+    {
+      "path": "reports/finhrm_v14_2_coordinate_migration_v2.json",
+      "bytes": 84356,
+      "sha256": "56818a11261e843c3874c889e2280b90f2393fc39691cb6fb77936c86d056223"
+    },
+    {
+      "path": "reports/finhrm_v14_2_phase2_action_stage_v1.json",
+      "bytes": 66768,
+      "sha256": "0a29e8f8a0f221b52607130284acd0af6da3ecda8c542621fbfa609c2fd330c8"
+    },
+    {
+      "path": "reports/finhrm_v14_2_phase2_coordinate_stage_v1.json",
+      "bytes": 66993,
+      "sha256": "994014bb518c33f56161b0c6130b2d7ff6f153c161ecfcb5c00acbca3dd0b4e1"
+    },
+    {
+      "path": "reports/finhrm_v14_2_phase2_role_stage_v1.json",
+      "bytes": 66969,
+      "sha256": "b64118297b727664197c841fb04e1bd71085a2cd15a3ac93698b7593fa4c70ed"
+    },
+    {
+      "path": "tests/test_finhrm_v14_2_phase2_action.py",
+      "bytes": 12572,
+      "sha256": "5621e9b2e718f7e7e8520ba7e649c759fe83e71d976f7f563f44f5cc4035fc85"
+    },
+    {
+      "path": "tests/test_finhrm_v14_2_phase2_coordinates.py",
+      "bytes": 5566,
+      "sha256": "8fd91213ab7875bd2fe28275a37cd9330bc30427a2b5e620a716ded8bc32429e"
+    },
+    {
+      "path": "tests/test_finhrm_v14_2_phase2_roles.py",
+      "bytes": 2920,
+      "sha256": "2b84302225acc9592d6db34c8edb3b0a2c51f7425ff4980f07de2224256366ed"
+    },
+    {
+      "path": "reports/finhrm_v14_2_phase2_tests_v1.xml",
+      "bytes": 38256,
+      "sha256": "cac10812b75b11d5617aecce2534913ff03aa1268b4570c704f8e5eaf8b1fb91"
+    },
+    {
+      "path": "reports/finhrm_v14_2_phase2_final_targeted_tests_v1.xml",
+      "bytes": 3459,
+      "sha256": "b7003e857165b11bb376bc20ecbe51ab0e23152e148852b5e9a1a7eb174d81e4"
+    }
+  ],
+  "environment": {
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+    "executable": "/usr/bin/python3",
+    "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "machine": "x86_64",
+    "distributions": [
+      {
+        "name": "antlr4-python3-runtime",
+        "version": "4.9.3",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "anyio",
+        "version": "4.14.2",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "attrs",
+        "version": "23.2.0",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "automat",
+        "version": "22.10.0",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "babel",
+        "version": "2.10.3",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "bcrypt",
+        "version": "3.2.2",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "blinker",
+        "version": "1.7.0",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "certifi",
+        "version": "2023.11.17",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "certifi",
+        "version": "2026.6.17",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "chardet",
+        "version": "5.2.0",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "charset-normalizer",
+        "version": "3.5.1",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "click",
+        "version": "8.1.6",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "click",
+        "version": "8.4.2",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "cloud-init",
+        "version": "25.1.4",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "colorama",
+        "version": "0.4.6",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "colorlog",
+        "version": "6.10.1",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "command-not-found",
+        "version": "0.3",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "configobj",
+        "version": "5.0.8",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "constantly",
+        "version": "23.10.4",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "cryptography",
+        "version": "41.0.7",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "cryptography",
+        "version": "41.0.7",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "cuda-bindings",
+        "version": "13.3.1",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "cuda-pathfinder",
+        "version": "1.8.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "cuda-toolkit",
+        "version": "13.0.3.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "dbus-python",
+        "version": "1.3.2",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "distro",
+        "version": "1.9.0",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "distro-info",
+        "version": "1.7+build1",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "docker",
+        "version": "5.0.3",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "docker-compose",
+        "version": "1.29.2",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "dockerpty",
+        "version": "0.4.1",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "docopt",
+        "version": "0.6.2",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "fastembed",
+        "version": "0.8.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "filelock",
+        "version": "3.29.7",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "flatbuffers",
+        "version": "25.12.19",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "fsspec",
+        "version": "2026.7.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "gyp",
+        "version": "0.1",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "h11",
+        "version": "0.16.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "hf-xet",
+        "version": "1.6.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "httpcore",
+        "version": "1.0.9",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "httplib2",
+        "version": "0.20.4",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "httpx",
+        "version": "0.28.1",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "huggingface-hub",
+        "version": "0.36.2",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "hyperlink",
+        "version": "21.0.0",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "idna",
+        "version": "3.18",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "idna",
+        "version": "3.6",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "incremental",
+        "version": "22.10.0",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "iniconfig",
+        "version": "2.3.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "jinja2",
+        "version": "3.1.2",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "jinja2",
+        "version": "3.1.6",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "joblib",
+        "version": "1.6.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "jsonpatch",
+        "version": "1.32",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "jsonpointer",
+        "version": "2.0",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "jsonschema",
+        "version": "4.10.3",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "launchpadlib",
+        "version": "1.11.0",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "lazr.restfulclient",
+        "version": "0.14.6",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "lazr.uri",
+        "version": "1.0.6",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "loguru",
+        "version": "0.7.3",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "markdown-it-py",
+        "version": "3.0.0",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "markupsafe",
+        "version": "2.1.5",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "markupsafe",
+        "version": "3.0.3",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "mdurl",
+        "version": "0.1.2",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "mmh3",
+        "version": "5.2.1",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "mpmath",
+        "version": "1.3.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "narwhals",
+        "version": "2.25.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "netifaces",
+        "version": "0.11.0",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "networkx",
+        "version": "3.6.1",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "numpy",
+        "version": "2.5.2",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "nvidia-cublas",
+        "version": "13.1.1.3",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "nvidia-cuda-cupti",
+        "version": "13.0.85",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "nvidia-cuda-nvrtc",
+        "version": "13.0.88",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "nvidia-cuda-runtime",
+        "version": "13.0.96",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "nvidia-cudnn-cu13",
+        "version": "9.20.0.48",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "nvidia-cufft",
+        "version": "12.0.0.61",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "nvidia-cufile",
+        "version": "1.15.1.6",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "nvidia-curand",
+        "version": "10.4.0.35",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "nvidia-cusolver",
+        "version": "12.0.4.66",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "nvidia-cusparse",
+        "version": "12.6.3.3",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "nvidia-cusparselt-cu13",
+        "version": "0.8.1",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "nvidia-nccl-cu13",
+        "version": "2.29.7",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "nvidia-nvjitlink",
+        "version": "13.3.33",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "nvidia-nvshmem-cu13",
+        "version": "3.4.5",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "nvidia-nvtx",
+        "version": "13.0.85",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "oauthlib",
+        "version": "3.2.2",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "omegaconf",
+        "version": "2.3.1",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "onnxruntime",
+        "version": "1.27.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "opencv-python",
+        "version": "5.0.0.93",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "packaging",
+        "version": "24.0",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "packaging",
+        "version": "26.3",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "pillow",
+        "version": "12.3.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "pip",
+        "version": "24.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "pip",
+        "version": "24.0",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "pluggy",
+        "version": "1.6.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "protobuf",
+        "version": "7.35.1",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "py-rust-stemmers",
+        "version": "0.1.8",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "pyasn1",
+        "version": "0.4.8",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "pyasn1-modules",
+        "version": "0.2.8",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "pyclipper",
+        "version": "1.4.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "pycurl",
+        "version": "7.45.3",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "pygments",
+        "version": "2.17.2",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "pygments",
+        "version": "2.20.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "pygobject",
+        "version": "3.48.2",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "pyhamcrest",
+        "version": "2.1.0",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "pyjwt",
+        "version": "2.7.0",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "pymupdf",
+        "version": "1.28.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "pyopenssl",
+        "version": "23.2.0",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "pyparsing",
+        "version": "3.1.1",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "pypdf",
+        "version": "6.14.2",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "pyrsistent",
+        "version": "0.20.0",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "pyserial",
+        "version": "3.5",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "pytest",
+        "version": "9.1.1",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "python-apt",
+        "version": "2.7.7+ubuntu5.1",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "python-crfsuite",
+        "version": "0.9.12",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "python-dotenv",
+        "version": "1.0.1",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "pytz",
+        "version": "2024.1",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "pyvi",
+        "version": "0.1.1",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "pyyaml",
+        "version": "6.0.1",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "pyyaml",
+        "version": "6.0.3",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "rapidocr",
+        "version": "3.9.1",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "regex",
+        "version": "2026.8.31",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "requests",
+        "version": "2.31.0",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "requests",
+        "version": "2.34.2",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "rich",
+        "version": "13.7.1",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "safetensors",
+        "version": "0.8.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "scikit-learn",
+        "version": "1.9.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "scipy",
+        "version": "1.18.1",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "sentence-transformers",
+        "version": "5.1.2",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "service-identity",
+        "version": "24.1.0",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "setuptools",
+        "version": "68.1.2",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "setuptools",
+        "version": "83.0.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "shapely",
+        "version": "2.1.2",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "six",
+        "version": "1.16.0",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "six",
+        "version": "1.17.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "sklearn-crfsuite",
+        "version": "0.5.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "ssh-import-id",
+        "version": "5.11",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "sympy",
+        "version": "1.14.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "systemd-python",
+        "version": "235",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "tabulate",
+        "version": "0.10.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "texttable",
+        "version": "1.6.7",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "threadpoolctl",
+        "version": "3.6.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "tokenizers",
+        "version": "0.22.2",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "torch",
+        "version": "2.13.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "tqdm",
+        "version": "4.68.4",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "transformers",
+        "version": "4.57.6",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "triton",
+        "version": "3.7.1",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "twisted",
+        "version": "24.3.0",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "typing-extensions",
+        "version": "4.10.0",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "typing-extensions",
+        "version": "4.16.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "ubuntu-pro-client",
+        "version": "8001",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "unattended-upgrades",
+        "version": "0.1",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "urllib3",
+        "version": "2.0.7",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "urllib3",
+        "version": "2.7.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "wadllib",
+        "version": "1.3.6",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "websocket-client",
+        "version": "1.7.0",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "wheel",
+        "version": "0.42.0",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "zope.interface",
+        "version": "6.1",
+        "location": "/usr/lib/python3/dist-packages"
+      }
+    ],
+    "duplicate_metadata": {
+      "('cryptography', '/usr/lib/python3/dist-packages')": 2
+    },
+    "required_runtime": {
+      "torch": {
+        "version": "2.13.0",
+        "origin": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages/torch/__init__.py"
+      },
+      "numpy": {
+        "version": "2.5.2",
+        "origin": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages/numpy/__init__.py"
+      },
+      "sentence-transformers": {
+        "version": "5.1.2",
+        "origin": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages/sentence_transformers/__init__.py"
+      },
+      "transformers": {
+        "version": "4.57.6",
+        "origin": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages/transformers/__init__.py"
+      },
+      "huggingface-hub": {
+        "version": "0.36.2",
+        "origin": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages/huggingface_hub/__init__.py"
+      },
+      "tokenizers": {
+        "version": "0.22.2",
+        "origin": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages/tokenizers/__init__.py"
+      },
+      "safetensors": {
+        "version": "0.8.0",
+        "origin": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages/safetensors/__init__.py"
+      },
+      "pyvi": {
+        "version": "0.1.1",
+        "origin": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages/pyvi/__init__.py"
+      },
+      "scipy": {
+        "version": "1.18.1",
+        "origin": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages/scipy/__init__.py"
+      },
+      "scikit-learn": {
+        "version": "1.9.0",
+        "origin": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages/sklearn/__init__.py"
+      }
+    },
+    "resolution_policy": "sys.path order; repeated names in different locations are shadowed, not active duplicates",
+    "resolved_distributions": {
+      "antlr4-python3-runtime": {
+        "version": "4.9.3",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "anyio": {
+        "version": "4.14.2",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "attrs": {
+        "version": "23.2.0",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "automat": {
+        "version": "22.10.0",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "babel": {
+        "version": "2.10.3",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "bcrypt": {
+        "version": "3.2.2",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "blinker": {
+        "version": "1.7.0",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "certifi": {
+        "version": "2026.6.17",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "chardet": {
+        "version": "5.2.0",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "charset-normalizer": {
+        "version": "3.5.1",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "click": {
+        "version": "8.4.2",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "cloud-init": {
+        "version": "25.1.4",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "colorama": {
+        "version": "0.4.6",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "colorlog": {
+        "version": "6.10.1",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "command-not-found": {
+        "version": "0.3",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "configobj": {
+        "version": "5.0.8",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "constantly": {
+        "version": "23.10.4",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "cryptography": {
+        "version": "41.0.7",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "cuda-bindings": {
+        "version": "13.3.1",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "cuda-pathfinder": {
+        "version": "1.8.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "cuda-toolkit": {
+        "version": "13.0.3.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "dbus-python": {
+        "version": "1.3.2",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "distro": {
+        "version": "1.9.0",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "distro-info": {
+        "version": "1.7+build1",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "docker": {
+        "version": "5.0.3",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "docker-compose": {
+        "version": "1.29.2",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "dockerpty": {
+        "version": "0.4.1",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "docopt": {
+        "version": "0.6.2",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "fastembed": {
+        "version": "0.8.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "filelock": {
+        "version": "3.29.7",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "flatbuffers": {
+        "version": "25.12.19",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "fsspec": {
+        "version": "2026.7.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "gyp": {
+        "version": "0.1",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "h11": {
+        "version": "0.16.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "hf-xet": {
+        "version": "1.6.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "httpcore": {
+        "version": "1.0.9",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "httplib2": {
+        "version": "0.20.4",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "httpx": {
+        "version": "0.28.1",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "huggingface-hub": {
+        "version": "0.36.2",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "hyperlink": {
+        "version": "21.0.0",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "idna": {
+        "version": "3.18",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "incremental": {
+        "version": "22.10.0",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "iniconfig": {
+        "version": "2.3.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "jinja2": {
+        "version": "3.1.6",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "joblib": {
+        "version": "1.6.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "jsonpatch": {
+        "version": "1.32",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "jsonpointer": {
+        "version": "2.0",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "jsonschema": {
+        "version": "4.10.3",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "launchpadlib": {
+        "version": "1.11.0",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "lazr.restfulclient": {
+        "version": "0.14.6",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "lazr.uri": {
+        "version": "1.0.6",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "loguru": {
+        "version": "0.7.3",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "markdown-it-py": {
+        "version": "3.0.0",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "markupsafe": {
+        "version": "3.0.3",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "mdurl": {
+        "version": "0.1.2",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "mmh3": {
+        "version": "5.2.1",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "mpmath": {
+        "version": "1.3.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "narwhals": {
+        "version": "2.25.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "netifaces": {
+        "version": "0.11.0",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "networkx": {
+        "version": "3.6.1",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "numpy": {
+        "version": "2.5.2",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "nvidia-cublas": {
+        "version": "13.1.1.3",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "nvidia-cuda-cupti": {
+        "version": "13.0.85",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "nvidia-cuda-nvrtc": {
+        "version": "13.0.88",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "nvidia-cuda-runtime": {
+        "version": "13.0.96",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "nvidia-cudnn-cu13": {
+        "version": "9.20.0.48",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "nvidia-cufft": {
+        "version": "12.0.0.61",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "nvidia-cufile": {
+        "version": "1.15.1.6",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "nvidia-curand": {
+        "version": "10.4.0.35",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "nvidia-cusolver": {
+        "version": "12.0.4.66",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "nvidia-cusparse": {
+        "version": "12.6.3.3",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "nvidia-cusparselt-cu13": {
+        "version": "0.8.1",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "nvidia-nccl-cu13": {
+        "version": "2.29.7",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "nvidia-nvjitlink": {
+        "version": "13.3.33",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "nvidia-nvshmem-cu13": {
+        "version": "3.4.5",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "nvidia-nvtx": {
+        "version": "13.0.85",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "oauthlib": {
+        "version": "3.2.2",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "omegaconf": {
+        "version": "2.3.1",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "onnxruntime": {
+        "version": "1.27.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "opencv-python": {
+        "version": "5.0.0.93",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "packaging": {
+        "version": "26.3",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "pillow": {
+        "version": "12.3.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "pip": {
+        "version": "24.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "pluggy": {
+        "version": "1.6.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "protobuf": {
+        "version": "7.35.1",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "py-rust-stemmers": {
+        "version": "0.1.8",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "pyasn1": {
+        "version": "0.4.8",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "pyasn1-modules": {
+        "version": "0.2.8",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "pyclipper": {
+        "version": "1.4.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "pycurl": {
+        "version": "7.45.3",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "pygments": {
+        "version": "2.20.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "pygobject": {
+        "version": "3.48.2",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "pyhamcrest": {
+        "version": "2.1.0",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "pyjwt": {
+        "version": "2.7.0",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "pymupdf": {
+        "version": "1.28.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "pyopenssl": {
+        "version": "23.2.0",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "pyparsing": {
+        "version": "3.1.1",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "pypdf": {
+        "version": "6.14.2",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "pyrsistent": {
+        "version": "0.20.0",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "pyserial": {
+        "version": "3.5",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "pytest": {
+        "version": "9.1.1",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "python-apt": {
+        "version": "2.7.7+ubuntu5.1",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "python-crfsuite": {
+        "version": "0.9.12",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "python-dotenv": {
+        "version": "1.0.1",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "pytz": {
+        "version": "2024.1",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "pyvi": {
+        "version": "0.1.1",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "pyyaml": {
+        "version": "6.0.3",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "rapidocr": {
+        "version": "3.9.1",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "regex": {
+        "version": "2026.8.31",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "requests": {
+        "version": "2.34.2",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "rich": {
+        "version": "13.7.1",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "safetensors": {
+        "version": "0.8.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "scikit-learn": {
+        "version": "1.9.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "scipy": {
+        "version": "1.18.1",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "sentence-transformers": {
+        "version": "5.1.2",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "service-identity": {
+        "version": "24.1.0",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "setuptools": {
+        "version": "83.0.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "shapely": {
+        "version": "2.1.2",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "six": {
+        "version": "1.17.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "sklearn-crfsuite": {
+        "version": "0.5.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "ssh-import-id": {
+        "version": "5.11",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "sympy": {
+        "version": "1.14.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "systemd-python": {
+        "version": "235",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "tabulate": {
+        "version": "0.10.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "texttable": {
+        "version": "1.6.7",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "threadpoolctl": {
+        "version": "3.6.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "tokenizers": {
+        "version": "0.22.2",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "torch": {
+        "version": "2.13.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "tqdm": {
+        "version": "4.68.4",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "transformers": {
+        "version": "4.57.6",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "triton": {
+        "version": "3.7.1",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "twisted": {
+        "version": "24.3.0",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "typing-extensions": {
+        "version": "4.16.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "ubuntu-pro-client": {
+        "version": "8001",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "unattended-upgrades": {
+        "version": "0.1",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "urllib3": {
+        "version": "2.7.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "wadllib": {
+        "version": "1.3.6",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "websocket-client": {
+        "version": "1.7.0",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "wheel": {
+        "version": "0.42.0",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "zope.interface": {
+        "version": "6.1",
+        "location": "/usr/lib/python3/dist-packages"
+      }
+    }
+  },
+  "profile": {
+    "name": "fixed_max_segments_batch",
+    "device": "cpu",
+    "encoder_device": "cpu",
+    "max_segments": 3,
+    "batch_size": 32,
+    "seed": 31,
+    "pythonhashseed": 31,
+    "torch_threads": 4,
+    "torch_interop_threads": 1,
+    "deterministic_algorithms": true,
+    "cache": "fresh per-run vector DB, pinned local encoder snapshot",
+    "order": "all 462 JSONL rows, no shuffle or pointer remapping"
+  },
+  "action_contract": {
+    "policy_id": "v14.2-policy-calibrated-public-answer-v1",
+    "proof_only_enabled": false,
+    "legacy_without_v14_policy": "Preserved legacy branch; never selected implicitly for a V14 model",
+    "evaluation_policy_accepted": "public proof AND calibrated acceptance",
+    "serving_final_answer": "policy accepted AND independent exact execution/certificate/presentation success",
+    "failed_presentation_status": "UNKNOWN for unavailable execution/certificate details, INVALID for known failure; never claim VALID",
+    "multi_output": "New final_action ANSWER/PARTIAL/ABSTAIN/REJECT; legacy transport status/coverage retained with verified outputs"
+  },
+  "coordinate_contract": {
+    "schema": "line_v2",
+    "key": [
+      "source",
+      "page",
+      "line_number",
+      "source_line_sha256",
+      "half_open_span"
+    ],
+    "structured_scope": "table_cell_v1",
+    "legacy_scope": "legacy_page_v1 preserved for historical artifacts",
+    "unresolved": "No physical identity proof",
+    "migration": "Exact line/substr replay; all old fields and pointers unchanged",
+    "no_gold_or_company_shortcuts": true
+  },
+  "role_contract": "Unspecified role may participate in logical identity only with validated versioned coordinates and no required/conflicting role. No ACTUAL inferred.",
+  "validation": {
+    "broad": "240 tests and 41 subtests PASS",
+    "final_targeted": "19 tests and 10 subtests PASS",
+    "schema_rows": 462,
+    "original_fields_preserved": true,
+    "source_stage_reports": "Gate replays on saved proposals; not new neural inference",
+    "accepted_wrong_target": 0,
+    "new_proof_wrong": "Review and HOLD promotion if found",
+    "end_to_end_cohort": "NOT_RUN",
+    "adaptive": "NOT_RUN"
+  },
+  "protected_inference_runs": 0,
+  "checkpoint_training": false,
+  "calibration_changes": false,
+  "certification": "HOLD"
+}

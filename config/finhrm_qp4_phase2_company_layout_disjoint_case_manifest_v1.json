@@ -1,0 +1,300 @@
+{
+  "schema": "finhrm-qp4-phase2-company-layout-disjoint-case-manifest-v1",
+  "created_at": "2026-08-30",
+  "classification": "development_only_company_layout_disjoint_validation",
+  "status": "FROZEN_BEFORE_RUNTIME",
+  "pre_run_policy": {
+    "frozen_before_runtime": true,
+    "model_invoked_during_freeze": false,
+    "protected_test_final_holdout_loaded": false,
+    "semantic_expected_actions_present": false,
+    "numeric_gold_present": false,
+    "runtime_changes_allowed": false,
+    "single_execution_only": true
+  },
+  "selection_audit": {
+    "protected_source_names_inspected_for_exclusion_only": true,
+    "protected_question_answer_or_candidate_content_used": false,
+    "selected_source_overlap_with_protected_test_final_holdout": 0,
+    "selected_source_overlap_with_phase1_companies": 0,
+    "phase1_company_codes_excluded": ["AGR", "HUB", "VNL", "PIC", "SCG", "ICT"],
+    "selected_company_codes": ["ECI", "TVA", "DBM", "VNS"],
+    "selected_company_keys": [
+      "development-company-0c7371bc44f1c673",
+      "development-company-15aa4ce43c3fc979",
+      "development-company-2a2a3143b07d2833",
+      "development-company-388d036c98c1ea95"
+    ],
+    "forbidden_runtime_inputs": [
+      "expected action class",
+      "expected numeric value",
+      "expected operation",
+      "expected operand",
+      "protected test/final/holdout content",
+      "company-specific runtime rule",
+      "case-specific runtime rule"
+    ]
+  },
+  "selection_provenance": [
+    {
+      "path": "data/pdf_development_company_catalog_v3.json",
+      "sha256": "17f74e49fe1894871453dd0c2b2ec8f13fa3650c4294c324d90bc7e47dd8bb2b"
+    },
+    {
+      "path": "data/pdf_v12b2_unseen_development_intake_v1.json",
+      "sha256": "b7328f88819eeec28a72a07225b67db06fb56fc8f6688963a2d9e815c91ada5c"
+    },
+    {
+      "path": "data/subtract_new_company_development_reviewed_v1.jsonl",
+      "sha256": "08d47314f93314c93e1f08bc507a5b0b9a4ade46619c36241cd92b5652f1d71e"
+    },
+    {
+      "path": "config/finhrm_qp4_actual_plan_ratio_direction_source_cohort_v1.json",
+      "sha256": "20ba00740ffe9ba2686c08bc01d07b8f345847d7ddbc5b8780c157bd7ef8d11f"
+    },
+    {
+      "path": "reports/finhrm_qp4_development_source_expansion_page_selective_ocr_cohort_build_v1.json",
+      "sha256": "57581e04486d265e0a1dc408c4be9b213f6a77d2931876cdbca3a1c3b5ec1142"
+    },
+    {
+      "path": "scripts/materialize_qp4_phase2_company_layout_disjoint_sources.py",
+      "sha256": "d980dab37389d23a2c4fcd528500a1403ea0472488fae0d86ec000dccc3a438f"
+    }
+  ],
+  "checkpoint": {
+    "path": "models/document_hrm_V8_candidate.pt",
+    "sha256": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de"
+  },
+  "runtime_sources": {
+    "src/hrm_finance_qa/answer_presentation.py": "46ade3eda04c7e6e258006858042c5e42a6f8e56bd817603add9c482b3619f5f",
+    "src/hrm_finance_qa/cli.py": "7887070672def5ba1a8d5ebe754f6b2b1c51c825774b0de49879bf0e19d06ff9",
+    "src/hrm_finance_qa/document_hrm.py": "aad60313371596415633adc038c6b4f94ef392d08812acc05f96d6150a5d23d1",
+    "src/hrm_finance_qa/document_page_index.py": "97d356533734bb09bdeb318038d720ac2daf700046e753d1d134804f7bb7c884",
+    "src/hrm_finance_qa/document_reasoning_engine.py": "c40aa18f219772b1ee644d3ac7487d65324eeee76af5d0e22f1bac37aa837f31",
+    "src/hrm_finance_qa/document_service.py": "328aab3d76d50ba98f23ce1c42823cdbfe53a7dd023eebeea72c1e49d5066c22",
+    "src/hrm_finance_qa/document_sources.py": "79b4c7eddb80119ed8f355236b2baaa72dc7a2ef82b7fb8a367d1bd87a71fb2e",
+    "src/hrm_finance_qa/evidence_schema.py": "1c6a9183a05a487a5b49d5ab02e771449e52178b774633b8e6a63cf475ebe51a",
+    "src/hrm_finance_qa/ontology.py": "47375f6a95057ddda75433fd40a8e9c2be3448165e288c2764d1d54bc83e400b",
+    "src/hrm_finance_qa/program_data.py": "8aa95a7e899088cfe4ceb52d67e8ed52d5002960d65089fd037029de3032aa2c",
+    "src/hrm_finance_qa/question_planner.py": "9fd971af9fbc5a24a6b1cf653ab50d8f706c92caa5e820e99add5c49747b44b7",
+    "src/hrm_finance_qa/question_request_planner.py": "804d0b05799b3b88292b07c243cef3b613a5f89f3e738c65375124d46108099a",
+    "src/hrm_finance_qa/request_answer.py": "84f630f5a90f4ed711ecbf4f16f8ba3bd82106ccdf453352004440de20644141",
+    "src/hrm_finance_qa/symbolic_verifier.py": "fa47888c1486aa5cc9c0656b47aad72cfae0576fdbaf74fa64f268f1b189957b"
+  },
+  "preserved_artifacts": [
+    {
+      "path": "scripts/run_qp4_mineru_markdown_60_evaluation.py",
+      "sha256": "2f8329cc4143140019747284ae2c580c916f92ab66d488adda4b22c5560fe7cb"
+    },
+    {
+      "path": "reports/finhrm_qp4_mineru_markdown_60_evaluation_v1.json",
+      "sha256": "b35a42017fbc58b5ba7e5bf57236d02396f572b705f91cf61e86f6d17da1c4a9"
+    },
+    {
+      "path": "reports/finhrm_qp4_mineru_markdown_60_evaluation_v1.md",
+      "sha256": "31ce333eb230f7121b55e36786dbb01e649d5f691d13f6f046b99c8127f646e8"
+    },
+    {
+      "path": "scripts/evaluate_qp4_mineru_markdown_60_semantic_reason_v2.py",
+      "sha256": "780de5bb8a705d94226faa87fadfc5aa9b515073d934f0d51dad6c480f74290f"
+    },
+    {
+      "path": "reports/finhrm_qp4_mineru_markdown_60_semantic_evaluation_v2.json",
+      "sha256": "f72eab90c36be3545901d17e7008936e7386a336f250cddf9416f479599d51ab"
+    },
+    {
+      "path": "reports/finhrm_qp4_mineru_markdown_60_semantic_evaluation_v2.md",
+      "sha256": "f6c367710085b9e7f967d4ac1473287a21a07d452922087479f2f2e4c28f79bb"
+    }
+  ],
+  "required_layout_coverage": {
+    "simple_plan_actual": ["ECI_24CN_BCTN.pdf"],
+    "multilevel_merged_header": ["TVA_24CN_BCTN.pdf"],
+    "current_prior": ["DBM_24CN_BCTN.pdf"],
+    "parent_and_consolidated": ["ECI_24CN_BCTN.pdf"],
+    "missing_requested_role_year": ["TVA_24CN_BCTN.pdf"],
+    "duplicate_alternate_ambiguous": ["VNS_23CN_BCTN.pdf", "ECI_24CN_BCTN.pdf"]
+  },
+  "sources": {
+    "ECI_24CN_BCTN.pdf": {
+      "source_name": "ECI_24CN_BCTN.pdf",
+      "company_key": "development-company-0c7371bc44f1c673",
+      "classification": "development_only",
+      "pdf": {
+        "path": "pdf/PDF_24/PDF_24/ECI_24CN_BCTN.pdf",
+        "sha256": "5476e6a0644b14353ba7f682bfe010c7e654fe1e641b1e501fb8f1e8c1c763c3"
+      },
+      "mineru_content_list": {
+        "path": "cache/mineru/ECI_24CN_BCTN-205246e8ab340c0b8f62574f/ECI_24CN_BCTN/hybrid_ocr/ECI_24CN_BCTN_content_list.json",
+        "sha256": "70b7a26fb5bbdfab952f340cdf973b35f159e757dc02ea67ca6dbc7715ba97f3",
+        "page_offset": 7
+      },
+      "markdown": {
+        "path": "reports/mineru_markdown_qp4_phase2_disjoint/ECI_24CN_BCTN.md",
+        "sha256": "59f3a263683eb0a95a201bcd85b035c72b5644ba271885f9ef55ab0ba18c8162"
+      },
+      "reviewed_physical_pages": [8],
+      "layout_families": ["simple_plan_actual", "parent_and_consolidated", "parallel_table_ambiguity"]
+    },
+    "TVA_24CN_BCTN.pdf": {
+      "source_name": "TVA_24CN_BCTN.pdf",
+      "company_key": "development-company-15aa4ce43c3fc979",
+      "classification": "development_only",
+      "pdf": {
+        "path": "pdf/PDF_24/PDF_24/TVA_24CN_BCTN.pdf",
+        "sha256": "2ab79ef997afa54449c0baa80c4ef09f389b10277abe6cb11f08e54c6ee5c23b"
+      },
+      "mineru_content_list": {
+        "path": "cache/mineru/TVA_24CN_BCTN-7f99ad7f983f7bea7a1c2df8/TVA_24CN_BCTN/hybrid_ocr/TVA_24CN_BCTN_content_list.json",
+        "sha256": "145e9309fbdfadb6d7b18618a98f99ab17ea6cf5db4469c9591729a03fbf03d8",
+        "page_offset": 20
+      },
+      "markdown": {
+        "path": "reports/mineru_markdown_qp4_phase2_disjoint/TVA_24CN_BCTN.md",
+        "sha256": "119b409e03836621cc7d85fd7959a81314889e5cde2a3239d57e701302871d28"
+      },
+      "reviewed_physical_pages": [21],
+      "layout_families": ["multilevel_merged_header", "missing_requested_role_year"]
+    },
+    "DBM_24CN_BCTN.pdf": {
+      "source_name": "DBM_24CN_BCTN.pdf",
+      "company_key": "development-company-2a2a3143b07d2833",
+      "classification": "development_only",
+      "pdf": {
+        "path": "pdf/PDF_24/PDF_24/DBM_24CN_BCTN.pdf",
+        "sha256": "b71a52f133368ba79781cfe17ad698d4d129380f16444c23774644eab712f2cd"
+      },
+      "mineru_content_list": {
+        "path": "cache/mineru/DBM_24CN_BCTN-dcc133e1315aed5bc5453be9/DBM_24CN_BCTN/hybrid_ocr/DBM_24CN_BCTN_content_list.json",
+        "sha256": "dd4140e7a4387690caf8198eda18d3ee3ee1898d4637bda105fed73dae5d22e7",
+        "page_offset": 4
+      },
+      "markdown": {
+        "path": "reports/mineru_markdown_qp4_phase2_disjoint/DBM_24CN_BCTN.md",
+        "sha256": "70434d7341aa133f931dbdeff493cb1d4e55bf0619100c8d95b80b9636adb669"
+      },
+      "reviewed_physical_pages": [6],
+      "layout_families": ["current_prior_explicit_year"]
+    },
+    "VNS_23CN_BCTN.pdf": {
+      "source_name": "VNS_23CN_BCTN.pdf",
+      "company_key": "development-company-388d036c98c1ea95",
+      "classification": "development_only",
+      "pdf": {
+        "path": "pdf/PDF_23/VNS_23CN_BCTN.pdf",
+        "sha256": "5e68d6ae9536f9f7ebe3f9e61165dbcecbcc020349816f6a07b557497bc5380b"
+      },
+      "mineru_content_list": {
+        "path": "cache/mineru/VNS_23CN_BCTN-9c159a43d17bf5a2385f0e6e/VNS_23CN_BCTN/hybrid_ocr/VNS_23CN_BCTN_content_list.json",
+        "sha256": "e36d560c7f48fb27cec864fd4bc5898fa75b1b93c49a8397f7a406dada3a63c2",
+        "page_offset": 13
+      },
+      "markdown": {
+        "path": "reports/mineru_markdown_qp4_phase2_disjoint/VNS_23CN_BCTN.md",
+        "sha256": "a56199db2735868330ddfb8688328759394cb86b3405b27b4f231c63ee66efd2"
+      },
+      "reviewed_physical_pages": [15],
+      "layout_families": ["duplicate_alternate_same_logical_cell", "simple_plan_actual"]
+    }
+  },
+  "cases": [
+    {
+      "case_id": "phase2-eci-parent-actual-select",
+      "source_name": "ECI_24CN_BCTN.pdf",
+      "category": "answer_select",
+      "layout_family": "scoped_parallel_flattened_plan_actual",
+      "question": "Theo mục 1.3 Công tác tài chính, tổng doanh thu thực hiện năm 2024 của công ty mẹ là bao nhiêu triệu đồng?"
+    },
+    {
+      "case_id": "phase2-eci-consolidated-actual-select",
+      "source_name": "ECI_24CN_BCTN.pdf",
+      "category": "answer_select",
+      "layout_family": "scoped_parallel_flattened_plan_actual",
+      "question": "Theo mục 1.3 Công tác tài chính, tổng doanh thu thực hiện hợp nhất năm 2024 là bao nhiêu triệu đồng?"
+    },
+    {
+      "case_id": "phase2-eci-parent-actual-minus-plan",
+      "source_name": "ECI_24CN_BCTN.pdf",
+      "category": "answer_comparison",
+      "layout_family": "scoped_parallel_flattened_plan_actual",
+      "question": "Tổng doanh thu thực hiện năm 2024 của công ty mẹ trừ tổng doanh thu kế hoạch năm 2024 của công ty mẹ là bao nhiêu triệu đồng?"
+    },
+    {
+      "case_id": "phase2-eci-consolidated-actual-minus-plan",
+      "source_name": "ECI_24CN_BCTN.pdf",
+      "category": "answer_comparison",
+      "layout_family": "scoped_parallel_flattened_plan_actual",
+      "question": "Tổng doanh thu thực hiện hợp nhất năm 2024 trừ tổng doanh thu kế hoạch hợp nhất năm 2024 là bao nhiêu triệu đồng?"
+    },
+    {
+      "case_id": "phase2-eci-consolidated-minus-parent-actual",
+      "source_name": "ECI_24CN_BCTN.pdf",
+      "category": "answer_cross_entity_comparison",
+      "layout_family": "scoped_parallel_flattened_plan_actual",
+      "question": "Tổng doanh thu thực hiện hợp nhất năm 2024 trừ tổng doanh thu thực hiện năm 2024 của công ty mẹ là bao nhiêu triệu đồng?"
+    },
+    {
+      "case_id": "phase2-eci-unscoped-actual-ambiguity",
+      "source_name": "ECI_24CN_BCTN.pdf",
+      "category": "ambiguity_control",
+      "layout_family": "scoped_parallel_flattened_plan_actual",
+      "question": "Theo mục 1.3 Công tác tài chính, tổng doanh thu thực hiện năm 2024 là bao nhiêu triệu đồng?"
+    },
+    {
+      "case_id": "phase2-tva-plan-2024-select",
+      "source_name": "TVA_24CN_BCTN.pdf",
+      "category": "answer_select",
+      "layout_family": "multilevel_merged_header_plan_actual",
+      "question": "Trong bảng Các chỉ tiêu chính, doanh thu kế hoạch năm 2024 là bao nhiêu triệu đồng?"
+    },
+    {
+      "case_id": "phase2-tva-actual-2024-select",
+      "source_name": "TVA_24CN_BCTN.pdf",
+      "category": "answer_select",
+      "layout_family": "multilevel_merged_header_plan_actual",
+      "question": "Trong bảng Các chỉ tiêu chính, doanh thu thực hiện năm 2024 là bao nhiêu triệu đồng?"
+    },
+    {
+      "case_id": "phase2-tva-actual-minus-plan",
+      "source_name": "TVA_24CN_BCTN.pdf",
+      "category": "answer_comparison",
+      "layout_family": "multilevel_merged_header_plan_actual",
+      "question": "Trong bảng Các chỉ tiêu chính, doanh thu thực hiện năm 2024 trừ doanh thu kế hoạch năm 2024 là bao nhiêu triệu đồng?"
+    },
+    {
+      "case_id": "phase2-tva-missing-plan-2023",
+      "source_name": "TVA_24CN_BCTN.pdf",
+      "category": "missing_role_period_control",
+      "layout_family": "multilevel_merged_header_plan_actual",
+      "question": "Trong bảng Các chỉ tiêu chính, doanh thu kế hoạch năm 2023 là bao nhiêu triệu đồng?"
+    },
+    {
+      "case_id": "phase2-dbm-current-2024-select",
+      "source_name": "DBM_24CN_BCTN.pdf",
+      "category": "answer_select",
+      "layout_family": "current_prior_explicit_year",
+      "question": "Theo mục Tình hình tài chính, doanh thu thuần năm 2024 là bao nhiêu nghìn đồng?"
+    },
+    {
+      "case_id": "phase2-dbm-current-minus-prior",
+      "source_name": "DBM_24CN_BCTN.pdf",
+      "category": "answer_comparison",
+      "layout_family": "current_prior_explicit_year",
+      "question": "Theo mục Tình hình tài chính, doanh thu thuần năm 2024 trừ doanh thu thuần năm 2023 là bao nhiêu nghìn đồng?"
+    },
+    {
+      "case_id": "phase2-vns-plan-2023-select",
+      "source_name": "VNS_23CN_BCTN.pdf",
+      "category": "answer_select",
+      "layout_family": "duplicate_alternate_same_logical_cell",
+      "question": "Theo bảng Tình hình thực hiện so với kế hoạch, doanh thu thuần kế hoạch năm 2023 là bao nhiêu triệu đồng?"
+    },
+    {
+      "case_id": "phase2-vns-actual-2023-duplicate-ambiguity",
+      "source_name": "VNS_23CN_BCTN.pdf",
+      "category": "ambiguity_control",
+      "layout_family": "duplicate_alternate_same_logical_cell",
+      "question": "Theo phần Tình hình hoạt động sản xuất kinh doanh, doanh thu thuần thực hiện năm 2023 là bao nhiêu triệu đồng?"
+    }
+  ]
+}

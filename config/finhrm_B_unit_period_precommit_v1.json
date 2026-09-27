@@ -1,0 +1,21 @@
+{
+  "scope": "Only source-based calendar years, missing monetary income units, and truthful period refusal if needed.",
+  "parent_runtime": "config/finhrm_B_practical9_protocol_v1.json",
+  "targets": [
+    "practical9-06",
+    "practical9-08"
+  ],
+  "acceptance": [
+    "Income answer is 304470862 VND with default-unit note and valid source certificate.",
+    "2030 must not be borrowed from question as source year or pass period_coverage; refusal must identify period uncertainty.",
+    "Preserve 2 old practical answers and 62 old regression outputs, plus 16 negative requests.",
+    "Run shared/B tests, unchanged 9 HTTP, unchanged 72 HTTP and core dataset v2."
+  ],
+  "limits": "No OCR/training/embedding/threshold change. No recall/format/scope repairs or gold edits.",
+  "before_files": {
+    "src/hrm_finance_qa/unit_defaults.py": "0a47ba00f66bab0cf40b82d3afdaa6ba284e40d79805780f38a63a107735eba5",
+    "src/hrm_finance_qa/evidence_schema.py": "5826c1d06d9ab984c93b1afe56d10d46b99ecb5c85efd811efaec92d96ced041",
+    "src/hrm_finance_qa/answer_presentation.py": "76bc46cd2c88947a2e5605157b8e2458462c8fdd66cfc71979f509f6ff0621f6",
+    "tests/test_question_planner.py": "0dec273d81ab43cfc4e7e5a18358122380b991383a83bff607cd979a889ce01d"
+  }
+}

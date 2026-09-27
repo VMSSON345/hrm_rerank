@@ -1,0 +1,9 @@
+{
+  "created_at": "2026-09-10T10:37:07.385169+00:00",
+  "parent_protocol": "config/finhrm_B_semantic_format_protocol_v1.json",
+  "prior_results": "reports/finhrm_B_semantic_format_results_v1.json",
+  "diagnosis": "Source currency format fallback incorrectly admitted explicitly labeled share-count columns due inherited table unit. A count column must not vote on a monetary format.",
+  "repair": "Column semantic type takes precedence over inherited currency label: share/people/count, ratio, ordinal fields cannot provide currency format witnesses. No company/page/value exceptions.",
+  "evaluation": "Keep all34 requests/references byte-identical and rerun B. Six additional questions are development after their diagnostics were used; no held-out claim. No source edits/OCR/training. Preserve v1 artifacts.",
+  "baseline_protected": "18 prior accepted plus AGP; BSD must be rechecked with all related physical candidates, not assumed rounded-equivalent just because v1 answered."
+}

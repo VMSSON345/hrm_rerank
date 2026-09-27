@@ -1,0 +1,317 @@
+{
+  "cases": [
+    {
+      "case_id": "newsource-hfx-plan",
+      "source_id": "HFX",
+      "question": "Tổng doanh thu kế hoạch năm 2024 là bao nhiêu tỷ đồng?",
+      "expected_action": "ANSWER",
+      "expected_canonical": "20000000000",
+      "canonical_unit": "VND",
+      "metric": "tong doanh thu",
+      "years": [
+        "2024"
+      ],
+      "role": "plan",
+      "scope": "reporting_company",
+      "operation": "SELECT",
+      "operand_values": [
+        "20"
+      ],
+      "operand_unit": "tỷ đồng",
+      "pdf_pages": [
+        5
+      ],
+      "reference_note": "Bảng Các chỉ tiêu kế hoạch tài chính năm 2024; dòng 3 Tổng doanh thu, đơn vị Tỷ đồng, cột Kế hoạch 2024: 20.",
+      "source_pdf": {
+        "path": "pdf/PDF_23/HFX_23CN_BCTN.pdf",
+        "sha256": "ed171410df551c871ac8a74b9849b9dd4003502f01351afdeface7f0a74d3042"
+      },
+      "review_images": [
+        {
+          "path": "tmp/pdfs/policy_evaluation_v1/HFX-5.png",
+          "sha256": "9e507e20b304af3d1228441258c3a291ec0da79733cedbf0a5826e07f43f5c94"
+        }
+      ]
+    },
+    {
+      "case_id": "newsource-hfx-unit",
+      "source_id": "HFX",
+      "question": "Doanh thu thuần năm 2023 là bao nhiêu tỷ đồng?",
+      "expected_action": "ANSWER",
+      "expected_canonical": "22006696697",
+      "metric": "doanh thu thuan",
+      "years": [
+        "2023"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "pdf_pages": [
+        3,
+        4,
+        5
+      ],
+      "source_raw_value": "22 006 696 697",
+      "reference_note": "Physical page 3 visually reviewed before repaired inference: one net-revenue cell 22006696 697 under 2023. VND scale 1 is the user policy, not an explicit PDF unit.",
+      "source_pdf": {
+        "path": "pdf/PDF_23/HFX_23CN_BCTN.pdf",
+        "sha256": "ed171410df551c871ac8a74b9849b9dd4003502f01351afdeface7f0a74d3042"
+      },
+      "review_images": [
+        {
+          "path": "tmp/pdfs/policy_evaluation_v1/HFX-3.png",
+          "sha256": "d00161bec1490f8adce2198acbed3589679363c779283e790ef421c6ed734294"
+        },
+        {
+          "path": "tmp/pdfs/policy_evaluation_v1/HFX-4.png",
+          "sha256": "6855b6862870a4e50c0412badc49df416d43450e318cf9a0556b95351bf472c0"
+        },
+        {
+          "path": "tmp/pdfs/policy_evaluation_v1/HFX-5.png",
+          "sha256": "9e507e20b304af3d1228441258c3a291ec0da79733cedbf0a5826e07f43f5c94"
+        }
+      ],
+      "canonical_unit": "VND",
+      "unit_basis": "user_default_vnd",
+      "operation": "SELECT"
+    },
+    {
+      "case_id": "newsource-hfx-missing",
+      "source_id": "HFX",
+      "question": "Tổng doanh thu thực hiện năm 2037 là bao nhiêu tỷ đồng?",
+      "expected_action": "ABSTAIN",
+      "expected_canonical": null,
+      "reason": "MISSING_REQUESTED_PERIOD",
+      "metric": "tong doanh thu",
+      "years": [
+        "2037"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "pdf_pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "reference_note": "Đã xem đủ 6 trang; báo cáo 2023 và kế hoạch 2024, không có công bố thực hiện 2037.",
+      "source_pdf": {
+        "path": "pdf/PDF_23/HFX_23CN_BCTN.pdf",
+        "sha256": "ed171410df551c871ac8a74b9849b9dd4003502f01351afdeface7f0a74d3042"
+      },
+      "review_images": [
+        {
+          "path": "tmp/pdfs/policy_evaluation_v1/HFX-1.png",
+          "sha256": "db83d1c80b76e7b66423a05e0c4c16a5829a1402db51bed150d0e2f9ae1abab7"
+        },
+        {
+          "path": "tmp/pdfs/policy_evaluation_v1/HFX-2.png",
+          "sha256": "6bc7c856844f10ca221a4a0cd6da1765f88ba498ca42ef7f03b118e39c6a12bb"
+        },
+        {
+          "path": "tmp/pdfs/policy_evaluation_v1/HFX-3.png",
+          "sha256": "d00161bec1490f8adce2198acbed3589679363c779283e790ef421c6ed734294"
+        },
+        {
+          "path": "tmp/pdfs/policy_evaluation_v1/HFX-4.png",
+          "sha256": "6855b6862870a4e50c0412badc49df416d43450e318cf9a0556b95351bf472c0"
+        },
+        {
+          "path": "tmp/pdfs/policy_evaluation_v1/HFX-5.png",
+          "sha256": "9e507e20b304af3d1228441258c3a291ec0da79733cedbf0a5826e07f43f5c94"
+        },
+        {
+          "path": "tmp/pdfs/policy_evaluation_v1/HFX-6.png",
+          "sha256": "c370a28d4911520a0c59666dc3bb5825136e2723662e84f79c39680766b61a1f"
+        }
+      ]
+    },
+    {
+      "case_id": "newsource-bth-capital",
+      "source_id": "BTH",
+      "question": "Vốn điều lệ được nêu trong báo cáo năm 2025 là bao nhiêu đồng?",
+      "expected_action": "ANSWER",
+      "expected_canonical": "250000000000",
+      "canonical_unit": "VND",
+      "metric": "von dieu le",
+      "years": [
+        "2025"
+      ],
+      "role": null,
+      "scope": "reporting_company",
+      "operation": "SELECT",
+      "operand_values": [
+        "250000000000"
+      ],
+      "operand_unit": "VND",
+      "pdf_pages": [
+        1
+      ],
+      "reference_note": "Thông tin khái quát, báo cáo 2025: Vốn điều lệ/Charter capital 250.000.000.000 đồng; có số bằng chữ Hai trăm năm mươi tỷ đồng.",
+      "source_pdf": {
+        "path": "pdf/PDF_25/PDF_25/BTH_25CN_BCTN.pdf",
+        "sha256": "c3f4291745a28debfa81323bdb237344ad68eec8a61890670744a59e964a8066"
+      },
+      "review_images": [
+        {
+          "path": "tmp/pdfs/policy_evaluation_v1/BTH-1.png",
+          "sha256": "bc02a96482cf449227fc09bd800ec382a48bca2bdf63124017d0cdc74d0bba15"
+        }
+      ],
+      "period_basis": "report_year",
+      "semantic_review": "Question asks what is stated in report year 2025, not a balance dated 31/12/2025. Numeric gold unchanged; metadata basis clarified before inference."
+    },
+    {
+      "case_id": "repair-hfx-unit-paraphrase",
+      "source_id": "HFX",
+      "question": "Cho biết doanh thu thuần thực hiện năm 2023 là bao nhiêu tỷ đồng?",
+      "expected_action": "ANSWER",
+      "expected_canonical": "22006696697",
+      "metric": "doanh thu thuan",
+      "years": [
+        "2023"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "pdf_pages": [
+        3,
+        4,
+        5
+      ],
+      "source_raw_value": "22 006 696 697",
+      "reference_note": "Physical page 3 visually reviewed before repaired inference: one net-revenue cell 22006696 697 under 2023. VND scale 1 is the user policy, not an explicit PDF unit.",
+      "source_pdf": {
+        "path": "pdf/PDF_23/HFX_23CN_BCTN.pdf",
+        "sha256": "ed171410df551c871ac8a74b9849b9dd4003502f01351afdeface7f0a74d3042"
+      },
+      "review_images": [
+        {
+          "path": "tmp/pdfs/policy_evaluation_v1/HFX-3.png",
+          "sha256": "d00161bec1490f8adce2198acbed3589679363c779283e790ef421c6ed734294"
+        },
+        {
+          "path": "tmp/pdfs/policy_evaluation_v1/HFX-4.png",
+          "sha256": "6855b6862870a4e50c0412badc49df416d43450e318cf9a0556b95351bf472c0"
+        },
+        {
+          "path": "tmp/pdfs/policy_evaluation_v1/HFX-5.png",
+          "sha256": "9e507e20b304af3d1228441258c3a291ec0da79733cedbf0a5826e07f43f5c94"
+        }
+      ],
+      "paraphrase_of": "newsource-hfx-unit",
+      "canonical_unit": "VND",
+      "unit_basis": "user_default_vnd",
+      "operation": "SELECT"
+    },
+    {
+      "case_id": "report-boundary-fact-date",
+      "source_id": "BTH",
+      "question": "Vốn điều lệ tại ngày 31/12/2025 là bao nhiêu đồng?",
+      "expected_action": "ABSTAIN",
+      "expected_canonical": null,
+      "canonical_unit": "VND",
+      "metric": "von dieu le",
+      "years": [
+        "2025"
+      ],
+      "role": null,
+      "scope": "reporting_company",
+      "operation": "SELECT",
+      "operand_values": [
+        "250000000000"
+      ],
+      "operand_unit": "VND",
+      "pdf_pages": [
+        1
+      ],
+      "reference_note": "The undated general-information field cannot establish a dated balance or a different report year. Source reviewed before this run.",
+      "source_pdf": {
+        "path": "pdf/PDF_25/PDF_25/BTH_25CN_BCTN.pdf",
+        "sha256": "c3f4291745a28debfa81323bdb237344ad68eec8a61890670744a59e964a8066"
+      },
+      "review_images": [
+        {
+          "path": "tmp/pdfs/policy_evaluation_v1/BTH-1.png",
+          "sha256": "bc02a96482cf449227fc09bd800ec382a48bca2bdf63124017d0cdc74d0bba15"
+        }
+      ],
+      "period_basis": "fact_date",
+      "semantic_review": "Question asks what is stated in report year 2025, not a balance dated 31/12/2025. Numeric gold unchanged; metadata basis clarified before inference."
+    },
+    {
+      "case_id": "probe-agp-profit-1",
+      "source_id": "AGP",
+      "question": "Lợi nhuận trước thuế thực hiện năm 2025 là bao nhiêu tỷ đồng?",
+      "expected_action": "ANSWER",
+      "expected_canonical": "65900000000",
+      "canonical_unit": "VND",
+      "metric": "ln truoc thue",
+      "metric_labels": [
+        "ln truoc thue",
+        "loi nhuan truoc thue",
+        "lntt"
+      ],
+      "years": [
+        "2025"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "operation": "SELECT",
+      "pdf_pages": [
+        22
+      ],
+      "unit_basis": "source_explicit",
+      "absolute_tolerance": "50000000",
+      "reference_note": "PDF visually reviewed. AGP tolerance is half the printed 0.1-billion quantum; no other case uses tolerance."
+    },
+    {
+      "case_id": "practical-pdb-overview",
+      "source_id": "PDB",
+      "question": "So sánh doanh thu thuần hợp nhất thực hiện năm 2024 và năm 2023, tính bằng triệu đồng.",
+      "expected_action": "ANSWER",
+      "expected_outputs": [
+        {
+          "expected_action": "ANSWER",
+          "expected_canonical": "235110000000",
+          "canonical_unit": "VND",
+          "metric": "doanh thu thuan",
+          "years": [
+            "2023"
+          ],
+          "role": "actual",
+          "scope": "consolidated",
+          "operation": "SELECT",
+          "unit_basis": "source_explicit"
+        },
+        {
+          "expected_action": "ANSWER",
+          "expected_canonical": "307927000000",
+          "canonical_unit": "VND",
+          "metric": "doanh thu thuan",
+          "years": [
+            "2024"
+          ],
+          "role": "actual",
+          "scope": "consolidated",
+          "operation": "SELECT",
+          "unit_basis": "source_explicit"
+        },
+        {
+          "expected_action": "ANSWER",
+          "expected_canonical": "72817000000",
+          "canonical_unit": "VND",
+          "metric": "doanh thu thuan",
+          "years": [
+            "2024",
+            "2023"
+          ],
+          "role": "actual",
+          "scope": "consolidated",
+          "operation": "SUBTRACT",
+          "unit_basis": "source_explicit"
+        }
+      ]
+    }
+  ]
+}

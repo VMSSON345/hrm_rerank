@@ -1,0 +1,71 @@
+{
+  "schema": "mineru-real-http-requests-v1",
+  "sources": {
+    "BSD": {
+      "path": "data/markdown/scope_unit_v2/BSD_23CN_BCTN--b90d50e824213031.md",
+      "sha256": "bd3d80dde2d999caa227a1d6965b03008e7f7c06146b7ea1d45e375ba5d53748"
+    },
+    "CMS": {
+      "path": "data/markdown/scope_unit_v2/CMS_23CN_BCTN--b5944cc10f6fe4f0.md",
+      "sha256": "8076e60944faa1bc3302c67eb7ad33a2b10b36c8eeea4a9cd19bbbcfbf3ee57d"
+    },
+    "SSG": {
+      "path": "data/markdown/B_source_context_v1/SSG_24CN_BCTN--03525afbe2d1c74e.md",
+      "sha256": "8aa6dff4f4e2c2b1284c0a6f8ee89b918a8914f828720709174256b91a02923b"
+    },
+    "GGG": {
+      "path": "data/markdown/B_source_context_checks_v1/GGG_23CN_BCTN--e86ead28fb761a59.md",
+      "sha256": "fcfe9688835b4eb0c8387f7621d15fe684537bc454a52b4d0919b05cabb09ead"
+    },
+    "DXG": {
+      "path": "data/markdown/B_source_context_checks_v1/DXG_23CN_BCTN--a318f16b5bb351b2.md",
+      "sha256": "049ff73505043f5b855e8486010ea1fd5f0180d55ea93d2b9fb9d5832ef3a3fd"
+    },
+    "SHI": {
+      "path": "data/markdown/B_source_context_checks_v1/SHI_24CN_BCTN--6a3fe91f4c3f02d9.md",
+      "sha256": "a9a33f865283eaa6eaf0bafc7cfdaebc34b7faf4309fd69dc858397475d2235d"
+    }
+  },
+  "cases": [
+    {
+      "case_id": "additional-bsd-net",
+      "source_id": "BSD",
+      "question": "Doanh thu thuần năm 2023 là bao nhiêu đồng?"
+    },
+    {
+      "case_id": "fresh-cms-consolidated",
+      "source_id": "CMS",
+      "question": "Doanh thu thuần hợp nhất năm 2023 là bao nhiêu đồng?"
+    },
+    {
+      "case_id": "fresh-cms-separate",
+      "source_id": "CMS",
+      "question": "Doanh thu thuần riêng công ty mẹ năm 2023 là bao nhiêu đồng?"
+    },
+    {
+      "case_id": "fresh-ssg-difference",
+      "source_id": "SSG",
+      "question": "Doanh thu thuần năm 2024 tăng bao nhiêu triệu đồng so với năm 2023?"
+    },
+    {
+      "case_id": "check-ggg-capital",
+      "source_id": "GGG",
+      "question": "Vốn điều lệ được nêu trong báo cáo năm 2023 là bao nhiêu đồng?"
+    },
+    {
+      "case_id": "check-ggg-owner-capital",
+      "source_id": "GGG",
+      "question": "Vốn đầu tư của chủ sở hữu được nêu trong báo cáo năm 2023 là bao nhiêu đồng?"
+    },
+    {
+      "case_id": "check-dxg-notice",
+      "source_id": "DXG",
+      "question": "Doanh thu thuần năm 2023 là bao nhiêu đồng?"
+    },
+    {
+      "case_id": "check-shi-notice",
+      "source_id": "SHI",
+      "question": "Doanh thu thuần năm 2024 là bao nhiêu đồng?"
+    }
+  ]
+}

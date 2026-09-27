@@ -1,0 +1,20 @@
+{
+  "scope": "Only named-column physical mapping, other/residual metric distinction and faithful final presentation.",
+  "dataset": "data/tmp/B_current_benchmark_v2/validation_mineru.jsonl",
+  "dataset_sha256": "543d9247d2f0d6ce5d2bb0861c2f8bd9e3dd66e192b3b28be2859891387cb179",
+  "target_ids": [
+    "synthetic-document-development-v1-000057",
+    "synthetic-document-development-v1-000060",
+    "synthetic-document-development-v1-000063",
+    "synthetic-document-development-v1-000066",
+    "synthetic-document-development-v1-000104"
+  ],
+  "acceptance": {
+    "core_correct_retained": 72,
+    "http_correct_outputs_retained": 62,
+    "target_original_and_paraphrase_answers": 10,
+    "http_negative_requests": 16,
+    "http_partial_requests": 1
+  },
+  "constraints": "Same data/gold/model, no new OCR/training/threshold tuning/runtime module. Target fixed-pool responses and full-report HTTP evaluated separately."
+}

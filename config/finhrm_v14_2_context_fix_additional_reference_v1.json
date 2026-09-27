@@ -1,0 +1,47 @@
+{
+  "scope": "Additional known-development-report questions locked before inference, separate from prior ten. No independent generalization claim.",
+  "expected": [
+    {
+      "case_id": "context-new-01",
+      "values_vnd": [
+        "-108000000"
+      ],
+      "metric": "loi nhuan sau thue",
+      "years": [
+        "2023"
+      ],
+      "role": "actual",
+      "source_review": "HAV physical page 20 reviewed financial table"
+    },
+    {
+      "case_id": "context-new-02",
+      "values_vnd": [
+        "4800000000"
+      ],
+      "metric": "loi nhuan sau thue",
+      "years": [
+        "2023"
+      ],
+      "role": "plan",
+      "source_review": "HKT prior PDF review"
+    },
+    {
+      "case_id": "context-new-03",
+      "values_vnd": [
+        "5242000000"
+      ],
+      "metric": "loi nhuan sau thue",
+      "years": [
+        "2024"
+      ],
+      "role": "plan",
+      "source_review": "SSG physical page 4 reviewed KH/TH table"
+    },
+    {
+      "case_id": "context-new-04",
+      "values_vnd": [],
+      "expected": "AMBIGUOUS_REQUEST",
+      "reason": "2023 or 2022 does not uniquely select a year; must not silently decide."
+    }
+  ]
+}

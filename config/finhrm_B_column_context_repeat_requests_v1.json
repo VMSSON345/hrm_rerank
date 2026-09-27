@@ -1,0 +1,94 @@
+{
+  "schema": "mineru-real-http-requests-v1",
+  "sources": {
+    "MGG": {
+      "path": "data/markdown/policy_evaluation_v1/MGG/MGG_23CN_BCTN--cf0d9055f964e682.md",
+      "sha256": "f5d82c2f0ac85561f6e6c45f1c502353a6726fc35429f0efc88fcd83d79e946d"
+    },
+    "AGP": {
+      "path": "data/markdown/mineru_rerun_v1/AGP/AGP_25CN_BCTN--e8991085d41d3c08.md",
+      "sha256": "7af3e977b1cefced4abe5786f1145c82e65f13e67cac8c301fcdbdf950a275bc"
+    },
+    "PDB": {
+      "path": "data/markdown/scope_unit_v2/PDB_24CN_BCTN--1957e2ee3f06dba6.md",
+      "sha256": "06fb246ff0de4e250cb3f7202ac58b7eeaeb34a17aa47c6f7289bf58b6a4f6f7"
+    }
+  },
+  "cases": [
+    {
+      "case_id": "probe-agp-profit-1",
+      "source_id": "AGP",
+      "question": "Lợi nhuận trước thuế thực hiện năm 2025 là bao nhiêu tỷ đồng?"
+    },
+    {
+      "case_id": "probe-agp-profit-2",
+      "source_id": "AGP",
+      "question": "Cho biết lợi nhuận trước thuế thực hiện năm 2025, tính bằng tỷ đồng."
+    },
+    {
+      "case_id": "probe-mgg-net-1",
+      "source_id": "MGG",
+      "question": "Doanh thu thuần thực hiện năm 2022 là bao nhiêu tỷ đồng?"
+    },
+    {
+      "case_id": "probe-mgg-net-2",
+      "source_id": "MGG",
+      "question": "Cho biết doanh thu thuần thực hiện năm 2022, tính bằng tỷ đồng."
+    },
+    {
+      "case_id": "probe-mgg-tax-1",
+      "source_id": "MGG",
+      "question": "Lợi nhuận sau thuế thực hiện năm 2023 là bao nhiêu tỷ đồng?"
+    },
+    {
+      "case_id": "probe-mgg-tax-2",
+      "source_id": "MGG",
+      "question": "Cho biết lợi nhuận sau thuế thực hiện năm 2023, tính bằng tỷ đồng."
+    },
+    {
+      "case_id": "probe-mgg-assets-1",
+      "source_id": "MGG",
+      "question": "Tổng giá trị tài sản thực hiện năm 2023 là bao nhiêu tỷ đồng?"
+    },
+    {
+      "case_id": "probe-mgg-assets-2",
+      "source_id": "MGG",
+      "question": "Cho biết tổng giá trị tài sản thực hiện năm 2023, tính bằng tỷ đồng."
+    },
+    {
+      "case_id": "probe-pdb-profit-1",
+      "source_id": "PDB",
+      "question": "Lợi nhuận trước thuế hợp nhất thực hiện năm 2024 là bao nhiêu triệu đồng?"
+    },
+    {
+      "case_id": "probe-pdb-profit-2",
+      "source_id": "PDB",
+      "question": "Cho biết lợi nhuận trước thuế hợp nhất thực hiện năm 2024, tính bằng triệu đồng."
+    },
+    {
+      "case_id": "probe-pdb-change-1",
+      "source_id": "PDB",
+      "question": "Lợi nhuận trước thuế hợp nhất thực hiện năm 2024 tăng bao nhiêu triệu đồng so với năm 2023?"
+    },
+    {
+      "case_id": "probe-pdb-change-2",
+      "source_id": "PDB",
+      "question": "Cho biết lợi nhuận trước thuế hợp nhất thực hiện năm 2024 tăng bao nhiêu so với năm 2023, tính bằng triệu đồng."
+    },
+    {
+      "case_id": "probe-agp-missing",
+      "source_id": "AGP",
+      "question": "Lợi nhuận trước thuế thực hiện năm 2037 là bao nhiêu đồng?"
+    },
+    {
+      "case_id": "probe-mgg-missing",
+      "source_id": "MGG",
+      "question": "Lợi nhuận sau thuế thực hiện năm 2037 là bao nhiêu đồng?"
+    },
+    {
+      "case_id": "probe-pdb-missing",
+      "source_id": "PDB",
+      "question": "Lợi nhuận trước thuế hợp nhất thực hiện năm 2037 là bao nhiêu đồng?"
+    }
+  ]
+}

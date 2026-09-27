@@ -1,0 +1,85 @@
+{
+  "parent_runtime": "config/finhrm_B_context_identity_protocol_v1.json",
+  "scope": "B only; two shared metric-vocabulary/output-intent fixes. No new OCR, training, A evaluation, or calibration tuning.",
+  "development": "Old39 plus former9 error probes, now explicitly development. Preserve all28 old correct canonical answers.",
+  "probe": "15 separate requests: six fact/computation pairs and three missing-year negatives; sources known historically.",
+  "paraphrase_pairs": [
+    [
+      "probe-agp-profit-1",
+      "probe-agp-profit-2"
+    ],
+    [
+      "probe-mgg-net-1",
+      "probe-mgg-net-2"
+    ],
+    [
+      "probe-mgg-tax-1",
+      "probe-mgg-tax-2"
+    ],
+    [
+      "probe-mgg-assets-1",
+      "probe-mgg-assets-2"
+    ],
+    [
+      "probe-pdb-profit-1",
+      "probe-pdb-profit-2"
+    ],
+    [
+      "probe-pdb-change-1",
+      "probe-pdb-change-2"
+    ]
+  ],
+  "no_runtime_tuning_after_probe": true,
+  "acceptance": {
+    "answerable_coverage_min": 0.9,
+    "paraphrase_consistency_min": 0.95,
+    "published_wrong_max": 0,
+    "unscored_publication_max": 0,
+    "preserve_old_correct": 28
+  },
+  "comparison": "Same persisted candidate pool per question, SELECT/SUBTRACT only, both selectors share B executor/verifier/certificate/renderer; deterministic baseline sees no gold.",
+  "baseline_rank": "Minimize explicit slot conflicts; maximize verified slot support and metric support; then lexical relevance and source-coordinate order. Confidence is not calibrated.",
+  "pdf_review": [
+    {
+      "source": "AGP",
+      "page": 22,
+      "pdf": "pdf/PDF_25/PDF_25/AGP_25CN_BCTN.pdf",
+      "images": [
+        "tmp/pdfs/B_context_identity_AGP-22.png"
+      ],
+      "pdf_sha256": "e8991085d41d3c084e98ce10ceb97a752c2053f52e20b808bb80159e3dd3ddf0",
+      "image_hashes": {
+        "tmp/pdfs/B_context_identity_AGP-22.png": "7dea3570c388b0942c43a24e6cd4613afc8b26ba2db6ac0d4c250a4d9a49780b"
+      }
+    },
+    {
+      "source": "MGG",
+      "page": 5,
+      "pdf": "pdf/PDF_23/MGG_23CN_BCTN.pdf",
+      "images": [
+        "tmp/pdfs/B_context_identity_MGG-5.png"
+      ],
+      "pdf_sha256": "cf0d9055f964e682935aba26a09bd6ee9576a676f490cf9413cd951b8ef44a96",
+      "image_hashes": {
+        "tmp/pdfs/B_context_identity_MGG-5.png": "674175d8527301c59170bc7642d11e57242ab9a5f65927fb725304e9ef61e003"
+      }
+    },
+    {
+      "source": "PDB",
+      "page": 8,
+      "pdf": "pdf/PDF_24/PDF_24/PDB_24CN_BCTN.pdf",
+      "images": [
+        "tmp/pdfs/B_context_identity_PDB-08.png"
+      ],
+      "pdf_sha256": "1957e2ee3f06dba63ac29c3ad462aa7ce8ee654e4a1b7e92589b6716c60a968e",
+      "image_hashes": {
+        "tmp/pdfs/B_context_identity_PDB-08.png": "bb525f50645c1307e00a709ecb96d6db79367cec7f62e22cac720480d7367745"
+      }
+    }
+  ],
+  "review_findings": {
+    "AGP22": "LNTT actual2025 65.9 billion (one decimal).",
+    "MGG5": "Net revenue2022 1976.8, after-tax profit2023 16.9, total assets2023 853.9, all billion.",
+    "PDB8": "Consolidated pre-tax profit actual2024 15656 and actual2023 3476 million; delta12180 million."
+  }
+}

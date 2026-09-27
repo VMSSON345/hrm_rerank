@@ -1,0 +1,8 @@
+{
+  "created_at": "2026-09-10T10:49:17.126068+00:00",
+  "parent_protocol": "config/finhrm_B_semantic_format_protocol_v2.json",
+  "prior_results": "reports/finhrm_B_semantic_format_results_v2.json",
+  "diagnosis": "Number-format UNKNOWN was added to source provenance and thus removed a structurally locatable cell from mapping cardinality. BSD acceptance did not prove equivalence of page6/9.",
+  "repair": "Separate physical location validity from numeric interpretation. Retain physically located alternatives with unknown number formats. Check semantic contradictions before numeric uncertainty so unrelated role/year alternatives cannot create false ambiguity.",
+  "evaluation": "Same34 B requests and immutable references. Preserve old18 accepted; BSD may remain withheld unless all relevant alternatives are resolved. No gains claimed merely for matching a source number. No OCR/training."
+}

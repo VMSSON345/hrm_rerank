@@ -1,0 +1,75 @@
+{
+  "schema": "finhrm-v14.1-semantic-program-search-precommit-v1",
+  "status": "FROZEN_BEFORE_V14_1_RUNTIME_CHANGES",
+  "created_at": "2026-08-31",
+  "objective": "Improve report-independent Vietnamese evidence retrieval and diverse variable-arity program recall without weakening the symbolic public-answer gate.",
+  "parent_protocol": {
+    "path": "config/finhrm_v14_development_protocol_precommit_v1.json",
+    "sha256": "c22c1179982197f4da992786d8c7fedcbc118c7de5c8479f05d108b04894790d"
+  },
+  "development_inputs": [
+    {
+      "path": "data/tmp/v14_development_v1/train_sum_n_augmented.jsonl",
+      "sha256": "eb5ca8c4c53b52d64c2d79533c89a5d4672953247f164cdf57e5561fca6b02e6",
+      "role": "TRAIN_ONLY"
+    },
+    {
+      "path": "data/tmp/v14_development_v1/validation.jsonl",
+      "sha256": "3ddcb5e0a88e431787133b36edacd28a4bbb8b0fd2d1ac29494c0e9ffeec0758",
+      "role": "GATE_DEVELOPMENT_ONLY"
+    }
+  ],
+  "forbidden_inputs": [
+    "data/test.jsonl",
+    "data/canonical_v13_v1/test.jsonl",
+    "contents, OCR, QA gold or inference from the V14 protected-source manifest"
+  ],
+  "baseline_runtime": {
+    "src/hrm_finance_qa/document_hrm.py": "e7fd8c7ce16ae65fc4c53ab227401baf66dee8d446d5ce2d2c535d697f698f0e",
+    "src/hrm_finance_qa/dense_retrieval.py": "6896d217e79b730f0c8555c0b4d8cf8b72fa722cf3af6a1f06093a318e577dc3",
+    "src/hrm_finance_qa/financial_hrm_features.py": "ab1eab7c83983a96a84724ba4dab77eb1bcef5cdb0160632eb11a9f274c9279f",
+    "src/hrm_finance_qa/question_planner.py": "9731bfa8ddc4459bb16cf587a55435786dbb85bfac4d36915498cdcc41910eba",
+    "src/hrm_finance_qa/program_data.py": "f57c4d9c6836cd2d68f5b4114e422087943b92df0fa818c46d8e6e4d72fcae21",
+    "src/hrm_finance_qa/evaluation_metrics.py": "2a3b19f9ae8f08f9e9742c094e874af7c28d54cfb7838b1c39e02b5d1e6a7a76",
+    "src/hrm_finance_qa/cli.py": "520c5ba69647e038e2bd9824e6ebc718482c16ac6591755d19d4b4b35054d6ea",
+    "requirements.txt": "0b5c4175ad1108c6ce101a5385d0d7e5b870f82020b8a3bcd69328328932b852"
+  },
+  "encoder_arms": {
+    "primary": {
+      "model": "bkai-foundation-models/vietnamese-bi-encoder",
+      "revision": "84f9d9ada0d1a3c37557398b9ae9fcedcdf40be0",
+      "backend": "sentence_transformers",
+      "raw_dimension": 768,
+      "word_segmentation": "pyvi",
+      "adapter": "layernorm_linear_l2_768_to_384_v1"
+    },
+    "controls": [
+      "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+      "intfloat/multilingual-e5-base"
+    ]
+  },
+  "implementation_scope": [
+    "versioned encoder/revision/preprocessing/template/adapter cache identity",
+    "trainable LayerNorm plus Linear semantic adapter with L2 normalization",
+    "relative period-role HRM features with schema-compatible checkpoint loading",
+    "train-only contrastive hard-negative construction",
+    "per-slot candidate pools and set-aware SUM_N beam",
+    "canonical physical-set deduplication and diverse top-program ordering",
+    "three-stage candidate/generation/ranking diagnostics"
+  ],
+  "invariants": [
+    "no company, filename, page constant, question literal, expected value or magnitude heuristic",
+    "no weakening of metric, period, role, entity, unit, provenance, ambiguity or proof gates",
+    "symbolic verification remains the final answer authority",
+    "V2 and V13 evaluators, reports and frozen checkpoints remain byte-identical",
+    "contrastive augmentation is train-only and company/source/evidence disjoint from validation",
+    "protected evaluation remains unopened until a candidate is frozen"
+  ],
+  "development_gates": {
+    "operand_candidate_recall_at_20_minimum": 0.95,
+    "operand_recall_at_10_minimum": 0.95,
+    "accepted_wrong_maximum": 0,
+    "source_errors_maximum": 0,
+    "notice_exact_required": "14/14"
+  }
+}

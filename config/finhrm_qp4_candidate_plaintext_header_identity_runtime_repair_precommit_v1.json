@@ -1,0 +1,1188 @@
+{
+  "schema": "finhrm-qp4-candidate-plaintext-header-identity-runtime-repair-precommit-v1",
+  "created_at": "2026-08-28T16:03:22.244614+07:00",
+  "classification": "candidate_plaintext_header_identity_repair_preclosure_precommit_only",
+  "status": "PASS",
+  "governance": {
+    "head": "ca83acc4e0dfa2e4c0167a9324c2855ec81532b7",
+    "candidate_stage": "REOPENED_ONLY_FOR_GENERIC_PLAINTEXT_HEADER_IDENTITY",
+    "binding_stage": "NOT_EVALUABLE / zero eligible denominator",
+    "failed_sub1000_repair": "REVERTED / NON-GOVERNING",
+    "runtime_changed_during_precommit": "ONLY_AUTHORIZED_FAILED_DELTA_REVERT",
+    "deterministic_candidate_baseline": "CLOSED",
+    "determinism_repairs_preserved": [
+      "_fuzzy_content_overlap sorted(expected)",
+      "_ocr_row_metric_score sorted(expected)"
+    ]
+  },
+  "inputs": [
+    {
+      "path": "reports/finhrm_qp4_post_question_surface_post_cache_residual_coverage_cohort_build_v1.json",
+      "bytes": 40607,
+      "sha256": "e084ec16312488c1badb5b645cfdf135a623cf89486d0f189648404fc5de35e6"
+    },
+    {
+      "path": "reports/finhrm_qp4_candidate_plaintext_sub1000_deterministic_pre_edit_baseline_v1.json",
+      "bytes": 53029211,
+      "sha256": "0ec3f5736d2b0420c4f4f2ca1deb25e02d486d13057924810970725c04196702"
+    },
+    {
+      "path": "reports/finhrm_qp4_candidate_plaintext_sub1000_runtime_repair_post_evaluation_v1.json",
+      "bytes": 53029123,
+      "sha256": "a52b400d81bbf7b0e1c0831a684422c46a45763231f363b6ecacdcc8550e220c"
+    }
+  ],
+  "cohort": {
+    "path": "reports/finhrm_qp4_post_question_surface_post_cache_residual_coverage_cohort_build_v1.json",
+    "sha256": "e084ec16312488c1badb5b645cfdf135a623cf89486d0f189648404fc5de35e6",
+    "positive_target_universe": 60,
+    "universe_id_order_sha256": "1512b981af735e01aec5fd05e3b88a4fe74ff070895a426188a62f711a840f1e"
+  },
+  "failed_repair_disposition": {
+    "classification": "ORIGINAL_CAUSAL_HYPOTHESIS_INCOMPLETE",
+    "repair_accepted": false,
+    "reverted": true,
+    "failed_post_artifact_sha256": "a52b400d81bbf7b0e1c0831a684422c46a45763231f363b6ecacdcc8550e220c",
+    "cluster_1a_physical_support": "0/15 -> 0/15",
+    "cluster_1b_physical_support": "0/15 -> 0/15",
+    "first_remaining_failure": "_nearby_plaintext_column_labels returns []; cardinality guard returns empty context"
+  },
+  "repair_scope": {
+    "runtime_file": "src/hrm_finance_qa/program_data.py",
+    "pre_repair_sha256": "668b4aa15448cc544a0c2c4539401cd7ad4af0c99a16b1ae787b1b12c56e35b8",
+    "authorized_functions": [
+      "_plaintext_financial_row_context",
+      "_nearby_plaintext_column_labels",
+      "_flattened_header_slot_sources"
+    ],
+    "pre_repair_function_sha256": {
+      "_plaintext_financial_row_context": "e3ce84521c1d493004f7168f51ea226a64d03833f327ecf2a0fb29ff667dd235",
+      "_nearby_plaintext_column_labels": "b34dd37caae99708825a117e81aa886b97b9b795362e6e38b1a1969e3d7c634c",
+      "_flattened_header_slot_sources": "d72171d918975110012088b8baa4a00d383b7e790f68faa8e5866d518d684c49",
+      "_fuzzy_content_overlap": "85095600b2127c94525111f1c8e126443247ea5c039a85317596058df6b19724",
+      "_ocr_row_metric_score": "e92c2cedced559c51a84f78198c165bb5c6c77373d2b61f8986e88f51e072bc7"
+    },
+    "signature_changes_allowed": false,
+    "new_imports_or_helpers_allowed": false,
+    "scope_necessity": {
+      "_plaintext_financial_row_context": "select only source-structural financial cell spans, exclude row ordinals/noise, and emit identity only after complete proof",
+      "_nearby_plaintext_column_labels": "canonicalize TH/KH, full roles, bare years, split headers, and ratio spanners",
+      "_flattened_header_slot_sources": "retain source-derived positional header provenance so the existing complete role inventory can be produced"
+    },
+    "forbidden": [
+      "all other functions",
+      "retrieval/MinerU",
+      "Binding",
+      "models",
+      "source-span representation",
+      "physical-support matcher",
+      "quota/ranking",
+      "determinism code",
+      "company/file/page/year/value/case-specific rules"
+    ]
+  },
+  "generic_invariant": {
+    "statement": "Emit plaintext structured identity only when source-derived contiguous header evidence gives a complete one-to-one mapping between structural financial-cell spans and canonical role/period columns.",
+    "magnitude": "Magnitude is neither admission proof nor a reason to discard an accepted structural financial cell.",
+    "abbreviations": "TH/KH and full roles require explicit source header evidence.",
+    "fragments": "Join adjacent split fragments only when source order and structural continuity hold.",
+    "noise": "Exclude row ordinals, dates, identifiers, and unrelated numeric text from financial-cell cardinality.",
+    "inventory": "Incomplete, conflicting, non-bijective, or provenance-free inventories emit no structured identity."
+  },
+  "cohorts": {
+    "repair": {
+      "cluster_1a": {
+        "name": "base_target_plaintext_header_identity",
+        "count": 15,
+        "id_order_sha256": "ec0bcff9ade17ed5dd75075281e1bfdf23dc4eb2c7d67b7f8e77f67deada6cd3",
+        "diversity": {
+          "cases": 15,
+          "companies": 3,
+          "sources": 3,
+          "document_layouts": 3,
+          "table_layouts": 3,
+          "extraction_families": 2
+        },
+        "case_ids": [
+          "qp4-rcc-agr-total-expense:base_target:canonical",
+          "qp4-rcc-agr-total-expense:base_target:paraphrase_1",
+          "qp4-rcc-agr-total-expense:base_target:long_clause",
+          "qp4-rcc-agr-total-expense:base_target:clause_reordered",
+          "qp4-rcc-agr-total-expense:base_target:no_diacritics",
+          "qp4-rcc-hub-parent-profit-after-tax:base_target:canonical",
+          "qp4-rcc-hub-parent-profit-after-tax:base_target:paraphrase_1",
+          "qp4-rcc-hub-parent-profit-after-tax:base_target:long_clause",
+          "qp4-rcc-hub-parent-profit-after-tax:base_target:clause_reordered",
+          "qp4-rcc-hub-parent-profit-after-tax:base_target:no_diacritics",
+          "qp4-rcc-vnl-profit-before-tax:base_target:canonical",
+          "qp4-rcc-vnl-profit-before-tax:base_target:paraphrase_1",
+          "qp4-rcc-vnl-profit-before-tax:base_target:long_clause",
+          "qp4-rcc-vnl-profit-before-tax:base_target:clause_reordered",
+          "qp4-rcc-vnl-profit-before-tax:base_target:no_diacritics"
+        ]
+      },
+      "cluster_1b": {
+        "name": "reference_target_plaintext_header_identity",
+        "count": 15,
+        "id_order_sha256": "7919789b3092a601b77d5d3e30c41d57b3c975b80d7adeb105fc2ba3dcdc89f3",
+        "diversity": {
+          "cases": 15,
+          "companies": 3,
+          "sources": 3,
+          "document_layouts": 3,
+          "table_layouts": 3,
+          "extraction_families": 2
+        },
+        "case_ids": [
+          "qp4-rcc-agr-total-expense:reference_base_mutation_target:canonical",
+          "qp4-rcc-agr-total-expense:reference_base_mutation_target:paraphrase_1",
+          "qp4-rcc-agr-total-expense:reference_base_mutation_target:long_clause",
+          "qp4-rcc-agr-total-expense:reference_base_mutation_target:clause_reordered",
+          "qp4-rcc-agr-total-expense:reference_base_mutation_target:no_diacritics",
+          "qp4-rcc-hub-parent-profit-after-tax:reference_base_mutation_target:canonical",
+          "qp4-rcc-hub-parent-profit-after-tax:reference_base_mutation_target:paraphrase_1",
+          "qp4-rcc-hub-parent-profit-after-tax:reference_base_mutation_target:long_clause",
+          "qp4-rcc-hub-parent-profit-after-tax:reference_base_mutation_target:clause_reordered",
+          "qp4-rcc-hub-parent-profit-after-tax:reference_base_mutation_target:no_diacritics",
+          "qp4-rcc-vnl-profit-before-tax:reference_base_mutation_target:canonical",
+          "qp4-rcc-vnl-profit-before-tax:reference_base_mutation_target:paraphrase_1",
+          "qp4-rcc-vnl-profit-before-tax:reference_base_mutation_target:long_clause",
+          "qp4-rcc-vnl-profit-before-tax:reference_base_mutation_target:clause_reordered",
+          "qp4-rcc-vnl-profit-before-tax:reference_base_mutation_target:no_diacritics"
+        ]
+      }
+    },
+    "pic_ict_scg_regression": {
+      "count": 30,
+      "id_order_sha256": "6392187e23c68b310b421fd62f753c145c8fe4b9c7f0ee473af92ecbc7d030d9",
+      "case_ids": [
+        "qp4-rcc-ict-total-revenue:base_target:canonical",
+        "qp4-rcc-ict-total-revenue:base_target:paraphrase_1",
+        "qp4-rcc-ict-total-revenue:base_target:long_clause",
+        "qp4-rcc-ict-total-revenue:base_target:clause_reordered",
+        "qp4-rcc-ict-total-revenue:base_target:no_diacritics",
+        "qp4-rcc-ict-total-revenue:reference_base_mutation_target:canonical",
+        "qp4-rcc-ict-total-revenue:reference_base_mutation_target:paraphrase_1",
+        "qp4-rcc-ict-total-revenue:reference_base_mutation_target:long_clause",
+        "qp4-rcc-ict-total-revenue:reference_base_mutation_target:clause_reordered",
+        "qp4-rcc-ict-total-revenue:reference_base_mutation_target:no_diacritics",
+        "qp4-rcc-pic-total-revenue:base_target:canonical",
+        "qp4-rcc-pic-total-revenue:base_target:paraphrase_1",
+        "qp4-rcc-pic-total-revenue:base_target:long_clause",
+        "qp4-rcc-pic-total-revenue:base_target:clause_reordered",
+        "qp4-rcc-pic-total-revenue:base_target:no_diacritics",
+        "qp4-rcc-pic-total-revenue:reference_base_mutation_target:canonical",
+        "qp4-rcc-pic-total-revenue:reference_base_mutation_target:paraphrase_1",
+        "qp4-rcc-pic-total-revenue:reference_base_mutation_target:long_clause",
+        "qp4-rcc-pic-total-revenue:reference_base_mutation_target:clause_reordered",
+        "qp4-rcc-pic-total-revenue:reference_base_mutation_target:no_diacritics",
+        "qp4-rcc-scg-total-revenue:base_target:canonical",
+        "qp4-rcc-scg-total-revenue:base_target:paraphrase_1",
+        "qp4-rcc-scg-total-revenue:base_target:long_clause",
+        "qp4-rcc-scg-total-revenue:base_target:clause_reordered",
+        "qp4-rcc-scg-total-revenue:base_target:no_diacritics",
+        "qp4-rcc-scg-total-revenue:reference_base_mutation_target:canonical",
+        "qp4-rcc-scg-total-revenue:reference_base_mutation_target:paraphrase_1",
+        "qp4-rcc-scg-total-revenue:reference_base_mutation_target:long_clause",
+        "qp4-rcc-scg-total-revenue:reference_base_mutation_target:clause_reordered",
+        "qp4-rcc-scg-total-revenue:reference_base_mutation_target:no_diacritics"
+      ],
+      "repair_credit": false,
+      "required": "exact no worsening"
+    },
+    "prior_candidate_regression": {
+      "count": 50,
+      "id_order_sha256": "5ed2c03ccd90133b7d7118ac303547eaf281e4bc078dd537b9008ee6cef6c6cf",
+      "case_ids": [
+        "synthetic-document-000005::surface::SHORT_LONG_EQUIVALENT",
+        "synthetic-document-000005::surface::DISCOURSE_PREFIX_SUFFIX",
+        "synthetic-document-000005::surface::CLAUSE_PERMUTATION",
+        "synthetic-document-000005::surface::PUNCTUATION_VARIANT",
+        "synthetic-document-000005::surface::NO_DIACRITICS",
+        "synthetic-document-000005::surface::BILINGUAL_PARENTHETICAL",
+        "synthetic-document-000005::surface::IRRELEVANT_DISTRACTOR_CLAUSE",
+        "synthetic-document-000005::counterfactual::OPERAND_YEAR",
+        "synthetic-document-000005::counterfactual::ENTITY_SCOPE",
+        "synthetic-document-000005::counterfactual::UNIT_SCALE",
+        "synthetic-document-000012::surface::SHORT_LONG_EQUIVALENT",
+        "synthetic-document-000012::surface::DISCOURSE_PREFIX_SUFFIX",
+        "synthetic-document-000012::surface::CLAUSE_PERMUTATION",
+        "synthetic-document-000012::surface::PUNCTUATION_VARIANT",
+        "synthetic-document-000012::surface::NO_DIACRITICS",
+        "synthetic-document-000012::surface::BILINGUAL_PARENTHETICAL",
+        "synthetic-document-000012::surface::IRRELEVANT_DISTRACTOR_CLAUSE",
+        "synthetic-document-000012::counterfactual::OPERAND_YEAR",
+        "synthetic-document-000012::counterfactual::ENTITY_SCOPE",
+        "synthetic-document-000012::counterfactual::UNIT_SCALE",
+        "synthetic-document-000066::surface::SHORT_LONG_EQUIVALENT",
+        "synthetic-document-000066::surface::DISCOURSE_PREFIX_SUFFIX",
+        "synthetic-document-000066::surface::CLAUSE_PERMUTATION",
+        "synthetic-document-000066::surface::PUNCTUATION_VARIANT",
+        "synthetic-document-000066::surface::NO_DIACRITICS",
+        "synthetic-document-000066::surface::BILINGUAL_PARENTHETICAL",
+        "synthetic-document-000066::surface::IRRELEVANT_DISTRACTOR_CLAUSE",
+        "synthetic-document-000066::counterfactual::OPERAND_YEAR",
+        "synthetic-document-000066::counterfactual::ENTITY_SCOPE",
+        "synthetic-document-000066::counterfactual::UNIT_SCALE",
+        "synthetic-document-000014::surface::SHORT_LONG_EQUIVALENT",
+        "synthetic-document-000014::surface::DISCOURSE_PREFIX_SUFFIX",
+        "synthetic-document-000014::surface::CLAUSE_PERMUTATION",
+        "synthetic-document-000014::surface::PUNCTUATION_VARIANT",
+        "synthetic-document-000014::surface::NO_DIACRITICS",
+        "synthetic-document-000014::surface::BILINGUAL_PARENTHETICAL",
+        "synthetic-document-000014::surface::IRRELEVANT_DISTRACTOR_CLAUSE",
+        "synthetic-document-000014::counterfactual::OPERAND_YEAR",
+        "synthetic-document-000014::counterfactual::ENTITY_SCOPE",
+        "synthetic-document-000014::counterfactual::UNIT_SCALE",
+        "synthetic-document-000106::surface::SHORT_LONG_EQUIVALENT",
+        "synthetic-document-000106::surface::DISCOURSE_PREFIX_SUFFIX",
+        "synthetic-document-000106::surface::CLAUSE_PERMUTATION",
+        "synthetic-document-000106::surface::PUNCTUATION_VARIANT",
+        "synthetic-document-000106::surface::NO_DIACRITICS",
+        "synthetic-document-000106::surface::BILINGUAL_PARENTHETICAL",
+        "synthetic-document-000106::surface::IRRELEVANT_DISTRACTOR_CLAUSE",
+        "synthetic-document-000106::counterfactual::OPERAND_YEAR",
+        "synthetic-document-000106::counterfactual::ENTITY_SCOPE",
+        "synthetic-document-000106::counterfactual::UNIT_SCALE"
+      ],
+      "projection_set_sha256": "80aae1474cefc14392cb80408fb6a4e7a642d649ab7faba6abdc790cff33646c",
+      "repair_credit": false,
+      "required": "exact no worsening"
+    }
+  },
+  "layout_subsignatures": {
+    "qp4-rcc-agr-total-expense": {
+      "name": "AGR abbreviated bare-year split-ratio-spanner",
+      "count": 10,
+      "case_ids": [
+        "qp4-rcc-agr-total-expense:base_target:canonical",
+        "qp4-rcc-agr-total-expense:base_target:paraphrase_1",
+        "qp4-rcc-agr-total-expense:base_target:long_clause",
+        "qp4-rcc-agr-total-expense:base_target:clause_reordered",
+        "qp4-rcc-agr-total-expense:base_target:no_diacritics",
+        "qp4-rcc-agr-total-expense:reference_base_mutation_target:canonical",
+        "qp4-rcc-agr-total-expense:reference_base_mutation_target:paraphrase_1",
+        "qp4-rcc-agr-total-expense:reference_base_mutation_target:long_clause",
+        "qp4-rcc-agr-total-expense:reference_base_mutation_target:clause_reordered",
+        "qp4-rcc-agr-total-expense:reference_base_mutation_target:no_diacritics"
+      ],
+      "expanded_match_count": 5,
+      "current_column_label_count": 0,
+      "first_return_predicate": "len(column_labels) != len(expanded_matches)",
+      "features": [
+        "TH/KH abbreviations",
+        "bare years",
+        "split comparison spanner"
+      ],
+      "required_functions": [
+        "_plaintext_financial_row_context",
+        "_nearby_plaintext_column_labels",
+        "_flattened_header_slot_sources"
+      ],
+      "id_order_sha256": "288ec6a20fe4e3fbc2ba0689ee5a4f8b5d6e2922699f546e779f9be382f518fe"
+    },
+    "qp4-rcc-hub-parent-profit-after-tax": {
+      "name": "HUB split-role header with row ordinal",
+      "count": 10,
+      "case_ids": [
+        "qp4-rcc-hub-parent-profit-after-tax:base_target:canonical",
+        "qp4-rcc-hub-parent-profit-after-tax:base_target:paraphrase_1",
+        "qp4-rcc-hub-parent-profit-after-tax:base_target:long_clause",
+        "qp4-rcc-hub-parent-profit-after-tax:base_target:clause_reordered",
+        "qp4-rcc-hub-parent-profit-after-tax:base_target:no_diacritics",
+        "qp4-rcc-hub-parent-profit-after-tax:reference_base_mutation_target:canonical",
+        "qp4-rcc-hub-parent-profit-after-tax:reference_base_mutation_target:paraphrase_1",
+        "qp4-rcc-hub-parent-profit-after-tax:reference_base_mutation_target:long_clause",
+        "qp4-rcc-hub-parent-profit-after-tax:reference_base_mutation_target:clause_reordered",
+        "qp4-rcc-hub-parent-profit-after-tax:reference_base_mutation_target:no_diacritics"
+      ],
+      "expanded_match_count": 6,
+      "structural_financial_cell_count": 5,
+      "current_column_label_count": 0,
+      "first_return_predicate": "len(column_labels) != len(expanded_matches)",
+      "features": [
+        "split full role token",
+        "TH/KH ratio fragments",
+        "leading row ordinal"
+      ],
+      "required_functions": [
+        "_plaintext_financial_row_context",
+        "_nearby_plaintext_column_labels",
+        "_flattened_header_slot_sources"
+      ],
+      "id_order_sha256": "8599ef0f079cb69569e5f011cdb6e1fb11bcc7fa09e9d450cc4ce5d6d78fbacb"
+    },
+    "qp4-rcc-vnl-profit-before-tax": {
+      "name": "VNL fragment-continuous interleaved-ratio header",
+      "count": 10,
+      "case_ids": [
+        "qp4-rcc-vnl-profit-before-tax:base_target:canonical",
+        "qp4-rcc-vnl-profit-before-tax:base_target:paraphrase_1",
+        "qp4-rcc-vnl-profit-before-tax:base_target:long_clause",
+        "qp4-rcc-vnl-profit-before-tax:base_target:clause_reordered",
+        "qp4-rcc-vnl-profit-before-tax:base_target:no_diacritics",
+        "qp4-rcc-vnl-profit-before-tax:reference_base_mutation_target:canonical",
+        "qp4-rcc-vnl-profit-before-tax:reference_base_mutation_target:paraphrase_1",
+        "qp4-rcc-vnl-profit-before-tax:reference_base_mutation_target:long_clause",
+        "qp4-rcc-vnl-profit-before-tax:reference_base_mutation_target:clause_reordered",
+        "qp4-rcc-vnl-profit-before-tax:reference_base_mutation_target:no_diacritics"
+      ],
+      "expanded_match_count": 5,
+      "current_column_label_count": 0,
+      "first_return_predicate": "len(column_labels) != len(expanded_matches)",
+      "features": [
+        "chunk-boundary header fragment",
+        "split full roles",
+        "bare years",
+        "interleaved ratios"
+      ],
+      "required_functions": [
+        "_plaintext_financial_row_context",
+        "_nearby_plaintext_column_labels",
+        "_flattened_header_slot_sources"
+      ],
+      "id_order_sha256": "1c5260f815ecc791e675d160804bba37e61b8d2a2002e22abd9600530948c701"
+    }
+  },
+  "control_category_counts": {
+    "th_kh_abbreviations": 2,
+    "full_role_forms": 2,
+    "split_headers": 2,
+    "bare_years": 2,
+    "ratio_spanners": 2,
+    "row_ordinals": 2,
+    "numeric_noise": 2,
+    "incomplete_headers": 2
+  },
+  "controls": [
+    {
+      "control_id": "th-kh-01",
+      "category": "th_kh_abbreviations",
+      "header_fragments": [
+        "Chi tieu TH 2023 KH 2024 TH 2024"
+      ],
+      "row_text": "Tong chi phi 177,8 215,0 245,6",
+      "financial_cell_spans": [
+        [
+          14,
+          20
+        ],
+        [
+          20,
+          26
+        ],
+        [
+          26,
+          32
+        ]
+      ],
+      "target_span": [
+        20,
+        26
+      ],
+      "canonical_columns": [
+        {
+          "role": "actual",
+          "period": "2023"
+        },
+        {
+          "role": "plan",
+          "period": "2024"
+        },
+        {
+          "role": "actual",
+          "period": "2024"
+        }
+      ],
+      "source_derived": true,
+      "header_continuity": "COMPLETE",
+      "roles_complete": true,
+      "periods_complete": true,
+      "inventory_consistent": true,
+      "expected_emit": true
+    },
+    {
+      "control_id": "th-kh-02",
+      "category": "th_kh_abbreviations",
+      "header_fragments": [
+        "TH 2023 / TH 2022",
+        "TH 2023 / KH 2023"
+      ],
+      "row_text": "Loi nhuan 39,98 35,00 46,42 16,11% 32,63%",
+      "financial_cell_spans": [
+        [
+          10,
+          16
+        ],
+        [
+          16,
+          22
+        ],
+        [
+          22,
+          28
+        ],
+        [
+          28,
+          34
+        ],
+        [
+          34,
+          40
+        ]
+      ],
+      "target_span": [
+        22,
+        28
+      ],
+      "canonical_columns": [
+        {
+          "role": "actual",
+          "period": "2022"
+        },
+        {
+          "role": "plan",
+          "period": "2023"
+        },
+        {
+          "role": "actual",
+          "period": "2023"
+        },
+        {
+          "role": "actual_to_prior_ratio",
+          "period": "2023"
+        },
+        {
+          "role": "actual_to_plan_ratio",
+          "period": "2023"
+        }
+      ],
+      "source_derived": true,
+      "header_continuity": "COMPLETE",
+      "roles_complete": true,
+      "periods_complete": true,
+      "inventory_consistent": true,
+      "expected_emit": true
+    },
+    {
+      "control_id": "full-role-01",
+      "category": "full_role_forms",
+      "header_fragments": [
+        "Thuc hien 2023 Ke hoach 2024 Thuc hien 2024"
+      ],
+      "row_text": "Tong chi phi 177,8 215,0 245,6",
+      "financial_cell_spans": [
+        [
+          14,
+          20
+        ],
+        [
+          20,
+          26
+        ],
+        [
+          26,
+          32
+        ]
+      ],
+      "target_span": [
+        26,
+        32
+      ],
+      "canonical_columns": [
+        {
+          "role": "actual",
+          "period": "2023"
+        },
+        {
+          "role": "plan",
+          "period": "2024"
+        },
+        {
+          "role": "actual",
+          "period": "2024"
+        }
+      ],
+      "source_derived": true,
+      "header_continuity": "COMPLETE",
+      "roles_complete": true,
+      "periods_complete": true,
+      "inventory_consistent": true,
+      "expected_emit": true
+    },
+    {
+      "control_id": "full-role-02",
+      "category": "full_role_forms",
+      "header_fragments": [
+        "Thuc hien 2022",
+        "Ke hoach 2023",
+        "Thuc hien 2023"
+      ],
+      "row_text": "Loi nhuan 39,98 35,00 46,42",
+      "financial_cell_spans": [
+        [
+          10,
+          16
+        ],
+        [
+          16,
+          22
+        ],
+        [
+          22,
+          28
+        ]
+      ],
+      "target_span": [
+        10,
+        16
+      ],
+      "canonical_columns": [
+        {
+          "role": "actual",
+          "period": "2022"
+        },
+        {
+          "role": "plan",
+          "period": "2023"
+        },
+        {
+          "role": "actual",
+          "period": "2023"
+        }
+      ],
+      "source_derived": true,
+      "header_continuity": "COMPLETE",
+      "roles_complete": true,
+      "periods_complete": true,
+      "inventory_consistent": true,
+      "expected_emit": true
+    },
+    {
+      "control_id": "split-header-01",
+      "category": "split_headers",
+      "header_fragments": [
+        "Thuc",
+        "hien",
+        "2023",
+        "Ke hoach",
+        "2024",
+        "Thuc hien",
+        "2024"
+      ],
+      "row_text": "Tong chi phi 177,8 215,0 245,6",
+      "financial_cell_spans": [
+        [
+          14,
+          20
+        ],
+        [
+          20,
+          26
+        ],
+        [
+          26,
+          32
+        ]
+      ],
+      "target_span": [
+        20,
+        26
+      ],
+      "canonical_columns": [
+        {
+          "role": "actual",
+          "period": "2023"
+        },
+        {
+          "role": "plan",
+          "period": "2024"
+        },
+        {
+          "role": "actual",
+          "period": "2024"
+        }
+      ],
+      "source_derived": true,
+      "header_continuity": "FRAGMENT_CONTINUOUS",
+      "roles_complete": true,
+      "periods_complete": true,
+      "inventory_consistent": true,
+      "expected_emit": true
+    },
+    {
+      "control_id": "split-header-02",
+      "category": "split_headers",
+      "header_fragments": [
+        "Thuc hien 2023",
+        "/",
+        "Ke hoach 2023",
+        "Thuc hien",
+        "2022"
+      ],
+      "row_text": "Lai truoc thue 43,70 51,00 86% 53,90 81%",
+      "financial_cell_spans": [
+        [
+          15,
+          21
+        ],
+        [
+          21,
+          27
+        ],
+        [
+          27,
+          30
+        ],
+        [
+          31,
+          37
+        ],
+        [
+          37,
+          40
+        ]
+      ],
+      "target_span": [
+        15,
+        21
+      ],
+      "canonical_columns": [
+        {
+          "role": "actual",
+          "period": "2023"
+        },
+        {
+          "role": "plan",
+          "period": "2023"
+        },
+        {
+          "role": "actual_to_plan_ratio",
+          "period": "2023"
+        },
+        {
+          "role": "actual",
+          "period": "2022"
+        },
+        {
+          "role": "actual_to_prior_ratio",
+          "period": "2023"
+        }
+      ],
+      "source_derived": true,
+      "header_continuity": "FRAGMENT_CONTINUOUS",
+      "roles_complete": true,
+      "periods_complete": true,
+      "inventory_consistent": true,
+      "expected_emit": true
+    },
+    {
+      "control_id": "bare-year-01",
+      "category": "bare_years",
+      "header_fragments": [
+        "TH 2023",
+        "KH 2024",
+        "TH 2024"
+      ],
+      "row_text": "Tong chi phi 177,8 215,0 245,6",
+      "financial_cell_spans": [
+        [
+          14,
+          20
+        ],
+        [
+          20,
+          26
+        ],
+        [
+          26,
+          32
+        ]
+      ],
+      "target_span": [
+        14,
+        20
+      ],
+      "canonical_columns": [
+        {
+          "role": "actual",
+          "period": "2023"
+        },
+        {
+          "role": "plan",
+          "period": "2024"
+        },
+        {
+          "role": "actual",
+          "period": "2024"
+        }
+      ],
+      "source_derived": true,
+      "header_continuity": "COMPLETE",
+      "roles_complete": true,
+      "periods_complete": true,
+      "inventory_consistent": true,
+      "expected_emit": true
+    },
+    {
+      "control_id": "bare-year-02",
+      "category": "bare_years",
+      "header_fragments": [
+        "Thuc hien 2022",
+        "Ke hoach 2023",
+        "Thuc hien 2023"
+      ],
+      "row_text": "Loi nhuan 39,98 35,00 46,42",
+      "financial_cell_spans": [
+        [
+          10,
+          16
+        ],
+        [
+          16,
+          22
+        ],
+        [
+          22,
+          28
+        ]
+      ],
+      "target_span": [
+        16,
+        22
+      ],
+      "canonical_columns": [
+        {
+          "role": "actual",
+          "period": "2022"
+        },
+        {
+          "role": "plan",
+          "period": "2023"
+        },
+        {
+          "role": "actual",
+          "period": "2023"
+        }
+      ],
+      "source_derived": true,
+      "header_continuity": "COMPLETE",
+      "roles_complete": true,
+      "periods_complete": true,
+      "inventory_consistent": true,
+      "expected_emit": true
+    },
+    {
+      "control_id": "ratio-spanner-01",
+      "category": "ratio_spanners",
+      "header_fragments": [
+        "Thuc hien 2024 so voi",
+        "TH 2023 KH 2024"
+      ],
+      "row_text": "Tong chi phi 177,8 215,0 245,6 138% 114%",
+      "financial_cell_spans": [
+        [
+          14,
+          20
+        ],
+        [
+          20,
+          26
+        ],
+        [
+          26,
+          32
+        ],
+        [
+          32,
+          36
+        ],
+        [
+          37,
+          41
+        ]
+      ],
+      "target_span": [
+        32,
+        36
+      ],
+      "canonical_columns": [
+        {
+          "role": "actual",
+          "period": "2023"
+        },
+        {
+          "role": "plan",
+          "period": "2024"
+        },
+        {
+          "role": "actual",
+          "period": "2024"
+        },
+        {
+          "role": "actual_to_prior_ratio",
+          "period": "2024"
+        },
+        {
+          "role": "actual_to_plan_ratio",
+          "period": "2024"
+        }
+      ],
+      "source_derived": true,
+      "header_continuity": "FRAGMENT_CONTINUOUS",
+      "roles_complete": true,
+      "periods_complete": true,
+      "inventory_consistent": true,
+      "expected_emit": true
+    },
+    {
+      "control_id": "ratio-spanner-02",
+      "category": "ratio_spanners",
+      "header_fragments": [
+        "TH 2023/",
+        "TH 2022",
+        "TH 2023/",
+        "KH 2023"
+      ],
+      "row_text": "Loi nhuan 39,98 35,00 46,42 16,11% 32,63%",
+      "financial_cell_spans": [
+        [
+          10,
+          16
+        ],
+        [
+          16,
+          22
+        ],
+        [
+          22,
+          28
+        ],
+        [
+          28,
+          34
+        ],
+        [
+          34,
+          40
+        ]
+      ],
+      "target_span": [
+        34,
+        40
+      ],
+      "canonical_columns": [
+        {
+          "role": "actual",
+          "period": "2022"
+        },
+        {
+          "role": "plan",
+          "period": "2023"
+        },
+        {
+          "role": "actual",
+          "period": "2023"
+        },
+        {
+          "role": "actual_to_prior_ratio",
+          "period": "2023"
+        },
+        {
+          "role": "actual_to_plan_ratio",
+          "period": "2023"
+        }
+      ],
+      "source_derived": true,
+      "header_continuity": "FRAGMENT_CONTINUOUS",
+      "roles_complete": true,
+      "periods_complete": true,
+      "inventory_consistent": true,
+      "expected_emit": true
+    },
+    {
+      "control_id": "row-ordinal-01",
+      "category": "row_ordinals",
+      "header_fragments": [
+        "TH 2022 KH 2023 TH 2023",
+        "TH 2023/TH 2022",
+        "TH 2023/KH 2023"
+      ],
+      "row_text": "3 Loi nhuan sau thue 39,98 35,00 46,42 16,11% 32,63%",
+      "financial_cell_spans": [
+        [
+          24,
+          30
+        ],
+        [
+          30,
+          36
+        ],
+        [
+          36,
+          42
+        ],
+        [
+          44,
+          50
+        ],
+        [
+          53,
+          59
+        ]
+      ],
+      "target_span": [
+        24,
+        30
+      ],
+      "canonical_columns": [
+        {
+          "role": "actual",
+          "period": "2022"
+        },
+        {
+          "role": "plan",
+          "period": "2023"
+        },
+        {
+          "role": "actual",
+          "period": "2023"
+        },
+        {
+          "role": "actual_to_prior_ratio",
+          "period": "2023"
+        },
+        {
+          "role": "actual_to_plan_ratio",
+          "period": "2023"
+        }
+      ],
+      "source_derived": true,
+      "header_continuity": "COMPLETE",
+      "roles_complete": true,
+      "periods_complete": true,
+      "inventory_consistent": true,
+      "expected_emit": true
+    },
+    {
+      "control_id": "row-ordinal-02",
+      "category": "row_ordinals",
+      "header_fragments": [
+        "TH 2023 KH 2024 TH 2024"
+      ],
+      "row_text": "01 Tong chi phi 177,8 215,0 245,6",
+      "financial_cell_spans": [
+        [
+          17,
+          23
+        ],
+        [
+          23,
+          29
+        ],
+        [
+          29,
+          35
+        ]
+      ],
+      "target_span": [
+        29,
+        35
+      ],
+      "canonical_columns": [
+        {
+          "role": "actual",
+          "period": "2023"
+        },
+        {
+          "role": "plan",
+          "period": "2024"
+        },
+        {
+          "role": "actual",
+          "period": "2024"
+        }
+      ],
+      "source_derived": true,
+      "header_continuity": "COMPLETE",
+      "roles_complete": true,
+      "periods_complete": true,
+      "inventory_consistent": true,
+      "expected_emit": true
+    },
+    {
+      "control_id": "numeric-noise-01",
+      "category": "numeric_noise",
+      "header_fragments": [
+        "Date 2024 03 06"
+      ],
+      "row_text": "RM 13:36:04 +07 00",
+      "financial_cell_spans": [],
+      "target_span": [
+        3,
+        5
+      ],
+      "canonical_columns": [],
+      "source_derived": false,
+      "header_continuity": "COMPLETE",
+      "roles_complete": false,
+      "periods_complete": false,
+      "inventory_consistent": false,
+      "expected_emit": false
+    },
+    {
+      "control_id": "numeric-noise-02",
+      "category": "numeric_noise",
+      "header_fragments": [
+        "Document metadata"
+      ],
+      "row_text": "Ma so 03 trang 44 muc 2",
+      "financial_cell_spans": [],
+      "target_span": [
+        6,
+        8
+      ],
+      "canonical_columns": [],
+      "source_derived": false,
+      "header_continuity": "COMPLETE",
+      "roles_complete": false,
+      "periods_complete": false,
+      "inventory_consistent": false,
+      "expected_emit": false
+    },
+    {
+      "control_id": "incomplete-header-01",
+      "category": "incomplete_headers",
+      "header_fragments": [
+        "TH 2023",
+        "2024"
+      ],
+      "row_text": "Tong chi phi 177,8 215,0",
+      "financial_cell_spans": [
+        [
+          14,
+          20
+        ],
+        [
+          20,
+          26
+        ]
+      ],
+      "target_span": [
+        14,
+        20
+      ],
+      "canonical_columns": [
+        {
+          "role": "actual",
+          "period": "2023"
+        },
+        {
+          "role": "",
+          "period": "2024"
+        }
+      ],
+      "source_derived": true,
+      "header_continuity": "COMPLETE",
+      "roles_complete": false,
+      "periods_complete": true,
+      "inventory_consistent": false,
+      "expected_emit": false
+    },
+    {
+      "control_id": "incomplete-header-02",
+      "category": "incomplete_headers",
+      "header_fragments": [
+        "TH 2023 KH 2024",
+        "conflicting TH 2024 KH 2024"
+      ],
+      "row_text": "Tong chi phi 177,8 215,0 245,6",
+      "financial_cell_spans": [
+        [
+          14,
+          20
+        ],
+        [
+          20,
+          26
+        ],
+        [
+          26,
+          32
+        ]
+      ],
+      "target_span": [
+        26,
+        32
+      ],
+      "canonical_columns": [
+        {
+          "role": "actual",
+          "period": "2023"
+        },
+        {
+          "role": "plan",
+          "period": "2024"
+        },
+        {
+          "role": "actual",
+          "period": "2024"
+        }
+      ],
+      "source_derived": true,
+      "header_continuity": "COMPLETE",
+      "roles_complete": true,
+      "periods_complete": true,
+      "inventory_consistent": false,
+      "expected_emit": false
+    }
+  ],
+  "baseline": {
+    "path": "reports/finhrm_qp4_candidate_plaintext_sub1000_deterministic_pre_edit_baseline_v1.json",
+    "bytes": 53029211,
+    "sha256": "0ec3f5736d2b0420c4f4f2ca1deb25e02d486d13057924810970725c04196702",
+    "runtime_sha256": "668b4aa15448cc544a0c2c4539401cd7ad4af0c99a16b1ae787b1b12c56e35b8",
+    "candidate_evaluations": 110,
+    "model_calls": 0,
+    "binding_calls": 0,
+    "current_universe_projection_set_sha256": "3c65b158387331bfd5c73a1c3a120afa4956e086c04acdb732bddbb685f2f680",
+    "cross_cohort_projection_set_sha256": "80aae1474cefc14392cb80408fb6a4e7a642d649ab7faba6abdc790cff33646c",
+    "combined_projection_set_sha256": "447cc3acf10b788b79d8803d00a46d6856eceb92955e57dd7cc9a079abb7cd1f",
+    "cluster_1a_physical_support": 0,
+    "cluster_1b_physical_support": 0
+  },
+  "locked_evaluation": {
+    "pre_materialized_candidate_evaluations": 110,
+    "post_current_universe": 60,
+    "post_prior_candidate_regression": 50,
+    "post_candidate_evaluations": 110,
+    "total_candidate_evaluations": 220,
+    "model_calls": 0,
+    "binding_calls": 0,
+    "adaptive_second_edit": false
+  },
+  "required_post_gates": {
+    "cluster_1a_complete_identity_and_physical_support": "15/15",
+    "cluster_1b_complete_identity_and_physical_support": "15/15",
+    "agr_hub_vnl_subsignatures": "each independently exact",
+    "pic_ict_scg_nonregression": "30/30",
+    "prior_candidate_nonregression": "50/50",
+    "controls": "16/16",
+    "physical_support_matcher": "unchanged"
+  },
+  "precommit_accounting": {
+    "candidate_calls": 0,
+    "model_calls": 0,
+    "binding_calls": 0,
+    "runtime_implementation_calls": 0,
+    "current_candidate_outputs_observed": 0
+  },
+  "artifacts": {
+    "harness": "scripts/run_qp4_candidate_plaintext_header_identity_runtime_repair_precommit_v1.py",
+    "config": "config/finhrm_qp4_candidate_plaintext_header_identity_runtime_repair_precommit_v1.json",
+    "markdown": "reports/finhrm_qp4_candidate_plaintext_header_identity_runtime_repair_precommit_v1.md",
+    "lock": "reports/finhrm_qp4_candidate_plaintext_header_identity_runtime_repair_precommit_lock_v1.json"
+  },
+  "runtime_implementation_authorized_if_static_preflight_passes": true,
+  "next_allowed_action": "QP4 CANDIDATE PLAINTEXT HEADER-IDENTITY RUNTIME IMPLEMENTATION + LOCKED EVALUATION ONLY"
+}

@@ -1,0 +1,183 @@
+{
+  "cases": [
+    {
+      "case_id": "entity-boundary",
+      "path": "config/finhrm_B_consistency_v3_fixtures/entity-boundary.md",
+      "sha256": "5928813d6f8fbbeeb99792a66ea92ea27a39a5049a135c409bfe3ff3fe70fa90",
+      "question": "Vốn điều lệ là bao nhiêu",
+      "expected_action": "ANSWER",
+      "canonical_value": "123000000000",
+      "mutations": []
+    },
+    {
+      "case_id": "metric-distinct",
+      "path": "config/finhrm_B_consistency_v3_fixtures/metric-distinct.md",
+      "sha256": "519afcbd43ce69c72cf02bac7157c23e8a9f7e5250597146814c9f5b481e1989",
+      "question": "Vốn đầu tư của chủ sở hữu là bao nhiêu",
+      "expected_action": "ANSWER",
+      "canonical_value": "127000000000",
+      "mutations": [
+        {
+          "operation": "set_owner_equal_to_charter",
+          "expected_metric": "vốn đầu tư của chủ sở hữu",
+          "expected_value": "123000000000"
+        }
+      ]
+    },
+    {
+      "case_id": "historical-capital",
+      "path": "config/finhrm_B_consistency_v3_fixtures/historical-capital.md",
+      "sha256": "efb0738145be0abc93167759837adfd0c19535fdcbcf44aedc58a4ae72e57072",
+      "question": "Vốn điều lệ là bao nhiêu",
+      "expected_action": "ANSWER",
+      "canonical_value": "123000000000",
+      "mutations": []
+    },
+    {
+      "case_id": "missing-fact-date",
+      "path": "config/finhrm_B_consistency_v3_fixtures/missing-fact-date.md",
+      "sha256": "519afcbd43ce69c72cf02bac7157c23e8a9f7e5250597146814c9f5b481e1989",
+      "question": "Vốn điều lệ tại ngày 31/12/2031 là bao nhiêu?",
+      "expected_action": "WITHHOLD",
+      "canonical_value": null,
+      "mutations": []
+    },
+    {
+      "case_id": "wrong-report-year",
+      "path": "config/finhrm_B_consistency_v3_fixtures/wrong-report-year.md",
+      "sha256": "519afcbd43ce69c72cf02bac7157c23e8a9f7e5250597146814c9f5b481e1989",
+      "question": "Vốn điều lệ được nêu trong báo cáo năm 2032 là bao nhiêu?",
+      "expected_action": "WITHHOLD",
+      "canonical_value": null,
+      "mutations": []
+    },
+    {
+      "case_id": "undated-no-title",
+      "path": "config/finhrm_B_consistency_v3_fixtures/undated-no-title.md",
+      "sha256": "67fa0d71149393023b4ad6d8dcdaae16d9ad06a58182c1928b82b081eb8d6edc",
+      "question": "Vốn điều lệ là bao nhiêu",
+      "expected_action": "ANSWER",
+      "canonical_value": "123000000000",
+      "mutations": []
+    },
+    {
+      "case_id": "plan-actual",
+      "path": "config/finhrm_B_consistency_v3_fixtures/plan-actual.md",
+      "sha256": "390279ddfd83f6db901f9cd82e66c5e392250e838f79f999820f5f0b14a7af69",
+      "question": "Doanh thu thuần năm 2031 là bao nhiêu đồng?",
+      "expected_action": "ANSWER",
+      "canonical_value": "250000000",
+      "mutations": []
+    },
+    {
+      "case_id": "explicit-scope",
+      "path": "config/finhrm_B_consistency_v3_fixtures/explicit-scope.md",
+      "sha256": "519afcbd43ce69c72cf02bac7157c23e8a9f7e5250597146814c9f5b481e1989",
+      "question": "Vốn điều lệ hợp nhất là bao nhiêu?",
+      "expected_action": "WITHHOLD",
+      "canonical_value": null,
+      "mutations": []
+    },
+    {
+      "case_id": "conflicting-facts",
+      "path": "config/finhrm_B_consistency_v3_fixtures/conflicting-facts.md",
+      "sha256": "d0665f729452c8df80f24b01a94c546c1b9b4c350d32b2b796829f10776f2d5b",
+      "question": "Vốn điều lệ là bao nhiêu",
+      "expected_action": "WITHHOLD",
+      "canonical_value": null,
+      "mutations": []
+    },
+    {
+      "case_id": "unit-scale",
+      "path": "config/finhrm_B_consistency_v3_fixtures/unit-scale.md",
+      "sha256": "3570a56eb5e6a279aebe10d51495fe9f3a08700bc592a6613abd149db082419e",
+      "question": "Vốn điều lệ là bao nhiêu",
+      "expected_action": "ANSWER",
+      "canonical_value": "123000000000",
+      "mutations": [
+        {
+          "operation": "remove_monetary_unit",
+          "expected_action": "ANSWER",
+          "expected_value": "123000"
+        },
+        {
+          "operation": "conflicting_units",
+          "expected_action": "WITHHOLD"
+        },
+        {
+          "operation": "replace_field_with_share_count",
+          "question": "Số cổ phần là bao nhiêu?",
+          "forbid_canonical_unit": "VND"
+        }
+      ]
+    },
+    {
+      "case_id": "witness-integrity",
+      "path": "config/finhrm_B_consistency_v3_fixtures/witness-integrity.md",
+      "sha256": "519afcbd43ce69c72cf02bac7157c23e8a9f7e5250597146814c9f5b481e1989",
+      "question": "Vốn điều lệ là bao nhiêu",
+      "expected_action": "ANSWER",
+      "canonical_value": "123000000000",
+      "mutations": [
+        {
+          "operation": "tamper_value",
+          "expected_validation": "FAIL"
+        },
+        {
+          "operation": "tamper_hash",
+          "expected_validation": "FAIL"
+        },
+        {
+          "operation": "tamper_span",
+          "expected_validation": "FAIL"
+        },
+        {
+          "operation": "tamper_source",
+          "expected_validation": "FAIL"
+        }
+      ]
+    },
+    {
+      "case_id": "invariance",
+      "path": "config/finhrm_B_consistency_v3_fixtures/invariance.md",
+      "sha256": "519afcbd43ce69c72cf02bac7157c23e8a9f7e5250597146814c9f5b481e1989",
+      "question": "Vốn điều lệ là bao nhiêu",
+      "expected_action": "ANSWER",
+      "canonical_value": "123000000000",
+      "mutations": [
+        {
+          "operation": "rename_company",
+          "replacement": "CÔNG TY CỔ PHẦN BÌNH MINH",
+          "expected_value": "123000000000"
+        },
+        {
+          "operation": "change_report_year",
+          "replacement": "2037",
+          "expected_value": "123000000000"
+        },
+        {
+          "operation": "change_charter_value",
+          "replacement": "321.000.000.000",
+          "expected_value": "321000000000"
+        },
+        {
+          "operation": "move_page",
+          "replacement": 7,
+          "expected_value": "123000000000"
+        },
+        {
+          "operation": "reverse_candidate_order",
+          "expected_value": "123000000000"
+        },
+        {
+          "operation": "switch_document",
+          "target": "metric-distinct",
+          "question": "Vốn đầu tư của chủ sở hữu là bao nhiêu",
+          "expected_value": "127000000000"
+        }
+      ]
+    }
+  ],
+  "fixture_only": true,
+  "revision_note": "V3 source page marker restored only for no-title fixture; V2 original and failure preserved."
+}

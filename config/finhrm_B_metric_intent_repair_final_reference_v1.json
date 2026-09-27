@@ -1,0 +1,186 @@
+{
+  "cases": [
+    {
+      "case_id": "transfer-agp-profit-1",
+      "source_id": "AGP",
+      "question": "Lợi nhuận trước thuế kế hoạch năm 2026 là bao nhiêu tỷ đồng?",
+      "expected_action": "ANSWER",
+      "expected_canonical": "72000000000",
+      "canonical_unit": "VND",
+      "metric": "ln truoc thue",
+      "years": [
+        "2026"
+      ],
+      "role": "plan",
+      "scope": "reporting_company",
+      "operation": "SELECT",
+      "pdf_pages": [
+        22
+      ],
+      "unit_basis": "source_explicit",
+      "reference_note": "Source monetary row and header reviewed before inference. Query i=2 is a paraphrase, not independent evidence; i=3 requests a missing year."
+    },
+    {
+      "case_id": "transfer-agp-profit-2",
+      "source_id": "AGP",
+      "question": "Cho biết lợi nhuận trước thuế kế hoạch năm 2026, tính bằng tỷ đồng.",
+      "expected_action": "ANSWER",
+      "expected_canonical": "72000000000",
+      "canonical_unit": "VND",
+      "metric": "ln truoc thue",
+      "years": [
+        "2026"
+      ],
+      "role": "plan",
+      "scope": "reporting_company",
+      "operation": "SELECT",
+      "pdf_pages": [
+        22
+      ],
+      "unit_basis": "source_explicit",
+      "reference_note": "Source monetary row and header reviewed before inference. Query i=2 is a paraphrase, not independent evidence; i=3 requests a missing year."
+    },
+    {
+      "case_id": "transfer-agp-profit-3",
+      "source_id": "AGP",
+      "question": "Lợi nhuận trước thuế kế hoạch năm 2037 là bao nhiêu tỷ đồng?",
+      "expected_action": "ABSTAIN",
+      "expected_canonical": null,
+      "canonical_unit": "VND",
+      "metric": "ln truoc thue",
+      "years": [
+        "2037"
+      ],
+      "role": "plan",
+      "scope": "reporting_company",
+      "operation": "SELECT",
+      "pdf_pages": [
+        22
+      ],
+      "unit_basis": "source_explicit",
+      "reference_note": "Source monetary row and header reviewed before inference. Query i=2 is a paraphrase, not independent evidence; i=3 requests a missing year."
+    },
+    {
+      "case_id": "transfer-mgg-profit-1",
+      "source_id": "MGG",
+      "question": "Lợi nhuận trước thuế thực hiện năm 2022 là bao nhiêu tỷ đồng?",
+      "expected_action": "ANSWER",
+      "expected_canonical": "30100000000",
+      "canonical_unit": "VND",
+      "metric": "loi nhuan truoc thue",
+      "years": [
+        "2022"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "operation": "SELECT",
+      "pdf_pages": [
+        5
+      ],
+      "unit_basis": "source_explicit",
+      "reference_note": "Source monetary row and header reviewed before inference. Query i=2 is a paraphrase, not independent evidence; i=3 requests a missing year."
+    },
+    {
+      "case_id": "transfer-mgg-profit-2",
+      "source_id": "MGG",
+      "question": "Cho biết lợi nhuận trước thuế thực hiện năm 2022, tính bằng tỷ đồng.",
+      "expected_action": "ANSWER",
+      "expected_canonical": "30100000000",
+      "canonical_unit": "VND",
+      "metric": "loi nhuan truoc thue",
+      "years": [
+        "2022"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "operation": "SELECT",
+      "pdf_pages": [
+        5
+      ],
+      "unit_basis": "source_explicit",
+      "reference_note": "Source monetary row and header reviewed before inference. Query i=2 is a paraphrase, not independent evidence; i=3 requests a missing year."
+    },
+    {
+      "case_id": "transfer-mgg-profit-3",
+      "source_id": "MGG",
+      "question": "Lợi nhuận trước thuế thực hiện năm 2037 là bao nhiêu tỷ đồng?",
+      "expected_action": "ABSTAIN",
+      "expected_canonical": null,
+      "canonical_unit": "VND",
+      "metric": "loi nhuan truoc thue",
+      "years": [
+        "2037"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "operation": "SELECT",
+      "pdf_pages": [
+        5
+      ],
+      "unit_basis": "source_explicit",
+      "reference_note": "Source monetary row and header reviewed before inference. Query i=2 is a paraphrase, not independent evidence; i=3 requests a missing year."
+    },
+    {
+      "case_id": "transfer-pdb-profit-1",
+      "source_id": "PDB",
+      "question": "Lợi nhuận trước thuế hợp nhất kế hoạch năm 2024 là bao nhiêu triệu đồng?",
+      "expected_action": "ANSWER",
+      "expected_canonical": "11400000000",
+      "canonical_unit": "VND",
+      "metric": "loi nhuan truoc thue",
+      "years": [
+        "2024"
+      ],
+      "role": "plan",
+      "scope": "consolidated",
+      "operation": "SELECT",
+      "pdf_pages": [
+        8
+      ],
+      "unit_basis": "source_explicit",
+      "reference_note": "Source monetary row and header reviewed before inference. Query i=2 is a paraphrase, not independent evidence; i=3 requests a missing year."
+    },
+    {
+      "case_id": "transfer-pdb-profit-2",
+      "source_id": "PDB",
+      "question": "Cho biết lợi nhuận trước thuế hợp nhất kế hoạch năm 2024, tính bằng triệu đồng.",
+      "expected_action": "ANSWER",
+      "expected_canonical": "11400000000",
+      "canonical_unit": "VND",
+      "metric": "loi nhuan truoc thue",
+      "years": [
+        "2024"
+      ],
+      "role": "plan",
+      "scope": "consolidated",
+      "operation": "SELECT",
+      "pdf_pages": [
+        8
+      ],
+      "unit_basis": "source_explicit",
+      "reference_note": "Source monetary row and header reviewed before inference. Query i=2 is a paraphrase, not independent evidence; i=3 requests a missing year."
+    },
+    {
+      "case_id": "transfer-pdb-profit-3",
+      "source_id": "PDB",
+      "question": "Lợi nhuận trước thuế hợp nhất kế hoạch năm 2037 là bao nhiêu triệu đồng?",
+      "expected_action": "ABSTAIN",
+      "expected_canonical": null,
+      "canonical_unit": "VND",
+      "metric": "loi nhuan truoc thue",
+      "years": [
+        "2037"
+      ],
+      "role": "plan",
+      "scope": "consolidated",
+      "operation": "SELECT",
+      "pdf_pages": [
+        8
+      ],
+      "unit_basis": "source_explicit",
+      "reference_note": "Source monetary row and header reviewed before inference. Query i=2 is a paraphrase, not independent evidence; i=3 requests a missing year."
+    }
+  ],
+  "source_only_parent": "config/finhrm_B_default_unit_v2_reference_v1.json",
+  "unit_policy": "CMS evaluation is conditional on default VND; original source-only references remain untouched."
+}

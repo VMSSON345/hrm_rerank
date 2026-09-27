@@ -1,0 +1,16 @@
+{
+  "schema": "benchmark-reference-scope-review-v1",
+  "timing": "Reviewed after core inference and before any HTTP inference in this benchmark.",
+  "original_references_unchanged": true,
+  "rule": "An ABSTAIN reference whose sole recorded reason is SOURCE_UNIT_UNRESOLVED predates the user-authorized default VND policy. Keep its frozen historical score, but exclude it from claims of correct rejection or wrong publication under the current policy. Do not invent replacement numerical gold.",
+  "affected_case_ids": ["newsource-hfx-unit", "repair-hfx-unit-paraphrase"],
+  "reporting": {
+    "http_requests_still_run": 72,
+    "current_policy_reference_cases": 70,
+    "answerable": 53,
+    "negative": 16,
+    "partial": 1,
+    "historical_unit_references_reported_separately": 2
+  },
+  "limits": "Withholding against a negative reference only verifies non-publication, not correctness of the explanation. Development reports and paraphrases do not establish generalization."
+}

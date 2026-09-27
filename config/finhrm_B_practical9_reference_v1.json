@@ -1,0 +1,1160 @@
+{
+  "cases": [
+    {
+      "case_id": "practical9-01",
+      "source_id": "MGG",
+      "question": "Tài sản ngắn hạn năm 2023 là bao nhiêu triệu đồng?",
+      "expected_action": "ANSWER",
+      "expected_canonical": "712963000000",
+      "canonical_unit": "VND",
+      "metric": "Tài sản ngắn hạn",
+      "years": [
+        "2023"
+      ],
+      "operation": "SELECT",
+      "role": "actual",
+      "scope": "reporting_company",
+      "source_witnesses": [
+        {
+          "page": 6,
+          "line_number": 163,
+          "text": "1.1 | Tài sản ngắn hạn | Năm 2023: 712.963 | Năm 2022: 819.925 | So sánh 2023/2022: (106.962) | 87%",
+          "sha256": "6889b78c5e8465bc6d3c92e0bdcde69331cb49dea83cd79521be59498d297af5"
+        },
+        {
+          "page": 6,
+          "line_number": 158,
+          "text": "Đơn vị tính: Tr.đồng",
+          "sha256": "d12de2106c09d31bb29cd94cf9ed8d13e0c5b7f3dd17764c1690a0fe7a740aee"
+        },
+        {
+          "page": 6,
+          "line_number": 160,
+          "text": "Mục | Nội dung | Năm 2023 | Năm 2022 | Giá trị | Tỷ lệ (%)",
+          "sha256": "190dffdeca11aed1d5d2b8fd9e6f2137bdf3e5edc42c72f372e96c8a6244990c"
+        }
+      ],
+      "reference_note": "Page 6, current assets 712.963 million VND in the 2023 column; distinct from other current assets."
+    },
+    {
+      "case_id": "practical9-02",
+      "source_id": "MGG",
+      "question": "Tài sản ngắn hạn khác năm 2023 là bao nhiêu triệu đồng?",
+      "expected_action": "ANSWER",
+      "expected_canonical": "1220000000",
+      "canonical_unit": "VND",
+      "metric": "Tài sản ngắn hạn khác",
+      "years": [
+        "2023"
+      ],
+      "operation": "SELECT",
+      "role": "actual",
+      "scope": "reporting_company",
+      "source_witnesses": [
+        {
+          "page": 7,
+          "line_number": 171,
+          "text": " | Tài sản ngắn hạn khác | 1.220 | 11.543 | (10.323) | 11%",
+          "sha256": "85b7c2efee3a48fe5952c0e0eb449866eba3a6f31f003c2be9e0b52d36f7a648"
+        },
+        {
+          "page": 6,
+          "line_number": 158,
+          "text": "Đơn vị tính: Tr.đồng",
+          "sha256": "d12de2106c09d31bb29cd94cf9ed8d13e0c5b7f3dd17764c1690a0fe7a740aee"
+        },
+        {
+          "page": 6,
+          "line_number": 160,
+          "text": "Mục | Nội dung | Năm 2023 | Năm 2022 | Giá trị | Tỷ lệ (%)",
+          "sha256": "190dffdeca11aed1d5d2b8fd9e6f2137bdf3e5edc42c72f372e96c8a6244990c"
+        }
+      ],
+      "reference_note": "Page 7 continues the page-6 financial table: 2023 then 2022, value difference and percentage. 1.220 million VND."
+    },
+    {
+      "case_id": "practical9-03",
+      "source_id": "MGG",
+      "question": "Tổng doanh thu ở cột “SS CK (%)” là bao nhiêu?",
+      "expected_action": "ANSWER",
+      "expected_canonical": "87",
+      "canonical_unit": "%",
+      "metric": "Tổng doanh thu",
+      "years": [],
+      "operation": "SELECT",
+      "role": "source_column",
+      "scope": "reporting_company",
+      "source_witnesses": [
+        {
+          "page": 6,
+          "line_number": 147,
+          "text": "Các chi tiêu chính | ĐVT | TH 2023 | TH 2022 | SS KH (%) | SS CK (%)",
+          "sha256": "140979b5c4c2c09fb3d246b0f55479924521b49cc3eca3854e7ae4637933cf22"
+        },
+        {
+          "page": 4,
+          "line_number": 86,
+          "text": "Tổng doanh thu | Tỷ đồng | TH 2023: 2.439 | KH 2022: 2.814 | 87",
+          "sha256": "db579aeeb1078c358feac4b0771311f12ebc04e4dea9101de5a57296e7756a51"
+        },
+        {
+          "page": 6,
+          "line_number": 149,
+          "text": "Tổng doanh thu | Tỷ đồng | TH 2023: 2.439 | TH 2022: 2.814 | 83 | 87",
+          "sha256": "c256b499329c7d5370f75012d380cbd3a1ec5dffb441c2f4a3d8e5751784c298"
+        }
+      ],
+      "reference_note": "Read printed 87 in SS CK (%), page 6. This is a comparison ratio, not a -13% growth calculation; row monetary unit does not apply to this percentage column."
+    },
+    {
+      "case_id": "practical9-04",
+      "source_id": "ACG",
+      "question": "Tài sản ngắn hạn hợp nhất cuối năm 2025 là bao nhiêu đồng?",
+      "expected_action": "ANSWER",
+      "expected_canonical": "5150091246409",
+      "canonical_unit": "VND",
+      "metric": "Tài sản ngắn hạn",
+      "years": [
+        "2025"
+      ],
+      "operation": "SELECT",
+      "role": "actual",
+      "scope": "consolidated",
+      "source_witnesses": [
+        {
+          "page": 83,
+          "line_number": 2327,
+          "text": "Bảng cân đối kế toán hợp nhất",
+          "sha256": "7a5702d0a6524a4e17e2c587a53d77cbeeedaa8651fa591bbc4b72b08b3f5c49"
+        },
+        {
+          "page": 82,
+          "line_number": 2301,
+          "text": "Theo ý kiến của Ban Tổng Giám đốc, báo cáo tài chính hợp nhất kèm theo đã phần ánh trung thực và hợp lý tình hình tài chính hợp nhất của Nhóm Công ty vào ngày 31 tháng 12 năm 2025, kết quả hoạt động kinh doanh hợp nhất và tình hình lưu chuyển tiền tệ hợp nhất cho năm tài chính kết thúc cùng ngày phù hợp với các Chuẩn mục kế toán Việt Nam, Chế độ kế toán doanh nghiệp Việt Nam và các quy định pháp lý có liên quan đến việc lập và trình bày báo cáo tài chính hợp nhất.",
+          "sha256": "e8ef946f49a7c57b689cf4a413d321b299143016527c89731e62608bbf3f92a0"
+        },
+        {
+          "page": 82,
+          "line_number": 2307,
+          "text": "Chúng tôi đã kiểm toán báo cáo tài chính hợp nhất đính kèm của Công ty Cổ phân Gỗ An Cường (“Công ty”) và các công ty con (“Nhóm Công ty”), được lập ngày 27 tháng 3 năm 2026 và được trình bày từ trang 5 đến trang 48, bao gồm bằng cân đối kế toán hợp nhất vào ngày 31 tháng 12 năm 2025, báo cáo kết quả hoạt động kinh doanh hợp nhất và báo cáo lưu chuyển tiền tệ hợp nhất cho năm tài chính kết thúc cùng ngày, và các thuyết minh báo cáo tài chính hợp nhất kèm theo.",
+          "sha256": "a042af93e50396703c33fb4f887ded1fe7c1d625697c290fb23bba42f8fe252b"
+        },
+        {
+          "page": 83,
+          "line_number": 2328,
+          "text": "vào ngày 31 tháng 12 năm 2025",
+          "sha256": "69b23395a1b7474846108fba8e7559cbe6f146f2b3c80a2d5b3d1534b75cdf44"
+        },
+        {
+          "page": 83,
+          "line_number": 2362,
+          "text": "vào ngày 31 tháng 12 năm 2025",
+          "sha256": "69b23395a1b7474846108fba8e7559cbe6f146f2b3c80a2d5b3d1534b75cdf44"
+        },
+        {
+          "page": 84,
+          "line_number": 2405,
+          "text": "vào ngày 31 tháng 12 năm 2025",
+          "sha256": "69b23395a1b7474846108fba8e7559cbe6f146f2b3c80a2d5b3d1534b75cdf44"
+        },
+        {
+          "page": 86,
+          "line_number": 2523,
+          "text": "vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "a6a8c3c9b997556438fdf833ceaca26dd2b8d648331934929367921384312f2e"
+        },
+        {
+          "page": 86,
+          "line_number": 2530,
+          "text": "Số lượng nhân viên của Nhóm Công ty vào ngày 31 tháng 12 năm 2025 là 2.572 người (ngày 31 tháng 12 năm 2024: 2.465 người).",
+          "sha256": "d49bdc95304c8cca23b61c895b3f9b5792e3c2b5f3487ab5d9cae100aa72df8f"
+        },
+        {
+          "page": 86,
+          "line_number": 2545,
+          "text": "vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "a6a8c3c9b997556438fdf833ceaca26dd2b8d648331934929367921384312f2e"
+        },
+        {
+          "page": 87,
+          "line_number": 2581,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 87,
+          "line_number": 2605,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 88,
+          "line_number": 2645,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 88,
+          "line_number": 2670,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 89,
+          "line_number": 2700,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 89,
+          "line_number": 2733,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 90,
+          "line_number": 2761,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 90,
+          "line_number": 2790,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 91,
+          "line_number": 2823,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 91,
+          "line_number": 2824,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 92,
+          "line_number": 2881,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 92,
+          "line_number": 2882,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 93,
+          "line_number": 2929,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 93,
+          "line_number": 2930,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 94,
+          "line_number": 2960,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 94,
+          "line_number": 2991,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 95,
+          "line_number": 3035,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 95,
+          "line_number": 3036,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 96,
+          "line_number": 3103,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 96,
+          "line_number": 3104,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 97,
+          "line_number": 3138,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 97,
+          "line_number": 3139,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 98,
+          "line_number": 3200,
+          "text": "vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "a6a8c3c9b997556438fdf833ceaca26dd2b8d648331934929367921384312f2e"
+        },
+        {
+          "page": 98,
+          "line_number": 3202,
+          "text": "vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "a6a8c3c9b997556438fdf833ceaca26dd2b8d648331934929367921384312f2e"
+        },
+        {
+          "page": 99,
+          "line_number": 3206,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 99,
+          "line_number": 3207,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 100,
+          "line_number": 3240,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 100,
+          "line_number": 3241,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 101,
+          "line_number": 3291,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 101,
+          "line_number": 3301,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 102,
+          "line_number": 3375,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 102,
+          "line_number": 3376,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 103,
+          "line_number": 3435,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 103,
+          "line_number": 3460,
+          "text": "vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "a6a8c3c9b997556438fdf833ceaca26dd2b8d648331934929367921384312f2e"
+        },
+        {
+          "page": 104,
+          "line_number": 3499,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 104,
+          "line_number": 3526,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 105,
+          "line_number": 3597,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 105,
+          "line_number": 3598,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 106,
+          "line_number": 3633,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 106,
+          "line_number": 3667,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 83,
+          "line_number": 2331,
+          "text": "Mã số: 100 | A. TÀI SẢN NGẤN HẠN |  | Số cuối năm: 5.150.091.246.409 | Số đầu năm: 4.119.782.891.159",
+          "sha256": "69a33514a3dd91552a87d311c063d0072d120f995381eec2eb22aaeec6d48d33"
+        }
+      ],
+      "reference_note": "Page 83 balance sheet, closing column 5.150.091.246.409. VND scale 1 under user default when no local monetary unit is printed."
+    },
+    {
+      "case_id": "practical9-05",
+      "source_id": "ACG",
+      "question": "Tài sản ngắn hạn khác hợp nhất cuối năm 2025 là bao nhiêu đồng?",
+      "expected_action": "ANSWER",
+      "expected_canonical": "106009054820",
+      "canonical_unit": "VND",
+      "metric": "Tài sản ngắn hạn khác",
+      "years": [
+        "2025"
+      ],
+      "operation": "SELECT",
+      "role": "actual",
+      "scope": "consolidated",
+      "source_witnesses": [
+        {
+          "page": 83,
+          "line_number": 2327,
+          "text": "Bảng cân đối kế toán hợp nhất",
+          "sha256": "7a5702d0a6524a4e17e2c587a53d77cbeeedaa8651fa591bbc4b72b08b3f5c49"
+        },
+        {
+          "page": 82,
+          "line_number": 2301,
+          "text": "Theo ý kiến của Ban Tổng Giám đốc, báo cáo tài chính hợp nhất kèm theo đã phần ánh trung thực và hợp lý tình hình tài chính hợp nhất của Nhóm Công ty vào ngày 31 tháng 12 năm 2025, kết quả hoạt động kinh doanh hợp nhất và tình hình lưu chuyển tiền tệ hợp nhất cho năm tài chính kết thúc cùng ngày phù hợp với các Chuẩn mục kế toán Việt Nam, Chế độ kế toán doanh nghiệp Việt Nam và các quy định pháp lý có liên quan đến việc lập và trình bày báo cáo tài chính hợp nhất.",
+          "sha256": "e8ef946f49a7c57b689cf4a413d321b299143016527c89731e62608bbf3f92a0"
+        },
+        {
+          "page": 82,
+          "line_number": 2307,
+          "text": "Chúng tôi đã kiểm toán báo cáo tài chính hợp nhất đính kèm của Công ty Cổ phân Gỗ An Cường (“Công ty”) và các công ty con (“Nhóm Công ty”), được lập ngày 27 tháng 3 năm 2026 và được trình bày từ trang 5 đến trang 48, bao gồm bằng cân đối kế toán hợp nhất vào ngày 31 tháng 12 năm 2025, báo cáo kết quả hoạt động kinh doanh hợp nhất và báo cáo lưu chuyển tiền tệ hợp nhất cho năm tài chính kết thúc cùng ngày, và các thuyết minh báo cáo tài chính hợp nhất kèm theo.",
+          "sha256": "a042af93e50396703c33fb4f887ded1fe7c1d625697c290fb23bba42f8fe252b"
+        },
+        {
+          "page": 83,
+          "line_number": 2328,
+          "text": "vào ngày 31 tháng 12 năm 2025",
+          "sha256": "69b23395a1b7474846108fba8e7559cbe6f146f2b3c80a2d5b3d1534b75cdf44"
+        },
+        {
+          "page": 83,
+          "line_number": 2362,
+          "text": "vào ngày 31 tháng 12 năm 2025",
+          "sha256": "69b23395a1b7474846108fba8e7559cbe6f146f2b3c80a2d5b3d1534b75cdf44"
+        },
+        {
+          "page": 84,
+          "line_number": 2405,
+          "text": "vào ngày 31 tháng 12 năm 2025",
+          "sha256": "69b23395a1b7474846108fba8e7559cbe6f146f2b3c80a2d5b3d1534b75cdf44"
+        },
+        {
+          "page": 86,
+          "line_number": 2523,
+          "text": "vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "a6a8c3c9b997556438fdf833ceaca26dd2b8d648331934929367921384312f2e"
+        },
+        {
+          "page": 86,
+          "line_number": 2530,
+          "text": "Số lượng nhân viên của Nhóm Công ty vào ngày 31 tháng 12 năm 2025 là 2.572 người (ngày 31 tháng 12 năm 2024: 2.465 người).",
+          "sha256": "d49bdc95304c8cca23b61c895b3f9b5792e3c2b5f3487ab5d9cae100aa72df8f"
+        },
+        {
+          "page": 86,
+          "line_number": 2545,
+          "text": "vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "a6a8c3c9b997556438fdf833ceaca26dd2b8d648331934929367921384312f2e"
+        },
+        {
+          "page": 87,
+          "line_number": 2581,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 87,
+          "line_number": 2605,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 88,
+          "line_number": 2645,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 88,
+          "line_number": 2670,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 89,
+          "line_number": 2700,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 89,
+          "line_number": 2733,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 90,
+          "line_number": 2761,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 90,
+          "line_number": 2790,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 91,
+          "line_number": 2823,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 91,
+          "line_number": 2824,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 92,
+          "line_number": 2881,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 92,
+          "line_number": 2882,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 93,
+          "line_number": 2929,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 93,
+          "line_number": 2930,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 94,
+          "line_number": 2960,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 94,
+          "line_number": 2991,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 95,
+          "line_number": 3035,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 95,
+          "line_number": 3036,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 96,
+          "line_number": 3103,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 96,
+          "line_number": 3104,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 97,
+          "line_number": 3138,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 97,
+          "line_number": 3139,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 98,
+          "line_number": 3200,
+          "text": "vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "a6a8c3c9b997556438fdf833ceaca26dd2b8d648331934929367921384312f2e"
+        },
+        {
+          "page": 98,
+          "line_number": 3202,
+          "text": "vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "a6a8c3c9b997556438fdf833ceaca26dd2b8d648331934929367921384312f2e"
+        },
+        {
+          "page": 99,
+          "line_number": 3206,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 99,
+          "line_number": 3207,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 100,
+          "line_number": 3240,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 100,
+          "line_number": 3241,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 101,
+          "line_number": 3291,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 101,
+          "line_number": 3301,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 102,
+          "line_number": 3375,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 102,
+          "line_number": 3376,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 103,
+          "line_number": 3435,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 103,
+          "line_number": 3460,
+          "text": "vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "a6a8c3c9b997556438fdf833ceaca26dd2b8d648331934929367921384312f2e"
+        },
+        {
+          "page": 104,
+          "line_number": 3499,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 104,
+          "line_number": 3526,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 105,
+          "line_number": 3597,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 105,
+          "line_number": 3598,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 106,
+          "line_number": 3633,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 106,
+          "line_number": 3667,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 83,
+          "line_number": 2347,
+          "text": "Mã số: 150 | V. Tài sản ngắn hạn khác |  | Số cuối năm: 106.009.054.820 | Số đầu năm: 16.676.858.411",
+          "sha256": "2d853e7ec41bf06da09e083c299ca6689d6a1e230b9ee8564cb2f54a501da9af"
+        }
+      ],
+      "reference_note": "Page 83 closing column 106.009.054.820; not the total current-assets row. Same user VND default where no local monetary unit is printed."
+    },
+    {
+      "case_id": "practical9-06",
+      "source_id": "ACG",
+      "question": "Tài sản ngắn hạn hợp nhất năm 2030 là bao nhiêu đồng?",
+      "expected_action": "ABSTAIN",
+      "expected_canonical": null,
+      "canonical_unit": "VND",
+      "metric": "Tài sản ngắn hạn",
+      "years": [
+        "2030"
+      ],
+      "operation": "SELECT",
+      "role": "actual",
+      "scope": "consolidated",
+      "source_witnesses": [
+        {
+          "page": 82,
+          "line_number": 2301,
+          "text": "Theo ý kiến của Ban Tổng Giám đốc, báo cáo tài chính hợp nhất kèm theo đã phần ánh trung thực và hợp lý tình hình tài chính hợp nhất của Nhóm Công ty vào ngày 31 tháng 12 năm 2025, kết quả hoạt động kinh doanh hợp nhất và tình hình lưu chuyển tiền tệ hợp nhất cho năm tài chính kết thúc cùng ngày phù hợp với các Chuẩn mục kế toán Việt Nam, Chế độ kế toán doanh nghiệp Việt Nam và các quy định pháp lý có liên quan đến việc lập và trình bày báo cáo tài chính hợp nhất.",
+          "sha256": "e8ef946f49a7c57b689cf4a413d321b299143016527c89731e62608bbf3f92a0"
+        },
+        {
+          "page": 82,
+          "line_number": 2307,
+          "text": "Chúng tôi đã kiểm toán báo cáo tài chính hợp nhất đính kèm của Công ty Cổ phân Gỗ An Cường (“Công ty”) và các công ty con (“Nhóm Công ty”), được lập ngày 27 tháng 3 năm 2026 và được trình bày từ trang 5 đến trang 48, bao gồm bằng cân đối kế toán hợp nhất vào ngày 31 tháng 12 năm 2025, báo cáo kết quả hoạt động kinh doanh hợp nhất và báo cáo lưu chuyển tiền tệ hợp nhất cho năm tài chính kết thúc cùng ngày, và các thuyết minh báo cáo tài chính hợp nhất kèm theo.",
+          "sha256": "a042af93e50396703c33fb4f887ded1fe7c1d625697c290fb23bba42f8fe252b"
+        },
+        {
+          "page": 83,
+          "line_number": 2328,
+          "text": "vào ngày 31 tháng 12 năm 2025",
+          "sha256": "69b23395a1b7474846108fba8e7559cbe6f146f2b3c80a2d5b3d1534b75cdf44"
+        },
+        {
+          "page": 83,
+          "line_number": 2362,
+          "text": "vào ngày 31 tháng 12 năm 2025",
+          "sha256": "69b23395a1b7474846108fba8e7559cbe6f146f2b3c80a2d5b3d1534b75cdf44"
+        },
+        {
+          "page": 84,
+          "line_number": 2405,
+          "text": "vào ngày 31 tháng 12 năm 2025",
+          "sha256": "69b23395a1b7474846108fba8e7559cbe6f146f2b3c80a2d5b3d1534b75cdf44"
+        },
+        {
+          "page": 86,
+          "line_number": 2523,
+          "text": "vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "a6a8c3c9b997556438fdf833ceaca26dd2b8d648331934929367921384312f2e"
+        },
+        {
+          "page": 86,
+          "line_number": 2530,
+          "text": "Số lượng nhân viên của Nhóm Công ty vào ngày 31 tháng 12 năm 2025 là 2.572 người (ngày 31 tháng 12 năm 2024: 2.465 người).",
+          "sha256": "d49bdc95304c8cca23b61c895b3f9b5792e3c2b5f3487ab5d9cae100aa72df8f"
+        },
+        {
+          "page": 86,
+          "line_number": 2545,
+          "text": "vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "a6a8c3c9b997556438fdf833ceaca26dd2b8d648331934929367921384312f2e"
+        },
+        {
+          "page": 87,
+          "line_number": 2581,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 87,
+          "line_number": 2605,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 88,
+          "line_number": 2645,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 88,
+          "line_number": 2670,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 89,
+          "line_number": 2700,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 89,
+          "line_number": 2733,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 90,
+          "line_number": 2761,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 90,
+          "line_number": 2790,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 91,
+          "line_number": 2823,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 91,
+          "line_number": 2824,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 92,
+          "line_number": 2881,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 92,
+          "line_number": 2882,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 93,
+          "line_number": 2929,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 93,
+          "line_number": 2930,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 94,
+          "line_number": 2960,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 94,
+          "line_number": 2991,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 95,
+          "line_number": 3035,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 95,
+          "line_number": 3036,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 96,
+          "line_number": 3103,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 96,
+          "line_number": 3104,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 97,
+          "line_number": 3138,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 97,
+          "line_number": 3139,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 98,
+          "line_number": 3200,
+          "text": "vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "a6a8c3c9b997556438fdf833ceaca26dd2b8d648331934929367921384312f2e"
+        },
+        {
+          "page": 98,
+          "line_number": 3202,
+          "text": "vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "a6a8c3c9b997556438fdf833ceaca26dd2b8d648331934929367921384312f2e"
+        },
+        {
+          "page": 99,
+          "line_number": 3206,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 99,
+          "line_number": 3207,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 100,
+          "line_number": 3240,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 100,
+          "line_number": 3241,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 101,
+          "line_number": 3291,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 101,
+          "line_number": 3301,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 102,
+          "line_number": 3375,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 102,
+          "line_number": 3376,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 103,
+          "line_number": 3435,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 103,
+          "line_number": 3460,
+          "text": "vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "a6a8c3c9b997556438fdf833ceaca26dd2b8d648331934929367921384312f2e"
+        },
+        {
+          "page": 104,
+          "line_number": 3499,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 104,
+          "line_number": 3526,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 105,
+          "line_number": 3597,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 105,
+          "line_number": 3598,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 106,
+          "line_number": 3633,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 106,
+          "line_number": 3667,
+          "text": "Thuyết minh báo cáo tài chính hợp nhất (tiếp theo) vào ngày 31 tháng 12 năm 2025 và cho năm tài chính kết thúc cùng ngày",
+          "sha256": "5b0099501873aefb60833a974c9f368045c49d661f8f7ba2c2d999921918bb55"
+        },
+        {
+          "page": 83,
+          "line_number": 2331,
+          "text": "Mã số: 100 | A. TÀI SẢN NGẤN HẠN |  | Số cuối năm: 5.150.091.246.409 | Số đầu năm: 4.119.782.891.159",
+          "sha256": "69a33514a3dd91552a87d311c063d0072d120f995381eec2eb22aaeec6d48d33"
+        }
+      ],
+      "reference_note": "Intentional missing-period control. The reviewed financial balance is 2025/2024; mentions of 2030 in strategy do not establish current assets in 2030. Expected no number, with a missing-period explanation."
+    },
+    {
+      "case_id": "practical9-07",
+      "source_id": "BTH",
+      "question": "Tổng chi phí thực hiện năm 2025 là bao nhiêu đồng?",
+      "expected_action": "ANSWER",
+      "expected_canonical": "85621170830",
+      "canonical_unit": "VND",
+      "metric": "Tổng chi phí",
+      "years": [
+        "2025"
+      ],
+      "operation": "SELECT",
+      "role": "actual",
+      "scope": "reporting_company",
+      "source_witnesses": [
+        {
+          "page": 3,
+          "line_number": 60,
+          "text": "Chỉ tiêu | Kế hoạch 2025 | Thực hiện 2025 | % tăng/giảm",
+          "sha256": "4adbe27211ff5a7404d0198aac9cd3b0d0b309ddeacc57ce67b0e0e826422761"
+        },
+        {
+          "page": 3,
+          "line_number": 65,
+          "text": "Tổng chi phí | Kế hoạch 2025: 68.000.000.000 | Thực hiện 2025: 85.621.170.830 | Tăng 26%",
+          "sha256": "15d2838afd05667a05ef1d09303df76ad2933853f3782734d2d84b6cac7f6faf"
+        }
+      ],
+      "reference_note": "Page 3 actual total costs 85.621.170.830. Missing monetary unit uses the user VND scale-1 rule; display the assumption."
+    },
+    {
+      "case_id": "practical9-08",
+      "source_id": "BTH",
+      "question": "Thu nhập khác thực hiện năm 2025 là bao nhiêu đồng?",
+      "expected_action": "ANSWER",
+      "expected_canonical": "304470862",
+      "canonical_unit": "VND",
+      "metric": "Thu nhập khác",
+      "years": [
+        "2025"
+      ],
+      "operation": "SELECT",
+      "role": "actual",
+      "scope": "reporting_company",
+      "source_witnesses": [
+        {
+          "page": 3,
+          "line_number": 60,
+          "text": "Chỉ tiêu | Kế hoạch 2025 | Thực hiện 2025 | % tăng/giảm",
+          "sha256": "4adbe27211ff5a7404d0198aac9cd3b0d0b309ddeacc57ce67b0e0e826422761"
+        },
+        {
+          "page": 3,
+          "line_number": 64,
+          "text": "Thu nhập khác |  | Thực hiện 2025: 304.470.862 | ",
+          "sha256": "6e3df77b3d5ec338f2475e4b8852f2b47547e2ac1f9522069bca3748ce04ef2f"
+        }
+      ],
+      "reference_note": "Page 3 other income 304.470.862; distinct from other profit 71.340.862 on page 5. Same user VND assumption."
+    },
+    {
+      "case_id": "practical9-09",
+      "source_id": "BTH",
+      "question": "Tổng lợi nhuận trước thuế thực hiện năm 2025 cao hơn kế hoạch năm 2025 bao nhiêu đồng?",
+      "expected_action": "ANSWER",
+      "expected_canonical": "106625583248",
+      "canonical_unit": "VND",
+      "metric": "Lợi nhuận trước thuế",
+      "years": [
+        "2025"
+      ],
+      "operation": "SUBTRACT",
+      "role": [
+        "actual",
+        "plan"
+      ],
+      "scope": "reporting_company",
+      "source_witnesses": [
+        {
+          "page": 3,
+          "line_number": 60,
+          "text": "Chỉ tiêu | Kế hoạch 2025 | Thực hiện 2025 | % tăng/giảm",
+          "sha256": "4adbe27211ff5a7404d0198aac9cd3b0d0b309ddeacc57ce67b0e0e826422761"
+        },
+        {
+          "page": 3,
+          "line_number": 66,
+          "text": "Tổng lợi nhuận trước thuế | Kế hoạch 2025: 126.000.000.000 | Thực hiện 2025: 232.625.583.248 | Tăng 85%",
+          "sha256": "70f052862c22583cbde59b68e59ed7cb595650401f3fbd2bd7d29f7d225ff310"
+        },
+        {
+          "page": 5,
+          "line_number": 146,
+          "text": "Lợi nhuận trước thuế | Năm 2024: 885.040.722.096 | Năm 2025: 232.625.583.248 | Giảm 74%",
+          "sha256": "3bb8acca96ff1bd40540356b38ddf028b1f51bd1065f18c676fb12915ff1d64a"
+        }
+      ],
+      "reference_note": "Actual 232.625.583.248 minus plan 126.000.000.000 = 106.625.583.248. Actual is repeated on page 5; plan on page 3. User VND assumption applies."
+    }
+  ],
+  "basis": "Read existing MinerU Markdown and headers before inference. No fresh PDF review; references conditional on this OCR/source representation and the user default-VND rule.",
+  "scoring": "Exact canonical value, metric including residual qualifiers, source-bound period/column role/scope, valid physical source citation and final certificate. Missing-period control must withhold a number. Review all nine outputs; do not change questions/references after results. Unknown identity stays unscored, not correct.",
+  "novelty": "No same normalized question/source SHA in existing config HTTP request manifests; this does not establish independence from training or development."
+}

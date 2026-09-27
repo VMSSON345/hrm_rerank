@@ -1,0 +1,11 @@
+{
+  "created_at": "2026-09-10T08:40:13.779562+00:00",
+  "snapshot": {
+    "path": "archive\\B_before_layout_20260910_v1.zip",
+    "sha256": "3cc92aa7ba67f777765e62705bf56efa9fd4d68ff2b6f1704be0147cf3b1f8d1"
+  },
+  "cause": "Numbered metric labels and numbered table captions prevented same-fact scope matching.",
+  "contract": "Remove a syntactic row ordinal, recognize numbered table caption and annual suffix; never remove semantic qualifiers or source scope boundaries.",
+  "all28_development": true,
+  "references_unchanged": true
+}

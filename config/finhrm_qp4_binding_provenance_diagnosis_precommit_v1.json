@@ -1,0 +1,688 @@
+{
+  "schema": "finhrm-qp4-binding-provenance-diagnosis-precommit-v1",
+  "status": "PASS",
+  "classification": "QP4_BINDING_PROVENANCE_DENOMINATOR_RECLOSURE_STATIC_PREFLIGHT_ONLY",
+  "governance": {
+    "head": "ca83acc4e0dfa2e4c0167a9324c2855ec81532b7",
+    "candidate_stage": "CLOSED_WITHOUT_RUNTIME_REPAIR_AUTHORIZATION",
+    "historical_binding_outputs_used_as_evidence_or_oracle": false,
+    "candidate_runtime_reopened": false,
+    "qp5_or_phase_d_opened": false
+  },
+  "cohort": {
+    "path": "reports/finhrm_qp4_post_question_surface_post_cache_residual_coverage_cohort_build_v1.json",
+    "sha256": "e084ec16312488c1badb5b645cfdf135a623cf89486d0f189648404fc5de35e6",
+    "positive_target_universe": 60,
+    "question_and_oracle_source_only": true
+  },
+  "denominator": {
+    "positive_target_cases": 60,
+    "eligible_cases": 0,
+    "upstream_ineligible_cases": 60,
+    "id_order_encoding": "UTF-8 concatenation of each case_id followed by LF; empty eligible order is zero bytes",
+    "id_order_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "order": "Exact subsequence of the frozen 60-case positive-target universe; empty for the current denominator",
+    "case_ids": [],
+    "universe_id_order_sha256": "1512b981af735e01aec5fd05e3b88a4fe74ff070895a426188a62f711a840f1e",
+    "upstream_ineligible_reasons": [
+      {
+        "case_id": "qp4-rcc-agr-total-expense:base_target:canonical",
+        "reasons": [
+          "expected_physical_candidate_support_false"
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-agr-total-expense:base_target:paraphrase_1",
+        "reasons": [
+          "expected_physical_candidate_support_false"
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-agr-total-expense:base_target:long_clause",
+        "reasons": [
+          "expected_physical_candidate_support_false"
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-agr-total-expense:base_target:clause_reordered",
+        "reasons": [
+          "expected_physical_candidate_support_false"
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-agr-total-expense:base_target:no_diacritics",
+        "reasons": [
+          "expected_physical_candidate_support_false"
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-agr-total-expense:reference_base_mutation_target:canonical",
+        "reasons": [
+          "expected_physical_candidate_support_false"
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-agr-total-expense:reference_base_mutation_target:paraphrase_1",
+        "reasons": [
+          "expected_physical_candidate_support_false"
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-agr-total-expense:reference_base_mutation_target:long_clause",
+        "reasons": [
+          "expected_physical_candidate_support_false"
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-agr-total-expense:reference_base_mutation_target:clause_reordered",
+        "reasons": [
+          "expected_physical_candidate_support_false"
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-agr-total-expense:reference_base_mutation_target:no_diacritics",
+        "reasons": [
+          "expected_physical_candidate_support_false"
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-hub-parent-profit-after-tax:base_target:canonical",
+        "reasons": [
+          "expected_physical_candidate_support_false"
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-hub-parent-profit-after-tax:base_target:paraphrase_1",
+        "reasons": [
+          "expected_physical_candidate_support_false"
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-hub-parent-profit-after-tax:base_target:long_clause",
+        "reasons": [
+          "expected_physical_candidate_support_false"
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-hub-parent-profit-after-tax:base_target:clause_reordered",
+        "reasons": [
+          "expected_physical_candidate_support_false"
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-hub-parent-profit-after-tax:base_target:no_diacritics",
+        "reasons": [
+          "expected_physical_candidate_support_false"
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-hub-parent-profit-after-tax:reference_base_mutation_target:canonical",
+        "reasons": [
+          "expected_physical_candidate_support_false"
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-hub-parent-profit-after-tax:reference_base_mutation_target:paraphrase_1",
+        "reasons": [
+          "expected_physical_candidate_support_false"
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-hub-parent-profit-after-tax:reference_base_mutation_target:long_clause",
+        "reasons": [
+          "expected_physical_candidate_support_false"
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-hub-parent-profit-after-tax:reference_base_mutation_target:clause_reordered",
+        "reasons": [
+          "expected_physical_candidate_support_false"
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-hub-parent-profit-after-tax:reference_base_mutation_target:no_diacritics",
+        "reasons": [
+          "expected_physical_candidate_support_false"
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-ict-total-revenue:base_target:canonical",
+        "reasons": [
+          "expected_physical_candidate_support_false"
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-ict-total-revenue:base_target:paraphrase_1",
+        "reasons": [
+          "expected_physical_candidate_support_false"
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-ict-total-revenue:base_target:long_clause",
+        "reasons": [
+          "expected_physical_candidate_support_false"
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-ict-total-revenue:base_target:clause_reordered",
+        "reasons": [
+          "expected_physical_candidate_support_false"
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-ict-total-revenue:base_target:no_diacritics",
+        "reasons": [
+          "expected_physical_candidate_support_false"
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-ict-total-revenue:reference_base_mutation_target:canonical",
+        "reasons": [
+          "expected_physical_candidate_support_false"
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-ict-total-revenue:reference_base_mutation_target:paraphrase_1",
+        "reasons": [
+          "expected_physical_candidate_support_false"
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-ict-total-revenue:reference_base_mutation_target:long_clause",
+        "reasons": [
+          "current_typed_plan_not_exact",
+          "expected_physical_candidate_support_false"
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-ict-total-revenue:reference_base_mutation_target:clause_reordered",
+        "reasons": [
+          "expected_physical_candidate_support_false"
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-ict-total-revenue:reference_base_mutation_target:no_diacritics",
+        "reasons": [
+          "expected_physical_candidate_support_false"
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-pic-total-revenue:base_target:canonical",
+        "reasons": [
+          "expected_physical_candidate_support_false"
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-pic-total-revenue:base_target:paraphrase_1",
+        "reasons": [
+          "expected_physical_candidate_support_false"
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-pic-total-revenue:base_target:long_clause",
+        "reasons": [
+          "expected_physical_candidate_support_false"
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-pic-total-revenue:base_target:clause_reordered",
+        "reasons": [
+          "expected_physical_candidate_support_false"
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-pic-total-revenue:base_target:no_diacritics",
+        "reasons": [
+          "expected_physical_candidate_support_false"
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-pic-total-revenue:reference_base_mutation_target:canonical",
+        "reasons": [
+          "expected_physical_candidate_support_false"
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-pic-total-revenue:reference_base_mutation_target:paraphrase_1",
+        "reasons": [
+          "expected_physical_candidate_support_false"
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-pic-total-revenue:reference_base_mutation_target:long_clause",
+        "reasons": [
+          "expected_physical_candidate_support_false"
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-pic-total-revenue:reference_base_mutation_target:clause_reordered",
+        "reasons": [
+          "expected_physical_candidate_support_false"
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-pic-total-revenue:reference_base_mutation_target:no_diacritics",
+        "reasons": [
+          "expected_physical_candidate_support_false"
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-scg-total-revenue:base_target:canonical",
+        "reasons": [
+          "expected_physical_candidate_support_false"
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-scg-total-revenue:base_target:paraphrase_1",
+        "reasons": [
+          "expected_physical_candidate_support_false"
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-scg-total-revenue:base_target:long_clause",
+        "reasons": [
+          "expected_physical_candidate_support_false"
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-scg-total-revenue:base_target:clause_reordered",
+        "reasons": [
+          "expected_physical_candidate_support_false"
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-scg-total-revenue:base_target:no_diacritics",
+        "reasons": [
+          "expected_physical_candidate_support_false"
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-scg-total-revenue:reference_base_mutation_target:canonical",
+        "reasons": [
+          "expected_physical_candidate_support_false"
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-scg-total-revenue:reference_base_mutation_target:paraphrase_1",
+        "reasons": [
+          "expected_physical_candidate_support_false"
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-scg-total-revenue:reference_base_mutation_target:long_clause",
+        "reasons": [
+          "expected_physical_candidate_support_false"
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-scg-total-revenue:reference_base_mutation_target:clause_reordered",
+        "reasons": [
+          "expected_physical_candidate_support_false"
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-scg-total-revenue:reference_base_mutation_target:no_diacritics",
+        "reasons": [
+          "expected_physical_candidate_support_false"
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-vnl-profit-before-tax:base_target:canonical",
+        "reasons": [
+          "expected_physical_candidate_support_false"
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-vnl-profit-before-tax:base_target:paraphrase_1",
+        "reasons": [
+          "expected_physical_candidate_support_false"
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-vnl-profit-before-tax:base_target:long_clause",
+        "reasons": [
+          "expected_physical_candidate_support_false"
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-vnl-profit-before-tax:base_target:clause_reordered",
+        "reasons": [
+          "expected_physical_candidate_support_false"
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-vnl-profit-before-tax:base_target:no_diacritics",
+        "reasons": [
+          "expected_physical_candidate_support_false"
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-vnl-profit-before-tax:reference_base_mutation_target:canonical",
+        "reasons": [
+          "expected_physical_candidate_support_false"
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-vnl-profit-before-tax:reference_base_mutation_target:paraphrase_1",
+        "reasons": [
+          "expected_physical_candidate_support_false"
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-vnl-profit-before-tax:reference_base_mutation_target:long_clause",
+        "reasons": [
+          "expected_physical_candidate_support_false"
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-vnl-profit-before-tax:reference_base_mutation_target:clause_reordered",
+        "reasons": [
+          "expected_physical_candidate_support_false"
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-vnl-profit-before-tax:reference_base_mutation_target:no_diacritics",
+        "reasons": [
+          "expected_physical_candidate_support_false"
+        ]
+      }
+    ],
+    "derivation": {
+      "mode": "CURRENT_PREDICTOR_BOUNDARY_CANDIDATES_AND_CURRENT_EVIDENCE_CELLS_ONLY",
+      "candidate_evaluations": 60,
+      "model_calls": 0,
+      "binding_calls": 0,
+      "diagnosis_executions": 0,
+      "result": "0 eligible / 60 upstream-ineligible"
+    }
+  },
+  "eligibility": {
+    "predicate": [
+      "positive_target",
+      "current_typed_plan_exact",
+      "source_outcome=RETURNED",
+      "source_error=null",
+      "expected_physical_candidate_support=true"
+    ],
+    "conjunction_required": true,
+    "gold_usage": "posthoc only after runtime output; never passed to retrieval, Candidate construction, model prediction, program search, Binding, verification, or action selection",
+    "if_a_frozen_case_fails_an_upstream_gate_at_execution": "HOLD; classify upstream-ineligible/not evaluated; do not replace or retry-select a case",
+    "description": "Current positive target, current typed plan exact, source returned without error, and exact shared current-state physical support"
+  },
+  "predicate": {
+    "pass_components": [
+      "binding_exact",
+      "provenance_complete",
+      "operation_exact",
+      "value_exact"
+    ],
+    "pass": "eligible AND binding_exact AND provenance_complete AND operation_exact AND value_exact",
+    "fail": "eligible AND any PASS component is false",
+    "upstream_ineligible": "not evaluated as Binding/Provenance PASS or FAIL",
+    "binding_exact": "the two current typed slot bindings and final ordered evidence resolve to a distinct same-table/same-row assignment of the frozen expected physical operands with exact value, source, physical page, table_id, row_id, column_id, frozen row/column identity, canonical structured column_role and explicit period, exact unit family/scale evidence, and nonempty identical Candidate/EvidenceCell source_span",
+    "matcher_correction": "canonical EvidenceCell.column_role plus explicit period proves ACTUAL/PLAN identity; raw Vietnamese column labels remain matched to the frozen Vietnamese column oracle but are never required to contain literal English ACTUAL/PLAN tokens",
+    "provenance_complete": "the required source_provenance_complete proof obligation is VALID; governing source requires source_name, page, table_id, row_id, column_id, source_span, and no column_role_conflict",
+    "operation_exact": "observed operation is RATIO_PERCENT",
+    "value_exact": "Decimal(str(observed value)) equals Decimal(str(frozen expected_exact_percent)); no tolerance"
+  },
+  "instrumentation": {
+    "points": [
+      "predictor boundary before DocumentHRMBundle.predict",
+      "_typed_operand_slot_dag_proposals / synthesize_typed_programs",
+      "_search_symbolic_programs",
+      "DocumentHRMBundle.predict return",
+      "verify_program / _slot_binding_state / _source_provenance_state",
+      "final evidence boundary"
+    ],
+    "source_points": [
+      {
+        "path": "src/hrm_finance_qa/document_reasoning_engine.py",
+        "function": "answer",
+        "line": 196,
+        "boundary": "predictor call and final evidence"
+      },
+      {
+        "path": "src/hrm_finance_qa/program_synthesis.py",
+        "function": "_typed_operand_slot_dag_proposals",
+        "line": 811
+      },
+      {
+        "path": "src/hrm_finance_qa/program_synthesis.py",
+        "function": "synthesize_typed_programs",
+        "line": 917
+      },
+      {
+        "path": "src/hrm_finance_qa/document_hrm.py",
+        "function": "_search_symbolic_programs",
+        "line": 6732
+      },
+      {
+        "path": "src/hrm_finance_qa/document_hrm.py",
+        "function": "predict",
+        "line": 1222
+      },
+      {
+        "path": "src/hrm_finance_qa/symbolic_verifier.py",
+        "function": "verify_program",
+        "line": 1078
+      },
+      {
+        "path": "src/hrm_finance_qa/symbolic_verifier.py",
+        "function": "_slot_binding_state",
+        "line": 863
+      },
+      {
+        "path": "src/hrm_finance_qa/symbolic_verifier.py",
+        "function": "_source_provenance_state",
+        "line": 843
+      }
+    ],
+    "observer_rule": "each wrapper delegates exactly once with identical arguments and returns the exact original object unchanged",
+    "model_logits_recorded": false,
+    "behavior_mutation": false,
+    "adaptive_instrumentation": false
+  },
+  "execution_contract": {
+    "authorized_now": false,
+    "phase_order": [
+      "baseline",
+      "instrumented"
+    ],
+    "baseline": 0,
+    "instrumented": 0,
+    "total": 0,
+    "same_exact_case_order": true,
+    "noninterference_required": "0/0 exact (vacuous; no eligible Binding evaluation)",
+    "adaptive_selection": false,
+    "case_replacement": false,
+    "second_rerun_after_execution_begins": false,
+    "mineru_auto_generate": false,
+    "fresh_phase_local_page_index": true,
+    "diagnosis_executions_during_precommit": 0
+  },
+  "noninterference": {
+    "comparison": "exact canonical semantic diagnosis-record equality for the same 21 cases",
+    "retained": [
+      "case and input hashes",
+      "typed plan slots",
+      "predictor-boundary ordered Candidate projection",
+      "Candidate count",
+      "prediction operation and ordered operands",
+      "program DAG and slot bindings",
+      "selected evidence physical projections",
+      "value and unit",
+      "warnings",
+      "source action and verification state",
+      "proof obligations and verification reasons",
+      "all four Binding/Provenance PASS components and bucket"
+    ],
+    "excluded_only": [
+      "observer event list",
+      "wall-clock stage_timings",
+      "phase-local temporary path spelling",
+      "page_index_stats.index_seconds",
+      "page_index_stats.selected_mineru_seconds",
+      "page_index_stats.total_seconds"
+    ],
+    "failure": "HOLD; no exclusion addition, adaptive patch, case replacement, or automatic rerun"
+  },
+  "genericity": {
+    "complete_signature_required": [
+      "same earliest causal producer module and symbol",
+      "same exact branch predicate",
+      "same typed slot and expected physical operand condition before the divergence",
+      "same DAG pointer or slot-binding misassignment",
+      "same before/after state and downstream consequence"
+    ],
+    "minimums": {
+      "cases": 2,
+      "companies": 2,
+      "sources": 2,
+      "document_layouts": 2
+    },
+    "binding_exact_false_or_empty_bindings_alone_is_sufficient": false,
+    "runtime_repair_authorized_during_diagnosis": false
+  },
+  "runtime": {
+    "python": "/mnt/d/reasoning_model_V4/reasoning_model/venv/bin/python",
+    "pythonpath": "src",
+    "checkpoint_path": "models/document_hrm_V8_candidate.pt",
+    "files": [
+      {
+        "path": "src/hrm_finance_qa/question_planner.py",
+        "sha256": "443ddb0b385728a7f943a4c6adc75ccb52ff495ff47875105d8da0a46cd62b4b"
+      },
+      {
+        "path": "src/hrm_finance_qa/symbolic_verifier.py",
+        "sha256": "2679b1ce55cc070697438c806f19e3e888bfc19bc1a9ae3686a0b7fd7ffb0087"
+      },
+      {
+        "path": "src/hrm_finance_qa/program_synthesis.py",
+        "sha256": "e4acc4878d0dfd465ba66ab91f3aaf8be71db5591aa1358fb8cb81f3c7bff550"
+      },
+      {
+        "path": "src/hrm_finance_qa/evidence_schema.py",
+        "sha256": "2f16fabf932dc9dabc8203d9642d2503bb2dab43e0e1ee0f78755dd4fb00825d"
+      },
+      {
+        "path": "src/hrm_finance_qa/document_hrm.py",
+        "sha256": "b5951bcde79583950b672f7fb6b199b3e5b9904e6784daae7c4c5be0eba65d21"
+      },
+      {
+        "path": "src/hrm_finance_qa/document_reasoning_engine.py",
+        "sha256": "3883500011472716bc01f8e04a6d6f925173b35a14bbedd945c5ca4fb0063fa2"
+      },
+      {
+        "path": "src/hrm_finance_qa/document_sources.py",
+        "sha256": "e9eb7b3ddcc2ed13060a573a6a0101a216fa49ff21dd65cd5fc2629b92f5fc0b"
+      },
+      {
+        "path": "src/hrm_finance_qa/program_data.py",
+        "sha256": "5199434fc0628b7d270ce62b12657366cbe118901065edd9f1e1f6ca0f1f8d54"
+      },
+      {
+        "path": "src/hrm_finance_qa/document_page_index.py",
+        "sha256": "d531f47a22ed051863b41b3de031bb3e9d4bbf60ef71f825217559b7035386b4"
+      },
+      {
+        "path": "models/document_hrm_V8_candidate.pt",
+        "sha256": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de"
+      }
+    ]
+  },
+  "frozen_inputs": [
+    {
+      "path": "reports/finhrm_qp4_post_question_surface_post_cache_residual_coverage_cohort_build_v1.json",
+      "bytes": 40607,
+      "sha256": "e084ec16312488c1badb5b645cfdf135a623cf89486d0f189648404fc5de35e6"
+    },
+    {
+      "path": "reports/finhrm_qp4_question_plan_generic_runtime_repair_evaluation_v1.json",
+      "bytes": 1358,
+      "sha256": "80b4da06bec0679b93ab6131a7aedbf037be23d5ab272e749e881e57a6b6fba3"
+    },
+    {
+      "path": "reports/finhrm_qp4_question_plan_generic_runtime_repair_closure_v1.json",
+      "bytes": 3249,
+      "sha256": "f5ffcfbf23c5a3f1c2a15571bc5b2bf43bfdc8bf25e6cb59e867debd641f1c1e"
+    },
+    {
+      "path": "reports/finhrm_qp4_candidate_development_diagnosis_closure_v2.json",
+      "bytes": 5223,
+      "sha256": "9528b079184aa342321efe3cd74ec802d27945850febbbf108d37f6c6aaea6dd"
+    }
+  ],
+  "artifacts": {
+    "harness": "scripts/run_qp4_binding_provenance_diagnosis_v1.py",
+    "config": "config/finhrm_qp4_binding_provenance_diagnosis_precommit_v1.json",
+    "markdown": "reports/finhrm_qp4_binding_provenance_diagnosis_precommit_v1.md",
+    "lock": "reports/finhrm_qp4_binding_provenance_diagnosis_precommit_lock_v1.json",
+    "future_diagnosis_output": "reports/finhrm_qp4_binding_provenance_diagnosis_v1.json"
+  },
+  "precommit_accounting": {
+    "candidate_calls": 60,
+    "model_calls": 0,
+    "binding_calls": 0,
+    "diagnosis_executions": 0,
+    "current_binding_outputs_observed": 0
+  },
+  "selected_evidence_projection_correction": {
+    "status": "PASS",
+    "governing_fields": [
+      "operand_number",
+      "candidate"
+    ],
+    "removed_obsolete_access": "SelectedEvidence.position",
+    "projection_field": "operand_number",
+    "current_schema_projection_mock": "PASS",
+    "predicate_delta": "none"
+  },
+  "next_allowed_action_if_static_preflight_passes": "QP4 BINDING/PROVENANCE ZERO-ELIGIBLE-DENOMINATOR CLOSURE ONLY",
+  "shared_physical_support_matcher": {
+    "status": "PASS",
+    "sha256": "39502bf9ee0cc6311b7a1cea4ccbe7ca490f915b7307b57a6e18fb890af0c485",
+    "identity_encoding": "SHA-256 of ast.dump for the exact ordered function set",
+    "implementation_symbols": [
+      "_normalize",
+      "_labels_compatible",
+      "_expected_operands",
+      "_unit_matches",
+      "_physical_match",
+      "_shared_physical_support"
+    ],
+    "same_implementation_for": [
+      "denominator derivation",
+      "execution-time eligibility"
+    ],
+    "inputs": [
+      "current predictor-boundary Candidate projections",
+      "current build_evidence_graph EvidenceCell projections"
+    ],
+    "physical_identity_fields": [
+      "source",
+      "page",
+      "table_id",
+      "row_id",
+      "column_id / structured column_role",
+      "period",
+      "value",
+      "unit",
+      "source_span"
+    ],
+    "distinct_operand_assignment": "required; both operands must map to distinct Candidate indices in the same table_id and row_id",
+    "forbidden_inputs": [
+      "primary.candidate_support",
+      "historical or stored support booleans",
+      "historical Binding outcomes",
+      "weaker authoring-only matcher"
+    ]
+  },
+  "denominator_reclosure": {
+    "previous_21_case_denominator": "INVALID / NON-GOVERNING",
+    "reason": "derived from stored primary.candidate_support rather than the execution-time physical-support predicate",
+    "current_universe_cases": 60,
+    "current_eligible_cases": 0,
+    "candidate_stage_reopened": false,
+    "runtime_or_model_modified": false
+  }
+}

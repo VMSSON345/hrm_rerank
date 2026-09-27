@@ -1,0 +1,10 @@
+{
+  "scope": "Whole-cell spaced integer tokens, missing-year dataset version, refusal priority. No model/training/threshold/OCR changes.",
+  "parent_protocol_sha256": "2cf2b0ceef80340f92829352a3321d0fc93f1191490c1b46334cc47a9e52c2fa",
+  "dataset": "data/tmp/B_current_benchmark_v2/validation_mineru.jsonl",
+  "dataset_sha256": "543d9247d2f0d6ce5d2bb0861c2f8bd9e3dd66e192b3b28be2859891387cb179",
+  "http_cases": 72,
+  "smoke_cases": 8,
+  "preserve": "All 60 previously published scalar outputs; all 16 current-policy negative cases; partial response. Original benchmark artifacts remain unchanged.",
+  "acceptance": "Restore both reviewed HFX scalar answers with full source spans and certificates; preserve prior outputs; remove conflicting core question gold via source years; metric-mismatch refusals must not say only unit missing."
+}

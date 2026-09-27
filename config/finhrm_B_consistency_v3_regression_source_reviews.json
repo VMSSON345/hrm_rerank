@@ -1,0 +1,2126 @@
+{
+  "newsource-hfx-plan": [
+    {
+      "source_id": "HFX",
+      "identity": {
+        "metric": "tong doanh thu",
+        "years": [
+          "2024"
+        ],
+        "role": "plan",
+        "scope": "reporting_company",
+        "time_semantics": null
+      },
+      "source_witnesses": [
+        {
+          "line_number": 125,
+          "text": "3- Tổng doanh thu | Tỷ đồng | 20",
+          "line_sha256": "c41a65bd36052ef39fcc3bc36a7512cb38522a6f34670e174ac1c130ce6ef7c6"
+        }
+      ],
+      "basis": "Source-adjudicated original baseline and frozen numerical reference; includes alternate source review already documented in V2. Not derived from V3 predictions."
+    }
+  ],
+  "newsource-hfx-unit": [
+    {
+      "source_id": "HFX",
+      "identity": {
+        "metric": "doanh thu thuan",
+        "years": [
+          "2023"
+        ],
+        "role": "actual",
+        "scope": "reporting_company",
+        "time_semantics": null
+      },
+      "source_witnesses": [
+        {
+          "line_number": 71,
+          "text": "Doanh thu thuần | 2023: 22006696 697 | 2022: 24 912 334 980",
+          "line_sha256": "1361ac8511f9271f39f63b900106ecae773e6e1da8f059f5ec6afbb7ddc62d66"
+        }
+      ],
+      "basis": "Source-adjudicated original baseline and frozen numerical reference; includes alternate source review already documented in V2. Not derived from V3 predictions."
+    }
+  ],
+  "newsource-hfx-missing": [
+    {
+      "source_id": "HFX",
+      "identity": {
+        "metric": "tong doanh thu",
+        "years": [
+          "2037"
+        ],
+        "role": "actual",
+        "scope": "reporting_company",
+        "time_semantics": null
+      },
+      "source_witnesses": [
+        {
+          "line_number": 92,
+          "text": "Tổng doanh thu: 22 006 696 697",
+          "line_sha256": "b7923adefffdcf808c77572d1dc9b433d7c7c8c7fbe1ada2d7d7c066d0207640"
+        }
+      ],
+      "basis": "Source-adjudicated original baseline and frozen numerical reference; includes alternate source review already documented in V2. Not derived from V3 predictions."
+    }
+  ],
+  "newsource-bth-capital": [
+    {
+      "source_id": "BTH",
+      "identity": {
+        "metric": "von dieu le",
+        "years": [
+          "2025"
+        ],
+        "role": null,
+        "scope": "reporting_company",
+        "time_semantics": null
+      },
+      "source_witnesses": [
+        {
+          "line_number": 13,
+          "text": "\\- Vốn điều lệ/ Charter capital: 250.000.000.000 đồng (Hai trăm năm mươi tỷ đồng)",
+          "line_sha256": "b9c00882b32a417e0c592d0b3a4859922415f24fd88b384ccb79451223fedd22"
+        }
+      ],
+      "basis": "Source-adjudicated original baseline and frozen numerical reference; includes alternate source review already documented in V2. Not derived from V3 predictions."
+    }
+  ],
+  "newsource-bth-liabilities": [
+    {
+      "source_id": "BTH",
+      "identity": {
+        "metric": "no phai tra",
+        "years": [
+          "2025"
+        ],
+        "role": "actual",
+        "scope": "reporting_company",
+        "time_semantics": null
+      },
+      "source_witnesses": [
+        {
+          "line_number": 201,
+          "text": "Nợ phải trả tại ngày 31/12/2025 là 187.045.781.498đ, công ty có khả năng thanh toán.",
+          "line_sha256": "5c272dac88614a3c20b0d32c02774fc89121b846a75385a025c3f9f2e942de3e"
+        }
+      ],
+      "basis": "Source-adjudicated original baseline and frozen numerical reference; includes alternate source review already documented in V2. Not derived from V3 predictions."
+    }
+  ],
+  "newsource-bth-completion": [
+    {
+      "source_id": "BTH",
+      "identity": {
+        "metric": "doanh thu ban hang va cung cap dich vu",
+        "years": [
+          "2025"
+        ],
+        "role": [
+          "actual",
+          "plan"
+        ],
+        "scope": "reporting_company",
+        "time_semantics": null
+      },
+      "source_witnesses": [
+        {
+          "line_number": 62,
+          "text": "Doanh thu bán hàng và cung cấp dịch vụ | Kế hoạch 2025: 169.000.000.000 | Thực hiện 2025: 272.109.210.439 | Tăng 61%",
+          "line_sha256": "fae36cbb2fdb4c41a595eadfcfea756a00766967f678c3ca600b431314e8ed89"
+        },
+        {
+          "line_number": 62,
+          "text": "Doanh thu bán hàng và cung cấp dịch vụ | Kế hoạch 2025: 169.000.000.000 | Thực hiện 2025: 272.109.210.439 | Tăng 61%",
+          "line_sha256": "fae36cbb2fdb4c41a595eadfcfea756a00766967f678c3ca600b431314e8ed89"
+        }
+      ],
+      "basis": "Source-adjudicated original baseline and frozen numerical reference; includes alternate source review already documented in V2. Not derived from V3 predictions."
+    }
+  ],
+  "newsource-mgg-net": [
+    {
+      "source_id": "MGG",
+      "identity": {
+        "metric": "doanh thu thuan",
+        "years": [
+          "2023"
+        ],
+        "role": "actual",
+        "scope": "reporting_company",
+        "time_semantics": null
+      },
+      "source_witnesses": [
+        {
+          "line_number": 117,
+          "text": "Doanh thu thuần | Năm 2023: 1.745,8 | Năm 2022: 1.976,8 | 88",
+          "line_sha256": "f62231c164f0e0726c0af055cbb64ecee3e3eb95388ebf88b666befbbdae1774"
+        }
+      ],
+      "basis": "Source-adjudicated original baseline and frozen numerical reference; includes alternate source review already documented in V2. Not derived from V3 predictions."
+    }
+  ],
+  "newsource-mgg-net-paraphrase": [
+    {
+      "source_id": "MGG",
+      "identity": {
+        "metric": "doanh thu thuan",
+        "years": [
+          "2023"
+        ],
+        "role": "actual",
+        "scope": "reporting_company",
+        "time_semantics": null
+      },
+      "source_witnesses": [
+        {
+          "line_number": 117,
+          "text": "Doanh thu thuần | Năm 2023: 1.745,8 | Năm 2022: 1.976,8 | 88",
+          "line_sha256": "f62231c164f0e0726c0af055cbb64ecee3e3eb95388ebf88b666befbbdae1774"
+        }
+      ],
+      "basis": "Source-adjudicated original baseline and frozen numerical reference; includes alternate source review already documented in V2. Not derived from V3 predictions."
+    }
+  ],
+  "newsource-mgg-difference": [
+    {
+      "source_id": "MGG",
+      "identity": {
+        "metric": "doanh thu thuan",
+        "years": [
+          "2023",
+          "2022"
+        ],
+        "role": [
+          "actual",
+          "actual"
+        ],
+        "scope": "reporting_company",
+        "time_semantics": null
+      },
+      "source_witnesses": [
+        {
+          "line_number": 117,
+          "text": "Doanh thu thuần | Năm 2023: 1.745,8 | Năm 2022: 1.976,8 | 88",
+          "line_sha256": "f62231c164f0e0726c0af055cbb64ecee3e3eb95388ebf88b666befbbdae1774"
+        },
+        {
+          "line_number": 117,
+          "text": "Doanh thu thuần | Năm 2023: 1.745,8 | Năm 2022: 1.976,8 | 88",
+          "line_sha256": "f62231c164f0e0726c0af055cbb64ecee3e3eb95388ebf88b666befbbdae1774"
+        }
+      ],
+      "basis": "Source-adjudicated original baseline and frozen numerical reference; includes alternate source review already documented in V2. Not derived from V3 predictions."
+    }
+  ],
+  "newsource-mgg-total": [
+    {
+      "source_id": "MGG",
+      "identity": {
+        "metric": "tong doanh thu",
+        "years": [
+          "2023"
+        ],
+        "role": "actual",
+        "scope": "reporting_company",
+        "time_semantics": null
+      },
+      "source_witnesses": [
+        {
+          "line_number": 149,
+          "text": "Tổng doanh thu | Tỷ đồng | TH 2023: 2.439 | TH 2022: 2.814 | 83 | 87",
+          "line_sha256": "c256b499329c7d5370f75012d380cbd3a1ec5dffb441c2f4a3d8e5751784c298"
+        }
+      ],
+      "basis": "Source-adjudicated original baseline and frozen numerical reference; includes alternate source review already documented in V2. Not derived from V3 predictions."
+    }
+  ],
+  "repair-bth-liabilities-paraphrase": [
+    {
+      "source_id": "BTH",
+      "identity": {
+        "metric": "no phai tra",
+        "years": [
+          "2025"
+        ],
+        "role": "actual",
+        "scope": "reporting_company",
+        "time_semantics": null
+      },
+      "source_witnesses": [
+        {
+          "line_number": 201,
+          "text": "Nợ phải trả tại ngày 31/12/2025 là 187.045.781.498đ, công ty có khả năng thanh toán.",
+          "line_sha256": "5c272dac88614a3c20b0d32c02774fc89121b846a75385a025c3f9f2e942de3e"
+        }
+      ],
+      "basis": "Source-adjudicated original baseline and frozen numerical reference; includes alternate source review already documented in V2. Not derived from V3 predictions."
+    }
+  ],
+  "repair-mgg-difference-paraphrase": [
+    {
+      "source_id": "MGG",
+      "identity": {
+        "metric": "doanh thu thuan",
+        "years": [
+          "2023",
+          "2022"
+        ],
+        "role": [
+          "actual",
+          "actual"
+        ],
+        "scope": "reporting_company",
+        "time_semantics": null
+      },
+      "source_witnesses": [
+        {
+          "line_number": 117,
+          "text": "Doanh thu thuần | Năm 2023: 1.745,8 | Năm 2022: 1.976,8 | 88",
+          "line_sha256": "f62231c164f0e0726c0af055cbb64ecee3e3eb95388ebf88b666befbbdae1774"
+        },
+        {
+          "line_number": 117,
+          "text": "Doanh thu thuần | Năm 2023: 1.745,8 | Năm 2022: 1.976,8 | 88",
+          "line_sha256": "f62231c164f0e0726c0af055cbb64ecee3e3eb95388ebf88b666befbbdae1774"
+        }
+      ],
+      "basis": "Source-adjudicated original baseline and frozen numerical reference; includes alternate source review already documented in V2. Not derived from V3 predictions."
+    }
+  ],
+  "repair-bth-completion-paraphrase": [
+    {
+      "source_id": "BTH",
+      "identity": {
+        "metric": "doanh thu ban hang va cung cap dich vu",
+        "years": [
+          "2025"
+        ],
+        "role": [
+          "actual",
+          "plan"
+        ],
+        "scope": "reporting_company",
+        "time_semantics": null
+      },
+      "source_witnesses": [
+        {
+          "line_number": 62,
+          "text": "Doanh thu bán hàng và cung cấp dịch vụ | Kế hoạch 2025: 169.000.000.000 | Thực hiện 2025: 272.109.210.439 | Tăng 61%",
+          "line_sha256": "fae36cbb2fdb4c41a595eadfcfea756a00766967f678c3ca600b431314e8ed89"
+        },
+        {
+          "line_number": 62,
+          "text": "Doanh thu bán hàng và cung cấp dịch vụ | Kế hoạch 2025: 169.000.000.000 | Thực hiện 2025: 272.109.210.439 | Tăng 61%",
+          "line_sha256": "fae36cbb2fdb4c41a595eadfcfea756a00766967f678c3ca600b431314e8ed89"
+        }
+      ],
+      "basis": "Source-adjudicated original baseline and frozen numerical reference; includes alternate source review already documented in V2. Not derived from V3 predictions."
+    }
+  ],
+  "repair-hfx-unit-paraphrase": [
+    {
+      "source_id": "HFX",
+      "identity": {
+        "metric": "doanh thu thuan",
+        "years": [
+          "2023"
+        ],
+        "role": "actual",
+        "scope": "reporting_company",
+        "time_semantics": null
+      },
+      "source_witnesses": [
+        {
+          "line_number": 71,
+          "text": "Doanh thu thuần | 2023: 22006696 697 | 2022: 24 912 334 980",
+          "line_sha256": "1361ac8511f9271f39f63b900106ecae773e6e1da8f059f5ec6afbb7ddc62d66"
+        }
+      ],
+      "basis": "Source-adjudicated original baseline and frozen numerical reference; includes alternate source review already documented in V2. Not derived from V3 predictions."
+    }
+  ],
+  "report-boundary-fact-date": [
+    {
+      "source_id": "BTH",
+      "identity": {
+        "metric": "von dieu le",
+        "years": [
+          "2025"
+        ],
+        "role": null,
+        "scope": "reporting_company",
+        "time_semantics": null
+      },
+      "source_witnesses": [
+        {
+          "line_number": 159,
+          "text": "3. Chỉ tiêu về năng lực hoạt động/ Operation capability Ratio+ Vòng quay hàng tồn kho/ Inventory turnover:Giá vốn hàng bán/Hàng tồn kho bình quân(Cost of goods sold/Average inventory)+Vòng quay tổng tài sản/Total asset turnover:Doanh thu thuần/Tổng tài sản(Net revenue/ Total Assets) | Năm/Year 2024: 5,691,37 | Năm/Year 2025: 0,740.41 | ",
+          "line_sha256": "87db2b7d3456c939fe1f052818547a726122be5d97ac16651b9b9aa6397ea505"
+        }
+      ],
+      "basis": "Source-adjudicated original baseline and frozen numerical reference; includes alternate source review already documented in V2. Not derived from V3 predictions."
+    }
+  ],
+  "report-boundary-wrong-report": [
+    {
+      "source_id": "BTH",
+      "identity": {
+        "metric": "von dieu le",
+        "years": [
+          "2025"
+        ],
+        "role": null,
+        "scope": "reporting_company",
+        "time_semantics": null
+      },
+      "source_witnesses": [
+        {
+          "line_number": 13,
+          "text": "\\- Vốn điều lệ/ Charter capital: 250.000.000.000 đồng (Hai trăm năm mươi tỷ đồng)",
+          "line_sha256": "b9c00882b32a417e0c592d0b3a4859922415f24fd88b384ccb79451223fedd22"
+        }
+      ],
+      "basis": "Source-adjudicated original baseline and frozen numerical reference; includes alternate source review already documented in V2. Not derived from V3 predictions."
+    }
+  ],
+  "new-report-01": [
+    {
+      "source_id": "ACG",
+      "identity": {
+        "metric": "doanh thu thuan",
+        "years": [
+          "2025"
+        ],
+        "role": "actual",
+        "scope": "consolidated",
+        "time_semantics": null
+      },
+      "source_witnesses": [
+        {
+          "line_number": 933,
+          "text": "Doanh thu thuần | Năm 2024: 3.980,9 | Năm 2025: 4.608,7 | 15,8%",
+          "line_sha256": "3bce9d6bde6c75fee6a1547d6ccfb23d4b66cc7f110a9b5aae9fbb2105515262"
+        }
+      ],
+      "basis": "Source-adjudicated original baseline and frozen numerical reference; includes alternate source review already documented in V2. Not derived from V3 predictions."
+    }
+  ],
+  "new-report-03": [
+    {
+      "source_id": "AGP",
+      "identity": {
+        "metric": "doanh thu thuan",
+        "years": [
+          "2026"
+        ],
+        "role": "plan",
+        "scope": "reporting_company",
+        "time_semantics": null
+      },
+      "source_witnesses": [
+        {
+          "line_number": 727,
+          "text": "Doanh thu thuần (tỷ đồng) | Thực hiện năm 2025: 844,7 | 930 | 10,10%",
+          "line_sha256": "55bae9575bfcfd95968e7d76429a7720e128b83a5cb24ae6375ca045b1f0f3f0"
+        }
+      ],
+      "basis": "Source-adjudicated original baseline and frozen numerical reference; includes alternate source review already documented in V2. Not derived from V3 predictions."
+    }
+  ],
+  "new-report-04": [
+    {
+      "source_id": "AGP",
+      "identity": {
+        "metric": "doanh thu thuan",
+        "years": [
+          "2025"
+        ],
+        "role": "actual",
+        "scope": "reporting_company",
+        "time_semantics": null
+      },
+      "source_witnesses": [
+        {
+          "line_number": 727,
+          "text": "Doanh thu thuần (tỷ đồng) | Thực hiện năm 2025: 844,7 | 930 | 10,10%",
+          "line_sha256": "55bae9575bfcfd95968e7d76429a7720e128b83a5cb24ae6375ca045b1f0f3f0"
+        }
+      ],
+      "basis": "Source-adjudicated original baseline and frozen numerical reference; includes alternate source review already documented in V2. Not derived from V3 predictions."
+    }
+  ],
+  "new-report-05": [
+    {
+      "source_id": "AGP",
+      "identity": {
+        "metric": "doanh thu thuan",
+        "years": [
+          "2025",
+          "2024"
+        ],
+        "role": "actual",
+        "scope": "reporting_company",
+        "time_semantics": null
+      },
+      "source_witnesses": [
+        {
+          "line_number": 415,
+          "text": "Doanh thu thuần | Năm 2024: 793,3 | Năm 2025: 844,7 | 6,48%",
+          "line_sha256": "120eeb763c39565c39a0a5f60e66d7a3638c7c67d17c2f36a0f231a04cde835c"
+        },
+        {
+          "line_number": 415,
+          "text": "Doanh thu thuần | Năm 2024: 793,3 | Năm 2025: 844,7 | 6,48%",
+          "line_sha256": "120eeb763c39565c39a0a5f60e66d7a3638c7c67d17c2f36a0f231a04cde835c"
+        }
+      ],
+      "basis": "Source-adjudicated original baseline and frozen numerical reference; includes alternate source review already documented in V2. Not derived from V3 predictions."
+    }
+  ],
+  "policy-hkt-actual": [
+    {
+      "source_id": "HKT",
+      "identity": {
+        "metric": "loi nhuan sau thue",
+        "years": [
+          "2023"
+        ],
+        "role": "actual",
+        "scope": "reporting_company",
+        "time_semantics": null
+      },
+      "source_witnesses": [
+        {
+          "line_number": 308,
+          "text": "Lợi nhuận sau thuế | Kế hoạch năm 2023: 4.800.000.000 | Thực hiện năm 2023: 461.013.161 | 9,6%",
+          "line_sha256": "04a4c9534cbfa7a120effe7b9277ba2cd734ca30c6fd7ffb0ce5c4609c1d31c2"
+        }
+      ],
+      "basis": "Source-adjudicated original baseline and frozen numerical reference; includes alternate source review already documented in V2. Not derived from V3 predictions."
+    }
+  ],
+  "policy-hkt-missing": [
+    {
+      "source_id": "HKT",
+      "identity": {
+        "metric": "loi nhuan sau thue",
+        "years": [
+          "2037"
+        ],
+        "role": "actual",
+        "scope": "reporting_company",
+        "time_semantics": null
+      },
+      "source_witnesses": [
+        {
+          "line_number": 308,
+          "text": "Lợi nhuận sau thuế | Kế hoạch năm 2023: 4.800.000.000 | Thực hiện năm 2023: 461.013.161 | 9,6%",
+          "line_sha256": "04a4c9534cbfa7a120effe7b9277ba2cd734ca30c6fd7ffb0ce5c4609c1d31c2"
+        }
+      ],
+      "basis": "Source-adjudicated original baseline and frozen numerical reference; includes alternate source review already documented in V2. Not derived from V3 predictions."
+    }
+  ],
+  "additional-bsd-net": [
+    {
+      "source_id": "BSD",
+      "identity": {
+        "metric": "doanh thu thuan",
+        "years": [
+          "2023"
+        ],
+        "role": "actual",
+        "scope": "reporting_company",
+        "time_semantics": null
+      },
+      "source_witnesses": [
+        {
+          "line_number": 280,
+          "text": "Doanh thu thuần | VNĐ | Năm 2022: 289,078,607,069 | Năm 2023: 311,192,583,425 | 108%",
+          "line_sha256": "d3b2b829acc3f56beebd2e72afdd3d00c8df387e459c9f706e7467059d311e30"
+        }
+      ],
+      "basis": "Source-adjudicated original baseline and frozen numerical reference; includes alternate source review already documented in V2. Not derived from V3 predictions."
+    }
+  ],
+  "additional-bsd-missing": [
+    {
+      "source_id": "BSD",
+      "identity": {
+        "metric": "doanh thu thuan",
+        "years": [
+          "2037"
+        ],
+        "role": "actual",
+        "scope": "reporting_company",
+        "time_semantics": null
+      },
+      "source_witnesses": [
+        {
+          "line_number": 280,
+          "text": "Doanh thu thuần | VNĐ | Năm 2022: 289,078,607,069 | Năm 2023: 311,192,583,425 | 108%",
+          "line_sha256": "d3b2b829acc3f56beebd2e72afdd3d00c8df387e459c9f706e7467059d311e30"
+        }
+      ],
+      "basis": "Source-adjudicated original baseline and frozen numerical reference; includes alternate source review already documented in V2. Not derived from V3 predictions."
+    }
+  ],
+  "additional-bhg-plan": [
+    {
+      "source_id": "BHG",
+      "identity": {
+        "metric": "loi nhuan sau thue",
+        "years": [
+          "2023"
+        ],
+        "role": "plan",
+        "scope": "reporting_company",
+        "time_semantics": null
+      },
+      "source_witnesses": [
+        {
+          "line_number": 88,
+          "text": "STT: 3 | Lợi nhuận sau thuế | Tỷ đồng | KH 2023: 0,960 | TH 2023: 1,225 | 127,6",
+          "line_sha256": "255ec4cdd0e232baf6e1a0ede614f2af3e8d21bca1f8d5dc145f472465935e30"
+        }
+      ],
+      "basis": "Source-adjudicated original baseline and frozen numerical reference; includes alternate source review already documented in V2. Not derived from V3 predictions."
+    }
+  ],
+  "additional-bhg-missing": [
+    {
+      "source_id": "BHG",
+      "identity": {
+        "metric": "loi nhuan sau thue",
+        "years": [
+          "2037"
+        ],
+        "role": "actual",
+        "scope": "reporting_company",
+        "time_semantics": null
+      },
+      "source_witnesses": [
+        {
+          "line_number": 376,
+          "text": "STT: 4 | Lợi nhuận sau thuế | Tỷ đồng | Thực hiện năm 2023: 1,225",
+          "line_sha256": "7c7c31c97906bda31c5be4a79623188bded36d2dc98faf94512f90044c0d608c"
+        }
+      ],
+      "basis": "Source-adjudicated original baseline and frozen numerical reference; includes alternate source review already documented in V2. Not derived from V3 predictions."
+    }
+  ],
+  "additional-hav-net": [
+    {
+      "source_id": "HAV",
+      "identity": {
+        "metric": "doanh thu thuan",
+        "years": [
+          "2023"
+        ],
+        "role": "actual",
+        "scope": "reporting_company",
+        "time_semantics": null
+      },
+      "source_witnesses": [
+        {
+          "line_number": 454,
+          "text": "3 | Doanh thu thuần | Năm 2022: 1.055 | Năm 2023: 2.341 | 122%",
+          "line_sha256": "4f58db23a1c56953be50be5dfab4d6cbe2ecd7cf77f6477dd43e7675948f2b60"
+        }
+      ],
+      "basis": "Source-adjudicated original baseline and frozen numerical reference; includes alternate source review already documented in V2. Not derived from V3 predictions."
+    }
+  ],
+  "additional-hav-difference": [
+    {
+      "source_id": "HAV",
+      "identity": {
+        "metric": "doanh thu thuan",
+        "years": [
+          "2023",
+          "2022"
+        ],
+        "role": "actual",
+        "scope": "reporting_company",
+        "time_semantics": null
+      },
+      "source_witnesses": [
+        {
+          "line_number": 454,
+          "text": "3 | Doanh thu thuần | Năm 2022: 1.055 | Năm 2023: 2.341 | 122%",
+          "line_sha256": "4f58db23a1c56953be50be5dfab4d6cbe2ecd7cf77f6477dd43e7675948f2b60"
+        },
+        {
+          "line_number": 454,
+          "text": "3 | Doanh thu thuần | Năm 2022: 1.055 | Năm 2023: 2.341 | 122%",
+          "line_sha256": "4f58db23a1c56953be50be5dfab4d6cbe2ecd7cf77f6477dd43e7675948f2b60"
+        }
+      ],
+      "basis": "Source-adjudicated original baseline and frozen numerical reference; includes alternate source review already documented in V2. Not derived from V3 predictions."
+    }
+  ],
+  "fresh-cms-consolidated": [
+    {
+      "source_id": "CMS",
+      "identity": {
+        "metric": "doanh thu thuan",
+        "years": [
+          "2023"
+        ],
+        "role": "actual",
+        "scope": "consolidated",
+        "time_semantics": null
+      },
+      "source_witnesses": [
+        {
+          "line_number": 305,
+          "text": "STT: 3 | Doanh thu thuần về bán hàng và cung cấp dịch vụ (3=1-2) | Năm 2022: 160.239.540.091 | Năm 2023: 98.101.923.040",
+          "line_sha256": "7465f61f590dcb0a9f7806b45dec5fd5ac8a845c9c15f6f098d735b2fe16c815"
+        }
+      ],
+      "basis": "Source-adjudicated original baseline and frozen numerical reference; includes alternate source review already documented in V2. Not derived from V3 predictions."
+    }
+  ],
+  "fresh-cms-separate": [
+    {
+      "source_id": "CMS",
+      "identity": {
+        "metric": "doanh thu thuan",
+        "years": [
+          "2023"
+        ],
+        "role": "actual",
+        "scope": "separate",
+        "time_semantics": null
+      },
+      "source_witnesses": [
+        {
+          "line_number": 341,
+          "text": "STT: 3 | 3. Doanh thu thuần về bán hàng và cung cấp dịch vụ (10 = 01 - 02) | Năm 2022: 145.894.620.284 | Năm 2023: 97.312.008.435",
+          "line_sha256": "19d825c6971ab727f3dda655bc4d1ca43c379f43aa7163464040dbb9f71faf54"
+        }
+      ],
+      "basis": "Source-adjudicated original baseline and frozen numerical reference; includes alternate source review already documented in V2. Not derived from V3 predictions."
+    }
+  ],
+  "fresh-pdb-actual": [
+    {
+      "source_id": "PDB",
+      "identity": {
+        "metric": "doanh thu thuan",
+        "years": [
+          "2024"
+        ],
+        "role": "actual",
+        "scope": "consolidated",
+        "time_semantics": null
+      },
+      "source_witnesses": [
+        {
+          "line_number": 210,
+          "text": "Doanh thu thuần | Kế hoạch 2024: 257.000 | Thực hiện 2024: 307.927 | Thực hiện 2023: 235.110 | % thực hiện so với kế hoạch 2024: 119,8% | % thực hiện so với 2023: 131,0%",
+          "line_sha256": "5a9bee2099f6d85009cbf301760c7f9035341c1add9702ecc114c4264b8e137b"
+        },
+        {
+          "line_number": 205,
+          "text": "Kết quả kinh doanh hợp nhất như sau:",
+          "line_sha256": "a824923601e8e4f51f8290cdd9447bab79de299f3880cbc5ec514831db082b22"
+        },
+        {
+          "line_number": 207,
+          "text": "Nguồn: BCTC kiểm toán hợp nhất 2024 của Din Capital",
+          "line_sha256": "2f24e918e0ee2f9a50ca90a3ffe3deb7371d001e5edacaf130a94e8b02e19fc6"
+        }
+      ],
+      "basis": "Source-adjudicated original baseline and frozen numerical reference; includes alternate source review already documented in V2. Not derived from V3 predictions.",
+      "legacy_entity_scopes": [
+        "consolidated"
+      ],
+      "legacy_entity_basis": "Explicit source headers: consolidated results and audited consolidated statements of Din Capital."
+    }
+  ],
+  "fresh-pdb-plan": [
+    {
+      "source_id": "PDB",
+      "identity": {
+        "metric": "doanh thu thuan",
+        "years": [
+          "2024"
+        ],
+        "role": "plan",
+        "scope": "consolidated",
+        "time_semantics": null
+      },
+      "source_witnesses": [
+        {
+          "line_number": 210,
+          "text": "Doanh thu thuần | Kế hoạch 2024: 257.000 | Thực hiện 2024: 307.927 | Thực hiện 2023: 235.110 | % thực hiện so với kế hoạch 2024: 119,8% | % thực hiện so với 2023: 131,0%",
+          "line_sha256": "5a9bee2099f6d85009cbf301760c7f9035341c1add9702ecc114c4264b8e137b"
+        },
+        {
+          "line_number": 205,
+          "text": "Kết quả kinh doanh hợp nhất như sau:",
+          "line_sha256": "a824923601e8e4f51f8290cdd9447bab79de299f3880cbc5ec514831db082b22"
+        },
+        {
+          "line_number": 207,
+          "text": "Nguồn: BCTC kiểm toán hợp nhất 2024 của Din Capital",
+          "line_sha256": "2f24e918e0ee2f9a50ca90a3ffe3deb7371d001e5edacaf130a94e8b02e19fc6"
+        }
+      ],
+      "basis": "Source-adjudicated original baseline and frozen numerical reference; includes alternate source review already documented in V2. Not derived from V3 predictions.",
+      "legacy_entity_scopes": [
+        "consolidated"
+      ],
+      "legacy_entity_basis": "Explicit source headers: consolidated results and audited consolidated statements of Din Capital."
+    }
+  ],
+  "fresh-ssg-difference": [
+    {
+      "source_id": "SSG",
+      "identity": {
+        "metric": "doanh thu thuan",
+        "years": [
+          "2023",
+          "2024"
+        ],
+        "role": "actual",
+        "scope": "reporting_company",
+        "time_semantics": null
+      },
+      "source_witnesses": [
+        {
+          "line_number": 127,
+          "text": "Doanh thu thuần | Năm 2023: 35.794 | Năm 2024: 107.836 | 301,27%",
+          "line_sha256": "b5f0d4cd86551335491a4e77bef89003f2aa3c5a7f29be7d5ec6e73d03c494aa"
+        },
+        {
+          "line_number": 127,
+          "text": "Doanh thu thuần | Năm 2023: 35.794 | Năm 2024: 107.836 | 301,27%",
+          "line_sha256": "b5f0d4cd86551335491a4e77bef89003f2aa3c5a7f29be7d5ec6e73d03c494aa"
+        }
+      ],
+      "basis": "Source-adjudicated original baseline and frozen numerical reference; includes alternate source review already documented in V2. Not derived from V3 predictions."
+    }
+  ],
+  "fresh-ssg-missing": [
+    {
+      "source_id": "SSG",
+      "identity": {
+        "metric": "doanh thu thuan",
+        "years": [
+          "2037"
+        ],
+        "role": "actual",
+        "scope": "reporting_company",
+        "time_semantics": null
+      },
+      "source_witnesses": [
+        {
+          "line_number": 127,
+          "text": "Doanh thu thuần | Năm 2023: 35.794 | Năm 2024: 107.836 | 301,27%",
+          "line_sha256": "b5f0d4cd86551335491a4e77bef89003f2aa3c5a7f29be7d5ec6e73d03c494aa"
+        }
+      ],
+      "basis": "Source-adjudicated original baseline and frozen numerical reference; includes alternate source review already documented in V2. Not derived from V3 predictions."
+    }
+  ],
+  "check-ggg-capital": [
+    {
+      "source_id": "GGG",
+      "identity": {
+        "metric": "von dieu le",
+        "years": [
+          "2023"
+        ],
+        "role": "not_applicable",
+        "scope": "reporting_company",
+        "time_semantics": null
+      },
+      "source_witnesses": [
+        {
+          "line_number": 15,
+          "text": "• Vốn điều lệ: 293.885.890.000 đồng",
+          "line_sha256": "510ccf807effac570880e2a4aaebd834548338fbaa6591c27904d3f5fbb93156"
+        }
+      ],
+      "basis": "Source-adjudicated original baseline and frozen numerical reference; includes alternate source review already documented in V2. Not derived from V3 predictions."
+    }
+  ],
+  "check-ggg-owner-capital": [
+    {
+      "source_id": "GGG",
+      "identity": {
+        "metric": "von dau tu cua chu so huu",
+        "years": [
+          "2023"
+        ],
+        "role": "not_applicable",
+        "scope": "reporting_company",
+        "time_semantics": null
+      },
+      "source_witnesses": [
+        {
+          "line_number": 16,
+          "text": "\\- Vốn đầu tư của chủ sở hữu: 293.885.890.000 đồng",
+          "line_sha256": "4abb0ecb33621742b30383c213d1e6bbd0c6f57e37c6fc379a40180b6d817069"
+        }
+      ],
+      "basis": "Source-adjudicated original baseline and frozen numerical reference; includes alternate source review already documented in V2. Not derived from V3 predictions."
+    }
+  ],
+  "check-dxg-notice": [
+    {
+      "source_id": "DXG",
+      "identity": {
+        "metric": "doanh thu thuan",
+        "years": [
+          "2023"
+        ],
+        "role": "actual",
+        "scope": "reporting_company",
+        "time_semantics": null
+      },
+      "source_witnesses": [
+        {
+          "line_number": 22,
+          "text": "3. Thông tin này đã được công bố trên trang thông tin điện tử của công ty vào ngày .29./03/2024 tại đường dẫn https://ir.datxanh.vn /This information was published on the company's website on March 29, 2024, as in the link https://ir.datxanh.vn",
+          "line_sha256": "205475ff2012bd04f0fa97b1630321e69e1eb1f9b49ebf3a0af3f1f9e761a261"
+        }
+      ],
+      "basis": "Source-adjudicated original baseline and frozen numerical reference; includes alternate source review already documented in V2. Not derived from V3 predictions."
+    }
+  ],
+  "check-shi-notice": [
+    {
+      "source_id": "SHI",
+      "identity": {
+        "metric": "doanh thu thuan",
+        "years": [
+          "2024"
+        ],
+        "role": "actual",
+        "scope": "reporting_company",
+        "time_semantics": null
+      },
+      "source_witnesses": [
+        {
+          "line_number": 25,
+          "text": "\\- Báo cáo đã được công bố trên trang diện tử của Công ty vào ngày 19./04/2025 theo đường dẫn sau: www.sonha.com.vn – Muc Quan Hế Cổ Đông.",
+          "line_sha256": "7b67640311384dba4dd37d495efb0f50c695d813af7ea33b54807abd2d05a27f"
+        }
+      ],
+      "basis": "Source-adjudicated original baseline and frozen numerical reference; includes alternate source review already documented in V2. Not derived from V3 predictions."
+    }
+  ],
+  "owner-check-hkt-2023": [
+    {
+      "source_id": "HKT",
+      "identity": {
+        "metric": "von dieu le",
+        "years": [
+          "2023"
+        ],
+        "role": "not_applicable",
+        "scope": "reporting_company",
+        "time_semantics": null
+      },
+      "source_witnesses": [
+        {
+          "line_number": 69,
+          "text": "\\- Vốn điều lệ: 61.350.290.000 đồng",
+          "line_sha256": "a9cbb7c4ba95969d23557096c3ca1c4dee83678781d77a28f862b30e33ba86ef"
+        }
+      ],
+      "basis": "Source-adjudicated original baseline and frozen numerical reference; includes alternate source review already documented in V2. Not derived from V3 predictions."
+    }
+  ],
+  "transfer-agp-profit-1": [
+    {
+      "source_id": "AGP",
+      "identity": {
+        "metric": "ln truoc thue",
+        "years": [
+          "2026"
+        ],
+        "role": "plan",
+        "scope": "reporting_company",
+        "time_semantics": null
+      },
+      "source_witnesses": [
+        {
+          "line_number": 728,
+          "text": "LN trước thuế (tỷ đồng) | 65,9 | 72 | 9,26%",
+          "line_sha256": "af7a804c6c171bc4b72fbd572486a203cefdc3939cabad77e473b8ee9395c4c7"
+        }
+      ],
+      "basis": "Source-adjudicated original baseline and frozen numerical reference; includes alternate source review already documented in V2. Not derived from V3 predictions."
+    }
+  ],
+  "transfer-agp-profit-2": [
+    {
+      "source_id": "AGP",
+      "identity": {
+        "metric": "ln truoc thue",
+        "years": [
+          "2026"
+        ],
+        "role": "plan",
+        "scope": "reporting_company",
+        "time_semantics": null
+      },
+      "source_witnesses": [
+        {
+          "line_number": 728,
+          "text": "LN trước thuế (tỷ đồng) | 65,9 | 72 | 9,26%",
+          "line_sha256": "af7a804c6c171bc4b72fbd572486a203cefdc3939cabad77e473b8ee9395c4c7"
+        }
+      ],
+      "basis": "Source-adjudicated original baseline and frozen numerical reference; includes alternate source review already documented in V2. Not derived from V3 predictions."
+    }
+  ],
+  "transfer-agp-profit-3": [
+    {
+      "source_id": "AGP",
+      "identity": {
+        "metric": "ln truoc thue",
+        "years": [
+          "2037"
+        ],
+        "role": "plan",
+        "scope": "reporting_company",
+        "time_semantics": null
+      },
+      "source_witnesses": [
+        {
+          "line_number": 563,
+          "text": "Lợi nhuận trước thuế | 2021: 41.378 | 2022: 53.239 | 2023: 54.196 | 2024: 60.481 | 2025: 65.903 | 55.039",
+          "line_sha256": "e0c8137ee9560b5843953d2144d7ce7dea05ad9730e4c349e5960a13f2df797e"
+        }
+      ],
+      "basis": "Source-adjudicated original baseline and frozen numerical reference; includes alternate source review already documented in V2. Not derived from V3 predictions."
+    }
+  ],
+  "transfer-mgg-profit-1": [
+    {
+      "source_id": "MGG",
+      "identity": {
+        "metric": "loi nhuan truoc thue",
+        "years": [
+          "2022"
+        ],
+        "role": "actual",
+        "scope": "reporting_company",
+        "time_semantics": null
+      },
+      "source_witnesses": [
+        {
+          "line_number": 120,
+          "text": "Lợi nhuận trước thuế | 19,1 | 30,1 | 63",
+          "line_sha256": "9a0913709f297b40b6170d3b9f5f530e28d1f74df6f9ee125e323542b1a179f6"
+        }
+      ],
+      "basis": "Source-adjudicated original baseline and frozen numerical reference; includes alternate source review already documented in V2. Not derived from V3 predictions."
+    }
+  ],
+  "transfer-mgg-profit-2": [
+    {
+      "source_id": "MGG",
+      "identity": {
+        "metric": "loi nhuan truoc thue",
+        "years": [
+          "2022"
+        ],
+        "role": "actual",
+        "scope": "reporting_company",
+        "time_semantics": null
+      },
+      "source_witnesses": [
+        {
+          "line_number": 120,
+          "text": "Lợi nhuận trước thuế | 19,1 | 30,1 | 63",
+          "line_sha256": "9a0913709f297b40b6170d3b9f5f530e28d1f74df6f9ee125e323542b1a179f6"
+        }
+      ],
+      "basis": "Source-adjudicated original baseline and frozen numerical reference; includes alternate source review already documented in V2. Not derived from V3 predictions."
+    }
+  ],
+  "transfer-mgg-profit-3": [
+    {
+      "source_id": "MGG",
+      "identity": {
+        "metric": "loi nhuan truoc thue",
+        "years": [
+          "2037"
+        ],
+        "role": "actual",
+        "scope": "reporting_company",
+        "time_semantics": null
+      },
+      "source_witnesses": [
+        {
+          "line_number": 120,
+          "text": "Lợi nhuận trước thuế | 19,1 | 30,1 | 63",
+          "line_sha256": "9a0913709f297b40b6170d3b9f5f530e28d1f74df6f9ee125e323542b1a179f6"
+        }
+      ],
+      "basis": "Source-adjudicated original baseline and frozen numerical reference; includes alternate source review already documented in V2. Not derived from V3 predictions."
+    }
+  ],
+  "transfer-pdb-profit-1": [
+    {
+      "source_id": "PDB",
+      "identity": {
+        "metric": "loi nhuan truoc thue",
+        "years": [
+          "2024"
+        ],
+        "role": "plan",
+        "scope": "consolidated",
+        "time_semantics": null
+      },
+      "source_witnesses": [
+        {
+          "line_number": 211,
+          "text": "Lợi nhuận trước thuế | Kế hoạch 2024: 11.400 | Thực hiện 2024: 15.656 | Thực hiện 2023: 3.476 | % thực hiện so với kế hoạch 2024: 137,4% | % thực hiện so với 2023: 450,5%",
+          "line_sha256": "7a6f596f5134de4b368d6f14d26dc2eff72ed201e1133fb7edc020d99f5742c3"
+        },
+        {
+          "line_number": 205,
+          "text": "Kết quả kinh doanh hợp nhất như sau:",
+          "line_sha256": "a824923601e8e4f51f8290cdd9447bab79de299f3880cbc5ec514831db082b22"
+        },
+        {
+          "line_number": 207,
+          "text": "Nguồn: BCTC kiểm toán hợp nhất 2024 của Din Capital",
+          "line_sha256": "2f24e918e0ee2f9a50ca90a3ffe3deb7371d001e5edacaf130a94e8b02e19fc6"
+        }
+      ],
+      "basis": "Source-adjudicated original baseline and frozen numerical reference; includes alternate source review already documented in V2. Not derived from V3 predictions.",
+      "legacy_entity_scopes": [
+        "consolidated"
+      ],
+      "legacy_entity_basis": "Explicit source headers: consolidated results and audited consolidated statements of Din Capital."
+    }
+  ],
+  "transfer-pdb-profit-2": [
+    {
+      "source_id": "PDB",
+      "identity": {
+        "metric": "loi nhuan truoc thue",
+        "years": [
+          "2024"
+        ],
+        "role": "plan",
+        "scope": "consolidated",
+        "time_semantics": null
+      },
+      "source_witnesses": [
+        {
+          "line_number": 211,
+          "text": "Lợi nhuận trước thuế | Kế hoạch 2024: 11.400 | Thực hiện 2024: 15.656 | Thực hiện 2023: 3.476 | % thực hiện so với kế hoạch 2024: 137,4% | % thực hiện so với 2023: 450,5%",
+          "line_sha256": "7a6f596f5134de4b368d6f14d26dc2eff72ed201e1133fb7edc020d99f5742c3"
+        },
+        {
+          "line_number": 205,
+          "text": "Kết quả kinh doanh hợp nhất như sau:",
+          "line_sha256": "a824923601e8e4f51f8290cdd9447bab79de299f3880cbc5ec514831db082b22"
+        },
+        {
+          "line_number": 207,
+          "text": "Nguồn: BCTC kiểm toán hợp nhất 2024 của Din Capital",
+          "line_sha256": "2f24e918e0ee2f9a50ca90a3ffe3deb7371d001e5edacaf130a94e8b02e19fc6"
+        }
+      ],
+      "basis": "Source-adjudicated original baseline and frozen numerical reference; includes alternate source review already documented in V2. Not derived from V3 predictions.",
+      "legacy_entity_scopes": [
+        "consolidated"
+      ],
+      "legacy_entity_basis": "Explicit source headers: consolidated results and audited consolidated statements of Din Capital."
+    }
+  ],
+  "transfer-pdb-profit-3": [
+    {
+      "source_id": "PDB",
+      "identity": {
+        "metric": "loi nhuan truoc thue",
+        "years": [
+          "2037"
+        ],
+        "role": "plan",
+        "scope": "consolidated",
+        "time_semantics": null
+      },
+      "source_witnesses": [
+        {
+          "line_number": 211,
+          "text": "Lợi nhuận trước thuế | Kế hoạch 2024: 11.400 | Thực hiện 2024: 15.656 | Thực hiện 2023: 3.476 | % thực hiện so với kế hoạch 2024: 137,4% | % thực hiện so với 2023: 450,5%",
+          "line_sha256": "7a6f596f5134de4b368d6f14d26dc2eff72ed201e1133fb7edc020d99f5742c3"
+        },
+        {
+          "line_number": 205,
+          "text": "Kết quả kinh doanh hợp nhất như sau:",
+          "line_sha256": "a824923601e8e4f51f8290cdd9447bab79de299f3880cbc5ec514831db082b22"
+        },
+        {
+          "line_number": 207,
+          "text": "Nguồn: BCTC kiểm toán hợp nhất 2024 của Din Capital",
+          "line_sha256": "2f24e918e0ee2f9a50ca90a3ffe3deb7371d001e5edacaf130a94e8b02e19fc6"
+        }
+      ],
+      "basis": "Source-adjudicated original baseline and frozen numerical reference; includes alternate source review already documented in V2. Not derived from V3 predictions.",
+      "legacy_entity_scopes": [
+        "consolidated"
+      ],
+      "legacy_entity_basis": "Explicit source headers: consolidated results and audited consolidated statements of Din Capital."
+    }
+  ],
+  "probe-agp-profit-1": [
+    {
+      "source_id": "AGP",
+      "identity": {
+        "metric": "ln truoc thue",
+        "years": [
+          "2025"
+        ],
+        "role": "actual",
+        "scope": "reporting_company",
+        "time_semantics": null,
+        "metric_labels": [
+          "ln truoc thue",
+          "loi nhuan truoc thue",
+          "lntt"
+        ]
+      },
+      "source_witnesses": [
+        {
+          "line_number": 563,
+          "text": "Lợi nhuận trước thuế | 2021: 41.378 | 2022: 53.239 | 2023: 54.196 | 2024: 60.481 | 2025: 65.903 | 55.039",
+          "line_sha256": "e0c8137ee9560b5843953d2144d7ce7dea05ad9730e4c349e5960a13f2df797e"
+        },
+        {
+          "line_number": 555,
+          "text": "III. Báo cáo và đánh giá của Ban Tổng giám đốc",
+          "line_sha256": "e4d0e07a28c6a508efbfd7d60d38ec2734807d958092d6af37afc22333bc103a"
+        },
+        {
+          "line_number": 556,
+          "text": "1. Đánh giá kết quả hoạt động sản xuất kinh doanh",
+          "line_sha256": "e3fad0320de581449b4ffad2d790564e93345f251dbf94fb5bec69f541ad8b39"
+        },
+        {
+          "line_number": 565,
+          "text": "> - Năm 2025:",
+          "line_sha256": "cff43662b79e7c3242cf207d1769bd623ee6af4f4da00206f8d82bd0bdbf32c4"
+        },
+        {
+          "line_number": 567,
+          "text": "\\+ Lợi nhuận trước thuế: 65,9 tỷ đồng, tăng 8,96%, vượt 3,13% kế hoạch (63,9 tỷ đồng).",
+          "line_sha256": "4c03b39b492bc3e516b772da9a9f7d09d23e1324a3616d99447a1b4d6263ffd4"
+        }
+      ],
+      "basis": "Source-adjudicated original baseline and frozen numerical reference; includes alternate source review already documented in V2. Not derived from V3 predictions."
+    }
+  ],
+  "probe-agp-profit-2": [
+    {
+      "source_id": "AGP",
+      "identity": {
+        "metric": "ln truoc thue",
+        "years": [
+          "2025"
+        ],
+        "role": "actual",
+        "scope": "reporting_company",
+        "time_semantics": null,
+        "metric_labels": [
+          "ln truoc thue",
+          "loi nhuan truoc thue",
+          "lntt"
+        ]
+      },
+      "source_witnesses": [
+        {
+          "line_number": 563,
+          "text": "Lợi nhuận trước thuế | 2021: 41.378 | 2022: 53.239 | 2023: 54.196 | 2024: 60.481 | 2025: 65.903 | 55.039",
+          "line_sha256": "e0c8137ee9560b5843953d2144d7ce7dea05ad9730e4c349e5960a13f2df797e"
+        },
+        {
+          "line_number": 555,
+          "text": "III. Báo cáo và đánh giá của Ban Tổng giám đốc",
+          "line_sha256": "e4d0e07a28c6a508efbfd7d60d38ec2734807d958092d6af37afc22333bc103a"
+        },
+        {
+          "line_number": 556,
+          "text": "1. Đánh giá kết quả hoạt động sản xuất kinh doanh",
+          "line_sha256": "e3fad0320de581449b4ffad2d790564e93345f251dbf94fb5bec69f541ad8b39"
+        },
+        {
+          "line_number": 565,
+          "text": "> - Năm 2025:",
+          "line_sha256": "cff43662b79e7c3242cf207d1769bd623ee6af4f4da00206f8d82bd0bdbf32c4"
+        },
+        {
+          "line_number": 567,
+          "text": "\\+ Lợi nhuận trước thuế: 65,9 tỷ đồng, tăng 8,96%, vượt 3,13% kế hoạch (63,9 tỷ đồng).",
+          "line_sha256": "4c03b39b492bc3e516b772da9a9f7d09d23e1324a3616d99447a1b4d6263ffd4"
+        }
+      ],
+      "basis": "Source-adjudicated original baseline and frozen numerical reference; includes alternate source review already documented in V2. Not derived from V3 predictions."
+    }
+  ],
+  "probe-mgg-net-1": [
+    {
+      "source_id": "MGG",
+      "identity": {
+        "metric": "doanh thu thuan",
+        "years": [
+          "2022"
+        ],
+        "role": "actual",
+        "scope": "reporting_company",
+        "time_semantics": null,
+        "metric_labels": [
+          "doanh thu thuan"
+        ]
+      },
+      "source_witnesses": [
+        {
+          "line_number": 117,
+          "text": "Doanh thu thuần | Năm 2023: 1.745,8 | Năm 2022: 1.976,8 | 88",
+          "line_sha256": "f62231c164f0e0726c0af055cbb64ecee3e3eb95388ebf88b666befbbdae1774"
+        }
+      ],
+      "basis": "Source-adjudicated original baseline and frozen numerical reference; includes alternate source review already documented in V2. Not derived from V3 predictions."
+    }
+  ],
+  "probe-mgg-net-2": [
+    {
+      "source_id": "MGG",
+      "identity": {
+        "metric": "doanh thu thuan",
+        "years": [
+          "2022"
+        ],
+        "role": "actual",
+        "scope": "reporting_company",
+        "time_semantics": null,
+        "metric_labels": [
+          "doanh thu thuan"
+        ]
+      },
+      "source_witnesses": [
+        {
+          "line_number": 117,
+          "text": "Doanh thu thuần | Năm 2023: 1.745,8 | Năm 2022: 1.976,8 | 88",
+          "line_sha256": "f62231c164f0e0726c0af055cbb64ecee3e3eb95388ebf88b666befbbdae1774"
+        }
+      ],
+      "basis": "Source-adjudicated original baseline and frozen numerical reference; includes alternate source review already documented in V2. Not derived from V3 predictions."
+    }
+  ],
+  "probe-mgg-tax-1": [
+    {
+      "source_id": "MGG",
+      "identity": {
+        "metric": "loi nhuan sau thue",
+        "years": [
+          "2023"
+        ],
+        "role": "actual",
+        "scope": "reporting_company",
+        "time_semantics": null,
+        "metric_labels": [
+          "loi nhuan sau thue"
+        ]
+      },
+      "source_witnesses": [
+        {
+          "line_number": 121,
+          "text": "Lợi nhuận sau thuế | 16,9 | 25 | 68",
+          "line_sha256": "4022fea9364e69c9fe469fa1a79a2b564e48338e483f081ae2025d95ca120114"
+        }
+      ],
+      "basis": "Source-adjudicated original baseline and frozen numerical reference; includes alternate source review already documented in V2. Not derived from V3 predictions."
+    }
+  ],
+  "probe-mgg-tax-2": [
+    {
+      "source_id": "MGG",
+      "identity": {
+        "metric": "loi nhuan sau thue",
+        "years": [
+          "2023"
+        ],
+        "role": "actual",
+        "scope": "reporting_company",
+        "time_semantics": null,
+        "metric_labels": [
+          "loi nhuan sau thue"
+        ]
+      },
+      "source_witnesses": [
+        {
+          "line_number": 121,
+          "text": "Lợi nhuận sau thuế | 16,9 | 25 | 68",
+          "line_sha256": "4022fea9364e69c9fe469fa1a79a2b564e48338e483f081ae2025d95ca120114"
+        }
+      ],
+      "basis": "Source-adjudicated original baseline and frozen numerical reference; includes alternate source review already documented in V2. Not derived from V3 predictions."
+    }
+  ],
+  "probe-mgg-assets-1": [
+    {
+      "source_id": "MGG",
+      "identity": {
+        "metric": "tong gia tri tai san",
+        "years": [
+          "2023"
+        ],
+        "role": "actual",
+        "scope": "reporting_company",
+        "time_semantics": null,
+        "metric_labels": [
+          "tong gia tri tai san"
+        ]
+      },
+      "source_witnesses": [
+        {
+          "line_number": 116,
+          "text": "Tổng giá trị tài sản | Năm 2023: 853,9 | Năm 2022: 954,6 | 90",
+          "line_sha256": "4eaaaa88bfbd839a0e4a2db73c80a6057c2275a000a61b8805e43eaeb72ae20b"
+        }
+      ],
+      "basis": "Source-adjudicated original baseline and frozen numerical reference; includes alternate source review already documented in V2. Not derived from V3 predictions."
+    }
+  ],
+  "probe-mgg-assets-2": [
+    {
+      "source_id": "MGG",
+      "identity": {
+        "metric": "tong gia tri tai san",
+        "years": [
+          "2023"
+        ],
+        "role": "actual",
+        "scope": "reporting_company",
+        "time_semantics": null,
+        "metric_labels": [
+          "tong gia tri tai san"
+        ]
+      },
+      "source_witnesses": [
+        {
+          "line_number": 116,
+          "text": "Tổng giá trị tài sản | Năm 2023: 853,9 | Năm 2022: 954,6 | 90",
+          "line_sha256": "4eaaaa88bfbd839a0e4a2db73c80a6057c2275a000a61b8805e43eaeb72ae20b"
+        }
+      ],
+      "basis": "Source-adjudicated original baseline and frozen numerical reference; includes alternate source review already documented in V2. Not derived from V3 predictions."
+    }
+  ],
+  "probe-pdb-profit-1": [
+    {
+      "source_id": "PDB",
+      "identity": {
+        "metric": "loi nhuan truoc thue",
+        "years": [
+          "2024"
+        ],
+        "role": "actual",
+        "scope": "consolidated",
+        "time_semantics": null,
+        "metric_labels": [
+          "loi nhuan truoc thue"
+        ]
+      },
+      "source_witnesses": [
+        {
+          "line_number": 211,
+          "text": "Lợi nhuận trước thuế | Kế hoạch 2024: 11.400 | Thực hiện 2024: 15.656 | Thực hiện 2023: 3.476 | % thực hiện so với kế hoạch 2024: 137,4% | % thực hiện so với 2023: 450,5%",
+          "line_sha256": "7a6f596f5134de4b368d6f14d26dc2eff72ed201e1133fb7edc020d99f5742c3"
+        },
+        {
+          "line_number": 205,
+          "text": "Kết quả kinh doanh hợp nhất như sau:",
+          "line_sha256": "a824923601e8e4f51f8290cdd9447bab79de299f3880cbc5ec514831db082b22"
+        },
+        {
+          "line_number": 207,
+          "text": "Nguồn: BCTC kiểm toán hợp nhất 2024 của Din Capital",
+          "line_sha256": "2f24e918e0ee2f9a50ca90a3ffe3deb7371d001e5edacaf130a94e8b02e19fc6"
+        }
+      ],
+      "basis": "Source-adjudicated original baseline and frozen numerical reference; includes alternate source review already documented in V2. Not derived from V3 predictions.",
+      "legacy_entity_scopes": [
+        "consolidated"
+      ],
+      "legacy_entity_basis": "Explicit source headers: consolidated results and audited consolidated statements of Din Capital."
+    }
+  ],
+  "probe-pdb-profit-2": [
+    {
+      "source_id": "PDB",
+      "identity": {
+        "metric": "loi nhuan truoc thue",
+        "years": [
+          "2024"
+        ],
+        "role": "actual",
+        "scope": "consolidated",
+        "time_semantics": null,
+        "metric_labels": [
+          "loi nhuan truoc thue"
+        ]
+      },
+      "source_witnesses": [
+        {
+          "line_number": 211,
+          "text": "Lợi nhuận trước thuế | Kế hoạch 2024: 11.400 | Thực hiện 2024: 15.656 | Thực hiện 2023: 3.476 | % thực hiện so với kế hoạch 2024: 137,4% | % thực hiện so với 2023: 450,5%",
+          "line_sha256": "7a6f596f5134de4b368d6f14d26dc2eff72ed201e1133fb7edc020d99f5742c3"
+        },
+        {
+          "line_number": 205,
+          "text": "Kết quả kinh doanh hợp nhất như sau:",
+          "line_sha256": "a824923601e8e4f51f8290cdd9447bab79de299f3880cbc5ec514831db082b22"
+        },
+        {
+          "line_number": 207,
+          "text": "Nguồn: BCTC kiểm toán hợp nhất 2024 của Din Capital",
+          "line_sha256": "2f24e918e0ee2f9a50ca90a3ffe3deb7371d001e5edacaf130a94e8b02e19fc6"
+        }
+      ],
+      "basis": "Source-adjudicated original baseline and frozen numerical reference; includes alternate source review already documented in V2. Not derived from V3 predictions.",
+      "legacy_entity_scopes": [
+        "consolidated"
+      ],
+      "legacy_entity_basis": "Explicit source headers: consolidated results and audited consolidated statements of Din Capital."
+    }
+  ],
+  "probe-pdb-change-1": [
+    {
+      "source_id": "PDB",
+      "identity": {
+        "metric": "loi nhuan truoc thue",
+        "years": [
+          "2024",
+          "2023"
+        ],
+        "role": "actual",
+        "scope": "consolidated",
+        "time_semantics": null,
+        "metric_labels": [
+          "loi nhuan truoc thue"
+        ]
+      },
+      "source_witnesses": [
+        {
+          "line_number": 211,
+          "text": "Lợi nhuận trước thuế | Kế hoạch 2024: 11.400 | Thực hiện 2024: 15.656 | Thực hiện 2023: 3.476 | % thực hiện so với kế hoạch 2024: 137,4% | % thực hiện so với 2023: 450,5%",
+          "line_sha256": "7a6f596f5134de4b368d6f14d26dc2eff72ed201e1133fb7edc020d99f5742c3"
+        },
+        {
+          "line_number": 211,
+          "text": "Lợi nhuận trước thuế | Kế hoạch 2024: 11.400 | Thực hiện 2024: 15.656 | Thực hiện 2023: 3.476 | % thực hiện so với kế hoạch 2024: 137,4% | % thực hiện so với 2023: 450,5%",
+          "line_sha256": "7a6f596f5134de4b368d6f14d26dc2eff72ed201e1133fb7edc020d99f5742c3"
+        },
+        {
+          "line_number": 205,
+          "text": "Kết quả kinh doanh hợp nhất như sau:",
+          "line_sha256": "a824923601e8e4f51f8290cdd9447bab79de299f3880cbc5ec514831db082b22"
+        },
+        {
+          "line_number": 207,
+          "text": "Nguồn: BCTC kiểm toán hợp nhất 2024 của Din Capital",
+          "line_sha256": "2f24e918e0ee2f9a50ca90a3ffe3deb7371d001e5edacaf130a94e8b02e19fc6"
+        }
+      ],
+      "basis": "Source-adjudicated original baseline and frozen numerical reference; includes alternate source review already documented in V2. Not derived from V3 predictions.",
+      "legacy_entity_scopes": [
+        "consolidated"
+      ],
+      "legacy_entity_basis": "Explicit source headers: consolidated results and audited consolidated statements of Din Capital."
+    }
+  ],
+  "probe-pdb-change-2": [
+    {
+      "source_id": "PDB",
+      "identity": {
+        "metric": "loi nhuan truoc thue",
+        "years": [
+          "2024",
+          "2023"
+        ],
+        "role": "actual",
+        "scope": "consolidated",
+        "time_semantics": null,
+        "metric_labels": [
+          "loi nhuan truoc thue"
+        ]
+      },
+      "source_witnesses": [
+        {
+          "line_number": 211,
+          "text": "Lợi nhuận trước thuế | Kế hoạch 2024: 11.400 | Thực hiện 2024: 15.656 | Thực hiện 2023: 3.476 | % thực hiện so với kế hoạch 2024: 137,4% | % thực hiện so với 2023: 450,5%",
+          "line_sha256": "7a6f596f5134de4b368d6f14d26dc2eff72ed201e1133fb7edc020d99f5742c3"
+        },
+        {
+          "line_number": 211,
+          "text": "Lợi nhuận trước thuế | Kế hoạch 2024: 11.400 | Thực hiện 2024: 15.656 | Thực hiện 2023: 3.476 | % thực hiện so với kế hoạch 2024: 137,4% | % thực hiện so với 2023: 450,5%",
+          "line_sha256": "7a6f596f5134de4b368d6f14d26dc2eff72ed201e1133fb7edc020d99f5742c3"
+        },
+        {
+          "line_number": 205,
+          "text": "Kết quả kinh doanh hợp nhất như sau:",
+          "line_sha256": "a824923601e8e4f51f8290cdd9447bab79de299f3880cbc5ec514831db082b22"
+        },
+        {
+          "line_number": 207,
+          "text": "Nguồn: BCTC kiểm toán hợp nhất 2024 của Din Capital",
+          "line_sha256": "2f24e918e0ee2f9a50ca90a3ffe3deb7371d001e5edacaf130a94e8b02e19fc6"
+        }
+      ],
+      "basis": "Source-adjudicated original baseline and frozen numerical reference; includes alternate source review already documented in V2. Not derived from V3 predictions.",
+      "legacy_entity_scopes": [
+        "consolidated"
+      ],
+      "legacy_entity_basis": "Explicit source headers: consolidated results and audited consolidated statements of Din Capital."
+    }
+  ],
+  "probe-agp-missing": [
+    {
+      "source_id": "AGP",
+      "identity": {
+        "metric": "Lợi nhuận trước thuế",
+        "years": [
+          "2037"
+        ],
+        "role": "actual",
+        "scope": "reporting_company",
+        "time_semantics": null
+      },
+      "source_witnesses": [
+        {
+          "line_number": 563,
+          "text": "Lợi nhuận trước thuế | 2021: 41.378 | 2022: 53.239 | 2023: 54.196 | 2024: 60.481 | 2025: 65.903 | 55.039",
+          "line_sha256": "e0c8137ee9560b5843953d2144d7ce7dea05ad9730e4c349e5960a13f2df797e"
+        }
+      ],
+      "basis": "Source-adjudicated original baseline and frozen numerical reference; includes alternate source review already documented in V2. Not derived from V3 predictions."
+    }
+  ],
+  "probe-mgg-missing": [
+    {
+      "source_id": "MGG",
+      "identity": {
+        "metric": "Lợi nhuận sau thuế",
+        "years": [
+          "2037"
+        ],
+        "role": "actual",
+        "scope": "reporting_company",
+        "time_semantics": null
+      },
+      "source_witnesses": [
+        {
+          "line_number": 121,
+          "text": "Lợi nhuận sau thuế | 16,9 | 25 | 68",
+          "line_sha256": "4022fea9364e69c9fe469fa1a79a2b564e48338e483f081ae2025d95ca120114"
+        }
+      ],
+      "basis": "Source-adjudicated original baseline and frozen numerical reference; includes alternate source review already documented in V2. Not derived from V3 predictions."
+    }
+  ],
+  "probe-pdb-missing": [
+    {
+      "source_id": "PDB",
+      "identity": {
+        "metric": "Lợi nhuận trước thuế hợp nhất",
+        "years": [
+          "2037"
+        ],
+        "role": "actual",
+        "scope": "consolidated",
+        "time_semantics": null
+      },
+      "source_witnesses": [
+        {
+          "line_number": 211,
+          "text": "Lợi nhuận trước thuế | Kế hoạch 2024: 11.400 | Thực hiện 2024: 15.656 | Thực hiện 2023: 3.476 | % thực hiện so với kế hoạch 2024: 137,4% | % thực hiện so với 2023: 450,5%",
+          "line_sha256": "7a6f596f5134de4b368d6f14d26dc2eff72ed201e1133fb7edc020d99f5742c3"
+        },
+        {
+          "line_number": 205,
+          "text": "Kết quả kinh doanh hợp nhất như sau:",
+          "line_sha256": "a824923601e8e4f51f8290cdd9447bab79de299f3880cbc5ec514831db082b22"
+        },
+        {
+          "line_number": 207,
+          "text": "Nguồn: BCTC kiểm toán hợp nhất 2024 của Din Capital",
+          "line_sha256": "2f24e918e0ee2f9a50ca90a3ffe3deb7371d001e5edacaf130a94e8b02e19fc6"
+        }
+      ],
+      "basis": "Source-adjudicated original baseline and frozen numerical reference; includes alternate source review already documented in V2. Not derived from V3 predictions.",
+      "legacy_entity_scopes": [
+        "consolidated"
+      ],
+      "legacy_entity_basis": "Explicit source headers: consolidated results and audited consolidated statements of Din Capital."
+    }
+  ],
+  "practical-pdb-net-1": [
+    {
+      "source_id": "PDB",
+      "identity": {
+        "metric": "doanh thu thuan",
+        "years": [
+          "2023"
+        ],
+        "role": "actual",
+        "scope": "consolidated",
+        "time_semantics": null
+      },
+      "source_witnesses": [
+        {
+          "line_number": 210,
+          "text": "Doanh thu thuần | Kế hoạch 2024: 257.000 | Thực hiện 2024: 307.927 | Thực hiện 2023: 235.110 | % thực hiện so với kế hoạch 2024: 119,8% | % thực hiện so với 2023: 131,0%",
+          "line_sha256": "5a9bee2099f6d85009cbf301760c7f9035341c1add9702ecc114c4264b8e137b"
+        },
+        {
+          "line_number": 205,
+          "text": "Kết quả kinh doanh hợp nhất như sau:",
+          "line_sha256": "a824923601e8e4f51f8290cdd9447bab79de299f3880cbc5ec514831db082b22"
+        },
+        {
+          "line_number": 207,
+          "text": "Nguồn: BCTC kiểm toán hợp nhất 2024 của Din Capital",
+          "line_sha256": "2f24e918e0ee2f9a50ca90a3ffe3deb7371d001e5edacaf130a94e8b02e19fc6"
+        }
+      ],
+      "basis": "Source-adjudicated original baseline and frozen numerical reference; includes alternate source review already documented in V2. Not derived from V3 predictions.",
+      "legacy_entity_scopes": [
+        "consolidated"
+      ],
+      "legacy_entity_basis": "Explicit source headers: consolidated results and audited consolidated statements of Din Capital."
+    }
+  ],
+  "practical-pdb-net-2": [
+    {
+      "source_id": "PDB",
+      "identity": {
+        "metric": "doanh thu thuan",
+        "years": [
+          "2023"
+        ],
+        "role": "actual",
+        "scope": "consolidated",
+        "time_semantics": null
+      },
+      "source_witnesses": [
+        {
+          "line_number": 210,
+          "text": "Doanh thu thuần | Kế hoạch 2024: 257.000 | Thực hiện 2024: 307.927 | Thực hiện 2023: 235.110 | % thực hiện so với kế hoạch 2024: 119,8% | % thực hiện so với 2023: 131,0%",
+          "line_sha256": "5a9bee2099f6d85009cbf301760c7f9035341c1add9702ecc114c4264b8e137b"
+        },
+        {
+          "line_number": 205,
+          "text": "Kết quả kinh doanh hợp nhất như sau:",
+          "line_sha256": "a824923601e8e4f51f8290cdd9447bab79de299f3880cbc5ec514831db082b22"
+        },
+        {
+          "line_number": 207,
+          "text": "Nguồn: BCTC kiểm toán hợp nhất 2024 của Din Capital",
+          "line_sha256": "2f24e918e0ee2f9a50ca90a3ffe3deb7371d001e5edacaf130a94e8b02e19fc6"
+        }
+      ],
+      "basis": "Source-adjudicated original baseline and frozen numerical reference; includes alternate source review already documented in V2. Not derived from V3 predictions.",
+      "legacy_entity_scopes": [
+        "consolidated"
+      ],
+      "legacy_entity_basis": "Explicit source headers: consolidated results and audited consolidated statements of Din Capital."
+    }
+  ],
+  "practical-pdb-overview": [
+    {
+      "source_id": "PDB",
+      "identity": {
+        "metric": "doanh thu thuan",
+        "years": [
+          "2023"
+        ],
+        "role": "actual",
+        "scope": "consolidated",
+        "time_semantics": null
+      },
+      "source_witnesses": [
+        {
+          "line_number": 210,
+          "text": "Doanh thu thuần | Kế hoạch 2024: 257.000 | Thực hiện 2024: 307.927 | Thực hiện 2023: 235.110 | % thực hiện so với kế hoạch 2024: 119,8% | % thực hiện so với 2023: 131,0%",
+          "line_sha256": "5a9bee2099f6d85009cbf301760c7f9035341c1add9702ecc114c4264b8e137b"
+        },
+        {
+          "line_number": 205,
+          "text": "Kết quả kinh doanh hợp nhất như sau:",
+          "line_sha256": "a824923601e8e4f51f8290cdd9447bab79de299f3880cbc5ec514831db082b22"
+        },
+        {
+          "line_number": 207,
+          "text": "Nguồn: BCTC kiểm toán hợp nhất 2024 của Din Capital",
+          "line_sha256": "2f24e918e0ee2f9a50ca90a3ffe3deb7371d001e5edacaf130a94e8b02e19fc6"
+        }
+      ],
+      "basis": "Source-adjudicated original baseline and frozen numerical reference; includes alternate source review already documented in V2. Not derived from V3 predictions.",
+      "legacy_entity_scopes": [
+        "consolidated"
+      ],
+      "legacy_entity_basis": "Explicit source headers: consolidated results and audited consolidated statements of Din Capital."
+    },
+    {
+      "source_id": "PDB",
+      "identity": {
+        "metric": "doanh thu thuan",
+        "years": [
+          "2024"
+        ],
+        "role": "actual",
+        "scope": "consolidated",
+        "time_semantics": null
+      },
+      "source_witnesses": [
+        {
+          "line_number": 210,
+          "text": "Doanh thu thuần | Kế hoạch 2024: 257.000 | Thực hiện 2024: 307.927 | Thực hiện 2023: 235.110 | % thực hiện so với kế hoạch 2024: 119,8% | % thực hiện so với 2023: 131,0%",
+          "line_sha256": "5a9bee2099f6d85009cbf301760c7f9035341c1add9702ecc114c4264b8e137b"
+        },
+        {
+          "line_number": 205,
+          "text": "Kết quả kinh doanh hợp nhất như sau:",
+          "line_sha256": "a824923601e8e4f51f8290cdd9447bab79de299f3880cbc5ec514831db082b22"
+        },
+        {
+          "line_number": 207,
+          "text": "Nguồn: BCTC kiểm toán hợp nhất 2024 của Din Capital",
+          "line_sha256": "2f24e918e0ee2f9a50ca90a3ffe3deb7371d001e5edacaf130a94e8b02e19fc6"
+        }
+      ],
+      "basis": "Source-adjudicated original baseline and frozen numerical reference; includes alternate source review already documented in V2. Not derived from V3 predictions.",
+      "legacy_entity_scopes": [
+        "consolidated"
+      ],
+      "legacy_entity_basis": "Explicit source headers: consolidated results and audited consolidated statements of Din Capital."
+    },
+    {
+      "source_id": "PDB",
+      "identity": {
+        "metric": "doanh thu thuan",
+        "years": [
+          "2024",
+          "2023"
+        ],
+        "role": "actual",
+        "scope": "consolidated",
+        "time_semantics": null
+      },
+      "source_witnesses": [
+        {
+          "line_number": 210,
+          "text": "Doanh thu thuần | Kế hoạch 2024: 257.000 | Thực hiện 2024: 307.927 | Thực hiện 2023: 235.110 | % thực hiện so với kế hoạch 2024: 119,8% | % thực hiện so với 2023: 131,0%",
+          "line_sha256": "5a9bee2099f6d85009cbf301760c7f9035341c1add9702ecc114c4264b8e137b"
+        },
+        {
+          "line_number": 210,
+          "text": "Doanh thu thuần | Kế hoạch 2024: 257.000 | Thực hiện 2024: 307.927 | Thực hiện 2023: 235.110 | % thực hiện so với kế hoạch 2024: 119,8% | % thực hiện so với 2023: 131,0%",
+          "line_sha256": "5a9bee2099f6d85009cbf301760c7f9035341c1add9702ecc114c4264b8e137b"
+        },
+        {
+          "line_number": 205,
+          "text": "Kết quả kinh doanh hợp nhất như sau:",
+          "line_sha256": "a824923601e8e4f51f8290cdd9447bab79de299f3880cbc5ec514831db082b22"
+        },
+        {
+          "line_number": 207,
+          "text": "Nguồn: BCTC kiểm toán hợp nhất 2024 của Din Capital",
+          "line_sha256": "2f24e918e0ee2f9a50ca90a3ffe3deb7371d001e5edacaf130a94e8b02e19fc6"
+        }
+      ],
+      "basis": "Source-adjudicated original baseline and frozen numerical reference; includes alternate source review already documented in V2. Not derived from V3 predictions.",
+      "legacy_entity_scopes": [
+        "consolidated"
+      ],
+      "legacy_entity_basis": "Explicit source headers: consolidated results and audited consolidated statements of Din Capital."
+    }
+  ],
+  "practical-bth-profit": [
+    {
+      "source_id": "BTH",
+      "identity": {
+        "metric": "tong loi nhuan sau thue",
+        "years": [
+          "2025"
+        ],
+        "role": "actual",
+        "scope": "reporting_company",
+        "time_semantics": null
+      },
+      "source_witnesses": [
+        {
+          "line_number": 68,
+          "text": "Tổng lợi nhuận sau thuế | Kế hoạch 2025: 100.800.000.000 | Thực hiện 2025: 186.053.840.598 | Tăng 85%",
+          "line_sha256": "5514f20bc2cf85bb092b7d679b2c8c5a80516fa82860db88804b2196ff8f37e1"
+        }
+      ],
+      "basis": "Source-adjudicated original baseline and frozen numerical reference; includes alternate source review already documented in V2. Not derived from V3 predictions."
+    }
+  ],
+  "practical-bth-plan-actual": [
+    {
+      "source_id": "BTH",
+      "identity": {
+        "metric": "doanh thu ban hang va cung cap dich vu",
+        "years": [
+          "2025"
+        ],
+        "role": "plan",
+        "scope": "reporting_company",
+        "time_semantics": null
+      },
+      "source_witnesses": [
+        {
+          "line_number": 62,
+          "text": "Doanh thu bán hàng và cung cấp dịch vụ | Kế hoạch 2025: 169.000.000.000 | Thực hiện 2025: 272.109.210.439 | Tăng 61%",
+          "line_sha256": "fae36cbb2fdb4c41a595eadfcfea756a00766967f678c3ca600b431314e8ed89"
+        }
+      ],
+      "basis": "Source-adjudicated original baseline and frozen numerical reference; includes alternate source review already documented in V2. Not derived from V3 predictions."
+    },
+    {
+      "source_id": "BTH",
+      "identity": {
+        "metric": "doanh thu ban hang va cung cap dich vu",
+        "years": [
+          "2025"
+        ],
+        "role": "actual",
+        "scope": "reporting_company",
+        "time_semantics": null
+      },
+      "source_witnesses": [
+        {
+          "line_number": 62,
+          "text": "Doanh thu bán hàng và cung cấp dịch vụ | Kế hoạch 2025: 169.000.000.000 | Thực hiện 2025: 272.109.210.439 | Tăng 61%",
+          "line_sha256": "fae36cbb2fdb4c41a595eadfcfea756a00766967f678c3ca600b431314e8ed89"
+        }
+      ],
+      "basis": "Source-adjudicated original baseline and frozen numerical reference; includes alternate source review already documented in V2. Not derived from V3 predictions."
+    },
+    {
+      "source_id": "BTH",
+      "identity": {
+        "metric": "doanh thu ban hang va cung cap dich vu",
+        "years": [
+          "2025"
+        ],
+        "role": [
+          "actual",
+          "plan"
+        ],
+        "scope": "reporting_company",
+        "time_semantics": null
+      },
+      "source_witnesses": [
+        {
+          "line_number": 62,
+          "text": "Doanh thu bán hàng và cung cấp dịch vụ | Kế hoạch 2025: 169.000.000.000 | Thực hiện 2025: 272.109.210.439 | Tăng 61%",
+          "line_sha256": "fae36cbb2fdb4c41a595eadfcfea756a00766967f678c3ca600b431314e8ed89"
+        },
+        {
+          "line_number": 62,
+          "text": "Doanh thu bán hàng và cung cấp dịch vụ | Kế hoạch 2025: 169.000.000.000 | Thực hiện 2025: 272.109.210.439 | Tăng 61%",
+          "line_sha256": "fae36cbb2fdb4c41a595eadfcfea756a00766967f678c3ca600b431314e8ed89"
+        }
+      ],
+      "basis": "Source-adjudicated original baseline and frozen numerical reference; includes alternate source review already documented in V2. Not derived from V3 predictions."
+    }
+  ],
+  "practical-bth-partial": [
+    {
+      "source_id": "BTH",
+      "identity": {
+        "metric": "doanh thu ban hang va cung cap dich vu",
+        "years": [
+          "2025"
+        ],
+        "role": "actual",
+        "scope": "reporting_company",
+        "time_semantics": null
+      },
+      "source_witnesses": [
+        {
+          "line_number": 62,
+          "text": "Doanh thu bán hàng và cung cấp dịch vụ | Kế hoạch 2025: 169.000.000.000 | Thực hiện 2025: 272.109.210.439 | Tăng 61%",
+          "line_sha256": "fae36cbb2fdb4c41a595eadfcfea756a00766967f678c3ca600b431314e8ed89"
+        }
+      ],
+      "basis": "Source-adjudicated original baseline and frozen numerical reference; includes alternate source review already documented in V2. Not derived from V3 predictions."
+    },
+    {
+      "source_id": "BTH",
+      "identity": {
+        "metric": "doanh thu ban hang va cung cap dich vu",
+        "years": [
+          "2037"
+        ],
+        "role": "actual",
+        "scope": "reporting_company",
+        "time_semantics": null
+      },
+      "source_witnesses": [
+        {
+          "line_number": 62,
+          "text": "Doanh thu bán hàng và cung cấp dịch vụ | Kế hoạch 2025: 169.000.000.000 | Thực hiện 2025: 272.109.210.439 | Tăng 61%",
+          "line_sha256": "fae36cbb2fdb4c41a595eadfcfea756a00766967f678c3ca600b431314e8ed89"
+        }
+      ],
+      "basis": "Source-adjudicated original baseline and frozen numerical reference; includes alternate source review already documented in V2. Not derived from V3 predictions."
+    },
+    {
+      "source_id": "BTH",
+      "identity": {
+        "metric": "doanh thu ban hang va cung cap dich vu",
+        "years": [
+          "2037",
+          "2025"
+        ],
+        "role": "actual",
+        "scope": "reporting_company",
+        "time_semantics": null
+      },
+      "source_witnesses": [
+        {
+          "line_number": 62,
+          "text": "Doanh thu bán hàng và cung cấp dịch vụ | Kế hoạch 2025: 169.000.000.000 | Thực hiện 2025: 272.109.210.439 | Tăng 61%",
+          "line_sha256": "fae36cbb2fdb4c41a595eadfcfea756a00766967f678c3ca600b431314e8ed89"
+        },
+        {
+          "line_number": 62,
+          "text": "Doanh thu bán hàng và cung cấp dịch vụ | Kế hoạch 2025: 169.000.000.000 | Thực hiện 2025: 272.109.210.439 | Tăng 61%",
+          "line_sha256": "fae36cbb2fdb4c41a595eadfcfea756a00766967f678c3ca600b431314e8ed89"
+        }
+      ],
+      "basis": "Source-adjudicated original baseline and frozen numerical reference; includes alternate source review already documented in V2. Not derived from V3 predictions."
+    }
+  ],
+  "practical-hav-finance": [
+    {
+      "source_id": "HAV",
+      "identity": {
+        "metric": "chi phi tai chinh",
+        "years": [
+          "2023"
+        ],
+        "role": "actual",
+        "scope": "reporting_company",
+        "time_semantics": null
+      },
+      "source_witnesses": [
+        {
+          "line_number": 308,
+          "text": "- Chi phí tài chính | 40 | 30 | -19 | -148% | -163%",
+          "line_sha256": "5b687c3952a044155180ce2f192ed339447d884f3f6acb341ef50f4328bd314f"
+        }
+      ],
+      "basis": "Source-adjudicated original baseline and frozen numerical reference; includes alternate source review already documented in V2. Not derived from V3 predictions."
+    }
+  ],
+  "practical-hav-overview": [
+    {
+      "source_id": "HAV",
+      "identity": {
+        "metric": "doanh thu thuan",
+        "years": [
+          "2022"
+        ],
+        "role": "actual",
+        "scope": "reporting_company",
+        "time_semantics": null
+      },
+      "source_witnesses": [
+        {
+          "line_number": 454,
+          "text": "3 | Doanh thu thuần | Năm 2022: 1.055 | Năm 2023: 2.341 | 122%",
+          "line_sha256": "4f58db23a1c56953be50be5dfab4d6cbe2ecd7cf77f6477dd43e7675948f2b60"
+        }
+      ],
+      "basis": "Source-adjudicated original baseline and frozen numerical reference; includes alternate source review already documented in V2. Not derived from V3 predictions."
+    },
+    {
+      "source_id": "HAV",
+      "identity": {
+        "metric": "doanh thu thuan",
+        "years": [
+          "2023"
+        ],
+        "role": "actual",
+        "scope": "reporting_company",
+        "time_semantics": null
+      },
+      "source_witnesses": [
+        {
+          "line_number": 454,
+          "text": "3 | Doanh thu thuần | Năm 2022: 1.055 | Năm 2023: 2.341 | 122%",
+          "line_sha256": "4f58db23a1c56953be50be5dfab4d6cbe2ecd7cf77f6477dd43e7675948f2b60"
+        }
+      ],
+      "basis": "Source-adjudicated original baseline and frozen numerical reference; includes alternate source review already documented in V2. Not derived from V3 predictions."
+    },
+    {
+      "source_id": "HAV",
+      "identity": {
+        "metric": "doanh thu thuan",
+        "years": [
+          "2023",
+          "2022"
+        ],
+        "role": "actual",
+        "scope": "reporting_company",
+        "time_semantics": null
+      },
+      "source_witnesses": [
+        {
+          "line_number": 454,
+          "text": "3 | Doanh thu thuần | Năm 2022: 1.055 | Năm 2023: 2.341 | 122%",
+          "line_sha256": "4f58db23a1c56953be50be5dfab4d6cbe2ecd7cf77f6477dd43e7675948f2b60"
+        },
+        {
+          "line_number": 454,
+          "text": "3 | Doanh thu thuần | Năm 2022: 1.055 | Năm 2023: 2.341 | 122%",
+          "line_sha256": "4f58db23a1c56953be50be5dfab4d6cbe2ecd7cf77f6477dd43e7675948f2b60"
+        }
+      ],
+      "basis": "Source-adjudicated original baseline and frozen numerical reference; includes alternate source review already documented in V2. Not derived from V3 predictions."
+    }
+  ],
+  "practical-hav-missing": [
+    {
+      "source_id": "HAV",
+      "identity": {
+        "metric": "chi phi tai chinh",
+        "years": [
+          "2037"
+        ],
+        "role": "actual",
+        "scope": "reporting_company",
+        "time_semantics": null
+      },
+      "source_witnesses": [
+        {
+          "line_number": 305,
+          "text": "5. Tổng chi phí | 759 | 720 | Thực hiện năm 2023: 1.089 | 43% | 51%",
+          "line_sha256": "fb5ee106d62d2958d6e9cb713a280d4ac58fd90c8c6c73da1b8044bc6beb916d"
+        }
+      ],
+      "basis": "Source-adjudicated original baseline and frozen numerical reference; includes alternate source review already documented in V2. Not derived from V3 predictions."
+    }
+  ]
+}

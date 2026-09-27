@@ -1,0 +1,64 @@
+{
+  "schema": "mineru-real-http-requests-v1",
+  "sources": {
+    "MGG": {
+      "path": "data/markdown/policy_evaluation_v1/MGG/MGG_23CN_BCTN--cf0d9055f964e682.md",
+      "sha256": "f5d82c2f0ac85561f6e6c45f1c502353a6726fc35429f0efc88fcd83d79e946d"
+    },
+    "ACG": {
+      "path": "data/markdown/mineru_rerun_v1/ACG/ACG_25CN_BCTN--663c4a4d4e034e2d.md",
+      "sha256": "d4d68d1b90d0f17bb1732a34203e1cf4e3803855971964f88d1e457cd921a8e8"
+    },
+    "BTH": {
+      "path": "data/markdown/policy_evaluation_v1/BTH/BTH_25CN_BCTN--c3f4291745a28deb.md",
+      "sha256": "1949b44491086451fe1b04a7207cbfc8a00f2a7ebe4412ad4c052a345a9e23c5"
+    }
+  },
+  "cases": [
+    {
+      "case_id": "practical9-01",
+      "source_id": "MGG",
+      "question": "Tài sản ngắn hạn năm 2023 là bao nhiêu triệu đồng?"
+    },
+    {
+      "case_id": "practical9-02",
+      "source_id": "MGG",
+      "question": "Tài sản ngắn hạn khác năm 2023 là bao nhiêu triệu đồng?"
+    },
+    {
+      "case_id": "practical9-03",
+      "source_id": "MGG",
+      "question": "Tổng doanh thu ở cột “SS CK (%)” là bao nhiêu?"
+    },
+    {
+      "case_id": "practical9-04",
+      "source_id": "ACG",
+      "question": "Tài sản ngắn hạn hợp nhất cuối năm 2025 là bao nhiêu đồng?"
+    },
+    {
+      "case_id": "practical9-05",
+      "source_id": "ACG",
+      "question": "Tài sản ngắn hạn khác hợp nhất cuối năm 2025 là bao nhiêu đồng?"
+    },
+    {
+      "case_id": "practical9-06",
+      "source_id": "ACG",
+      "question": "Tài sản ngắn hạn hợp nhất năm 2030 là bao nhiêu đồng?"
+    },
+    {
+      "case_id": "practical9-07",
+      "source_id": "BTH",
+      "question": "Tổng chi phí thực hiện năm 2025 là bao nhiêu đồng?"
+    },
+    {
+      "case_id": "practical9-08",
+      "source_id": "BTH",
+      "question": "Thu nhập khác thực hiện năm 2025 là bao nhiêu đồng?"
+    },
+    {
+      "case_id": "practical9-09",
+      "source_id": "BTH",
+      "question": "Tổng lợi nhuận trước thuế thực hiện năm 2025 cao hơn kế hoạch năm 2025 bao nhiêu đồng?"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "policy": "missing_monetary_unit_vnd_v1",
+  "authorization": "User: missing monetary units default to dong (VND).",
+  "parent_protocol": "config/finhrm_B_entity_owner_v2_protocol_v1.json",
+  "scope": "Only B; same model and existing MinerU documents; no OCR or training.",
+  "smoke_cases": [
+    "fresh-cms-consolidated",
+    "fresh-cms-separate",
+    "fresh-pdb-actual",
+    "fresh-pdb-plan",
+    "fresh-ssg-difference",
+    "new-report-01",
+    "check-ggg-owner-capital",
+    "check-dxg-notice"
+  ],
+  "regression_cases": 38,
+  "evaluation": "Original references unchanged, CMS still UNRESOLVED as source-only references. Any assumed-unit answers are reported separately; never described as source-confirmed currency.",
+  "success_checks": [
+    "Missing monetary units use VND scale 1 and carry an assumption in citation/certificate/rendered output.",
+    "Explicit units, conflicts, non-money and unknown scale are preserved.",
+    "Existing 25 correct publications retain canonical values; no newly published known-wrong answer."
+  ],
+  "snapshot": "archive/B_default_unit_parent_v1.zip"
+}

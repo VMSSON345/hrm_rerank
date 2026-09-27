@@ -1,0 +1,379 @@
+{
+  "sources": {
+    "AAS": {
+      "path": "tmp/demo_uploads/.mineru/6ebb1a1731-AAS_24CN_BCTN.md",
+      "sha256": "49dab13ee480eef64383514bdcc98450b49bdfb606cc7ede74e24cda3f0b1579"
+    },
+    "AAH": {
+      "path": "tmp/demo_uploads/.mineru/d416d19e0a-AAH_24CN_BCTN.md",
+      "sha256": "6ccb8982ef1903673790eaa7ae787e516de05c97c2a097ccae46336c614aaf0a"
+    },
+    "BHH": {
+      "path": "data/markdown/finhrm_B_consistency_v3_new/BHH_24CN_BCTN.md",
+      "sha256": "a21baf1ed67aa396cc1c5d12180407fec1b28574864afcda53530e2a86b76994"
+    },
+    "BHK": {
+      "path": "data/markdown/finhrm_B_consistency_v3_new/BHK_24CN_BCTN.md",
+      "sha256": "449137812b1af6e13b7674cd816f41d235cd90beefd1b52d9e9c935da1c26632"
+    },
+    "PDB": {
+      "path": "data/markdown/scope_unit_v2/PDB_24CN_BCTN--1957e2ee3f06dba6.md",
+      "sha256": "06fb246ff0de4e250cb3f7202ac58b7eeaeb34a17aa47c6f7289bf58b6a4f6f7"
+    },
+    "ABI": {
+      "path": "tmp/demo_uploads/.mineru/56876d0bdd-ABI_24CN_BCTN.md",
+      "sha256": "57c8aacf15350904719c366d4bbc2fbab92540f6fef7633525c2b1f886f566db"
+    }
+  },
+  "cases": [
+    {
+      "case_id": "aas-original-followup",
+      "source_id": "AAS",
+      "question": "Lợi nhuận năm 2024 tăng bao nhiêu phần trăm so với 2023",
+      "expected_action": "ANSWER",
+      "operation": "PERCENT_CHANGE",
+      "operand_canonical": [
+        "73661409934",
+        "86939040221"
+      ],
+      "expected_fraction": {
+        "numerator": "-1327763028700",
+        "denominator": "86939040221"
+      },
+      "previous_question": "1. Lợi nhuận sau thuế năm 2035 là bao nhiêu đồng?"
+    },
+    {
+      "case_id": "aas-bare-standalone",
+      "source_id": "AAS",
+      "question": "Lợi nhuận năm 2024 tăng bao nhiêu phần trăm so với 2023",
+      "expected_action": "CLARIFY",
+      "operation": ""
+    },
+    {
+      "case_id": "aas-explicit-growth",
+      "source_id": "AAS",
+      "question": "Lợi nhuận sau thuế năm 2024 tăng bao nhiêu phần trăm so với 2023",
+      "expected_action": "ANSWER",
+      "operation": "PERCENT_CHANGE",
+      "operand_canonical": [
+        "73661409934",
+        "86939040221"
+      ],
+      "expected_fraction": {
+        "numerator": "-1327763028700",
+        "denominator": "86939040221"
+      }
+    },
+    {
+      "case_id": "aas-decline",
+      "source_id": "AAS",
+      "question": "Lợi nhuận sau thuế năm 2024 giảm bao nhiêu % so với năm 2023?",
+      "expected_action": "ANSWER",
+      "operation": "PERCENT_CHANGE",
+      "operand_canonical": [
+        "73661409934",
+        "86939040221"
+      ],
+      "expected_fraction": {
+        "numerator": "-1327763028700",
+        "denominator": "86939040221"
+      }
+    },
+    {
+      "case_id": "aas-growth-prefix",
+      "source_id": "AAS",
+      "question": "Tốc độ tăng trưởng lợi nhuận sau thuế năm 2024 so với năm 2023 là bao nhiêu?",
+      "expected_action": "ANSWER",
+      "operation": "PERCENT_CHANGE",
+      "operand_canonical": [
+        "73661409934",
+        "86939040221"
+      ],
+      "expected_fraction": {
+        "numerator": "-1327763028700",
+        "denominator": "86939040221"
+      }
+    },
+    {
+      "case_id": "aas-ratio",
+      "source_id": "AAS",
+      "question": "Lợi nhuận sau thuế năm 2024 bằng bao nhiêu phần trăm năm 2023?",
+      "expected_action": "ANSWER",
+      "operation": "RATIO_PERCENT",
+      "operand_canonical": [
+        "73661409934",
+        "86939040221"
+      ],
+      "expected_fraction": {
+        "numerator": "7366140993400",
+        "denominator": "86939040221"
+      }
+    },
+    {
+      "case_id": "aas-multiple",
+      "source_id": "AAS",
+      "question": "Lợi nhuận sau thuế năm 2024 gấp bao nhiêu lần năm 2023?",
+      "expected_action": "ANSWER",
+      "operation": "DIVIDE",
+      "operand_canonical": [
+        "73661409934",
+        "86939040221"
+      ],
+      "expected_fraction": {
+        "numerator": "73661409934",
+        "denominator": "86939040221"
+      }
+    },
+    {
+      "case_id": "aas-reverse-growth",
+      "source_id": "AAS",
+      "question": "Lợi nhuận sau thuế năm 2023 tăng bao nhiêu phần trăm so với 2024?",
+      "expected_action": "ANSWER",
+      "operation": "PERCENT_CHANGE",
+      "operand_canonical": [
+        "86939040221",
+        "73661409934"
+      ],
+      "expected_fraction": {
+        "numerator": "663881514350",
+        "denominator": "36830704967"
+      }
+    },
+    {
+      "case_id": "aas-reverse-ratio",
+      "source_id": "AAS",
+      "question": "Lợi nhuận sau thuế năm 2023 bằng bao nhiêu phần trăm năm 2024?",
+      "expected_action": "ANSWER",
+      "operation": "RATIO_PERCENT",
+      "operand_canonical": [
+        "86939040221",
+        "73661409934"
+      ],
+      "expected_fraction": {
+        "numerator": "4346952011050",
+        "denominator": "36830704967"
+      }
+    },
+    {
+      "case_id": "aas-previous-pbt",
+      "source_id": "AAS",
+      "question": "Lợi nhuận năm 2024 tăng bao nhiêu phần trăm so với 2023",
+      "expected_action": "ANSWER",
+      "operation": "PERCENT_CHANGE",
+      "operand_canonical": [
+        "103096132685",
+        "109280378898"
+      ],
+      "expected_fraction": {
+        "numerator": "-309212310650",
+        "denominator": "54640189449"
+      },
+      "previous_question": "Lợi nhuận trước thuế năm 2023 là bao nhiêu đồng?"
+    },
+    {
+      "case_id": "aas-missing-year",
+      "source_id": "AAS",
+      "question": "Lợi nhuận sau thuế năm 2035 tăng bao nhiêu phần trăm so với 2023?",
+      "expected_action": "ABSTAIN",
+      "operation": ""
+    },
+    {
+      "case_id": "aah-explicit-growth",
+      "source_id": "AAH",
+      "question": "Lợi nhuận sau thuế năm 2024 tăng bao nhiêu phần trăm so với 2023?",
+      "expected_action": "ANSWER",
+      "operation": "PERCENT_CHANGE",
+      "operand_canonical": [
+        "11944503019",
+        "11641892622"
+      ],
+      "expected_fraction": {
+        "numerator": "15130519850",
+        "denominator": "5820946311"
+      }
+    },
+    {
+      "case_id": "aah-generic-followup",
+      "source_id": "AAH",
+      "question": "Lợi nhuận năm 2024 tăng bao nhiêu phần trăm so với 2023",
+      "expected_action": "ANSWER",
+      "operation": "PERCENT_CHANGE",
+      "operand_canonical": [
+        "11944503019",
+        "11641892622"
+      ],
+      "expected_fraction": {
+        "numerator": "15130519850",
+        "denominator": "5820946311"
+      },
+      "previous_question": "Lợi nhuận sau thuế năm 2024 là bao nhiêu?"
+    },
+    {
+      "case_id": "aah-ratio",
+      "source_id": "AAH",
+      "question": "Lợi nhuận sau thuế năm 2024 bằng bao nhiêu phần trăm năm 2023?",
+      "expected_action": "ANSWER",
+      "operation": "RATIO_PERCENT",
+      "operand_canonical": [
+        "11944503019",
+        "11641892622"
+      ],
+      "expected_fraction": {
+        "numerator": "597225150950",
+        "denominator": "5820946311"
+      }
+    },
+    {
+      "case_id": "aah-multiple",
+      "source_id": "AAH",
+      "question": "Lợi nhuận sau thuế năm 2024 gấp bao nhiêu lần năm 2023?",
+      "expected_action": "ANSWER",
+      "operation": "DIVIDE",
+      "operand_canonical": [
+        "11944503019",
+        "11641892622"
+      ],
+      "expected_fraction": {
+        "numerator": "11944503019",
+        "denominator": "11641892622"
+      }
+    },
+    {
+      "case_id": "aah-revenue-growth",
+      "source_id": "AAH",
+      "question": "Doanh thu năm 2024 tăng bao nhiêu phần trăm so với 2023?",
+      "expected_action": "ANSWER",
+      "operation": "PERCENT_CHANGE",
+      "operand_canonical": [
+        "1172121547172",
+        "232366388430"
+      ],
+      "expected_fraction": {
+        "numerator": "9397551587420",
+        "denominator": "23236638843"
+      }
+    },
+    {
+      "case_id": "bhk-profit-growth",
+      "source_id": "BHK",
+      "question": "Lợi nhuận trước thuế năm 2024 tăng bao nhiêu phần trăm so với 2023?",
+      "expected_action": "ANSWER",
+      "operation": "PERCENT_CHANGE",
+      "operand_canonical": [
+        "5768708337",
+        "5023312338"
+      ],
+      "expected_fraction": {
+        "numerator": "12423266650",
+        "denominator": "837218723"
+      }
+    },
+    {
+      "case_id": "bhk-profit-ratio",
+      "source_id": "BHK",
+      "question": "Lợi nhuận trước thuế năm 2024 bằng bao nhiêu phần trăm năm 2023?",
+      "expected_action": "ANSWER",
+      "operation": "RATIO_PERCENT",
+      "operand_canonical": [
+        "5768708337",
+        "5023312338"
+      ],
+      "expected_fraction": {
+        "numerator": "96145138950",
+        "denominator": "837218723"
+      }
+    },
+    {
+      "case_id": "bhh-profit-growth",
+      "source_id": "BHH",
+      "question": "Tốc độ tăng trưởng lợi nhuận trước thuế năm 2024 so với năm 2023 là bao nhiêu?",
+      "expected_action": "ANSWER",
+      "operation": "PERCENT_CHANGE",
+      "operand_canonical": [
+        "6010000000",
+        "5227000000"
+      ],
+      "expected_fraction": {
+        "numerator": "78300",
+        "denominator": "5227"
+      }
+    },
+    {
+      "case_id": "bhh-plan-completion",
+      "source_id": "BHH",
+      "question": "Lợi nhuận trước thuế thực hiện năm 2024 đạt bao nhiêu phần trăm kế hoạch năm 2024?",
+      "expected_action": "ANSWER",
+      "operation": "RATIO_PERCENT",
+      "operand_canonical": [
+        "6010000000",
+        "6277000000"
+      ],
+      "expected_fraction": {
+        "numerator": "601000",
+        "denominator": "6277"
+      }
+    },
+    {
+      "case_id": "pdb-profit-growth",
+      "source_id": "PDB",
+      "question": "Lợi nhuận trước thuế hợp nhất năm 2024 tăng bao nhiêu phần trăm so với 2023?",
+      "expected_action": "ANSWER",
+      "operation": "PERCENT_CHANGE",
+      "operand_canonical": [
+        "15656000000",
+        "3476000000"
+      ],
+      "expected_fraction": {
+        "numerator": "304500",
+        "denominator": "869"
+      }
+    },
+    {
+      "case_id": "abi-profit-growth",
+      "source_id": "ABI",
+      "question": "Lợi nhuận sau thuế năm 2024 tăng bao nhiêu phần trăm so với 2023?",
+      "expected_action": "ANSWER",
+      "operation": "PERCENT_CHANGE",
+      "operand_canonical": [
+        "204717146978",
+        "246347400506"
+      ],
+      "expected_fraction": {
+        "numerator": "-2081512676400",
+        "denominator": "123173700253"
+      }
+    },
+    {
+      "case_id": "abi-profit-ratio",
+      "source_id": "ABI",
+      "question": "Lợi nhuận sau thuế năm 2024 bằng bao nhiêu phần trăm năm 2023?",
+      "expected_action": "ANSWER",
+      "operation": "RATIO_PERCENT",
+      "operand_canonical": [
+        "204717146978",
+        "246347400506"
+      ],
+      "expected_fraction": {
+        "numerator": "10235857348900",
+        "denominator": "123173700253"
+      }
+    },
+    {
+      "case_id": "abi-generic-followup",
+      "source_id": "ABI",
+      "question": "Lợi nhuận năm 2024 tăng bao nhiêu phần trăm so với 2023",
+      "expected_action": "ANSWER",
+      "operation": "PERCENT_CHANGE",
+      "operand_canonical": [
+        "204717146978",
+        "246347400506"
+      ],
+      "expected_fraction": {
+        "numerator": "-2081512676400",
+        "denominator": "123173700253"
+      },
+      "previous_question": "Lợi nhuận sau thuế năm 2024 là bao nhiêu đồng?"
+    }
+  ],
+  "reference_basis": "MinerU lines locked before this HTTP evaluation. AAS PAT 136/217, PBT 216/143/374; AAH 473/469; BHK 85/125; BHH 96/102; PDB 211; ABI detailed statement 695/697 plus rounded overview 325/327. Same-company report context and roles must also match; no gold used in runtime."
+}

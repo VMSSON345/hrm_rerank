@@ -1,0 +1,54 @@
+{
+  "schema": "finhrm_v14_2_markdown_e2e_v1-evaluation-revision-v2",
+  "created_at": "2026-09-07T13:43:24.831105+00:00",
+  "timing": "Evaluation correction after observations; no rerun or runtime changes",
+  "reason": "API citations identify the actual supplied Markdown basename; inherited source_name identifies upstream PDF. V1 would falsely reject a correct accepted Markdown citation.",
+  "change": "Pass basename(source.markdown_path) to exact source check, preserving strict wrong-source rejection.",
+  "unchanged": [
+    "questions",
+    "numeric_gold",
+    "expected_actions",
+    "coverage_target",
+    "gates",
+    "raw_http_predictions",
+    "model_weights",
+    "calibration",
+    "runtime"
+  ],
+  "source_review_limitations_unchanged": true,
+  "inputs": [
+    {
+      "path": "config/finhrm_v14_2_markdown_e2e_v1_protocol.json",
+      "sha256": "be81ec169d74a586743a30d647e4617a569bc3b91b5eb7b2a4e710cb55273622"
+    },
+    {
+      "path": "config/finhrm_v14_2_markdown_e2e_v1_contract.json",
+      "sha256": "f6c9343a2ba108b44d63e32000610476cc7a4c177d8fa3189b075fde20c429d7"
+    },
+    {
+      "path": "config/finhrm_v14_2_markdown_e2e_v1_requests.json",
+      "sha256": "9656f7839fb248af83119f26e332c0a06cde154f3c2dd5df06ecc0382d512df8"
+    },
+    {
+      "path": "reports/finhrm_v14_2_markdown_e2e_v1_observations.json",
+      "sha256": "aecf0df454fd5a73c822f581bbbbd16518bb505ff890bb8a957396a3a28565fa"
+    },
+    {
+      "path": "scripts/evaluate_finhrm_v14_2_markdown_e2e.py",
+      "sha256": "38624d0f0eb7bddf93e0787b5c5d32e602836b7e788d7f9b3bf3097d5c4fc3c5"
+    },
+    {
+      "path": "scripts/evaluate_finhrm_v14_2_markdown_e2e_v2.py",
+      "sha256": "c796e1f6da4829bbc83f742076ea2b6fe1e824a27d16ca2bf5a212de4cbefe90"
+    },
+    {
+      "path": "tests/test_finhrm_v14_2_markdown_certificate_audit.py",
+      "sha256": "147d7935178696b357892a898eea3ca338656e7e1e1f0b81e79de9546f5e95c7"
+    },
+    {
+      "path": "reports/finhrm_v14_2_markdown_e2e_v1_certificate_tests.xml",
+      "sha256": "36c289ee316fe5a40f2369632c51449eb4d49af4d9ccccba5957aacf4540d10a"
+    }
+  ],
+  "observation_sha256": "aecf0df454fd5a73c822f581bbbbd16518bb505ff890bb8a957396a3a28565fa"
+}

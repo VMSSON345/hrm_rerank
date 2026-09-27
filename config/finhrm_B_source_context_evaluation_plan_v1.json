@@ -1,0 +1,13 @@
+{
+  "created_at": "2026-09-10T12:56:17.011488+00:00",
+  "policy": "B only",
+  "baseline": "reports/finhrm_B_semantic_format_results_v3.json",
+  "source_change": "Only SSG page6 receives an OCR-backed unit caption after exact full-table match; source/gold original retained.",
+  "development": "All old34 development, including target8; no training-disjoint claim. Targets before final regression.",
+  "criteria": [
+    "Preserve old19 correct answers",
+    "Resolve unit/format/explicit scope without company-specific rules",
+    "Contradictory proven same-scope values and unknown same-fact formats still block",
+    "Read actual responses and record all failures"
+  ]
+}

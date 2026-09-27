@@ -1,0 +1,38 @@
+{
+  "schema": "finhrm-v13-finance-architecture-precommit-v1",
+  "status": "FROZEN_BEFORE_V13_RUNTIME_EDIT",
+  "created_at": "2026-08-30",
+  "objective": "Add report-independent hierarchical structural reasoning and typed operand-slot candidate scoring to Document HRM while preserving legacy checkpoint loading.",
+  "invariants": [
+    "No company, filename, page, year, value, question literal, or case-ID rule",
+    "V8 and V12B1 checkpoints remain byte-unchanged and loadable",
+    "Legacy model behavior is selected by the default financial_structure_mode=legacy",
+    "V13 training never reads data/test.jsonl before model selection is frozen",
+    "Symbolic verification remains the final acceptance authority",
+    "UNKNOWN evidence is not trained as a certain negative"
+  ],
+  "architecture": {
+    "profile": "typed_hierarchy_v1",
+    "candidate_structure_encoder": true,
+    "hierarchical_relation_message_passing": true,
+    "operation_and_slot_conditioned_pointer_queries": true,
+    "typed_slot_candidate_bias": true,
+    "ordered_joint_pair_head": true,
+    "same_physical_cell_pair_mask": true
+  },
+  "training": {
+    "scratch_and_warm_ablation": true,
+    "separate_validation_dataset_required": true,
+    "safe_output_no_overwrite": true,
+    "seed_is_explicit": true,
+    "test_dataset_allowed_during_training": false
+  },
+  "data": {
+    "train": "data/train.jsonl",
+    "validation": "data/validation.jsonl",
+    "test": "data/test.jsonl",
+    "train_records": 2109,
+    "validation_records": 200,
+    "test_records": 1500
+  }
+}

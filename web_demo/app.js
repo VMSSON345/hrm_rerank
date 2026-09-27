@@ -3,6 +3,7 @@
 
   const STORAGE_KEY = "finhrm-demo-sessions-v1";
   const MAX_SESSIONS = 8;
+  const DOCUMENTS_KEY = "finhrm-demo-documents-v1";
   const MAX_FILE_BYTES = 512 * 1024 * 1024;
   const OPERATION_LABELS = {
     SELECT: "Chọn giá trị",
@@ -24,6 +25,7 @@
     sessionId: null,
     messages: [],
     ready: false,
+    ingesting: false,
     busy: false,
     jobId: null,
     thinkingTimer: null,
@@ -104,8 +106,8 @@
       state.health = health;
       const model = health.model || {};
       const checkpoint = model.checkpoint || "Document HRM";
-      byId("sidebar-model-name").textContent = checkpoint;
-      byId("top-model-name").textContent = checkpoint.replace(".pt", "");
+      byId("sidebar-model-name").textContent = "FinHRM Local";
+      byId("top-model-name").textContent = "HRM · Local";
       byId("dialog-checkpoint").textContent = checkpoint;
       byId("dialog-device").textContent = String(model.device || "cpu").toUpperCase();
       byId("dialog-model-state").textContent = health.model_loaded ? "Đã nạp" : "Chưa nạp";
@@ -120,10 +122,10 @@
         : mineruHealthy
           ? "Mô hình và OCR sẵn sàng"
           : "Mô hình sẵn sàng · OCR hạn chế";
-      byId("sidebar-system-status").textContent = statusCopy;
-      byId("topbar-status-text").textContent = busy ? "Đang suy luận" : "Sẵn sàng";
-      setStatusDot(byId("sidebar-status-dot"), busy ? "is-busy" : "is-online");
-      setStatusDot(byId("topbar-status-dot"), busy ? "is-busy" : "is-online");
+      byId("sidebar-system-status").textContent = health.model_loaded ? statusCopy : "Mô hình chưa sẵn sàng";
+      byId("topbar-status-text").textContent = busy ? "Đang suy luận" : health.model_loaded ? "Sẵn sàng" : "Chưa nạp mô hình";
+      setStatusDot(byId("sidebar-status-dot"), busy ? "is-busy" : health.model_loaded ? "is-online" : null);
+      setStatusDot(byId("topbar-status-dot"), busy ? "is-busy" : health.model_loaded ? "is-online" : null);
     } catch {
       byId("sidebar-system-status").textContent = "Không kết nối được dịch vụ";
       byId("topbar-status-text").textContent = "Mất kết nối";
@@ -149,15 +151,18 @@
     }, 3600);
   }
 
-  function setProcessing({ title, description, progress, step }) {
+  function setProcessing({ title, description, step }) {
     elements.welcome.hidden = true;
     elements.processingCard.hidden = false;
     elements.processingTitle.textContent = title;
     elements.processingDescription.textContent = description;
-    const boundedProgress = Math.max(0, Math.min(100, Math.round(progress)));
-    elements.processingProgress.value = boundedProgress;
-    elements.processingProgress.textContent = `${boundedProgress}%`;
-    elements.processingPercent.textContent = `${boundedProgress}%`;
+    if (step === "ready") {
+      elements.processingProgress.value = 100;
+      elements.processingPercent.textContent = "Hoàn tất";
+    } else {
+      elements.processingProgress.removeAttribute("value");
+      elements.processingPercent.textContent = "Đang xử lý";
+    }
     const steps = ["upload", "extract", "index", "ready"];
     const current = Math.max(0, steps.indexOf(step));
     steps.forEach((name, index) => {
@@ -168,6 +173,8 @@
   }
 
   function resetSession() {
+    if (isLocked()) return;
+    const selected = state.ready ? { document: state.document, filename: state.filename } : null;
     stopThinking();
     state.document = null;
     state.filename = null;
@@ -187,6 +194,8 @@
     elements.questionInput.value = "";
     resizeTextarea();
     closeSidebar();
+    if (selected) startDocumentChat(selected);
+    syncWorkspace();
   }
 
   function validateFile(file) {
@@ -201,8 +210,16 @@
   }
 
   async function handleFile(file) {
+    if (isLocked()) return;
+    try { validateFile(file); } catch (error) { showToast(error.message); return; }
+    state.ingesting = true;
+    state.ready = false;
+    state.document = null;
+    elements.conversation.textContent = "";
+    elements.processingCard.querySelectorAll(".error-box").forEach(node => node.remove());
+    closeDocuments();
+    syncWorkspace();
     try {
-      validateFile(file);
       state.filename = file.name;
       state.sessionId = `session-${Date.now()}`;
       state.messages = [];
@@ -224,7 +241,7 @@
       state.document = upload.document;
       setProcessing({
         title: "Đang đọc cấu trúc báo cáo",
-        description: "Ưu tiên lớp chữ gốc; trang scan sẽ được chuyển qua MinerU nếu dịch vụ OCR sẵn sàng.",
+        description: file.name.toLowerCase().endsWith(".pdf") ? "MinerU đang chuẩn bị nội dung và bảng biểu trong PDF." : "Đang chuẩn bị nội dung tài liệu văn bản.",
         progress: 28,
         step: "extract",
       });
@@ -238,11 +255,14 @@
       await pollIngestion(job.job_id);
     } catch (error) {
       showProcessingError(error.message || "Không thể chuẩn bị tài liệu.");
+    } finally {
+      state.ingesting = false;
+      state.jobId = null;
+      syncWorkspace();
     }
   }
 
   async function pollIngestion(jobId) {
-    let syntheticProgress = 34;
     while (state.jobId === jobId) {
       const job = await requestJSON(`/v1/jobs/${encodeURIComponent(jobId)}`);
       if (job.status === "failed") {
@@ -252,16 +272,13 @@
         markDocumentReady(job);
         return;
       }
-      syntheticProgress = Math.min(84, syntheticProgress + 3);
       const knownTotal = Number(job.documents_total || 0);
       const completed = Number(job.documents_completed || 0);
-      const computed = knownTotal > 0 ? 38 + (completed / knownTotal) * 44 : syntheticProgress;
       setProcessing({
         title: job.status === "queued" ? "Tài liệu đang chờ xử lý" : "Đang lập chỉ mục theo từng trang",
         description: knownTotal
           ? `Đã xử lý ${completed}/${knownTotal} tài liệu trong gói tải lên.`
           : "Đang phân tích lớp chữ, bảng biểu và chất lượng từng trang.",
-        progress: computed,
         step: job.status === "queued" ? "extract" : "index",
       });
       await sleep(900);
@@ -278,14 +295,16 @@
     state.ready = true;
     elements.documentIndicator.hidden = false;
     elements.documentIndicatorName.textContent = state.filename || "Tài liệu";
-    window.setTimeout(() => {
+    {
       elements.processingCard.hidden = true;
       elements.composerWrap.hidden = false;
       elements.conversation.textContent = "";
       appendIntroMessage(job);
       elements.questionInput.focus();
-    }, 550);
+    }
+    rememberDocument();
     saveSession();
+    syncWorkspace();
   }
 
   function summarizeIndexResults(results) {
@@ -300,7 +319,7 @@
         { pages: 0, native: 0, ocr: 0 },
       );
     if (!stats.pages) return "Tài liệu văn bản đã được chuẩn bị để truy vấn.";
-    return `${stats.pages} trang · ${stats.native} trang native · ${stats.ocr} trang OCR.`;
+    return `${stats.pages} trang đã được chuẩn bị.`;
   }
 
   function showProcessingError(message) {
@@ -310,13 +329,12 @@
       progress: 0,
       step: "upload",
     });
+    elements.processingProgress.value = 0;
     elements.processingPercent.textContent = "Lỗi";
     elements.processingCard.appendChild(makeErrorBox(
-      "Hãy kiểm tra dịch vụ local và thử lại. PDF scan cần MinerU đang chạy.",
+      "Hãy kiểm tra dịch vụ local và thử lại. PDF cần MinerU để đọc nội dung.",
     ));
-    window.setTimeout(() => {
-      elements.welcome.hidden = false;
-    }, 700);
+    elements.welcome.hidden = false;
   }
 
   function appendIntroMessage(job) {
@@ -397,6 +415,7 @@
   async function submitQuestion(question) {
     if (!state.ready || state.busy || !question.trim()) return;
     state.busy = true;
+    syncWorkspace();
     elements.sendQuestion.disabled = true;
     elements.questionInput.disabled = true;
     appendUserMessage(question);
@@ -428,7 +447,8 @@
       appendAnswerError(error, { scroll: shouldFollowError });
     } finally {
       state.busy = false;
-      elements.sendQuestion.disabled = false;
+      syncWorkspace();
+      elements.sendQuestion.disabled = !elements.questionInput.value.trim();
       elements.questionInput.disabled = false;
       elements.questionInput.focus({ preventScroll: true });
       refreshHealth();
@@ -438,21 +458,28 @@
   function appendAnswer(answer, { scroll = true } = {}) {
     const message = createElement("article", "message assistant-message");
     const body = createElement("div", "message-body");
-    const abstained = answer.status === "ABSTAIN";
-    body.append(makeAnswerSummary(answer));
-    if (!abstained && answer.program) body.append(makeProgramCard(answer));
-    if (!abstained && Array.isArray(answer.evidence) && answer.evidence.length) {
-      body.append(makeEvidenceSection(answer.evidence));
+    const abstained = answer.status === "ABSTAIN" || answer.status === "REJECT";
+    const requestOutputs = Array.isArray(answer.outputs);
+    body.append(
+      requestOutputs ? makeMultiOutputSummary(answer) : makeAnswerSummary(answer),
+    );
+    if (!requestOutputs && !abstained) {
+      const sources = Array.isArray(answer.citations) && answer.citations.length ? answer.citations : (answer.evidence || []);
+      if (sources.length) {
+        const details = createElement("details", "source-details");
+        details.append(createElement("summary", null, `Nguồn tham chiếu · ${sources.length}`));
+        if (answer.program && answer.program.operation !== "SELECT") details.append(makeProgramCard(answer));
+        details.append(makeEvidenceSection(sources));
+        body.append(details);
+      }
     }
-    if (Array.isArray(answer.warnings) && answer.warnings.length) {
-      const warning = createElement("div", "warning-box");
-      warning.append(
-        createElement("strong", null, "Lưu ý từ mô hình"),
-        document.createTextNode(answer.warnings.join(" · ")),
-      );
-      body.append(warning);
-    }
-    body.append(makeTechnicalDetails(answer));
+    const copy = createElement("button", "text-button message-copy", "Sao chép phản hồi");
+    copy.type = "button";
+    copy.addEventListener("click", async () => {
+      try { await navigator.clipboard.writeText(answer.rendered || body.querySelector(".answer-summary, .multi-output-summary")?.textContent || ""); showToast("Đã sao chép phản hồi."); }
+      catch { showToast("Trình duyệt chưa cho phép sao chép. Bạn có thể chọn văn bản để sao chép."); }
+    });
+    body.append(copy, makeTechnicalDetails(answer));
     message.append(makeMessageLabel("H", "FinHRM"), body);
     elements.conversation.append(message);
     if (scroll) {
@@ -462,9 +489,76 @@
     }
   }
 
+  function makeMultiOutputSummary(answer) {
+    const wrapper = createElement("section", "multi-output-summary");
+    const outputs = answer.outputs || [];
+    const overview = answer.split_strategy === "COMPARISON_OVERVIEW";
+    const verified = answer.verified_output_ids || [];
+    const statusText = overview && answer.status !== "ACCEPTED"
+      ? (verified.length
+        ? "So s\u00e1nh: \u0111\u00e3 x\u00e1c minh m\u1ed9t ph\u1ea7n"
+        : "Ch\u01b0a x\u00e1c minh \u0111\u01b0\u1ee3c th\u00f4ng tin so s\u00e1nh")
+      : answer.status === "ACCEPTED"
+      ? "Y\u00eau c\u1ea7u nhi\u1ec1u ph\u1ea7n \u0111\u00e3 \u0111\u01b0\u1ee3c x\u00e1c minh"
+      : answer.status === "REJECT"
+        ? "Y\u00eau c\u1ea7u c\u00f3 b\u1eb1ng ch\u1ee9ng m\u00e2u thu\u1eabn"
+        : "Y\u00eau c\u1ea7u ch\u01b0a \u0111\u1ee7 b\u1eb1ng ch\u1ee9ng";
+    wrapper.append(
+      createElement("span", "answer-status", statusText),
+      createElement(
+        "h2",
+        "answer-value",
+        `${verified.length}/${outputs.length} m\u1ee5c \u0111\u00e3 x\u00e1c minh \u0111\u1ed9c l\u1eadp`,
+      ),
+    );
+    if (!outputs.length) {
+      wrapper.append(
+        createElement(
+          "p",
+          "multi-output-proof",
+          answer.rendered || "Kh\u00f4ng th\u1ec3 t\u00e1ch c\u00e2u h\u1ecfi m\u1ed9t c\u00e1ch an to\u00e0n.",
+        ),
+      );
+      return wrapper;
+    }
+    const list = createElement("div", "multi-output-list");
+    outputs.forEach((output) => {
+      const card = createElement("article", "multi-output-card");
+      const heading = createElement("div", "multi-output-heading");
+      heading.append(
+        createElement(
+          "h3",
+          null,
+          `M\u1ee5c ${output.ordinal}: ${overview ? output.question : output.source_text}`,
+        ),
+        createElement(
+          "span",
+          "operation-chip",
+          overview ? ({ VERIFIED: "\u0110\u00e3 x\u00e1c minh", MISSING: "Thi\u1ebfu d\u1eef li\u1ec7u", UNKNOWN: "Ch\u01b0a \u0111\u1ee7 c\u0103n c\u1ee9", AMBIGUOUS: "Ch\u01b0a r\u00f5", CONFLICT: "Ch\u01b0a qua ki\u1ec3m ch\u1ee9ng" }[output.classification] || "Ch\u01b0a k\u1ebft lu\u1eadn")
+            : output.classification || output.status || "\u2014",
+        ),
+      );
+      const unit = output.unit && output.unit !== "unknown" ? ` ${output.unit}` : "";
+      card.append(
+        heading,
+        createElement(
+          "strong",
+          "multi-output-value",
+          output.classification === "VERIFIED"
+            ? `${formatNumeric(output.answer)}${unit}`
+            : "Kh\u00f4ng k\u1ebft lu\u1eadn",
+        ),
+        createElement("div", "multi-output-proof", output.rendered || ""),
+      );
+      list.append(card);
+    });
+    wrapper.append(list);
+    return wrapper;
+  }
+
   function makeAnswerSummary(answer) {
     const summary = createElement("div", "answer-summary");
-    const abstained = answer.status === "ABSTAIN";
+    const abstained = answer.status === "ABSTAIN" || answer.status === "REJECT";
     const valueBlock = createElement("div");
     valueBlock.append(
       createElement(
@@ -473,23 +567,11 @@
         answer.status === "ACCEPTED" ? "Câu trả lời được chấp nhận" : "Mô hình từ chối kết luận",
       ),
     );
-    const unit = answer.unit && answer.unit !== "unknown" ? ` ${answer.unit}` : "";
-    valueBlock.append(
-      createElement(
-        "h2",
-        "answer-value",
-        abstained
-          ? "Không đủ bằng chứng để kết luận"
-          : `${formatNumeric(answer.answer)}${unit}`,
-      ),
-    );
-    const confidence = Math.max(0, Math.min(1, Number(answer.confidence || 0)));
-    const confidenceBlock = createElement("div", "confidence-block");
-    confidenceBlock.append(
-      createElement("strong", null, abstained ? "—" : `${Math.round(confidence * 100)}%`),
-      createElement("span", null, abstained ? "không kết luận" : "độ tin cậy"),
-    );
-    summary.append(valueBlock, confidenceBlock);
+    const response = answer.rendered || (abstained
+      ? "Không đủ bằng chứng để kết luận"
+      : `${formatNumeric(answer.answer)}${answer.unit ? ` ${answer.unit}` : ""}`);
+    valueBlock.append(createElement("p", "verified-response", response));
+    summary.append(valueBlock);
     return summary;
   }
 
@@ -537,7 +619,7 @@
     const heading = createElement("div", "evidence-heading");
     heading.append(
       createElement("h3", null, "Bằng chứng nguồn"),
-      createElement("span", null, `${evidence.length} toán hạng`),
+      createElement("span", null, `${evidence.length} nguồn`),
     );
     const list = createElement("div", "evidence-list");
     evidence.forEach((item, index) => {
@@ -549,10 +631,8 @@
       if (item.page !== null && item.page !== undefined) {
         meta.append(document.createTextNode(`· Trang ${item.page}`));
       }
-      if (item.extraction_method) {
-        meta.append(document.createTextNode(`· ${item.extraction_method}`));
-      }
-      card.append(meta, createElement("p", "evidence-context", item.context || "Không có đoạn trích."));
+      const sourceCopy = [item.row_label, item.column_label, item.source_name].filter(Boolean).join(" · ");
+      card.append(meta, createElement("p", "evidence-context", sourceCopy || "Xem thông tin nguồn trong phản hồi."));
       list.append(card);
     });
     section.append(heading, list);
@@ -578,6 +658,9 @@
       grid.append(row);
     });
     details.append(grid);
+    if (Array.isArray(answer.warnings) && answer.warnings.length) {
+      details.append(createElement("p", "technical-warning", answer.warnings.join(" · ")));
+    }
     if (answer.status === "ABSTAIN" && answer.program) {
       const rejected = {
         ...answer,
@@ -628,6 +711,8 @@
   }
 
   function resizeTextarea() {
+    byId("character-count").textContent = `${elements.questionInput.value.length}/1000`;
+    elements.sendQuestion.disabled = !state.ready || state.busy || state.ingesting || !elements.questionInput.value.trim();
     elements.questionInput.style.height = "auto";
     elements.questionInput.style.height = `${Math.min(elements.questionInput.scrollHeight, 160)}px`;
   }
@@ -686,30 +771,39 @@
       showToast("Bộ nhớ lịch sử local đã đầy; phiên hiện tại vẫn hoạt động.");
     }
     renderRecentSessions();
+    renderDocuments();
   }
 
   function renderRecentSessions() {
-    const sessions = getSessions();
+    const all = getSessions();
+    byId("history-count").textContent = String(all.length);
+    const query = byId("history-search").value.toLocaleLowerCase("vi");
+    const sessions = all.filter(item => `${item.filename} ${(item.messages || []).filter(m => m.role === "user").map(m => m.text).join(" ")}`.toLocaleLowerCase("vi").includes(query));
     elements.recentList.textContent = "";
     if (!sessions.length) {
-      elements.recentList.append(createElement("p", "empty-history", "Chưa có phiên phân tích."));
+      elements.recentList.append(createElement("p", "empty-history", query ? "Không tìm thấy hội thoại." : "Chưa có hội thoại."));
       return;
     }
     sessions.forEach((session) => {
       const button = createElement("button", "recent-item");
       button.type = "button";
       button.dataset.sessionId = session.id;
+      button.classList.toggle("is-active", session.id === state.sessionId);
+      button.setAttribute("aria-current", session.id === state.sessionId ? "true" : "false");
       const lastQuestion = [...(session.messages || [])].reverse().find((item) => item.role === "user");
       button.append(
         createElement("strong", null, session.filename || "Tài liệu"),
         createElement("small", null, lastQuestion ? lastQuestion.text : "Sẵn sàng đặt câu hỏi"),
       );
+      button.append(createElement("span", "recent-date", new Date(session.updatedAt).toLocaleDateString("vi-VN")));
+      button.disabled = state.busy || state.ingesting;
       button.addEventListener("click", () => restoreSession(session));
       elements.recentList.append(button);
     });
   }
 
   function restoreSession(session) {
+    if (isLocked()) return;
     stopThinking();
     state.document = session.document;
     state.filename = session.filename;
@@ -735,12 +829,14 @@
     });
     scrollToBottom({ force: true, behavior: "auto" });
     closeSidebar();
+    elements.questionInput.value = "";
+    syncWorkspace();
     elements.questionInput.focus();
   }
 
   function exportSession() {
-    if (!state.document) {
-      showToast("Chưa có phiên để xuất.");
+    if (!state.ready || state.busy || state.ingesting) {
+      showToast("Chưa có phiên sẵn sàng để xuất.");
       return;
     }
     const payload = {
@@ -765,6 +861,7 @@
   }
 
   function openSidebar() {
+    closeDocuments();
     elements.body.classList.add("sidebar-open");
   }
 
@@ -776,6 +873,94 @@
     if (typeof elements.systemDialog.showModal === "function") {
       elements.systemDialog.showModal();
     }
+  }
+
+
+  function isLocked() {
+    if (!state.busy && !state.ingesting) return false;
+    showToast("Đợi thao tác hiện tại hoàn tất trước khi đổi hội thoại hoặc tài liệu.");
+    return true;
+  }
+
+  function getDocuments() {
+    let stored = [];
+    try { const data = JSON.parse(localStorage.getItem(DOCUMENTS_KEY) || "[]"); if (Array.isArray(data)) stored = data; } catch { /* Empty local library. */ }
+    const byPath = new Map();
+    [...stored, ...getSessions()].forEach(item => {
+      if (item && typeof item.document === "string" && typeof item.filename === "string") {
+        const previous = byPath.get(item.document);
+        if (!previous || Number(item.updatedAt || 0) >= Number(previous.updatedAt || 0)) {
+          byPath.set(item.document, { document: item.document, filename: item.filename, updatedAt: item.updatedAt });
+        }
+      }
+    });
+    return [...byPath.values()].sort((a, b) => (b.updatedAt || 0) - (a.updatedAt || 0));
+  }
+
+  function rememberDocument() {
+    const documents = getDocuments().filter(item => item.document !== state.document);
+    documents.unshift({ document: state.document, filename: state.filename, updatedAt: Date.now() });
+    try { localStorage.setItem(DOCUMENTS_KEY, JSON.stringify(documents.slice(0, 40))); }
+    catch { showToast("Không lưu được thư viện tài liệu trong trình duyệt."); }
+  }
+
+  function renderDocuments() {
+    const all = getDocuments();
+    byId("library-count").textContent = String(all.length);
+    byId("selection-count").textContent = state.ready ? "1/1" : "0/1";
+    const query = byId("document-search").value.toLocaleLowerCase("vi");
+    const documents = all.filter(item => item.filename.toLocaleLowerCase("vi").includes(query));
+    const container = byId("document-library"); container.textContent = "";
+    if (!documents.length) container.append(createElement("p", "empty-library", query ? "Không tìm thấy tài liệu." : "Tải một báo cáo để bắt đầu. Tài liệu đã chuẩn bị sẽ được lưu ở đây."));
+    documents.forEach(item => {
+      const active = state.ready && item.document === state.document;
+      const label = createElement("label", `source-document${active ? " is-active" : ""}`);
+      const input = createElement("input"); input.type = "radio"; input.name = "source-document"; input.checked = active;
+      input.disabled = state.busy || state.ingesting;
+      input.setAttribute("aria-label", `Chọn ${item.filename}`);
+      input.addEventListener("change", () => { if (!isLocked()) startDocumentChat(item); });
+      const copy = createElement("span", "source-copy");
+      copy.append(createElement("strong", null, item.filename), createElement("small", null, active ? "Đang sử dụng" : "Đã chuẩn bị · Chọn để hỏi"));
+      label.append(input, copy); container.append(label);
+    });
+  }
+
+  function startDocumentChat(item) {
+    state.document = item.document; state.filename = item.filename;
+    state.sessionId = `session-${Date.now()}-${Math.random().toString(36).slice(2, 7)}`;
+    state.messages = []; state.ready = true; state.jobId = null;
+    elements.conversation.textContent = ""; elements.welcome.hidden = true; elements.processingCard.hidden = true;
+    elements.questionInput.value = "";
+    appendIntroMessage({ index_results: [] });
+    saveSession(); syncWorkspace(); closeDocuments(); closeSidebar(); elements.questionInput.focus();
+  }
+
+  function syncWorkspace() {
+    const locked = state.busy || state.ingesting;
+    elements.composerWrap.hidden = false;
+    elements.questionInput.disabled = !state.ready || locked;
+    elements.questionInput.placeholder = state.ready ? "Hỏi về số liệu trong tài liệu đang chọn…" : "Chọn tài liệu để bắt đầu đặt câu hỏi…";
+    elements.newSession.disabled = locked;
+    elements.chooseFile.disabled = locked;
+    byId("welcome-upload").disabled = locked;
+    elements.uploadPanel.setAttribute("aria-disabled", String(locked));
+    elements.uploadPanel.tabIndex = locked ? -1 : 0;
+    elements.exportSession.disabled = !state.ready || locked;
+    byId("header-export").disabled = !state.ready || locked;
+    byId("nav-export").disabled = !state.ready || locked;
+    elements.documentIndicator.hidden = !state.ready;
+    elements.documentIndicatorName.textContent = state.filename || "";
+    resizeTextarea(); renderRecentSessions(); renderDocuments();
+  }
+
+  function openDocuments() {
+    closeSidebar(); elements.body.classList.add("context-open");
+    byId("open-documents").setAttribute("aria-expanded", "true");
+    byId("document-search").focus();
+  }
+  function closeDocuments() {
+    elements.body.classList.remove("context-open");
+    byId("open-documents").setAttribute("aria-expanded", "false");
   }
 
   function wireEvents() {
@@ -838,7 +1023,8 @@
       button.addEventListener("click", () => {
         const question = button.dataset.question || "";
         if (!state.ready) {
-          showToast("Hãy tải một báo cáo trước khi dùng câu hỏi gợi ý.");
+          showToast("Chọn một tài liệu đã sẵn sàng để đặt câu hỏi.");
+          openDocuments();
           closeSidebar();
           return;
         }
@@ -862,7 +1048,19 @@
   }
 
   wireEvents();
-  renderRecentSessions();
+  byId("history-search").addEventListener("input", renderRecentSessions);
+  byId("document-search").addEventListener("input", renderDocuments);
+  byId("open-documents").addEventListener("click", openDocuments);
+  byId("nav-documents").addEventListener("click", openDocuments);
+  byId("close-documents").addEventListener("click", closeDocuments);
+  byId("context-scrim").addEventListener("click", closeDocuments);
+  byId("welcome-upload").addEventListener("click", () => { if (!isLocked()) elements.fileInput.click(); });
+  byId("header-export").addEventListener("click", exportSession);
+  byId("nav-export").addEventListener("click", exportSession);
+  byId("nav-system").addEventListener("click", openSystemDialog);
+  byId("focus-assistant").addEventListener("click", () => { closeSidebar(); closeDocuments(); if (state.ready) elements.questionInput.focus(); });
+  document.addEventListener("keydown", event => { if (event.key === "Escape") { closeSidebar(); closeDocuments(); } });
+  syncWorkspace();
   refreshHealth();
   window.setInterval(refreshHealth, 5000);
 })();

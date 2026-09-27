@@ -1,0 +1,10 @@
+{
+  "created_at": "2026-09-10T12:26:35.853507+00:00",
+  "baseline_protocol": "config/finhrm_B_semantic_format_protocol_v3.json",
+  "snapshot": {
+    "path": "archive/B_source_context_parent_v1.zip",
+    "sha256": "329c2bbe81a8e59f5ae7d272699a65d3592e1f2657f9e15d597de2ee31b48c6b"
+  },
+  "scope": "B only. Recover source-owned units from verified MinerU cache; preserve original artifacts. Explicit query scope must participate in selection; unknown scope remains unresolved, no implicit consolidation. Source-typed numeric conventions and accurate refusal messages. No company/page/value exceptions or gold in runtime. No training/full-report OCR.",
+  "validation": "Targeted real questions and semantic counterexamples first; then preserve baseline19 on old34 development. Lock additional different-report questions before inference; no training-disjoint claim without evidence."
+}

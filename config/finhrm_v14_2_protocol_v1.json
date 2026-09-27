@@ -1,0 +1,155 @@
+{
+  "schema": "finhrm-v14.2-development-protocol-v1",
+  "scope": "Phase 0: baseline closure and action-contract audit before runtime changes",
+  "baseline": {
+    "checkpoint": {
+      "path": "models/document_hrm_V14_1_bkai_scratch_seed31_v1.pt",
+      "sha256": "e6641d13f169dc674728c32aafb508946495027985ce1fde6e2b1095a8d55413"
+    },
+    "reference_evaluation": {
+      "path": "reports/finhrm_v14_1_bkai_scratch_seed31_development_evaluation_v2.json",
+      "sha256": "d3c3544a2716cfad0bf28fd78e2805efd57e01ca2e69111fc44be19b5e3500db"
+    },
+    "training_seed": 31,
+    "weights_and_architecture_frozen": true,
+    "reference_is_current_runtime_replay": false,
+    "metric_scope": "HRM proposal plus structural search and symbolic verification; not neural-only or Markdown end-to-end",
+    "model_selection": {
+      "explicit_checkpoint_required": true,
+      "current_cli_and_demo_default": "models/document_hrm_V8_candidate.pt",
+      "cli_option": "--document-model-path models/document_hrm_V14_1_bkai_scratch_seed31_v1.pt",
+      "demo_option": "-ModelPath models/document_hrm_V14_1_bkai_scratch_seed31_v1.pt"
+    }
+  },
+  "data_roles": {
+    "development": {
+      "path": "data/tmp/v14_development_v1/validation.jsonl",
+      "sha256": "3ddcb5e0a88e431787133b36edacd28a4bbb8b0fd2d1ac29494c0e9ffeec0758",
+      "records": 462,
+      "status": "OPENED_FOR_DEVELOPMENT_AND_EPOCH_SELECTION",
+      "document_type": "SyntheticDocument",
+      "source_lineage": "reports/finhrm_v14_development_split_v1.json",
+      "blind_test": false,
+      "independent_calibration": false
+    },
+    "training": {
+      "path": "data/tmp/v14_1_scratch_v1/unified_train.jsonl",
+      "sha256": "eb5ca8c4c53b52d64c2d79533c89a5d4672953247f164cdf57e5561fca6b02e6",
+      "records": 2167,
+      "status": "EXISTING_TRAINING_ONLY_NO_NEW_TRAINING"
+    },
+    "calibration": {
+      "path": null,
+      "status": "HOLD_NOT_ASSIGNED_INDEPENDENT_COHORT",
+      "allowed_use": "Calibration only after runtime and action policy freeze",
+      "independence_required": [
+        "company",
+        "source",
+        "evidence",
+        "development exposure"
+      ],
+      "reuse_development_as_independent": false
+    },
+    "protected": {
+      "manifest": "config/finhrm_v14_protected_source_manifest_v1.json",
+      "manifest_sha256": "d04dd9587e8bc8182f5f69be1341a959a321e05fb75a0248392515ab1a0641d9",
+      "status": "RESERVED_NO_PAYLOAD_ACCESS",
+      "lineage_status": "INDEPENDENCE_NOT_RECERTIFIED_FOR_V14_2",
+      "payload_access": false,
+      "inference_runs_authorized": 0
+    },
+    "consumed_historical_test": {
+      "path": "data/test.jsonl",
+      "status": "CONSUMED_V13_NOT_A_NEW_BLIND_TEST",
+      "development_payload_access": false
+    },
+    "file_moves_or_split_merges": false
+  },
+  "inference_profiles": {
+    "fixed_max_segments_batch": {
+      "entrypoint": "DocumentHRMBundle.predict_many",
+      "adaptive_inference": false,
+      "max_segments": 3,
+      "executed_segments": 3,
+      "batch_size": 32,
+      "reference_report": "reports/finhrm_v14_1_bkai_scratch_seed31_development_evaluation_v2.json",
+      "new_run_status": "NOT_RUN_PHASE_0",
+      "new_report": "reports/finhrm_v14_2_fixed_development_v1.json"
+    },
+    "adaptive_serving": {
+      "entrypoint": "DocumentHRMBundle.predict",
+      "adaptive_inference": true,
+      "minimum_halt_segments": 2,
+      "max_segments": 3,
+      "halt_rule": "halt_q >= continue_q after minimum_halt_segments",
+      "batch_size": 1,
+      "reference_report": null,
+      "new_run_status": "NOT_RUN_PHASE_0",
+      "new_report": "reports/finhrm_v14_2_adaptive_development_v1.json"
+    }
+  },
+  "replay": {
+    "python": "/usr/bin/python3",
+    "working_directory": "repository root",
+    "pythonpath": [
+      "src",
+      "venv/lib/python3.12/site-packages"
+    ],
+    "device": "cpu",
+    "seed": 31,
+    "act_mode": "q_learning",
+    "dataset_order": "serialized JSONL order; no shuffle, filtering or pointer remapping",
+    "network": "offline; pinned local encoder snapshot only",
+    "embedding_cache_policy": "Fresh per-run cache for later replay; do not reuse an unverified mutable SQLite cache. Namespace fingerprints are locked in the manifest.",
+    "cross_profile_metric_comparison": "Report separately; never copy fixed results into adaptive results",
+    "phase_0_runs_inference": false
+  },
+  "action_contract_audit": {
+    "status": "MISMATCH_CONFIRMED_REPAIR_DEFERRED_TO_PHASE_2",
+    "baseline_policy": "v14-wilson-public-gate-v1",
+    "evaluator_acceptance": "calibration_accepted AND public_source_action == ANSWER",
+    "runtime_flat_override": "DocumentHRMReasoningEngine.answer may clear abstained when flat_proof_acceptance is true, including when V14 calibration is disabled",
+    "public_answer_authority": "verified envelope, exact certificate replay and presentation validation; evaluator proof eligibility alone is insufficient",
+    "future_contract_fields": [
+      "proof_eligible",
+      "calibration_status",
+      "calibration_accepted",
+      "execution_status",
+      "certificate_status",
+      "final_action",
+      "acceptance_basis",
+      "reason_codes"
+    ],
+    "proof_only_policy_enabled_by_this_protocol": false,
+    "threshold_changes": false
+  },
+  "verification_suites": {
+    "current_functional": [
+      "tests/test_finhrm_v14_2_baseline.py",
+      "tests/test_finhrm_v14_2_action_audit.py",
+      "tests/test_document_hrm_v14_calibration.py",
+      "tests/test_source_action_policy_v14.py",
+      "tests/test_exact_executor.py",
+      "tests/test_exact_certificate_boundary.py"
+    ],
+    "historical_snapshot": [
+      "tests/test_multi_part_comparison_contract.py",
+      "tests/test_finhrm_markdown_shard15_postrepair_v2.py",
+      "tests/test_finhrm_markdown_shard15_notice_v3.py",
+      "tests/test_qp4_phase2_company_layout_disjoint_contract_v3.py"
+    ],
+    "historical_policy": "Run only in a separate restored environment with all frozen inputs. Never refresh expected hashes to accept current runtime. Current functional PASS is not historical snapshot PASS or notice 14/14."
+  },
+  "certification": {
+    "status": "HOLD",
+    "reasons": [
+      "Independent calibration cohort not assigned",
+      "Protected lineage not recertified",
+      "Evaluator/runtime action mismatch",
+      "New end-to-end coverage and safety evaluation pending"
+    ],
+    "wilson_lower_bound_target": 0.9,
+    "protected_release_authorized": false
+  },
+  "next_phase": "Phase 1: development-only per-example/per-output gate telemetry, exhaustive first-failure buckets and separate unmet-proof counts"
+}

@@ -1,0 +1,26 @@
+{
+  "schema": "finhrm-semantic-reason-observation-lock-v1",
+  "contract_id": "finhrm-qp4-mineru-markdown-60-semantic-reason-lock-v2",
+  "expected_action_contract": {
+    "path": "config/finhrm_qp4_mineru_markdown_60_semantic_contract_v1.json",
+    "sha256": "4e4e7ebe0e4ecd33681cc69f803628047c49c0aaf7559491bb042f66213083cd"
+  },
+  "observations": {
+    "path": "reports/finhrm_qp4_mineru_markdown_60_reason_observations_v2.json",
+    "sha256": "24ddb90f330831e814fbef00fd3b59eef20631ad852ae73a4d8e88fa64d3181a"
+  },
+  "observation_runner": {
+    "path": "scripts/run_qp4_mineru_markdown_60_reason_observations_v2.py",
+    "sha256": "239cc9e5c46c7f5a5b1e703d884116edfecab0e6e2f196f8ef72e57c49b12652"
+  },
+  "classification_policy": {
+    "nonanswer_requires_explicit_evidence_resolution": true,
+    "raw_abstain_or_reject_inference_forbidden": true,
+    "expected_action_used_to_classify_observation": false,
+    "ambiguous_requires_multiple_physical_mappings": true,
+    "missing_requires_explicit_missing_period_or_zero_mapping": true,
+    "answer_requires_unique_resolution_and_exact_decimal_replay": true,
+    "observation_payload_is_deterministic": true,
+    "runtime_source_hashes_embedded": true
+  }
+}

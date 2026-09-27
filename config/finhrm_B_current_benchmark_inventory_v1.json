@@ -1,0 +1,42 @@
+{
+  "source_rule": "Every candidate must have extraction_method=mineru; filter fixed before inference, no value/outcome-based filtering.",
+  "parent_dataset": {
+    "path": "data/tmp/v14_2_pdf_review_repaired_v2/validation_repaired.jsonl",
+    "sha256": "4a0ba0297ee587232739494c92c9143b44dfa5b65d2c35547209539b594bdc2e",
+    "count": 438
+  },
+  "historical_dataset": {
+    "path": "data/tmp/v14_development_v1/validation.jsonl",
+    "sha256": "3ddcb5e0a88e431787133b36edacd28a4bbb8b0fd2d1ac29494c0e9ffeec0758",
+    "count": 462
+  },
+  "core_dataset": {
+    "path": "data/tmp/B_current_benchmark_v1/validation_mineru.jsonl",
+    "sha256": "8ec3e8daad116c2cc7a59ccaa10f13cdb44da98a7e89a292bfb8953d557e2d8e",
+    "count": 72,
+    "operations": {
+      "SELECT": 40,
+      "SUBTRACT": 16,
+      "PERCENT_CHANGE": 16
+    },
+    "sources": [
+      "ACG_23CN_BCTN.pdf"
+    ],
+    "numeric_and_program_fields_unchanged_from_historical_rows": true,
+    "coordinate_metadata_from_previously_repaired_dataset": true
+  },
+  "excluded_parent_methods": {
+    "native": 363,
+    "tesseract_vie_250dpi": 3
+  },
+  "http": {
+    "requests": 72,
+    "sources": 15,
+    "expected_actions": {
+      "ANSWER": 53,
+      "ABSTAIN": 18,
+      "PARTIAL": 1
+    }
+  },
+  "limits": "The two 72-example sets are different. Core covers one source and three operations, not the full historical 462 or 438 examples. All evaluation is development-only."
+}

@@ -1,0 +1,67 @@
+{
+  "schema": "mineru-real-http-requests-v1",
+  "sources": {
+    "BHG": {
+      "path": "data/markdown/scope_unit_v2/BHG_23CN_BCTN--62a6808775bffb52.md",
+      "sha256": "b3c461ce5230b341c8c18cf348efc4745c093cd835fded8bf05a47d7b1da94b0"
+    },
+    "HAV": {
+      "path": "data/markdown/scope_unit_v2/HAV_23CN_BCTN--e57968185e1c63bc.md",
+      "sha256": "fbda07867fa66a850574a03af75b746748f9d6042c28ce085aa2f31fb211d7e4"
+    },
+    "CMS": {
+      "path": "data/markdown/scope_unit_v2/CMS_23CN_BCTN--b5944cc10f6fe4f0.md",
+      "sha256": "8076e60944faa1bc3302c67eb7ad33a2b10b36c8eeea4a9cd19bbbcfbf3ee57d"
+    },
+    "SSG": {
+      "path": "data/markdown/B_source_context_v1/SSG_24CN_BCTN--03525afbe2d1c74e.md",
+      "sha256": "8aa6dff4f4e2c2b1284c0a6f8ee89b918a8914f828720709174256b91a02923b"
+    },
+    "GGG": {
+      "path": "data/markdown/B_source_context_checks_v1/GGG_23CN_BCTN--e86ead28fb761a59.md",
+      "sha256": "fcfe9688835b4eb0c8387f7621d15fe684537bc454a52b4d0919b05cabb09ead"
+    }
+  },
+  "cases": [
+    {
+      "case_id": "transfer-hav-capital",
+      "source_id": "HAV",
+      "question": "Vốn điều lệ được nêu trong báo cáo năm 2023 là bao nhiêu đồng?"
+    },
+    {
+      "case_id": "check-ggg-owner-capital",
+      "source_id": "GGG",
+      "question": "Vốn đầu tư của chủ sở hữu được nêu trong báo cáo năm 2023 là bao nhiêu đồng?"
+    },
+    {
+      "case_id": "transfer-bhg-owner",
+      "source_id": "BHG",
+      "question": "Vốn đầu tư của chủ sở hữu được nêu trong báo cáo năm 2023 là bao nhiêu đồng?"
+    },
+    {
+      "case_id": "fresh-ssg-difference",
+      "source_id": "SSG",
+      "question": "Doanh thu thuần năm 2024 tăng bao nhiêu triệu đồng so với năm 2023?"
+    },
+    {
+      "case_id": "fresh-cms-consolidated",
+      "source_id": "CMS",
+      "question": "Doanh thu thuần hợp nhất năm 2023 là bao nhiêu đồng?"
+    },
+    {
+      "case_id": "owner-hav-paraphrase",
+      "question": "Cho biết vốn điều lệ được nêu trong báo cáo năm 2023 là bao nhiêu đồng?",
+      "source_id": "HAV"
+    },
+    {
+      "case_id": "owner-hav-parent",
+      "question": "Vốn điều lệ của công ty mẹ được nêu trong báo cáo năm 2023 là bao nhiêu đồng?",
+      "source_id": "HAV"
+    },
+    {
+      "case_id": "owner-hav-wrong-report",
+      "question": "Vốn điều lệ của công ty mẹ được nêu trong báo cáo năm 2024 là bao nhiêu đồng?",
+      "source_id": "HAV"
+    }
+  ]
+}

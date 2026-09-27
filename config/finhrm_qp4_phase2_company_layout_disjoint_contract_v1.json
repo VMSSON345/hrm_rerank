@@ -1,0 +1,466 @@
+{
+  "schema": "finhrm-qp4-phase2-company-layout-disjoint-contract-v1",
+  "contract_id": "finhrm-qp4-phase2-company-layout-disjoint-contract-v1",
+  "created_at": "2026-08-30",
+  "classification": "development_only_frozen_source_semantic_validation",
+  "status": "FROZEN_BEFORE_RUNTIME",
+  "action_classes": {
+    "ANSWER_EXACT": "The frozen Markdown contains unique complete evidence and an accepted answer must exactly replay operation, ordered operands, result, source unit scale and physical pages.",
+    "ABSTAIN_MISSING": "The requested metric/role/period mapping is absent from the supplied frozen Markdown; no provisional value or calculation may be accepted.",
+    "FAIL_CLOSED_AMBIGUOUS": "More than one proof-eligible physical mapping remains after all explicit metric, role, period, entity and unit constraints; numeric equality cannot collapse mappings.",
+    "REJECT_CONFLICT": "Source-derived identity constraints contradict a selected mapping. No independently proved conflict case is fabricated for this cohort."
+  },
+  "independence_policy": {
+    "expected_action_source": "frozen_source_only",
+    "runtime_output_used_to_choose_expected_action": false,
+    "expected_numeric_values_used_only_after_answer": true,
+    "numeric_equality_proves_physical_identity": false,
+    "non_answer_numeric_expectations_forbidden": true,
+    "protected_test_final_holdout_loaded": false,
+    "runtime_changes_allowed_after_freeze": false,
+    "adaptive_patch_after_run_allowed": false,
+    "physical_mapping_universe": "A proof-eligible mapping is a frozen Markdown table cell with complete row metric, column role/period, entity, unit, page and physical source-span lineage. Narrative restatements are corroboration only.",
+    "operand_uniqueness_evaluated_independently": true,
+    "co_table_pairing_can_erase_duplicate_operand_mapping": false,
+    "multi_output_claimed": false,
+    "supported_comparison_scope": "multi-constraint and multi-operand questions that request one scalar result"
+  },
+  "frozen_inputs": {
+    "case_manifest": {
+      "path": "config/finhrm_qp4_phase2_company_layout_disjoint_case_manifest_v1.json",
+      "sha256": "074501a1046298ac6684cbafb2a48ae1a6a77feab864da27855ab64791301679"
+    },
+    "runner": {
+      "path": "scripts/run_qp4_phase2_company_layout_disjoint_evaluation.py",
+      "sha256": "5e1b1513abc576c02869bdeda111f01cba4227830230f1bbfb61c9247c82712b"
+    },
+    "evaluator": {
+      "path": "scripts/evaluate_qp4_phase2_company_layout_disjoint_contract.py",
+      "sha256": "ae76dcc9cc199eef627bed6bad8a807ddbe028c6f926ff54193e9377bd759d5f"
+    }
+  },
+  "expected_counts": {
+    "cases": 14,
+    "companies": 4,
+    "layout_families": 4,
+    "classes": {
+      "ABSTAIN_MISSING": 1,
+      "ANSWER_EXACT": 11,
+      "FAIL_CLOSED_AMBIGUOUS": 2,
+      "REJECT_CONFLICT": 0
+    }
+  },
+  "coverage": {
+    "simple_plan_actual": ["phase2-eci-parent-actual-minus-plan"],
+    "multilevel_merged_header": ["phase2-tva-actual-minus-plan"],
+    "current_prior": ["phase2-dbm-current-minus-prior"],
+    "parent_and_consolidated": [
+      "phase2-eci-parent-actual-select",
+      "phase2-eci-consolidated-actual-select",
+      "phase2-eci-consolidated-minus-parent-actual"
+    ],
+    "missing_requested_year": ["phase2-tva-missing-plan-2023"],
+    "duplicate_or_ambiguous": [
+      "phase2-eci-unscoped-actual-ambiguity",
+      "phase2-vns-actual-2023-duplicate-ambiguity"
+    ],
+    "multi_operand_single_scalar_comparison": [
+      "phase2-eci-parent-actual-minus-plan",
+      "phase2-eci-consolidated-actual-minus-plan",
+      "phase2-eci-consolidated-minus-parent-actual",
+      "phase2-tva-actual-minus-plan",
+      "phase2-dbm-current-minus-prior"
+    ]
+  },
+  "cases": [
+    {
+      "case_id": "phase2-eci-parent-actual-select",
+      "source_name": "ECI_24CN_BCTN.pdf",
+      "category": "answer_select",
+      "layout_family": "scoped_parallel_flattened_plan_actual",
+      "expected_action_class": "ANSWER_EXACT",
+      "source_review": {
+        "reason_code": "UNIQUE_ENTITY_SCOPED_TABLE_CELL",
+        "operand_mapping_cardinality": [1],
+        "determination": "The parent-company label immediately precedes one million-VND plan/actual table; its total-revenue actual-2024 cell is unique after entity scope is applied.",
+        "locations": [
+          {
+            "page": 8,
+            "line_start": 29,
+            "line_end": 34,
+            "required_fragments": ["1.3 CÔNG TÁC TÀI CHÍNH", "Báo cáo công ty mẹ", "Đơn vị tính: triệu đồng", "Kế hoạch 2024: 40.500", "Thực hiện 2024: 10.990,18"]
+          }
+        ],
+        "absent_fragments": []
+      },
+      "exact_answer": {
+        "operation": "SELECT",
+        "operand_values": ["10990.18"],
+        "result_value": "10990.18",
+        "result_unit_scale": "million_vnd",
+        "physical_pages": [8]
+      }
+    },
+    {
+      "case_id": "phase2-eci-consolidated-actual-select",
+      "source_name": "ECI_24CN_BCTN.pdf",
+      "category": "answer_select",
+      "layout_family": "scoped_parallel_flattened_plan_actual",
+      "expected_action_class": "ANSWER_EXACT",
+      "source_review": {
+        "reason_code": "UNIQUE_ENTITY_SCOPED_TABLE_CELL",
+        "operand_mapping_cardinality": [1],
+        "determination": "The consolidated label immediately precedes a distinct million-VND plan/actual table; its total-revenue actual-2024 cell is unique after entity scope is applied.",
+        "locations": [
+          {
+            "page": 8,
+            "line_start": 39,
+            "line_end": 43,
+            "required_fragments": ["Báo cáo hợp nhất", "Đơn vị tính: triệu đồng", "Kế hoạch 2024: 140.500", "Thực hiện 2024: 11.158,50"]
+          }
+        ],
+        "absent_fragments": []
+      },
+      "exact_answer": {
+        "operation": "SELECT",
+        "operand_values": ["11158.50"],
+        "result_value": "11158.50",
+        "result_unit_scale": "million_vnd",
+        "physical_pages": [8]
+      }
+    },
+    {
+      "case_id": "phase2-eci-parent-actual-minus-plan",
+      "source_name": "ECI_24CN_BCTN.pdf",
+      "category": "answer_comparison",
+      "layout_family": "scoped_parallel_flattened_plan_actual",
+      "expected_action_class": "ANSWER_EXACT",
+      "source_review": {
+        "reason_code": "UNIQUE_ENTITY_SCOPED_PLAN_ACTUAL_PAIR",
+        "operand_mapping_cardinality": [1, 1],
+        "determination": "Within the parent-company table, actual 2024 and plan 2024 are two uniquely role-bound cells on the same total-revenue row.",
+        "locations": [
+          {
+            "page": 8,
+            "line_start": 30,
+            "line_end": 34,
+            "required_fragments": ["Báo cáo công ty mẹ", "Kế hoạch 2024", "Thực hiện 2024", "Tổng doanh thu"]
+          }
+        ],
+        "absent_fragments": []
+      },
+      "exact_answer": {
+        "operation": "SUBTRACT",
+        "operand_values": ["10990.18", "40500"],
+        "result_value": "-29509.82",
+        "result_unit_scale": "million_vnd",
+        "physical_pages": [8, 8]
+      }
+    },
+    {
+      "case_id": "phase2-eci-consolidated-actual-minus-plan",
+      "source_name": "ECI_24CN_BCTN.pdf",
+      "category": "answer_comparison",
+      "layout_family": "scoped_parallel_flattened_plan_actual",
+      "expected_action_class": "ANSWER_EXACT",
+      "source_review": {
+        "reason_code": "UNIQUE_ENTITY_SCOPED_PLAN_ACTUAL_PAIR",
+        "operand_mapping_cardinality": [1, 1],
+        "determination": "Within the consolidated table, actual 2024 and plan 2024 are two uniquely role-bound cells on the same total-revenue row.",
+        "locations": [
+          {
+            "page": 8,
+            "line_start": 39,
+            "line_end": 43,
+            "required_fragments": ["Báo cáo hợp nhất", "Kế hoạch 2024", "Thực hiện 2024", "Tổng doanh thu"]
+          }
+        ],
+        "absent_fragments": []
+      },
+      "exact_answer": {
+        "operation": "SUBTRACT",
+        "operand_values": ["11158.50", "140500"],
+        "result_value": "-129341.50",
+        "result_unit_scale": "million_vnd",
+        "physical_pages": [8, 8]
+      }
+    },
+    {
+      "case_id": "phase2-eci-consolidated-minus-parent-actual",
+      "source_name": "ECI_24CN_BCTN.pdf",
+      "category": "answer_cross_entity_comparison",
+      "layout_family": "scoped_parallel_flattened_plan_actual",
+      "expected_action_class": "ANSWER_EXACT",
+      "source_review": {
+        "reason_code": "UNIQUE_CROSS_ENTITY_ACTUAL_PAIR",
+        "operand_mapping_cardinality": [1, 1],
+        "determination": "Each explicit entity qualifier selects one actual-2024 total-revenue cell. Cross-entity use is valid because each operand identity is proved independently.",
+        "locations": [
+          {
+            "page": 8,
+            "line_start": 30,
+            "line_end": 34,
+            "required_fragments": ["Báo cáo công ty mẹ", "Thực hiện 2024: 10.990,18"]
+          },
+          {
+            "page": 8,
+            "line_start": 39,
+            "line_end": 43,
+            "required_fragments": ["Báo cáo hợp nhất", "Thực hiện 2024: 11.158,50"]
+          }
+        ],
+        "absent_fragments": []
+      },
+      "exact_answer": {
+        "operation": "SUBTRACT",
+        "operand_values": ["11158.50", "10990.18"],
+        "result_value": "168.32",
+        "result_unit_scale": "million_vnd",
+        "physical_pages": [8, 8]
+      }
+    },
+    {
+      "case_id": "phase2-eci-unscoped-actual-ambiguity",
+      "source_name": "ECI_24CN_BCTN.pdf",
+      "category": "ambiguity_control",
+      "layout_family": "scoped_parallel_flattened_plan_actual",
+      "expected_action_class": "FAIL_CLOSED_AMBIGUOUS",
+      "source_review": {
+        "reason_code": "TWO_UNRESOLVED_ENTITY_TABLE_MAPPINGS",
+        "operand_mapping_cardinality": [2],
+        "determination": "The question omits entity scope while the same metric, role, period and unit occur in physically distinct parent-company and consolidated tables with different values.",
+        "locations": [
+          {
+            "page": 8,
+            "line_start": 29,
+            "line_end": 43,
+            "required_fragments": ["Báo cáo công ty mẹ", "Báo cáo hợp nhất", "Thực hiện 2024: 10.990,18", "Thực hiện 2024: 11.158,50"]
+          }
+        ],
+        "absent_fragments": []
+      }
+    },
+    {
+      "case_id": "phase2-tva-plan-2024-select",
+      "source_name": "TVA_24CN_BCTN.pdf",
+      "category": "answer_select",
+      "layout_family": "multilevel_merged_header_plan_actual",
+      "expected_action_class": "ANSWER_EXACT",
+      "source_review": {
+        "reason_code": "UNIQUE_MERGED_HEADER_PLAN_CELL",
+        "operand_mapping_cardinality": [1],
+        "determination": "The Năm 2024 parent header spans Kế hoạch and Thực hiện child columns; the Doanh thu row contains one plan-2024 cell in Tr.đ.",
+        "locations": [
+          {
+            "page": 21,
+            "line_start": 72,
+            "line_end": 78,
+            "required_fragments": ["Kết quả thực hiện các chỉ tiêu chính năm 2024", "Năm 2024", "Kế hoạch", "Thực hiện", "Doanh thu", "173.728", "173.831"]
+          }
+        ],
+        "absent_fragments": []
+      },
+      "exact_answer": {
+        "operation": "SELECT",
+        "operand_values": ["173728"],
+        "result_value": "173728",
+        "result_unit_scale": "million_vnd",
+        "physical_pages": [21]
+      }
+    },
+    {
+      "case_id": "phase2-tva-actual-2024-select",
+      "source_name": "TVA_24CN_BCTN.pdf",
+      "category": "answer_select",
+      "layout_family": "multilevel_merged_header_plan_actual",
+      "expected_action_class": "ANSWER_EXACT",
+      "source_review": {
+        "reason_code": "UNIQUE_MERGED_HEADER_ACTUAL_CELL",
+        "operand_mapping_cardinality": [1],
+        "determination": "The Năm 2024 parent header spans Kế hoạch and Thực hiện child columns; the Doanh thu row contains one actual-2024 cell in Tr.đ.",
+        "locations": [
+          {
+            "page": 21,
+            "line_start": 72,
+            "line_end": 78,
+            "required_fragments": ["Năm 2024", "Kế hoạch", "Thực hiện", "Doanh thu", "173.831"]
+          }
+        ],
+        "absent_fragments": []
+      },
+      "exact_answer": {
+        "operation": "SELECT",
+        "operand_values": ["173831"],
+        "result_value": "173831",
+        "result_unit_scale": "million_vnd",
+        "physical_pages": [21]
+      }
+    },
+    {
+      "case_id": "phase2-tva-actual-minus-plan",
+      "source_name": "TVA_24CN_BCTN.pdf",
+      "category": "answer_comparison",
+      "layout_family": "multilevel_merged_header_plan_actual",
+      "expected_action_class": "ANSWER_EXACT",
+      "source_review": {
+        "reason_code": "UNIQUE_MERGED_HEADER_PLAN_ACTUAL_PAIR",
+        "operand_mapping_cardinality": [1, 1],
+        "determination": "The merged header proves both ordered role-period operands on the same Doanh thu row.",
+        "locations": [
+          {
+            "page": 21,
+            "line_start": 72,
+            "line_end": 78,
+            "required_fragments": ["Năm 2024", "Kế hoạch", "Thực hiện", "Doanh thu", "173.728", "173.831"]
+          }
+        ],
+        "absent_fragments": []
+      },
+      "exact_answer": {
+        "operation": "SUBTRACT",
+        "operand_values": ["173831", "173728"],
+        "result_value": "103",
+        "result_unit_scale": "million_vnd",
+        "physical_pages": [21, 21]
+      }
+    },
+    {
+      "case_id": "phase2-tva-missing-plan-2023",
+      "source_name": "TVA_24CN_BCTN.pdf",
+      "category": "missing_role_period_control",
+      "layout_family": "multilevel_merged_header_plan_actual",
+      "expected_action_class": "ABSTAIN_MISSING",
+      "source_review": {
+        "reason_code": "REQUESTED_ROLE_PERIOD_NOT_DISCLOSED",
+        "operand_mapping_cardinality": [0],
+        "determination": "The table discloses actual 2023 and plan/actual 2024. It does not disclose a plan-2023 Doanh thu cell, so actual 2023 cannot be substituted.",
+        "locations": [
+          {
+            "page": 21,
+            "line_start": 72,
+            "line_end": 78,
+            "required_fragments": ["TH năm 2023", "Năm 2024", "Kế hoạch", "Thực hiện", "Doanh thu"]
+          }
+        ],
+        "absent_fragments": ["Kế hoạch năm 2023"]
+      }
+    },
+    {
+      "case_id": "phase2-dbm-current-2024-select",
+      "source_name": "DBM_24CN_BCTN.pdf",
+      "category": "answer_select",
+      "layout_family": "current_prior_explicit_year",
+      "expected_action_class": "ANSWER_EXACT",
+      "source_review": {
+        "reason_code": "UNIQUE_CURRENT_YEAR_CELL",
+        "operand_mapping_cardinality": [1],
+        "determination": "The Tình hình tài chính table explicitly identifies Năm 2023 and Năm 2024; its Doanh thu thuần 2024 cell is unique in the thousand-VND table.",
+        "locations": [
+          {
+            "page": 6,
+            "line_start": 54,
+            "line_end": 59,
+            "required_fragments": ["Chỉ tiêu | Năm 2023 | Năm 2024", "Doanh thu thuần", "Năm 2023: 236.357.993", "Năm 2024: 213.371.815"]
+          }
+        ],
+        "absent_fragments": []
+      },
+      "exact_answer": {
+        "operation": "SELECT",
+        "operand_values": ["213371815"],
+        "result_value": "213371815",
+        "result_unit_scale": "thousand_vnd",
+        "physical_pages": [6]
+      }
+    },
+    {
+      "case_id": "phase2-dbm-current-minus-prior",
+      "source_name": "DBM_24CN_BCTN.pdf",
+      "category": "answer_comparison",
+      "layout_family": "current_prior_explicit_year",
+      "expected_action_class": "ANSWER_EXACT",
+      "source_review": {
+        "reason_code": "UNIQUE_CURRENT_PRIOR_PAIR",
+        "operand_mapping_cardinality": [1, 1],
+        "determination": "The same row uniquely supplies the ordered current-2024 and prior-2023 revenue operands in the table's disclosed thousand-VND unit.",
+        "locations": [
+          {
+            "page": 6,
+            "line_start": 54,
+            "line_end": 59,
+            "required_fragments": ["Chỉ tiêu | Năm 2023 | Năm 2024", "Doanh thu thuần", "236.357.993", "213.371.815"]
+          }
+        ],
+        "absent_fragments": []
+      },
+      "exact_answer": {
+        "operation": "SUBTRACT",
+        "operand_values": ["213371815", "236357993"],
+        "result_value": "-22986178",
+        "result_unit_scale": "thousand_vnd",
+        "physical_pages": [6, 6]
+      }
+    },
+    {
+      "case_id": "phase2-vns-plan-2023-select",
+      "source_name": "VNS_23CN_BCTN.pdf",
+      "category": "answer_select",
+      "layout_family": "duplicate_alternate_same_logical_cell",
+      "expected_action_class": "ANSWER_EXACT",
+      "source_review": {
+        "reason_code": "UNIQUE_NAMED_PLAN_TABLE_CELL",
+        "operand_mapping_cardinality": [1],
+        "determination": "The explicitly named plan-comparison table contains one Doanh thu thuần plan-2023 cell. Other tables repeat actual values, not plan-2023.",
+        "locations": [
+          {
+            "page": 15,
+            "line_start": 86,
+            "line_end": 89,
+            "required_fragments": ["TÌNH HÌNH THỰC HIỆN SO VỚI KẾ HOẠCH", "Kế hoạch năm 2023", "Doanh thu thuần", "1.345.000"]
+          }
+        ],
+        "absent_fragments": []
+      },
+      "exact_answer": {
+        "operation": "SELECT",
+        "operand_values": ["1345000"],
+        "result_value": "1345000",
+        "result_unit_scale": "million_vnd",
+        "physical_pages": [15]
+      }
+    },
+    {
+      "case_id": "phase2-vns-actual-2023-duplicate-ambiguity",
+      "source_name": "VNS_23CN_BCTN.pdf",
+      "category": "ambiguity_control",
+      "layout_family": "duplicate_alternate_same_logical_cell",
+      "expected_action_class": "FAIL_CLOSED_AMBIGUOUS",
+      "source_review": {
+        "reason_code": "THREE_DISTINCT_PHYSICAL_TABLE_MAPPINGS",
+        "operand_mapping_cardinality": [3],
+        "determination": "Actual-2023 Doanh thu thuần occurs in three distinct table cells: current/prior results, the cost summary, and plan/actual. Equal values do not prove one physical identity; the narrative line is corroboration only.",
+        "locations": [
+          {
+            "page": 15,
+            "line_start": 59,
+            "line_end": 62,
+            "required_fragments": ["ĐVT: Triệu đồng", "CHỈ TIÊU | Năm 2023 | Năm 2022", "Doanh thu thuần", "1.218.800"]
+          },
+          {
+            "page": 15,
+            "line_start": 72,
+            "line_end": 83,
+            "required_fragments": ["CHI PHÍ SẢN XUẤT", "KHOẢN MỤC", "Doanh thu thuần", "1.218.800"]
+          },
+          {
+            "page": 15,
+            "line_start": 86,
+            "line_end": 89,
+            "required_fragments": ["TÌNH HÌNH THỰC HIỆN SO VỚI KẾ HOẠCH", "Thực hiện năm 2023", "Doanh thu thuần", "1.218.800"]
+          }
+        ],
+        "absent_fragments": []
+      }
+    }
+  ]
+}

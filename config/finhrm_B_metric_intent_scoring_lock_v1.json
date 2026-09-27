@@ -1,0 +1,9 @@
+{
+  "created_at": "2026-09-12T10:20:38.793285+00:00",
+  "purpose": "Independent scoring frozen before practical-probe inference",
+  "files": {
+    "scripts/summarize_finhrm_B_metric_intent.py": "a4b92717a206f5fa76c353671cb352e66bc8ff0d88b530f6a379d1122e891a54",
+    "config/finhrm_B_metric_intent_probe_selector_reference_v1.json": "a64141e93e33cd69d01e99fd751de2ccf1f23244f8281149dda528f5ce6a0df2",
+    "config/finhrm_B_metric_intent_probe_pairs_v1.json": "abaf96a049939c53231445719d0866f48478c1fe94aa057ae7192abeeee03212"
+  }
+}

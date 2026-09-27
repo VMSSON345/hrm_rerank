@@ -1,0 +1,3214 @@
+{
+  "primary-aah-charter-01": {
+    "source_id": "AAH",
+    "identity": {
+      "metric": "Vốn điều lệ",
+      "years": [],
+      "role": "not_applicable",
+      "scope": "reporting_company",
+      "time_semantics": "undated_profile_fact"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 14,
+        "page": 1,
+        "text": "\\- Vốn điều lệ: 1.179.000.000.000 VND (Một nghìn, một trăm bảy mươi chín tỷ đồng)",
+        "line_sha256": "311bc1f654b3c2ed258a140698344edc8a86b3de7f6775c4083e1d59f3798471"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "primary-aah-charter-02": {
+    "source_id": "AAH",
+    "identity": {
+      "metric": "Vốn điều lệ",
+      "years": [],
+      "role": "not_applicable",
+      "scope": "reporting_company",
+      "time_semantics": "undated_profile_fact"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 14,
+        "page": 1,
+        "text": "\\- Vốn điều lệ: 1.179.000.000.000 VND (Một nghìn, một trăm bảy mươi chín tỷ đồng)",
+        "line_sha256": "311bc1f654b3c2ed258a140698344edc8a86b3de7f6775c4083e1d59f3798471"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "primary-aah-charter-03": {
+    "source_id": "AAH",
+    "identity": {
+      "metric": "Vốn điều lệ",
+      "years": [],
+      "role": "not_applicable",
+      "scope": "reporting_company",
+      "time_semantics": "undated_profile_fact"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 14,
+        "page": 1,
+        "text": "\\- Vốn điều lệ: 1.179.000.000.000 VND (Một nghìn, một trăm bảy mươi chín tỷ đồng)",
+        "line_sha256": "311bc1f654b3c2ed258a140698344edc8a86b3de7f6775c4083e1d59f3798471"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "primary-aah-charter-04": {
+    "source_id": "AAH",
+    "identity": {
+      "metric": "Vốn điều lệ",
+      "years": [],
+      "role": "not_applicable",
+      "scope": "reporting_company",
+      "time_semantics": "undated_profile_fact"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 14,
+        "page": 1,
+        "text": "\\- Vốn điều lệ: 1.179.000.000.000 VND (Một nghìn, một trăm bảy mươi chín tỷ đồng)",
+        "line_sha256": "311bc1f654b3c2ed258a140698344edc8a86b3de7f6775c4083e1d59f3798471"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "primary-aah-charter-05": {
+    "source_id": "AAH",
+    "identity": {
+      "metric": "Vốn điều lệ",
+      "years": [],
+      "role": "not_applicable",
+      "scope": "reporting_company",
+      "time_semantics": "undated_profile_fact"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 14,
+        "page": 1,
+        "text": "\\- Vốn điều lệ: 1.179.000.000.000 VND (Một nghìn, một trăm bảy mươi chín tỷ đồng)",
+        "line_sha256": "311bc1f654b3c2ed258a140698344edc8a86b3de7f6775c4083e1d59f3798471"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "primary-aah-charter-06": {
+    "source_id": "AAH",
+    "identity": {
+      "metric": "Vốn điều lệ",
+      "years": [],
+      "role": "not_applicable",
+      "scope": "reporting_company",
+      "time_semantics": "undated_profile_fact"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 14,
+        "page": 1,
+        "text": "\\- Vốn điều lệ: 1.179.000.000.000 VND (Một nghìn, một trăm bảy mươi chín tỷ đồng)",
+        "line_sha256": "311bc1f654b3c2ed258a140698344edc8a86b3de7f6775c4083e1d59f3798471"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "primary-aah-owner-01": {
+    "source_id": "AAH",
+    "identity": {
+      "metric": "Vốn đầu tư của chủ sở hữu",
+      "years": [],
+      "role": "not_applicable",
+      "scope": "reporting_company",
+      "time_semantics": "undated_profile_fact"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 15,
+        "page": 1,
+        "text": "\\- Vốn đầu tư của chủ sở hữu: 1.179.225.559.547 VND",
+        "line_sha256": "f9530bd9c7b9f35fd0fb5b17f8be5f1b215ac416a2f048f7ae707a6067cf15cd"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "primary-aah-owner-02": {
+    "source_id": "AAH",
+    "identity": {
+      "metric": "Vốn đầu tư của chủ sở hữu",
+      "years": [],
+      "role": "not_applicable",
+      "scope": "reporting_company",
+      "time_semantics": "undated_profile_fact"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 15,
+        "page": 1,
+        "text": "\\- Vốn đầu tư của chủ sở hữu: 1.179.225.559.547 VND",
+        "line_sha256": "f9530bd9c7b9f35fd0fb5b17f8be5f1b215ac416a2f048f7ae707a6067cf15cd"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "primary-aah-owner-03": {
+    "source_id": "AAH",
+    "identity": {
+      "metric": "Vốn đầu tư của chủ sở hữu",
+      "years": [],
+      "role": "not_applicable",
+      "scope": "reporting_company",
+      "time_semantics": "undated_profile_fact"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 15,
+        "page": 1,
+        "text": "\\- Vốn đầu tư của chủ sở hữu: 1.179.225.559.547 VND",
+        "line_sha256": "f9530bd9c7b9f35fd0fb5b17f8be5f1b215ac416a2f048f7ae707a6067cf15cd"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "primary-aah-owner-04": {
+    "source_id": "AAH",
+    "identity": {
+      "metric": "Vốn đầu tư của chủ sở hữu",
+      "years": [],
+      "role": "not_applicable",
+      "scope": "reporting_company",
+      "time_semantics": "undated_profile_fact"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 15,
+        "page": 1,
+        "text": "\\- Vốn đầu tư của chủ sở hữu: 1.179.225.559.547 VND",
+        "line_sha256": "f9530bd9c7b9f35fd0fb5b17f8be5f1b215ac416a2f048f7ae707a6067cf15cd"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "primary-aah-owner-05": {
+    "source_id": "AAH",
+    "identity": {
+      "metric": "Vốn đầu tư của chủ sở hữu",
+      "years": [],
+      "role": "not_applicable",
+      "scope": "reporting_company",
+      "time_semantics": "undated_profile_fact"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 15,
+        "page": 1,
+        "text": "\\- Vốn đầu tư của chủ sở hữu: 1.179.225.559.547 VND",
+        "line_sha256": "f9530bd9c7b9f35fd0fb5b17f8be5f1b215ac416a2f048f7ae707a6067cf15cd"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "primary-aah-owner-06": {
+    "source_id": "AAH",
+    "identity": {
+      "metric": "Vốn đầu tư của chủ sở hữu",
+      "years": [],
+      "role": "not_applicable",
+      "scope": "reporting_company",
+      "time_semantics": "undated_profile_fact"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 15,
+        "page": 1,
+        "text": "\\- Vốn đầu tư của chủ sở hữu: 1.179.225.559.547 VND",
+        "line_sha256": "f9530bd9c7b9f35fd0fb5b17f8be5f1b215ac416a2f048f7ae707a6067cf15cd"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "primary-bth-charter-01": {
+    "source_id": "BTH",
+    "identity": {
+      "metric": "Vốn điều lệ",
+      "years": [],
+      "role": "not_applicable",
+      "scope": "reporting_company",
+      "time_semantics": "undated_profile_fact"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 13,
+        "page": 1,
+        "text": "\\- Vốn điều lệ/ Charter capital: 250.000.000.000 đồng (Hai trăm năm mươi tỷ đồng)",
+        "line_sha256": "b9c00882b32a417e0c592d0b3a4859922415f24fd88b384ccb79451223fedd22"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "primary-bth-charter-02": {
+    "source_id": "BTH",
+    "identity": {
+      "metric": "Vốn điều lệ",
+      "years": [],
+      "role": "not_applicable",
+      "scope": "reporting_company",
+      "time_semantics": "undated_profile_fact"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 13,
+        "page": 1,
+        "text": "\\- Vốn điều lệ/ Charter capital: 250.000.000.000 đồng (Hai trăm năm mươi tỷ đồng)",
+        "line_sha256": "b9c00882b32a417e0c592d0b3a4859922415f24fd88b384ccb79451223fedd22"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "primary-bth-charter-03": {
+    "source_id": "BTH",
+    "identity": {
+      "metric": "Vốn điều lệ",
+      "years": [],
+      "role": "not_applicable",
+      "scope": "reporting_company",
+      "time_semantics": "undated_profile_fact"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 13,
+        "page": 1,
+        "text": "\\- Vốn điều lệ/ Charter capital: 250.000.000.000 đồng (Hai trăm năm mươi tỷ đồng)",
+        "line_sha256": "b9c00882b32a417e0c592d0b3a4859922415f24fd88b384ccb79451223fedd22"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "primary-bth-charter-04": {
+    "source_id": "BTH",
+    "identity": {
+      "metric": "Vốn điều lệ",
+      "years": [],
+      "role": "not_applicable",
+      "scope": "reporting_company",
+      "time_semantics": "undated_profile_fact"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 13,
+        "page": 1,
+        "text": "\\- Vốn điều lệ/ Charter capital: 250.000.000.000 đồng (Hai trăm năm mươi tỷ đồng)",
+        "line_sha256": "b9c00882b32a417e0c592d0b3a4859922415f24fd88b384ccb79451223fedd22"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "primary-bth-charter-05": {
+    "source_id": "BTH",
+    "identity": {
+      "metric": "Vốn điều lệ",
+      "years": [],
+      "role": "not_applicable",
+      "scope": "reporting_company",
+      "time_semantics": "undated_profile_fact"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 13,
+        "page": 1,
+        "text": "\\- Vốn điều lệ/ Charter capital: 250.000.000.000 đồng (Hai trăm năm mươi tỷ đồng)",
+        "line_sha256": "b9c00882b32a417e0c592d0b3a4859922415f24fd88b384ccb79451223fedd22"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "primary-bth-charter-06": {
+    "source_id": "BTH",
+    "identity": {
+      "metric": "Vốn điều lệ",
+      "years": [],
+      "role": "not_applicable",
+      "scope": "reporting_company",
+      "time_semantics": "undated_profile_fact"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 13,
+        "page": 1,
+        "text": "\\- Vốn điều lệ/ Charter capital: 250.000.000.000 đồng (Hai trăm năm mươi tỷ đồng)",
+        "line_sha256": "b9c00882b32a417e0c592d0b3a4859922415f24fd88b384ccb79451223fedd22"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "primary-ggg-charter-01": {
+    "source_id": "GGG",
+    "identity": {
+      "metric": "Vốn điều lệ",
+      "years": [],
+      "role": "not_applicable",
+      "scope": "reporting_company",
+      "time_semantics": "undated_profile_fact"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 15,
+        "page": 1,
+        "text": "• Vốn điều lệ: 293.885.890.000 đồng",
+        "line_sha256": "510ccf807effac570880e2a4aaebd834548338fbaa6591c27904d3f5fbb93156"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "primary-ggg-charter-02": {
+    "source_id": "GGG",
+    "identity": {
+      "metric": "Vốn điều lệ",
+      "years": [],
+      "role": "not_applicable",
+      "scope": "reporting_company",
+      "time_semantics": "undated_profile_fact"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 15,
+        "page": 1,
+        "text": "• Vốn điều lệ: 293.885.890.000 đồng",
+        "line_sha256": "510ccf807effac570880e2a4aaebd834548338fbaa6591c27904d3f5fbb93156"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "primary-ggg-charter-03": {
+    "source_id": "GGG",
+    "identity": {
+      "metric": "Vốn điều lệ",
+      "years": [],
+      "role": "not_applicable",
+      "scope": "reporting_company",
+      "time_semantics": "undated_profile_fact"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 15,
+        "page": 1,
+        "text": "• Vốn điều lệ: 293.885.890.000 đồng",
+        "line_sha256": "510ccf807effac570880e2a4aaebd834548338fbaa6591c27904d3f5fbb93156"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "primary-ggg-charter-04": {
+    "source_id": "GGG",
+    "identity": {
+      "metric": "Vốn điều lệ",
+      "years": [],
+      "role": "not_applicable",
+      "scope": "reporting_company",
+      "time_semantics": "undated_profile_fact"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 15,
+        "page": 1,
+        "text": "• Vốn điều lệ: 293.885.890.000 đồng",
+        "line_sha256": "510ccf807effac570880e2a4aaebd834548338fbaa6591c27904d3f5fbb93156"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "primary-ggg-charter-05": {
+    "source_id": "GGG",
+    "identity": {
+      "metric": "Vốn điều lệ",
+      "years": [],
+      "role": "not_applicable",
+      "scope": "reporting_company",
+      "time_semantics": "undated_profile_fact"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 15,
+        "page": 1,
+        "text": "• Vốn điều lệ: 293.885.890.000 đồng",
+        "line_sha256": "510ccf807effac570880e2a4aaebd834548338fbaa6591c27904d3f5fbb93156"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "primary-ggg-charter-06": {
+    "source_id": "GGG",
+    "identity": {
+      "metric": "Vốn điều lệ",
+      "years": [],
+      "role": "not_applicable",
+      "scope": "reporting_company",
+      "time_semantics": "undated_profile_fact"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 15,
+        "page": 1,
+        "text": "• Vốn điều lệ: 293.885.890.000 đồng",
+        "line_sha256": "510ccf807effac570880e2a4aaebd834548338fbaa6591c27904d3f5fbb93156"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "primary-ggg-owner-01": {
+    "source_id": "GGG",
+    "identity": {
+      "metric": "Vốn đầu tư của chủ sở hữu",
+      "years": [],
+      "role": "not_applicable",
+      "scope": "reporting_company",
+      "time_semantics": "undated_profile_fact"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 16,
+        "page": 1,
+        "text": "\\- Vốn đầu tư của chủ sở hữu: 293.885.890.000 đồng",
+        "line_sha256": "4abb0ecb33621742b30383c213d1e6bbd0c6f57e37c6fc379a40180b6d817069"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "primary-ggg-owner-02": {
+    "source_id": "GGG",
+    "identity": {
+      "metric": "Vốn đầu tư của chủ sở hữu",
+      "years": [],
+      "role": "not_applicable",
+      "scope": "reporting_company",
+      "time_semantics": "undated_profile_fact"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 16,
+        "page": 1,
+        "text": "\\- Vốn đầu tư của chủ sở hữu: 293.885.890.000 đồng",
+        "line_sha256": "4abb0ecb33621742b30383c213d1e6bbd0c6f57e37c6fc379a40180b6d817069"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "primary-ggg-owner-03": {
+    "source_id": "GGG",
+    "identity": {
+      "metric": "Vốn đầu tư của chủ sở hữu",
+      "years": [],
+      "role": "not_applicable",
+      "scope": "reporting_company",
+      "time_semantics": "undated_profile_fact"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 16,
+        "page": 1,
+        "text": "\\- Vốn đầu tư của chủ sở hữu: 293.885.890.000 đồng",
+        "line_sha256": "4abb0ecb33621742b30383c213d1e6bbd0c6f57e37c6fc379a40180b6d817069"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "primary-ggg-owner-04": {
+    "source_id": "GGG",
+    "identity": {
+      "metric": "Vốn đầu tư của chủ sở hữu",
+      "years": [],
+      "role": "not_applicable",
+      "scope": "reporting_company",
+      "time_semantics": "undated_profile_fact"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 16,
+        "page": 1,
+        "text": "\\- Vốn đầu tư của chủ sở hữu: 293.885.890.000 đồng",
+        "line_sha256": "4abb0ecb33621742b30383c213d1e6bbd0c6f57e37c6fc379a40180b6d817069"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "primary-ggg-owner-05": {
+    "source_id": "GGG",
+    "identity": {
+      "metric": "Vốn đầu tư của chủ sở hữu",
+      "years": [],
+      "role": "not_applicable",
+      "scope": "reporting_company",
+      "time_semantics": "undated_profile_fact"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 16,
+        "page": 1,
+        "text": "\\- Vốn đầu tư của chủ sở hữu: 293.885.890.000 đồng",
+        "line_sha256": "4abb0ecb33621742b30383c213d1e6bbd0c6f57e37c6fc379a40180b6d817069"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "primary-ggg-owner-06": {
+    "source_id": "GGG",
+    "identity": {
+      "metric": "Vốn đầu tư của chủ sở hữu",
+      "years": [],
+      "role": "not_applicable",
+      "scope": "reporting_company",
+      "time_semantics": "undated_profile_fact"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 16,
+        "page": 1,
+        "text": "\\- Vốn đầu tư của chủ sở hữu: 293.885.890.000 đồng",
+        "line_sha256": "4abb0ecb33621742b30383c213d1e6bbd0c6f57e37c6fc379a40180b6d817069"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "development-acg-revenue-text-01": {
+    "source_id": "ACG",
+    "identity": {
+      "metric": "doanh thu hợp nhất",
+      "years": [
+        "2025"
+      ],
+      "role": "actual",
+      "scope": "consolidated",
+      "time_semantics": "explicit"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 926,
+        "page": 38,
+        "text": "Kết quả kinh doanh năm 2025",
+        "line_sha256": "6a6e963dc59e8e3d4c1f2c65cb03b83ff786993c0be2eb263b8a9ba885b1f2fc"
+      },
+      {
+        "line_number": 938,
+        "page": 38,
+        "text": "Năm 2025, thị trường bất động sản tiếp tục ấm lên khi pháp lý dự án tiếp tục được tháo gỗ và nhiều dự án được mở bán. Các dự án có pháp lý rõ ràng và chiến lược giá hợp lý có sức câu hấp thụ khá tốt. Mặc dù thị trường Mỹ, thị trường xuất khẩu chủ đạo của An Cường, chịu tác động lớn từ chính sách thuế đối ứng, An Cường đã có sự linh hoạt trong việc đầy mạnh thị trường nội địa. Theo đó, Doanh thu hợp nhất đạt 4.608,7 tỷ đồng, là mức cao nhất trong hơn 30 năm hoạt động của Công ty. LNST hợp nhất đạt 503,7 tỷ đồng, tăng 20,0% so với năm 2024 và đạt 111,9% kế hoạch do ĐHĐCD đặt ra.",
+        "line_sha256": "9d78df9a43a95edf050e182b43d5ae54f5e52bf69e5ccf9dfdab2df2a33c1a17"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "development-acg-revenue-text-02": {
+    "source_id": "ACG",
+    "identity": {
+      "metric": "doanh thu hợp nhất",
+      "years": [
+        "2025"
+      ],
+      "role": "actual",
+      "scope": "consolidated",
+      "time_semantics": "explicit"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 926,
+        "page": 38,
+        "text": "Kết quả kinh doanh năm 2025",
+        "line_sha256": "6a6e963dc59e8e3d4c1f2c65cb03b83ff786993c0be2eb263b8a9ba885b1f2fc"
+      },
+      {
+        "line_number": 938,
+        "page": 38,
+        "text": "Năm 2025, thị trường bất động sản tiếp tục ấm lên khi pháp lý dự án tiếp tục được tháo gỗ và nhiều dự án được mở bán. Các dự án có pháp lý rõ ràng và chiến lược giá hợp lý có sức câu hấp thụ khá tốt. Mặc dù thị trường Mỹ, thị trường xuất khẩu chủ đạo của An Cường, chịu tác động lớn từ chính sách thuế đối ứng, An Cường đã có sự linh hoạt trong việc đầy mạnh thị trường nội địa. Theo đó, Doanh thu hợp nhất đạt 4.608,7 tỷ đồng, là mức cao nhất trong hơn 30 năm hoạt động của Công ty. LNST hợp nhất đạt 503,7 tỷ đồng, tăng 20,0% so với năm 2024 và đạt 111,9% kế hoạch do ĐHĐCD đặt ra.",
+        "line_sha256": "9d78df9a43a95edf050e182b43d5ae54f5e52bf69e5ccf9dfdab2df2a33c1a17"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "development-acg-assets-01": {
+    "source_id": "ACG",
+    "identity": {
+      "metric": "tổng tài sản",
+      "years": [
+        "2025"
+      ],
+      "role": "actual",
+      "scope": "consolidated",
+      "time_semantics": "explicit"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 927,
+        "page": 38,
+        "text": "Kết quả Hợp nhất năm 2025 của An Cường",
+        "line_sha256": "fa6b09341788537959b598768259bf8c26ac619105f397a7d92d1ead0d5ecf96"
+      },
+      {
+        "line_number": 928,
+        "page": 38,
+        "text": "ĐVT: tỷ đồng",
+        "line_sha256": "6ed57786f3eae5210163f0770e4b42c2e86fe94ded83a110826820ee88ed9853"
+      },
+      {
+        "line_number": 929,
+        "page": 38,
+        "text": "Chỉ tiêu | Năm 2024 | Năm 2025 | Tăng trưởng so với cùng kỳ năm trước",
+        "line_sha256": "31be7c7e288b0a82cabe23e57f0699d04d4374c74b6658a400138cca1bc8a9dc"
+      },
+      {
+        "line_number": 931,
+        "page": 38,
+        "text": "Tổng tài sản | Năm 2024: 5.639,8 | Năm 2025: 6.971,9 | 23,6%",
+        "line_sha256": "c7e9b24a1ac0d8206d97f8d9641de6186b646deafaf73c83c7d35e68fc48b9b5"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "development-acg-assets-02": {
+    "source_id": "ACG",
+    "identity": {
+      "metric": "tổng tài sản",
+      "years": [
+        "2025"
+      ],
+      "role": "actual",
+      "scope": "consolidated",
+      "time_semantics": "explicit"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 927,
+        "page": 38,
+        "text": "Kết quả Hợp nhất năm 2025 của An Cường",
+        "line_sha256": "fa6b09341788537959b598768259bf8c26ac619105f397a7d92d1ead0d5ecf96"
+      },
+      {
+        "line_number": 928,
+        "page": 38,
+        "text": "ĐVT: tỷ đồng",
+        "line_sha256": "6ed57786f3eae5210163f0770e4b42c2e86fe94ded83a110826820ee88ed9853"
+      },
+      {
+        "line_number": 929,
+        "page": 38,
+        "text": "Chỉ tiêu | Năm 2024 | Năm 2025 | Tăng trưởng so với cùng kỳ năm trước",
+        "line_sha256": "31be7c7e288b0a82cabe23e57f0699d04d4374c74b6658a400138cca1bc8a9dc"
+      },
+      {
+        "line_number": 931,
+        "page": 38,
+        "text": "Tổng tài sản | Năm 2024: 5.639,8 | Năm 2025: 6.971,9 | 23,6%",
+        "line_sha256": "c7e9b24a1ac0d8206d97f8d9641de6186b646deafaf73c83c7d35e68fc48b9b5"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "development-acg-profit-01": {
+    "source_id": "ACG",
+    "identity": {
+      "metric": "lợi nhuận sau thuế",
+      "years": [
+        "2025"
+      ],
+      "role": "actual",
+      "scope": "consolidated",
+      "time_semantics": "explicit"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 927,
+        "page": 38,
+        "text": "Kết quả Hợp nhất năm 2025 của An Cường",
+        "line_sha256": "fa6b09341788537959b598768259bf8c26ac619105f397a7d92d1ead0d5ecf96"
+      },
+      {
+        "line_number": 928,
+        "page": 38,
+        "text": "ĐVT: tỷ đồng",
+        "line_sha256": "6ed57786f3eae5210163f0770e4b42c2e86fe94ded83a110826820ee88ed9853"
+      },
+      {
+        "line_number": 929,
+        "page": 38,
+        "text": "Chỉ tiêu | Năm 2024 | Năm 2025 | Tăng trưởng so với cùng kỳ năm trước",
+        "line_sha256": "31be7c7e288b0a82cabe23e57f0699d04d4374c74b6658a400138cca1bc8a9dc"
+      },
+      {
+        "line_number": 936,
+        "page": 38,
+        "text": "Lợi nhuận sau thuế | Năm 2024: 420,0 | Năm 2025: 503,7 | 20,0%",
+        "line_sha256": "d28a65cbf87ab7fa75c2b38b4560eb15133b50e4c84ff3c342f9ea7cc6d8f4f3"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "development-acg-profit-02": {
+    "source_id": "ACG",
+    "identity": {
+      "metric": "lợi nhuận sau thuế",
+      "years": [
+        "2025"
+      ],
+      "role": "actual",
+      "scope": "consolidated",
+      "time_semantics": "explicit"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 927,
+        "page": 38,
+        "text": "Kết quả Hợp nhất năm 2025 của An Cường",
+        "line_sha256": "fa6b09341788537959b598768259bf8c26ac619105f397a7d92d1ead0d5ecf96"
+      },
+      {
+        "line_number": 928,
+        "page": 38,
+        "text": "ĐVT: tỷ đồng",
+        "line_sha256": "6ed57786f3eae5210163f0770e4b42c2e86fe94ded83a110826820ee88ed9853"
+      },
+      {
+        "line_number": 929,
+        "page": 38,
+        "text": "Chỉ tiêu | Năm 2024 | Năm 2025 | Tăng trưởng so với cùng kỳ năm trước",
+        "line_sha256": "31be7c7e288b0a82cabe23e57f0699d04d4374c74b6658a400138cca1bc8a9dc"
+      },
+      {
+        "line_number": 936,
+        "page": 38,
+        "text": "Lợi nhuận sau thuế | Năm 2024: 420,0 | Năm 2025: 503,7 | 20,0%",
+        "line_sha256": "d28a65cbf87ab7fa75c2b38b4560eb15133b50e4c84ff3c342f9ea7cc6d8f4f3"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "development-acg-revenue-diff-01": {
+    "source_id": "ACG",
+    "identity": {
+      "metric": "doanh thu thuần",
+      "years": [
+        "2024",
+        "2025"
+      ],
+      "role": "actual",
+      "scope": "consolidated",
+      "time_semantics": "explicit"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 927,
+        "page": 38,
+        "text": "Kết quả Hợp nhất năm 2025 của An Cường",
+        "line_sha256": "fa6b09341788537959b598768259bf8c26ac619105f397a7d92d1ead0d5ecf96"
+      },
+      {
+        "line_number": 928,
+        "page": 38,
+        "text": "ĐVT: tỷ đồng",
+        "line_sha256": "6ed57786f3eae5210163f0770e4b42c2e86fe94ded83a110826820ee88ed9853"
+      },
+      {
+        "line_number": 929,
+        "page": 38,
+        "text": "Chỉ tiêu | Năm 2024 | Năm 2025 | Tăng trưởng so với cùng kỳ năm trước",
+        "line_sha256": "31be7c7e288b0a82cabe23e57f0699d04d4374c74b6658a400138cca1bc8a9dc"
+      },
+      {
+        "line_number": 933,
+        "page": 38,
+        "text": "Doanh thu thuần | Năm 2024: 3.980,9 | Năm 2025: 4.608,7 | 15,8%",
+        "line_sha256": "3bce9d6bde6c75fee6a1547d6ccfb23d4b66cc7f110a9b5aae9fbb2105515262"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "development-acg-revenue-diff-02": {
+    "source_id": "ACG",
+    "identity": {
+      "metric": "doanh thu thuần",
+      "years": [
+        "2024",
+        "2025"
+      ],
+      "role": "actual",
+      "scope": "consolidated",
+      "time_semantics": "explicit"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 927,
+        "page": 38,
+        "text": "Kết quả Hợp nhất năm 2025 của An Cường",
+        "line_sha256": "fa6b09341788537959b598768259bf8c26ac619105f397a7d92d1ead0d5ecf96"
+      },
+      {
+        "line_number": 928,
+        "page": 38,
+        "text": "ĐVT: tỷ đồng",
+        "line_sha256": "6ed57786f3eae5210163f0770e4b42c2e86fe94ded83a110826820ee88ed9853"
+      },
+      {
+        "line_number": 929,
+        "page": 38,
+        "text": "Chỉ tiêu | Năm 2024 | Năm 2025 | Tăng trưởng so với cùng kỳ năm trước",
+        "line_sha256": "31be7c7e288b0a82cabe23e57f0699d04d4374c74b6658a400138cca1bc8a9dc"
+      },
+      {
+        "line_number": 933,
+        "page": 38,
+        "text": "Doanh thu thuần | Năm 2024: 3.980,9 | Năm 2025: 4.608,7 | 15,8%",
+        "line_sha256": "3bce9d6bde6c75fee6a1547d6ccfb23d4b66cc7f110a9b5aae9fbb2105515262"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "development-agp-charter-01": {
+    "source_id": "AGP",
+    "identity": {
+      "metric": "vốn điều lệ",
+      "years": [],
+      "role": "not_applicable",
+      "scope": "reporting_company",
+      "time_semantics": "undated_profile_fact"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 102,
+        "page": 4,
+        "text": "\\- Vốn điều lệ : 266.152.680.000 đồng",
+        "line_sha256": "fad37adb418f43ef30774ec7244407cf5fe954374775109a631c1289d8139b23"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "development-agp-charter-02": {
+    "source_id": "AGP",
+    "identity": {
+      "metric": "vốn điều lệ",
+      "years": [],
+      "role": "not_applicable",
+      "scope": "reporting_company",
+      "time_semantics": "undated_profile_fact"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 102,
+        "page": 4,
+        "text": "\\- Vốn điều lệ : 266.152.680.000 đồng",
+        "line_sha256": "fad37adb418f43ef30774ec7244407cf5fe954374775109a631c1289d8139b23"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "development-agp-revenue-text-01": {
+    "source_id": "AGP",
+    "identity": {
+      "metric": "doanh thu",
+      "years": [
+        "2025"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "time_semantics": "explicit"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 565,
+        "page": 17,
+        "text": "> - Năm 2025:",
+        "line_sha256": "cff43662b79e7c3242cf207d1769bd623ee6af4f4da00206f8d82bd0bdbf32c4"
+      },
+      {
+        "line_number": 566,
+        "page": 17,
+        "text": "\\+ Doanh thu: 844,7 tỷ đồng, tăng 6,48% so với năm 2024, vượt 3,26% kế hoạch (818 tỷ đồng).",
+        "line_sha256": "60cf3a1d559b7ccd22afcb48a1d18c90d1ae6bd26f545a6f3be4238d4fecfbc7"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "development-agp-revenue-text-02": {
+    "source_id": "AGP",
+    "identity": {
+      "metric": "doanh thu",
+      "years": [
+        "2025"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "time_semantics": "explicit"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 565,
+        "page": 17,
+        "text": "> - Năm 2025:",
+        "line_sha256": "cff43662b79e7c3242cf207d1769bd623ee6af4f4da00206f8d82bd0bdbf32c4"
+      },
+      {
+        "line_number": 566,
+        "page": 17,
+        "text": "\\+ Doanh thu: 844,7 tỷ đồng, tăng 6,48% so với năm 2024, vượt 3,26% kế hoạch (818 tỷ đồng).",
+        "line_sha256": "60cf3a1d559b7ccd22afcb48a1d18c90d1ae6bd26f545a6f3be4238d4fecfbc7"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "development-agp-pbt-01": {
+    "source_id": "AGP",
+    "identity": {
+      "metric": "lợi nhuận trước thuế",
+      "years": [
+        "2025"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "time_semantics": "explicit"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 559,
+        "page": 17,
+        "text": "Đvt: triệu đồng",
+        "line_sha256": "2061fe93e42f39ade7ab1f904146692c7c60955740c351d0ca8032b6323fa68e"
+      },
+      {
+        "line_number": 560,
+        "page": 17,
+        "text": "Chỉ tiêu/Năm | 2021 | 2022 | 2023 | 2024 | 2025 | BQ 5 năm",
+        "line_sha256": "93137145bdaf75b02d37b171be065f7e2c80f081528a2d4426b6ffa87891c1df"
+      },
+      {
+        "line_number": 563,
+        "page": 17,
+        "text": "Lợi nhuận trước thuế | 2021: 41.378 | 2022: 53.239 | 2023: 54.196 | 2024: 60.481 | 2025: 65.903 | 55.039",
+        "line_sha256": "e0c8137ee9560b5843953d2144d7ce7dea05ad9730e4c349e5960a13f2df797e"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "development-agp-pbt-02": {
+    "source_id": "AGP",
+    "identity": {
+      "metric": "lợi nhuận trước thuế",
+      "years": [
+        "2025"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "time_semantics": "explicit"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 559,
+        "page": 17,
+        "text": "Đvt: triệu đồng",
+        "line_sha256": "2061fe93e42f39ade7ab1f904146692c7c60955740c351d0ca8032b6323fa68e"
+      },
+      {
+        "line_number": 560,
+        "page": 17,
+        "text": "Chỉ tiêu/Năm | 2021 | 2022 | 2023 | 2024 | 2025 | BQ 5 năm",
+        "line_sha256": "93137145bdaf75b02d37b171be065f7e2c80f081528a2d4426b6ffa87891c1df"
+      },
+      {
+        "line_number": 563,
+        "page": 17,
+        "text": "Lợi nhuận trước thuế | 2021: 41.378 | 2022: 53.239 | 2023: 54.196 | 2024: 60.481 | 2025: 65.903 | 55.039",
+        "line_sha256": "e0c8137ee9560b5843953d2144d7ce7dea05ad9730e4c349e5960a13f2df797e"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "development-agp-pat-diff-01": {
+    "source_id": "AGP",
+    "identity": {
+      "metric": "lợi nhuận sau thuế",
+      "years": [
+        "2024",
+        "2025"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "time_semantics": "explicit"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 559,
+        "page": 17,
+        "text": "Đvt: triệu đồng",
+        "line_sha256": "2061fe93e42f39ade7ab1f904146692c7c60955740c351d0ca8032b6323fa68e"
+      },
+      {
+        "line_number": 560,
+        "page": 17,
+        "text": "Chỉ tiêu/Năm | 2021 | 2022 | 2023 | 2024 | 2025 | BQ 5 năm",
+        "line_sha256": "93137145bdaf75b02d37b171be065f7e2c80f081528a2d4426b6ffa87891c1df"
+      },
+      {
+        "line_number": 564,
+        "page": 17,
+        "text": "Lợi nhuận sau thuế | 2021: 33.226 | 2022: 42.910 | 2023: 43.613 | 2024: 48.890 | 2025: 52.041 | 44.136",
+        "line_sha256": "3fdfc164c350af59d5c4d16f83c026f4c75768ff5bcb5506dac5c9efa82920df"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "development-agp-pat-diff-02": {
+    "source_id": "AGP",
+    "identity": {
+      "metric": "lợi nhuận sau thuế",
+      "years": [
+        "2024",
+        "2025"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "time_semantics": "explicit"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 559,
+        "page": 17,
+        "text": "Đvt: triệu đồng",
+        "line_sha256": "2061fe93e42f39ade7ab1f904146692c7c60955740c351d0ca8032b6323fa68e"
+      },
+      {
+        "line_number": 560,
+        "page": 17,
+        "text": "Chỉ tiêu/Năm | 2021 | 2022 | 2023 | 2024 | 2025 | BQ 5 năm",
+        "line_sha256": "93137145bdaf75b02d37b171be065f7e2c80f081528a2d4426b6ffa87891c1df"
+      },
+      {
+        "line_number": 564,
+        "page": 17,
+        "text": "Lợi nhuận sau thuế | 2021: 33.226 | 2022: 42.910 | 2023: 43.613 | 2024: 48.890 | 2025: 52.041 | 44.136",
+        "line_sha256": "3fdfc164c350af59d5c4d16f83c026f4c75768ff5bcb5506dac5c9efa82920df"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "development-bhg-owner-01": {
+    "source_id": "BHG",
+    "identity": {
+      "metric": "vốn đầu tư của chủ sở hữu",
+      "years": [],
+      "role": "not_applicable",
+      "scope": "reporting_company",
+      "time_semantics": "undated_profile_fact"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 19,
+        "page": 1,
+        "text": "\\- Vốn đầu tư của chủ sở hữu: 89.356.430.000 đồng",
+        "line_sha256": "376cdc29796a7b47cb77bb4f9e7a8292a44416c47b48644e19450ec8ad31e188"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "development-bhg-owner-02": {
+    "source_id": "BHG",
+    "identity": {
+      "metric": "vốn đầu tư của chủ sở hữu",
+      "years": [],
+      "role": "not_applicable",
+      "scope": "reporting_company",
+      "time_semantics": "undated_profile_fact"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 19,
+        "page": 1,
+        "text": "\\- Vốn đầu tư của chủ sở hữu: 89.356.430.000 đồng",
+        "line_sha256": "376cdc29796a7b47cb77bb4f9e7a8292a44416c47b48644e19450ec8ad31e188"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "development-bhg-revenue-01": {
+    "source_id": "BHG",
+    "identity": {
+      "metric": "doanh thu thuần",
+      "years": [
+        "2023"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "time_semantics": "explicit"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 287,
+        "page": 11,
+        "text": "Chỉ tiêu | Năm 2022 | Năm 2023 | %tăng giảm",
+        "line_sha256": "220e9c95725a54355e8c05825920965e246f7b68b9d914fcc2a372018deec63d"
+      },
+      {
+        "line_number": 290,
+        "page": 11,
+        "text": "Doanh thu thuần | Năm 2022: 93.376.805.627 | Năm 2023: 108.260.684.557 | 15,94%",
+        "line_sha256": "3d618115a7a67605e72e386170ce1d9a611731aa2a5777427d367a8c3fdf4a51"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "development-bhg-revenue-02": {
+    "source_id": "BHG",
+    "identity": {
+      "metric": "doanh thu thuần",
+      "years": [
+        "2023"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "time_semantics": "explicit"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 287,
+        "page": 11,
+        "text": "Chỉ tiêu | Năm 2022 | Năm 2023 | %tăng giảm",
+        "line_sha256": "220e9c95725a54355e8c05825920965e246f7b68b9d914fcc2a372018deec63d"
+      },
+      {
+        "line_number": 290,
+        "page": 11,
+        "text": "Doanh thu thuần | Năm 2022: 93.376.805.627 | Năm 2023: 108.260.684.557 | 15,94%",
+        "line_sha256": "3d618115a7a67605e72e386170ce1d9a611731aa2a5777427d367a8c3fdf4a51"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "development-bhg-pat-01": {
+    "source_id": "BHG",
+    "identity": {
+      "metric": "lợi nhuận sau thuế",
+      "years": [
+        "2023"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "time_semantics": "explicit"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 287,
+        "page": 11,
+        "text": "Chỉ tiêu | Năm 2022 | Năm 2023 | %tăng giảm",
+        "line_sha256": "220e9c95725a54355e8c05825920965e246f7b68b9d914fcc2a372018deec63d"
+      },
+      {
+        "line_number": 294,
+        "page": 11,
+        "text": "Lợi nhuận sau thuế | Năm 2022: 540.797.731 | Năm 2023: 1.225.140.495 | 126,54%",
+        "line_sha256": "1892f438d3d61328575764000ca8a02278aa4d24fb96ddfccd291cd236d11db0"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "development-bhg-pat-02": {
+    "source_id": "BHG",
+    "identity": {
+      "metric": "lợi nhuận sau thuế",
+      "years": [
+        "2023"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "time_semantics": "explicit"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 287,
+        "page": 11,
+        "text": "Chỉ tiêu | Năm 2022 | Năm 2023 | %tăng giảm",
+        "line_sha256": "220e9c95725a54355e8c05825920965e246f7b68b9d914fcc2a372018deec63d"
+      },
+      {
+        "line_number": 294,
+        "page": 11,
+        "text": "Lợi nhuận sau thuế | Năm 2022: 540.797.731 | Năm 2023: 1.225.140.495 | 126,54%",
+        "line_sha256": "1892f438d3d61328575764000ca8a02278aa4d24fb96ddfccd291cd236d11db0"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "development-bhg-assets-diff-01": {
+    "source_id": "BHG",
+    "identity": {
+      "metric": "tổng tài sản",
+      "years": [
+        "2022",
+        "2023"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "time_semantics": "explicit"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 287,
+        "page": 11,
+        "text": "Chỉ tiêu | Năm 2022 | Năm 2023 | %tăng giảm",
+        "line_sha256": "220e9c95725a54355e8c05825920965e246f7b68b9d914fcc2a372018deec63d"
+      },
+      {
+        "line_number": 289,
+        "page": 11,
+        "text": "Tổng giá trị tài sản | Năm 2022: 165.035.737.352 | Năm 2023: 165.553.209.547 | 0,31%",
+        "line_sha256": "66b15ead7ae175675847ae0936e640f36d213bbfe51fc35d9ee0c2f64bc6bd41"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "development-bhg-assets-diff-02": {
+    "source_id": "BHG",
+    "identity": {
+      "metric": "tổng tài sản",
+      "years": [
+        "2022",
+        "2023"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "time_semantics": "explicit"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 287,
+        "page": 11,
+        "text": "Chỉ tiêu | Năm 2022 | Năm 2023 | %tăng giảm",
+        "line_sha256": "220e9c95725a54355e8c05825920965e246f7b68b9d914fcc2a372018deec63d"
+      },
+      {
+        "line_number": 289,
+        "page": 11,
+        "text": "Tổng giá trị tài sản | Năm 2022: 165.035.737.352 | Năm 2023: 165.553.209.547 | 0,31%",
+        "line_sha256": "66b15ead7ae175675847ae0936e640f36d213bbfe51fc35d9ee0c2f64bc6bd41"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "independent-bsd-profile-01": {
+    "source_id": "BSD",
+    "identity": {
+      "metric": "vốn điều lệ",
+      "years": [],
+      "role": "not_applicable",
+      "scope": "reporting_company",
+      "time_semantics": "undated_profile_fact"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 14,
+        "page": 1,
+        "text": "\\- Vốn điều lệ: 30.000.000.000 đồng",
+        "line_sha256": "cbe64282819894539eb3a1be045a0bddafcf92ddf64914da435328004af56de5"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "independent-bsd-profile-02": {
+    "source_id": "BSD",
+    "identity": {
+      "metric": "vốn điều lệ",
+      "years": [],
+      "role": "not_applicable",
+      "scope": "reporting_company",
+      "time_semantics": "undated_profile_fact"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 14,
+        "page": 1,
+        "text": "\\- Vốn điều lệ: 30.000.000.000 đồng",
+        "line_sha256": "cbe64282819894539eb3a1be045a0bddafcf92ddf64914da435328004af56de5"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "independent-cms-profile-01": {
+    "source_id": "CMS",
+    "identity": {
+      "metric": "vốn điều lệ",
+      "years": [],
+      "role": "not_applicable",
+      "scope": "reporting_company",
+      "time_semantics": "undated_profile_fact"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 16,
+        "page": 1,
+        "text": "\\- Vốn điều lệ: 254.525.000.000 đồng",
+        "line_sha256": "b0b84d71088c2fde75378bc732489892e364c39142a5bc0374ad0695ee9997fb"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "independent-cms-profile-02": {
+    "source_id": "CMS",
+    "identity": {
+      "metric": "vốn điều lệ",
+      "years": [],
+      "role": "not_applicable",
+      "scope": "reporting_company",
+      "time_semantics": "undated_profile_fact"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 16,
+        "page": 1,
+        "text": "\\- Vốn điều lệ: 254.525.000.000 đồng",
+        "line_sha256": "b0b84d71088c2fde75378bc732489892e364c39142a5bc0374ad0695ee9997fb"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "independent-hav-profile-01": {
+    "source_id": "HAV",
+    "identity": {
+      "metric": "vốn điều lệ",
+      "years": [],
+      "role": "not_applicable",
+      "scope": "reporting_company",
+      "time_semantics": "undated_profile_fact"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 100,
+        "page": 5,
+        "text": "\\- Vốn điều lệ: 32.978.600.000 đồng",
+        "line_sha256": "c6a201b8776fee91cbb0a6f5f087d2528665b45514017d40fc9ca884bed21356"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "independent-hav-profile-02": {
+    "source_id": "HAV",
+    "identity": {
+      "metric": "vốn điều lệ",
+      "years": [],
+      "role": "not_applicable",
+      "scope": "reporting_company",
+      "time_semantics": "undated_profile_fact"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 100,
+        "page": 5,
+        "text": "\\- Vốn điều lệ: 32.978.600.000 đồng",
+        "line_sha256": "c6a201b8776fee91cbb0a6f5f087d2528665b45514017d40fc9ca884bed21356"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "independent-hfx-profile-01": {
+    "source_id": "HFX",
+    "identity": {
+      "metric": "vốn điều lệ",
+      "years": [],
+      "role": "not_applicable",
+      "scope": "reporting_company",
+      "time_semantics": "undated_profile_fact"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 12,
+        "page": 1,
+        "text": "\\- Vốn điều lệ: 12.700.000.000 đồng",
+        "line_sha256": "5bc4f5386afa78ec76cc65f92fce63e6add60af37037ca0eda0b03299b368777"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "independent-hfx-profile-02": {
+    "source_id": "HFX",
+    "identity": {
+      "metric": "vốn điều lệ",
+      "years": [],
+      "role": "not_applicable",
+      "scope": "reporting_company",
+      "time_semantics": "undated_profile_fact"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 12,
+        "page": 1,
+        "text": "\\- Vốn điều lệ: 12.700.000.000 đồng",
+        "line_sha256": "5bc4f5386afa78ec76cc65f92fce63e6add60af37037ca0eda0b03299b368777"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "independent-hkt-profile-01": {
+    "source_id": "HKT",
+    "identity": {
+      "metric": "vốn đầu tư của chủ sở hữu",
+      "years": [],
+      "role": "not_applicable",
+      "scope": "reporting_company",
+      "time_semantics": "undated_profile_fact"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 70,
+        "page": 3,
+        "text": "\\- Vốn đầu tư của chủ sở hữu: 61.350.290.000 đồng",
+        "line_sha256": "3a1e10cadd90b81ebedeef5725773d5d6878e5bdc4bbbd7fddac6663cf5b52c5"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "independent-hkt-profile-02": {
+    "source_id": "HKT",
+    "identity": {
+      "metric": "vốn đầu tư của chủ sở hữu",
+      "years": [],
+      "role": "not_applicable",
+      "scope": "reporting_company",
+      "time_semantics": "undated_profile_fact"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 70,
+        "page": 3,
+        "text": "\\- Vốn đầu tư của chủ sở hữu: 61.350.290.000 đồng",
+        "line_sha256": "3a1e10cadd90b81ebedeef5725773d5d6878e5bdc4bbbd7fddac6663cf5b52c5"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "independent-mgg-profile-01": {
+    "source_id": "MGG",
+    "identity": {
+      "metric": "vốn điều lệ",
+      "years": [],
+      "role": "not_applicable",
+      "scope": "reporting_company",
+      "time_semantics": "undated_profile_fact"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 20,
+        "page": 1,
+        "text": "\\- Vốn điều lệ: 89.996.220.000đ",
+        "line_sha256": "7135e84959fc8d0b8608edf510113ec6b4e175d04680a063ee166b11a1118cff"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "independent-mgg-profile-02": {
+    "source_id": "MGG",
+    "identity": {
+      "metric": "vốn điều lệ",
+      "years": [],
+      "role": "not_applicable",
+      "scope": "reporting_company",
+      "time_semantics": "undated_profile_fact"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 20,
+        "page": 1,
+        "text": "\\- Vốn điều lệ: 89.996.220.000đ",
+        "line_sha256": "7135e84959fc8d0b8608edf510113ec6b4e175d04680a063ee166b11a1118cff"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "independent-pdb-profile-01": {
+    "source_id": "PDB",
+    "identity": {
+      "metric": "vốn điều lệ",
+      "years": [],
+      "role": "not_applicable",
+      "scope": "reporting_company",
+      "time_semantics": "undated_profile_fact"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 14,
+        "page": 1,
+        "text": "\\- Vốn điều lệ: 89.099.810.000 đồng (Tám mươi chín tỷ không trăm chín mươi chín triệu tám trăm mười ngân đồng)",
+        "line_sha256": "8517316ad1eda315d2fe452bafd3457615aa877b36f032d649a95ae642b28b2c"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "independent-pdb-profile-02": {
+    "source_id": "PDB",
+    "identity": {
+      "metric": "vốn điều lệ",
+      "years": [],
+      "role": "not_applicable",
+      "scope": "reporting_company",
+      "time_semantics": "undated_profile_fact"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 14,
+        "page": 1,
+        "text": "\\- Vốn điều lệ: 89.099.810.000 đồng (Tám mươi chín tỷ không trăm chín mươi chín triệu tám trăm mười ngân đồng)",
+        "line_sha256": "8517316ad1eda315d2fe452bafd3457615aa877b36f032d649a95ae642b28b2c"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "independent-ssg-profile-01": {
+    "source_id": "SSG",
+    "identity": {
+      "metric": "vốn điều lệ",
+      "years": [],
+      "role": "not_applicable",
+      "scope": "reporting_company",
+      "time_semantics": "undated_profile_fact"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 27,
+        "page": 2,
+        "text": "\\- Vốn điều lệ : 50.000.000.000 đồng (Năm mươi tỷ đồng).",
+        "line_sha256": "3f1a85810cde93e07e2fb641ea80c334bdc1c4a59d0a3be41a9aac853364e5ce"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "independent-ssg-profile-02": {
+    "source_id": "SSG",
+    "identity": {
+      "metric": "vốn điều lệ",
+      "years": [],
+      "role": "not_applicable",
+      "scope": "reporting_company",
+      "time_semantics": "undated_profile_fact"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 27,
+        "page": 2,
+        "text": "\\- Vốn điều lệ : 50.000.000.000 đồng (Năm mươi tỷ đồng).",
+        "line_sha256": "3f1a85810cde93e07e2fb641ea80c334bdc1c4a59d0a3be41a9aac853364e5ce"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "independent-bsd-capital-2007-01": {
+    "source_id": "BSD",
+    "identity": {
+      "metric": "vốn điều lệ",
+      "years": [
+        "2007"
+      ],
+      "role": "historical",
+      "scope": "reporting_company",
+      "time_semantics": "explicit"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 40,
+        "page": 2,
+        "text": "\\- Giai đoạn 2007 đến nay: Căn cứ quyết định số 3671/QĐ-UBND ngày 30/12/2005 của UBND tỉnh Phú Thọ về việc phê duyệt phương án và chuyển Công ty Rượu Đồng Xuân thành Công ty Cổ phần, đổi tên từ Công ty Rượu Đồng Xuân thành Công ty Cổ phần Bia, Rượu Sài Gòn – Đồng Xuân, hoạt động theo Giấy chứng nhận đăng ký kinh doanh số 1803000486 do Sở Kế hoạch và Đầu tư tỉnh Phú Thọ cấp lần đầu ngày 22/3/2007 với vốn điều lệ là 30 tỷ đồng.",
+        "line_sha256": "12dba7eb02c614106d850471022dec5d34c47107538060afe620fb5408cc93cd"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "independent-bsd-capital-2007-02": {
+    "source_id": "BSD",
+    "identity": {
+      "metric": "vốn điều lệ",
+      "years": [
+        "2007"
+      ],
+      "role": "historical",
+      "scope": "reporting_company",
+      "time_semantics": "explicit"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 40,
+        "page": 2,
+        "text": "\\- Giai đoạn 2007 đến nay: Căn cứ quyết định số 3671/QĐ-UBND ngày 30/12/2005 của UBND tỉnh Phú Thọ về việc phê duyệt phương án và chuyển Công ty Rượu Đồng Xuân thành Công ty Cổ phần, đổi tên từ Công ty Rượu Đồng Xuân thành Công ty Cổ phần Bia, Rượu Sài Gòn – Đồng Xuân, hoạt động theo Giấy chứng nhận đăng ký kinh doanh số 1803000486 do Sở Kế hoạch và Đầu tư tỉnh Phú Thọ cấp lần đầu ngày 22/3/2007 với vốn điều lệ là 30 tỷ đồng.",
+        "line_sha256": "12dba7eb02c614106d850471022dec5d34c47107538060afe620fb5408cc93cd"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "independent-hkt-capital-2011-01": {
+    "source_id": "HKT",
+    "identity": {
+      "metric": "vốn điều lệ",
+      "years": [
+        "2011"
+      ],
+      "role": "historical",
+      "scope": "reporting_company",
+      "time_semantics": "explicit"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 78,
+        "page": 3,
+        "text": "Năm 2011, Công ty chuyển đổi loại hình doanh nghiệp thành công ty cổ phần có tên giao dịch Công ty cổ phần Chè Hiệp Khánh với số vốn điều lệ ban đầu là 3,1 tỷ đồng, gồm 03 cổ đông sáng lập là ông Phạm Vũ Khánh, bà Nguyễn Thị Thắm và ông Phạm Vũ Tuấn. Việc chuyển đổi hình thức doanh nghiệp khẳng định lĩnh vực sản xuất và kinh doanh chính của Công ty là chế biến, gia công chè với những cổ đông sáng lập là người đã có nhiều kinh nghiệm trong ngành. Đây cũng là nền tảng để Công ty định hướng chiến lược phát triển lâu dài.",
+        "line_sha256": "689944f232ae2db1358e7536a8086e9eb99b95543b13507bf314557b57bbaba4"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "independent-hkt-capital-2011-02": {
+    "source_id": "HKT",
+    "identity": {
+      "metric": "vốn điều lệ",
+      "years": [
+        "2011"
+      ],
+      "role": "historical",
+      "scope": "reporting_company",
+      "time_semantics": "explicit"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 78,
+        "page": 3,
+        "text": "Năm 2011, Công ty chuyển đổi loại hình doanh nghiệp thành công ty cổ phần có tên giao dịch Công ty cổ phần Chè Hiệp Khánh với số vốn điều lệ ban đầu là 3,1 tỷ đồng, gồm 03 cổ đông sáng lập là ông Phạm Vũ Khánh, bà Nguyễn Thị Thắm và ông Phạm Vũ Tuấn. Việc chuyển đổi hình thức doanh nghiệp khẳng định lĩnh vực sản xuất và kinh doanh chính của Công ty là chế biến, gia công chè với những cổ đông sáng lập là người đã có nhiều kinh nghiệm trong ngành. Đây cũng là nền tảng để Công ty định hướng chiến lược phát triển lâu dài.",
+        "line_sha256": "689944f232ae2db1358e7536a8086e9eb99b95543b13507bf314557b57bbaba4"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "independent-hkt-capital-2018-01": {
+    "source_id": "HKT",
+    "identity": {
+      "metric": "vốn điều lệ",
+      "years": [
+        "2018"
+      ],
+      "role": "historical",
+      "scope": "reporting_company",
+      "time_semantics": "explicit"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 261,
+        "page": 10,
+        "text": "\\- Thay đổi lần 1 ngày 11/05/2018: Tăng vốn điều lệ từ 55.773.000.000 đồng lên 61.350.290.000 đồng bằng phương thức phát hành cổ phiếu trả cổ tức.",
+        "line_sha256": "f9fe4776d7237f946f6adeadb9c7789e10b8dbbc2cb200d53fae4164c9d1d427"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "independent-hkt-capital-2018-02": {
+    "source_id": "HKT",
+    "identity": {
+      "metric": "vốn điều lệ",
+      "years": [
+        "2018"
+      ],
+      "role": "historical",
+      "scope": "reporting_company",
+      "time_semantics": "explicit"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 261,
+        "page": 10,
+        "text": "\\- Thay đổi lần 1 ngày 11/05/2018: Tăng vốn điều lệ từ 55.773.000.000 đồng lên 61.350.290.000 đồng bằng phương thức phát hành cổ phiếu trả cổ tức.",
+        "line_sha256": "f9fe4776d7237f946f6adeadb9c7789e10b8dbbc2cb200d53fae4164c9d1d427"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "independent-hav-overdue-01": {
+    "source_id": "HAV",
+    "identity": {
+      "metric": "nợ phải trả quá hạn",
+      "years": [
+        "2024"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "time_semantics": "explicit"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 678,
+        "page": 28,
+        "text": "Ngoài ra, chúng tôi muốn lưu ý người đọc tới thuyết minh số V.15, tại ngày 31/3/2024 nợ phải trả quá hạn là 400.000.000 VND, lỗ lũy kế của Công ty đến ngày 31/3/2024 là 26.125.997.164 VND chiếm 79,22% vốn góp của chủ sở hữu. Trong năm tài chính kết thúc cùng ngày, Công ty đã thanh lý toàn bộ tài sản dây truyền máy móc, thiết bị thuộc sở hữu của Công ty. Khả năng hoạt động liên tục của Công ty phụ thuộc vào việc cho thuê hạ tầng và hợp tác kinh doanh trên đất hợp pháp tại địa điểm lô B5A Cụm Công nghiệp thực phẩm Hapro, Gia Lâm, Hà Nội.",
+        "line_sha256": "258182dcb896a461b50ace36efe2a2d8ed5e4591dece07543caab6c019e0ec05"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "independent-hav-overdue-02": {
+    "source_id": "HAV",
+    "identity": {
+      "metric": "nợ phải trả quá hạn",
+      "years": [
+        "2024"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "time_semantics": "explicit"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 678,
+        "page": 28,
+        "text": "Ngoài ra, chúng tôi muốn lưu ý người đọc tới thuyết minh số V.15, tại ngày 31/3/2024 nợ phải trả quá hạn là 400.000.000 VND, lỗ lũy kế của Công ty đến ngày 31/3/2024 là 26.125.997.164 VND chiếm 79,22% vốn góp của chủ sở hữu. Trong năm tài chính kết thúc cùng ngày, Công ty đã thanh lý toàn bộ tài sản dây truyền máy móc, thiết bị thuộc sở hữu của Công ty. Khả năng hoạt động liên tục của Công ty phụ thuộc vào việc cho thuê hạ tầng và hợp tác kinh doanh trên đất hợp pháp tại địa điểm lô B5A Cụm Công nghiệp thực phẩm Hapro, Gia Lâm, Hà Nội.",
+        "line_sha256": "258182dcb896a461b50ace36efe2a2d8ed5e4591dece07543caab6c019e0ec05"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "independent-hav-accumulated-loss-01": {
+    "source_id": "HAV",
+    "identity": {
+      "metric": "lỗ lũy kế",
+      "years": [
+        "2024"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "time_semantics": "explicit"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 678,
+        "page": 28,
+        "text": "Ngoài ra, chúng tôi muốn lưu ý người đọc tới thuyết minh số V.15, tại ngày 31/3/2024 nợ phải trả quá hạn là 400.000.000 VND, lỗ lũy kế của Công ty đến ngày 31/3/2024 là 26.125.997.164 VND chiếm 79,22% vốn góp của chủ sở hữu. Trong năm tài chính kết thúc cùng ngày, Công ty đã thanh lý toàn bộ tài sản dây truyền máy móc, thiết bị thuộc sở hữu của Công ty. Khả năng hoạt động liên tục của Công ty phụ thuộc vào việc cho thuê hạ tầng và hợp tác kinh doanh trên đất hợp pháp tại địa điểm lô B5A Cụm Công nghiệp thực phẩm Hapro, Gia Lâm, Hà Nội.",
+        "line_sha256": "258182dcb896a461b50ace36efe2a2d8ed5e4591dece07543caab6c019e0ec05"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "independent-hav-accumulated-loss-02": {
+    "source_id": "HAV",
+    "identity": {
+      "metric": "lỗ lũy kế",
+      "years": [
+        "2024"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "time_semantics": "explicit"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 678,
+        "page": 28,
+        "text": "Ngoài ra, chúng tôi muốn lưu ý người đọc tới thuyết minh số V.15, tại ngày 31/3/2024 nợ phải trả quá hạn là 400.000.000 VND, lỗ lũy kế của Công ty đến ngày 31/3/2024 là 26.125.997.164 VND chiếm 79,22% vốn góp của chủ sở hữu. Trong năm tài chính kết thúc cùng ngày, Công ty đã thanh lý toàn bộ tài sản dây truyền máy móc, thiết bị thuộc sở hữu của Công ty. Khả năng hoạt động liên tục của Công ty phụ thuộc vào việc cho thuê hạ tầng và hợp tác kinh doanh trên đất hợp pháp tại địa điểm lô B5A Cụm Công nghiệp thực phẩm Hapro, Gia Lâm, Hà Nội.",
+        "line_sha256": "258182dcb896a461b50ace36efe2a2d8ed5e4591dece07543caab6c019e0ec05"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "independent-mgg-forecast-pbt-01": {
+    "source_id": "MGG",
+    "identity": {
+      "metric": "lợi nhuận trước thuế",
+      "years": [
+        "2024"
+      ],
+      "role": "forecast",
+      "scope": "reporting_company",
+      "time_semantics": "explicit"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 207,
+        "page": 8,
+        "text": "\\- Do TT khó khăn, LN trước thuế 2024 dự kiến 20 tỷ VND và chia cổ tức dự kiến 15%. HĐQT phần đấu vượt chỉ tiêu đề ra.",
+        "line_sha256": "22c625b407f8250d87db0533da9f29a77de52e3d10b197fa6deda17729e0e918"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "independent-mgg-forecast-pbt-02": {
+    "source_id": "MGG",
+    "identity": {
+      "metric": "lợi nhuận trước thuế",
+      "years": [
+        "2024"
+      ],
+      "role": "forecast",
+      "scope": "reporting_company",
+      "time_semantics": "explicit"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 207,
+        "page": 8,
+        "text": "\\- Do TT khó khăn, LN trước thuế 2024 dự kiến 20 tỷ VND và chia cổ tức dự kiến 15%. HĐQT phần đấu vượt chỉ tiêu đề ra.",
+        "line_sha256": "22c625b407f8250d87db0533da9f29a77de52e3d10b197fa6deda17729e0e918"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "independent-ssg-total-revenue-text-01": {
+    "source_id": "SSG",
+    "identity": {
+      "metric": "tổng doanh thu",
+      "years": [
+        "2024"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "time_semantics": "explicit"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 77,
+        "page": 4,
+        "text": "\\- Doanh thu của Công ty chủ yếu từ lĩnh vực vận tải biển, hoạt động tài chính và thanh lý bán tàu. Tổng doanh thu năm 2024 của Công ty là 107.836 triệu đồng, đạt 357% kế hoạch, bằng 301% năm 2023.",
+        "line_sha256": "36a7ee4e50a64e7077734c3ead1cd9be2d530d78c651ba4671dae50a2548c8b6"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "independent-ssg-total-revenue-text-02": {
+    "source_id": "SSG",
+    "identity": {
+      "metric": "tổng doanh thu",
+      "years": [
+        "2024"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "time_semantics": "explicit"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 77,
+        "page": 4,
+        "text": "\\- Doanh thu của Công ty chủ yếu từ lĩnh vực vận tải biển, hoạt động tài chính và thanh lý bán tàu. Tổng doanh thu năm 2024 của Công ty là 107.836 triệu đồng, đạt 357% kế hoạch, bằng 301% năm 2023.",
+        "line_sha256": "36a7ee4e50a64e7077734c3ead1cd9be2d530d78c651ba4671dae50a2548c8b6"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "independent-ssg-salary-cost-01": {
+    "source_id": "SSG",
+    "identity": {
+      "metric": "chi phí tiền lương",
+      "years": [
+        "2024"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "time_semantics": "explicit"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 216,
+        "page": 8,
+        "text": "Năm 2024, chi phí tiền lương là 8.284 triệu đồng bằng 86,3% so với phê duyệt của Đại hội đồng cổ đông thường niên năm 2024 (9.600 triệu đồng) và bằng 90,66% so với 2023 (9.138 triệu đồng).",
+        "line_sha256": "7bec81465e98ea282163e03d233c57fd0774d5d008d304b84b4dba9e73d0a691"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "independent-ssg-salary-cost-02": {
+    "source_id": "SSG",
+    "identity": {
+      "metric": "chi phí tiền lương",
+      "years": [
+        "2024"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "time_semantics": "explicit"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 216,
+        "page": 8,
+        "text": "Năm 2024, chi phí tiền lương là 8.284 triệu đồng bằng 86,3% so với phê duyệt của Đại hội đồng cổ đông thường niên năm 2024 (9.600 triệu đồng) và bằng 90,66% so với 2023 (9.138 triệu đồng).",
+        "line_sha256": "7bec81465e98ea282163e03d233c57fd0774d5d008d304b84b4dba9e73d0a691"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "independent-bsd-net-01": {
+    "source_id": "BSD",
+    "identity": {
+      "metric": "doanh thu thuần",
+      "years": [
+        "2023"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "time_semantics": "explicit"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 277,
+        "page": 9,
+        "text": "Chỉ tiêu | ĐVT | Năm 2022 | Năm 2023 | % 2023/2022",
+        "line_sha256": "1f8c372bcb7ac154daaf435e85deda98fb67d1f1d2a9e6849cd14660aafb4bba"
+      },
+      {
+        "line_number": 280,
+        "page": 9,
+        "text": "Doanh thu thuần | VNĐ | Năm 2022: 289,078,607,069 | Năm 2023: 311,192,583,425 | 108%",
+        "line_sha256": "d3b2b829acc3f56beebd2e72afdd3d00c8df387e459c9f706e7467059d311e30"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "independent-bsd-net-02": {
+    "source_id": "BSD",
+    "identity": {
+      "metric": "doanh thu thuần",
+      "years": [
+        "2023"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "time_semantics": "explicit"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 277,
+        "page": 9,
+        "text": "Chỉ tiêu | ĐVT | Năm 2022 | Năm 2023 | % 2023/2022",
+        "line_sha256": "1f8c372bcb7ac154daaf435e85deda98fb67d1f1d2a9e6849cd14660aafb4bba"
+      },
+      {
+        "line_number": 280,
+        "page": 9,
+        "text": "Doanh thu thuần | VNĐ | Năm 2022: 289,078,607,069 | Năm 2023: 311,192,583,425 | 108%",
+        "line_sha256": "d3b2b829acc3f56beebd2e72afdd3d00c8df387e459c9f706e7467059d311e30"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "independent-cms-net-01": {
+    "source_id": "CMS",
+    "identity": {
+      "metric": "doanh thu thuần",
+      "years": [
+        "2023"
+      ],
+      "role": "actual",
+      "scope": "consolidated",
+      "time_semantics": "explicit"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 294,
+        "page": 12,
+        "text": "- Kết quả hoạt động sản xuất kinh doanh trong năm toàn hệ thống:",
+        "line_sha256": "debb01f2efb81e582abf3271ccf818955024db7e0b494ae0354859009e25aa00"
+      },
+      {
+        "line_number": 302,
+        "page": 13,
+        "text": "STT | Nội dung | Năm 2022 | Năm 2023",
+        "line_sha256": "680841a3cdaf08ea559b5cc4033e66e87bebe2e1bf5c854bf9107937b9b5c2ae"
+      },
+      {
+        "line_number": 305,
+        "page": 13,
+        "text": "STT: 3 | Doanh thu thuần về bán hàng và cung cấp dịch vụ (3=1-2) | Năm 2022: 160.239.540.091 | Năm 2023: 98.101.923.040",
+        "line_sha256": "7465f61f590dcb0a9f7806b45dec5fd5ac8a845c9c15f6f098d735b2fe16c815"
+      },
+      {
+        "line_number": 328,
+        "page": 13,
+        "text": "> (Xem tại Báo cáo tài chính hợp nhất đã được kiểm toán)",
+        "line_sha256": "f5e2e5039c946a2250b06005c4bda820e8dab941e9ddce31daa492004c9e94a1"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "independent-cms-net-02": {
+    "source_id": "CMS",
+    "identity": {
+      "metric": "doanh thu thuần",
+      "years": [
+        "2023"
+      ],
+      "role": "actual",
+      "scope": "consolidated",
+      "time_semantics": "explicit"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 294,
+        "page": 12,
+        "text": "- Kết quả hoạt động sản xuất kinh doanh trong năm toàn hệ thống:",
+        "line_sha256": "debb01f2efb81e582abf3271ccf818955024db7e0b494ae0354859009e25aa00"
+      },
+      {
+        "line_number": 302,
+        "page": 13,
+        "text": "STT | Nội dung | Năm 2022 | Năm 2023",
+        "line_sha256": "680841a3cdaf08ea559b5cc4033e66e87bebe2e1bf5c854bf9107937b9b5c2ae"
+      },
+      {
+        "line_number": 305,
+        "page": 13,
+        "text": "STT: 3 | Doanh thu thuần về bán hàng và cung cấp dịch vụ (3=1-2) | Năm 2022: 160.239.540.091 | Năm 2023: 98.101.923.040",
+        "line_sha256": "7465f61f590dcb0a9f7806b45dec5fd5ac8a845c9c15f6f098d735b2fe16c815"
+      },
+      {
+        "line_number": 328,
+        "page": 13,
+        "text": "> (Xem tại Báo cáo tài chính hợp nhất đã được kiểm toán)",
+        "line_sha256": "f5e2e5039c946a2250b06005c4bda820e8dab941e9ddce31daa492004c9e94a1"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "independent-hav-net-01": {
+    "source_id": "HAV",
+    "identity": {
+      "metric": "doanh thu thuần",
+      "years": [
+        "2023"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "time_semantics": "explicit"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 298,
+        "page": 15,
+        "text": "Khoản mục | Thực hiện năm 2022 | Kế hoạch năm 2023 | Thực hiện năm 2023 | %/2022 | %/Kế hoạch",
+        "line_sha256": "d9335f8d77a9da3bcf02e27c91f42b7c2e3d5d0b3755f0bd8ca78dfc258deeb6"
+      },
+      {
+        "line_number": 300,
+        "page": 15,
+        "text": "1. Doanh thu thuần | Thực hiện năm 2022: 1.055 | Kế hoạch năm 2023: 1.130 | Thực hiện năm 2023: 2.341 | 122% | 107%",
+        "line_sha256": "d569a12a88c032a48a0696d9a2d771238ea6e974edac279b7e4c1eb0e5fe264d"
+      },
+      {
+        "line_number": 454,
+        "page": 20,
+        "text": "3 | Doanh thu thuần | Năm 2022: 1.055 | Năm 2023: 2.341 | 122%",
+        "line_sha256": "4f58db23a1c56953be50be5dfab4d6cbe2ecd7cf77f6477dd43e7675948f2b60"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "independent-hav-net-02": {
+    "source_id": "HAV",
+    "identity": {
+      "metric": "doanh thu thuần",
+      "years": [
+        "2023"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "time_semantics": "explicit"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 298,
+        "page": 15,
+        "text": "Khoản mục | Thực hiện năm 2022 | Kế hoạch năm 2023 | Thực hiện năm 2023 | %/2022 | %/Kế hoạch",
+        "line_sha256": "d9335f8d77a9da3bcf02e27c91f42b7c2e3d5d0b3755f0bd8ca78dfc258deeb6"
+      },
+      {
+        "line_number": 300,
+        "page": 15,
+        "text": "1. Doanh thu thuần | Thực hiện năm 2022: 1.055 | Kế hoạch năm 2023: 1.130 | Thực hiện năm 2023: 2.341 | 122% | 107%",
+        "line_sha256": "d569a12a88c032a48a0696d9a2d771238ea6e974edac279b7e4c1eb0e5fe264d"
+      },
+      {
+        "line_number": 454,
+        "page": 20,
+        "text": "3 | Doanh thu thuần | Năm 2022: 1.055 | Năm 2023: 2.341 | 122%",
+        "line_sha256": "4f58db23a1c56953be50be5dfab4d6cbe2ecd7cf77f6477dd43e7675948f2b60"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "independent-hfx-net-01": {
+    "source_id": "HFX",
+    "identity": {
+      "metric": "doanh thu thuần",
+      "years": [
+        "2023"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "time_semantics": "explicit"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 69,
+        "page": 3,
+        "text": "Chỉ tiêu | 2023 | 2022",
+        "line_sha256": "6767820a6fefb23a1e19aa160426260adfbe3e7f8d325bee3151d8086592064f"
+      },
+      {
+        "line_number": 71,
+        "page": 3,
+        "text": "Doanh thu thuần | 2023: 22006696 697 | 2022: 24 912 334 980",
+        "line_sha256": "1361ac8511f9271f39f63b900106ecae773e6e1da8f059f5ec6afbb7ddc62d66"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "independent-hfx-net-02": {
+    "source_id": "HFX",
+    "identity": {
+      "metric": "doanh thu thuần",
+      "years": [
+        "2023"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "time_semantics": "explicit"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 69,
+        "page": 3,
+        "text": "Chỉ tiêu | 2023 | 2022",
+        "line_sha256": "6767820a6fefb23a1e19aa160426260adfbe3e7f8d325bee3151d8086592064f"
+      },
+      {
+        "line_number": 71,
+        "page": 3,
+        "text": "Doanh thu thuần | 2023: 22006696 697 | 2022: 24 912 334 980",
+        "line_sha256": "1361ac8511f9271f39f63b900106ecae773e6e1da8f059f5ec6afbb7ddc62d66"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "independent-hkt-net-01": {
+    "source_id": "HKT",
+    "identity": {
+      "metric": "doanh thu thuần",
+      "years": [
+        "2023"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "time_semantics": "explicit"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 162,
+        "page": 7,
+        "text": "STT: 1 | Doanh thu thuần | Năm 2022: 235.253.721.218 | Năm 2023: 215.651.459.314 | (8,3%)",
+        "line_sha256": "7198f5f6845ee8e437e40b09a6b1f025ba24d607cbc813fd6137731a7bedf85a"
+      },
+      {
+        "line_number": 199,
+        "page": 8,
+        "text": "Doanh thu thuần | Năm 2022: 235.253.721.218 | Năm 2023: 215.651.459.314 | (8,33%)",
+        "line_sha256": "997835818d3716214a5b0ebd4630447d7b36cec22fa37f87048aecc6113df16d"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "independent-hkt-net-02": {
+    "source_id": "HKT",
+    "identity": {
+      "metric": "doanh thu thuần",
+      "years": [
+        "2023"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "time_semantics": "explicit"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 162,
+        "page": 7,
+        "text": "STT: 1 | Doanh thu thuần | Năm 2022: 235.253.721.218 | Năm 2023: 215.651.459.314 | (8,3%)",
+        "line_sha256": "7198f5f6845ee8e437e40b09a6b1f025ba24d607cbc813fd6137731a7bedf85a"
+      },
+      {
+        "line_number": 199,
+        "page": 8,
+        "text": "Doanh thu thuần | Năm 2022: 235.253.721.218 | Năm 2023: 215.651.459.314 | (8,33%)",
+        "line_sha256": "997835818d3716214a5b0ebd4630447d7b36cec22fa37f87048aecc6113df16d"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "independent-mgg-assets-01": {
+    "source_id": "MGG",
+    "identity": {
+      "metric": "tổng tài sản",
+      "years": [
+        "2023"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "time_semantics": "explicit"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 113,
+        "page": 5,
+        "text": "ĐVT: Tỷ đồng",
+        "line_sha256": "d7f0d8a6e23ed80ebcbf1dc35b514df8c59f77e179dfd00e83a6f9e28de9dc42"
+      },
+      {
+        "line_number": 116,
+        "page": 5,
+        "text": "Tổng giá trị tài sản | Năm 2023: 853,9 | Năm 2022: 954,6 | 90",
+        "line_sha256": "4eaaaa88bfbd839a0e4a2db73c80a6057c2275a000a61b8805e43eaeb72ae20b"
+      },
+      {
+        "line_number": 162,
+        "page": 6,
+        "text": "1 | Tổng tài sản | Năm 2023: 853.906 | Năm 2022: 954.572 | So sánh 2023/2022: (100.666) | 89%",
+        "line_sha256": "ac98507f436f4602257265c3cd1df9ba47d36307f4b92c33d6b350f19e976094"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "independent-mgg-assets-02": {
+    "source_id": "MGG",
+    "identity": {
+      "metric": "tổng tài sản",
+      "years": [
+        "2023"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "time_semantics": "explicit"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 113,
+        "page": 5,
+        "text": "ĐVT: Tỷ đồng",
+        "line_sha256": "d7f0d8a6e23ed80ebcbf1dc35b514df8c59f77e179dfd00e83a6f9e28de9dc42"
+      },
+      {
+        "line_number": 116,
+        "page": 5,
+        "text": "Tổng giá trị tài sản | Năm 2023: 853,9 | Năm 2022: 954,6 | 90",
+        "line_sha256": "4eaaaa88bfbd839a0e4a2db73c80a6057c2275a000a61b8805e43eaeb72ae20b"
+      },
+      {
+        "line_number": 162,
+        "page": 6,
+        "text": "1 | Tổng tài sản | Năm 2023: 853.906 | Năm 2022: 954.572 | So sánh 2023/2022: (100.666) | 89%",
+        "line_sha256": "ac98507f436f4602257265c3cd1df9ba47d36307f4b92c33d6b350f19e976094"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "independent-pdb-net-01": {
+    "source_id": "PDB",
+    "identity": {
+      "metric": "doanh thu thuần",
+      "years": [
+        "2024"
+      ],
+      "role": "actual",
+      "scope": "consolidated",
+      "time_semantics": "explicit"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 205,
+        "page": 8,
+        "text": "Kết quả kinh doanh hợp nhất như sau:",
+        "line_sha256": "a824923601e8e4f51f8290cdd9447bab79de299f3880cbc5ec514831db082b22"
+      },
+      {
+        "line_number": 207,
+        "page": 8,
+        "text": "Nguồn: BCTC kiểm toán hợp nhất 2024 của Din Capital",
+        "line_sha256": "2f24e918e0ee2f9a50ca90a3ffe3deb7371d001e5edacaf130a94e8b02e19fc6"
+      },
+      {
+        "line_number": 208,
+        "page": 8,
+        "text": "Chỉ tiêu | Kế hoạch 2024 | Thực hiện 2024 | Thực hiện 2023 | % thực hiện so với kế hoạch 2024 | % thực hiện so với 2023",
+        "line_sha256": "d5d99abab66e4d2290ab3c934004e1d3fee331eca6ae23adc2fb8ecde121046a"
+      },
+      {
+        "line_number": 210,
+        "page": 8,
+        "text": "Doanh thu thuần | Kế hoạch 2024: 257.000 | Thực hiện 2024: 307.927 | Thực hiện 2023: 235.110 | % thực hiện so với kế hoạch 2024: 119,8% | % thực hiện so với 2023: 131,0%",
+        "line_sha256": "5a9bee2099f6d85009cbf301760c7f9035341c1add9702ecc114c4264b8e137b"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development.",
+    "legacy_entity_scopes": [
+      "consolidated"
+    ],
+    "legacy_entity_basis": "Source headings on lines 205 and 207 explicitly state consolidated business results and audited consolidated statements of Din Capital, within the same table context."
+  },
+  "independent-pdb-net-02": {
+    "source_id": "PDB",
+    "identity": {
+      "metric": "doanh thu thuần",
+      "years": [
+        "2024"
+      ],
+      "role": "actual",
+      "scope": "consolidated",
+      "time_semantics": "explicit"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 205,
+        "page": 8,
+        "text": "Kết quả kinh doanh hợp nhất như sau:",
+        "line_sha256": "a824923601e8e4f51f8290cdd9447bab79de299f3880cbc5ec514831db082b22"
+      },
+      {
+        "line_number": 207,
+        "page": 8,
+        "text": "Nguồn: BCTC kiểm toán hợp nhất 2024 của Din Capital",
+        "line_sha256": "2f24e918e0ee2f9a50ca90a3ffe3deb7371d001e5edacaf130a94e8b02e19fc6"
+      },
+      {
+        "line_number": 208,
+        "page": 8,
+        "text": "Chỉ tiêu | Kế hoạch 2024 | Thực hiện 2024 | Thực hiện 2023 | % thực hiện so với kế hoạch 2024 | % thực hiện so với 2023",
+        "line_sha256": "d5d99abab66e4d2290ab3c934004e1d3fee331eca6ae23adc2fb8ecde121046a"
+      },
+      {
+        "line_number": 210,
+        "page": 8,
+        "text": "Doanh thu thuần | Kế hoạch 2024: 257.000 | Thực hiện 2024: 307.927 | Thực hiện 2023: 235.110 | % thực hiện so với kế hoạch 2024: 119,8% | % thực hiện so với 2023: 131,0%",
+        "line_sha256": "5a9bee2099f6d85009cbf301760c7f9035341c1add9702ecc114c4264b8e137b"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development.",
+    "legacy_entity_scopes": [
+      "consolidated"
+    ],
+    "legacy_entity_basis": "Source headings on lines 205 and 207 explicitly state consolidated business results and audited consolidated statements of Din Capital, within the same table context."
+  },
+  "independent-ssg-assets-01": {
+    "source_id": "SSG",
+    "identity": {
+      "metric": "tổng tài sản",
+      "years": [
+        "2024"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "time_semantics": "explicit"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 126,
+        "page": 6,
+        "text": "Tổng giá trị tài sản | Năm 2023: 64.442 | Năm 2024: 122.501 | 190,10%",
+        "line_sha256": "bd68f69fab5e9f25d12540adbb621d96044bb4a99f0eb84669d565c584bc6bb5"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "independent-ssg-assets-02": {
+    "source_id": "SSG",
+    "identity": {
+      "metric": "tổng tài sản",
+      "years": [
+        "2024"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "time_semantics": "explicit"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 126,
+        "page": 6,
+        "text": "Tổng giá trị tài sản | Năm 2023: 64.442 | Năm 2024: 122.501 | 190,10%",
+        "line_sha256": "bd68f69fab5e9f25d12540adbb621d96044bb4a99f0eb84669d565c584bc6bb5"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "independent-bsd-assets-change-01": {
+    "source_id": "BSD",
+    "identity": {
+      "metric": "tổng tài sản",
+      "years": [
+        "2022",
+        "2023"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "time_semantics": "explicit"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 277,
+        "page": 9,
+        "text": "Chỉ tiêu | ĐVT | Năm 2022 | Năm 2023 | % 2023/2022",
+        "line_sha256": "1f8c372bcb7ac154daaf435e85deda98fb67d1f1d2a9e6849cd14660aafb4bba"
+      },
+      {
+        "line_number": 279,
+        "page": 9,
+        "text": "Tổng giá trị tài sản | VNĐ | Năm 2022: 152,103,603,509 | Năm 2023: 156,246,761,908 | 103%",
+        "line_sha256": "cff9d9016242b12b141736af05644e8fd41c1f0cc28aca13e3bf8d9f6c2ead7e"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "independent-bsd-assets-change-02": {
+    "source_id": "BSD",
+    "identity": {
+      "metric": "tổng tài sản",
+      "years": [
+        "2022",
+        "2023"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "time_semantics": "explicit"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 277,
+        "page": 9,
+        "text": "Chỉ tiêu | ĐVT | Năm 2022 | Năm 2023 | % 2023/2022",
+        "line_sha256": "1f8c372bcb7ac154daaf435e85deda98fb67d1f1d2a9e6849cd14660aafb4bba"
+      },
+      {
+        "line_number": 279,
+        "page": 9,
+        "text": "Tổng giá trị tài sản | VNĐ | Năm 2022: 152,103,603,509 | Năm 2023: 156,246,761,908 | 103%",
+        "line_sha256": "cff9d9016242b12b141736af05644e8fd41c1f0cc28aca13e3bf8d9f6c2ead7e"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "independent-cms-net-change-01": {
+    "source_id": "CMS",
+    "identity": {
+      "metric": "doanh thu thuần",
+      "years": [
+        "2022",
+        "2023"
+      ],
+      "role": "actual",
+      "scope": "consolidated",
+      "time_semantics": "explicit"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 294,
+        "page": 12,
+        "text": "- Kết quả hoạt động sản xuất kinh doanh trong năm toàn hệ thống:",
+        "line_sha256": "debb01f2efb81e582abf3271ccf818955024db7e0b494ae0354859009e25aa00"
+      },
+      {
+        "line_number": 302,
+        "page": 13,
+        "text": "STT | Nội dung | Năm 2022 | Năm 2023",
+        "line_sha256": "680841a3cdaf08ea559b5cc4033e66e87bebe2e1bf5c854bf9107937b9b5c2ae"
+      },
+      {
+        "line_number": 305,
+        "page": 13,
+        "text": "STT: 3 | Doanh thu thuần về bán hàng và cung cấp dịch vụ (3=1-2) | Năm 2022: 160.239.540.091 | Năm 2023: 98.101.923.040",
+        "line_sha256": "7465f61f590dcb0a9f7806b45dec5fd5ac8a845c9c15f6f098d735b2fe16c815"
+      },
+      {
+        "line_number": 328,
+        "page": 13,
+        "text": "> (Xem tại Báo cáo tài chính hợp nhất đã được kiểm toán)",
+        "line_sha256": "f5e2e5039c946a2250b06005c4bda820e8dab941e9ddce31daa492004c9e94a1"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "independent-cms-net-change-02": {
+    "source_id": "CMS",
+    "identity": {
+      "metric": "doanh thu thuần",
+      "years": [
+        "2022",
+        "2023"
+      ],
+      "role": "actual",
+      "scope": "consolidated",
+      "time_semantics": "explicit"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 294,
+        "page": 12,
+        "text": "- Kết quả hoạt động sản xuất kinh doanh trong năm toàn hệ thống:",
+        "line_sha256": "debb01f2efb81e582abf3271ccf818955024db7e0b494ae0354859009e25aa00"
+      },
+      {
+        "line_number": 302,
+        "page": 13,
+        "text": "STT | Nội dung | Năm 2022 | Năm 2023",
+        "line_sha256": "680841a3cdaf08ea559b5cc4033e66e87bebe2e1bf5c854bf9107937b9b5c2ae"
+      },
+      {
+        "line_number": 305,
+        "page": 13,
+        "text": "STT: 3 | Doanh thu thuần về bán hàng và cung cấp dịch vụ (3=1-2) | Năm 2022: 160.239.540.091 | Năm 2023: 98.101.923.040",
+        "line_sha256": "7465f61f590dcb0a9f7806b45dec5fd5ac8a845c9c15f6f098d735b2fe16c815"
+      },
+      {
+        "line_number": 328,
+        "page": 13,
+        "text": "> (Xem tại Báo cáo tài chính hợp nhất đã được kiểm toán)",
+        "line_sha256": "f5e2e5039c946a2250b06005c4bda820e8dab941e9ddce31daa492004c9e94a1"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "independent-cms-gross-change-01": {
+    "source_id": "CMS",
+    "identity": {
+      "metric": "lợi nhuận gộp",
+      "years": [
+        "2022",
+        "2023"
+      ],
+      "role": "actual",
+      "scope": "consolidated",
+      "time_semantics": "explicit"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 294,
+        "page": 12,
+        "text": "- Kết quả hoạt động sản xuất kinh doanh trong năm toàn hệ thống:",
+        "line_sha256": "debb01f2efb81e582abf3271ccf818955024db7e0b494ae0354859009e25aa00"
+      },
+      {
+        "line_number": 302,
+        "page": 13,
+        "text": "STT | Nội dung | Năm 2022 | Năm 2023",
+        "line_sha256": "680841a3cdaf08ea559b5cc4033e66e87bebe2e1bf5c854bf9107937b9b5c2ae"
+      },
+      {
+        "line_number": 307,
+        "page": 13,
+        "text": "STT: 5 | Lợi nhuận gộp về bán hàng và cung cấp dịch vụ (5=3-4) | Năm 2022: 13.257.318.800 | Năm 2023: 10.004.588.586",
+        "line_sha256": "fe809a08e5071f64968a16b7e5489c1199e09dd6f72eb412802adeeb6ef67da6"
+      },
+      {
+        "line_number": 328,
+        "page": 13,
+        "text": "> (Xem tại Báo cáo tài chính hợp nhất đã được kiểm toán)",
+        "line_sha256": "f5e2e5039c946a2250b06005c4bda820e8dab941e9ddce31daa492004c9e94a1"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "independent-cms-gross-change-02": {
+    "source_id": "CMS",
+    "identity": {
+      "metric": "lợi nhuận gộp",
+      "years": [
+        "2022",
+        "2023"
+      ],
+      "role": "actual",
+      "scope": "consolidated",
+      "time_semantics": "explicit"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 294,
+        "page": 12,
+        "text": "- Kết quả hoạt động sản xuất kinh doanh trong năm toàn hệ thống:",
+        "line_sha256": "debb01f2efb81e582abf3271ccf818955024db7e0b494ae0354859009e25aa00"
+      },
+      {
+        "line_number": 302,
+        "page": 13,
+        "text": "STT | Nội dung | Năm 2022 | Năm 2023",
+        "line_sha256": "680841a3cdaf08ea559b5cc4033e66e87bebe2e1bf5c854bf9107937b9b5c2ae"
+      },
+      {
+        "line_number": 307,
+        "page": 13,
+        "text": "STT: 5 | Lợi nhuận gộp về bán hàng và cung cấp dịch vụ (5=3-4) | Năm 2022: 13.257.318.800 | Năm 2023: 10.004.588.586",
+        "line_sha256": "fe809a08e5071f64968a16b7e5489c1199e09dd6f72eb412802adeeb6ef67da6"
+      },
+      {
+        "line_number": 328,
+        "page": 13,
+        "text": "> (Xem tại Báo cáo tài chính hợp nhất đã được kiểm toán)",
+        "line_sha256": "f5e2e5039c946a2250b06005c4bda820e8dab941e9ddce31daa492004c9e94a1"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "independent-hfx-net-change-01": {
+    "source_id": "HFX",
+    "identity": {
+      "metric": "doanh thu thuần",
+      "years": [
+        "2022",
+        "2023"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "time_semantics": "explicit"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 69,
+        "page": 3,
+        "text": "Chỉ tiêu | 2023 | 2022",
+        "line_sha256": "6767820a6fefb23a1e19aa160426260adfbe3e7f8d325bee3151d8086592064f"
+      },
+      {
+        "line_number": 71,
+        "page": 3,
+        "text": "Doanh thu thuần | 2023: 22006696 697 | 2022: 24 912 334 980",
+        "line_sha256": "1361ac8511f9271f39f63b900106ecae773e6e1da8f059f5ec6afbb7ddc62d66"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "independent-hfx-net-change-02": {
+    "source_id": "HFX",
+    "identity": {
+      "metric": "doanh thu thuần",
+      "years": [
+        "2022",
+        "2023"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "time_semantics": "explicit"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 69,
+        "page": 3,
+        "text": "Chỉ tiêu | 2023 | 2022",
+        "line_sha256": "6767820a6fefb23a1e19aa160426260adfbe3e7f8d325bee3151d8086592064f"
+      },
+      {
+        "line_number": 71,
+        "page": 3,
+        "text": "Doanh thu thuần | 2023: 22006696 697 | 2022: 24 912 334 980",
+        "line_sha256": "1361ac8511f9271f39f63b900106ecae773e6e1da8f059f5ec6afbb7ddc62d66"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "independent-hfx-loss-change-01": {
+    "source_id": "HFX",
+    "identity": {
+      "metric": "lãi (lỗ)",
+      "years": [
+        "2022",
+        "2023"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "time_semantics": "explicit"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 69,
+        "page": 3,
+        "text": "Chỉ tiêu | 2023 | 2022",
+        "line_sha256": "6767820a6fefb23a1e19aa160426260adfbe3e7f8d325bee3151d8086592064f"
+      },
+      {
+        "line_number": 72,
+        "page": 3,
+        "text": "Lãi ( lỗ ) | 2023: (200 545 089 095) | 2022: (190 593 213 272)",
+        "line_sha256": "3ed25a30b95eea6f422455ef95540718e5f0c457ceaa9775d1355b4e2b35c2a4"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "independent-hfx-loss-change-02": {
+    "source_id": "HFX",
+    "identity": {
+      "metric": "lãi (lỗ)",
+      "years": [
+        "2022",
+        "2023"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "time_semantics": "explicit"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 69,
+        "page": 3,
+        "text": "Chỉ tiêu | 2023 | 2022",
+        "line_sha256": "6767820a6fefb23a1e19aa160426260adfbe3e7f8d325bee3151d8086592064f"
+      },
+      {
+        "line_number": 72,
+        "page": 3,
+        "text": "Lãi ( lỗ ) | 2023: (200 545 089 095) | 2022: (190 593 213 272)",
+        "line_sha256": "3ed25a30b95eea6f422455ef95540718e5f0c457ceaa9775d1355b4e2b35c2a4"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "independent-mgg-net-change-01": {
+    "source_id": "MGG",
+    "identity": {
+      "metric": "doanh thu thuần",
+      "years": [
+        "2022",
+        "2023"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "time_semantics": "explicit"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 113,
+        "page": 5,
+        "text": "ĐVT: Tỷ đồng",
+        "line_sha256": "d7f0d8a6e23ed80ebcbf1dc35b514df8c59f77e179dfd00e83a6f9e28de9dc42"
+      },
+      {
+        "line_number": 117,
+        "page": 5,
+        "text": "Doanh thu thuần | Năm 2023: 1.745,8 | Năm 2022: 1.976,8 | 88",
+        "line_sha256": "f62231c164f0e0726c0af055cbb64ecee3e3eb95388ebf88b666befbbdae1774"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "independent-mgg-net-change-02": {
+    "source_id": "MGG",
+    "identity": {
+      "metric": "doanh thu thuần",
+      "years": [
+        "2022",
+        "2023"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "time_semantics": "explicit"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 113,
+        "page": 5,
+        "text": "ĐVT: Tỷ đồng",
+        "line_sha256": "d7f0d8a6e23ed80ebcbf1dc35b514df8c59f77e179dfd00e83a6f9e28de9dc42"
+      },
+      {
+        "line_number": 117,
+        "page": 5,
+        "text": "Doanh thu thuần | Năm 2023: 1.745,8 | Năm 2022: 1.976,8 | 88",
+        "line_sha256": "f62231c164f0e0726c0af055cbb64ecee3e3eb95388ebf88b666befbbdae1774"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "independent-pdb-net-change-01": {
+    "source_id": "PDB",
+    "identity": {
+      "metric": "doanh thu thuần",
+      "years": [
+        "2023",
+        "2024"
+      ],
+      "role": "actual",
+      "scope": "consolidated",
+      "time_semantics": "explicit"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 205,
+        "page": 8,
+        "text": "Kết quả kinh doanh hợp nhất như sau:",
+        "line_sha256": "a824923601e8e4f51f8290cdd9447bab79de299f3880cbc5ec514831db082b22"
+      },
+      {
+        "line_number": 207,
+        "page": 8,
+        "text": "Nguồn: BCTC kiểm toán hợp nhất 2024 của Din Capital",
+        "line_sha256": "2f24e918e0ee2f9a50ca90a3ffe3deb7371d001e5edacaf130a94e8b02e19fc6"
+      },
+      {
+        "line_number": 208,
+        "page": 8,
+        "text": "Chỉ tiêu | Kế hoạch 2024 | Thực hiện 2024 | Thực hiện 2023 | % thực hiện so với kế hoạch 2024 | % thực hiện so với 2023",
+        "line_sha256": "d5d99abab66e4d2290ab3c934004e1d3fee331eca6ae23adc2fb8ecde121046a"
+      },
+      {
+        "line_number": 210,
+        "page": 8,
+        "text": "Doanh thu thuần | Kế hoạch 2024: 257.000 | Thực hiện 2024: 307.927 | Thực hiện 2023: 235.110 | % thực hiện so với kế hoạch 2024: 119,8% | % thực hiện so với 2023: 131,0%",
+        "line_sha256": "5a9bee2099f6d85009cbf301760c7f9035341c1add9702ecc114c4264b8e137b"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development.",
+    "legacy_entity_scopes": [
+      "consolidated"
+    ],
+    "legacy_entity_basis": "Source headings on lines 205 and 207 explicitly state consolidated business results and audited consolidated statements of Din Capital, within the same table context."
+  },
+  "independent-pdb-net-change-02": {
+    "source_id": "PDB",
+    "identity": {
+      "metric": "doanh thu thuần",
+      "years": [
+        "2023",
+        "2024"
+      ],
+      "role": "actual",
+      "scope": "consolidated",
+      "time_semantics": "explicit"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 205,
+        "page": 8,
+        "text": "Kết quả kinh doanh hợp nhất như sau:",
+        "line_sha256": "a824923601e8e4f51f8290cdd9447bab79de299f3880cbc5ec514831db082b22"
+      },
+      {
+        "line_number": 207,
+        "page": 8,
+        "text": "Nguồn: BCTC kiểm toán hợp nhất 2024 của Din Capital",
+        "line_sha256": "2f24e918e0ee2f9a50ca90a3ffe3deb7371d001e5edacaf130a94e8b02e19fc6"
+      },
+      {
+        "line_number": 208,
+        "page": 8,
+        "text": "Chỉ tiêu | Kế hoạch 2024 | Thực hiện 2024 | Thực hiện 2023 | % thực hiện so với kế hoạch 2024 | % thực hiện so với 2023",
+        "line_sha256": "d5d99abab66e4d2290ab3c934004e1d3fee331eca6ae23adc2fb8ecde121046a"
+      },
+      {
+        "line_number": 210,
+        "page": 8,
+        "text": "Doanh thu thuần | Kế hoạch 2024: 257.000 | Thực hiện 2024: 307.927 | Thực hiện 2023: 235.110 | % thực hiện so với kế hoạch 2024: 119,8% | % thực hiện so với 2023: 131,0%",
+        "line_sha256": "5a9bee2099f6d85009cbf301760c7f9035341c1add9702ecc114c4264b8e137b"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development.",
+    "legacy_entity_scopes": [
+      "consolidated"
+    ],
+    "legacy_entity_basis": "Source headings on lines 205 and 207 explicitly state consolidated business results and audited consolidated statements of Din Capital, within the same table context."
+  },
+  "independent-pdb-pbt-change-01": {
+    "source_id": "PDB",
+    "identity": {
+      "metric": "lợi nhuận trước thuế",
+      "years": [
+        "2023",
+        "2024"
+      ],
+      "role": "actual",
+      "scope": "consolidated",
+      "time_semantics": "explicit"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 205,
+        "page": 8,
+        "text": "Kết quả kinh doanh hợp nhất như sau:",
+        "line_sha256": "a824923601e8e4f51f8290cdd9447bab79de299f3880cbc5ec514831db082b22"
+      },
+      {
+        "line_number": 207,
+        "page": 8,
+        "text": "Nguồn: BCTC kiểm toán hợp nhất 2024 của Din Capital",
+        "line_sha256": "2f24e918e0ee2f9a50ca90a3ffe3deb7371d001e5edacaf130a94e8b02e19fc6"
+      },
+      {
+        "line_number": 208,
+        "page": 8,
+        "text": "Chỉ tiêu | Kế hoạch 2024 | Thực hiện 2024 | Thực hiện 2023 | % thực hiện so với kế hoạch 2024 | % thực hiện so với 2023",
+        "line_sha256": "d5d99abab66e4d2290ab3c934004e1d3fee331eca6ae23adc2fb8ecde121046a"
+      },
+      {
+        "line_number": 211,
+        "page": 8,
+        "text": "Lợi nhuận trước thuế | Kế hoạch 2024: 11.400 | Thực hiện 2024: 15.656 | Thực hiện 2023: 3.476 | % thực hiện so với kế hoạch 2024: 137,4% | % thực hiện so với 2023: 450,5%",
+        "line_sha256": "7a6f596f5134de4b368d6f14d26dc2eff72ed201e1133fb7edc020d99f5742c3"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development.",
+    "legacy_entity_scopes": [
+      "consolidated"
+    ],
+    "legacy_entity_basis": "Source headings on lines 205 and 207 explicitly state consolidated business results and audited consolidated statements of Din Capital, within the same table context."
+  },
+  "independent-pdb-pbt-change-02": {
+    "source_id": "PDB",
+    "identity": {
+      "metric": "lợi nhuận trước thuế",
+      "years": [
+        "2023",
+        "2024"
+      ],
+      "role": "actual",
+      "scope": "consolidated",
+      "time_semantics": "explicit"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 205,
+        "page": 8,
+        "text": "Kết quả kinh doanh hợp nhất như sau:",
+        "line_sha256": "a824923601e8e4f51f8290cdd9447bab79de299f3880cbc5ec514831db082b22"
+      },
+      {
+        "line_number": 207,
+        "page": 8,
+        "text": "Nguồn: BCTC kiểm toán hợp nhất 2024 của Din Capital",
+        "line_sha256": "2f24e918e0ee2f9a50ca90a3ffe3deb7371d001e5edacaf130a94e8b02e19fc6"
+      },
+      {
+        "line_number": 208,
+        "page": 8,
+        "text": "Chỉ tiêu | Kế hoạch 2024 | Thực hiện 2024 | Thực hiện 2023 | % thực hiện so với kế hoạch 2024 | % thực hiện so với 2023",
+        "line_sha256": "d5d99abab66e4d2290ab3c934004e1d3fee331eca6ae23adc2fb8ecde121046a"
+      },
+      {
+        "line_number": 211,
+        "page": 8,
+        "text": "Lợi nhuận trước thuế | Kế hoạch 2024: 11.400 | Thực hiện 2024: 15.656 | Thực hiện 2023: 3.476 | % thực hiện so với kế hoạch 2024: 137,4% | % thực hiện so với 2023: 450,5%",
+        "line_sha256": "7a6f596f5134de4b368d6f14d26dc2eff72ed201e1133fb7edc020d99f5742c3"
+      }
+    ],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development.",
+    "legacy_entity_scopes": [
+      "consolidated"
+    ],
+    "legacy_entity_basis": "Source headings on lines 205 and 207 explicitly state consolidated business results and audited consolidated statements of Din Capital, within the same table context."
+  },
+  "independent-bsd-boundary-future": {
+    "source_id": "BSD",
+    "identity": {
+      "metric": "vốn điều lệ",
+      "years": [
+        "2030"
+      ],
+      "role": null,
+      "scope": "reporting_company",
+      "time_semantics": null
+    },
+    "source_witnesses": [],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "independent-bsd-boundary-foreign": {
+    "source_id": "BSD",
+    "identity": {
+      "metric": "vốn điều lệ",
+      "years": [
+        "2030"
+      ],
+      "role": null,
+      "scope": "explicit_other_entity",
+      "time_semantics": null
+    },
+    "source_witnesses": [],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "independent-cms-boundary-future": {
+    "source_id": "CMS",
+    "identity": {
+      "metric": "vốn điều lệ",
+      "years": [
+        "2030"
+      ],
+      "role": null,
+      "scope": "reporting_company",
+      "time_semantics": null
+    },
+    "source_witnesses": [],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "independent-cms-boundary-foreign": {
+    "source_id": "CMS",
+    "identity": {
+      "metric": "vốn điều lệ",
+      "years": [
+        "2030"
+      ],
+      "role": null,
+      "scope": "explicit_other_entity",
+      "time_semantics": null
+    },
+    "source_witnesses": [],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "independent-hav-boundary-future": {
+    "source_id": "HAV",
+    "identity": {
+      "metric": "vốn điều lệ",
+      "years": [
+        "2030"
+      ],
+      "role": null,
+      "scope": "reporting_company",
+      "time_semantics": null
+    },
+    "source_witnesses": [],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "independent-hav-boundary-foreign": {
+    "source_id": "HAV",
+    "identity": {
+      "metric": "vốn điều lệ",
+      "years": [
+        "2030"
+      ],
+      "role": null,
+      "scope": "explicit_other_entity",
+      "time_semantics": null
+    },
+    "source_witnesses": [],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "independent-hfx-boundary-future": {
+    "source_id": "HFX",
+    "identity": {
+      "metric": "vốn điều lệ",
+      "years": [
+        "2030"
+      ],
+      "role": null,
+      "scope": "reporting_company",
+      "time_semantics": null
+    },
+    "source_witnesses": [],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "independent-hfx-boundary-foreign": {
+    "source_id": "HFX",
+    "identity": {
+      "metric": "vốn điều lệ",
+      "years": [
+        "2030"
+      ],
+      "role": null,
+      "scope": "explicit_other_entity",
+      "time_semantics": null
+    },
+    "source_witnesses": [],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "independent-hkt-boundary-future": {
+    "source_id": "HKT",
+    "identity": {
+      "metric": "vốn điều lệ",
+      "years": [
+        "2030"
+      ],
+      "role": null,
+      "scope": "reporting_company",
+      "time_semantics": null
+    },
+    "source_witnesses": [],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "independent-hkt-boundary-foreign": {
+    "source_id": "HKT",
+    "identity": {
+      "metric": "vốn điều lệ",
+      "years": [
+        "2030"
+      ],
+      "role": null,
+      "scope": "explicit_other_entity",
+      "time_semantics": null
+    },
+    "source_witnesses": [],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "independent-mgg-boundary-future": {
+    "source_id": "MGG",
+    "identity": {
+      "metric": "vốn điều lệ",
+      "years": [
+        "2030"
+      ],
+      "role": null,
+      "scope": "reporting_company",
+      "time_semantics": null
+    },
+    "source_witnesses": [],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "independent-mgg-boundary-foreign": {
+    "source_id": "MGG",
+    "identity": {
+      "metric": "vốn điều lệ",
+      "years": [
+        "2030"
+      ],
+      "role": null,
+      "scope": "explicit_other_entity",
+      "time_semantics": null
+    },
+    "source_witnesses": [],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "independent-pdb-boundary-future": {
+    "source_id": "PDB",
+    "identity": {
+      "metric": "vốn điều lệ",
+      "years": [
+        "2030"
+      ],
+      "role": null,
+      "scope": "reporting_company",
+      "time_semantics": null
+    },
+    "source_witnesses": [],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "independent-pdb-boundary-foreign": {
+    "source_id": "PDB",
+    "identity": {
+      "metric": "vốn điều lệ",
+      "years": [
+        "2030"
+      ],
+      "role": null,
+      "scope": "explicit_other_entity",
+      "time_semantics": null
+    },
+    "source_witnesses": [],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "independent-ssg-boundary-future": {
+    "source_id": "SSG",
+    "identity": {
+      "metric": "vốn điều lệ",
+      "years": [
+        "2030"
+      ],
+      "role": null,
+      "scope": "reporting_company",
+      "time_semantics": null
+    },
+    "source_witnesses": [],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  },
+  "independent-ssg-boundary-foreign": {
+    "source_id": "SSG",
+    "identity": {
+      "metric": "vốn điều lệ",
+      "years": [
+        "2030"
+      ],
+      "role": null,
+      "scope": "explicit_other_entity",
+      "time_semantics": null
+    },
+    "source_witnesses": [],
+    "basis": "Existing source-adjudicated V2 reference and source-context review, kept separately from runtime and scoring reference. V2 heldout is V3 development."
+  }
+}

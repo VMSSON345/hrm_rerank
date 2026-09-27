@@ -1,0 +1,504 @@
+{
+  "schema": "finhrm-semantic-evaluation-contract-v1",
+  "contract_id": "finhrm-qp4-mineru-markdown-60-semantic-contract-v1",
+  "status": "FROZEN_SOURCE_REVIEW",
+  "scope": {
+    "phase": "Next cycle - Phase 1: evaluation-contract closure only",
+    "runtime_writes_allowed": false,
+    "scorer_design": "Contract-driven and report-agnostic; company, filename, page, year, value and case ID are data in this frozen contract, never scorer branches.",
+    "validation_claim": "This contract closes only the frozen 60-case cohort. It does not claim company/layout-disjoint validation over the repository data directory."
+  },
+  "independence_policy": {
+    "expected_action_source": "Frozen MinerU Markdown and question semantics only",
+    "runtime_output_used_to_choose_expected_action": false,
+    "expected_numeric_values_policy": "Present only for ANSWER_EXACT and used only after an ANSWER to measure exact operation, operands, result, unit and physical pages.",
+    "numeric_equality_proves_physical_identity": false,
+    "non_answer_numeric_expectations_forbidden": true,
+    "physical_mapping_universe": "A proof-eligible physical mapping is a comparison-table cell with complete source-derived row metric, header role/period, entity, unit and page lineage. Narrative restatements without complete row/column cell lineage are corroboration, not competing table-cell mappings.",
+    "narrative_restatement_is_independent_mapping": false,
+    "operand_uniqueness_evaluated_independently": true,
+    "co_table_pairing_can_erase_duplicate_operand_mapping": false
+  },
+  "action_classes": {
+    "ANSWER_EXACT": "The source contains unique complete evidence and the accepted answer exactly replays the required operation, operands, result, unit and physical provenance.",
+    "ABSTAIN_MISSING": "A requested operand or period is not disclosed in the supplied report evidence; no calculation may be accepted.",
+    "FAIL_CLOSED_AMBIGUOUS": "Multiple unresolved physical mappings remain after metric, role, period, entity and unit constraints; no calculation may be accepted.",
+    "REJECT_CONFLICT": "Source-derived identity constraints contradict the selected mapping; no calculation may be accepted. The class is defined by this contract schema but has no source-only expected member in this cohort."
+  },
+  "frozen_inputs": {
+    "case_manifest": {
+      "path": "reports/finhrm_qp4_post_question_surface_post_cache_residual_coverage_cohort_build_v1.json",
+      "sha256": "e084ec16312488c1badb5b645cfdf135a623cf89486d0f189648404fc5de35e6"
+    },
+    "observations": {
+      "path": "reports/finhrm_qp4_mineru_markdown_60_evaluation_v1.json",
+      "sha256": "b35a42017fbc58b5ba7e5bf57236d02396f572b705f91cf61e86f6d17da1c4a9"
+    }
+  },
+  "preserved_artifacts": [
+    {
+      "path": "scripts/run_qp4_mineru_markdown_60_evaluation.py",
+      "sha256": "2f8329cc4143140019747284ae2c580c916f92ab66d488adda4b22c5560fe7cb"
+    },
+    {
+      "path": "reports/finhrm_qp4_mineru_markdown_60_evaluation_v1.json",
+      "sha256": "b35a42017fbc58b5ba7e5bf57236d02396f572b705f91cf61e86f6d17da1c4a9"
+    },
+    {
+      "path": "reports/finhrm_qp4_mineru_markdown_60_evaluation_v1.md",
+      "sha256": "31ce333eb230f7121b55e36786dbb01e649d5f691d13f6f046b99c8127f646e8"
+    }
+  ],
+  "sources": {
+    "AGR_24CN_BCTN.pdf": {
+      "markdown_path": "reports/mineru_markdown_qp4_60/AGR_24CN_BCTN.md",
+      "markdown_sha256": "939c4064ab66b34444b3b49b4bcb1aa809ab1f23ebf84611b3d28b879bfd673b"
+    },
+    "HUB_23CN_BCTN.pdf": {
+      "markdown_path": "reports/mineru_markdown_qp4_60/HUB_23CN_BCTN.md",
+      "markdown_sha256": "1f35664bcb8b04aa7a870c4eafc9449553c4de7b838364a3ff6c4352fad2d8bd"
+    },
+    "ICT_23CN_BCTN.pdf": {
+      "markdown_path": "reports/mineru_markdown_qp4_60/ICT_23CN_BCTN.md",
+      "markdown_sha256": "64a6c4617fd398f7972630f52c79c316c5d99c47743adea0f2984ca98e4f3f25"
+    },
+    "PIC_23CN_BCTN.pdf": {
+      "markdown_path": "reports/mineru_markdown_qp4_60/PIC_23CN_BCTN.md",
+      "markdown_sha256": "ad160ba2aa76f300687bb7a7ee5dbf60d479b79ebc898c4d14390c9b6318cab1"
+    },
+    "SCG_23CN_BCTN.pdf": {
+      "markdown_path": "reports/mineru_markdown_qp4_60/SCG_23CN_BCTN.md",
+      "markdown_sha256": "09e268c891cd8001c459bee97779a02c530e77fa0fb2e9130d87d9a375bb9dd3"
+    },
+    "VNL_23CN_BCTN.pdf": {
+      "markdown_path": "reports/mineru_markdown_qp4_60/VNL_23CN_BCTN.md",
+      "markdown_sha256": "b27ca6cfaef44ec037004eefca0eb56f5587f6190f94aec78422084395cf4075"
+    }
+  },
+  "expected_counts": {
+    "cases": 60,
+    "semantic_groups": 12,
+    "classes": {
+      "ANSWER_EXACT": 45,
+      "ABSTAIN_MISSING": 5,
+      "FAIL_CLOSED_AMBIGUOUS": 10,
+      "REJECT_CONFLICT": 0
+    }
+  },
+  "semantic_groups": [
+    {
+      "semantic_group_id": "qp4-rcc-pic-total-revenue:base_target",
+      "anchor_id": "qp4-rcc-pic-total-revenue",
+      "category": "base_target",
+      "source_name": "PIC_23CN_BCTN.pdf",
+      "expected_action_class": "ANSWER_EXACT",
+      "case_ids": [
+        "qp4-rcc-pic-total-revenue:base_target:surface_0",
+        "qp4-rcc-pic-total-revenue:base_target:surface_1",
+        "qp4-rcc-pic-total-revenue:base_target:surface_2",
+        "qp4-rcc-pic-total-revenue:base_target:surface_3",
+        "qp4-rcc-pic-total-revenue:base_target:surface_4"
+      ],
+      "source_review": {
+        "reason_code": "UNIQUE_COMPLETE_SOURCE_EVIDENCE",
+        "operand_mapping_cardinality": [1, 1],
+        "determination": "The multilevel header fixes prior actual, current plan and current actual; the total-revenue row supplies one physical cell for each requested role/period.",
+        "locations": [
+          {
+            "page": 17,
+            "line_start": 65,
+            "line_end": 72,
+            "required_fragments": ["Thực hiện năm 2022", "Kế hoạch", "Thực hiện", "Tổng doanh thu"]
+          }
+        ],
+        "absent_fragments": []
+      },
+      "exact_answer": {
+        "operation": "RATIO_PERCENT",
+        "operand_values": ["139527.28", "126038.25"],
+        "physical_pages": [17, 17],
+        "result_unit": "%"
+      }
+    },
+    {
+      "semantic_group_id": "qp4-rcc-pic-total-revenue:reference_base_mutation_target",
+      "anchor_id": "qp4-rcc-pic-total-revenue",
+      "category": "reference_base_mutation_target",
+      "source_name": "PIC_23CN_BCTN.pdf",
+      "expected_action_class": "ANSWER_EXACT",
+      "case_ids": [
+        "qp4-rcc-pic-total-revenue:reference_base_mutation_target:surface_0",
+        "qp4-rcc-pic-total-revenue:reference_base_mutation_target:surface_1",
+        "qp4-rcc-pic-total-revenue:reference_base_mutation_target:surface_2",
+        "qp4-rcc-pic-total-revenue:reference_base_mutation_target:surface_3",
+        "qp4-rcc-pic-total-revenue:reference_base_mutation_target:surface_4"
+      ],
+      "source_review": {
+        "reason_code": "UNIQUE_COMPLETE_SOURCE_EVIDENCE",
+        "operand_mapping_cardinality": [1, 1],
+        "determination": "The same total-revenue row uniquely supplies current actual and prior actual under the source-derived multilevel header.",
+        "locations": [
+          {
+            "page": 17,
+            "line_start": 65,
+            "line_end": 72,
+            "required_fragments": ["Thực hiện năm 2022", "Thực hiện", "Tổng doanh thu"]
+          }
+        ],
+        "absent_fragments": []
+      },
+      "exact_answer": {
+        "operation": "RATIO_PERCENT",
+        "operand_values": ["139527.28", "151646.93"],
+        "physical_pages": [17, 17],
+        "result_unit": "%"
+      }
+    },
+    {
+      "semantic_group_id": "qp4-rcc-agr-total-expense:base_target",
+      "anchor_id": "qp4-rcc-agr-total-expense",
+      "category": "base_target",
+      "source_name": "AGR_24CN_BCTN.pdf",
+      "expected_action_class": "ANSWER_EXACT",
+      "case_ids": [
+        "qp4-rcc-agr-total-expense:base_target:surface_0",
+        "qp4-rcc-agr-total-expense:base_target:surface_1",
+        "qp4-rcc-agr-total-expense:base_target:surface_2",
+        "qp4-rcc-agr-total-expense:base_target:surface_3",
+        "qp4-rcc-agr-total-expense:base_target:surface_4"
+      ],
+      "source_review": {
+        "reason_code": "UNIQUE_COMPLETE_SOURCE_EVIDENCE",
+        "operand_mapping_cardinality": [1, 1],
+        "determination": "Hierarchical TH/KH headers and the total-expense row uniquely identify actual 2024 and plan 2024.",
+        "locations": [
+          {
+            "page": 13,
+            "line_start": 46,
+            "line_end": 50,
+            "required_fragments": ["TH 2023", "KH 2024", "TH 2024", "Tổng chi phí"]
+          }
+        ],
+        "absent_fragments": []
+      },
+      "exact_answer": {
+        "operation": "RATIO_PERCENT",
+        "operand_values": ["245.6", "215.0"],
+        "physical_pages": [13, 13],
+        "result_unit": "%"
+      }
+    },
+    {
+      "semantic_group_id": "qp4-rcc-agr-total-expense:reference_base_mutation_target",
+      "anchor_id": "qp4-rcc-agr-total-expense",
+      "category": "reference_base_mutation_target",
+      "source_name": "AGR_24CN_BCTN.pdf",
+      "expected_action_class": "ANSWER_EXACT",
+      "case_ids": [
+        "qp4-rcc-agr-total-expense:reference_base_mutation_target:surface_0",
+        "qp4-rcc-agr-total-expense:reference_base_mutation_target:surface_1",
+        "qp4-rcc-agr-total-expense:reference_base_mutation_target:surface_2",
+        "qp4-rcc-agr-total-expense:reference_base_mutation_target:surface_3",
+        "qp4-rcc-agr-total-expense:reference_base_mutation_target:surface_4"
+      ],
+      "source_review": {
+        "reason_code": "UNIQUE_COMPLETE_SOURCE_EVIDENCE",
+        "operand_mapping_cardinality": [1, 1],
+        "determination": "Hierarchical TH headers and the total-expense row uniquely identify actual 2024 and actual 2023.",
+        "locations": [
+          {
+            "page": 13,
+            "line_start": 46,
+            "line_end": 50,
+            "required_fragments": ["TH 2023", "TH 2024", "Tổng chi phí"]
+          }
+        ],
+        "absent_fragments": []
+      },
+      "exact_answer": {
+        "operation": "RATIO_PERCENT",
+        "operand_values": ["245.6", "177.8"],
+        "physical_pages": [13, 13],
+        "result_unit": "%"
+      }
+    },
+    {
+      "semantic_group_id": "qp4-rcc-hub-parent-profit-after-tax:base_target",
+      "anchor_id": "qp4-rcc-hub-parent-profit-after-tax",
+      "category": "base_target",
+      "source_name": "HUB_23CN_BCTN.pdf",
+      "expected_action_class": "ANSWER_EXACT",
+      "case_ids": [
+        "qp4-rcc-hub-parent-profit-after-tax:base_target:surface_0",
+        "qp4-rcc-hub-parent-profit-after-tax:base_target:surface_1",
+        "qp4-rcc-hub-parent-profit-after-tax:base_target:surface_2",
+        "qp4-rcc-hub-parent-profit-after-tax:base_target:surface_3",
+        "qp4-rcc-hub-parent-profit-after-tax:base_target:surface_4"
+      ],
+      "source_review": {
+        "reason_code": "UNIQUE_COMPLETE_SOURCE_EVIDENCE",
+        "operand_mapping_cardinality": [1, 1],
+        "determination": "The question's parent-company entity selects the separate-company table; within that table the after-tax-profit row uniquely supplies actual and plan 2023. The consolidated table is an explicitly different entity.",
+        "locations": [
+          {
+            "page": 20,
+            "line_start": 75,
+            "line_end": 83,
+            "required_fragments": ["Báo cáo tài chính hợp nhất", "Lợi nhuận sau thuế"]
+          },
+          {
+            "page": 21,
+            "line_start": 90,
+            "line_end": 96,
+            "required_fragments": ["Báo cáo tài chính riêng công ty", "Kế hoạch 2023", "Thực hiện 2023", "Lợi nhuận sau thuế"]
+          }
+        ],
+        "absent_fragments": []
+      },
+      "exact_answer": {
+        "operation": "RATIO_PERCENT",
+        "operand_values": ["46.42", "35.00"],
+        "physical_pages": [21, 21],
+        "result_unit": "%"
+      }
+    },
+    {
+      "semantic_group_id": "qp4-rcc-hub-parent-profit-after-tax:reference_base_mutation_target",
+      "anchor_id": "qp4-rcc-hub-parent-profit-after-tax",
+      "category": "reference_base_mutation_target",
+      "source_name": "HUB_23CN_BCTN.pdf",
+      "expected_action_class": "ANSWER_EXACT",
+      "case_ids": [
+        "qp4-rcc-hub-parent-profit-after-tax:reference_base_mutation_target:surface_0",
+        "qp4-rcc-hub-parent-profit-after-tax:reference_base_mutation_target:surface_1",
+        "qp4-rcc-hub-parent-profit-after-tax:reference_base_mutation_target:surface_2",
+        "qp4-rcc-hub-parent-profit-after-tax:reference_base_mutation_target:surface_3",
+        "qp4-rcc-hub-parent-profit-after-tax:reference_base_mutation_target:surface_4"
+      ],
+      "source_review": {
+        "reason_code": "UNIQUE_COMPLETE_SOURCE_EVIDENCE",
+        "operand_mapping_cardinality": [1, 1],
+        "determination": "The parent-company entity excludes the consolidated table; the separate-company after-tax-profit row uniquely supplies actual 2023 and actual 2022.",
+        "locations": [
+          {
+            "page": 20,
+            "line_start": 75,
+            "line_end": 83,
+            "required_fragments": ["Báo cáo tài chính hợp nhất", "Lợi nhuận sau thuế"]
+          },
+          {
+            "page": 21,
+            "line_start": 90,
+            "line_end": 96,
+            "required_fragments": ["Báo cáo tài chính riêng công ty", "Thực hiện 2022", "Thực hiện 2023", "Lợi nhuận sau thuế"]
+          }
+        ],
+        "absent_fragments": []
+      },
+      "exact_answer": {
+        "operation": "RATIO_PERCENT",
+        "operand_values": ["46.42", "39.98"],
+        "physical_pages": [21, 21],
+        "result_unit": "%"
+      }
+    },
+    {
+      "semantic_group_id": "qp4-rcc-ict-total-revenue:base_target",
+      "anchor_id": "qp4-rcc-ict-total-revenue",
+      "category": "base_target",
+      "source_name": "ICT_23CN_BCTN.pdf",
+      "expected_action_class": "FAIL_CLOSED_AMBIGUOUS",
+      "case_ids": [
+        "qp4-rcc-ict-total-revenue:base_target:surface_0",
+        "qp4-rcc-ict-total-revenue:base_target:surface_1",
+        "qp4-rcc-ict-total-revenue:base_target:surface_2",
+        "qp4-rcc-ict-total-revenue:base_target:surface_3",
+        "qp4-rcc-ict-total-revenue:base_target:surface_4"
+      ],
+      "source_review": {
+        "reason_code": "MULTIPLE_PHYSICAL_MAPPINGS",
+        "operand_mapping_cardinality": [2, 1],
+        "determination": "Two distinct comparison-table cells on the same physical page each have complete row/header lineage mapping total revenue to actual 2023. Equal displayed values and a convenient same-table pairing cannot collapse distinct per-operand physical provenance, so the requested numerator is not unique. Narrative line 80 is only a restatement and is outside the table-cell mapping universe for every group.",
+        "locations": [
+          {
+            "page": 13,
+            "line_start": 55,
+            "line_end": 58,
+            "required_fragments": ["Kế hoạch năm 2023", "Thực hiện năm 2023", "Tổng doanh thu"]
+          },
+          {
+            "page": 13,
+            "line_start": 60,
+            "line_end": 63,
+            "required_fragments": ["Năm 2022", "Năm 2023", "Tổng doanh thu"]
+          }
+        ],
+        "absent_fragments": []
+      }
+    },
+    {
+      "semantic_group_id": "qp4-rcc-ict-total-revenue:reference_base_mutation_target",
+      "anchor_id": "qp4-rcc-ict-total-revenue",
+      "category": "reference_base_mutation_target",
+      "source_name": "ICT_23CN_BCTN.pdf",
+      "expected_action_class": "FAIL_CLOSED_AMBIGUOUS",
+      "case_ids": [
+        "qp4-rcc-ict-total-revenue:reference_base_mutation_target:surface_0",
+        "qp4-rcc-ict-total-revenue:reference_base_mutation_target:surface_1",
+        "qp4-rcc-ict-total-revenue:reference_base_mutation_target:surface_2",
+        "qp4-rcc-ict-total-revenue:reference_base_mutation_target:surface_3",
+        "qp4-rcc-ict-total-revenue:reference_base_mutation_target:surface_4"
+      ],
+      "source_review": {
+        "reason_code": "MULTIPLE_PHYSICAL_MAPPINGS",
+        "operand_mapping_cardinality": [2, 1],
+        "determination": "The requested current-actual numerator has two distinct proof-eligible table-cell mappings across the plan/actual and current/prior tables. Operand uniqueness is evaluated independently, so the prior-actual denominator and same-table pairing do not erase the duplicate numerator provenance. Narrative line 80 is only corroboration under the contract-wide mapping rule.",
+        "locations": [
+          {
+            "page": 13,
+            "line_start": 55,
+            "line_end": 58,
+            "required_fragments": ["Kế hoạch năm 2023", "Thực hiện năm 2023", "Tổng doanh thu"]
+          },
+          {
+            "page": 13,
+            "line_start": 60,
+            "line_end": 63,
+            "required_fragments": ["Năm 2022", "Năm 2023", "Tổng doanh thu"]
+          }
+        ],
+        "absent_fragments": []
+      }
+    },
+    {
+      "semantic_group_id": "qp4-rcc-scg-total-revenue:base_target",
+      "anchor_id": "qp4-rcc-scg-total-revenue",
+      "category": "base_target",
+      "source_name": "SCG_23CN_BCTN.pdf",
+      "expected_action_class": "ANSWER_EXACT",
+      "case_ids": [
+        "qp4-rcc-scg-total-revenue:base_target:surface_0",
+        "qp4-rcc-scg-total-revenue:base_target:surface_1",
+        "qp4-rcc-scg-total-revenue:base_target:surface_2",
+        "qp4-rcc-scg-total-revenue:base_target:surface_3",
+        "qp4-rcc-scg-total-revenue:base_target:surface_4"
+      ],
+      "source_review": {
+        "reason_code": "UNIQUE_COMPLETE_SOURCE_EVIDENCE",
+        "operand_mapping_cardinality": [1, 1],
+        "determination": "The source table uniquely maps total revenue to plan 2023 and actual 2023.",
+        "locations": [
+          {
+            "page": 17,
+            "line_start": 73,
+            "line_end": 76,
+            "required_fragments": ["Kế hoạch năm 2023", "Thực hiện năm 2023", "Tổng doanh thu"]
+          }
+        ],
+        "absent_fragments": []
+      },
+      "exact_answer": {
+        "operation": "RATIO_PERCENT",
+        "operand_values": ["1272", "2000"],
+        "physical_pages": [17, 17],
+        "result_unit": "%"
+      }
+    },
+    {
+      "semantic_group_id": "qp4-rcc-scg-total-revenue:reference_base_mutation_target",
+      "anchor_id": "qp4-rcc-scg-total-revenue",
+      "category": "reference_base_mutation_target",
+      "source_name": "SCG_23CN_BCTN.pdf",
+      "expected_action_class": "ABSTAIN_MISSING",
+      "case_ids": [
+        "qp4-rcc-scg-total-revenue:reference_base_mutation_target:surface_0",
+        "qp4-rcc-scg-total-revenue:reference_base_mutation_target:surface_1",
+        "qp4-rcc-scg-total-revenue:reference_base_mutation_target:surface_2",
+        "qp4-rcc-scg-total-revenue:reference_base_mutation_target:surface_3",
+        "qp4-rcc-scg-total-revenue:reference_base_mutation_target:surface_4"
+      ],
+      "source_review": {
+        "reason_code": "REQUESTED_PERIOD_NOT_DISCLOSED",
+        "operand_mapping_cardinality": [1, 0],
+        "determination": "The supplied MinerU Markdown discloses only plan 2023 and actual 2023 for total revenue; the requested actual-2022 operand is absent from the entire supplied report evidence.",
+        "locations": [
+          {
+            "page": 17,
+            "line_start": 73,
+            "line_end": 76,
+            "required_fragments": ["Kế hoạch năm 2023", "Thực hiện năm 2023", "Tổng doanh thu"]
+          }
+        ],
+        "absent_fragments": ["2022"]
+      }
+    },
+    {
+      "semantic_group_id": "qp4-rcc-vnl-profit-before-tax:base_target",
+      "anchor_id": "qp4-rcc-vnl-profit-before-tax",
+      "category": "base_target",
+      "source_name": "VNL_23CN_BCTN.pdf",
+      "expected_action_class": "ANSWER_EXACT",
+      "case_ids": [
+        "qp4-rcc-vnl-profit-before-tax:base_target:surface_0",
+        "qp4-rcc-vnl-profit-before-tax:base_target:surface_1",
+        "qp4-rcc-vnl-profit-before-tax:base_target:surface_2",
+        "qp4-rcc-vnl-profit-before-tax:base_target:surface_3",
+        "qp4-rcc-vnl-profit-before-tax:base_target:surface_4"
+      ],
+      "source_review": {
+        "reason_code": "UNIQUE_COMPLETE_SOURCE_EVIDENCE",
+        "operand_mapping_cardinality": [1, 1],
+        "determination": "The current/plan/prior header and before-tax-profit row uniquely identify actual 2023 and plan 2023 despite OCR diacritic loss.",
+        "locations": [
+          {
+            "page": 44,
+            "line_start": 165,
+            "line_end": 169,
+            "required_fragments": ["Th c hi n 2023", "K ho ch 2023", "Th c hi n 2022", "Lãi tr c thu"]
+          }
+        ],
+        "absent_fragments": []
+      },
+      "exact_answer": {
+        "operation": "RATIO_PERCENT",
+        "operand_values": ["43.70", "51.00"],
+        "physical_pages": [44, 44],
+        "result_unit": "%"
+      }
+    },
+    {
+      "semantic_group_id": "qp4-rcc-vnl-profit-before-tax:reference_base_mutation_target",
+      "anchor_id": "qp4-rcc-vnl-profit-before-tax",
+      "category": "reference_base_mutation_target",
+      "source_name": "VNL_23CN_BCTN.pdf",
+      "expected_action_class": "ANSWER_EXACT",
+      "case_ids": [
+        "qp4-rcc-vnl-profit-before-tax:reference_base_mutation_target:surface_0",
+        "qp4-rcc-vnl-profit-before-tax:reference_base_mutation_target:surface_1",
+        "qp4-rcc-vnl-profit-before-tax:reference_base_mutation_target:surface_2",
+        "qp4-rcc-vnl-profit-before-tax:reference_base_mutation_target:surface_3",
+        "qp4-rcc-vnl-profit-before-tax:reference_base_mutation_target:surface_4"
+      ],
+      "source_review": {
+        "reason_code": "UNIQUE_COMPLETE_SOURCE_EVIDENCE",
+        "operand_mapping_cardinality": [1, 1],
+        "determination": "The current/prior header and before-tax-profit row uniquely identify actual 2023 and actual 2022 despite OCR diacritic loss.",
+        "locations": [
+          {
+            "page": 44,
+            "line_start": 165,
+            "line_end": 169,
+            "required_fragments": ["Th c hi n 2023", "Th c hi n 2022", "Lãi tr c thu"]
+          }
+        ],
+        "absent_fragments": []
+      },
+      "exact_answer": {
+        "operation": "RATIO_PERCENT",
+        "operand_values": ["43.70", "53.90"],
+        "physical_pages": [44, 44],
+        "result_unit": "%"
+      }
+    }
+  ]
+}

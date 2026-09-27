@@ -1,0 +1,39 @@
+{
+  "schema": "context-fix-additional-v1",
+  "sources": {
+    "HKT": {
+      "path": "data/markdown/scope_unit_v2/HKT_23CN_BCTN--91cc265d0be6d75e.md",
+      "sha256": "b5550a26fa89acab88e14488568090db23761de4d21d8e8ee68f57fb6f6cc31a"
+    },
+    "HAV": {
+      "path": "data/markdown/scope_unit_v2/HAV_23CN_BCTN--e57968185e1c63bc.md",
+      "sha256": "fbda07867fa66a850574a03af75b746748f9d6042c28ce085aa2f31fb211d7e4"
+    },
+    "SSG": {
+      "path": "data/markdown/scope_unit_v2/SSG_24CN_BCTN--03525afbe2d1c74e.md",
+      "sha256": "0b2c2aaa5d4b0fcf968808369355160beac7687a66e0b89ad749e747cec1ecbf"
+    }
+  },
+  "cases": [
+    {
+      "case_id": "context-new-01",
+      "source_id": "HAV",
+      "question": "Vui lòng cho biết lợi nhuận sau thuế thực hiện năm 2023 là bao nhiêu triệu đồng?"
+    },
+    {
+      "case_id": "context-new-02",
+      "source_id": "HKT",
+      "question": "Cho biết lợi nhuận sau thuế KH năm 2023 là bao nhiêu đồng?"
+    },
+    {
+      "case_id": "context-new-03",
+      "source_id": "SSG",
+      "question": "Xin cho biết lợi nhuận sau thuế KH năm 2024 là bao nhiêu triệu đồng?"
+    },
+    {
+      "case_id": "context-new-04",
+      "source_id": "HAV",
+      "question": "Doanh thu thuần năm 2023 hoặc năm 2022 là bao nhiêu triệu đồng?"
+    }
+  ]
+}

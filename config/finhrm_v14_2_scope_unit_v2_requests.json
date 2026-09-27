@@ -1,0 +1,387 @@
+{
+  "schema": "finhrm_v14_2_markdown_e2e_v1",
+  "sources": {
+    "ASM": {
+      "path": "data/markdown/ASM_23CN_BCTN--6e1bff5169b34a91.md",
+      "sha256": "747886793a62056d727f8b1628efe78d294fa4942c1277d519f7b85cd7158ead"
+    },
+    "BHG": {
+      "path": "data/markdown/scope_unit_v2/BHG_23CN_BCTN--62a6808775bffb52.md",
+      "sha256": "b3c461ce5230b341c8c18cf348efc4745c093cd835fded8bf05a47d7b1da94b0"
+    },
+    "BSD": {
+      "path": "data/markdown/scope_unit_v2/BSD_23CN_BCTN--b90d50e824213031.md",
+      "sha256": "bd3d80dde2d999caa227a1d6965b03008e7f7c06146b7ea1d45e375ba5d53748"
+    },
+    "CMS": {
+      "path": "data/markdown/scope_unit_v2/CMS_23CN_BCTN--b5944cc10f6fe4f0.md",
+      "sha256": "8076e60944faa1bc3302c67eb7ad33a2b10b36c8eeea4a9cd19bbbcfbf3ee57d"
+    },
+    "DAT": {
+      "path": "data/markdown/DAT_23CN_BCTN--d63cae36fb099013.md",
+      "sha256": "c701f518929fc60d4b9b8366ffe9c4001e2074bce5a63a5c4bb4256ce3a9178d"
+    },
+    "DXG": {
+      "path": "data/markdown/DXG_23CN_BCTN--a318f16b5bb351b2.md",
+      "sha256": "049ff73505043f5b855e8486010ea1fd5f0180d55ea93d2b9fb9d5832ef3a3fd"
+    },
+    "GGG": {
+      "path": "data/markdown/GGG_23CN_BCTN--e86ead28fb761a59.md",
+      "sha256": "fcfe9688835b4eb0c8387f7621d15fe684537bc454a52b4d0919b05cabb09ead"
+    },
+    "HAV": {
+      "path": "data/markdown/scope_unit_v2/HAV_23CN_BCTN--e57968185e1c63bc.md",
+      "sha256": "fbda07867fa66a850574a03af75b746748f9d6042c28ce085aa2f31fb211d7e4"
+    },
+    "HKT": {
+      "path": "data/markdown/scope_unit_v2/HKT_23CN_BCTN--91cc265d0be6d75e.md",
+      "sha256": "b5550a26fa89acab88e14488568090db23761de4d21d8e8ee68f57fb6f6cc31a"
+    },
+    "HVH": {
+      "path": "data/markdown/HVH_23CN_BCTN--5e62f780926f9cb0.md",
+      "sha256": "83956970b13c0861640cfa2dbf0df059d9e7450948d9e6f940ee9467a8c511fe"
+    },
+    "NSC": {
+      "path": "data/markdown/NSC_23CN_BCTN--abb07a3a0137bf24.md",
+      "sha256": "31cab27652699041ce093d826e832397016c7e19a859d40565798e6f3530632c"
+    },
+    "PDB": {
+      "path": "data/markdown/scope_unit_v2/PDB_24CN_BCTN--1957e2ee3f06dba6.md",
+      "sha256": "06fb246ff0de4e250cb3f7202ac58b7eeaeb34a17aa47c6f7289bf58b6a4f6f7"
+    },
+    "PGD": {
+      "path": "data/markdown/PGD_24CN_BCTN--e70dcde234071317.md",
+      "sha256": "29c2fab408e3d8086f5d59704a1cc936db9d2b611ad56753182f8277a2fb1c9d"
+    },
+    "SHI": {
+      "path": "data/markdown/SHI_24CN_BCTN--6a3fe91f4c3f02d9.md",
+      "sha256": "a9a33f865283eaa6eaf0bafc7cfdaebc34b7faf4309fd69dc858397475d2235d"
+    },
+    "SSG": {
+      "path": "data/markdown/scope_unit_v2/SSG_24CN_BCTN--03525afbe2d1c74e.md",
+      "sha256": "0b2c2aaa5d4b0fcf968808369355160beac7687a66e0b89ad749e747cec1ecbf"
+    }
+  },
+  "cases": [
+    {
+      "case_id": "s15-001",
+      "question": "Theo báo cáo, doanh thu thuần năm 2023 của doanh nghiệp mã GGG là bao nhiêu đồng?",
+      "source_id": "GGG"
+    },
+    {
+      "case_id": "s15-002",
+      "question": "Theo báo cáo, lợi nhuận sau thuế năm 2023 của doanh nghiệp mã GGG là bao nhiêu đồng?",
+      "source_id": "GGG"
+    },
+    {
+      "case_id": "s15-003",
+      "question": "Doanh thu thuần năm 2023 của doanh nghiệp mã GGG chênh lệch bao nhiêu đồng so với năm 2022? Hãy tính năm 2023 trừ năm 2022.",
+      "source_id": "GGG"
+    },
+    {
+      "case_id": "s15-004",
+      "question": "Lợi nhuận sau thuế năm 2023 của doanh nghiệp mã GGG chênh lệch bao nhiêu đồng so với năm 2022? Hãy tính năm 2023 trừ năm 2022.",
+      "source_id": "GGG"
+    },
+    {
+      "case_id": "s15-005",
+      "question": "Hãy trả lời riêng: (1) Doanh thu thuần năm 2023 của doanh nghiệp mã GGG là bao nhiêu đồng? (2) Lợi nhuận sau thuế năm 2023 của doanh nghiệp mã GGG là bao nhiêu đồng?",
+      "source_id": "GGG"
+    },
+    {
+      "case_id": "s15-006",
+      "question": "Theo báo cáo, tổng giá trị tài sản năm 2023 của doanh nghiệp mã GGG là bao nhiêu đồng?",
+      "source_id": "GGG"
+    },
+    {
+      "case_id": "s15-007",
+      "question": "Theo báo cáo, doanh thu thuần năm 2023 của doanh nghiệp mã BHG là bao nhiêu đồng?",
+      "source_id": "BHG"
+    },
+    {
+      "case_id": "s15-008",
+      "question": "Theo báo cáo, lợi nhuận sau thuế năm 2023 của doanh nghiệp mã BHG là bao nhiêu đồng?",
+      "source_id": "BHG"
+    },
+    {
+      "case_id": "s15-009",
+      "question": "Doanh thu thuần năm 2023 của doanh nghiệp mã BHG chênh lệch bao nhiêu đồng so với năm 2022? Hãy tính năm 2023 trừ năm 2022.",
+      "source_id": "BHG"
+    },
+    {
+      "case_id": "s15-010",
+      "question": "Lợi nhuận sau thuế năm 2023 của doanh nghiệp mã BHG chênh lệch bao nhiêu đồng so với năm 2022? Hãy tính năm 2023 trừ năm 2022.",
+      "source_id": "BHG"
+    },
+    {
+      "case_id": "s15-011",
+      "question": "Hãy trả lời riêng: (1) Doanh thu thuần năm 2023 của doanh nghiệp mã BHG là bao nhiêu đồng? (2) Lợi nhuận sau thuế năm 2023 của doanh nghiệp mã BHG là bao nhiêu đồng?",
+      "source_id": "BHG"
+    },
+    {
+      "case_id": "s15-012",
+      "question": "Theo báo cáo, tổng giá trị tài sản năm 2023 của doanh nghiệp mã BHG là bao nhiêu đồng?",
+      "source_id": "BHG"
+    },
+    {
+      "case_id": "s15-013",
+      "question": "Theo báo cáo, doanh thu thuần năm 2023 của doanh nghiệp mã BSD là bao nhiêu đồng?",
+      "source_id": "BSD"
+    },
+    {
+      "case_id": "s15-014",
+      "question": "Theo báo cáo, lợi nhuận sau thuế năm 2023 của doanh nghiệp mã BSD là bao nhiêu đồng?",
+      "source_id": "BSD"
+    },
+    {
+      "case_id": "s15-015",
+      "question": "Doanh thu thuần năm 2023 của doanh nghiệp mã BSD chênh lệch bao nhiêu đồng so với năm 2022? Hãy tính năm 2023 trừ năm 2022.",
+      "source_id": "BSD"
+    },
+    {
+      "case_id": "s15-016",
+      "question": "Lợi nhuận sau thuế năm 2023 của doanh nghiệp mã BSD chênh lệch bao nhiêu đồng so với năm 2022? Hãy tính năm 2023 trừ năm 2022.",
+      "source_id": "BSD"
+    },
+    {
+      "case_id": "s15-017",
+      "question": "Hãy trả lời riêng: (1) Doanh thu thuần năm 2023 của doanh nghiệp mã BSD là bao nhiêu đồng? (2) Lợi nhuận sau thuế năm 2023 của doanh nghiệp mã BSD là bao nhiêu đồng?",
+      "source_id": "BSD"
+    },
+    {
+      "case_id": "s15-018",
+      "question": "Theo báo cáo, tổng giá trị tài sản năm 2023 của doanh nghiệp mã BSD là bao nhiêu đồng?",
+      "source_id": "BSD"
+    },
+    {
+      "case_id": "s15-019",
+      "question": "Theo báo cáo, doanh thu thuần về bán hàng và cung cấp dịch vụ năm 2023 của toàn hệ thống của doanh nghiệp mã CMS là bao nhiêu đồng?",
+      "source_id": "CMS"
+    },
+    {
+      "case_id": "s15-020",
+      "question": "Theo báo cáo, lợi nhuận sau thuế năm 2023 của toàn hệ thống của doanh nghiệp mã CMS là bao nhiêu đồng?",
+      "source_id": "CMS"
+    },
+    {
+      "case_id": "s15-021",
+      "question": "Doanh thu thuần về bán hàng và cung cấp dịch vụ năm 2023 của toàn hệ thống của doanh nghiệp mã CMS chênh lệch bao nhiêu đồng so với năm 2022? Hãy tính năm 2023 trừ năm 2022.",
+      "source_id": "CMS"
+    },
+    {
+      "case_id": "s15-022",
+      "question": "Lợi nhuận sau thuế năm 2023 của toàn hệ thống của doanh nghiệp mã CMS chênh lệch bao nhiêu đồng so với năm 2022? Hãy tính năm 2023 trừ năm 2022.",
+      "source_id": "CMS"
+    },
+    {
+      "case_id": "s15-023",
+      "question": "Hãy trả lời riêng: (1) Doanh thu thuần về bán hàng và cung cấp dịch vụ năm 2023 của toàn hệ thống của doanh nghiệp mã CMS là bao nhiêu đồng? (2) Lợi nhuận sau thuế năm 2023 của toàn hệ thống của doanh nghiệp mã CMS là bao nhiêu đồng?",
+      "source_id": "CMS"
+    },
+    {
+      "case_id": "s15-024",
+      "question": "Theo báo cáo, tổng giá trị tài sản năm 2023 của toàn hệ thống của doanh nghiệp mã CMS là bao nhiêu đồng?",
+      "source_id": "CMS"
+    },
+    {
+      "case_id": "s15-025",
+      "question": "Theo báo cáo, doanh thu thuần năm 2023 của doanh nghiệp mã HAV là bao nhiêu đồng?",
+      "source_id": "HAV"
+    },
+    {
+      "case_id": "s15-026",
+      "question": "Theo báo cáo, lợi nhuận sau thuế năm 2023 của doanh nghiệp mã HAV là bao nhiêu đồng?",
+      "source_id": "HAV"
+    },
+    {
+      "case_id": "s15-027",
+      "question": "Doanh thu thuần năm 2023 của doanh nghiệp mã HAV chênh lệch bao nhiêu đồng so với năm 2022? Hãy tính năm 2023 trừ năm 2022.",
+      "source_id": "HAV"
+    },
+    {
+      "case_id": "s15-028",
+      "question": "Lợi nhuận sau thuế năm 2023 của doanh nghiệp mã HAV chênh lệch bao nhiêu đồng so với năm 2022? Hãy tính năm 2023 trừ năm 2022.",
+      "source_id": "HAV"
+    },
+    {
+      "case_id": "s15-029",
+      "question": "Hãy trả lời riêng: (1) Doanh thu thuần năm 2023 của doanh nghiệp mã HAV là bao nhiêu đồng? (2) Lợi nhuận sau thuế năm 2023 của doanh nghiệp mã HAV là bao nhiêu đồng?",
+      "source_id": "HAV"
+    },
+    {
+      "case_id": "s15-030",
+      "question": "Theo báo cáo, doanh thu thuần năm 2023 của doanh nghiệp mã HKT là bao nhiêu đồng?",
+      "source_id": "HKT"
+    },
+    {
+      "case_id": "s15-031",
+      "question": "Theo báo cáo, lợi nhuận sau thuế năm 2023 của doanh nghiệp mã HKT là bao nhiêu đồng?",
+      "source_id": "HKT"
+    },
+    {
+      "case_id": "s15-032",
+      "question": "Doanh thu thuần năm 2023 của doanh nghiệp mã HKT chênh lệch bao nhiêu đồng so với năm 2022? Hãy tính năm 2023 trừ năm 2022.",
+      "source_id": "HKT"
+    },
+    {
+      "case_id": "s15-033",
+      "question": "Lợi nhuận sau thuế năm 2023 của doanh nghiệp mã HKT chênh lệch bao nhiêu đồng so với năm 2022? Hãy tính năm 2023 trừ năm 2022.",
+      "source_id": "HKT"
+    },
+    {
+      "case_id": "s15-034",
+      "question": "Hãy trả lời riêng: (1) Doanh thu thuần năm 2023 của doanh nghiệp mã HKT là bao nhiêu đồng? (2) Lợi nhuận sau thuế năm 2023 của doanh nghiệp mã HKT là bao nhiêu đồng?",
+      "source_id": "HKT"
+    },
+    {
+      "case_id": "s15-035",
+      "question": "Theo báo cáo, tổng giá trị tài sản năm 2023 của doanh nghiệp mã HKT là bao nhiêu đồng?",
+      "source_id": "HKT"
+    },
+    {
+      "case_id": "s15-036",
+      "question": "Theo báo cáo, doanh thu thuần năm 2024 của Din Capital (mã PDB), theo mục 4 Tình hình tài chính là bao nhiêu đồng?",
+      "source_id": "PDB"
+    },
+    {
+      "case_id": "s15-037",
+      "question": "Theo báo cáo, lợi nhuận sau thuế năm 2024 của Din Capital (mã PDB), theo mục 4 Tình hình tài chính là bao nhiêu đồng?",
+      "source_id": "PDB"
+    },
+    {
+      "case_id": "s15-038",
+      "question": "Doanh thu thuần năm 2024 của Din Capital (mã PDB), theo mục 4 Tình hình tài chính chênh lệch bao nhiêu đồng so với năm 2023? Hãy tính năm 2024 trừ năm 2023.",
+      "source_id": "PDB"
+    },
+    {
+      "case_id": "s15-039",
+      "question": "Lợi nhuận sau thuế năm 2024 của Din Capital (mã PDB), theo mục 4 Tình hình tài chính chênh lệch bao nhiêu đồng so với năm 2023? Hãy tính năm 2024 trừ năm 2023.",
+      "source_id": "PDB"
+    },
+    {
+      "case_id": "s15-040",
+      "question": "Hãy trả lời riêng: (1) Doanh thu thuần năm 2024 của Din Capital (mã PDB), theo mục 4 Tình hình tài chính là bao nhiêu đồng? (2) Lợi nhuận sau thuế năm 2024 của Din Capital (mã PDB), theo mục 4 Tình hình tài chính là bao nhiêu đồng?",
+      "source_id": "PDB"
+    },
+    {
+      "case_id": "s15-041",
+      "question": "Theo báo cáo, tổng giá trị tài sản năm 2024 của Din Capital (mã PDB), theo mục 4 Tình hình tài chính là bao nhiêu đồng?",
+      "source_id": "PDB"
+    },
+    {
+      "case_id": "s15-042",
+      "question": "Theo báo cáo, tổng doanh thu năm 2024 của doanh nghiệp mã SSG là bao nhiêu đồng?",
+      "source_id": "SSG"
+    },
+    {
+      "case_id": "s15-043",
+      "question": "Theo báo cáo, lợi nhuận sau thuế năm 2024 của doanh nghiệp mã SSG là bao nhiêu đồng?",
+      "source_id": "SSG"
+    },
+    {
+      "case_id": "s15-044",
+      "question": "Tổng doanh thu năm 2024 của doanh nghiệp mã SSG chênh lệch bao nhiêu đồng so với năm 2023? Hãy tính năm 2024 trừ năm 2023.",
+      "source_id": "SSG"
+    },
+    {
+      "case_id": "s15-045",
+      "question": "Lợi nhuận sau thuế năm 2024 của doanh nghiệp mã SSG chênh lệch bao nhiêu đồng so với năm 2023? Hãy tính năm 2024 trừ năm 2023.",
+      "source_id": "SSG"
+    },
+    {
+      "case_id": "s15-046",
+      "question": "Hãy trả lời riêng: (1) Tổng doanh thu năm 2024 của doanh nghiệp mã SSG là bao nhiêu đồng? (2) Lợi nhuận sau thuế năm 2024 của doanh nghiệp mã SSG là bao nhiêu đồng?",
+      "source_id": "SSG"
+    },
+    {
+      "case_id": "s15-047",
+      "question": "Doanh thu thuần năm 2023 của doanh nghiệp mã ASM là bao nhiêu đồng?",
+      "source_id": "ASM"
+    },
+    {
+      "case_id": "s15-048",
+      "question": "Doanh thu thuần năm 2023 của doanh nghiệp mã ASM chênh lệch bao nhiêu đồng so với năm 2022? Hãy tính năm 2023 trừ năm 2022.",
+      "source_id": "ASM"
+    },
+    {
+      "case_id": "s15-049",
+      "question": "Doanh thu thuần năm 2023 của doanh nghiệp mã DAT là bao nhiêu đồng?",
+      "source_id": "DAT"
+    },
+    {
+      "case_id": "s15-050",
+      "question": "Doanh thu thuần năm 2023 của doanh nghiệp mã DAT chênh lệch bao nhiêu đồng so với năm 2022? Hãy tính năm 2023 trừ năm 2022.",
+      "source_id": "DAT"
+    },
+    {
+      "case_id": "s15-051",
+      "question": "Doanh thu thuần năm 2023 của doanh nghiệp mã DXG là bao nhiêu đồng?",
+      "source_id": "DXG"
+    },
+    {
+      "case_id": "s15-052",
+      "question": "Doanh thu thuần năm 2023 của doanh nghiệp mã DXG chênh lệch bao nhiêu đồng so với năm 2022? Hãy tính năm 2023 trừ năm 2022.",
+      "source_id": "DXG"
+    },
+    {
+      "case_id": "s15-053",
+      "question": "Doanh thu thuần năm 2023 của doanh nghiệp mã HVH là bao nhiêu đồng?",
+      "source_id": "HVH"
+    },
+    {
+      "case_id": "s15-054",
+      "question": "Doanh thu thuần năm 2023 của doanh nghiệp mã HVH chênh lệch bao nhiêu đồng so với năm 2022? Hãy tính năm 2023 trừ năm 2022.",
+      "source_id": "HVH"
+    },
+    {
+      "case_id": "s15-055",
+      "question": "Doanh thu thuần năm 2023 của doanh nghiệp mã NSC là bao nhiêu đồng?",
+      "source_id": "NSC"
+    },
+    {
+      "case_id": "s15-056",
+      "question": "Doanh thu thuần năm 2023 của doanh nghiệp mã NSC chênh lệch bao nhiêu đồng so với năm 2022? Hãy tính năm 2023 trừ năm 2022.",
+      "source_id": "NSC"
+    },
+    {
+      "case_id": "s15-057",
+      "question": "Doanh thu thuần năm 2024 của doanh nghiệp mã PGD là bao nhiêu đồng?",
+      "source_id": "PGD"
+    },
+    {
+      "case_id": "s15-058",
+      "question": "Doanh thu thuần năm 2024 của doanh nghiệp mã PGD chênh lệch bao nhiêu đồng so với năm 2023? Hãy tính năm 2024 trừ năm 2023.",
+      "source_id": "PGD"
+    },
+    {
+      "case_id": "s15-059",
+      "question": "Doanh thu thuần năm 2024 của doanh nghiệp mã SHI là bao nhiêu đồng?",
+      "source_id": "SHI"
+    },
+    {
+      "case_id": "s15-060",
+      "question": "Doanh thu thuần năm 2024 của doanh nghiệp mã SHI chênh lệch bao nhiêu đồng so với năm 2023? Hãy tính năm 2024 trừ năm 2023.",
+      "source_id": "SHI"
+    },
+    {
+      "case_id": "p3-061",
+      "question": "Doanh thu thuần năm 2020 của doanh nghiệp mã GGG là bao nhiêu đồng?",
+      "source_id": "GGG"
+    },
+    {
+      "case_id": "p3-062",
+      "question": "Doanh thu thuần của doanh nghiệp mã GGG trong một trong hai năm 2022 hoặc 2023 là bao nhiêu đồng? Chỉ trả một giá trị và không tự chọn năm.",
+      "source_id": "GGG"
+    },
+    {
+      "case_id": "p3-063",
+      "question": "Hãy trả lời riêng: (1) Theo mục Thông tin khái quát của doanh nghiệp mã GGG, vốn điều lệ là bao nhiêu đồng? (2) Doanh thu thuần năm 2020 của doanh nghiệp mã GGG là bao nhiêu đồng?",
+      "source_id": "GGG"
+    },
+    {
+      "case_id": "p3-064",
+      "question": "Theo mục Thông tin khái quát của doanh nghiệp mã GGG, vốn điều lệ là bao nhiêu đồng?",
+      "source_id": "GGG"
+    }
+  ]
+}

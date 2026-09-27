@@ -1,0 +1,6 @@
+{
+  "created_at": "2026-09-10T12:42:25.634794+00:00",
+  "scope_contract": "For an explicit accounting scope, only positively source-supported matches compete when at least one semantically valid candidate matches. Unknown-scope candidates remain in pool/trace and cannot themselves be published. Physically identical renditions and proven same-scope contradictory values remain checked. With no proven match, preserve UNKNOWN. Applies equally to all company names.",
+  "format_contract": "After identity/period/role/scope is proven independently, enumerate numeric interpretations of an ambiguous source token. A single finer, independently resolved canonical fact can support exactly one interpretation at its printed quantum, using the existing nearest-display-precision policy. No gold, neural answer or arbitrary tolerance; no chains or coarse-to-fine inference.",
+  "limits": "No automatic repair of PDF unit contradictions, no handwritten source unit. Missing OCR text requires MinerU extraction; preserve originals. Reference values never change to fit outputs."
+}

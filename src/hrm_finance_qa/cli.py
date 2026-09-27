@@ -3,7 +3,7 @@ from __future__ import annotations
 import argparse
 import json
 import sys
-from dataclasses import asdict
+from dataclasses import asdict, replace
 from decimal import Decimal
 from pathlib import Path
 
@@ -30,10 +30,15 @@ from .document_hrm import (
     train_document_hrm,
 )
 from .document_reasoning_engine import DocumentHRMReasoningEngine
-from .document_sources import DocumentSourceError
+from .document_sources import (
+    DocumentSourceError,
+    OCRConfig,
+    materialize_mineru_markdown,
+)
 from .external_evaluation import audit_external_test_set
 from .program_data import (
     OPERATIONS,
+    SUM_N_OPERATION,
     build_program_dataset,
     generate_synthetic_program_examples,
     load_program_examples,
@@ -80,6 +85,34 @@ DEFAULT_DENSE_INDEX_PATH = ROOT / "models" / "instruction_dense_index.npz"
 DEFAULT_EMBEDDING_CACHE_DIR = ROOT / "models" / "embedding_cache"
 
 
+def _validate_document_hrm_training_output(
+    output_path: str | Path,
+    *,
+    initialize_from: str | Path | None,
+    overwrite: bool,
+) -> Path:
+    destination = Path(output_path).expanduser().resolve()
+    frozen_v8 = DEFAULT_DOCUMENT_HRM_PATH.resolve()
+    if destination == frozen_v8:
+        raise DocumentHRMError(
+            "Refusing to use the frozen V8 checkpoint as a training output; "
+            "choose a new --document-model-path"
+        )
+    if (
+        initialize_from is not None
+        and destination == Path(initialize_from).expanduser().resolve()
+    ):
+        raise DocumentHRMError(
+            "Training output cannot overwrite initialize_from"
+        )
+    if destination.exists() and not overwrite:
+        raise DocumentHRMError(
+            "Training output already exists; choose a new path or pass "
+            "--overwrite-output explicitly"
+        )
+    return destination
+
+
 def _load_document_hrm_runtime(args: argparse.Namespace) -> DocumentHRMBundle:
     bundle = DocumentHRMBundle.load(
         args.document_model_path, device=args.device
@@ -110,9 +143,16 @@ def _load_document_hrm_runtime(args: argparse.Namespace) -> DocumentHRMBundle:
     return bundle
 
 
-def _wilson_interval(successes: int, total: int) -> dict[str, float | int]:
+def _wilson_interval(successes: int, total: int) -> dict[str, object]:
     if total <= 0:
-        return {"successes": successes, "total": total, "lower": 0.0, "upper": 0.0}
+        return {
+            "successes": successes,
+            "total": total,
+            "lower": 0.0,
+            "upper": 0.0,
+            "defined": False,
+            "value": None,
+        }
     z = 1.959963984540054
     proportion = successes / total
     denominator = 1.0 + z * z / total
@@ -130,8 +170,33 @@ def _wilson_interval(successes: int, total: int) -> dict[str, float | int]:
         "successes": successes,
         "total": total,
         "lower": max(0.0, center - margin),
+        "defined": True,
+        "value": proportion,
         "upper": min(1.0, center + margin),
     }
+
+
+def _evaluation_report_operations(
+    bundle: DocumentHRMBundle,
+    metrics: dict[str, float],
+) -> tuple[str, ...]:
+    """Select the checkpoint's logical metric schema without changing legacy."""
+
+    raw = bundle.metadata.get("logical_program_operations")
+    if isinstance(raw, list):
+        configured = tuple(
+            dict.fromkeys(item for item in raw if isinstance(item, str) and item)
+        )
+        if configured and all(
+            f"program_operation_{operation.lower()}_support" in metrics
+            for operation in configured
+        ):
+            return configured
+    return tuple(
+        operation
+        for operation in (*OPERATIONS, SUM_N_OPERATION)
+        if f"program_operation_{operation.lower()}_support" in metrics
+    ) or OPERATIONS
 
 
 def _document_hrm_evaluation_report(
@@ -145,7 +210,8 @@ def _document_hrm_evaluation_report(
     adaptive_inference: bool = False,
 ) -> dict[str, object]:
     per_operation = {}
-    for operation in OPERATIONS:
+    report_operations = _evaluation_report_operations(bundle, metrics)
+    for operation in report_operations:
         classification_prefix = f"operation_class_{operation.lower()}"
         quality_prefix = f"program_operation_{operation.lower()}"
         per_operation[operation] = {
@@ -181,6 +247,31 @@ def _document_hrm_evaluation_report(
             "accepted_program_precision": metrics[
                 f"{quality_prefix}_accepted_program_precision"
             ],
+            "accepted_precision_defined": bool(
+                metrics[f"{quality_prefix}_accepted_precision_defined"]
+            ),
+            "accepted_execution_precision_value": (
+                metrics[f"{quality_prefix}_accepted_execution_precision"]
+                if bool(
+                    metrics[f"{quality_prefix}_accepted_execution_precision_defined"]
+                )
+                else None
+            ),
+            "proof_eligible_coverage": metrics[
+                f"{quality_prefix}_proof_eligible_coverage"
+            ],
+            "proof_eligible_execution_precision": metrics[
+                f"{quality_prefix}_proof_eligible_execution_precision"
+            ],
+            "proof_eligible_program_precision": metrics[
+                f"{quality_prefix}_proof_eligible_program_precision"
+            ],
+            "proof_eligible_precision_defined": bool(
+                metrics[f"{quality_prefix}_proof_eligible_precision_defined"]
+            ),
+            "proof_eligible_count": int(
+                metrics[f"{quality_prefix}_proof_eligible_count"]
+            ),
             "confidence_intervals_95": {
                 "execution_accuracy": _wilson_interval(
                     round(
@@ -267,7 +358,22 @@ def _document_hrm_evaluation_report(
                 "raw_pointer_pair_accuracy"
             ],
             "pointer_slot_accuracy": [
-                metrics[f"pointer_slot_{slot + 1}_accuracy"] for slot in range(4)
+                metrics[f"pointer_slot_{slot + 1}_accuracy"]
+                for slot in range(bundle.model.config.max_program_operands)
+            ],
+            "pointer_slot_support": [
+                int(metrics[f"pointer_slot_{slot + 1}_support"])
+                for slot in range(bundle.model.config.max_program_operands)
+            ],
+            "pointer_slot_accuracy_defined": [
+                bool(metrics[f"pointer_slot_{slot + 1}_accuracy_defined"])
+                for slot in range(bundle.model.config.max_program_operands)
+            ],
+            "pointer_slot_accuracy_or_null": [
+                metrics[f"pointer_slot_{slot + 1}_accuracy"]
+                if bool(metrics[f"pointer_slot_{slot + 1}_accuracy_defined"])
+                else None
+                for slot in range(bundle.model.config.max_program_operands)
             ],
             "mean_reasoning_segments": metrics["mean_segments"],
             "program_search_change_rate": metrics[
@@ -288,12 +394,99 @@ def _document_hrm_evaluation_report(
             "gold_program_recall_at_10": metrics[
                 "gold_program_recall_at_10"
             ],
+            "gold_physical_program_recall_at_5": metrics.get(
+                "gold_physical_program_recall_at_5", 0.0
+            ),
+            "gold_physical_program_recall_at_10": metrics.get(
+                "gold_physical_program_recall_at_10", 0.0
+            ),
             "gold_operand_recall_at_5": metrics[
                 "gold_operand_recall_at_5"
             ],
             "gold_operand_recall_at_10": metrics[
                 "gold_operand_recall_at_10"
             ],
+            "operand_candidate_recall_at_10": metrics.get(
+                "operand_candidate_recall_at_10", 0.0
+            ),
+            "operand_candidate_recall_at_20": metrics.get(
+                "operand_candidate_recall_at_20", 0.0
+            ),
+            "operand_candidate_full_coverage_at_10": metrics.get(
+                "operand_candidate_full_coverage_at_10", 0.0
+            ),
+            "operand_candidate_full_coverage_at_20": metrics.get(
+                "operand_candidate_full_coverage_at_20", 0.0
+            ),
+            "operand_candidate_recall_at_10_given_gold_operation": metrics.get(
+                "operand_candidate_recall_at_10_given_gold_operation", 0.0
+            ),
+            "operand_candidate_recall_at_20_given_gold_operation": metrics.get(
+                "operand_candidate_recall_at_20_given_gold_operation", 0.0
+            ),
+            "operand_candidate_gold_operand_count": metrics.get(
+                "operand_candidate_gold_operand_count", 0.0
+            ),
+            "operand_candidate_gold_operation_operand_count": metrics.get(
+                "operand_candidate_gold_operation_operand_count", 0.0
+            ),
+            "diverse_beam_diagnostic_examples": metrics.get(
+                "diverse_beam_diagnostic_examples", 0.0
+            ),
+            "program_search_failure_buckets": {
+                "denominator": metrics.get(
+                    "diverse_beam_diagnostic_examples", 0.0
+                ),
+                "bucket_total": metrics.get(
+                    "program_search_failure_bucket_total", 0.0
+                ),
+                "operation_not_considered": metrics.get(
+                    "gold_operation_not_considered_count", 0.0
+                ),
+                "operand_outside_slot_pool_at_20": metrics.get(
+                    "gold_operand_outside_slot_pool_at_20_count", 0.0
+                ),
+                "program_not_generated": metrics.get(
+                    "gold_program_not_generated_count", 0.0
+                ),
+                "program_below_preverifier_top10": metrics.get(
+                    "gold_program_below_preverifier_top10_count", 0.0
+                ),
+                "top10_verifier_invalid": metrics.get(
+                    "gold_top10_verifier_invalid_count", 0.0
+                ),
+                "top10_runtime_gate_rejected": metrics.get(
+                    "gold_top10_runtime_gate_rejected_count", 0.0
+                ),
+                "top10_eligible": metrics.get(
+                    "gold_top10_eligible_count", 0.0
+                ),
+                "diagnostic_unavailable": metrics.get(
+                    "gold_pipeline_diagnostic_unavailable_count", 0.0
+                ),
+            },
+            "exact_physical_set_by_arity": {
+                str(arity): {
+                    "support": metrics.get(
+                        f"exact_physical_set_arity_{arity}_support", 0.0
+                    ),
+                    "accuracy": metrics.get(
+                        f"exact_physical_set_arity_{arity}_accuracy", 0.0
+                    ),
+                }
+                for arity in range(2, 9)
+            },
+            "exact_physical_program_by_arity": {
+                str(arity): {
+                    "support": metrics.get(
+                        f"exact_physical_program_arity_{arity}_support", 0.0
+                    ),
+                    "accuracy": metrics.get(
+                        f"exact_physical_program_arity_{arity}_accuracy", 0.0
+                    ),
+                }
+                for arity in range(2, 9)
+            },
             "verifier_gold_generated_count": metrics[
                 "verifier_gold_generated_count"
             ],
@@ -315,6 +508,27 @@ def _document_hrm_evaluation_report(
             "accepted_grounded_semantic_program_precision": metrics[
                 "accepted_grounded_semantic_program_precision"
             ],
+            "accepted_precision_defined": bool(metrics["accepted_precision_defined"]),
+            "accepted_execution_precision_defined": bool(
+                metrics["accepted_execution_precision_defined"]
+            ),
+            "accepted_precision_value": (
+                metrics["accepted_precision"]
+                if bool(metrics["accepted_precision_defined"])
+                else None
+            ),
+            "proof_eligible_coverage": metrics["proof_eligible_coverage"],
+            "proof_eligible_precision": metrics["proof_eligible_precision"],
+            "proof_eligible_execution_precision": metrics[
+                "proof_eligible_execution_precision"
+            ],
+            "proof_eligible_program_precision": metrics[
+                "proof_eligible_program_precision"
+            ],
+            "proof_eligible_precision_defined": bool(
+                metrics["proof_eligible_precision_defined"]
+            ),
+            "proof_eligible_count": int(metrics["proof_eligible_count"]),
         },
         "metric_definitions": {
             "per_operation_grouping": (
@@ -347,13 +561,52 @@ def _document_hrm_evaluation_report(
             "accepted_precision": (
                 "Backward-compatible alias of accepted_execution_precision."
             ),
+            "pointer_slot_support": (
+                "Support is the number of gold examples declaring that operand slot; "
+                "accuracy is N/A when support is zero."
+            ),
+            "accepted_precision_defined": (
+                "False when no policy-calibrated answer was accepted; precision is N/A."
+            ),
+            "proof_eligible_coverage": (
+                "Coverage passing the public proof/source-action gate before "
+                "calibration policy acceptance."
+            ),
             "gold_program_recall_at_k": (
-                "Gold exact program appears in the K highest neural-scored "
-                "programs before symbolic reranking."
+                "Legacy pointer-exact gold program recall in the ranked "
+                "search trace; retained for historical comparison."
+            ),
+            "gold_physical_program_recall_at_k": (
+                "A conflict-aware physical-cell-equivalent gold program "
+                "appears in the first K diverse programs before verification."
             ),
             "gold_operand_recall_at_k": (
                 "Every gold operand appears in the union of operands from the "
                 "K highest neural-scored programs."
+            ),
+            "operand_candidate_recall_at_k": (
+                "Micro recall: matched conflict-aware gold physical operands "
+                "divided by all gold operands. Pools are conditioned on the "
+                "logical gold operation and matched injectively to slots."
+            ),
+            "operand_candidate_full_coverage_at_k": (
+                "Fraction of all evaluated examples whose complete gold "
+                "operand set can be injectively assigned to the operation-"
+                "conditioned per-slot pools."
+            ),
+            "program_search_failure_buckets": (
+                "Exhaustive exclusive buckets over every diverse-beam example: "
+                "operation miss, pool miss, composition miss, pre-verifier "
+                "rank miss, verifier INVALID, other runtime-gate rejection, "
+                "eligible success, or unavailable telemetry."
+            ),
+            "exact_physical_set_by_arity": (
+                "For gold SUM_N examples only, unordered conflict-aware "
+                "physical operand-set accuracy, independent of operation label."
+            ),
+            "exact_physical_program_by_arity": (
+                "Conflict-aware physical program accuracy for every operation; "
+                "includes operation and directed operand order where applicable."
             ),
             "verifier_gold_false_rejection_rate": (
                 "Among generated gold programs, fraction marked INVALID by "
@@ -396,6 +649,9 @@ def _document_hrm_evaluation_report(
             "thresholds_by_operation": bundle.metadata.get(
                 "abstention_thresholds_by_operation", {}
             ),
+            "policies_by_operation": bundle.metadata.get(
+                "abstention_policies_by_operation", {}
+            ),
             "target_precision": bundle.metadata.get("abstention_target_precision"),
             "target_met": bundle.metadata.get("abstention_target_met"),
             "stability_errors": bundle.metadata.get(
@@ -430,6 +686,29 @@ def _format_document_hrm_evaluation_summary(
 
     execution_interval = intervals["execution_accuracy"]
     accepted_interval = intervals["accepted_execution_precision"]
+    accepted_execution_text = (
+        f"{metrics['accepted_execution_precision']:.2%}"
+        if metrics.get("accepted_precision_defined", True)
+        else "N/A"
+    )
+    accepted_program_text = (
+        f"{metrics['accepted_program_precision']:.2%}"
+        if metrics.get("accepted_precision_defined", True)
+        else "N/A"
+    )
+    proof_precision_text = (
+        f"{metrics['proof_eligible_execution_precision']:.2%}"
+        if metrics.get("proof_eligible_precision_defined", False)
+        else "N/A"
+    )
+    accepted_interval_text = (
+        (
+            f"{accepted_interval['lower']:.2%}-"
+            f"{accepted_interval['upper']:.2%}"
+        )
+        if accepted_interval.get("defined", False)
+        else "N/A"
+    )
     lines = [
         (
             f"Document HRM evaluation | n={evaluation['examples']} | "
@@ -449,8 +728,13 @@ def _format_document_hrm_evaluation_summary(
             "Accepted "
             f"coverage={metrics['accepted_coverage']:.2%}  "
             f"execution_precision="
-            f"{metrics['accepted_execution_precision']:.2%}  "
-            f"program_precision={metrics['accepted_program_precision']:.2%}"
+            f"{accepted_execution_text}  "
+            f"program_precision={accepted_program_text}"
+        ),
+        (
+            "Proof    "
+            f"coverage={metrics['proof_eligible_coverage']:.2%}  "
+            f"execution_precision={proof_precision_text}"
         ),
         (
             "Search   "
@@ -460,9 +744,15 @@ def _format_document_hrm_evaluation_summary(
         ),
         (
             "Recall   "
-            f"program@5={metrics['gold_program_recall_at_5']:.2%}  "
-            f"program@10={metrics['gold_program_recall_at_10']:.2%}  "
-            f"operands@10={metrics['gold_operand_recall_at_10']:.2%}"
+            f"physical_program@10="
+            f"{metrics.get('gold_physical_program_recall_at_10', 0.0):.2%}  "
+            f"operands@10={metrics['gold_operand_recall_at_10']:.2%}  "
+            f"candidate@10="
+            f"{metrics.get('operand_candidate_recall_at_10', 0.0):.2%}  "
+            f"candidate@20="
+            f"{metrics.get('operand_candidate_recall_at_20', 0.0):.2%}  "
+            f"full@20="
+            f"{metrics.get('operand_candidate_full_coverage_at_20', 0.0):.2%}"
         ),
         (
             "Verifier "
@@ -475,14 +765,12 @@ def _format_document_hrm_evaluation_summary(
             "95% CI   "
             f"execution={execution_interval['lower']:.2%}-"
             f"{execution_interval['upper']:.2%}  "
-            f"accepted_execution_precision={accepted_interval['lower']:.2%}-"
-            f"{accepted_interval['upper']:.2%}"
+            f"accepted_execution_precision={accepted_interval_text}"
         ),
         "",
         "Operation          n       op  program execution",
     ]
-    for operation in OPERATIONS:
-        scores = per_operation[operation]
+    for operation, scores in per_operation.items():
         if scores["support"] <= 0:
             continue
         lines.append(
@@ -595,6 +883,12 @@ def build_parser() -> argparse.ArgumentParser:
     train_document_hrm.add_argument("--batch-size", type=int, default=32)
     train_document_hrm.add_argument("--learning-rate", type=float, default=0.0015)
     train_document_hrm.add_argument(
+        "--seed",
+        type=int,
+        default=31,
+        help="Seed for model initialization, data order and augmentation",
+    )
+    train_document_hrm.add_argument(
         "--backbone-learning-rate",
         type=float,
         help=(
@@ -631,10 +925,96 @@ def build_parser() -> argparse.ArgumentParser:
     )
     train_document_hrm.add_argument("--semantic-dim", type=int, default=384)
     train_document_hrm.add_argument(
+        "--semantic-encoder-backend",
+        choices=("fastembed", "sentence-transformers"),
+        default="fastembed",
+    )
+    train_document_hrm.add_argument(
+        "--semantic-model-revision",
+        default="",
+        help="Exact Hugging Face commit for non-legacy semantic encoders",
+    )
+    train_document_hrm.add_argument(
+        "--semantic-local-files-only",
+        action=argparse.BooleanOptionalAction,
+        default=False,
+        help="Load the pinned encoder only from the local snapshot cache",
+    )
+    train_document_hrm.add_argument(
+        "--semantic-encoder-dim",
+        type=int,
+        default=0,
+        help="Raw frozen encoder width before the trainable HRM adapter",
+    )
+    train_document_hrm.add_argument(
+        "--semantic-word-segmentation",
+        choices=("none", "pyvi"),
+        default="none",
+    )
+    train_document_hrm.add_argument(
+        "--semantic-segmenter-version",
+        default="",
+    )
+    train_document_hrm.add_argument(
+        "--semantic-prefix-mode",
+        choices=("none", "e5-v1"),
+        default="none",
+    )
+    train_document_hrm.add_argument(
+        "--semantic-query-encoding-mode",
+        choices=("document", "query"),
+        default="document",
+    )
+    train_document_hrm.add_argument(
+        "--semantic-text-template",
+        choices=("legacy-raw-v1", "finance-vi-v1"),
+        default="legacy-raw-v1",
+    )
+    train_document_hrm.add_argument(
+        "--semantic-adapter-mode",
+        choices=("identity", "layernorm-linear-l2-v1"),
+        default="identity",
+    )
+    train_document_hrm.add_argument(
         "--candidate-semantic-mode",
         choices=("context", "structured"),
         default="context",
         help="Encode full candidate context or only stable row/column/period fields",
+    )
+    train_document_hrm.add_argument(
+        "--financial-structure-mode",
+        choices=("legacy", "typed-hierarchy-v1"),
+        default="legacy",
+        help=(
+            "Use the legacy flat candidate representation or the V13 typed "
+            "financial hierarchy"
+        ),
+    )
+    train_document_hrm.add_argument(
+        "--financial-hierarchy-layers",
+        type=int,
+        default=1,
+        help="Number of typed financial hierarchy refinement layers",
+    )
+    train_document_hrm.add_argument(
+        "--variable-sum-mode",
+        choices=("disabled", "sum-n-v1"),
+        default="disabled",
+        help=(
+            "Keep legacy ADD/SUM3/SUM4 decoding or enable the V14 logical "
+            "SUM_N count and unordered-membership heads"
+        ),
+    )
+    train_document_hrm.add_argument(
+        "--max-program-operands",
+        type=int,
+        default=4,
+        help="Maximum pointer width; V14 SUM_N supports values from 4 through 8",
+    )
+    train_document_hrm.add_argument(
+        "--program-search-strategy",
+        choices=("legacy", "diverse-set-beam-v1"),
+        default="legacy",
     )
     train_document_hrm.add_argument(
         "--pointer-conditioning",
@@ -768,8 +1148,8 @@ def build_parser() -> argparse.ArgumentParser:
         "--validation-dataset",
         type=Path,
         help=(
-            "Use example IDs from an explicit validation JSONL; intended for "
-            "pre-frozen company-disjoint development folds"
+            "Use a physically separate validation JSONL. Example IDs and "
+            "company/report groups must be disjoint from --dataset"
         ),
     )
     train_document_hrm.add_argument(
@@ -783,6 +1163,23 @@ def build_parser() -> argparse.ArgumentParser:
         help=(
             "Reuse the exact architecture/config stored in --initialize-from; "
             "avoids restating every checkpoint-shape option for fine-tuning"
+        ),
+    )
+    train_document_hrm.add_argument(
+        "--initialization-mode",
+        choices=("exact", "compatible-backbone"),
+        default="exact",
+        help=(
+            "Require an exact config match, or copy only state tensors with "
+            "matching names and shapes into the requested architecture"
+        ),
+    )
+    train_document_hrm.add_argument(
+        "--overwrite-output",
+        action="store_true",
+        help=(
+            "Allow replacing an existing non-frozen output checkpoint. The "
+            "frozen V8 checkpoint and initialize_from are always protected"
         ),
     )
     train_document_hrm.add_argument(
@@ -806,9 +1203,32 @@ def build_parser() -> argparse.ArgumentParser:
         ),
     )
     train_document_hrm.add_argument(
+        "--retrieval-heads-only",
+        action="store_true",
+        help=(
+            "Freeze operation/shared HRM and train the semantic adapter, "
+            "typed financial, pointer, pair, SUM count and membership heads"
+        ),
+    )
+    train_document_hrm.add_argument(
         "--freeze-operation-head",
         action="store_true",
         help="Keep the initialized operation classifier fixed during all stages",
+    )
+    train_document_hrm.add_argument(
+        "--semantic-contrastive-weight",
+        type=float,
+        default=0.0,
+    )
+    train_document_hrm.add_argument(
+        "--semantic-contrastive-temperature",
+        type=float,
+        default=0.07,
+    )
+    train_document_hrm.add_argument(
+        "--semantic-contrastive-margin",
+        type=float,
+        default=0.20,
     )
     train_document_hrm.add_argument(
         "--freeze-pair-head",
@@ -833,6 +1253,26 @@ def build_parser() -> argparse.ArgumentParser:
         action="store_true",
         help="Restore the epoch with the best development-validation program score",
     )
+    train_document_hrm.add_argument(
+        "--best-training-state",
+        type=Path,
+        help="Atomically update this resumable state on strict best-epoch improvement",
+    )
+    train_document_hrm.add_argument(
+        "--last-training-state",
+        type=Path,
+        help="Atomically update this resumable state after every completed epoch",
+    )
+    train_document_hrm.add_argument(
+        "--resume-training-state",
+        type=Path,
+        help=(
+            "Resume model, optimizer, best selection and RNG from a locked "
+            "last/best training-state artifact"
+        ),
+    )
+
+
     train_document_hrm.add_argument(
         "--legacy-hl-inputs",
         action="store_true",
@@ -966,14 +1406,59 @@ def build_parser() -> argparse.ArgumentParser:
     )
     document_hrm_info.add_argument("--device", default="cpu")
 
+    prepare_document = subparsers.add_parser(
+        "prepare-document",
+        help="Run MinerU OCR once and save a page-marked Markdown artifact",
+    )
+    prepare_document.add_argument("--document", type=Path, required=True)
+    prepare_document.add_argument(
+        "--output",
+        type=Path,
+        default=ROOT / "data" / "mineru_markdown",
+        help="Output .md file or directory",
+    )
+    prepare_document.add_argument("--mineru-output-dir", type=Path)
+    prepare_document.add_argument(
+        "--mineru-cache-dir",
+        type=Path,
+        default=ROOT / "cache" / "mineru",
+    )
+    prepare_document.add_argument(
+        "--mineru-command",
+        type=Path,
+        default=ROOT / ".venv-mineru" / "bin" / "mineru",
+    )
+    prepare_document.add_argument("--mineru-api-url")
+    prepare_document.add_argument(
+        "--mineru-api-timeout",
+        type=float,
+        default=7200.0,
+    )
+    prepare_document.add_argument(
+        "--mineru-backend",
+        choices=("hybrid-engine", "pipeline"),
+        default="hybrid-engine",
+    )
+    prepare_document.add_argument(
+        "--mineru-effort",
+        choices=("low", "medium", "high"),
+        default="medium",
+    )
+    prepare_document.add_argument(
+        "--no-mineru-auto",
+        action="store_false",
+        dest="mineru_auto_generate",
+        default=True,
+    )
+
     answer_document = subparsers.add_parser(
         "answer-document",
-        help="Read PDF/TXT evidence with Neuro-Symbolic HRM (v3 compatible)",
+        help="Answer from a prepared MinerU Markdown artifact",
     )
     answer_document.add_argument("question")
     answer_document.add_argument(
         "--document", type=Path, required=True,
-        help="A PDF/TXT file or a directory containing PDF/TXT reports",
+        help="A MinerU .md file or directory containing prepared Markdown",
     )
     answer_document.add_argument("--top-k-chunks", type=int, default=8)
     answer_document.add_argument("--max-candidates", type=int, default=64)
@@ -985,18 +1470,18 @@ def build_parser() -> argparse.ArgumentParser:
         "--ocr",
         action="store_true",
         default=True,
-        help="Automatically OCR only pages without usable native text (default)",
+        help="MinerU configuration; prepare PDF to Markdown before answering",
     )
     answer_document.add_argument(
         "--no-ocr",
         action="store_false",
         dest="ocr",
-        help="Disable automatic OCR fallback and use native text only",
+        help="Use already prepared Markdown/TXT without OCR generation",
     )
     answer_document.add_argument(
         "--force-ocr",
         action="store_true",
-        help="OCR every PDF page even when embedded text exists",
+        help="Preparation compatibility flag; PDF content always comes from MinerU",
     )
     answer_document.add_argument(
         "--mineru-output-dir",
@@ -1052,13 +1537,13 @@ def build_parser() -> argparse.ArgumentParser:
         "--page-index",
         action="store_true",
         default=True,
-        help="Rank persistent PDF pages before chunking/OCR (default)",
+        help="Compatibility option for a prepared MinerU page index",
     )
     answer_document.add_argument(
         "--no-page-index",
         action="store_false",
         dest="page_index",
-        help="Use the legacy path that reads and OCRs the full document",
+        help="Read the prepared Markdown/TXT document directly",
     )
     answer_document.add_argument(
         "--page-index-path",
@@ -1291,9 +1776,38 @@ def main(argv: list[str] | None = None) -> int:
             return 0
 
         if args.command == "train-document-hrm":
+            output_path = _validate_document_hrm_training_output(
+                args.document_model_path,
+                initialize_from=args.initialize_from,
+                overwrite=args.overwrite_output,
+            )
+            state_outputs = tuple(
+                Path(path).expanduser().resolve()
+                for path in (
+                    args.best_training_state,
+                    args.last_training_state,
+                )
+                if path is not None
+            )
+            if output_path in state_outputs:
+                raise DocumentHRMError(
+                    "Final model output and training-state output must differ"
+                )
+            if len(state_outputs) != len(set(state_outputs)):
+                raise DocumentHRMError(
+                    "Best and last training-state outputs must differ"
+                )
+
             if args.inherit_initial_config and args.initialize_from is None:
                 raise DocumentHRMError(
                     "--inherit-initial-config requires --initialize-from"
+                )
+            if (
+                args.inherit_initial_config
+                and args.initialization_mode != "exact"
+            ):
+                raise DocumentHRMError(
+                    "--inherit-initial-config requires --initialization-mode exact"
                 )
             validation_ids: set[str] | None = None
             allow_synthetic_validation = False
@@ -1305,23 +1819,11 @@ def main(argv: list[str] | None = None) -> int:
                         "Reference checkpoint has no validation_example_ids"
                     )
                 validation_ids = {str(item) for item in raw_ids}
-            elif args.validation_dataset:
-                validation_examples = load_program_examples(args.validation_dataset)
-                validation_ids = {
-                    example.example_id for example in validation_examples
-                }
-                if not validation_ids:
-                    raise DocumentHRMError("Validation dataset contains no examples")
-                if len(validation_ids) != len(validation_examples):
-                    raise DocumentHRMError(
-                        "Validation dataset contains duplicate example IDs"
-                    )
-                allow_synthetic_validation = True
             if args.inherit_initial_config:
                 initial = DocumentHRMBundle.load(
                     args.initialize_from, device=args.device
                 )
-                config = initial.model.config
+                config = replace(initial.model.config, seed=args.seed)
             else:
                 config = DocumentHRMConfig(
                     vocab_size=args.vocab_size,
@@ -1342,7 +1844,44 @@ def main(argv: list[str] | None = None) -> int:
                     input_encoder_mode=args.input_encoder,
                     semantic_model_name=args.semantic_model,
                     semantic_embedding_size=args.semantic_dim,
+                    semantic_encoder_backend=(
+                        args.semantic_encoder_backend.replace("-", "_")
+                    ),
+                    semantic_model_revision=args.semantic_model_revision,
+                    semantic_local_files_only=(
+                        args.semantic_local_files_only
+                    ),
+                    semantic_encoder_output_size=(
+                        args.semantic_encoder_dim
+                    ),
+                    semantic_word_segmentation=(
+                        args.semantic_word_segmentation
+                    ),
+                    semantic_segmenter_version=(
+                        args.semantic_segmenter_version
+                    ),
+                    semantic_prefix_mode=(
+                        args.semantic_prefix_mode.replace("-", "_")
+                    ),
+                    semantic_query_encoding_mode=(
+                        args.semantic_query_encoding_mode
+                    ),
+                    semantic_text_template_version=(
+                        args.semantic_text_template.replace("-", "_")
+                    ),
+                    semantic_adapter_mode=(
+                        args.semantic_adapter_mode.replace("-", "_")
+                    ),
                     candidate_semantic_mode=args.candidate_semantic_mode,
+                    financial_structure_mode=(
+                        args.financial_structure_mode.replace("-", "_")
+                    ),
+                    financial_hierarchy_layers=args.financial_hierarchy_layers,
+                    variable_sum_mode=args.variable_sum_mode.replace("-", "_"),
+                    max_program_operands=args.max_program_operands,
+                    program_search_strategy=(
+                        args.program_search_strategy.replace("-", "_")
+                    ),
                     pointer_conditioning_mode=(
                         args.pointer_conditioning.replace("-", "_")
                     ),
@@ -1356,6 +1895,7 @@ def main(argv: list[str] | None = None) -> int:
                     pointer_teacher_forcing=args.pointer_teacher_forcing,
                     pointer_hard_negative_weight=args.pointer_hard_negative_weight,
                     pointer_hard_negative_margin=args.pointer_hard_negative_margin,
+                    seed=args.seed,
                 )
             bundle, report = train_document_hrm(
                 args.dataset,
@@ -1365,11 +1905,19 @@ def main(argv: list[str] | None = None) -> int:
                 learning_rate=args.learning_rate,
                 validation_fraction=args.validation_fraction,
                 validation_example_ids=validation_ids,
+                validation_dataset_path=args.validation_dataset,
                 allow_synthetic_validation=allow_synthetic_validation,
                 synthetic_fraction=args.synthetic_fraction,
                 select_best_epoch=args.select_best_epoch,
+                best_training_state_path=args.best_training_state,
+                last_training_state_path=args.last_training_state,
+                resume_training_state_path=args.resume_training_state,
                 initialize_from=args.initialize_from,
+                initialization_mode=(
+                    args.initialization_mode.replace("-", "_")
+                ),
                 pointer_heads_only=args.pointer_heads_only,
+                retrieval_heads_only=args.retrieval_heads_only,
                 pair_head_only_epochs=args.pair_head_only_epochs,
                 pointer_head_only_epochs=args.pointer_head_only_epochs,
                 pointer_targeted_negative_weight=(
@@ -1385,6 +1933,15 @@ def main(argv: list[str] | None = None) -> int:
                 add_oversample_factor=args.add_oversample_factor,
                 add_select_contrastive_weight=args.add_select_contrastive_weight,
                 add_select_contrastive_margin=args.add_select_contrastive_margin,
+                semantic_contrastive_weight=(
+                    args.semantic_contrastive_weight
+                ),
+                semantic_contrastive_temperature=(
+                    args.semantic_contrastive_temperature
+                ),
+                semantic_contrastive_margin=(
+                    args.semantic_contrastive_margin
+                ),
                 backbone_learning_rate=args.backbone_learning_rate,
                 freeze_operation_head=args.freeze_operation_head,
                 freeze_pair_head=args.freeze_pair_head,
@@ -1394,7 +1951,9 @@ def main(argv: list[str] | None = None) -> int:
                 abstention_stability_errors=args.abstention_stability_errors,
                 device=args.device,
             )
-            destination = bundle.save(args.document_model_path)
+            destination = bundle.save(
+                output_path, overwrite=args.overwrite_output
+            )
             print(f"Saved Document HRM: {destination}")
             print(f"Trainable parameters: {bundle.parameter_count:,}")
             print(
@@ -1417,13 +1976,29 @@ def main(argv: list[str] | None = None) -> int:
             print(f"Program exact accuracy: {report.program_exact_accuracy:.2%}")
             print(f"Execution accuracy: {report.execution_accuracy:.2%}")
             print(f"Pointer pair accuracy: {report.pointer_pair_accuracy:.2%}")
-            print(
-                "Pointer slot accuracy: "
-                + ", ".join(f"p{index + 1}={value:.2%}" for index, value in enumerate(report.pointer_slot_accuracy))
+            slot_support = (
+                getattr(report, "pointer_slot_support", ())
+                or tuple(1 for _ in report.pointer_slot_accuracy)
+            )
+            slot_summary = ", ".join(
+                (
+                    f"p{index + 1}=N/A (n=0)"
+                    if support <= 0
+                    else f"p{index + 1}={value:.2%} (n={support})"
+                )
+                for index, (value, support) in enumerate(
+                    zip(report.pointer_slot_accuracy, slot_support)
+                )
+            )
+            print("Pointer slot accuracy: " + slot_summary)
+            accepted_precision_text = (
+                f"{report.accepted_precision:.2%}"
+                if getattr(report, "accepted_precision_defined", True)
+                else "N/A (accepted=0)"
             )
             print(
                 f"Accepted coverage/precision: {report.accepted_coverage:.2%} / "
-                f"{report.accepted_precision:.2%}"
+                f"{accepted_precision_text}"
             )
             return 0
 
@@ -1526,9 +2101,29 @@ def main(argv: list[str] | None = None) -> int:
                         print("- Do not increase parameters yet; improve real data and candidate retrieval first.")
             return 0
 
+        if args.command == "prepare-document":
+            destination = materialize_mineru_markdown(
+                args.document,
+                args.output,
+                ocr_config=OCRConfig(
+                    enabled=True,
+                    force=True,
+                    mineru_output_dir=args.mineru_output_dir,
+                    mineru_cache_dir=args.mineru_cache_dir,
+                    mineru_command=args.mineru_command,
+                    mineru_api_url=args.mineru_api_url,
+                    mineru_api_timeout_seconds=args.mineru_api_timeout,
+                    mineru_backend=args.mineru_backend,
+                    mineru_effort=args.mineru_effort,
+                    mineru_auto_generate=args.mineru_auto_generate,
+                ),
+            )
+            print(f"Saved MinerU Markdown: {destination}")
+            return 0
+
         if args.command == "answer-document":
             bundle = _load_document_hrm_runtime(args)
-            answer = DocumentHRMReasoningEngine(bundle).answer(
+            answer = DocumentHRMReasoningEngine(bundle).answer_request(
                 args.question,
                 args.document,
                 top_k_chunks=args.top_k_chunks,
@@ -1551,7 +2146,7 @@ def main(argv: list[str] | None = None) -> int:
                 page_top_k=args.page_top_k,
                 page_neighbor_pages=args.page_neighbor_pages,
             )
-            print(answer.render())
+            print(answer.render_verified())
             return 0
 
         if args.command == "analyze-document-hrm-errors":

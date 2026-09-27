@@ -1,0 +1,30 @@
+{
+  "created_at": "2026-09-09T14:38:41.415094+00:00",
+  "baseline_archive": {
+    "path": "archive/evidence_policy_parent_20260909_v1.zip",
+    "sha256": "4f154e70e5a7a6761751c975a17f2405ad6efb8a5fa00a97b8d8fdafbdde272f"
+  },
+  "inputs": [
+    {
+      "path": "config/finhrm_evidence_policy_requests_v1.json",
+      "sha256": "ec5e4066a837651aa5d6e74f463485f6b1a2d4caa8b3c38c28812a1447158630"
+    },
+    {
+      "path": "config/finhrm_evidence_policy_reference_v1.json",
+      "sha256": "fc986933c797837381fd1fc46cae19d289cdaf356a2d8fd677263d270e472827"
+    },
+    {
+      "path": "chien_luoc_cong_bo_dua_tren_bang_chung_v1.md",
+      "sha256": "46bf9afcf5ea61ba50ea75701f54fd829564803cb95f7b313a28bfc43e33918f"
+    }
+  ],
+  "scope": "5 known ACG/AGP regression + 3 HKT smoke; all development; default stays A regardless of smoke result",
+  "criteria": [
+    "Same question/candidates/prediction/program for A/B; gold never passed to runtime",
+    "B must execute and certify, never edit saved public responses",
+    "No observed wrong publication; preserve missing/ambiguous and negative fixtures",
+    "Report all 8 cases and gains/losses; reference equality alone is not full identity correctness",
+    "No default promotion without separate held-out evidence"
+  ],
+  "runtime_freeze": "after implementation and before inference; oracle and case manifest immutable"
+}

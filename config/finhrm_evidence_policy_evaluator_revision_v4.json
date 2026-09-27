@@ -1,0 +1,88 @@
+{
+  "created_at": "2026-09-10T01:46:39.691243+00:00",
+  "reason": "V3 fixes inherited ACG identity, but treated reference scope=reporting_company as an accounting scope. V4 keeps oracle unchanged and checks reporting_company against reporting entity/source and rejects subsidiary contexts; consolidated/separate remain accounting requirements. V3 intermediate results preserved. No runtime/inference changes.",
+  "tests_run": 24,
+  "tests_successful": true,
+  "inputs": [
+    {
+      "path": "scripts/report_finhrm_evidence_policy_ab_v2.py",
+      "sha256": "95d9d92aa0490360961442359371680fdb917ee8e4ec2e7877e37f75143d3652"
+    },
+    {
+      "path": "config/finhrm_evidence_policy_reference_v1.json",
+      "sha256": "fc986933c797837381fd1fc46cae19d289cdaf356a2d8fd677263d270e472827"
+    },
+    {
+      "path": "config/finhrm_evidence_policy_requests_v1.json",
+      "sha256": "ec5e4066a837651aa5d6e74f463485f6b1a2d4caa8b3c38c28812a1447158630"
+    },
+    {
+      "path": "config/finhrm_evidence_policy_protocol_v1.json",
+      "sha256": "5846152352e265ae4e8a0195362421ac5a4e656a8ef074ea73321b41c4742718"
+    },
+    {
+      "path": "reports/finhrm_evidence_policy_observations_v1.json",
+      "sha256": "b1d8c901770a3b9dbd4362f37b30e1e558b4b5a04573605ab6ba8e719b8b2c1c"
+    },
+    {
+      "path": "reports/finhrm_evidence_policy_proposals_v1.json",
+      "sha256": "4e6264b44b351b7a770216f21027a025b6970d8d2fd5074f25162989c1aa2155"
+    },
+    {
+      "path": "reports/finhrm_evidence_policy_results_v2.json",
+      "sha256": "59ef2d82433fa52ca4e558528106f99950bf079eb8802b407597947336ebda5c"
+    },
+    {
+      "path": "data/markdown/mineru_rerun_v1/ACG/ACG_25CN_BCTN--663c4a4d4e034e2d.md",
+      "sha256": "d4d68d1b90d0f17bb1732a34203e1cf4e3803855971964f88d1e457cd921a8e8"
+    },
+    {
+      "path": "data/markdown/mineru_rerun_v1/AGP/AGP_25CN_BCTN--e8991085d41d3c08.md",
+      "sha256": "7af3e977b1cefced4abe5786f1145c82e65f13e67cac8c301fcdbdf950a275bc"
+    },
+    {
+      "path": "data/markdown/scope_unit_v2/HKT_23CN_BCTN--91cc265d0be6d75e.md",
+      "sha256": "b5550a26fa89acab88e14488568090db23761de4d21d8e8ee68f57fb6f6cc31a"
+    },
+    {
+      "path": "scripts/report_finhrm_evidence_policy_ab_v4.py",
+      "sha256": "f32be99b32725e3eb5031d2d1f3c4fc8596a5c71af8c41132346a24a351b8520"
+    },
+    {
+      "path": "scripts/evidence_policy_source_identity.py",
+      "sha256": "de3d50ac6dbdea4cc38e13db40103592edcb05369a5d3d0c2f14922d7343b8fb"
+    },
+    {
+      "path": "scripts/evidence_policy_reference_scope.py",
+      "sha256": "092377e8a7891c3b6104d6b8e6b0e4762f093aa16747fc487f4f2d0b321eddf1"
+    },
+    {
+      "path": "tests/test_evidence_policy_source_identity.py",
+      "sha256": "1045196587e4a27f0220d01d29cf3ef93495cb499a535494cec2dac521fe1fd5"
+    },
+    {
+      "path": "tests/test_evidence_policy_reference_scope.py",
+      "sha256": "9023771a16e26e85df5ec17ca82c92598307950e699aa4a05d3a0060f0897dc3"
+    },
+    {
+      "path": "tests/test_evidence_policy_evaluator_aggregation.py",
+      "sha256": "4df918953fc8954d59638baac6cab1596b685929b27d272004c820297a60b597"
+    },
+    {
+      "path": "reports/finhrm_evidence_policy_evaluator_tests_v4.txt",
+      "sha256": "6f2abc5d376de7cdb105b2856db1682a6981337b8613479d5d06f328f7489c58"
+    },
+    {
+      "path": "config/finhrm_evidence_policy_evaluator_precommit_v3.json",
+      "sha256": "8bf013c54da40c835573555ea16f7ea580b9c1da9b625036954217267f754c65"
+    },
+    {
+      "path": "config/finhrm_evidence_policy_evaluator_revision_v3.json",
+      "sha256": "0f5aff4308714a2057f594271454b4acac3ef0f1921bb370ed985c0f9361f29a"
+    },
+    {
+      "path": "reports/finhrm_evidence_policy_results_v3.json",
+      "sha256": "b2cd5cc331496ab25fb98202e4d18cf947fca82e7951c95a24f215f5daa697e0"
+    }
+  ]
+}

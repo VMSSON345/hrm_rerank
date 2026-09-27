@@ -1,0 +1,8 @@
+{
+  "created_at": "2026-09-10T09:21:18.824212+00:00",
+  "snapshot": "archive\\B_semantic_format_parent_v1.zip",
+  "snapshot_sha256": "572961b04ed4406a328e5cdf53e70a12e3b2ac1ebbc7cea4630c14b35e76df8a",
+  "baseline": "reports/finhrm_B_layout_delivery_v2.json",
+  "scope": "B only; infer format from unambiguous table/column/source monetary tokens, unknown/conflict blocks selected evidence. Shared metric identity; preserve qualifiers. Precision compatibility from printed resolution and unique finer anchor, never arbitrary relative tolerance. References immutable, no training/OCR.",
+  "expected_validation": "Prior28 development regression plus prelocked additional questions. Report any loss and its concrete reason; do not change gold after results."
+}

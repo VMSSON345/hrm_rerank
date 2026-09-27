@@ -1,0 +1,46 @@
+{
+  "schema": "finhrm-v13-clean-ablation-split-precommit-v1",
+  "status": "FROZEN_BEFORE_SPLIT_IMPLEMENTATION",
+  "created_at": "2026-08-31",
+  "objective": "Create a fair company/report-group-disjoint development cohort for V13 Scratch versus V13 Warm comparison.",
+  "invariants": [
+    "data/test.jsonl and canonical test are not opened by the split builder",
+    "Every validation row belongs to company/source groups absent from the full V8 training-and-validation pool",
+    "No example ID, record fingerprint, gold evidence fingerprint, company key, source digest, or source filename crosses the new train/validation boundary",
+    "Selection is deterministic and operation-balanced without ticker, company, filename, page, year, value, or question-specific rules",
+    "Original canonical train and validation files remain byte-unchanged",
+    "Outputs are new artifacts under data/tmp and are never overwritten"
+  ],
+  "inputs": {
+    "canonical_train": {
+      "path": "data/train.jsonl",
+      "sha256": "b79587f409262971e34aef8996dd1909293f29f1962a2abc7fd71e7b77856775",
+      "records": 2109
+    },
+    "v8_training_and_validation_pool": {
+      "path": "data/tmp/legacy_root_v1/train.jsonl",
+      "sha256": "03642bca3865f875a1aea0b7c95477b5ac8de20c9a2a72ae25f98119d32abd2b",
+      "records": 1400
+    },
+    "v8_validation_confirmation": {
+      "path": "data/validation.jsonl",
+      "sha256": "5dc2d149e60f11b4a5e1ca68bf96d25ca383b389c86a696551a72cfddbfc5d58",
+      "records": 200
+    }
+  },
+  "selection": {
+    "seed": 13031,
+    "target_records": 200,
+    "minimum_records": 150,
+    "maximum_records": 250,
+    "target_per_operation": 20,
+    "group_atomic": true,
+    "cost": "normalized_operation_deficit_plus_total_size_error_with_overshoot_penalty"
+  },
+  "outputs": {
+    "train": "data/tmp/v13_clean_ablation_v1/train.jsonl",
+    "validation": "data/tmp/v13_clean_ablation_v1/validation.jsonl",
+    "manifest": "data/tmp/v13_clean_ablation_v1/manifest.json",
+    "report": "reports/finhrm_v13_clean_ablation_split_v1.md"
+  }
+}

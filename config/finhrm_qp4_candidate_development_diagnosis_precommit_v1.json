@@ -1,0 +1,3320 @@
+{
+  "schema": "finhrm-qp4-candidate-development-diagnosis-precommit-v1",
+  "created_at": "2026-08-26",
+  "classification": "development-only Candidate diagnosis precommit; no Candidate execution",
+  "status": "PASS",
+  "precommit_gate_passed": true,
+  "governing_head": "50df502b002cbeb5769c341c133d4904faf31276",
+  "trust_root": "5da2ff00bf58496a36be7c08d5bbdb1959a9542e",
+  "trust_preflight": {
+    "head_exact": true,
+    "worktree_clean_before_authoring": true,
+    "authoring_state_allowed_only_precommit_artifacts": true,
+    "runtime_model_diff": []
+  },
+  "inputs": {
+    "question_plan_closure": {
+      "path": "reports/finhrm_qp4_question_plan_generic_runtime_repair_closure_v1.json",
+      "size_bytes": 3249,
+      "sha256": "f5ffcfbf23c5a3f1c2a15571bc5b2bf43bfdc8bf25e6cb59e867debd641f1c1e"
+    },
+    "question_plan_precommit": {
+      "path": "config/finhrm_qp4_question_plan_generic_runtime_repair_precommit_v1.json",
+      "size_bytes": 334421,
+      "sha256": "41f776b43978b2369caa35a16aea7eb358cea3e91fa0a862edf1f831694ebba7"
+    },
+    "question_plan_evaluation": {
+      "path": "reports/finhrm_qp4_question_plan_generic_runtime_repair_evaluation_v1.json",
+      "size_bytes": 1358,
+      "sha256": "80b4da06bec0679b93ab6131a7aedbf037be23d5ab272e749e881e57a6b6fba3"
+    },
+    "development_cohort": {
+      "path": "reports/finhrm_qp4_post_question_surface_post_cache_residual_coverage_cohort_build_v1.json",
+      "size_bytes": 40607,
+      "sha256": "e084ec16312488c1badb5b645cfdf135a623cf89486d0f189648404fc5de35e6"
+    },
+    "page_index": {
+      "path": "cache/document_page_index.sqlite3",
+      "size_bytes": 7274496,
+      "sha256": "df8be07147d790b7ef18a917aca8f3d3c28ca7923b959a78c2dc721a11284fd7"
+    },
+    "checkpoint": {
+      "path": "models/document_hrm_V8_candidate.pt",
+      "size_bytes": 3413128,
+      "sha256": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de"
+    },
+    "mineru_cache": {
+      "root": "cache/mineru",
+      "file_count": 377,
+      "total_bytes": 3116769,
+      "manifest_sha256": "6f885e60fae19c6e867221c1e69b319dfc44238952d0932132220bc6d05524f4"
+    },
+    "development_sources": [
+      {
+        "anchor_id": "qp4-rcc-hub-parent-profit-after-tax",
+        "company_key": "development-company-08d33503ee27d4c1",
+        "source_name": "HUB_23CN_BCTN.pdf",
+        "source_path": "pdf/PDF_23/HUB_23CN_BCTN.pdf",
+        "source_sha256": "daad4aaec36be97b5ae6f99d1d822fb9efe12d2b92110e81be7df150e991f695",
+        "physical_page": 21,
+        "document_layout_family": "native_text_portrait",
+        "table_layout_family": "portrait_table_above_grouped_bar_chart",
+        "extraction_family": "native_vector_text_table",
+        "layout_instance_fingerprint": "native_text_portrait|portrait_table_above_grouped_bar_chart|prior_actual_plan_actual_then_two_comparison_columns|portrait|single_physical_page",
+        "size_bytes": 4472509
+      },
+      {
+        "anchor_id": "qp4-rcc-ict-total-revenue",
+        "company_key": "development-company-175a680792c1fbf7",
+        "source_name": "ICT_23CN_BCTN.pdf",
+        "source_path": "pdf/PDF_23/ICT_23CN_BCTN.pdf",
+        "source_sha256": "ee2061e29c1923da0e38ba33a7e25c7d0d2a2f6f22f045b8b30bd4c1bb539ac1",
+        "physical_page": 13,
+        "document_layout_family": "native_text_mixed_orientation",
+        "table_layout_family": "stacked_plan_actual_and_prior_actual_comparison_tables",
+        "extraction_family": "native_vector_text_table",
+        "layout_instance_fingerprint": "native_text_mixed_orientation|stacked_plan_actual_and_prior_actual_comparison_tables|top_table_plan_actual_then_bottom_table_prior_actual|landscape|single_physical_page",
+        "size_bytes": 11604829
+      },
+      {
+        "anchor_id": "qp4-rcc-pic-total-revenue",
+        "company_key": "development-company-2255c8b55faa7d4f",
+        "source_name": "PIC_23CN_BCTN.pdf",
+        "source_path": "pdf/PDF_23/PIC_23CN_BCTN.pdf",
+        "source_sha256": "ae0d9aa6645251025f3f71572205f5ef0f93a6f136ae243c2f3cd0700befb96e",
+        "physical_page": 17,
+        "document_layout_family": "native_text_mixed_orientation",
+        "table_layout_family": "dense_single_matrix_prior_actual_current_plan_current_actual_dual_ratio",
+        "extraction_family": "native_vector_text_table",
+        "layout_instance_fingerprint": "native_text_mixed_orientation|dense_single_matrix_prior_actual_current_plan_current_actual_dual_ratio|prior_actual_then_current_group_plan_actual_then_dual_ratio|landscape|single_physical_page",
+        "size_bytes": 6237038
+      },
+      {
+        "anchor_id": "qp4-rcc-scg-total-revenue",
+        "company_key": "development-company-128d077252ff6e80",
+        "source_name": "SCG_23CN_BCTN.pdf",
+        "source_path": "pdf/PDF_23/SCG_23CN_BCTN.pdf",
+        "source_sha256": "fabcefdf81e9bf90abdfe4497a4b7ba7960d564e9ce525ecd7dfe8dd05c62ff1",
+        "physical_page": 17,
+        "document_layout_family": "native_text_mixed_orientation",
+        "table_layout_family": "wide_left_panel_plan_actual_prior_growth_matrix",
+        "extraction_family": "native_vector_text_table",
+        "layout_instance_fingerprint": "native_text_mixed_orientation|wide_left_panel_plan_actual_prior_growth_matrix|plan_actual_prior_actual_then_completion_and_growth|landscape|single_physical_page",
+        "size_bytes": 5554394
+      },
+      {
+        "anchor_id": "qp4-rcc-vnl-profit-before-tax",
+        "company_key": "development-company-0d2016d24a4bb0bd",
+        "source_name": "VNL_23CN_BCTN.pdf",
+        "source_path": "pdf/PDF_23/VNL_23CN_BCTN.pdf",
+        "source_sha256": "c1f20dffb1a4ed818cd4d3d78f5d47ce2e1517b8a78e6c8e9eee1aaafca51c2b",
+        "physical_page": 44,
+        "document_layout_family": "hybrid_scan_text",
+        "table_layout_family": "portrait_audit_committee_table_with_interleaved_ratio_columns",
+        "extraction_family": "hybrid_scan_text_existing_text_layer",
+        "layout_instance_fingerprint": "hybrid_scan_text|portrait_audit_committee_table_with_interleaved_ratio_columns|current_actual_plan_completion_prior_actual_prior_ratio|portrait|single_physical_page",
+        "size_bytes": 13337465
+      },
+      {
+        "anchor_id": "qp4-rcc-agr-total-expense",
+        "company_key": "development-company-18",
+        "source_name": "AGR_24CN_BCTN.pdf",
+        "source_path": "pdf/PDF_24/PDF_24/AGR_24CN_BCTN.pdf",
+        "source_sha256": "29cda4b451aa6e180334489db732ce77b94df32a8f19d6ee93afd234ce1a7d6e",
+        "physical_page": 13,
+        "document_layout_family": "native_text_mixed_orientation",
+        "table_layout_family": "compact_current_year_plan_actual_with_prior_and_ratio_spanner",
+        "extraction_family": "native_vector_text_table",
+        "layout_instance_fingerprint": "native_text_mixed_orientation|compact_current_year_plan_actual_with_prior_and_ratio_spanner|prior_actual_plan_actual_then_two_current_comparison_columns|landscape|single_physical_page",
+        "size_bytes": 7743653
+      }
+    ],
+    "runtime_hashes": {
+      "src/hrm_finance_qa/question_planner.py": "443ddb0b385728a7f943a4c6adc75ccb52ff495ff47875105d8da0a46cd62b4b",
+      "src/hrm_finance_qa/document_reasoning_engine.py": "3883500011472716bc01f8e04a6d6f925173b35a14bbedd945c5ca4fb0063fa2",
+      "src/hrm_finance_qa/document_sources.py": "e9eb7b3ddcc2ed13060a573a6a0101a216fa49ff21dd65cd5fc2629b92f5fc0b",
+      "src/hrm_finance_qa/document_page_index.py": "d531f47a22ed051863b41b3de031bb3e9d4bbf60ef71f825217559b7035386b4",
+      "src/hrm_finance_qa/program_data.py": "5199434fc0628b7d270ce62b12657366cbe118901065edd9f1e1f6ca0f1f8d54",
+      "src/hrm_finance_qa/document_hrm.py": "b5951bcde79583950b672f7fb6b199b3e5b9904e6784daae7c4c5be0eba65d21",
+      "src/hrm_finance_qa/program_synthesis.py": "e4acc4878d0dfd465ba66ab91f3aaf8be71db5591aa1358fb8cb81f3c7bff550",
+      "src/hrm_finance_qa/evidence_schema.py": "2f16fabf932dc9dabc8203d9642d2503bb2dab43e0e1ee0f78755dd4fb00825d",
+      "src/hrm_finance_qa/financial_identities.py": "ee7347885f561d5f5d9c404964ecb7a46f1275186e100f2236e53114aeacd2ee",
+      "src/hrm_finance_qa/ontology.py": "47375f6a95057ddda75433fd40a8e9c2be3448165e288c2764d1d54bc83e400b",
+      "src/hrm_finance_qa/symbolic_verifier.py": "2679b1ce55cc070697438c806f19e3e888bfc19bc1a9ae3686a0b7fd7ffb0087"
+    },
+    "symbol_locks": [
+      {
+        "path": "src/hrm_finance_qa/document_reasoning_engine.py",
+        "symbol": "DocumentHRMReasoningEngine._retrieve_chunks",
+        "start_line": 634,
+        "end_line": 679,
+        "source_sha256": "1761ca347e3857241594cb368fae7dca2f13c172c3c32620696b16250d38cbe4"
+      },
+      {
+        "path": "src/hrm_finance_qa/document_sources.py",
+        "symbol": "rank_chunks",
+        "start_line": 1465,
+        "end_line": 1509,
+        "source_sha256": "c6e7ae0667c40fa94293e31f2701b9b9c4b1c62707483772196ee109cf521bd0"
+      },
+      {
+        "path": "src/hrm_finance_qa/document_sources.py",
+        "symbol": "expand_neighbor_chunks",
+        "start_line": 1513,
+        "end_line": 1563,
+        "source_sha256": "a48b93eea625de002b143b90d99eb74765b59e34b10b1210d20572b010c6c19a"
+      },
+      {
+        "path": "src/hrm_finance_qa/program_data.py",
+        "symbol": "merge_candidates",
+        "start_line": 911,
+        "end_line": 1065,
+        "source_sha256": "3b1b12d9adabce3a2765c4589c7b3fa8b34834d6a12438b8ed203fed40cea893"
+      },
+      {
+        "path": "src/hrm_finance_qa/document_reasoning_engine.py",
+        "symbol": "_augment_financial_identity_candidates",
+        "start_line": 1137,
+        "end_line": 1290,
+        "source_sha256": "573e130efb6a21616528e44170c036f21b70490173df0c10076acbf44d5f4a22"
+      },
+      {
+        "path": "src/hrm_finance_qa/document_hrm.py",
+        "symbol": "DocumentHRMBundle.predict",
+        "start_line": 1222,
+        "end_line": 1263,
+        "source_sha256": "70c83ab2fba96cee28d36f7796cbd777dba13ae1fba56540f30e84141210c719"
+      }
+    ]
+  },
+  "historical_current_separation": {
+    "historical_candidate_observations_loaded_for_oracle": false,
+    "historical_candidate_observations_used_for_case_selection": false,
+    "historical_hub_ict_vnl_dispositions_governing": false,
+    "historical_24_failure_denominator_governing": false,
+    "allowed_use": "reference comparison only after current-state evidence is complete",
+    "difference_from_history_is_not_automatically_a_regression": true
+  },
+  "schema_preflight_history": {
+    "failed_attempts": 1,
+    "failure": "cohort top-level status is complete while governing PASS is encoded by gate and gate_results.overall",
+    "candidate_calls_observed": 0,
+    "repair_predicate_case_order_instrumentation_oracle_changed": false
+  },
+  "eligible_candidate_cohort": {
+    "definition": "all 60 positive-target questions from six frozen development anchors: five base_target and five reference_base_mutation_target surfaces per anchor",
+    "size": 60,
+    "case_order": "ascending UTF-8 bytes of oracle_row_id",
+    "case_order_sha256": "58e8dfa647a41151c131e9712af69efab8d3c25f083c2aa98b142e00a15ec7ba",
+    "current_failure_count": "UNKNOWN_UNTIL_LOCKED_BASELINE_DIAGNOSIS",
+    "cases": [
+      {
+        "oracle_row_id": "qp4-rcc-agr-total-expense:base_target:canonical",
+        "anchor_id": "qp4-rcc-agr-total-expense",
+        "company_key": "development-company-18",
+        "source_name": "AGR_24CN_BCTN.pdf",
+        "source_path": "pdf/PDF_24/PDF_24/AGR_24CN_BCTN.pdf",
+        "source_sha256": "29cda4b451aa6e180334489db732ce77b94df32a8f19d6ee93afd234ce1a7d6e",
+        "physical_page": 13,
+        "document_layout_family": "native_text_mixed_orientation",
+        "table_layout_family": "compact_current_year_plan_actual_with_prior_and_ratio_spanner",
+        "extraction_family": "native_vector_text_table",
+        "layout_instance_fingerprint": "native_text_mixed_orientation|compact_current_year_plan_actual_with_prior_and_ratio_spanner|prior_actual_plan_actual_then_two_current_comparison_columns|landscape|single_physical_page",
+        "category": "base_target",
+        "surface_label": "canonical",
+        "question_selector": {
+          "collection": "base_surfaces",
+          "index": 0
+        },
+        "question": "Tổng chi phí thực hiện năm 2024 đạt bao nhiêu phần trăm kế hoạch năm 2024?",
+        "question_sha256": "badd9259d7f6204e8f356050d45b5c4e4598014a810a51ca893947941f5adb5c",
+        "expected_operation": "RATIO_PERCENT",
+        "expected_operands": [
+          "current_actual",
+          "current_plan"
+        ],
+        "expected_physical_evidence": [
+          {
+            "operand": "current_actual",
+            "source_name": "AGR_24CN_BCTN.pdf",
+            "page": 13,
+            "value": "245.6",
+            "semantic_role": "ACTUAL",
+            "period": "2024"
+          },
+          {
+            "operand": "current_plan",
+            "source_name": "AGR_24CN_BCTN.pdf",
+            "page": 13,
+            "value": "215.0",
+            "semantic_role": "PLAN",
+            "period": "2024"
+          }
+        ],
+        "frozen_question_plan_projection_sha256": "5bab0ed2ffa83312065a6416fd1d0bee120e22852330e0cb25c8cbb4069e4948",
+        "question_plan_state": "EVALUATOR_CONFIRMED_EXACT_AT_GOVERNING_CLOSURE",
+        "diagnosis_ordinal": 1
+      },
+      {
+        "oracle_row_id": "qp4-rcc-agr-total-expense:base_target:clause_reordered",
+        "anchor_id": "qp4-rcc-agr-total-expense",
+        "company_key": "development-company-18",
+        "source_name": "AGR_24CN_BCTN.pdf",
+        "source_path": "pdf/PDF_24/PDF_24/AGR_24CN_BCTN.pdf",
+        "source_sha256": "29cda4b451aa6e180334489db732ce77b94df32a8f19d6ee93afd234ce1a7d6e",
+        "physical_page": 13,
+        "document_layout_family": "native_text_mixed_orientation",
+        "table_layout_family": "compact_current_year_plan_actual_with_prior_and_ratio_spanner",
+        "extraction_family": "native_vector_text_table",
+        "layout_instance_fingerprint": "native_text_mixed_orientation|compact_current_year_plan_actual_with_prior_and_ratio_spanner|prior_actual_plan_actual_then_two_current_comparison_columns|landscape|single_physical_page",
+        "category": "base_target",
+        "surface_label": "clause_reordered",
+        "question_selector": {
+          "collection": "base_surfaces",
+          "index": 3
+        },
+        "question": "Đối với cùng chỉ tiêu và phạm vi báo cáo, so với kế hoạch năm 2024 thì tổng chi phí thực hiện năm 2024 đạt bao nhiêu phần trăm?",
+        "question_sha256": "be215ec322dd5381c6b60ea128a6bb973d45b8cbb2e0a94d7b11faa1d1bc6055",
+        "expected_operation": "RATIO_PERCENT",
+        "expected_operands": [
+          "current_actual",
+          "current_plan"
+        ],
+        "expected_physical_evidence": [
+          {
+            "operand": "current_actual",
+            "source_name": "AGR_24CN_BCTN.pdf",
+            "page": 13,
+            "value": "245.6",
+            "semantic_role": "ACTUAL",
+            "period": "2024"
+          },
+          {
+            "operand": "current_plan",
+            "source_name": "AGR_24CN_BCTN.pdf",
+            "page": 13,
+            "value": "215.0",
+            "semantic_role": "PLAN",
+            "period": "2024"
+          }
+        ],
+        "frozen_question_plan_projection_sha256": "6f3072b2185568bf740ba01e55c8e26816f8b758f58b7649025c19123ed10b9f",
+        "question_plan_state": "EVALUATOR_CONFIRMED_EXACT_AT_GOVERNING_CLOSURE",
+        "diagnosis_ordinal": 2
+      },
+      {
+        "oracle_row_id": "qp4-rcc-agr-total-expense:base_target:long_clause",
+        "anchor_id": "qp4-rcc-agr-total-expense",
+        "company_key": "development-company-18",
+        "source_name": "AGR_24CN_BCTN.pdf",
+        "source_path": "pdf/PDF_24/PDF_24/AGR_24CN_BCTN.pdf",
+        "source_sha256": "29cda4b451aa6e180334489db732ce77b94df32a8f19d6ee93afd234ce1a7d6e",
+        "physical_page": 13,
+        "document_layout_family": "native_text_mixed_orientation",
+        "table_layout_family": "compact_current_year_plan_actual_with_prior_and_ratio_spanner",
+        "extraction_family": "native_vector_text_table",
+        "layout_instance_fingerprint": "native_text_mixed_orientation|compact_current_year_plan_actual_with_prior_and_ratio_spanner|prior_actual_plan_actual_then_two_current_comparison_columns|landscape|single_physical_page",
+        "category": "base_target",
+        "surface_label": "long_clause",
+        "question_selector": {
+          "collection": "base_surfaces",
+          "index": 2
+        },
+        "question": "Căn cứ đúng bảng kết quả hoạt động và giữ nguyên đơn vị, phạm vi cùng vai trò từng cột, hãy xác định tổng chi phí thực hiện năm 2024 đạt bao nhiêu phần trăm kế hoạch năm 2024?",
+        "question_sha256": "71d4ac196d3e5e17c0a1f894b0a762ebecafb8521381e8a6d021636e8c7b88a8",
+        "expected_operation": "RATIO_PERCENT",
+        "expected_operands": [
+          "current_actual",
+          "current_plan"
+        ],
+        "expected_physical_evidence": [
+          {
+            "operand": "current_actual",
+            "source_name": "AGR_24CN_BCTN.pdf",
+            "page": 13,
+            "value": "245.6",
+            "semantic_role": "ACTUAL",
+            "period": "2024"
+          },
+          {
+            "operand": "current_plan",
+            "source_name": "AGR_24CN_BCTN.pdf",
+            "page": 13,
+            "value": "215.0",
+            "semantic_role": "PLAN",
+            "period": "2024"
+          }
+        ],
+        "frozen_question_plan_projection_sha256": "92e43263f40705e9e8f53e3739e4b305664e196ffecc298cf342b18b3bbe8c5e",
+        "question_plan_state": "EVALUATOR_CONFIRMED_EXACT_AT_GOVERNING_CLOSURE",
+        "diagnosis_ordinal": 3
+      },
+      {
+        "oracle_row_id": "qp4-rcc-agr-total-expense:base_target:no_diacritics",
+        "anchor_id": "qp4-rcc-agr-total-expense",
+        "company_key": "development-company-18",
+        "source_name": "AGR_24CN_BCTN.pdf",
+        "source_path": "pdf/PDF_24/PDF_24/AGR_24CN_BCTN.pdf",
+        "source_sha256": "29cda4b451aa6e180334489db732ce77b94df32a8f19d6ee93afd234ce1a7d6e",
+        "physical_page": 13,
+        "document_layout_family": "native_text_mixed_orientation",
+        "table_layout_family": "compact_current_year_plan_actual_with_prior_and_ratio_spanner",
+        "extraction_family": "native_vector_text_table",
+        "layout_instance_fingerprint": "native_text_mixed_orientation|compact_current_year_plan_actual_with_prior_and_ratio_spanner|prior_actual_plan_actual_then_two_current_comparison_columns|landscape|single_physical_page",
+        "category": "base_target",
+        "surface_label": "no_diacritics",
+        "question_selector": {
+          "collection": "base_surfaces",
+          "index": 4
+        },
+        "question": "Tong chi phi thuc hien nam 2024 dat bao nhieu phan tram ke hoach nam 2024?",
+        "question_sha256": "4072fbcabe6b4e3ea72479fe2cd2022d37986b61238563fdb2746c738db52e51",
+        "expected_operation": "RATIO_PERCENT",
+        "expected_operands": [
+          "current_actual",
+          "current_plan"
+        ],
+        "expected_physical_evidence": [
+          {
+            "operand": "current_actual",
+            "source_name": "AGR_24CN_BCTN.pdf",
+            "page": 13,
+            "value": "245.6",
+            "semantic_role": "ACTUAL",
+            "period": "2024"
+          },
+          {
+            "operand": "current_plan",
+            "source_name": "AGR_24CN_BCTN.pdf",
+            "page": 13,
+            "value": "215.0",
+            "semantic_role": "PLAN",
+            "period": "2024"
+          }
+        ],
+        "frozen_question_plan_projection_sha256": "576817db37cabec7f1fa4e6e7ad9771381a2636357ff05c5640d1069f07fb4b8",
+        "question_plan_state": "EVALUATOR_CONFIRMED_EXACT_AT_GOVERNING_CLOSURE",
+        "diagnosis_ordinal": 4
+      },
+      {
+        "oracle_row_id": "qp4-rcc-agr-total-expense:base_target:paraphrase_1",
+        "anchor_id": "qp4-rcc-agr-total-expense",
+        "company_key": "development-company-18",
+        "source_name": "AGR_24CN_BCTN.pdf",
+        "source_path": "pdf/PDF_24/PDF_24/AGR_24CN_BCTN.pdf",
+        "source_sha256": "29cda4b451aa6e180334489db732ce77b94df32a8f19d6ee93afd234ce1a7d6e",
+        "physical_page": 13,
+        "document_layout_family": "native_text_mixed_orientation",
+        "table_layout_family": "compact_current_year_plan_actual_with_prior_and_ratio_spanner",
+        "extraction_family": "native_vector_text_table",
+        "layout_instance_fingerprint": "native_text_mixed_orientation|compact_current_year_plan_actual_with_prior_and_ratio_spanner|prior_actual_plan_actual_then_two_current_comparison_columns|landscape|single_physical_page",
+        "category": "base_target",
+        "surface_label": "paraphrase_1",
+        "question_selector": {
+          "collection": "base_surfaces",
+          "index": 1
+        },
+        "question": "Hãy cho biết tổng chi phí thực hiện năm 2024 bằng bao nhiêu phần trăm mức kế hoạch cùng năm?",
+        "question_sha256": "26363a0764c419a242a5989f8e53ef0ff02c52ced88b817a53e9631cc1be73cd",
+        "expected_operation": "RATIO_PERCENT",
+        "expected_operands": [
+          "current_actual",
+          "current_plan"
+        ],
+        "expected_physical_evidence": [
+          {
+            "operand": "current_actual",
+            "source_name": "AGR_24CN_BCTN.pdf",
+            "page": 13,
+            "value": "245.6",
+            "semantic_role": "ACTUAL",
+            "period": "2024"
+          },
+          {
+            "operand": "current_plan",
+            "source_name": "AGR_24CN_BCTN.pdf",
+            "page": 13,
+            "value": "215.0",
+            "semantic_role": "PLAN",
+            "period": "2024"
+          }
+        ],
+        "frozen_question_plan_projection_sha256": "ebc388126f5b63850b392ae0734db584dc23cd7006b4fd83ee343dd046c5ab2c",
+        "question_plan_state": "EVALUATOR_CONFIRMED_EXACT_AT_GOVERNING_CLOSURE",
+        "diagnosis_ordinal": 5
+      },
+      {
+        "oracle_row_id": "qp4-rcc-agr-total-expense:reference_base_mutation_target:canonical",
+        "anchor_id": "qp4-rcc-agr-total-expense",
+        "company_key": "development-company-18",
+        "source_name": "AGR_24CN_BCTN.pdf",
+        "source_path": "pdf/PDF_24/PDF_24/AGR_24CN_BCTN.pdf",
+        "source_sha256": "29cda4b451aa6e180334489db732ce77b94df32a8f19d6ee93afd234ce1a7d6e",
+        "physical_page": 13,
+        "document_layout_family": "native_text_mixed_orientation",
+        "table_layout_family": "compact_current_year_plan_actual_with_prior_and_ratio_spanner",
+        "extraction_family": "native_vector_text_table",
+        "layout_instance_fingerprint": "native_text_mixed_orientation|compact_current_year_plan_actual_with_prior_and_ratio_spanner|prior_actual_plan_actual_then_two_current_comparison_columns|landscape|single_physical_page",
+        "category": "reference_base_mutation_target",
+        "surface_label": "canonical",
+        "question_selector": {
+          "collection": "reference_base_mutation_surfaces",
+          "index": 0
+        },
+        "question": "Tổng chi phí thực hiện năm 2024 bằng bao nhiêu phần trăm thực hiện năm 2023?",
+        "question_sha256": "52cbe633a7d0aa05bf55d3d4e1bb347bbedd3257b7e425627fdc003d7ccfa7eb",
+        "expected_operation": "RATIO_PERCENT",
+        "expected_operands": [
+          "current_actual",
+          "prior_actual"
+        ],
+        "expected_physical_evidence": [
+          {
+            "operand": "current_actual",
+            "source_name": "AGR_24CN_BCTN.pdf",
+            "page": 13,
+            "value": "245.6",
+            "semantic_role": "ACTUAL",
+            "period": "2024"
+          },
+          {
+            "operand": "prior_actual",
+            "source_name": "AGR_24CN_BCTN.pdf",
+            "page": 13,
+            "value": "177.8",
+            "semantic_role": "ACTUAL",
+            "period": "2023"
+          }
+        ],
+        "frozen_question_plan_projection_sha256": "b4ba83adc0524170c2e857853355e0763da48334124d505e77d621ebdcd8bb1c",
+        "question_plan_state": "EVALUATOR_CONFIRMED_EXACT_AT_GOVERNING_CLOSURE",
+        "diagnosis_ordinal": 6
+      },
+      {
+        "oracle_row_id": "qp4-rcc-agr-total-expense:reference_base_mutation_target:clause_reordered",
+        "anchor_id": "qp4-rcc-agr-total-expense",
+        "company_key": "development-company-18",
+        "source_name": "AGR_24CN_BCTN.pdf",
+        "source_path": "pdf/PDF_24/PDF_24/AGR_24CN_BCTN.pdf",
+        "source_sha256": "29cda4b451aa6e180334489db732ce77b94df32a8f19d6ee93afd234ce1a7d6e",
+        "physical_page": 13,
+        "document_layout_family": "native_text_mixed_orientation",
+        "table_layout_family": "compact_current_year_plan_actual_with_prior_and_ratio_spanner",
+        "extraction_family": "native_vector_text_table",
+        "layout_instance_fingerprint": "native_text_mixed_orientation|compact_current_year_plan_actual_with_prior_and_ratio_spanner|prior_actual_plan_actual_then_two_current_comparison_columns|landscape|single_physical_page",
+        "category": "reference_base_mutation_target",
+        "surface_label": "clause_reordered",
+        "question_selector": {
+          "collection": "reference_base_mutation_surfaces",
+          "index": 3
+        },
+        "question": "Đối với cùng chỉ tiêu và phạm vi báo cáo, so với thực hiện năm 2023 thì tổng chi phí thực hiện năm 2024 bằng bao nhiêu phần trăm?",
+        "question_sha256": "128429c7de5b8c48f10e9475d2314d32b6d2d0ffb3a0b2b8ed8ab69bfe653e1f",
+        "expected_operation": "RATIO_PERCENT",
+        "expected_operands": [
+          "current_actual",
+          "prior_actual"
+        ],
+        "expected_physical_evidence": [
+          {
+            "operand": "current_actual",
+            "source_name": "AGR_24CN_BCTN.pdf",
+            "page": 13,
+            "value": "245.6",
+            "semantic_role": "ACTUAL",
+            "period": "2024"
+          },
+          {
+            "operand": "prior_actual",
+            "source_name": "AGR_24CN_BCTN.pdf",
+            "page": 13,
+            "value": "177.8",
+            "semantic_role": "ACTUAL",
+            "period": "2023"
+          }
+        ],
+        "frozen_question_plan_projection_sha256": "a6ba1862f67ec65e53d0bc4048304c31f2d8a6db61b27cb43a16744ef57004f6",
+        "question_plan_state": "EVALUATOR_CONFIRMED_EXACT_AT_GOVERNING_CLOSURE",
+        "diagnosis_ordinal": 7
+      },
+      {
+        "oracle_row_id": "qp4-rcc-agr-total-expense:reference_base_mutation_target:long_clause",
+        "anchor_id": "qp4-rcc-agr-total-expense",
+        "company_key": "development-company-18",
+        "source_name": "AGR_24CN_BCTN.pdf",
+        "source_path": "pdf/PDF_24/PDF_24/AGR_24CN_BCTN.pdf",
+        "source_sha256": "29cda4b451aa6e180334489db732ce77b94df32a8f19d6ee93afd234ce1a7d6e",
+        "physical_page": 13,
+        "document_layout_family": "native_text_mixed_orientation",
+        "table_layout_family": "compact_current_year_plan_actual_with_prior_and_ratio_spanner",
+        "extraction_family": "native_vector_text_table",
+        "layout_instance_fingerprint": "native_text_mixed_orientation|compact_current_year_plan_actual_with_prior_and_ratio_spanner|prior_actual_plan_actual_then_two_current_comparison_columns|landscape|single_physical_page",
+        "category": "reference_base_mutation_target",
+        "surface_label": "long_clause",
+        "question_selector": {
+          "collection": "reference_base_mutation_surfaces",
+          "index": 2
+        },
+        "question": "Căn cứ đúng bảng kết quả hoạt động và giữ nguyên đơn vị, phạm vi cùng vai trò từng cột, hãy xác định tổng chi phí thực hiện năm 2024 bằng bao nhiêu phần trăm thực hiện năm 2023?",
+        "question_sha256": "dbe45ce2567db82165796379423f3e9e4e84330c20846c6290db402977ec7a01",
+        "expected_operation": "RATIO_PERCENT",
+        "expected_operands": [
+          "current_actual",
+          "prior_actual"
+        ],
+        "expected_physical_evidence": [
+          {
+            "operand": "current_actual",
+            "source_name": "AGR_24CN_BCTN.pdf",
+            "page": 13,
+            "value": "245.6",
+            "semantic_role": "ACTUAL",
+            "period": "2024"
+          },
+          {
+            "operand": "prior_actual",
+            "source_name": "AGR_24CN_BCTN.pdf",
+            "page": 13,
+            "value": "177.8",
+            "semantic_role": "ACTUAL",
+            "period": "2023"
+          }
+        ],
+        "frozen_question_plan_projection_sha256": "71a35f99b9a3c5b83431a17db995b5440205a270a6e70e98d4b6b45f9d18a628",
+        "question_plan_state": "EVALUATOR_CONFIRMED_EXACT_AT_GOVERNING_CLOSURE",
+        "diagnosis_ordinal": 8
+      },
+      {
+        "oracle_row_id": "qp4-rcc-agr-total-expense:reference_base_mutation_target:no_diacritics",
+        "anchor_id": "qp4-rcc-agr-total-expense",
+        "company_key": "development-company-18",
+        "source_name": "AGR_24CN_BCTN.pdf",
+        "source_path": "pdf/PDF_24/PDF_24/AGR_24CN_BCTN.pdf",
+        "source_sha256": "29cda4b451aa6e180334489db732ce77b94df32a8f19d6ee93afd234ce1a7d6e",
+        "physical_page": 13,
+        "document_layout_family": "native_text_mixed_orientation",
+        "table_layout_family": "compact_current_year_plan_actual_with_prior_and_ratio_spanner",
+        "extraction_family": "native_vector_text_table",
+        "layout_instance_fingerprint": "native_text_mixed_orientation|compact_current_year_plan_actual_with_prior_and_ratio_spanner|prior_actual_plan_actual_then_two_current_comparison_columns|landscape|single_physical_page",
+        "category": "reference_base_mutation_target",
+        "surface_label": "no_diacritics",
+        "question_selector": {
+          "collection": "reference_base_mutation_surfaces",
+          "index": 4
+        },
+        "question": "Tong chi phi thuc hien nam 2024 bang bao nhieu phan tram thuc hien nam 2023?",
+        "question_sha256": "9d3fc3a97155df04485d23488334e0518033178f00d96730f4a944a2c3bea1b6",
+        "expected_operation": "RATIO_PERCENT",
+        "expected_operands": [
+          "current_actual",
+          "prior_actual"
+        ],
+        "expected_physical_evidence": [
+          {
+            "operand": "current_actual",
+            "source_name": "AGR_24CN_BCTN.pdf",
+            "page": 13,
+            "value": "245.6",
+            "semantic_role": "ACTUAL",
+            "period": "2024"
+          },
+          {
+            "operand": "prior_actual",
+            "source_name": "AGR_24CN_BCTN.pdf",
+            "page": 13,
+            "value": "177.8",
+            "semantic_role": "ACTUAL",
+            "period": "2023"
+          }
+        ],
+        "frozen_question_plan_projection_sha256": "8ff13d01d34c496d45e74543afea35d208b52aa56ab17d02c7e29b219624f4a3",
+        "question_plan_state": "EVALUATOR_CONFIRMED_EXACT_AT_GOVERNING_CLOSURE",
+        "diagnosis_ordinal": 9
+      },
+      {
+        "oracle_row_id": "qp4-rcc-agr-total-expense:reference_base_mutation_target:paraphrase_1",
+        "anchor_id": "qp4-rcc-agr-total-expense",
+        "company_key": "development-company-18",
+        "source_name": "AGR_24CN_BCTN.pdf",
+        "source_path": "pdf/PDF_24/PDF_24/AGR_24CN_BCTN.pdf",
+        "source_sha256": "29cda4b451aa6e180334489db732ce77b94df32a8f19d6ee93afd234ce1a7d6e",
+        "physical_page": 13,
+        "document_layout_family": "native_text_mixed_orientation",
+        "table_layout_family": "compact_current_year_plan_actual_with_prior_and_ratio_spanner",
+        "extraction_family": "native_vector_text_table",
+        "layout_instance_fingerprint": "native_text_mixed_orientation|compact_current_year_plan_actual_with_prior_and_ratio_spanner|prior_actual_plan_actual_then_two_current_comparison_columns|landscape|single_physical_page",
+        "category": "reference_base_mutation_target",
+        "surface_label": "paraphrase_1",
+        "question_selector": {
+          "collection": "reference_base_mutation_surfaces",
+          "index": 1
+        },
+        "question": "Hãy cho biết tổng chi phí thực hiện năm 2024 đạt bao nhiêu phần trăm so với số thực hiện năm 2023?",
+        "question_sha256": "1793edead391ce22336521bde4220d2d6cb59af2dc6d3b5067341b35584da6ef",
+        "expected_operation": "RATIO_PERCENT",
+        "expected_operands": [
+          "current_actual",
+          "prior_actual"
+        ],
+        "expected_physical_evidence": [
+          {
+            "operand": "current_actual",
+            "source_name": "AGR_24CN_BCTN.pdf",
+            "page": 13,
+            "value": "245.6",
+            "semantic_role": "ACTUAL",
+            "period": "2024"
+          },
+          {
+            "operand": "prior_actual",
+            "source_name": "AGR_24CN_BCTN.pdf",
+            "page": 13,
+            "value": "177.8",
+            "semantic_role": "ACTUAL",
+            "period": "2023"
+          }
+        ],
+        "frozen_question_plan_projection_sha256": "40a0a6c326ba78f4a7860ded282474a0dc08494873f2d6fc3971fff0eea4eeb6",
+        "question_plan_state": "EVALUATOR_CONFIRMED_EXACT_AT_GOVERNING_CLOSURE",
+        "diagnosis_ordinal": 10
+      },
+      {
+        "oracle_row_id": "qp4-rcc-hub-parent-profit-after-tax:base_target:canonical",
+        "anchor_id": "qp4-rcc-hub-parent-profit-after-tax",
+        "company_key": "development-company-08d33503ee27d4c1",
+        "source_name": "HUB_23CN_BCTN.pdf",
+        "source_path": "pdf/PDF_23/HUB_23CN_BCTN.pdf",
+        "source_sha256": "daad4aaec36be97b5ae6f99d1d822fb9efe12d2b92110e81be7df150e991f695",
+        "physical_page": 21,
+        "document_layout_family": "native_text_portrait",
+        "table_layout_family": "portrait_table_above_grouped_bar_chart",
+        "extraction_family": "native_vector_text_table",
+        "layout_instance_fingerprint": "native_text_portrait|portrait_table_above_grouped_bar_chart|prior_actual_plan_actual_then_two_comparison_columns|portrait|single_physical_page",
+        "category": "base_target",
+        "surface_label": "canonical",
+        "question_selector": {
+          "collection": "base_surfaces",
+          "index": 0
+        },
+        "question": "Lợi nhuận sau thuế riêng công ty thực hiện năm 2023 đạt bao nhiêu phần trăm kế hoạch năm 2023?",
+        "question_sha256": "7eaf175c097b9d302ae5fb1c8952d1653f39c1612f9f83d3902613ff8793b8c8",
+        "expected_operation": "RATIO_PERCENT",
+        "expected_operands": [
+          "current_actual",
+          "current_plan"
+        ],
+        "expected_physical_evidence": [
+          {
+            "operand": "current_actual",
+            "source_name": "HUB_23CN_BCTN.pdf",
+            "page": 21,
+            "value": "46.42",
+            "semantic_role": "ACTUAL",
+            "period": "2023"
+          },
+          {
+            "operand": "current_plan",
+            "source_name": "HUB_23CN_BCTN.pdf",
+            "page": 21,
+            "value": "35.00",
+            "semantic_role": "PLAN",
+            "period": "2023"
+          }
+        ],
+        "frozen_question_plan_projection_sha256": "492f1b34439136dc1eaf0f98dc4a0ab654663670620ff893016bc2a93763b90a",
+        "question_plan_state": "EVALUATOR_CONFIRMED_EXACT_AT_GOVERNING_CLOSURE",
+        "diagnosis_ordinal": 11
+      },
+      {
+        "oracle_row_id": "qp4-rcc-hub-parent-profit-after-tax:base_target:clause_reordered",
+        "anchor_id": "qp4-rcc-hub-parent-profit-after-tax",
+        "company_key": "development-company-08d33503ee27d4c1",
+        "source_name": "HUB_23CN_BCTN.pdf",
+        "source_path": "pdf/PDF_23/HUB_23CN_BCTN.pdf",
+        "source_sha256": "daad4aaec36be97b5ae6f99d1d822fb9efe12d2b92110e81be7df150e991f695",
+        "physical_page": 21,
+        "document_layout_family": "native_text_portrait",
+        "table_layout_family": "portrait_table_above_grouped_bar_chart",
+        "extraction_family": "native_vector_text_table",
+        "layout_instance_fingerprint": "native_text_portrait|portrait_table_above_grouped_bar_chart|prior_actual_plan_actual_then_two_comparison_columns|portrait|single_physical_page",
+        "category": "base_target",
+        "surface_label": "clause_reordered",
+        "question_selector": {
+          "collection": "base_surfaces",
+          "index": 3
+        },
+        "question": "Trong phạm vi báo cáo riêng công ty, so với kế hoạch năm 2023 thì lợi nhuận sau thuế thực hiện năm 2023 đạt bao nhiêu phần trăm?",
+        "question_sha256": "ae8512c3fa48d2ad96db9b7a12e64f46bb35c641ce425705a87d0a81dc10327f",
+        "expected_operation": "RATIO_PERCENT",
+        "expected_operands": [
+          "current_actual",
+          "current_plan"
+        ],
+        "expected_physical_evidence": [
+          {
+            "operand": "current_actual",
+            "source_name": "HUB_23CN_BCTN.pdf",
+            "page": 21,
+            "value": "46.42",
+            "semantic_role": "ACTUAL",
+            "period": "2023"
+          },
+          {
+            "operand": "current_plan",
+            "source_name": "HUB_23CN_BCTN.pdf",
+            "page": 21,
+            "value": "35.00",
+            "semantic_role": "PLAN",
+            "period": "2023"
+          }
+        ],
+        "frozen_question_plan_projection_sha256": "f7594702aea74f754efaab225b1f43e8934c19d23be27486d56044b9ee62fa43",
+        "question_plan_state": "EVALUATOR_CONFIRMED_EXACT_AT_GOVERNING_CLOSURE",
+        "diagnosis_ordinal": 12
+      },
+      {
+        "oracle_row_id": "qp4-rcc-hub-parent-profit-after-tax:base_target:long_clause",
+        "anchor_id": "qp4-rcc-hub-parent-profit-after-tax",
+        "company_key": "development-company-08d33503ee27d4c1",
+        "source_name": "HUB_23CN_BCTN.pdf",
+        "source_path": "pdf/PDF_23/HUB_23CN_BCTN.pdf",
+        "source_sha256": "daad4aaec36be97b5ae6f99d1d822fb9efe12d2b92110e81be7df150e991f695",
+        "physical_page": 21,
+        "document_layout_family": "native_text_portrait",
+        "table_layout_family": "portrait_table_above_grouped_bar_chart",
+        "extraction_family": "native_vector_text_table",
+        "layout_instance_fingerprint": "native_text_portrait|portrait_table_above_grouped_bar_chart|prior_actual_plan_actual_then_two_comparison_columns|portrait|single_physical_page",
+        "category": "base_target",
+        "surface_label": "long_clause",
+        "question_selector": {
+          "collection": "base_surfaces",
+          "index": 2
+        },
+        "question": "Căn cứ đúng bảng báo cáo tài chính riêng công ty và giữ nguyên đơn vị, phạm vi cùng vai trò từng cột, hãy xác định lợi nhuận sau thuế thực hiện năm 2023 đạt bao nhiêu phần trăm kế hoạch năm 2023?",
+        "question_sha256": "7965e882018a11ed5ad84d6599d85f47c2ac10eae17ce7a2b5e5326e3230951c",
+        "expected_operation": "RATIO_PERCENT",
+        "expected_operands": [
+          "current_actual",
+          "current_plan"
+        ],
+        "expected_physical_evidence": [
+          {
+            "operand": "current_actual",
+            "source_name": "HUB_23CN_BCTN.pdf",
+            "page": 21,
+            "value": "46.42",
+            "semantic_role": "ACTUAL",
+            "period": "2023"
+          },
+          {
+            "operand": "current_plan",
+            "source_name": "HUB_23CN_BCTN.pdf",
+            "page": 21,
+            "value": "35.00",
+            "semantic_role": "PLAN",
+            "period": "2023"
+          }
+        ],
+        "frozen_question_plan_projection_sha256": "d9ab95578c32a73815ba7fdcf9d7f1891fac5b989dc7711f37b114a8ee39a358",
+        "question_plan_state": "EVALUATOR_CONFIRMED_EXACT_AT_GOVERNING_CLOSURE",
+        "diagnosis_ordinal": 13
+      },
+      {
+        "oracle_row_id": "qp4-rcc-hub-parent-profit-after-tax:base_target:no_diacritics",
+        "anchor_id": "qp4-rcc-hub-parent-profit-after-tax",
+        "company_key": "development-company-08d33503ee27d4c1",
+        "source_name": "HUB_23CN_BCTN.pdf",
+        "source_path": "pdf/PDF_23/HUB_23CN_BCTN.pdf",
+        "source_sha256": "daad4aaec36be97b5ae6f99d1d822fb9efe12d2b92110e81be7df150e991f695",
+        "physical_page": 21,
+        "document_layout_family": "native_text_portrait",
+        "table_layout_family": "portrait_table_above_grouped_bar_chart",
+        "extraction_family": "native_vector_text_table",
+        "layout_instance_fingerprint": "native_text_portrait|portrait_table_above_grouped_bar_chart|prior_actual_plan_actual_then_two_comparison_columns|portrait|single_physical_page",
+        "category": "base_target",
+        "surface_label": "no_diacritics",
+        "question_selector": {
+          "collection": "base_surfaces",
+          "index": 4
+        },
+        "question": "Loi nhuan sau thue rieng cong ty thuc hien nam 2023 dat bao nhieu phan tram ke hoach nam 2023?",
+        "question_sha256": "4503a888ae77a971cccbf1ddf221846d5d2df41a98a5d86c46c64d08b394dc8a",
+        "expected_operation": "RATIO_PERCENT",
+        "expected_operands": [
+          "current_actual",
+          "current_plan"
+        ],
+        "expected_physical_evidence": [
+          {
+            "operand": "current_actual",
+            "source_name": "HUB_23CN_BCTN.pdf",
+            "page": 21,
+            "value": "46.42",
+            "semantic_role": "ACTUAL",
+            "period": "2023"
+          },
+          {
+            "operand": "current_plan",
+            "source_name": "HUB_23CN_BCTN.pdf",
+            "page": 21,
+            "value": "35.00",
+            "semantic_role": "PLAN",
+            "period": "2023"
+          }
+        ],
+        "frozen_question_plan_projection_sha256": "9f49d550f4921f00091d12324b465e49ee37574090535b00d08a8f69816615ca",
+        "question_plan_state": "EVALUATOR_CONFIRMED_EXACT_AT_GOVERNING_CLOSURE",
+        "diagnosis_ordinal": 14
+      },
+      {
+        "oracle_row_id": "qp4-rcc-hub-parent-profit-after-tax:base_target:paraphrase_1",
+        "anchor_id": "qp4-rcc-hub-parent-profit-after-tax",
+        "company_key": "development-company-08d33503ee27d4c1",
+        "source_name": "HUB_23CN_BCTN.pdf",
+        "source_path": "pdf/PDF_23/HUB_23CN_BCTN.pdf",
+        "source_sha256": "daad4aaec36be97b5ae6f99d1d822fb9efe12d2b92110e81be7df150e991f695",
+        "physical_page": 21,
+        "document_layout_family": "native_text_portrait",
+        "table_layout_family": "portrait_table_above_grouped_bar_chart",
+        "extraction_family": "native_vector_text_table",
+        "layout_instance_fingerprint": "native_text_portrait|portrait_table_above_grouped_bar_chart|prior_actual_plan_actual_then_two_comparison_columns|portrait|single_physical_page",
+        "category": "base_target",
+        "surface_label": "paraphrase_1",
+        "question_selector": {
+          "collection": "base_surfaces",
+          "index": 1
+        },
+        "question": "Hãy cho biết lợi nhuận sau thuế riêng công ty thực hiện năm 2023 bằng bao nhiêu phần trăm mức kế hoạch cùng năm?",
+        "question_sha256": "d0aadb2002cbea8fe1884722dcd2dfb86667a40b364ee0cff5127a5177f0c7a7",
+        "expected_operation": "RATIO_PERCENT",
+        "expected_operands": [
+          "current_actual",
+          "current_plan"
+        ],
+        "expected_physical_evidence": [
+          {
+            "operand": "current_actual",
+            "source_name": "HUB_23CN_BCTN.pdf",
+            "page": 21,
+            "value": "46.42",
+            "semantic_role": "ACTUAL",
+            "period": "2023"
+          },
+          {
+            "operand": "current_plan",
+            "source_name": "HUB_23CN_BCTN.pdf",
+            "page": 21,
+            "value": "35.00",
+            "semantic_role": "PLAN",
+            "period": "2023"
+          }
+        ],
+        "frozen_question_plan_projection_sha256": "9e91d06c53f4fd60646451c936e7e03c5d6197bcdeb1ec94c2bf07251ba06781",
+        "question_plan_state": "EVALUATOR_CONFIRMED_EXACT_AT_GOVERNING_CLOSURE",
+        "diagnosis_ordinal": 15
+      },
+      {
+        "oracle_row_id": "qp4-rcc-hub-parent-profit-after-tax:reference_base_mutation_target:canonical",
+        "anchor_id": "qp4-rcc-hub-parent-profit-after-tax",
+        "company_key": "development-company-08d33503ee27d4c1",
+        "source_name": "HUB_23CN_BCTN.pdf",
+        "source_path": "pdf/PDF_23/HUB_23CN_BCTN.pdf",
+        "source_sha256": "daad4aaec36be97b5ae6f99d1d822fb9efe12d2b92110e81be7df150e991f695",
+        "physical_page": 21,
+        "document_layout_family": "native_text_portrait",
+        "table_layout_family": "portrait_table_above_grouped_bar_chart",
+        "extraction_family": "native_vector_text_table",
+        "layout_instance_fingerprint": "native_text_portrait|portrait_table_above_grouped_bar_chart|prior_actual_plan_actual_then_two_comparison_columns|portrait|single_physical_page",
+        "category": "reference_base_mutation_target",
+        "surface_label": "canonical",
+        "question_selector": {
+          "collection": "reference_base_mutation_surfaces",
+          "index": 0
+        },
+        "question": "Lợi nhuận sau thuế riêng công ty thực hiện năm 2023 bằng bao nhiêu phần trăm thực hiện năm 2022?",
+        "question_sha256": "a87389367a5b95f56c39e0cf9d76dc3a22370a0088dac68c1211c4c8276586b3",
+        "expected_operation": "RATIO_PERCENT",
+        "expected_operands": [
+          "current_actual",
+          "prior_actual"
+        ],
+        "expected_physical_evidence": [
+          {
+            "operand": "current_actual",
+            "source_name": "HUB_23CN_BCTN.pdf",
+            "page": 21,
+            "value": "46.42",
+            "semantic_role": "ACTUAL",
+            "period": "2023"
+          },
+          {
+            "operand": "prior_actual",
+            "source_name": "HUB_23CN_BCTN.pdf",
+            "page": 21,
+            "value": "39.98",
+            "semantic_role": "ACTUAL",
+            "period": "2022"
+          }
+        ],
+        "frozen_question_plan_projection_sha256": "28344848849fb8db7d5816d9a1d3e238f5762fb10e9392096b2b51ad60c4f574",
+        "question_plan_state": "EVALUATOR_CONFIRMED_EXACT_AT_GOVERNING_CLOSURE",
+        "diagnosis_ordinal": 16
+      },
+      {
+        "oracle_row_id": "qp4-rcc-hub-parent-profit-after-tax:reference_base_mutation_target:clause_reordered",
+        "anchor_id": "qp4-rcc-hub-parent-profit-after-tax",
+        "company_key": "development-company-08d33503ee27d4c1",
+        "source_name": "HUB_23CN_BCTN.pdf",
+        "source_path": "pdf/PDF_23/HUB_23CN_BCTN.pdf",
+        "source_sha256": "daad4aaec36be97b5ae6f99d1d822fb9efe12d2b92110e81be7df150e991f695",
+        "physical_page": 21,
+        "document_layout_family": "native_text_portrait",
+        "table_layout_family": "portrait_table_above_grouped_bar_chart",
+        "extraction_family": "native_vector_text_table",
+        "layout_instance_fingerprint": "native_text_portrait|portrait_table_above_grouped_bar_chart|prior_actual_plan_actual_then_two_comparison_columns|portrait|single_physical_page",
+        "category": "reference_base_mutation_target",
+        "surface_label": "clause_reordered",
+        "question_selector": {
+          "collection": "reference_base_mutation_surfaces",
+          "index": 3
+        },
+        "question": "Trong phạm vi báo cáo riêng công ty, so với thực hiện năm 2022 thì lợi nhuận sau thuế thực hiện năm 2023 bằng bao nhiêu phần trăm?",
+        "question_sha256": "f9dee39b57c1deda8bded30ed8e5ceab892b4e76bcdec798803ffae42b6f28d2",
+        "expected_operation": "RATIO_PERCENT",
+        "expected_operands": [
+          "current_actual",
+          "prior_actual"
+        ],
+        "expected_physical_evidence": [
+          {
+            "operand": "current_actual",
+            "source_name": "HUB_23CN_BCTN.pdf",
+            "page": 21,
+            "value": "46.42",
+            "semantic_role": "ACTUAL",
+            "period": "2023"
+          },
+          {
+            "operand": "prior_actual",
+            "source_name": "HUB_23CN_BCTN.pdf",
+            "page": 21,
+            "value": "39.98",
+            "semantic_role": "ACTUAL",
+            "period": "2022"
+          }
+        ],
+        "frozen_question_plan_projection_sha256": "c7ecd4e72932f3745b6dc82908cb73f6730e099d7e77d7bb46f4757cee8f83df",
+        "question_plan_state": "EVALUATOR_CONFIRMED_EXACT_AT_GOVERNING_CLOSURE",
+        "diagnosis_ordinal": 17
+      },
+      {
+        "oracle_row_id": "qp4-rcc-hub-parent-profit-after-tax:reference_base_mutation_target:long_clause",
+        "anchor_id": "qp4-rcc-hub-parent-profit-after-tax",
+        "company_key": "development-company-08d33503ee27d4c1",
+        "source_name": "HUB_23CN_BCTN.pdf",
+        "source_path": "pdf/PDF_23/HUB_23CN_BCTN.pdf",
+        "source_sha256": "daad4aaec36be97b5ae6f99d1d822fb9efe12d2b92110e81be7df150e991f695",
+        "physical_page": 21,
+        "document_layout_family": "native_text_portrait",
+        "table_layout_family": "portrait_table_above_grouped_bar_chart",
+        "extraction_family": "native_vector_text_table",
+        "layout_instance_fingerprint": "native_text_portrait|portrait_table_above_grouped_bar_chart|prior_actual_plan_actual_then_two_comparison_columns|portrait|single_physical_page",
+        "category": "reference_base_mutation_target",
+        "surface_label": "long_clause",
+        "question_selector": {
+          "collection": "reference_base_mutation_surfaces",
+          "index": 2
+        },
+        "question": "Căn cứ đúng bảng báo cáo tài chính riêng công ty và giữ nguyên đơn vị, phạm vi cùng vai trò từng cột, hãy xác định lợi nhuận sau thuế thực hiện năm 2023 bằng bao nhiêu phần trăm thực hiện năm 2022?",
+        "question_sha256": "94c2af89ea0e6eb012e2d0e4dfcdfa97e1af49a86ed4a5a7e45603926ddf4825",
+        "expected_operation": "RATIO_PERCENT",
+        "expected_operands": [
+          "current_actual",
+          "prior_actual"
+        ],
+        "expected_physical_evidence": [
+          {
+            "operand": "current_actual",
+            "source_name": "HUB_23CN_BCTN.pdf",
+            "page": 21,
+            "value": "46.42",
+            "semantic_role": "ACTUAL",
+            "period": "2023"
+          },
+          {
+            "operand": "prior_actual",
+            "source_name": "HUB_23CN_BCTN.pdf",
+            "page": 21,
+            "value": "39.98",
+            "semantic_role": "ACTUAL",
+            "period": "2022"
+          }
+        ],
+        "frozen_question_plan_projection_sha256": "54b44475a50d1b7b79a3dd7ede872ab80291fed2b07ac8806621c85af6325188",
+        "question_plan_state": "EVALUATOR_CONFIRMED_EXACT_AT_GOVERNING_CLOSURE",
+        "diagnosis_ordinal": 18
+      },
+      {
+        "oracle_row_id": "qp4-rcc-hub-parent-profit-after-tax:reference_base_mutation_target:no_diacritics",
+        "anchor_id": "qp4-rcc-hub-parent-profit-after-tax",
+        "company_key": "development-company-08d33503ee27d4c1",
+        "source_name": "HUB_23CN_BCTN.pdf",
+        "source_path": "pdf/PDF_23/HUB_23CN_BCTN.pdf",
+        "source_sha256": "daad4aaec36be97b5ae6f99d1d822fb9efe12d2b92110e81be7df150e991f695",
+        "physical_page": 21,
+        "document_layout_family": "native_text_portrait",
+        "table_layout_family": "portrait_table_above_grouped_bar_chart",
+        "extraction_family": "native_vector_text_table",
+        "layout_instance_fingerprint": "native_text_portrait|portrait_table_above_grouped_bar_chart|prior_actual_plan_actual_then_two_comparison_columns|portrait|single_physical_page",
+        "category": "reference_base_mutation_target",
+        "surface_label": "no_diacritics",
+        "question_selector": {
+          "collection": "reference_base_mutation_surfaces",
+          "index": 4
+        },
+        "question": "Loi nhuan sau thue rieng cong ty thuc hien nam 2023 bang bao nhieu phan tram thuc hien nam 2022?",
+        "question_sha256": "6f2849c78b1ac16848478472d0b39153b3cac41bb0e0161920a788fd3e33bda8",
+        "expected_operation": "RATIO_PERCENT",
+        "expected_operands": [
+          "current_actual",
+          "prior_actual"
+        ],
+        "expected_physical_evidence": [
+          {
+            "operand": "current_actual",
+            "source_name": "HUB_23CN_BCTN.pdf",
+            "page": 21,
+            "value": "46.42",
+            "semantic_role": "ACTUAL",
+            "period": "2023"
+          },
+          {
+            "operand": "prior_actual",
+            "source_name": "HUB_23CN_BCTN.pdf",
+            "page": 21,
+            "value": "39.98",
+            "semantic_role": "ACTUAL",
+            "period": "2022"
+          }
+        ],
+        "frozen_question_plan_projection_sha256": "c21d8bec16daba19d856aaadb7535e8951d647bdc6988275060b6d3ff9b5460f",
+        "question_plan_state": "EVALUATOR_CONFIRMED_EXACT_AT_GOVERNING_CLOSURE",
+        "diagnosis_ordinal": 19
+      },
+      {
+        "oracle_row_id": "qp4-rcc-hub-parent-profit-after-tax:reference_base_mutation_target:paraphrase_1",
+        "anchor_id": "qp4-rcc-hub-parent-profit-after-tax",
+        "company_key": "development-company-08d33503ee27d4c1",
+        "source_name": "HUB_23CN_BCTN.pdf",
+        "source_path": "pdf/PDF_23/HUB_23CN_BCTN.pdf",
+        "source_sha256": "daad4aaec36be97b5ae6f99d1d822fb9efe12d2b92110e81be7df150e991f695",
+        "physical_page": 21,
+        "document_layout_family": "native_text_portrait",
+        "table_layout_family": "portrait_table_above_grouped_bar_chart",
+        "extraction_family": "native_vector_text_table",
+        "layout_instance_fingerprint": "native_text_portrait|portrait_table_above_grouped_bar_chart|prior_actual_plan_actual_then_two_comparison_columns|portrait|single_physical_page",
+        "category": "reference_base_mutation_target",
+        "surface_label": "paraphrase_1",
+        "question_selector": {
+          "collection": "reference_base_mutation_surfaces",
+          "index": 1
+        },
+        "question": "Hãy cho biết lợi nhuận sau thuế riêng công ty thực hiện năm 2023 đạt bao nhiêu phần trăm so với số thực hiện năm 2022?",
+        "question_sha256": "c334928addd3f0b6fa5f341ccf0385570b86c0624829c27f3d1f18a894029c79",
+        "expected_operation": "RATIO_PERCENT",
+        "expected_operands": [
+          "current_actual",
+          "prior_actual"
+        ],
+        "expected_physical_evidence": [
+          {
+            "operand": "current_actual",
+            "source_name": "HUB_23CN_BCTN.pdf",
+            "page": 21,
+            "value": "46.42",
+            "semantic_role": "ACTUAL",
+            "period": "2023"
+          },
+          {
+            "operand": "prior_actual",
+            "source_name": "HUB_23CN_BCTN.pdf",
+            "page": 21,
+            "value": "39.98",
+            "semantic_role": "ACTUAL",
+            "period": "2022"
+          }
+        ],
+        "frozen_question_plan_projection_sha256": "d85e89c9d36284e8c8f543ce29189d4983f7a49891121216e0b5ea0e6f305bb2",
+        "question_plan_state": "EVALUATOR_CONFIRMED_EXACT_AT_GOVERNING_CLOSURE",
+        "diagnosis_ordinal": 20
+      },
+      {
+        "oracle_row_id": "qp4-rcc-ict-total-revenue:base_target:canonical",
+        "anchor_id": "qp4-rcc-ict-total-revenue",
+        "company_key": "development-company-175a680792c1fbf7",
+        "source_name": "ICT_23CN_BCTN.pdf",
+        "source_path": "pdf/PDF_23/ICT_23CN_BCTN.pdf",
+        "source_sha256": "ee2061e29c1923da0e38ba33a7e25c7d0d2a2f6f22f045b8b30bd4c1bb539ac1",
+        "physical_page": 13,
+        "document_layout_family": "native_text_mixed_orientation",
+        "table_layout_family": "stacked_plan_actual_and_prior_actual_comparison_tables",
+        "extraction_family": "native_vector_text_table",
+        "layout_instance_fingerprint": "native_text_mixed_orientation|stacked_plan_actual_and_prior_actual_comparison_tables|top_table_plan_actual_then_bottom_table_prior_actual|landscape|single_physical_page",
+        "category": "base_target",
+        "surface_label": "canonical",
+        "question_selector": {
+          "collection": "base_surfaces",
+          "index": 0
+        },
+        "question": "Tổng doanh thu thực hiện năm 2023 đạt bao nhiêu phần trăm kế hoạch năm 2023?",
+        "question_sha256": "e2cc1cc140386df80f05b92762b549c74a1579e47e9d9b418f4d577bc85b459b",
+        "expected_operation": "RATIO_PERCENT",
+        "expected_operands": [
+          "current_actual",
+          "current_plan"
+        ],
+        "expected_physical_evidence": [
+          {
+            "operand": "current_actual",
+            "source_name": "ICT_23CN_BCTN.pdf",
+            "page": 13,
+            "value": "1526.69",
+            "semantic_role": "ACTUAL",
+            "period": "2023"
+          },
+          {
+            "operand": "current_plan",
+            "source_name": "ICT_23CN_BCTN.pdf",
+            "page": 13,
+            "value": "1600",
+            "semantic_role": "PLAN",
+            "period": "2023"
+          }
+        ],
+        "frozen_question_plan_projection_sha256": "c1e31718d8b51f893fea634c5266dacab74a7a071f5617ab34dd225b3fb24c33",
+        "question_plan_state": "EVALUATOR_CONFIRMED_EXACT_AT_GOVERNING_CLOSURE",
+        "diagnosis_ordinal": 21
+      },
+      {
+        "oracle_row_id": "qp4-rcc-ict-total-revenue:base_target:clause_reordered",
+        "anchor_id": "qp4-rcc-ict-total-revenue",
+        "company_key": "development-company-175a680792c1fbf7",
+        "source_name": "ICT_23CN_BCTN.pdf",
+        "source_path": "pdf/PDF_23/ICT_23CN_BCTN.pdf",
+        "source_sha256": "ee2061e29c1923da0e38ba33a7e25c7d0d2a2f6f22f045b8b30bd4c1bb539ac1",
+        "physical_page": 13,
+        "document_layout_family": "native_text_mixed_orientation",
+        "table_layout_family": "stacked_plan_actual_and_prior_actual_comparison_tables",
+        "extraction_family": "native_vector_text_table",
+        "layout_instance_fingerprint": "native_text_mixed_orientation|stacked_plan_actual_and_prior_actual_comparison_tables|top_table_plan_actual_then_bottom_table_prior_actual|landscape|single_physical_page",
+        "category": "base_target",
+        "surface_label": "clause_reordered",
+        "question_selector": {
+          "collection": "base_surfaces",
+          "index": 3
+        },
+        "question": "Đối với cùng chỉ tiêu và phạm vi báo cáo, so với kế hoạch năm 2023 thì tổng doanh thu thực hiện năm 2023 đạt bao nhiêu phần trăm?",
+        "question_sha256": "60730f69092059a1198dec973f2bca6afe9a239e63f680c8d79f934337d67644",
+        "expected_operation": "RATIO_PERCENT",
+        "expected_operands": [
+          "current_actual",
+          "current_plan"
+        ],
+        "expected_physical_evidence": [
+          {
+            "operand": "current_actual",
+            "source_name": "ICT_23CN_BCTN.pdf",
+            "page": 13,
+            "value": "1526.69",
+            "semantic_role": "ACTUAL",
+            "period": "2023"
+          },
+          {
+            "operand": "current_plan",
+            "source_name": "ICT_23CN_BCTN.pdf",
+            "page": 13,
+            "value": "1600",
+            "semantic_role": "PLAN",
+            "period": "2023"
+          }
+        ],
+        "frozen_question_plan_projection_sha256": "42c0fe1fa1c6c19b2343cc141840fc68ec5ab37300c3483a4baf23c42fc48ad4",
+        "question_plan_state": "EVALUATOR_CONFIRMED_EXACT_AT_GOVERNING_CLOSURE",
+        "diagnosis_ordinal": 22
+      },
+      {
+        "oracle_row_id": "qp4-rcc-ict-total-revenue:base_target:long_clause",
+        "anchor_id": "qp4-rcc-ict-total-revenue",
+        "company_key": "development-company-175a680792c1fbf7",
+        "source_name": "ICT_23CN_BCTN.pdf",
+        "source_path": "pdf/PDF_23/ICT_23CN_BCTN.pdf",
+        "source_sha256": "ee2061e29c1923da0e38ba33a7e25c7d0d2a2f6f22f045b8b30bd4c1bb539ac1",
+        "physical_page": 13,
+        "document_layout_family": "native_text_mixed_orientation",
+        "table_layout_family": "stacked_plan_actual_and_prior_actual_comparison_tables",
+        "extraction_family": "native_vector_text_table",
+        "layout_instance_fingerprint": "native_text_mixed_orientation|stacked_plan_actual_and_prior_actual_comparison_tables|top_table_plan_actual_then_bottom_table_prior_actual|landscape|single_physical_page",
+        "category": "base_target",
+        "surface_label": "long_clause",
+        "question_selector": {
+          "collection": "base_surfaces",
+          "index": 2
+        },
+        "question": "Căn cứ đúng hai bảng so sánh trên cùng trang và giữ nguyên đơn vị, phạm vi cùng vai trò từng cột, hãy xác định tổng doanh thu thực hiện năm 2023 đạt bao nhiêu phần trăm kế hoạch năm 2023?",
+        "question_sha256": "62252d1a921e7d9789f436be0b0f5365f015c4f277f7fa7cd6ee1efd4221a203",
+        "expected_operation": "RATIO_PERCENT",
+        "expected_operands": [
+          "current_actual",
+          "current_plan"
+        ],
+        "expected_physical_evidence": [
+          {
+            "operand": "current_actual",
+            "source_name": "ICT_23CN_BCTN.pdf",
+            "page": 13,
+            "value": "1526.69",
+            "semantic_role": "ACTUAL",
+            "period": "2023"
+          },
+          {
+            "operand": "current_plan",
+            "source_name": "ICT_23CN_BCTN.pdf",
+            "page": 13,
+            "value": "1600",
+            "semantic_role": "PLAN",
+            "period": "2023"
+          }
+        ],
+        "frozen_question_plan_projection_sha256": "7e8d0be3f0a346e616613e6dea269b8aab65bc2a8d1517d20891c85737a95de5",
+        "question_plan_state": "EVALUATOR_CONFIRMED_EXACT_AT_GOVERNING_CLOSURE",
+        "diagnosis_ordinal": 23
+      },
+      {
+        "oracle_row_id": "qp4-rcc-ict-total-revenue:base_target:no_diacritics",
+        "anchor_id": "qp4-rcc-ict-total-revenue",
+        "company_key": "development-company-175a680792c1fbf7",
+        "source_name": "ICT_23CN_BCTN.pdf",
+        "source_path": "pdf/PDF_23/ICT_23CN_BCTN.pdf",
+        "source_sha256": "ee2061e29c1923da0e38ba33a7e25c7d0d2a2f6f22f045b8b30bd4c1bb539ac1",
+        "physical_page": 13,
+        "document_layout_family": "native_text_mixed_orientation",
+        "table_layout_family": "stacked_plan_actual_and_prior_actual_comparison_tables",
+        "extraction_family": "native_vector_text_table",
+        "layout_instance_fingerprint": "native_text_mixed_orientation|stacked_plan_actual_and_prior_actual_comparison_tables|top_table_plan_actual_then_bottom_table_prior_actual|landscape|single_physical_page",
+        "category": "base_target",
+        "surface_label": "no_diacritics",
+        "question_selector": {
+          "collection": "base_surfaces",
+          "index": 4
+        },
+        "question": "Tong doanh thu thuc hien nam 2023 dat bao nhieu phan tram ke hoach nam 2023?",
+        "question_sha256": "9824348ad2abc82d35c122defbfc86d86ffe72593c74d5a18b20dddc73e33234",
+        "expected_operation": "RATIO_PERCENT",
+        "expected_operands": [
+          "current_actual",
+          "current_plan"
+        ],
+        "expected_physical_evidence": [
+          {
+            "operand": "current_actual",
+            "source_name": "ICT_23CN_BCTN.pdf",
+            "page": 13,
+            "value": "1526.69",
+            "semantic_role": "ACTUAL",
+            "period": "2023"
+          },
+          {
+            "operand": "current_plan",
+            "source_name": "ICT_23CN_BCTN.pdf",
+            "page": 13,
+            "value": "1600",
+            "semantic_role": "PLAN",
+            "period": "2023"
+          }
+        ],
+        "frozen_question_plan_projection_sha256": "49fa4bd44e2479cc2845c7bcc44b399ad2c54ef1ccdf7c7722dbc5617f80d797",
+        "question_plan_state": "EVALUATOR_CONFIRMED_EXACT_AT_GOVERNING_CLOSURE",
+        "diagnosis_ordinal": 24
+      },
+      {
+        "oracle_row_id": "qp4-rcc-ict-total-revenue:base_target:paraphrase_1",
+        "anchor_id": "qp4-rcc-ict-total-revenue",
+        "company_key": "development-company-175a680792c1fbf7",
+        "source_name": "ICT_23CN_BCTN.pdf",
+        "source_path": "pdf/PDF_23/ICT_23CN_BCTN.pdf",
+        "source_sha256": "ee2061e29c1923da0e38ba33a7e25c7d0d2a2f6f22f045b8b30bd4c1bb539ac1",
+        "physical_page": 13,
+        "document_layout_family": "native_text_mixed_orientation",
+        "table_layout_family": "stacked_plan_actual_and_prior_actual_comparison_tables",
+        "extraction_family": "native_vector_text_table",
+        "layout_instance_fingerprint": "native_text_mixed_orientation|stacked_plan_actual_and_prior_actual_comparison_tables|top_table_plan_actual_then_bottom_table_prior_actual|landscape|single_physical_page",
+        "category": "base_target",
+        "surface_label": "paraphrase_1",
+        "question_selector": {
+          "collection": "base_surfaces",
+          "index": 1
+        },
+        "question": "Hãy cho biết tổng doanh thu thực hiện năm 2023 bằng bao nhiêu phần trăm mức kế hoạch cùng năm?",
+        "question_sha256": "f773a27e57be72b5367010b4ebfeea87240b72288332fcf069d4539e6abc4c64",
+        "expected_operation": "RATIO_PERCENT",
+        "expected_operands": [
+          "current_actual",
+          "current_plan"
+        ],
+        "expected_physical_evidence": [
+          {
+            "operand": "current_actual",
+            "source_name": "ICT_23CN_BCTN.pdf",
+            "page": 13,
+            "value": "1526.69",
+            "semantic_role": "ACTUAL",
+            "period": "2023"
+          },
+          {
+            "operand": "current_plan",
+            "source_name": "ICT_23CN_BCTN.pdf",
+            "page": 13,
+            "value": "1600",
+            "semantic_role": "PLAN",
+            "period": "2023"
+          }
+        ],
+        "frozen_question_plan_projection_sha256": "75119dc77126921d16322f1154a2f78e2e9418ee698b65d632ad8e5d72ea0624",
+        "question_plan_state": "EVALUATOR_CONFIRMED_EXACT_AT_GOVERNING_CLOSURE",
+        "diagnosis_ordinal": 25
+      },
+      {
+        "oracle_row_id": "qp4-rcc-ict-total-revenue:reference_base_mutation_target:canonical",
+        "anchor_id": "qp4-rcc-ict-total-revenue",
+        "company_key": "development-company-175a680792c1fbf7",
+        "source_name": "ICT_23CN_BCTN.pdf",
+        "source_path": "pdf/PDF_23/ICT_23CN_BCTN.pdf",
+        "source_sha256": "ee2061e29c1923da0e38ba33a7e25c7d0d2a2f6f22f045b8b30bd4c1bb539ac1",
+        "physical_page": 13,
+        "document_layout_family": "native_text_mixed_orientation",
+        "table_layout_family": "stacked_plan_actual_and_prior_actual_comparison_tables",
+        "extraction_family": "native_vector_text_table",
+        "layout_instance_fingerprint": "native_text_mixed_orientation|stacked_plan_actual_and_prior_actual_comparison_tables|top_table_plan_actual_then_bottom_table_prior_actual|landscape|single_physical_page",
+        "category": "reference_base_mutation_target",
+        "surface_label": "canonical",
+        "question_selector": {
+          "collection": "reference_base_mutation_surfaces",
+          "index": 0
+        },
+        "question": "Tổng doanh thu thực hiện năm 2023 bằng bao nhiêu phần trăm thực hiện năm 2022?",
+        "question_sha256": "30cdb79bc0b756acbad8e08fb0a478e5d3fd2af09852b8a7056617ac540cad97",
+        "expected_operation": "RATIO_PERCENT",
+        "expected_operands": [
+          "current_actual",
+          "prior_actual"
+        ],
+        "expected_physical_evidence": [
+          {
+            "operand": "current_actual",
+            "source_name": "ICT_23CN_BCTN.pdf",
+            "page": 13,
+            "value": "1526.69",
+            "semantic_role": "ACTUAL",
+            "period": "2023"
+          },
+          {
+            "operand": "prior_actual",
+            "source_name": "ICT_23CN_BCTN.pdf",
+            "page": 13,
+            "value": "1382.40",
+            "semantic_role": "ACTUAL",
+            "period": "2022"
+          }
+        ],
+        "frozen_question_plan_projection_sha256": "83ef0e7ba1136acb86d3a904b6751f6cfca9cb0d4f6e645a6665b405d8b916b9",
+        "question_plan_state": "EVALUATOR_CONFIRMED_EXACT_AT_GOVERNING_CLOSURE",
+        "diagnosis_ordinal": 26
+      },
+      {
+        "oracle_row_id": "qp4-rcc-ict-total-revenue:reference_base_mutation_target:clause_reordered",
+        "anchor_id": "qp4-rcc-ict-total-revenue",
+        "company_key": "development-company-175a680792c1fbf7",
+        "source_name": "ICT_23CN_BCTN.pdf",
+        "source_path": "pdf/PDF_23/ICT_23CN_BCTN.pdf",
+        "source_sha256": "ee2061e29c1923da0e38ba33a7e25c7d0d2a2f6f22f045b8b30bd4c1bb539ac1",
+        "physical_page": 13,
+        "document_layout_family": "native_text_mixed_orientation",
+        "table_layout_family": "stacked_plan_actual_and_prior_actual_comparison_tables",
+        "extraction_family": "native_vector_text_table",
+        "layout_instance_fingerprint": "native_text_mixed_orientation|stacked_plan_actual_and_prior_actual_comparison_tables|top_table_plan_actual_then_bottom_table_prior_actual|landscape|single_physical_page",
+        "category": "reference_base_mutation_target",
+        "surface_label": "clause_reordered",
+        "question_selector": {
+          "collection": "reference_base_mutation_surfaces",
+          "index": 3
+        },
+        "question": "Đối với cùng chỉ tiêu và phạm vi báo cáo, so với thực hiện năm 2022 thì tổng doanh thu thực hiện năm 2023 bằng bao nhiêu phần trăm?",
+        "question_sha256": "a2fcf0e112a55df86a8c253e17adb143cf503f026faa51d02c4f3ca47da57978",
+        "expected_operation": "RATIO_PERCENT",
+        "expected_operands": [
+          "current_actual",
+          "prior_actual"
+        ],
+        "expected_physical_evidence": [
+          {
+            "operand": "current_actual",
+            "source_name": "ICT_23CN_BCTN.pdf",
+            "page": 13,
+            "value": "1526.69",
+            "semantic_role": "ACTUAL",
+            "period": "2023"
+          },
+          {
+            "operand": "prior_actual",
+            "source_name": "ICT_23CN_BCTN.pdf",
+            "page": 13,
+            "value": "1382.40",
+            "semantic_role": "ACTUAL",
+            "period": "2022"
+          }
+        ],
+        "frozen_question_plan_projection_sha256": "44f2ec8112b107da3efb26c9173572bb27eb5cd4081f5bd16f1c2ebb4b7d53c7",
+        "question_plan_state": "EVALUATOR_CONFIRMED_EXACT_AT_GOVERNING_CLOSURE",
+        "diagnosis_ordinal": 27
+      },
+      {
+        "oracle_row_id": "qp4-rcc-ict-total-revenue:reference_base_mutation_target:long_clause",
+        "anchor_id": "qp4-rcc-ict-total-revenue",
+        "company_key": "development-company-175a680792c1fbf7",
+        "source_name": "ICT_23CN_BCTN.pdf",
+        "source_path": "pdf/PDF_23/ICT_23CN_BCTN.pdf",
+        "source_sha256": "ee2061e29c1923da0e38ba33a7e25c7d0d2a2f6f22f045b8b30bd4c1bb539ac1",
+        "physical_page": 13,
+        "document_layout_family": "native_text_mixed_orientation",
+        "table_layout_family": "stacked_plan_actual_and_prior_actual_comparison_tables",
+        "extraction_family": "native_vector_text_table",
+        "layout_instance_fingerprint": "native_text_mixed_orientation|stacked_plan_actual_and_prior_actual_comparison_tables|top_table_plan_actual_then_bottom_table_prior_actual|landscape|single_physical_page",
+        "category": "reference_base_mutation_target",
+        "surface_label": "long_clause",
+        "question_selector": {
+          "collection": "reference_base_mutation_surfaces",
+          "index": 2
+        },
+        "question": "Căn cứ đúng hai bảng so sánh trên cùng trang và giữ nguyên đơn vị, phạm vi cùng vai trò từng cột, hãy xác định tổng doanh thu thực hiện năm 2023 bằng bao nhiêu phần trăm thực hiện năm 2022?",
+        "question_sha256": "11f286123504061e75169aac9e30bc4e0f4a7adcb03559d520ba2e05a9d8a23a",
+        "expected_operation": "RATIO_PERCENT",
+        "expected_operands": [
+          "current_actual",
+          "prior_actual"
+        ],
+        "expected_physical_evidence": [
+          {
+            "operand": "current_actual",
+            "source_name": "ICT_23CN_BCTN.pdf",
+            "page": 13,
+            "value": "1526.69",
+            "semantic_role": "ACTUAL",
+            "period": "2023"
+          },
+          {
+            "operand": "prior_actual",
+            "source_name": "ICT_23CN_BCTN.pdf",
+            "page": 13,
+            "value": "1382.40",
+            "semantic_role": "ACTUAL",
+            "period": "2022"
+          }
+        ],
+        "frozen_question_plan_projection_sha256": "4177dd79d0242aecdea80a91a59ad4727e6a94ce6bc44a350c5e6c420a649a88",
+        "question_plan_state": "EVALUATOR_CONFIRMED_EXACT_AT_GOVERNING_CLOSURE",
+        "diagnosis_ordinal": 28
+      },
+      {
+        "oracle_row_id": "qp4-rcc-ict-total-revenue:reference_base_mutation_target:no_diacritics",
+        "anchor_id": "qp4-rcc-ict-total-revenue",
+        "company_key": "development-company-175a680792c1fbf7",
+        "source_name": "ICT_23CN_BCTN.pdf",
+        "source_path": "pdf/PDF_23/ICT_23CN_BCTN.pdf",
+        "source_sha256": "ee2061e29c1923da0e38ba33a7e25c7d0d2a2f6f22f045b8b30bd4c1bb539ac1",
+        "physical_page": 13,
+        "document_layout_family": "native_text_mixed_orientation",
+        "table_layout_family": "stacked_plan_actual_and_prior_actual_comparison_tables",
+        "extraction_family": "native_vector_text_table",
+        "layout_instance_fingerprint": "native_text_mixed_orientation|stacked_plan_actual_and_prior_actual_comparison_tables|top_table_plan_actual_then_bottom_table_prior_actual|landscape|single_physical_page",
+        "category": "reference_base_mutation_target",
+        "surface_label": "no_diacritics",
+        "question_selector": {
+          "collection": "reference_base_mutation_surfaces",
+          "index": 4
+        },
+        "question": "Tong doanh thu thuc hien nam 2023 bang bao nhieu phan tram thuc hien nam 2022?",
+        "question_sha256": "06d937f31651936e3be2e54249a890d8946caa3df784e4e7e4463994c7ebe005",
+        "expected_operation": "RATIO_PERCENT",
+        "expected_operands": [
+          "current_actual",
+          "prior_actual"
+        ],
+        "expected_physical_evidence": [
+          {
+            "operand": "current_actual",
+            "source_name": "ICT_23CN_BCTN.pdf",
+            "page": 13,
+            "value": "1526.69",
+            "semantic_role": "ACTUAL",
+            "period": "2023"
+          },
+          {
+            "operand": "prior_actual",
+            "source_name": "ICT_23CN_BCTN.pdf",
+            "page": 13,
+            "value": "1382.40",
+            "semantic_role": "ACTUAL",
+            "period": "2022"
+          }
+        ],
+        "frozen_question_plan_projection_sha256": "65c0db1f0f0a2a95952e4278cb79ede9e69782d7647baa372de81a76af1499b1",
+        "question_plan_state": "EVALUATOR_CONFIRMED_EXACT_AT_GOVERNING_CLOSURE",
+        "diagnosis_ordinal": 29
+      },
+      {
+        "oracle_row_id": "qp4-rcc-ict-total-revenue:reference_base_mutation_target:paraphrase_1",
+        "anchor_id": "qp4-rcc-ict-total-revenue",
+        "company_key": "development-company-175a680792c1fbf7",
+        "source_name": "ICT_23CN_BCTN.pdf",
+        "source_path": "pdf/PDF_23/ICT_23CN_BCTN.pdf",
+        "source_sha256": "ee2061e29c1923da0e38ba33a7e25c7d0d2a2f6f22f045b8b30bd4c1bb539ac1",
+        "physical_page": 13,
+        "document_layout_family": "native_text_mixed_orientation",
+        "table_layout_family": "stacked_plan_actual_and_prior_actual_comparison_tables",
+        "extraction_family": "native_vector_text_table",
+        "layout_instance_fingerprint": "native_text_mixed_orientation|stacked_plan_actual_and_prior_actual_comparison_tables|top_table_plan_actual_then_bottom_table_prior_actual|landscape|single_physical_page",
+        "category": "reference_base_mutation_target",
+        "surface_label": "paraphrase_1",
+        "question_selector": {
+          "collection": "reference_base_mutation_surfaces",
+          "index": 1
+        },
+        "question": "Hãy cho biết tổng doanh thu thực hiện năm 2023 đạt bao nhiêu phần trăm so với số thực hiện năm 2022?",
+        "question_sha256": "51de98ef1368dd1eeb60031bed5c4a4a0fcf4b1435bdb35da69a76c1d34097c4",
+        "expected_operation": "RATIO_PERCENT",
+        "expected_operands": [
+          "current_actual",
+          "prior_actual"
+        ],
+        "expected_physical_evidence": [
+          {
+            "operand": "current_actual",
+            "source_name": "ICT_23CN_BCTN.pdf",
+            "page": 13,
+            "value": "1526.69",
+            "semantic_role": "ACTUAL",
+            "period": "2023"
+          },
+          {
+            "operand": "prior_actual",
+            "source_name": "ICT_23CN_BCTN.pdf",
+            "page": 13,
+            "value": "1382.40",
+            "semantic_role": "ACTUAL",
+            "period": "2022"
+          }
+        ],
+        "frozen_question_plan_projection_sha256": "d84d04eb0764136a600b69d5f7221421c3f2d22785fb6f049d0be9e30f0ee714",
+        "question_plan_state": "EVALUATOR_CONFIRMED_EXACT_AT_GOVERNING_CLOSURE",
+        "diagnosis_ordinal": 30
+      },
+      {
+        "oracle_row_id": "qp4-rcc-pic-total-revenue:base_target:canonical",
+        "anchor_id": "qp4-rcc-pic-total-revenue",
+        "company_key": "development-company-2255c8b55faa7d4f",
+        "source_name": "PIC_23CN_BCTN.pdf",
+        "source_path": "pdf/PDF_23/PIC_23CN_BCTN.pdf",
+        "source_sha256": "ae0d9aa6645251025f3f71572205f5ef0f93a6f136ae243c2f3cd0700befb96e",
+        "physical_page": 17,
+        "document_layout_family": "native_text_mixed_orientation",
+        "table_layout_family": "dense_single_matrix_prior_actual_current_plan_current_actual_dual_ratio",
+        "extraction_family": "native_vector_text_table",
+        "layout_instance_fingerprint": "native_text_mixed_orientation|dense_single_matrix_prior_actual_current_plan_current_actual_dual_ratio|prior_actual_then_current_group_plan_actual_then_dual_ratio|landscape|single_physical_page",
+        "category": "base_target",
+        "surface_label": "canonical",
+        "question_selector": {
+          "collection": "base_surfaces",
+          "index": 0
+        },
+        "question": "Tổng doanh thu thực hiện năm 2023 đạt bao nhiêu phần trăm kế hoạch năm 2023?",
+        "question_sha256": "e2cc1cc140386df80f05b92762b549c74a1579e47e9d9b418f4d577bc85b459b",
+        "expected_operation": "RATIO_PERCENT",
+        "expected_operands": [
+          "current_actual",
+          "current_plan"
+        ],
+        "expected_physical_evidence": [
+          {
+            "operand": "current_actual",
+            "source_name": "PIC_23CN_BCTN.pdf",
+            "page": 17,
+            "value": "139527.28",
+            "semantic_role": "ACTUAL",
+            "period": "2023"
+          },
+          {
+            "operand": "current_plan",
+            "source_name": "PIC_23CN_BCTN.pdf",
+            "page": 17,
+            "value": "126038.25",
+            "semantic_role": "PLAN",
+            "period": "2023"
+          }
+        ],
+        "frozen_question_plan_projection_sha256": "c1e31718d8b51f893fea634c5266dacab74a7a071f5617ab34dd225b3fb24c33",
+        "question_plan_state": "EVALUATOR_CONFIRMED_EXACT_AT_GOVERNING_CLOSURE",
+        "diagnosis_ordinal": 31
+      },
+      {
+        "oracle_row_id": "qp4-rcc-pic-total-revenue:base_target:clause_reordered",
+        "anchor_id": "qp4-rcc-pic-total-revenue",
+        "company_key": "development-company-2255c8b55faa7d4f",
+        "source_name": "PIC_23CN_BCTN.pdf",
+        "source_path": "pdf/PDF_23/PIC_23CN_BCTN.pdf",
+        "source_sha256": "ae0d9aa6645251025f3f71572205f5ef0f93a6f136ae243c2f3cd0700befb96e",
+        "physical_page": 17,
+        "document_layout_family": "native_text_mixed_orientation",
+        "table_layout_family": "dense_single_matrix_prior_actual_current_plan_current_actual_dual_ratio",
+        "extraction_family": "native_vector_text_table",
+        "layout_instance_fingerprint": "native_text_mixed_orientation|dense_single_matrix_prior_actual_current_plan_current_actual_dual_ratio|prior_actual_then_current_group_plan_actual_then_dual_ratio|landscape|single_physical_page",
+        "category": "base_target",
+        "surface_label": "clause_reordered",
+        "question_selector": {
+          "collection": "base_surfaces",
+          "index": 3
+        },
+        "question": "Đối với cùng chỉ tiêu và phạm vi báo cáo, so với kế hoạch năm 2023 thì tổng doanh thu thực hiện năm 2023 đạt bao nhiêu phần trăm?",
+        "question_sha256": "60730f69092059a1198dec973f2bca6afe9a239e63f680c8d79f934337d67644",
+        "expected_operation": "RATIO_PERCENT",
+        "expected_operands": [
+          "current_actual",
+          "current_plan"
+        ],
+        "expected_physical_evidence": [
+          {
+            "operand": "current_actual",
+            "source_name": "PIC_23CN_BCTN.pdf",
+            "page": 17,
+            "value": "139527.28",
+            "semantic_role": "ACTUAL",
+            "period": "2023"
+          },
+          {
+            "operand": "current_plan",
+            "source_name": "PIC_23CN_BCTN.pdf",
+            "page": 17,
+            "value": "126038.25",
+            "semantic_role": "PLAN",
+            "period": "2023"
+          }
+        ],
+        "frozen_question_plan_projection_sha256": "42c0fe1fa1c6c19b2343cc141840fc68ec5ab37300c3483a4baf23c42fc48ad4",
+        "question_plan_state": "EVALUATOR_CONFIRMED_EXACT_AT_GOVERNING_CLOSURE",
+        "diagnosis_ordinal": 32
+      },
+      {
+        "oracle_row_id": "qp4-rcc-pic-total-revenue:base_target:long_clause",
+        "anchor_id": "qp4-rcc-pic-total-revenue",
+        "company_key": "development-company-2255c8b55faa7d4f",
+        "source_name": "PIC_23CN_BCTN.pdf",
+        "source_path": "pdf/PDF_23/PIC_23CN_BCTN.pdf",
+        "source_sha256": "ae0d9aa6645251025f3f71572205f5ef0f93a6f136ae243c2f3cd0700befb96e",
+        "physical_page": 17,
+        "document_layout_family": "native_text_mixed_orientation",
+        "table_layout_family": "dense_single_matrix_prior_actual_current_plan_current_actual_dual_ratio",
+        "extraction_family": "native_vector_text_table",
+        "layout_instance_fingerprint": "native_text_mixed_orientation|dense_single_matrix_prior_actual_current_plan_current_actual_dual_ratio|prior_actual_then_current_group_plan_actual_then_dual_ratio|landscape|single_physical_page",
+        "category": "base_target",
+        "surface_label": "long_clause",
+        "question_selector": {
+          "collection": "base_surfaces",
+          "index": 2
+        },
+        "question": "Căn cứ đúng bảng kết quả hoạt động và giữ nguyên đơn vị, phạm vi cùng vai trò từng cột, hãy xác định tổng doanh thu thực hiện năm 2023 đạt bao nhiêu phần trăm kế hoạch năm 2023?",
+        "question_sha256": "5082b5b7aae42ee77e2825b4970ba2d26dde949341e387bec01ad8b87d7b1d53",
+        "expected_operation": "RATIO_PERCENT",
+        "expected_operands": [
+          "current_actual",
+          "current_plan"
+        ],
+        "expected_physical_evidence": [
+          {
+            "operand": "current_actual",
+            "source_name": "PIC_23CN_BCTN.pdf",
+            "page": 17,
+            "value": "139527.28",
+            "semantic_role": "ACTUAL",
+            "period": "2023"
+          },
+          {
+            "operand": "current_plan",
+            "source_name": "PIC_23CN_BCTN.pdf",
+            "page": 17,
+            "value": "126038.25",
+            "semantic_role": "PLAN",
+            "period": "2023"
+          }
+        ],
+        "frozen_question_plan_projection_sha256": "663606a2129ef44582dd598d9a2091c69fb02087c7255161eb67b06b55a1fc3c",
+        "question_plan_state": "EVALUATOR_CONFIRMED_EXACT_AT_GOVERNING_CLOSURE",
+        "diagnosis_ordinal": 33
+      },
+      {
+        "oracle_row_id": "qp4-rcc-pic-total-revenue:base_target:no_diacritics",
+        "anchor_id": "qp4-rcc-pic-total-revenue",
+        "company_key": "development-company-2255c8b55faa7d4f",
+        "source_name": "PIC_23CN_BCTN.pdf",
+        "source_path": "pdf/PDF_23/PIC_23CN_BCTN.pdf",
+        "source_sha256": "ae0d9aa6645251025f3f71572205f5ef0f93a6f136ae243c2f3cd0700befb96e",
+        "physical_page": 17,
+        "document_layout_family": "native_text_mixed_orientation",
+        "table_layout_family": "dense_single_matrix_prior_actual_current_plan_current_actual_dual_ratio",
+        "extraction_family": "native_vector_text_table",
+        "layout_instance_fingerprint": "native_text_mixed_orientation|dense_single_matrix_prior_actual_current_plan_current_actual_dual_ratio|prior_actual_then_current_group_plan_actual_then_dual_ratio|landscape|single_physical_page",
+        "category": "base_target",
+        "surface_label": "no_diacritics",
+        "question_selector": {
+          "collection": "base_surfaces",
+          "index": 4
+        },
+        "question": "Tong doanh thu thuc hien nam 2023 dat bao nhieu phan tram ke hoach nam 2023?",
+        "question_sha256": "9824348ad2abc82d35c122defbfc86d86ffe72593c74d5a18b20dddc73e33234",
+        "expected_operation": "RATIO_PERCENT",
+        "expected_operands": [
+          "current_actual",
+          "current_plan"
+        ],
+        "expected_physical_evidence": [
+          {
+            "operand": "current_actual",
+            "source_name": "PIC_23CN_BCTN.pdf",
+            "page": 17,
+            "value": "139527.28",
+            "semantic_role": "ACTUAL",
+            "period": "2023"
+          },
+          {
+            "operand": "current_plan",
+            "source_name": "PIC_23CN_BCTN.pdf",
+            "page": 17,
+            "value": "126038.25",
+            "semantic_role": "PLAN",
+            "period": "2023"
+          }
+        ],
+        "frozen_question_plan_projection_sha256": "49fa4bd44e2479cc2845c7bcc44b399ad2c54ef1ccdf7c7722dbc5617f80d797",
+        "question_plan_state": "EVALUATOR_CONFIRMED_EXACT_AT_GOVERNING_CLOSURE",
+        "diagnosis_ordinal": 34
+      },
+      {
+        "oracle_row_id": "qp4-rcc-pic-total-revenue:base_target:paraphrase_1",
+        "anchor_id": "qp4-rcc-pic-total-revenue",
+        "company_key": "development-company-2255c8b55faa7d4f",
+        "source_name": "PIC_23CN_BCTN.pdf",
+        "source_path": "pdf/PDF_23/PIC_23CN_BCTN.pdf",
+        "source_sha256": "ae0d9aa6645251025f3f71572205f5ef0f93a6f136ae243c2f3cd0700befb96e",
+        "physical_page": 17,
+        "document_layout_family": "native_text_mixed_orientation",
+        "table_layout_family": "dense_single_matrix_prior_actual_current_plan_current_actual_dual_ratio",
+        "extraction_family": "native_vector_text_table",
+        "layout_instance_fingerprint": "native_text_mixed_orientation|dense_single_matrix_prior_actual_current_plan_current_actual_dual_ratio|prior_actual_then_current_group_plan_actual_then_dual_ratio|landscape|single_physical_page",
+        "category": "base_target",
+        "surface_label": "paraphrase_1",
+        "question_selector": {
+          "collection": "base_surfaces",
+          "index": 1
+        },
+        "question": "Hãy cho biết tổng doanh thu thực hiện năm 2023 bằng bao nhiêu phần trăm mức kế hoạch cùng năm?",
+        "question_sha256": "f773a27e57be72b5367010b4ebfeea87240b72288332fcf069d4539e6abc4c64",
+        "expected_operation": "RATIO_PERCENT",
+        "expected_operands": [
+          "current_actual",
+          "current_plan"
+        ],
+        "expected_physical_evidence": [
+          {
+            "operand": "current_actual",
+            "source_name": "PIC_23CN_BCTN.pdf",
+            "page": 17,
+            "value": "139527.28",
+            "semantic_role": "ACTUAL",
+            "period": "2023"
+          },
+          {
+            "operand": "current_plan",
+            "source_name": "PIC_23CN_BCTN.pdf",
+            "page": 17,
+            "value": "126038.25",
+            "semantic_role": "PLAN",
+            "period": "2023"
+          }
+        ],
+        "frozen_question_plan_projection_sha256": "75119dc77126921d16322f1154a2f78e2e9418ee698b65d632ad8e5d72ea0624",
+        "question_plan_state": "EVALUATOR_CONFIRMED_EXACT_AT_GOVERNING_CLOSURE",
+        "diagnosis_ordinal": 35
+      },
+      {
+        "oracle_row_id": "qp4-rcc-pic-total-revenue:reference_base_mutation_target:canonical",
+        "anchor_id": "qp4-rcc-pic-total-revenue",
+        "company_key": "development-company-2255c8b55faa7d4f",
+        "source_name": "PIC_23CN_BCTN.pdf",
+        "source_path": "pdf/PDF_23/PIC_23CN_BCTN.pdf",
+        "source_sha256": "ae0d9aa6645251025f3f71572205f5ef0f93a6f136ae243c2f3cd0700befb96e",
+        "physical_page": 17,
+        "document_layout_family": "native_text_mixed_orientation",
+        "table_layout_family": "dense_single_matrix_prior_actual_current_plan_current_actual_dual_ratio",
+        "extraction_family": "native_vector_text_table",
+        "layout_instance_fingerprint": "native_text_mixed_orientation|dense_single_matrix_prior_actual_current_plan_current_actual_dual_ratio|prior_actual_then_current_group_plan_actual_then_dual_ratio|landscape|single_physical_page",
+        "category": "reference_base_mutation_target",
+        "surface_label": "canonical",
+        "question_selector": {
+          "collection": "reference_base_mutation_surfaces",
+          "index": 0
+        },
+        "question": "Tổng doanh thu thực hiện năm 2023 bằng bao nhiêu phần trăm thực hiện năm 2022?",
+        "question_sha256": "30cdb79bc0b756acbad8e08fb0a478e5d3fd2af09852b8a7056617ac540cad97",
+        "expected_operation": "RATIO_PERCENT",
+        "expected_operands": [
+          "current_actual",
+          "prior_actual"
+        ],
+        "expected_physical_evidence": [
+          {
+            "operand": "current_actual",
+            "source_name": "PIC_23CN_BCTN.pdf",
+            "page": 17,
+            "value": "139527.28",
+            "semantic_role": "ACTUAL",
+            "period": "2023"
+          },
+          {
+            "operand": "prior_actual",
+            "source_name": "PIC_23CN_BCTN.pdf",
+            "page": 17,
+            "value": "151646.93",
+            "semantic_role": "ACTUAL",
+            "period": "2022"
+          }
+        ],
+        "frozen_question_plan_projection_sha256": "83ef0e7ba1136acb86d3a904b6751f6cfca9cb0d4f6e645a6665b405d8b916b9",
+        "question_plan_state": "EVALUATOR_CONFIRMED_EXACT_AT_GOVERNING_CLOSURE",
+        "diagnosis_ordinal": 36
+      },
+      {
+        "oracle_row_id": "qp4-rcc-pic-total-revenue:reference_base_mutation_target:clause_reordered",
+        "anchor_id": "qp4-rcc-pic-total-revenue",
+        "company_key": "development-company-2255c8b55faa7d4f",
+        "source_name": "PIC_23CN_BCTN.pdf",
+        "source_path": "pdf/PDF_23/PIC_23CN_BCTN.pdf",
+        "source_sha256": "ae0d9aa6645251025f3f71572205f5ef0f93a6f136ae243c2f3cd0700befb96e",
+        "physical_page": 17,
+        "document_layout_family": "native_text_mixed_orientation",
+        "table_layout_family": "dense_single_matrix_prior_actual_current_plan_current_actual_dual_ratio",
+        "extraction_family": "native_vector_text_table",
+        "layout_instance_fingerprint": "native_text_mixed_orientation|dense_single_matrix_prior_actual_current_plan_current_actual_dual_ratio|prior_actual_then_current_group_plan_actual_then_dual_ratio|landscape|single_physical_page",
+        "category": "reference_base_mutation_target",
+        "surface_label": "clause_reordered",
+        "question_selector": {
+          "collection": "reference_base_mutation_surfaces",
+          "index": 3
+        },
+        "question": "Đối với cùng chỉ tiêu và phạm vi báo cáo, so với thực hiện năm 2022 thì tổng doanh thu thực hiện năm 2023 bằng bao nhiêu phần trăm?",
+        "question_sha256": "a2fcf0e112a55df86a8c253e17adb143cf503f026faa51d02c4f3ca47da57978",
+        "expected_operation": "RATIO_PERCENT",
+        "expected_operands": [
+          "current_actual",
+          "prior_actual"
+        ],
+        "expected_physical_evidence": [
+          {
+            "operand": "current_actual",
+            "source_name": "PIC_23CN_BCTN.pdf",
+            "page": 17,
+            "value": "139527.28",
+            "semantic_role": "ACTUAL",
+            "period": "2023"
+          },
+          {
+            "operand": "prior_actual",
+            "source_name": "PIC_23CN_BCTN.pdf",
+            "page": 17,
+            "value": "151646.93",
+            "semantic_role": "ACTUAL",
+            "period": "2022"
+          }
+        ],
+        "frozen_question_plan_projection_sha256": "44f2ec8112b107da3efb26c9173572bb27eb5cd4081f5bd16f1c2ebb4b7d53c7",
+        "question_plan_state": "EVALUATOR_CONFIRMED_EXACT_AT_GOVERNING_CLOSURE",
+        "diagnosis_ordinal": 37
+      },
+      {
+        "oracle_row_id": "qp4-rcc-pic-total-revenue:reference_base_mutation_target:long_clause",
+        "anchor_id": "qp4-rcc-pic-total-revenue",
+        "company_key": "development-company-2255c8b55faa7d4f",
+        "source_name": "PIC_23CN_BCTN.pdf",
+        "source_path": "pdf/PDF_23/PIC_23CN_BCTN.pdf",
+        "source_sha256": "ae0d9aa6645251025f3f71572205f5ef0f93a6f136ae243c2f3cd0700befb96e",
+        "physical_page": 17,
+        "document_layout_family": "native_text_mixed_orientation",
+        "table_layout_family": "dense_single_matrix_prior_actual_current_plan_current_actual_dual_ratio",
+        "extraction_family": "native_vector_text_table",
+        "layout_instance_fingerprint": "native_text_mixed_orientation|dense_single_matrix_prior_actual_current_plan_current_actual_dual_ratio|prior_actual_then_current_group_plan_actual_then_dual_ratio|landscape|single_physical_page",
+        "category": "reference_base_mutation_target",
+        "surface_label": "long_clause",
+        "question_selector": {
+          "collection": "reference_base_mutation_surfaces",
+          "index": 2
+        },
+        "question": "Căn cứ đúng bảng kết quả hoạt động và giữ nguyên đơn vị, phạm vi cùng vai trò từng cột, hãy xác định tổng doanh thu thực hiện năm 2023 bằng bao nhiêu phần trăm thực hiện năm 2022?",
+        "question_sha256": "af07ff7e66356a2feda65552e5848836a5fc38cbdff0afe171d478020b6d0db0",
+        "expected_operation": "RATIO_PERCENT",
+        "expected_operands": [
+          "current_actual",
+          "prior_actual"
+        ],
+        "expected_physical_evidence": [
+          {
+            "operand": "current_actual",
+            "source_name": "PIC_23CN_BCTN.pdf",
+            "page": 17,
+            "value": "139527.28",
+            "semantic_role": "ACTUAL",
+            "period": "2023"
+          },
+          {
+            "operand": "prior_actual",
+            "source_name": "PIC_23CN_BCTN.pdf",
+            "page": 17,
+            "value": "151646.93",
+            "semantic_role": "ACTUAL",
+            "period": "2022"
+          }
+        ],
+        "frozen_question_plan_projection_sha256": "59f9cf561a3f7b90ecb65dae04242df7690f12e827a86ae20d727c5d8fc089be",
+        "question_plan_state": "EVALUATOR_CONFIRMED_EXACT_AT_GOVERNING_CLOSURE",
+        "diagnosis_ordinal": 38
+      },
+      {
+        "oracle_row_id": "qp4-rcc-pic-total-revenue:reference_base_mutation_target:no_diacritics",
+        "anchor_id": "qp4-rcc-pic-total-revenue",
+        "company_key": "development-company-2255c8b55faa7d4f",
+        "source_name": "PIC_23CN_BCTN.pdf",
+        "source_path": "pdf/PDF_23/PIC_23CN_BCTN.pdf",
+        "source_sha256": "ae0d9aa6645251025f3f71572205f5ef0f93a6f136ae243c2f3cd0700befb96e",
+        "physical_page": 17,
+        "document_layout_family": "native_text_mixed_orientation",
+        "table_layout_family": "dense_single_matrix_prior_actual_current_plan_current_actual_dual_ratio",
+        "extraction_family": "native_vector_text_table",
+        "layout_instance_fingerprint": "native_text_mixed_orientation|dense_single_matrix_prior_actual_current_plan_current_actual_dual_ratio|prior_actual_then_current_group_plan_actual_then_dual_ratio|landscape|single_physical_page",
+        "category": "reference_base_mutation_target",
+        "surface_label": "no_diacritics",
+        "question_selector": {
+          "collection": "reference_base_mutation_surfaces",
+          "index": 4
+        },
+        "question": "Tong doanh thu thuc hien nam 2023 bang bao nhieu phan tram thuc hien nam 2022?",
+        "question_sha256": "06d937f31651936e3be2e54249a890d8946caa3df784e4e7e4463994c7ebe005",
+        "expected_operation": "RATIO_PERCENT",
+        "expected_operands": [
+          "current_actual",
+          "prior_actual"
+        ],
+        "expected_physical_evidence": [
+          {
+            "operand": "current_actual",
+            "source_name": "PIC_23CN_BCTN.pdf",
+            "page": 17,
+            "value": "139527.28",
+            "semantic_role": "ACTUAL",
+            "period": "2023"
+          },
+          {
+            "operand": "prior_actual",
+            "source_name": "PIC_23CN_BCTN.pdf",
+            "page": 17,
+            "value": "151646.93",
+            "semantic_role": "ACTUAL",
+            "period": "2022"
+          }
+        ],
+        "frozen_question_plan_projection_sha256": "65c0db1f0f0a2a95952e4278cb79ede9e69782d7647baa372de81a76af1499b1",
+        "question_plan_state": "EVALUATOR_CONFIRMED_EXACT_AT_GOVERNING_CLOSURE",
+        "diagnosis_ordinal": 39
+      },
+      {
+        "oracle_row_id": "qp4-rcc-pic-total-revenue:reference_base_mutation_target:paraphrase_1",
+        "anchor_id": "qp4-rcc-pic-total-revenue",
+        "company_key": "development-company-2255c8b55faa7d4f",
+        "source_name": "PIC_23CN_BCTN.pdf",
+        "source_path": "pdf/PDF_23/PIC_23CN_BCTN.pdf",
+        "source_sha256": "ae0d9aa6645251025f3f71572205f5ef0f93a6f136ae243c2f3cd0700befb96e",
+        "physical_page": 17,
+        "document_layout_family": "native_text_mixed_orientation",
+        "table_layout_family": "dense_single_matrix_prior_actual_current_plan_current_actual_dual_ratio",
+        "extraction_family": "native_vector_text_table",
+        "layout_instance_fingerprint": "native_text_mixed_orientation|dense_single_matrix_prior_actual_current_plan_current_actual_dual_ratio|prior_actual_then_current_group_plan_actual_then_dual_ratio|landscape|single_physical_page",
+        "category": "reference_base_mutation_target",
+        "surface_label": "paraphrase_1",
+        "question_selector": {
+          "collection": "reference_base_mutation_surfaces",
+          "index": 1
+        },
+        "question": "Hãy cho biết tổng doanh thu thực hiện năm 2023 đạt bao nhiêu phần trăm so với số thực hiện năm 2022?",
+        "question_sha256": "51de98ef1368dd1eeb60031bed5c4a4a0fcf4b1435bdb35da69a76c1d34097c4",
+        "expected_operation": "RATIO_PERCENT",
+        "expected_operands": [
+          "current_actual",
+          "prior_actual"
+        ],
+        "expected_physical_evidence": [
+          {
+            "operand": "current_actual",
+            "source_name": "PIC_23CN_BCTN.pdf",
+            "page": 17,
+            "value": "139527.28",
+            "semantic_role": "ACTUAL",
+            "period": "2023"
+          },
+          {
+            "operand": "prior_actual",
+            "source_name": "PIC_23CN_BCTN.pdf",
+            "page": 17,
+            "value": "151646.93",
+            "semantic_role": "ACTUAL",
+            "period": "2022"
+          }
+        ],
+        "frozen_question_plan_projection_sha256": "d84d04eb0764136a600b69d5f7221421c3f2d22785fb6f049d0be9e30f0ee714",
+        "question_plan_state": "EVALUATOR_CONFIRMED_EXACT_AT_GOVERNING_CLOSURE",
+        "diagnosis_ordinal": 40
+      },
+      {
+        "oracle_row_id": "qp4-rcc-scg-total-revenue:base_target:canonical",
+        "anchor_id": "qp4-rcc-scg-total-revenue",
+        "company_key": "development-company-128d077252ff6e80",
+        "source_name": "SCG_23CN_BCTN.pdf",
+        "source_path": "pdf/PDF_23/SCG_23CN_BCTN.pdf",
+        "source_sha256": "fabcefdf81e9bf90abdfe4497a4b7ba7960d564e9ce525ecd7dfe8dd05c62ff1",
+        "physical_page": 17,
+        "document_layout_family": "native_text_mixed_orientation",
+        "table_layout_family": "wide_left_panel_plan_actual_prior_growth_matrix",
+        "extraction_family": "native_vector_text_table",
+        "layout_instance_fingerprint": "native_text_mixed_orientation|wide_left_panel_plan_actual_prior_growth_matrix|plan_actual_prior_actual_then_completion_and_growth|landscape|single_physical_page",
+        "category": "base_target",
+        "surface_label": "canonical",
+        "question_selector": {
+          "collection": "base_surfaces",
+          "index": 0
+        },
+        "question": "Tổng doanh thu thực hiện năm 2023 đạt bao nhiêu phần trăm kế hoạch năm 2023?",
+        "question_sha256": "e2cc1cc140386df80f05b92762b549c74a1579e47e9d9b418f4d577bc85b459b",
+        "expected_operation": "RATIO_PERCENT",
+        "expected_operands": [
+          "current_actual",
+          "current_plan"
+        ],
+        "expected_physical_evidence": [
+          {
+            "operand": "current_actual",
+            "source_name": "SCG_23CN_BCTN.pdf",
+            "page": 17,
+            "value": "1272",
+            "semantic_role": "ACTUAL",
+            "period": "2023"
+          },
+          {
+            "operand": "current_plan",
+            "source_name": "SCG_23CN_BCTN.pdf",
+            "page": 17,
+            "value": "2000",
+            "semantic_role": "PLAN",
+            "period": "2023"
+          }
+        ],
+        "frozen_question_plan_projection_sha256": "c1e31718d8b51f893fea634c5266dacab74a7a071f5617ab34dd225b3fb24c33",
+        "question_plan_state": "EVALUATOR_CONFIRMED_EXACT_AT_GOVERNING_CLOSURE",
+        "diagnosis_ordinal": 41
+      },
+      {
+        "oracle_row_id": "qp4-rcc-scg-total-revenue:base_target:clause_reordered",
+        "anchor_id": "qp4-rcc-scg-total-revenue",
+        "company_key": "development-company-128d077252ff6e80",
+        "source_name": "SCG_23CN_BCTN.pdf",
+        "source_path": "pdf/PDF_23/SCG_23CN_BCTN.pdf",
+        "source_sha256": "fabcefdf81e9bf90abdfe4497a4b7ba7960d564e9ce525ecd7dfe8dd05c62ff1",
+        "physical_page": 17,
+        "document_layout_family": "native_text_mixed_orientation",
+        "table_layout_family": "wide_left_panel_plan_actual_prior_growth_matrix",
+        "extraction_family": "native_vector_text_table",
+        "layout_instance_fingerprint": "native_text_mixed_orientation|wide_left_panel_plan_actual_prior_growth_matrix|plan_actual_prior_actual_then_completion_and_growth|landscape|single_physical_page",
+        "category": "base_target",
+        "surface_label": "clause_reordered",
+        "question_selector": {
+          "collection": "base_surfaces",
+          "index": 3
+        },
+        "question": "Đối với cùng chỉ tiêu và phạm vi báo cáo, so với kế hoạch năm 2023 thì tổng doanh thu thực hiện năm 2023 đạt bao nhiêu phần trăm?",
+        "question_sha256": "60730f69092059a1198dec973f2bca6afe9a239e63f680c8d79f934337d67644",
+        "expected_operation": "RATIO_PERCENT",
+        "expected_operands": [
+          "current_actual",
+          "current_plan"
+        ],
+        "expected_physical_evidence": [
+          {
+            "operand": "current_actual",
+            "source_name": "SCG_23CN_BCTN.pdf",
+            "page": 17,
+            "value": "1272",
+            "semantic_role": "ACTUAL",
+            "period": "2023"
+          },
+          {
+            "operand": "current_plan",
+            "source_name": "SCG_23CN_BCTN.pdf",
+            "page": 17,
+            "value": "2000",
+            "semantic_role": "PLAN",
+            "period": "2023"
+          }
+        ],
+        "frozen_question_plan_projection_sha256": "42c0fe1fa1c6c19b2343cc141840fc68ec5ab37300c3483a4baf23c42fc48ad4",
+        "question_plan_state": "EVALUATOR_CONFIRMED_EXACT_AT_GOVERNING_CLOSURE",
+        "diagnosis_ordinal": 42
+      },
+      {
+        "oracle_row_id": "qp4-rcc-scg-total-revenue:base_target:long_clause",
+        "anchor_id": "qp4-rcc-scg-total-revenue",
+        "company_key": "development-company-128d077252ff6e80",
+        "source_name": "SCG_23CN_BCTN.pdf",
+        "source_path": "pdf/PDF_23/SCG_23CN_BCTN.pdf",
+        "source_sha256": "fabcefdf81e9bf90abdfe4497a4b7ba7960d564e9ce525ecd7dfe8dd05c62ff1",
+        "physical_page": 17,
+        "document_layout_family": "native_text_mixed_orientation",
+        "table_layout_family": "wide_left_panel_plan_actual_prior_growth_matrix",
+        "extraction_family": "native_vector_text_table",
+        "layout_instance_fingerprint": "native_text_mixed_orientation|wide_left_panel_plan_actual_prior_growth_matrix|plan_actual_prior_actual_then_completion_and_growth|landscape|single_physical_page",
+        "category": "base_target",
+        "surface_label": "long_clause",
+        "question_selector": {
+          "collection": "base_surfaces",
+          "index": 2
+        },
+        "question": "Căn cứ đúng bảng kết quả kinh doanh và giữ nguyên đơn vị, phạm vi cùng vai trò từng cột, hãy xác định tổng doanh thu thực hiện năm 2023 đạt bao nhiêu phần trăm kế hoạch năm 2023?",
+        "question_sha256": "f2b23b6af11c6227a128223b6d0c2633156ea31bd59212e717c58fae7adeffe7",
+        "expected_operation": "RATIO_PERCENT",
+        "expected_operands": [
+          "current_actual",
+          "current_plan"
+        ],
+        "expected_physical_evidence": [
+          {
+            "operand": "current_actual",
+            "source_name": "SCG_23CN_BCTN.pdf",
+            "page": 17,
+            "value": "1272",
+            "semantic_role": "ACTUAL",
+            "period": "2023"
+          },
+          {
+            "operand": "current_plan",
+            "source_name": "SCG_23CN_BCTN.pdf",
+            "page": 17,
+            "value": "2000",
+            "semantic_role": "PLAN",
+            "period": "2023"
+          }
+        ],
+        "frozen_question_plan_projection_sha256": "c17b4bfe92190502920a4e411173531de7aa9204ce99b2650faf5829d4b71e23",
+        "question_plan_state": "EVALUATOR_CONFIRMED_EXACT_AT_GOVERNING_CLOSURE",
+        "diagnosis_ordinal": 43
+      },
+      {
+        "oracle_row_id": "qp4-rcc-scg-total-revenue:base_target:no_diacritics",
+        "anchor_id": "qp4-rcc-scg-total-revenue",
+        "company_key": "development-company-128d077252ff6e80",
+        "source_name": "SCG_23CN_BCTN.pdf",
+        "source_path": "pdf/PDF_23/SCG_23CN_BCTN.pdf",
+        "source_sha256": "fabcefdf81e9bf90abdfe4497a4b7ba7960d564e9ce525ecd7dfe8dd05c62ff1",
+        "physical_page": 17,
+        "document_layout_family": "native_text_mixed_orientation",
+        "table_layout_family": "wide_left_panel_plan_actual_prior_growth_matrix",
+        "extraction_family": "native_vector_text_table",
+        "layout_instance_fingerprint": "native_text_mixed_orientation|wide_left_panel_plan_actual_prior_growth_matrix|plan_actual_prior_actual_then_completion_and_growth|landscape|single_physical_page",
+        "category": "base_target",
+        "surface_label": "no_diacritics",
+        "question_selector": {
+          "collection": "base_surfaces",
+          "index": 4
+        },
+        "question": "Tong doanh thu thuc hien nam 2023 dat bao nhieu phan tram ke hoach nam 2023?",
+        "question_sha256": "9824348ad2abc82d35c122defbfc86d86ffe72593c74d5a18b20dddc73e33234",
+        "expected_operation": "RATIO_PERCENT",
+        "expected_operands": [
+          "current_actual",
+          "current_plan"
+        ],
+        "expected_physical_evidence": [
+          {
+            "operand": "current_actual",
+            "source_name": "SCG_23CN_BCTN.pdf",
+            "page": 17,
+            "value": "1272",
+            "semantic_role": "ACTUAL",
+            "period": "2023"
+          },
+          {
+            "operand": "current_plan",
+            "source_name": "SCG_23CN_BCTN.pdf",
+            "page": 17,
+            "value": "2000",
+            "semantic_role": "PLAN",
+            "period": "2023"
+          }
+        ],
+        "frozen_question_plan_projection_sha256": "49fa4bd44e2479cc2845c7bcc44b399ad2c54ef1ccdf7c7722dbc5617f80d797",
+        "question_plan_state": "EVALUATOR_CONFIRMED_EXACT_AT_GOVERNING_CLOSURE",
+        "diagnosis_ordinal": 44
+      },
+      {
+        "oracle_row_id": "qp4-rcc-scg-total-revenue:base_target:paraphrase_1",
+        "anchor_id": "qp4-rcc-scg-total-revenue",
+        "company_key": "development-company-128d077252ff6e80",
+        "source_name": "SCG_23CN_BCTN.pdf",
+        "source_path": "pdf/PDF_23/SCG_23CN_BCTN.pdf",
+        "source_sha256": "fabcefdf81e9bf90abdfe4497a4b7ba7960d564e9ce525ecd7dfe8dd05c62ff1",
+        "physical_page": 17,
+        "document_layout_family": "native_text_mixed_orientation",
+        "table_layout_family": "wide_left_panel_plan_actual_prior_growth_matrix",
+        "extraction_family": "native_vector_text_table",
+        "layout_instance_fingerprint": "native_text_mixed_orientation|wide_left_panel_plan_actual_prior_growth_matrix|plan_actual_prior_actual_then_completion_and_growth|landscape|single_physical_page",
+        "category": "base_target",
+        "surface_label": "paraphrase_1",
+        "question_selector": {
+          "collection": "base_surfaces",
+          "index": 1
+        },
+        "question": "Hãy cho biết tổng doanh thu thực hiện năm 2023 bằng bao nhiêu phần trăm mức kế hoạch cùng năm?",
+        "question_sha256": "f773a27e57be72b5367010b4ebfeea87240b72288332fcf069d4539e6abc4c64",
+        "expected_operation": "RATIO_PERCENT",
+        "expected_operands": [
+          "current_actual",
+          "current_plan"
+        ],
+        "expected_physical_evidence": [
+          {
+            "operand": "current_actual",
+            "source_name": "SCG_23CN_BCTN.pdf",
+            "page": 17,
+            "value": "1272",
+            "semantic_role": "ACTUAL",
+            "period": "2023"
+          },
+          {
+            "operand": "current_plan",
+            "source_name": "SCG_23CN_BCTN.pdf",
+            "page": 17,
+            "value": "2000",
+            "semantic_role": "PLAN",
+            "period": "2023"
+          }
+        ],
+        "frozen_question_plan_projection_sha256": "75119dc77126921d16322f1154a2f78e2e9418ee698b65d632ad8e5d72ea0624",
+        "question_plan_state": "EVALUATOR_CONFIRMED_EXACT_AT_GOVERNING_CLOSURE",
+        "diagnosis_ordinal": 45
+      },
+      {
+        "oracle_row_id": "qp4-rcc-scg-total-revenue:reference_base_mutation_target:canonical",
+        "anchor_id": "qp4-rcc-scg-total-revenue",
+        "company_key": "development-company-128d077252ff6e80",
+        "source_name": "SCG_23CN_BCTN.pdf",
+        "source_path": "pdf/PDF_23/SCG_23CN_BCTN.pdf",
+        "source_sha256": "fabcefdf81e9bf90abdfe4497a4b7ba7960d564e9ce525ecd7dfe8dd05c62ff1",
+        "physical_page": 17,
+        "document_layout_family": "native_text_mixed_orientation",
+        "table_layout_family": "wide_left_panel_plan_actual_prior_growth_matrix",
+        "extraction_family": "native_vector_text_table",
+        "layout_instance_fingerprint": "native_text_mixed_orientation|wide_left_panel_plan_actual_prior_growth_matrix|plan_actual_prior_actual_then_completion_and_growth|landscape|single_physical_page",
+        "category": "reference_base_mutation_target",
+        "surface_label": "canonical",
+        "question_selector": {
+          "collection": "reference_base_mutation_surfaces",
+          "index": 0
+        },
+        "question": "Tổng doanh thu thực hiện năm 2023 bằng bao nhiêu phần trăm thực hiện năm 2022?",
+        "question_sha256": "30cdb79bc0b756acbad8e08fb0a478e5d3fd2af09852b8a7056617ac540cad97",
+        "expected_operation": "RATIO_PERCENT",
+        "expected_operands": [
+          "current_actual",
+          "prior_actual"
+        ],
+        "expected_physical_evidence": [
+          {
+            "operand": "current_actual",
+            "source_name": "SCG_23CN_BCTN.pdf",
+            "page": 17,
+            "value": "1272",
+            "semantic_role": "ACTUAL",
+            "period": "2023"
+          },
+          {
+            "operand": "prior_actual",
+            "source_name": "SCG_23CN_BCTN.pdf",
+            "page": 17,
+            "value": "2011",
+            "semantic_role": "ACTUAL",
+            "period": "2022"
+          }
+        ],
+        "frozen_question_plan_projection_sha256": "83ef0e7ba1136acb86d3a904b6751f6cfca9cb0d4f6e645a6665b405d8b916b9",
+        "question_plan_state": "EVALUATOR_CONFIRMED_EXACT_AT_GOVERNING_CLOSURE",
+        "diagnosis_ordinal": 46
+      },
+      {
+        "oracle_row_id": "qp4-rcc-scg-total-revenue:reference_base_mutation_target:clause_reordered",
+        "anchor_id": "qp4-rcc-scg-total-revenue",
+        "company_key": "development-company-128d077252ff6e80",
+        "source_name": "SCG_23CN_BCTN.pdf",
+        "source_path": "pdf/PDF_23/SCG_23CN_BCTN.pdf",
+        "source_sha256": "fabcefdf81e9bf90abdfe4497a4b7ba7960d564e9ce525ecd7dfe8dd05c62ff1",
+        "physical_page": 17,
+        "document_layout_family": "native_text_mixed_orientation",
+        "table_layout_family": "wide_left_panel_plan_actual_prior_growth_matrix",
+        "extraction_family": "native_vector_text_table",
+        "layout_instance_fingerprint": "native_text_mixed_orientation|wide_left_panel_plan_actual_prior_growth_matrix|plan_actual_prior_actual_then_completion_and_growth|landscape|single_physical_page",
+        "category": "reference_base_mutation_target",
+        "surface_label": "clause_reordered",
+        "question_selector": {
+          "collection": "reference_base_mutation_surfaces",
+          "index": 3
+        },
+        "question": "Đối với cùng chỉ tiêu và phạm vi báo cáo, so với thực hiện năm 2022 thì tổng doanh thu thực hiện năm 2023 bằng bao nhiêu phần trăm?",
+        "question_sha256": "a2fcf0e112a55df86a8c253e17adb143cf503f026faa51d02c4f3ca47da57978",
+        "expected_operation": "RATIO_PERCENT",
+        "expected_operands": [
+          "current_actual",
+          "prior_actual"
+        ],
+        "expected_physical_evidence": [
+          {
+            "operand": "current_actual",
+            "source_name": "SCG_23CN_BCTN.pdf",
+            "page": 17,
+            "value": "1272",
+            "semantic_role": "ACTUAL",
+            "period": "2023"
+          },
+          {
+            "operand": "prior_actual",
+            "source_name": "SCG_23CN_BCTN.pdf",
+            "page": 17,
+            "value": "2011",
+            "semantic_role": "ACTUAL",
+            "period": "2022"
+          }
+        ],
+        "frozen_question_plan_projection_sha256": "44f2ec8112b107da3efb26c9173572bb27eb5cd4081f5bd16f1c2ebb4b7d53c7",
+        "question_plan_state": "EVALUATOR_CONFIRMED_EXACT_AT_GOVERNING_CLOSURE",
+        "diagnosis_ordinal": 47
+      },
+      {
+        "oracle_row_id": "qp4-rcc-scg-total-revenue:reference_base_mutation_target:long_clause",
+        "anchor_id": "qp4-rcc-scg-total-revenue",
+        "company_key": "development-company-128d077252ff6e80",
+        "source_name": "SCG_23CN_BCTN.pdf",
+        "source_path": "pdf/PDF_23/SCG_23CN_BCTN.pdf",
+        "source_sha256": "fabcefdf81e9bf90abdfe4497a4b7ba7960d564e9ce525ecd7dfe8dd05c62ff1",
+        "physical_page": 17,
+        "document_layout_family": "native_text_mixed_orientation",
+        "table_layout_family": "wide_left_panel_plan_actual_prior_growth_matrix",
+        "extraction_family": "native_vector_text_table",
+        "layout_instance_fingerprint": "native_text_mixed_orientation|wide_left_panel_plan_actual_prior_growth_matrix|plan_actual_prior_actual_then_completion_and_growth|landscape|single_physical_page",
+        "category": "reference_base_mutation_target",
+        "surface_label": "long_clause",
+        "question_selector": {
+          "collection": "reference_base_mutation_surfaces",
+          "index": 2
+        },
+        "question": "Căn cứ đúng bảng kết quả kinh doanh và giữ nguyên đơn vị, phạm vi cùng vai trò từng cột, hãy xác định tổng doanh thu thực hiện năm 2023 bằng bao nhiêu phần trăm thực hiện năm 2022?",
+        "question_sha256": "d91f5e702c3d1eaa000a39ecd7bd8a2b47537b44de45b784a4c74eac3d46f1a3",
+        "expected_operation": "RATIO_PERCENT",
+        "expected_operands": [
+          "current_actual",
+          "prior_actual"
+        ],
+        "expected_physical_evidence": [
+          {
+            "operand": "current_actual",
+            "source_name": "SCG_23CN_BCTN.pdf",
+            "page": 17,
+            "value": "1272",
+            "semantic_role": "ACTUAL",
+            "period": "2023"
+          },
+          {
+            "operand": "prior_actual",
+            "source_name": "SCG_23CN_BCTN.pdf",
+            "page": 17,
+            "value": "2011",
+            "semantic_role": "ACTUAL",
+            "period": "2022"
+          }
+        ],
+        "frozen_question_plan_projection_sha256": "c5374e657f4c5aa932932fae3011751f81b5eb91c42b1f9d64e4e20da82007a9",
+        "question_plan_state": "EVALUATOR_CONFIRMED_EXACT_AT_GOVERNING_CLOSURE",
+        "diagnosis_ordinal": 48
+      },
+      {
+        "oracle_row_id": "qp4-rcc-scg-total-revenue:reference_base_mutation_target:no_diacritics",
+        "anchor_id": "qp4-rcc-scg-total-revenue",
+        "company_key": "development-company-128d077252ff6e80",
+        "source_name": "SCG_23CN_BCTN.pdf",
+        "source_path": "pdf/PDF_23/SCG_23CN_BCTN.pdf",
+        "source_sha256": "fabcefdf81e9bf90abdfe4497a4b7ba7960d564e9ce525ecd7dfe8dd05c62ff1",
+        "physical_page": 17,
+        "document_layout_family": "native_text_mixed_orientation",
+        "table_layout_family": "wide_left_panel_plan_actual_prior_growth_matrix",
+        "extraction_family": "native_vector_text_table",
+        "layout_instance_fingerprint": "native_text_mixed_orientation|wide_left_panel_plan_actual_prior_growth_matrix|plan_actual_prior_actual_then_completion_and_growth|landscape|single_physical_page",
+        "category": "reference_base_mutation_target",
+        "surface_label": "no_diacritics",
+        "question_selector": {
+          "collection": "reference_base_mutation_surfaces",
+          "index": 4
+        },
+        "question": "Tong doanh thu thuc hien nam 2023 bang bao nhieu phan tram thuc hien nam 2022?",
+        "question_sha256": "06d937f31651936e3be2e54249a890d8946caa3df784e4e7e4463994c7ebe005",
+        "expected_operation": "RATIO_PERCENT",
+        "expected_operands": [
+          "current_actual",
+          "prior_actual"
+        ],
+        "expected_physical_evidence": [
+          {
+            "operand": "current_actual",
+            "source_name": "SCG_23CN_BCTN.pdf",
+            "page": 17,
+            "value": "1272",
+            "semantic_role": "ACTUAL",
+            "period": "2023"
+          },
+          {
+            "operand": "prior_actual",
+            "source_name": "SCG_23CN_BCTN.pdf",
+            "page": 17,
+            "value": "2011",
+            "semantic_role": "ACTUAL",
+            "period": "2022"
+          }
+        ],
+        "frozen_question_plan_projection_sha256": "65c0db1f0f0a2a95952e4278cb79ede9e69782d7647baa372de81a76af1499b1",
+        "question_plan_state": "EVALUATOR_CONFIRMED_EXACT_AT_GOVERNING_CLOSURE",
+        "diagnosis_ordinal": 49
+      },
+      {
+        "oracle_row_id": "qp4-rcc-scg-total-revenue:reference_base_mutation_target:paraphrase_1",
+        "anchor_id": "qp4-rcc-scg-total-revenue",
+        "company_key": "development-company-128d077252ff6e80",
+        "source_name": "SCG_23CN_BCTN.pdf",
+        "source_path": "pdf/PDF_23/SCG_23CN_BCTN.pdf",
+        "source_sha256": "fabcefdf81e9bf90abdfe4497a4b7ba7960d564e9ce525ecd7dfe8dd05c62ff1",
+        "physical_page": 17,
+        "document_layout_family": "native_text_mixed_orientation",
+        "table_layout_family": "wide_left_panel_plan_actual_prior_growth_matrix",
+        "extraction_family": "native_vector_text_table",
+        "layout_instance_fingerprint": "native_text_mixed_orientation|wide_left_panel_plan_actual_prior_growth_matrix|plan_actual_prior_actual_then_completion_and_growth|landscape|single_physical_page",
+        "category": "reference_base_mutation_target",
+        "surface_label": "paraphrase_1",
+        "question_selector": {
+          "collection": "reference_base_mutation_surfaces",
+          "index": 1
+        },
+        "question": "Hãy cho biết tổng doanh thu thực hiện năm 2023 đạt bao nhiêu phần trăm so với số thực hiện năm 2022?",
+        "question_sha256": "51de98ef1368dd1eeb60031bed5c4a4a0fcf4b1435bdb35da69a76c1d34097c4",
+        "expected_operation": "RATIO_PERCENT",
+        "expected_operands": [
+          "current_actual",
+          "prior_actual"
+        ],
+        "expected_physical_evidence": [
+          {
+            "operand": "current_actual",
+            "source_name": "SCG_23CN_BCTN.pdf",
+            "page": 17,
+            "value": "1272",
+            "semantic_role": "ACTUAL",
+            "period": "2023"
+          },
+          {
+            "operand": "prior_actual",
+            "source_name": "SCG_23CN_BCTN.pdf",
+            "page": 17,
+            "value": "2011",
+            "semantic_role": "ACTUAL",
+            "period": "2022"
+          }
+        ],
+        "frozen_question_plan_projection_sha256": "d84d04eb0764136a600b69d5f7221421c3f2d22785fb6f049d0be9e30f0ee714",
+        "question_plan_state": "EVALUATOR_CONFIRMED_EXACT_AT_GOVERNING_CLOSURE",
+        "diagnosis_ordinal": 50
+      },
+      {
+        "oracle_row_id": "qp4-rcc-vnl-profit-before-tax:base_target:canonical",
+        "anchor_id": "qp4-rcc-vnl-profit-before-tax",
+        "company_key": "development-company-0d2016d24a4bb0bd",
+        "source_name": "VNL_23CN_BCTN.pdf",
+        "source_path": "pdf/PDF_23/VNL_23CN_BCTN.pdf",
+        "source_sha256": "c1f20dffb1a4ed818cd4d3d78f5d47ce2e1517b8a78e6c8e9eee1aaafca51c2b",
+        "physical_page": 44,
+        "document_layout_family": "hybrid_scan_text",
+        "table_layout_family": "portrait_audit_committee_table_with_interleaved_ratio_columns",
+        "extraction_family": "hybrid_scan_text_existing_text_layer",
+        "layout_instance_fingerprint": "hybrid_scan_text|portrait_audit_committee_table_with_interleaved_ratio_columns|current_actual_plan_completion_prior_actual_prior_ratio|portrait|single_physical_page",
+        "category": "base_target",
+        "surface_label": "canonical",
+        "question_selector": {
+          "collection": "base_surfaces",
+          "index": 0
+        },
+        "question": "Lợi nhuận trước thuế thực hiện năm 2023 đạt bao nhiêu phần trăm kế hoạch năm 2023?",
+        "question_sha256": "e28cae9953b8fece48feebf4ef79a88fc496fc892fa30e03422a3d8084cd109e",
+        "expected_operation": "RATIO_PERCENT",
+        "expected_operands": [
+          "current_actual",
+          "current_plan"
+        ],
+        "expected_physical_evidence": [
+          {
+            "operand": "current_actual",
+            "source_name": "VNL_23CN_BCTN.pdf",
+            "page": 44,
+            "value": "43.70",
+            "semantic_role": "ACTUAL",
+            "period": "2023"
+          },
+          {
+            "operand": "current_plan",
+            "source_name": "VNL_23CN_BCTN.pdf",
+            "page": 44,
+            "value": "51.00",
+            "semantic_role": "PLAN",
+            "period": "2023"
+          }
+        ],
+        "frozen_question_plan_projection_sha256": "1eb0f5a0e60f9fe45736b0d750e4de8b72e3dac7f5673fcb9858d3c58d8f5674",
+        "question_plan_state": "EVALUATOR_CONFIRMED_EXACT_AT_GOVERNING_CLOSURE",
+        "diagnosis_ordinal": 51
+      },
+      {
+        "oracle_row_id": "qp4-rcc-vnl-profit-before-tax:base_target:clause_reordered",
+        "anchor_id": "qp4-rcc-vnl-profit-before-tax",
+        "company_key": "development-company-0d2016d24a4bb0bd",
+        "source_name": "VNL_23CN_BCTN.pdf",
+        "source_path": "pdf/PDF_23/VNL_23CN_BCTN.pdf",
+        "source_sha256": "c1f20dffb1a4ed818cd4d3d78f5d47ce2e1517b8a78e6c8e9eee1aaafca51c2b",
+        "physical_page": 44,
+        "document_layout_family": "hybrid_scan_text",
+        "table_layout_family": "portrait_audit_committee_table_with_interleaved_ratio_columns",
+        "extraction_family": "hybrid_scan_text_existing_text_layer",
+        "layout_instance_fingerprint": "hybrid_scan_text|portrait_audit_committee_table_with_interleaved_ratio_columns|current_actual_plan_completion_prior_actual_prior_ratio|portrait|single_physical_page",
+        "category": "base_target",
+        "surface_label": "clause_reordered",
+        "question_selector": {
+          "collection": "base_surfaces",
+          "index": 3
+        },
+        "question": "Đối với cùng chỉ tiêu và phạm vi báo cáo, so với kế hoạch năm 2023 thì lợi nhuận trước thuế thực hiện năm 2023 đạt bao nhiêu phần trăm?",
+        "question_sha256": "acf9075bddca43172d3509f0d715f704567b64ad0624a885f016de14a7ded60d",
+        "expected_operation": "RATIO_PERCENT",
+        "expected_operands": [
+          "current_actual",
+          "current_plan"
+        ],
+        "expected_physical_evidence": [
+          {
+            "operand": "current_actual",
+            "source_name": "VNL_23CN_BCTN.pdf",
+            "page": 44,
+            "value": "43.70",
+            "semantic_role": "ACTUAL",
+            "period": "2023"
+          },
+          {
+            "operand": "current_plan",
+            "source_name": "VNL_23CN_BCTN.pdf",
+            "page": 44,
+            "value": "51.00",
+            "semantic_role": "PLAN",
+            "period": "2023"
+          }
+        ],
+        "frozen_question_plan_projection_sha256": "39e0a547de1655b0c8a5117ef5ad193d060179b2b7f841ae69de9567b6bb90de",
+        "question_plan_state": "EVALUATOR_CONFIRMED_EXACT_AT_GOVERNING_CLOSURE",
+        "diagnosis_ordinal": 52
+      },
+      {
+        "oracle_row_id": "qp4-rcc-vnl-profit-before-tax:base_target:long_clause",
+        "anchor_id": "qp4-rcc-vnl-profit-before-tax",
+        "company_key": "development-company-0d2016d24a4bb0bd",
+        "source_name": "VNL_23CN_BCTN.pdf",
+        "source_path": "pdf/PDF_23/VNL_23CN_BCTN.pdf",
+        "source_sha256": "c1f20dffb1a4ed818cd4d3d78f5d47ce2e1517b8a78e6c8e9eee1aaafca51c2b",
+        "physical_page": 44,
+        "document_layout_family": "hybrid_scan_text",
+        "table_layout_family": "portrait_audit_committee_table_with_interleaved_ratio_columns",
+        "extraction_family": "hybrid_scan_text_existing_text_layer",
+        "layout_instance_fingerprint": "hybrid_scan_text|portrait_audit_committee_table_with_interleaved_ratio_columns|current_actual_plan_completion_prior_actual_prior_ratio|portrait|single_physical_page",
+        "category": "base_target",
+        "surface_label": "long_clause",
+        "question_selector": {
+          "collection": "base_surfaces",
+          "index": 2
+        },
+        "question": "Căn cứ đúng bảng kết quả kinh doanh và giữ nguyên đơn vị, phạm vi cùng vai trò từng cột, hãy xác định lợi nhuận trước thuế thực hiện năm 2023 đạt bao nhiêu phần trăm kế hoạch năm 2023?",
+        "question_sha256": "05be805f6cc0f85667eefa2c4a65e495457e5f35aa649ed1af591f30bb5eeb1e",
+        "expected_operation": "RATIO_PERCENT",
+        "expected_operands": [
+          "current_actual",
+          "current_plan"
+        ],
+        "expected_physical_evidence": [
+          {
+            "operand": "current_actual",
+            "source_name": "VNL_23CN_BCTN.pdf",
+            "page": 44,
+            "value": "43.70",
+            "semantic_role": "ACTUAL",
+            "period": "2023"
+          },
+          {
+            "operand": "current_plan",
+            "source_name": "VNL_23CN_BCTN.pdf",
+            "page": 44,
+            "value": "51.00",
+            "semantic_role": "PLAN",
+            "period": "2023"
+          }
+        ],
+        "frozen_question_plan_projection_sha256": "6e9315816e93c8550f11027ee18cabddd4067b18516299b17583a6bbe8be7246",
+        "question_plan_state": "EVALUATOR_CONFIRMED_EXACT_AT_GOVERNING_CLOSURE",
+        "diagnosis_ordinal": 53
+      },
+      {
+        "oracle_row_id": "qp4-rcc-vnl-profit-before-tax:base_target:no_diacritics",
+        "anchor_id": "qp4-rcc-vnl-profit-before-tax",
+        "company_key": "development-company-0d2016d24a4bb0bd",
+        "source_name": "VNL_23CN_BCTN.pdf",
+        "source_path": "pdf/PDF_23/VNL_23CN_BCTN.pdf",
+        "source_sha256": "c1f20dffb1a4ed818cd4d3d78f5d47ce2e1517b8a78e6c8e9eee1aaafca51c2b",
+        "physical_page": 44,
+        "document_layout_family": "hybrid_scan_text",
+        "table_layout_family": "portrait_audit_committee_table_with_interleaved_ratio_columns",
+        "extraction_family": "hybrid_scan_text_existing_text_layer",
+        "layout_instance_fingerprint": "hybrid_scan_text|portrait_audit_committee_table_with_interleaved_ratio_columns|current_actual_plan_completion_prior_actual_prior_ratio|portrait|single_physical_page",
+        "category": "base_target",
+        "surface_label": "no_diacritics",
+        "question_selector": {
+          "collection": "base_surfaces",
+          "index": 4
+        },
+        "question": "Loi nhuan truoc thue thuc hien nam 2023 dat bao nhieu phan tram ke hoach nam 2023?",
+        "question_sha256": "96758cbb09fbc1adacddb8920cb6239f420ee626b46729b58086337d46f1d15b",
+        "expected_operation": "RATIO_PERCENT",
+        "expected_operands": [
+          "current_actual",
+          "current_plan"
+        ],
+        "expected_physical_evidence": [
+          {
+            "operand": "current_actual",
+            "source_name": "VNL_23CN_BCTN.pdf",
+            "page": 44,
+            "value": "43.70",
+            "semantic_role": "ACTUAL",
+            "period": "2023"
+          },
+          {
+            "operand": "current_plan",
+            "source_name": "VNL_23CN_BCTN.pdf",
+            "page": 44,
+            "value": "51.00",
+            "semantic_role": "PLAN",
+            "period": "2023"
+          }
+        ],
+        "frozen_question_plan_projection_sha256": "caf64a66e18ff6306ff344b62bd8d4989212e8c320618713d118dfa237341829",
+        "question_plan_state": "EVALUATOR_CONFIRMED_EXACT_AT_GOVERNING_CLOSURE",
+        "diagnosis_ordinal": 54
+      },
+      {
+        "oracle_row_id": "qp4-rcc-vnl-profit-before-tax:base_target:paraphrase_1",
+        "anchor_id": "qp4-rcc-vnl-profit-before-tax",
+        "company_key": "development-company-0d2016d24a4bb0bd",
+        "source_name": "VNL_23CN_BCTN.pdf",
+        "source_path": "pdf/PDF_23/VNL_23CN_BCTN.pdf",
+        "source_sha256": "c1f20dffb1a4ed818cd4d3d78f5d47ce2e1517b8a78e6c8e9eee1aaafca51c2b",
+        "physical_page": 44,
+        "document_layout_family": "hybrid_scan_text",
+        "table_layout_family": "portrait_audit_committee_table_with_interleaved_ratio_columns",
+        "extraction_family": "hybrid_scan_text_existing_text_layer",
+        "layout_instance_fingerprint": "hybrid_scan_text|portrait_audit_committee_table_with_interleaved_ratio_columns|current_actual_plan_completion_prior_actual_prior_ratio|portrait|single_physical_page",
+        "category": "base_target",
+        "surface_label": "paraphrase_1",
+        "question_selector": {
+          "collection": "base_surfaces",
+          "index": 1
+        },
+        "question": "Hãy cho biết lợi nhuận trước thuế thực hiện năm 2023 bằng bao nhiêu phần trăm mức kế hoạch cùng năm?",
+        "question_sha256": "a4f39ce36b2adc80d7a2ac9b591b05abd6f5f6fa6265a84080b16a58d57ea6e5",
+        "expected_operation": "RATIO_PERCENT",
+        "expected_operands": [
+          "current_actual",
+          "current_plan"
+        ],
+        "expected_physical_evidence": [
+          {
+            "operand": "current_actual",
+            "source_name": "VNL_23CN_BCTN.pdf",
+            "page": 44,
+            "value": "43.70",
+            "semantic_role": "ACTUAL",
+            "period": "2023"
+          },
+          {
+            "operand": "current_plan",
+            "source_name": "VNL_23CN_BCTN.pdf",
+            "page": 44,
+            "value": "51.00",
+            "semantic_role": "PLAN",
+            "period": "2023"
+          }
+        ],
+        "frozen_question_plan_projection_sha256": "867a49eef36bd8c0118d6ff155347ffdaa715cf2bae323d72db9cd05aa62a985",
+        "question_plan_state": "EVALUATOR_CONFIRMED_EXACT_AT_GOVERNING_CLOSURE",
+        "diagnosis_ordinal": 55
+      },
+      {
+        "oracle_row_id": "qp4-rcc-vnl-profit-before-tax:reference_base_mutation_target:canonical",
+        "anchor_id": "qp4-rcc-vnl-profit-before-tax",
+        "company_key": "development-company-0d2016d24a4bb0bd",
+        "source_name": "VNL_23CN_BCTN.pdf",
+        "source_path": "pdf/PDF_23/VNL_23CN_BCTN.pdf",
+        "source_sha256": "c1f20dffb1a4ed818cd4d3d78f5d47ce2e1517b8a78e6c8e9eee1aaafca51c2b",
+        "physical_page": 44,
+        "document_layout_family": "hybrid_scan_text",
+        "table_layout_family": "portrait_audit_committee_table_with_interleaved_ratio_columns",
+        "extraction_family": "hybrid_scan_text_existing_text_layer",
+        "layout_instance_fingerprint": "hybrid_scan_text|portrait_audit_committee_table_with_interleaved_ratio_columns|current_actual_plan_completion_prior_actual_prior_ratio|portrait|single_physical_page",
+        "category": "reference_base_mutation_target",
+        "surface_label": "canonical",
+        "question_selector": {
+          "collection": "reference_base_mutation_surfaces",
+          "index": 0
+        },
+        "question": "Lợi nhuận trước thuế thực hiện năm 2023 bằng bao nhiêu phần trăm thực hiện năm 2022?",
+        "question_sha256": "1e283b6c465376fa570b3772803e6e58cc24b2c3785b2f62e9efa04fc958d05c",
+        "expected_operation": "RATIO_PERCENT",
+        "expected_operands": [
+          "current_actual",
+          "prior_actual"
+        ],
+        "expected_physical_evidence": [
+          {
+            "operand": "current_actual",
+            "source_name": "VNL_23CN_BCTN.pdf",
+            "page": 44,
+            "value": "43.70",
+            "semantic_role": "ACTUAL",
+            "period": "2023"
+          },
+          {
+            "operand": "prior_actual",
+            "source_name": "VNL_23CN_BCTN.pdf",
+            "page": 44,
+            "value": "53.90",
+            "semantic_role": "ACTUAL",
+            "period": "2022"
+          }
+        ],
+        "frozen_question_plan_projection_sha256": "3eb3e52b096f8cbbeb01c8d10a7a78116148a619b6dfbe043cae10e538b4dacf",
+        "question_plan_state": "EVALUATOR_CONFIRMED_EXACT_AT_GOVERNING_CLOSURE",
+        "diagnosis_ordinal": 56
+      },
+      {
+        "oracle_row_id": "qp4-rcc-vnl-profit-before-tax:reference_base_mutation_target:clause_reordered",
+        "anchor_id": "qp4-rcc-vnl-profit-before-tax",
+        "company_key": "development-company-0d2016d24a4bb0bd",
+        "source_name": "VNL_23CN_BCTN.pdf",
+        "source_path": "pdf/PDF_23/VNL_23CN_BCTN.pdf",
+        "source_sha256": "c1f20dffb1a4ed818cd4d3d78f5d47ce2e1517b8a78e6c8e9eee1aaafca51c2b",
+        "physical_page": 44,
+        "document_layout_family": "hybrid_scan_text",
+        "table_layout_family": "portrait_audit_committee_table_with_interleaved_ratio_columns",
+        "extraction_family": "hybrid_scan_text_existing_text_layer",
+        "layout_instance_fingerprint": "hybrid_scan_text|portrait_audit_committee_table_with_interleaved_ratio_columns|current_actual_plan_completion_prior_actual_prior_ratio|portrait|single_physical_page",
+        "category": "reference_base_mutation_target",
+        "surface_label": "clause_reordered",
+        "question_selector": {
+          "collection": "reference_base_mutation_surfaces",
+          "index": 3
+        },
+        "question": "Đối với cùng chỉ tiêu và phạm vi báo cáo, so với thực hiện năm 2022 thì lợi nhuận trước thuế thực hiện năm 2023 bằng bao nhiêu phần trăm?",
+        "question_sha256": "acf96ccbec78ed070b259d55db065135b47251e050be97311a922ef394473e7d",
+        "expected_operation": "RATIO_PERCENT",
+        "expected_operands": [
+          "current_actual",
+          "prior_actual"
+        ],
+        "expected_physical_evidence": [
+          {
+            "operand": "current_actual",
+            "source_name": "VNL_23CN_BCTN.pdf",
+            "page": 44,
+            "value": "43.70",
+            "semantic_role": "ACTUAL",
+            "period": "2023"
+          },
+          {
+            "operand": "prior_actual",
+            "source_name": "VNL_23CN_BCTN.pdf",
+            "page": 44,
+            "value": "53.90",
+            "semantic_role": "ACTUAL",
+            "period": "2022"
+          }
+        ],
+        "frozen_question_plan_projection_sha256": "3729a3e130c72c51438d1e35f8a562c8a5c2c59799db2aeb8f054b7247d133eb",
+        "question_plan_state": "EVALUATOR_CONFIRMED_EXACT_AT_GOVERNING_CLOSURE",
+        "diagnosis_ordinal": 57
+      },
+      {
+        "oracle_row_id": "qp4-rcc-vnl-profit-before-tax:reference_base_mutation_target:long_clause",
+        "anchor_id": "qp4-rcc-vnl-profit-before-tax",
+        "company_key": "development-company-0d2016d24a4bb0bd",
+        "source_name": "VNL_23CN_BCTN.pdf",
+        "source_path": "pdf/PDF_23/VNL_23CN_BCTN.pdf",
+        "source_sha256": "c1f20dffb1a4ed818cd4d3d78f5d47ce2e1517b8a78e6c8e9eee1aaafca51c2b",
+        "physical_page": 44,
+        "document_layout_family": "hybrid_scan_text",
+        "table_layout_family": "portrait_audit_committee_table_with_interleaved_ratio_columns",
+        "extraction_family": "hybrid_scan_text_existing_text_layer",
+        "layout_instance_fingerprint": "hybrid_scan_text|portrait_audit_committee_table_with_interleaved_ratio_columns|current_actual_plan_completion_prior_actual_prior_ratio|portrait|single_physical_page",
+        "category": "reference_base_mutation_target",
+        "surface_label": "long_clause",
+        "question_selector": {
+          "collection": "reference_base_mutation_surfaces",
+          "index": 2
+        },
+        "question": "Căn cứ đúng bảng kết quả kinh doanh và giữ nguyên đơn vị, phạm vi cùng vai trò từng cột, hãy xác định lợi nhuận trước thuế thực hiện năm 2023 bằng bao nhiêu phần trăm thực hiện năm 2022?",
+        "question_sha256": "4c6bb9fb97d19f1b08d5bfafa790070d42c9cb557a93009510d1e8bfa8b2ca19",
+        "expected_operation": "RATIO_PERCENT",
+        "expected_operands": [
+          "current_actual",
+          "prior_actual"
+        ],
+        "expected_physical_evidence": [
+          {
+            "operand": "current_actual",
+            "source_name": "VNL_23CN_BCTN.pdf",
+            "page": 44,
+            "value": "43.70",
+            "semantic_role": "ACTUAL",
+            "period": "2023"
+          },
+          {
+            "operand": "prior_actual",
+            "source_name": "VNL_23CN_BCTN.pdf",
+            "page": 44,
+            "value": "53.90",
+            "semantic_role": "ACTUAL",
+            "period": "2022"
+          }
+        ],
+        "frozen_question_plan_projection_sha256": "9bab5846b9d3183792c243fe6b0e72374b0aaba9b68e0893a78f415b796b5748",
+        "question_plan_state": "EVALUATOR_CONFIRMED_EXACT_AT_GOVERNING_CLOSURE",
+        "diagnosis_ordinal": 58
+      },
+      {
+        "oracle_row_id": "qp4-rcc-vnl-profit-before-tax:reference_base_mutation_target:no_diacritics",
+        "anchor_id": "qp4-rcc-vnl-profit-before-tax",
+        "company_key": "development-company-0d2016d24a4bb0bd",
+        "source_name": "VNL_23CN_BCTN.pdf",
+        "source_path": "pdf/PDF_23/VNL_23CN_BCTN.pdf",
+        "source_sha256": "c1f20dffb1a4ed818cd4d3d78f5d47ce2e1517b8a78e6c8e9eee1aaafca51c2b",
+        "physical_page": 44,
+        "document_layout_family": "hybrid_scan_text",
+        "table_layout_family": "portrait_audit_committee_table_with_interleaved_ratio_columns",
+        "extraction_family": "hybrid_scan_text_existing_text_layer",
+        "layout_instance_fingerprint": "hybrid_scan_text|portrait_audit_committee_table_with_interleaved_ratio_columns|current_actual_plan_completion_prior_actual_prior_ratio|portrait|single_physical_page",
+        "category": "reference_base_mutation_target",
+        "surface_label": "no_diacritics",
+        "question_selector": {
+          "collection": "reference_base_mutation_surfaces",
+          "index": 4
+        },
+        "question": "Loi nhuan truoc thue thuc hien nam 2023 bang bao nhieu phan tram thuc hien nam 2022?",
+        "question_sha256": "2a67dd26656c64ef68827206a3fef4de19d9f7c43ee38beaf4d44dd98a204e4c",
+        "expected_operation": "RATIO_PERCENT",
+        "expected_operands": [
+          "current_actual",
+          "prior_actual"
+        ],
+        "expected_physical_evidence": [
+          {
+            "operand": "current_actual",
+            "source_name": "VNL_23CN_BCTN.pdf",
+            "page": 44,
+            "value": "43.70",
+            "semantic_role": "ACTUAL",
+            "period": "2023"
+          },
+          {
+            "operand": "prior_actual",
+            "source_name": "VNL_23CN_BCTN.pdf",
+            "page": 44,
+            "value": "53.90",
+            "semantic_role": "ACTUAL",
+            "period": "2022"
+          }
+        ],
+        "frozen_question_plan_projection_sha256": "3676efad15f7a944395a0bda4eb168afc2b40f20f681a97b87263e1f3825703f",
+        "question_plan_state": "EVALUATOR_CONFIRMED_EXACT_AT_GOVERNING_CLOSURE",
+        "diagnosis_ordinal": 59
+      },
+      {
+        "oracle_row_id": "qp4-rcc-vnl-profit-before-tax:reference_base_mutation_target:paraphrase_1",
+        "anchor_id": "qp4-rcc-vnl-profit-before-tax",
+        "company_key": "development-company-0d2016d24a4bb0bd",
+        "source_name": "VNL_23CN_BCTN.pdf",
+        "source_path": "pdf/PDF_23/VNL_23CN_BCTN.pdf",
+        "source_sha256": "c1f20dffb1a4ed818cd4d3d78f5d47ce2e1517b8a78e6c8e9eee1aaafca51c2b",
+        "physical_page": 44,
+        "document_layout_family": "hybrid_scan_text",
+        "table_layout_family": "portrait_audit_committee_table_with_interleaved_ratio_columns",
+        "extraction_family": "hybrid_scan_text_existing_text_layer",
+        "layout_instance_fingerprint": "hybrid_scan_text|portrait_audit_committee_table_with_interleaved_ratio_columns|current_actual_plan_completion_prior_actual_prior_ratio|portrait|single_physical_page",
+        "category": "reference_base_mutation_target",
+        "surface_label": "paraphrase_1",
+        "question_selector": {
+          "collection": "reference_base_mutation_surfaces",
+          "index": 1
+        },
+        "question": "Hãy cho biết lợi nhuận trước thuế thực hiện năm 2023 đạt bao nhiêu phần trăm so với số thực hiện năm 2022?",
+        "question_sha256": "8294c650946e645ad766fbbae9adb13fe0264853aa35c8ec2ce19c0515c3d3a8",
+        "expected_operation": "RATIO_PERCENT",
+        "expected_operands": [
+          "current_actual",
+          "prior_actual"
+        ],
+        "expected_physical_evidence": [
+          {
+            "operand": "current_actual",
+            "source_name": "VNL_23CN_BCTN.pdf",
+            "page": 44,
+            "value": "43.70",
+            "semantic_role": "ACTUAL",
+            "period": "2023"
+          },
+          {
+            "operand": "prior_actual",
+            "source_name": "VNL_23CN_BCTN.pdf",
+            "page": 44,
+            "value": "53.90",
+            "semantic_role": "ACTUAL",
+            "period": "2022"
+          }
+        ],
+        "frozen_question_plan_projection_sha256": "d5806cff9350daf2c34980101d9de67eda994fa64fc255b4a922f3457925f756",
+        "question_plan_state": "EVALUATOR_CONFIRMED_EXACT_AT_GOVERNING_CLOSURE",
+        "diagnosis_ordinal": 60
+      }
+    ],
+    "diversity": {
+      "companies": 6,
+      "sources": 6,
+      "document_layout_families": 3,
+      "table_layout_families": 6,
+      "extraction_families": 2
+    }
+  },
+  "failure_predicate": {
+    "name": "CURRENT_CANDIDATE_FAILURE_V1",
+    "eligibility_precondition": "frozen positive-target case with evaluator-confirmed exact Question Plan at governing closure",
+    "source_precondition": "at least one DocumentHRMReasoningEngine._retrieve_chunks call returns successfully",
+    "final_candidate_population": "last _augment_financial_identity_candidates result for the selected native/MinerU attempt; it must equal the sequence presented at the predictor boundary when reached",
+    "expected_support_match": "injective assignment of every expected operand to a distinct final candidate with exact source_name, physical page, and Decimal value; gold is applied post hoc only",
+    "failure": "source precondition holds AND (predictor boundary is not reached OR final candidate count is zero OR expected physical support is false)",
+    "not_candidate_failure": [
+      "Question Plan mismatch -> UPSTREAM_PLAN_MISMATCH/HOLD",
+      "no successful retrieval -> SOURCE_PRECONDITION_FAILURE/HOLD",
+      "binding/program/proof/action outcome -> outside this protocol"
+    ],
+    "current_failure_surface": "all and only frozen eligible cases satisfying CURRENT_CANDIDATE_FAILURE_V1 in the next baseline phase"
+  },
+  "execution_contract": {
+    "next_command": "py -3.13 scripts/run_qp4_candidate_development_diagnosis_precommit.py diagnose",
+    "selection": "instrument the entire frozen eligible cohort in the exact same order as baseline",
+    "baseline_candidate_queries": 60,
+    "instrumented_candidate_queries": 60,
+    "total_candidate_queries": 120,
+    "question_plan_compiler_replay_calls": 0,
+    "inner_predict_model_calls": 0,
+    "binding_program_synthesis_verification_action_calls": 0,
+    "case_order_seed": null,
+    "candidate_permutation": false,
+    "candidate_selection_transform": "none",
+    "max_candidates_override": null,
+    "mineru_auto_generate": false,
+    "new_ocr_generation": false,
+    "baseline_temp_page_index": "tmp/finhrm_qp4_candidate_diagnosis_baseline_page_index_v1.sqlite3",
+    "instrumented_temp_page_index": "tmp/finhrm_qp4_candidate_diagnosis_instrumented_page_index_v1.sqlite3",
+    "temp_index_rule": "each phase starts from a fresh byte-identical copy; original is never passed to the engine; copy and sidecars are deleted on success or failure",
+    "observation_boundary": "raise CandidateBoundaryStop before delegating to DocumentHRMBundle.predict"
+  },
+  "instrumentation_contract": {
+    "mode": "observational-only wrappers returning original objects unchanged",
+    "points": [
+      {
+        "path": "src/hrm_finance_qa/document_reasoning_engine.py",
+        "symbol": "DocumentHRMReasoningEngine._retrieve_chunks",
+        "start_line": 634,
+        "end_line": 679,
+        "source_sha256": "1761ca347e3857241594cb368fae7dca2f13c172c3c32620696b16250d38cbe4"
+      },
+      {
+        "path": "src/hrm_finance_qa/document_sources.py",
+        "symbol": "rank_chunks",
+        "start_line": 1465,
+        "end_line": 1509,
+        "source_sha256": "c6e7ae0667c40fa94293e31f2701b9b9c4b1c62707483772196ee109cf521bd0"
+      },
+      {
+        "path": "src/hrm_finance_qa/document_sources.py",
+        "symbol": "expand_neighbor_chunks",
+        "start_line": 1513,
+        "end_line": 1563,
+        "source_sha256": "a48b93eea625de002b143b90d99eb74765b59e34b10b1210d20572b010c6c19a"
+      },
+      {
+        "path": "src/hrm_finance_qa/program_data.py",
+        "symbol": "merge_candidates",
+        "start_line": 911,
+        "end_line": 1065,
+        "source_sha256": "3b1b12d9adabce3a2765c4589c7b3fa8b34834d6a12438b8ed203fed40cea893"
+      },
+      {
+        "path": "src/hrm_finance_qa/document_reasoning_engine.py",
+        "symbol": "_augment_financial_identity_candidates",
+        "start_line": 1137,
+        "end_line": 1290,
+        "source_sha256": "573e130efb6a21616528e44170c036f21b70490173df0c10076acbf44d5f4a22"
+      },
+      {
+        "path": "src/hrm_finance_qa/document_hrm.py",
+        "symbol": "DocumentHRMBundle.predict",
+        "start_line": 1222,
+        "end_line": 1263,
+        "source_sha256": "70c83ab2fba96cee28d36f7796cbd777dba13ae1fba56540f30e84141210c719"
+      }
+    ],
+    "baseline_points": [
+      "DocumentHRMReasoningEngine._retrieve_chunks",
+      "_augment_financial_identity_candidates",
+      "DocumentHRMBundle.predict boundary stop"
+    ],
+    "instrumented_points": [
+      "DocumentHRMReasoningEngine._retrieve_chunks",
+      "rank_chunks",
+      "expand_neighbor_chunks",
+      "merge_candidates",
+      "_augment_financial_identity_candidates",
+      "DocumentHRMBundle.predict"
+    ],
+    "observation_schema": {
+      "case_fields": [
+        "oracle_row_id",
+        "diagnosis_ordinal",
+        "outcome",
+        "candidate_count",
+        "ordered_candidate_projection",
+        "ordered_candidate_projection_sha256",
+        "expected_physical_support",
+        "matched_operand_assignments",
+        "accounting_bucket",
+        "instrumentation_events",
+        "observed_divergence_point"
+      ],
+      "candidate_fields": [
+        "sequence_position",
+        "index",
+        "value",
+        "raw",
+        "unit",
+        "is_percent",
+        "is_year_like",
+        "relevance",
+        "source_name",
+        "page",
+        "line_number",
+        "source_span",
+        "extraction_method",
+        "row_label",
+        "column_label",
+        "period",
+        "row_type",
+        "table_id",
+        "section",
+        "scope",
+        "entity_id",
+        "subtable_id",
+        "derived_operation",
+        "derived_operands",
+        "derivation_id",
+        "context_sha256"
+      ],
+      "chunk_fields": [
+        "sequence_position",
+        "chunk_id",
+        "source_name",
+        "page_start",
+        "page_end",
+        "line_start",
+        "line_end",
+        "score",
+        "extraction_methods",
+        "text_sha256"
+      ],
+      "forbidden": [
+        "model logits",
+        "model confidence as semantic proof",
+        "binding result",
+        "program synthesis result",
+        "verification result",
+        "action result",
+        "protected identity",
+        "adaptive labels"
+      ]
+    },
+    "adaptive_case_selection": false,
+    "runtime_file_edits": 0,
+    "score_quota_threshold_model_checkpoint_fallback_changes": 0
+  },
+  "noninterference_contract": {
+    "required": "60/60",
+    "casewise_fields": [
+      "outcome class",
+      "predictor-boundary reached",
+      "final candidate count",
+      "exact ordered candidate projection SHA-256",
+      "expected support boolean",
+      "matched operand-to-candidate assignment"
+    ],
+    "instrumentation_events_excluded_from_semantic_comparison": true,
+    "any_mismatch": "HOLD; no adaptive rerun"
+  },
+  "accounting_contract": {
+    "partition": [
+      "CURRENT_CANDIDATE_FAILURE",
+      "CURRENT_CANDIDATE_PASS",
+      "SOURCE_PRECONDITION_FAILURE",
+      "UPSTREAM_PLAN_MISMATCH"
+    ],
+    "equation": "F + P + S + Q = 60 unique eligible cases",
+    "double_count_allowed": false,
+    "failure_count_before_diagnosis": "UNKNOWN",
+    "every_failure_signature_rule": "each CURRENT_CANDIDATE_FAILURE belongs to exactly one normalized code-level signature or explicitly remains OPEN/INSUFFICIENT_EVIDENCE"
+  },
+  "root_cause_contract": {
+    "required_code_signature_fields": [
+      "earliest demonstrated divergence observation point",
+      "producer module and symbol",
+      "exact source span and source SHA-256",
+      "branch predicate identity/hash",
+      "abstract missing-operand condition",
+      "deterministic candidate sequence/provenance condition"
+    ],
+    "forbidden_dependencies": [
+      "company",
+      "filename",
+      "file hash",
+      "page",
+      "literal year",
+      "literal value",
+      "question literal",
+      "case ID",
+      "protected report identity"
+    ],
+    "disposition_vocabulary": [
+      "GENERIC_ROOT_CAUSE",
+      "LOCAL",
+      "INSUFFICIENT_EVIDENCE",
+      "OPEN",
+      "NO_CURRENT_FAILURE",
+      "SOURCE_PRECONDITION_FAILURE",
+      "UPSTREAM_PLAN_MISMATCH"
+    ],
+    "genericity_minimum": {
+      "cases": 3,
+      "companies": 3,
+      "sources": 3,
+      "document_layout_families": 3,
+      "table_layout_families": 3,
+      "extraction_families": 2
+    },
+    "all_diversity_from_current_state_only": true,
+    "historical_evidence_counts_toward_diversity": false,
+    "generic_requires_complete_exact_code_signature_and_all_thresholds": true,
+    "otherwise": "LOCAL, INSUFFICIENT_EVIDENCE, or OPEN; never force generic"
+  },
+  "pass_hold_contract": {
+    "precommit_pass": [
+      "governing HEAD exact and clean before authoring",
+      "60 unique development-only positive targets frozen before Candidate output",
+      "all source/input/runtime/symbol hashes exact",
+      "failure predicate, order, instrumentation, accounting, diversity, and artifact schema closed",
+      "Candidate/model/Binding calls in this precommit equal zero"
+    ],
+    "diagnosis_pass": [
+      "exactly 60 baseline plus 60 instrumented Candidate queries",
+      "60/60 noninterference",
+      "F + P + S + Q = 60 without overlap",
+      "Q = 0 and S = 0",
+      "inner predict/model/Binding calls = 0",
+      "original page index and MinerU cache manifest byte-identical before/after",
+      "temporary files retained = 0",
+      "no adaptive rerun or contract mutation"
+    ],
+    "hold_on_any_failure": true
+  },
+  "artifact_plan": {
+    "precommit": [
+      "config/finhrm_qp4_candidate_development_diagnosis_precommit_v1.json",
+      "reports/finhrm_qp4_candidate_development_diagnosis_precommit_v1.md",
+      "reports/finhrm_qp4_candidate_development_diagnosis_precommit_lock_v1.json",
+      "scripts/run_qp4_candidate_development_diagnosis_precommit.py"
+    ],
+    "diagnosis": [
+      "reports/finhrm_qp4_candidate_development_diagnosis_v1.json",
+      "reports/finhrm_qp4_candidate_development_diagnosis_v1.md",
+      "reports/finhrm_qp4_candidate_development_diagnosis_lock_v1.json"
+    ],
+    "temporary_files_retained": 0,
+    "raw_debug_intermediate_artifacts": 0
+  },
+  "frozen_open_state": {
+    "candidate": "OPEN; current denominator unknown until diagnosis",
+    "binding_provenance": "15/17 OPEN; not called or instrumented",
+    "compile_question_plan_521": "LOCAL_INSUFFICIENT_FOR_GENERICITY",
+    "qp4_closed": false,
+    "qp5_locked": true,
+    "phase_d_locked": true
+  },
+  "execution": {
+    "candidate_calls": 0,
+    "model_calls": 0,
+    "binding_calls": 0,
+    "diagnosis_run": false
+  },
+  "failures": [],
+  "authorized_next_action": "QP4 CANDIDATE DEVELOPMENT-ONLY LOCKED BASELINE+INSTRUMENTED DIAGNOSIS ONLY"
+}

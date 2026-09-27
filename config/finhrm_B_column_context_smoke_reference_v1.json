@@ -1,0 +1,201 @@
+{
+  "cases": [
+    {
+      "case_id": "transfer-agp-profit-1",
+      "source_id": "AGP",
+      "question": "Lợi nhuận trước thuế kế hoạch năm 2026 là bao nhiêu tỷ đồng?",
+      "expected_action": "ANSWER",
+      "expected_canonical": "72000000000",
+      "canonical_unit": "VND",
+      "metric": "ln truoc thue",
+      "years": [
+        "2026"
+      ],
+      "role": "plan",
+      "scope": "reporting_company",
+      "operation": "SELECT",
+      "pdf_pages": [
+        22
+      ],
+      "unit_basis": "source_explicit",
+      "reference_note": "Source monetary row and header reviewed before inference. Query i=2 is a paraphrase, not independent evidence; i=3 requests a missing year."
+    },
+    {
+      "case_id": "probe-mgg-assets-1",
+      "source_id": "MGG",
+      "question": "Tổng giá trị tài sản thực hiện năm 2023 là bao nhiêu tỷ đồng?",
+      "expected_action": "ANSWER",
+      "expected_canonical": "853900000000",
+      "canonical_unit": "VND",
+      "metric": "tong gia tri tai san",
+      "metric_labels": [
+        "tong gia tri tai san"
+      ],
+      "years": [
+        "2023"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "operation": "SELECT",
+      "pdf_pages": [
+        5
+      ],
+      "unit_basis": "source_explicit",
+      "absolute_tolerance": "0",
+      "reference_note": "PDF visually reviewed. AGP tolerance is half the printed 0.1-billion quantum; no other case uses tolerance."
+    },
+    {
+      "case_id": "new-report-04",
+      "source_id": "AGP",
+      "question": "Doanh thu thuần năm 2025 là bao nhiêu?",
+      "expected_action": "ANSWER",
+      "expected_canonical": "844700000000",
+      "canonical_unit": "VND",
+      "metric": "doanh thu thuan",
+      "years": [
+        "2025"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "pdf_pages": [
+        13,
+        22
+      ],
+      "reference_note": "Previously PDF-reviewed reference; reused without changing value",
+      "prior_reference": "config/finhrm_evidence_policy_reference_v1.json"
+    },
+    {
+      "case_id": "new-report-05",
+      "source_id": "AGP",
+      "question": "Doanh thu thuần năm 2025 tăng bao nhiêu tỷ đồng so với năm 2024?",
+      "expected_action": "ANSWER",
+      "expected_canonical": "51400000000",
+      "canonical_unit": "VND",
+      "metric": "doanh thu thuan",
+      "years": [
+        "2025",
+        "2024"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "pdf_pages": [
+        13
+      ],
+      "reference_note": "Previously PDF-reviewed reference; reused without changing value",
+      "prior_reference": "config/finhrm_evidence_policy_reference_v1.json"
+    },
+    {
+      "case_id": "newsource-mgg-net",
+      "source_id": "MGG",
+      "question": "Doanh thu thuần năm 2023 là bao nhiêu tỷ đồng?",
+      "expected_action": "ANSWER",
+      "expected_canonical": "1745800000000",
+      "canonical_unit": "VND",
+      "metric": "doanh thu thuan",
+      "years": [
+        "2023"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "operation": "SELECT",
+      "operand_values": [
+        "1745.8"
+      ],
+      "operand_unit": "tỷ đồng",
+      "pdf_pages": [
+        5
+      ],
+      "reference_note": "Tình hình tài chính, ĐVT Tỷ đồng, dòng Doanh thu thuần: 2023=1.745,8; 2022=1.976,8. Không thay bằng Tổng doanh thu 2.439 ở trang 4/6.",
+      "source_pdf": {
+        "path": "pdf/PDF_23/MGG_23CN_BCTN.pdf",
+        "sha256": "cf0d9055f964e682935aba26a09bd6ee9576a676f490cf9413cd951b8ef44a96"
+      },
+      "review_images": [
+        {
+          "path": "tmp/pdfs/policy_evaluation_v1/MGG-5.png",
+          "sha256": "25eeb4042dbba5295b3d22563db807471129077013a225910a27a15b1210a02d"
+        }
+      ]
+    },
+    {
+      "case_id": "fresh-cms-separate",
+      "source_id": "CMS",
+      "question": "Doanh thu thuần riêng công ty mẹ năm 2023 là bao nhiêu đồng?",
+      "expected_action": "ANSWER",
+      "expected_canonical": "97312008435",
+      "canonical_unit": "VND",
+      "metric": "doanh thu thuan",
+      "years": [
+        "2023"
+      ],
+      "role": "actual",
+      "scope": "separate",
+      "operation": "SELECT",
+      "pdf_pages": [
+        13,
+        14
+      ],
+      "source_pdf": {
+        "path": "pdf/PDF_23/CMS_23CN_BCTN.pdf",
+        "sha256": "b5944cc10f6fe4f003249e81aeb6bb2ba6b01bc7a4f63d1367478652488308eb"
+      },
+      "review_images": [
+        {
+          "path": "tmp/pdfs/B_semantic_format_v1/CMS-13.png",
+          "sha256": "aa7f73ed086bfd104abad0e078b4136727cfc0c3f44900f9807381135a4c07cb"
+        },
+        {
+          "path": "tmp/pdfs/B_semantic_format_v1/CMS-14.png",
+          "sha256": "3fb6bb4da69566fef2dbd1999071067e0d93edc8ac92be0dfa7c468a17c978e8"
+        }
+      ],
+      "source_literal": "97.312.008.435",
+      "reference_status": "UNIT_NOT_CONFIRMED",
+      "reference_note": "PDF reviewed: separate parent table and separate audited footer; currency unit unconfirmed. Not scored as a correct negative or a model failure. Evaluation uses the user-authorized VND assumption, not a PDF unit declaration.",
+      "unit_basis": "user_default_vnd",
+      "source_unit_confirmed": false,
+      "source_only_expected_action": "UNRESOLVED"
+    },
+    {
+      "case_id": "owner-check-hkt-2023",
+      "source_id": "HKT",
+      "question": "Vốn điều lệ được nêu trong báo cáo năm 2023 là bao nhiêu đồng?",
+      "metric": "von dieu le",
+      "expected_action": "ANSWER",
+      "expected_canonical": "61350290000",
+      "canonical_unit": "VND",
+      "years": [
+        "2023"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "operation": "SELECT",
+      "period_basis": "report_year",
+      "source_pdf": {
+        "bytes": 532804,
+        "path": "pdf/PDF_23/HKT_23CN_BCTN.pdf",
+        "sha256": "91cc265d0be6d75ee319c6821efd5231b3ae6fa41f63d076568331e9eee9d1f0"
+      },
+      "reference_note": "Additional questions locked before inference on existing full MinerU sources; source title and general-information capital field are the reference. No training-disjoint claim."
+    },
+    {
+      "case_id": "additional-hav-difference",
+      "source_id": "HAV",
+      "question": "Doanh thu thuần năm 2023 tăng bao nhiêu triệu đồng so với năm 2022?",
+      "expected_action": "ANSWER",
+      "expected_canonical": "1286000000",
+      "canonical_unit": "VND",
+      "metric": "doanh thu thuan",
+      "years": [
+        "2023",
+        "2022"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "pdf_pages": [
+        15
+      ],
+      "reference_note": "Direct visual PDF review before inference; numbers and KH/TH/units checked. Missing-2037 also checked against complete MinerU artifact."
+    }
+  ]
+}

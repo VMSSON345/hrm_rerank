@@ -1,0 +1,233 @@
+{
+  "schema": "entity-owner-source-reference-v1",
+  "cases": [
+    {
+      "case_id": "transfer-hav-capital",
+      "source_id": "HAV",
+      "question": "Vốn điều lệ được nêu trong báo cáo năm 2023 là bao nhiêu đồng?",
+      "metric": "von dieu le",
+      "expected_action": "ANSWER",
+      "expected_canonical": "32978600000",
+      "canonical_unit": "VND",
+      "years": [
+        "2023"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "operation": "SELECT",
+      "period_basis": "report_year",
+      "source_pdf": {
+        "bytes": 559116,
+        "path": "pdf/PDF_23/HAV_23CN_BCTN.pdf",
+        "sha256": "e57968185e1c63bcf76bbb3cedb2f0dd252e787d7e2bcc4dae0e1a7c36de5a9a"
+      },
+      "pdf_pages": [
+        1,
+        5
+      ],
+      "reference_note": "Source-review questions frozen before any transfer inference. Report year does not establish a closing balance date. Existing development sources; no training-disjoint claim."
+    },
+    {
+      "case_id": "check-ggg-owner-capital",
+      "source_id": "GGG",
+      "question": "Vốn đầu tư của chủ sở hữu được nêu trong báo cáo năm 2023 là bao nhiêu đồng?",
+      "metric": "von dau tu cua chu so huu",
+      "expected_action": "ANSWER",
+      "expected_canonical": "293885890000",
+      "canonical_unit": "VND",
+      "years": [
+        "2023"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "operation": "SELECT",
+      "source_pdf": {
+        "path": "pdf/PDF_23/GGG_23CN_BCTN.pdf",
+        "sha256": "e86ead28fb761a59bdaa85c8ad3822090f1251f07eb3d39e60f89fc40a3f5f8f"
+      },
+      "period_basis": "report_year",
+      "pdf_pages": [
+        1
+      ],
+      "review_images": [
+        {
+          "path": "tmp/pdfs/B_source_context_v1/GGG-1.png",
+          "sha256": "ff1c85d16d81b06940b0b5f46cdf55b5db8bba241cb1c79fa8c0550010d4de8d"
+        }
+      ],
+      "reference_note": "Distinct row immediately below charter capital on PDF p1, same printed value and explicit đồng unit. Do not substitute charter-capital identity merely because values coincide."
+    },
+    {
+      "case_id": "transfer-bhg-owner",
+      "source_id": "BHG",
+      "question": "Vốn đầu tư của chủ sở hữu được nêu trong báo cáo năm 2023 là bao nhiêu đồng?",
+      "metric": "von dau tu cua chu so huu",
+      "expected_action": "ANSWER",
+      "expected_canonical": "89356430000",
+      "canonical_unit": "VND",
+      "years": [
+        "2023"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "operation": "SELECT",
+      "period_basis": "report_year",
+      "source_pdf": {
+        "bytes": 280072,
+        "path": "pdf/PDF_23/BHG_23CN_BCTN.pdf",
+        "sha256": "62a6808775bffb526b5f4894a463646522410469e7f3084407d498f987303702"
+      },
+      "pdf_pages": [
+        1
+      ],
+      "reference_note": "Source-review questions frozen before any transfer inference. Report year does not establish a closing balance date. Existing development sources; no training-disjoint claim."
+    },
+    {
+      "case_id": "fresh-ssg-difference",
+      "source_id": "SSG",
+      "question": "Doanh thu thuần năm 2024 tăng bao nhiêu triệu đồng so với năm 2023?",
+      "expected_action": "ANSWER",
+      "expected_canonical": "72042000000",
+      "canonical_unit": "VND",
+      "metric": "doanh thu thuan",
+      "years": [
+        "2023",
+        "2024"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "operation": "SUBTRACT",
+      "pdf_pages": [
+        6
+      ],
+      "source_pdf": {
+        "path": "pdf/PDF_24/PDF_24/SSG_24CN_BCTN.pdf",
+        "sha256": "03525afbe2d1c74e6b50d26062c604b13364ca3bf2c95c4529185facd34f2e7b"
+      },
+      "review_images": [
+        {
+          "path": "tmp/pdfs/B_semantic_format_v1/SSG-6.png",
+          "sha256": "82f3f3e8e170e1fb15513ccf8bb8523b9f7b9f9cd530b4bf1da464a8127ba608"
+        }
+      ],
+      "operand_values": [
+        "107836",
+        "35794"
+      ],
+      "operand_unit": "triệu đồng",
+      "reference_note": "Source table with explicit million-VND unit: 107.836 - 35.794 = 72.042 million VND."
+    },
+    {
+      "case_id": "fresh-cms-consolidated",
+      "source_id": "CMS",
+      "question": "Doanh thu thuần hợp nhất năm 2023 là bao nhiêu đồng?",
+      "expected_action": "UNRESOLVED",
+      "expected_canonical": null,
+      "canonical_unit": "VND",
+      "metric": "doanh thu thuan",
+      "years": [
+        "2023"
+      ],
+      "role": "actual",
+      "scope": "consolidated",
+      "operation": "SELECT",
+      "pdf_pages": [
+        12,
+        13
+      ],
+      "source_pdf": {
+        "path": "pdf/PDF_23/CMS_23CN_BCTN.pdf",
+        "sha256": "b5944cc10f6fe4f003249e81aeb6bb2ba6b01bc7a4f63d1367478652488308eb"
+      },
+      "review_images": [
+        {
+          "path": "tmp/pdfs/B_semantic_format_v1/CMS-12.png",
+          "sha256": "ec7fbf7d5197ab76b9d1804bc61996ceabdf956c2c1c92b3818208508899545f"
+        },
+        {
+          "path": "tmp/pdfs/B_semantic_format_v1/CMS-13.png",
+          "sha256": "aa7f73ed086bfd104abad0e078b4136727cfc0c3f44900f9807381135a4c07cb"
+        }
+      ],
+      "source_literal": "98.101.923.040",
+      "reference_status": "UNIT_NOT_CONFIRMED",
+      "reference_note": "PDF reviewed: consolidated table and audited consolidated footer; no explicit currency unit found on reviewed pages. Canonical gold remains unresolved; excluded from correctness denominator."
+    },
+    {
+      "case_id": "owner-hav-paraphrase",
+      "source_id": "HAV",
+      "question": "Cho biết vốn điều lệ được nêu trong báo cáo năm 2023 là bao nhiêu đồng?",
+      "metric": "von dieu le",
+      "expected_action": "ANSWER",
+      "expected_canonical": "32978600000",
+      "canonical_unit": "VND",
+      "years": [
+        "2023"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "operation": "SELECT",
+      "period_basis": "report_year",
+      "source_pdf": {
+        "bytes": 559116,
+        "path": "pdf/PDF_23/HAV_23CN_BCTN.pdf",
+        "sha256": "e57968185e1c63bcf76bbb3cedb2f0dd252e787d7e2bcc4dae0e1a7c36de5a9a"
+      },
+      "pdf_pages": [
+        1,
+        5
+      ],
+      "reference_note": "Frozen source reference. Issuer and legal parent have different capital figures; physical p11 explicitly identifies the parent. Report-year does not establish closing date."
+    },
+    {
+      "case_id": "owner-hav-parent",
+      "source_id": "HAV",
+      "question": "Vốn điều lệ của công ty mẹ được nêu trong báo cáo năm 2023 là bao nhiêu đồng?",
+      "metric": "von dieu le",
+      "expected_action": "ANSWER",
+      "expected_canonical": "2200000000000",
+      "canonical_unit": "VND",
+      "years": [
+        "2023"
+      ],
+      "role": "actual",
+      "scope": "parent_company",
+      "operation": "SELECT",
+      "period_basis": "report_year",
+      "source_pdf": {
+        "bytes": 559116,
+        "path": "pdf/PDF_23/HAV_23CN_BCTN.pdf",
+        "sha256": "e57968185e1c63bcf76bbb3cedb2f0dd252e787d7e2bcc4dae0e1a7c36de5a9a"
+      },
+      "pdf_pages": [
+        11
+      ],
+      "reference_note": "Frozen source reference. Issuer and legal parent have different capital figures; physical p11 explicitly identifies the parent. Report-year does not establish closing date."
+    },
+    {
+      "case_id": "owner-hav-wrong-report",
+      "source_id": "HAV",
+      "question": "Vốn điều lệ của công ty mẹ được nêu trong báo cáo năm 2024 là bao nhiêu đồng?",
+      "metric": "von dieu le",
+      "expected_action": "ABSTAIN",
+      "expected_canonical": null,
+      "canonical_unit": "VND",
+      "years": [
+        "2024"
+      ],
+      "role": "actual",
+      "scope": "parent_company",
+      "operation": "SELECT",
+      "period_basis": "report_year",
+      "source_pdf": {
+        "bytes": 559116,
+        "path": "pdf/PDF_23/HAV_23CN_BCTN.pdf",
+        "sha256": "e57968185e1c63bcf76bbb3cedb2f0dd252e787d7e2bcc4dae0e1a7c36de5a9a"
+      },
+      "pdf_pages": [
+        11
+      ],
+      "reference_note": "Frozen source reference. Issuer and legal parent have different capital figures; physical p11 explicitly identifies the parent. Report-year does not establish closing date."
+    }
+  ]
+}

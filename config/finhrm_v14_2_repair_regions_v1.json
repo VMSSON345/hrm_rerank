@@ -1,0 +1,87 @@
+{
+  "schema": "finhrm-v14.2-reviewed-pdf-regions-v1",
+  "purpose": "Offline repair of reviewed data, never a runtime issuer allowlist",
+  "coordinate_system": "normalized PDF page bounding boxes; values extracted from words inside the region",
+  "regions": [
+    {
+      "source": "CNG_25CN_BCTN.pdf",
+      "page": 55,
+      "region_id": "upper_monetary_table",
+      "kind": "table",
+      "roi": [
+        0.045,
+        0.1,
+        0.46,
+        0.29
+      ],
+      "headers": [
+        "2021",
+        "2022",
+        "2023",
+        "2024",
+        "2025"
+      ],
+      "periods": [
+        "2021",
+        "2022",
+        "2023",
+        "2024",
+        "2025"
+      ],
+      "unit": "tỷ đồng",
+      "unit_anchor": "Tỷ đồng",
+      "expected_rows": 7,
+      "scope": "",
+      "entity_id": "entity:source:cng",
+      "pdf_path": "pdf/PDF_25/PDF_25/CNG_25CN_BCTN.pdf",
+      "pdf_sha256": "f05881626c8405cef9f8b4bef7dacfa8c32f14b3ff82669279bc01c1480f6885"
+    },
+    {
+      "source": "DXS_25CN_BCTN.pdf",
+      "page": 62,
+      "region_id": "cash_note_5",
+      "kind": "table",
+      "roi": [
+        0.53,
+        0.2,
+        0.96,
+        0.335
+      ],
+      "headers": [
+        "Số cuối năm",
+        "Số đầu năm"
+      ],
+      "periods": [
+        "cuoi nam",
+        "dau nam"
+      ],
+      "unit": "VND",
+      "unit_anchor": "VND",
+      "expected_rows": 4,
+      "scope": "consolidated",
+      "scope_anchor": "HỢP NHẤT",
+      "entity_id": "entity:source:dxs",
+      "pdf_path": "pdf/PDF_25/PDF_25/DXS_25CN_BCTN.pdf",
+      "pdf_sha256": "257f04694862525c2abfef8c4ad862f1c299cd72b9e88d2450cf8ae1630316af"
+    },
+    {
+      "source": "LIX_25CN_BCTN.pdf",
+      "page": 44,
+      "region_id": "share_capital_facts",
+      "kind": "labelled_prose",
+      "roi": [
+        0.025,
+        0.12,
+        0.49,
+        0.35
+      ],
+      "document_year": "2025",
+      "year_anchor": "BÁO CÁO THƯỜNG NIÊN 2025",
+      "expected_rows": 4,
+      "scope": "",
+      "entity_id": "entity:source:lix",
+      "pdf_path": "pdf/PDF_25/PDF_25/LIX_25CN_BCTN.pdf",
+      "pdf_sha256": "383950be7a1c7932a7ed313033f4b90b10010d429d598f205759ed6db05ed80a"
+    }
+  ]
+}

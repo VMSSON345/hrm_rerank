@@ -1,0 +1,11 @@
+{
+  "runtime_parent": "config/finhrm_B_column_mapping_protocol_v1.json",
+  "scope": "Nine new questions on three known MinerU reports; full HTTP retrieval-to-answer. Evaluation only, no runtime/threshold/training/OCR change, no candidate-pool injection.",
+  "counts": {
+    "requests": 9,
+    "sources": 3,
+    "answerable": 8,
+    "missing_period": 1
+  },
+  "delivery": "Print every original question, its frozen reference, literal response and judgement, including failures; keep separate from the historical 72-request benchmark."
+}

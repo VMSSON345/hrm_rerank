@@ -1,0 +1,21 @@
+{
+  "schema": "mineru-real-http-requests-v1",
+  "sources": {
+    "GGG": {
+      "path": "data/markdown/B_source_context_checks_v1/GGG_23CN_BCTN--e86ead28fb761a59.md",
+      "sha256": "fcfe9688835b4eb0c8387f7621d15fe684537bc454a52b4d0919b05cabb09ead"
+    }
+  },
+  "cases": [
+    {
+      "case_id": "check-ggg-capital",
+      "source_id": "GGG",
+      "question": "Vốn điều lệ được nêu trong báo cáo năm 2023 là bao nhiêu đồng?"
+    },
+    {
+      "case_id": "check-ggg-owner-capital",
+      "source_id": "GGG",
+      "question": "Vốn đầu tư của chủ sở hữu được nêu trong báo cáo năm 2023 là bao nhiêu đồng?"
+    }
+  ]
+}

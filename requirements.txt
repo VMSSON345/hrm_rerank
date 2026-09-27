@@ -1,9 +1,7 @@
 # Core source-grounded Hierarchical Reasoning Model.
 torch>=2.2,<3
 
-# Extracts the real text layer from PDF files.
-pypdf>=4.2,<7
-PyMuPDF>=1.24,<2
+# Configuration files.
 PyYAML>=6,<7
 
 # OCR is MinerU-only and intentionally lives in the isolated .venv-mineru.
@@ -12,5 +10,13 @@ PyYAML>=6,<7
 # Optional legacy dense retrieval backend. Document HRM v2 can run without it.
 fastembed==0.8.0
 
+# V14.1 opt-in Vietnamese semantic frontend. The BKAI model itself is pinned
+# by Hugging Face commit in the runtime config/checkpoint.
+sentence-transformers==5.1.2
+pyvi==0.1.1
+
 # Test runner.
 pytest>=8,<10
+
+# Post-HRM data contracts (also provided by the web environment).
+pydantic>=2.10,<3

@@ -19,6 +19,7 @@ from .document_hrm import (
     _grounding_gate_reasons,
     _is_groundable_document_candidate,
     _metric_compatible_indices,
+    _prediction_calibration_accepts,
     _prediction_required_proof_rejection_reasons,
     _proof_conditioned_acceptance_eligible,
     _role_compatible_pair_indices,
@@ -40,19 +41,135 @@ from .document_sources import (
 )
 from .evidence_schema import build_evidence_graph
 from .program_data import (
+    SUM_N_OPERATION,
     NumericCandidate,
     ReasoningDAGProgram,
     ReasoningProgram,
     currency_unit_scale,
     execute_program,
     execute_program_dag,
+    is_sum_operation,
     materialize_program_dag,
     merge_candidates,
 )
 from .ontology import normalize_text
 from .financial_identities import metric_alias_score
 from .question_planner import _has_financial_role_anchor, compile_question_plan
-from .symbolic_verifier import VerificationState, verify_program
+from .question_request_planner import compile_question_request
+from .request_answer import VerifiedRequestAnswer, build_verified_request_answer
+from .source_action_policy import (classify_source_action, AnswerDecision,
+    CALIBRATED_ACTION_POLICY, EVIDENCE_ACTION_POLICY, validate_publication_policy)
+from .document_hrm import _prediction_action_decision, _uses_logical_sum_evaluation
+from .symbolic_verifier import (
+    OperandMappingAssessment,
+    VerificationState,
+    verify_program,
+)
+
+
+def _flat_verified_program_acceptance_eligible(
+    plan: object,
+    prediction: object,
+    verification: object,
+    *,
+    missing_periods: Sequence[str] = (),
+    derived_formula_evidence: bool = False,
+    grounding_rejections: Sequence[str] = (),
+) -> bool:
+    """Allow a flat computation only when the full required proof is complete."""
+
+    program = getattr(prediction, "program", None)
+    if (
+        program is None
+        or program.operation == "ADD"
+        or missing_periods
+        or derived_formula_evidence
+        or grounding_rejections
+    ):
+        return False
+    if program.operation != "SELECT" and len(program.operands) < 2:
+        return False
+    mapping = getattr(verification, "mapping_assessment", None)
+    operand_mappings = tuple(getattr(mapping, "operand_mappings", ()))
+    if (
+        getattr(mapping, "resolution", "UNKNOWN") != "UNIQUE"
+        or not operand_mappings
+        or len(operand_mappings) != len(program.operands)
+        or any(
+            not getattr(item, "selected_physical_is_valid", False)
+            or bool(getattr(item, "conflict_reasons", ()))
+            for item in operand_mappings
+        )
+    ):
+        return False
+    required = tuple(
+        item.state
+        for item in getattr(verification, "proof_obligations", ())
+        if item.applicability == "required"
+    )
+    return bool(required) and all(
+        state is VerificationState.VALID for state in required
+    )
+
+
+def _classify_evidence_resolution(
+    *,
+    missing_periods: Sequence[str],
+    required_states: Sequence[str],
+    mapping_assessment: object | None,
+) -> tuple[str, tuple[str, ...]]:
+    if missing_periods:
+        return "MISSING", ("missing_requested_period",)
+    mapping_resolution = str(
+        getattr(mapping_assessment, "resolution", "UNKNOWN")
+    )
+    mapping_reasons = tuple(
+        str(item)
+        for item in getattr(mapping_assessment, "reason_codes", ())
+    )
+    if mapping_resolution == "CONFLICT":
+        return "CONFLICT", mapping_reasons
+    if VerificationState.INVALID.value in required_states:
+        return "CONFLICT", (
+            "required_proof_invalid",
+            *(reason for reason in mapping_reasons if reason == "question_column_role_unspecified"),
+        )
+    if mapping_resolution == "AMBIGUOUS":
+        return "AMBIGUOUS", mapping_reasons
+    if mapping_resolution == "MISSING":
+        return "MISSING", mapping_reasons
+    if (
+        mapping_resolution == "UNIQUE"
+        and required_states
+        and all(state == VerificationState.VALID.value for state in required_states)
+    ):
+        return "UNIQUE", mapping_reasons
+    return (
+        "UNKNOWN",
+        mapping_reasons or ("mapping_assessment_unavailable",),
+    )
+
+
+def _classify_source_action(
+    *,
+    missing_periods: Sequence[str],
+    verification_state: str,
+    required_states: Sequence[str],
+    mapping_assessment: object | None,
+    abstained: bool,
+) -> str:
+    """Compatibility adapter for the proof-only public action policy."""
+
+    mapping_resolution = str(
+        getattr(mapping_assessment, "resolution", "UNKNOWN")
+    )
+    return classify_source_action(
+        missing_periods=missing_periods,
+        verification_state=verification_state,
+        required_states=required_states,
+        mapping_resolution=mapping_resolution,
+        abstained=abstained,
+    )
 
 
 @dataclass(frozen=True)
@@ -90,11 +207,18 @@ class DocumentReasoningAnswer:
     program_dag: ReasoningDAGProgram | None = None
     page_index_stats: PageIndexStats | None = None
     stage_timings: tuple[tuple[str, float], ...] = ()
+    action_decision: AnswerDecision | None = None
     source_action: str = "ABSTAIN"
     verification_state: str = "UNKNOWN"
     proof_obligations: tuple[tuple[str, str, str | None], ...] = ()
     verification_reasons: tuple[str, ...] = ()
     acceptance_basis: tuple[str, ...] = ()
+    missing_periods: tuple[str, ...] = ()
+    evidence_resolution: str = "UNKNOWN"
+    evidence_resolution_reasons: tuple[str, ...] = ()
+    operand_mapping_assessments: tuple[OperandMappingAssessment, ...] = ()
+    applicability_details: tuple[dict, ...] = ()
+    lookup_recovery: dict | None = None
 
     @property
     def program(self) -> ReasoningProgram:
@@ -111,11 +235,19 @@ class DocumentReasoningAnswer:
         return render_verified_answer(self.verified_envelope())
 
     def render(self) -> str:
-        value = _format_value(None if self.abstained else self.value)
         candidate_value = _format_value(self.value)
         suffix = f" {self.unit}" if self.unit else ""
+        if self.abstained and self.value is not None:
+            answer = (
+                "ABSTAIN (unverified candidate: "
+                f"{candidate_value}{suffix})"
+            )
+        else:
+            answer = (
+                _format_value(None if self.abstained else self.value) + suffix
+            )
         lines = [
-            f"Answer: {value}{suffix}",
+            f"Answer: {answer}",
             (
                 "Status: ABSTAIN - manual evidence review required"
                 if self.abstained
@@ -141,8 +273,8 @@ class DocumentReasoningAnswer:
                 f"unknown={getattr(self.prediction, 'symbolic_unknown_constraints', 0)}"
             ),
             (
-                "Source path: real PDF/TXT -> native-first retrieval -> optional "
-                "MinerU fallback -> numeric candidates -> H/L latent recurrence -> "
+                "Source path: MinerU OCR -> persisted Markdown -> retrieval -> "
+                "numeric candidates -> H/L latent recurrence -> "
                 "verified executable program"
             ),
             f"Documents read: {self.document_count}; numeric candidates considered: {self.candidate_count}",
@@ -181,18 +313,104 @@ class DocumentReasoningAnswer:
             lines.extend(f"- {warning}" for warning in self.warnings)
         if self.abstained and self.value is not None:
             lines.append(
-                "Rejected candidate answer (technical audit only): "
+                "Candidate under review (not an accepted answer): "
                 f"{candidate_value}{suffix}"
             )
         return "\n".join(lines)
 
 
-class DocumentHRMReasoningEngine:
-    """End-to-end numerical QA over actual PDF/TXT source text."""
+from .metric_semantics import isolated_metric_labels
 
-    def __init__(self, bundle: DocumentHRMBundle) -> None:
+
+class DocumentHRMReasoningEngine:
+    """End-to-end numerical QA over prepared MinerU Markdown evidence."""
+
+    def __init__(self, bundle: DocumentHRMBundle, *,
+                 publication_policy: str = CALIBRATED_ACTION_POLICY) -> None:
+        self.publication_policy = validate_publication_policy(publication_policy)
         self.bundle = bundle
 
+    def answer_request(
+        self,
+        question: str,
+        document_path: str | Path,
+        *,
+        top_k_chunks: int = 8,
+        max_candidates: int | None = None,
+        chunk_lines_count: int = 28,
+        overlap_lines: int = 6,
+        neighbor_chunks: int = 1,
+        ocr: bool = True,
+        force_ocr: bool = False,
+        mineru_output_dir: str | Path | None = None,
+        mineru_page_offset: int = 0,
+        mineru_cache_dir: str | Path = "cache/mineru",
+        mineru_command: str | Path = ".venv-mineru/bin/mineru",
+        mineru_api_url: str | None = None,
+        mineru_api_timeout_seconds: float = 7200.0,
+        mineru_backend: str = "hybrid-engine",
+        mineru_effort: str = "medium",
+        mineru_auto_generate: bool = True,
+        use_page_index: bool = True,
+        page_index_path: str | Path = "cache/document_page_index.sqlite3",
+        rebuild_page_index: bool = False,
+        page_top_k: int = 6,
+        page_neighbor_pages: int = 1,
+        progress_callback: Callable[[str, float], None] | None = None,
+    ) -> VerifiedRequestAnswer:
+        """Answer each explicitly separable output with an independent proof."""
+
+        request_plan = compile_question_request(question)
+        if request_plan.fail_closed:
+            return build_verified_request_answer(request_plan)
+        scalar_answers: list[DocumentReasoningAnswer] = []
+        for output in request_plan.outputs:
+            from .comparison_overview import STRATEGY
+            if (request_plan.split_strategy == STRATEGY
+                    and len(scalar_answers) == 2
+                    and self.publication_policy == EVIDENCE_ACTION_POLICY):
+                scalar_answers.append(self._comparison_difference(output, scalar_answers))
+                continue
+            child_progress = None
+            if progress_callback is not None:
+                def child_progress(
+                    stage: str,
+                    elapsed: float,
+                    *,
+                    output_id: str = output.output_id,
+                ) -> None:
+                    progress_callback(f"{output_id}:{stage}", elapsed)
+            scalar_answers.append(
+                self.answer(
+                    output.question,
+                    document_path,
+                    top_k_chunks=top_k_chunks,
+                    max_candidates=max_candidates,
+                    chunk_lines_count=chunk_lines_count,
+                    overlap_lines=overlap_lines,
+                    neighbor_chunks=neighbor_chunks,
+                    ocr=ocr,
+                    force_ocr=force_ocr,
+                    mineru_output_dir=mineru_output_dir,
+                    mineru_page_offset=mineru_page_offset,
+                    mineru_cache_dir=mineru_cache_dir,
+                    mineru_command=mineru_command,
+                    mineru_api_url=mineru_api_url,
+                    mineru_api_timeout_seconds=mineru_api_timeout_seconds,
+                    mineru_backend=mineru_backend,
+                    mineru_effort=mineru_effort,
+                    mineru_auto_generate=mineru_auto_generate,
+                    use_page_index=use_page_index,
+                    page_index_path=page_index_path,
+                    rebuild_page_index=rebuild_page_index,
+                    page_top_k=page_top_k,
+                    page_neighbor_pages=page_neighbor_pages,
+                    progress_callback=child_progress,
+                )
+            )
+        return build_verified_request_answer(request_plan, scalar_answers)
+
+    @isolated_metric_labels
     def answer(
         self,
         question: str,
@@ -237,9 +455,17 @@ class DocumentHRMReasoningEngine:
 
         if not question.strip():
             raise DocumentHRMError("Question cannot be empty")
+        from .question_planner import resolve_public_question, public_question_assumptions
+        resolved_question = resolve_public_question(question)
+        default_actual_applied = "column_role:default_actual" in public_question_assumptions(question)
+        question = resolved_question
         stage_started = time.perf_counter()
         documents = discover_documents(document_path)
         record_stage("document_discovery", stage_started)
+        prepared_sources = all(
+            item.suffix.lower() in {".md", ".txt"} for item in documents
+        )
+        use_page_index = use_page_index and not prepared_sources
         ocr_config = OCRConfig(
             enabled=ocr or force_ocr,
             force=force_ocr,
@@ -256,25 +482,23 @@ class DocumentHRMReasoningEngine:
             mineru_auto_generate=mineru_auto_generate,
         )
         limit = max_candidates or self.bundle.model.config.max_candidates
-        native_first = ocr_config.enabled and not ocr_config.force
-        attempt_configs = (
-            (replace(ocr_config, enabled=False, force=False), ocr_config)
-            if native_first
-            else (ocr_config,)
-        )
-        fallback_reason: str | None = None
+        attempt_configs = (ocr_config,)
         page_index_stats: PageIndexStats | None = None
         retrieval_warnings: list[str] = []
         ranked: list[EvidenceChunk] = []
         candidates: list[NumericCandidate] = []
         prediction: ProgramPrediction
         program_dag: ReasoningDAGProgram | None = None
-        value: Decimal
+        value: Decimal | None
         missing_periods: tuple[str, ...] = ()
+        lookup_recovery = None
 
         for attempt_index, attempt_config in enumerate(attempt_configs):
-            has_fallback = attempt_index + 1 < len(attempt_configs)
-            attempt_name = "native" if not attempt_config.enabled else "mineru"
+            attempt_name = (
+                "markdown"
+                if prepared_sources
+                else "mineru"
+            )
             try:
                 stage_started = time.perf_counter()
                 chunks, attempt_stats, attempt_warnings = self._retrieve_chunks(
@@ -293,13 +517,18 @@ class DocumentHRMReasoningEngine:
                 record_stage(f"{attempt_name}_retrieval", stage_started)
             except DocumentSourceError as exc:
                 record_stage(f"{attempt_name}_retrieval", stage_started)
-                if has_fallback:
-                    fallback_reason = f"native document extraction failed: {exc}"
-                    continue
                 raise
 
             stage_started = time.perf_counter()
-            ranked = rank_chunks(question, chunks, top_k=top_k_chunks)
+            retrieval_question = question
+            retrieval_plan = compile_question_plan(question)
+            from .unit_defaults import monetary_label
+            if (retrieval_plan.operation == "SELECT" and retrieval_plan.entity_mode == "reporting"
+                    and not retrieval_plan.requested_years and not retrieval_plan.requested_period_roles
+                    and not retrieval_plan.column_roles and not retrieval_plan.requested_source_kind
+                    and not retrieval_plan.requested_value_column and monetary_label(retrieval_plan.metric_text)):
+                retrieval_question += " thông tin chung thông tin khái quát"
+            ranked = rank_chunks(retrieval_question, chunks, top_k=top_k_chunks)
             ranked = expand_neighbor_chunks(
                 ranked,
                 chunks,
@@ -308,9 +537,6 @@ class DocumentHRMReasoningEngine:
             )
             record_stage(f"{attempt_name}_chunk_ranking", stage_started)
             if not ranked:
-                if has_fallback:
-                    fallback_reason = "no native source chunk matched the question"
-                    continue
                 raise DocumentSourceError("No source chunk matched the question")
 
             stage_started = time.perf_counter()
@@ -341,43 +567,25 @@ class DocumentHRMReasoningEngine:
             )
             record_stage(f"{attempt_name}_candidate_extraction", stage_started)
             if not candidates:
-                if has_fallback:
-                    fallback_reason = (
-                        "native retrieval produced no numerical candidates"
-                    )
-                    continue
                 raise DocumentHRMError(
                     "No numerical values were extracted from the matched source chunks"
                 )
 
+            from .metric_semantics import set_source_metric_labels
+            set_source_metric_labels(c.row_label for c in candidates)
             missing_periods = _missing_requested_periods(question, candidates)
-            if missing_periods and has_fallback:
-                fallback_reason = (
-                    "native evidence did not cover requested period(s): "
-                    + ", ".join(missing_periods)
-                )
-                continue
-            native_gap = (
-                _native_structured_evidence_gap(question, candidates)
-                if has_fallback
-                else None
-            )
-            if native_gap:
-                fallback_reason = native_gap
-                continue
 
             stage_started = time.perf_counter()
             prediction = self.bundle.predict(question, candidates)
             record_stage(f"{attempt_name}_prediction", stage_started)
-            if has_fallback and _predicted_add_requires_ocr_fallback(
-                prediction.program.operation,
-                candidates,
-            ):
-                fallback_reason = (
-                    "native ADD proposal had fewer than two structured "
-                    "operand rows"
+            if self.publication_policy == EVIDENCE_ACTION_POLICY:
+                recovery_started = time.perf_counter()
+                candidates, prediction, lookup_recovery = self._recover_lookup_binding(
+                    question, candidates, prediction, chunks, limit=limit,
                 )
-                continue
+                if lookup_recovery is not None:
+                    record_stage("lookup_verification_recovery", recovery_started)
+                    missing_periods = _missing_requested_periods(question, candidates)
             program_dag = getattr(prediction, "program_dag", None)
             if program_dag is None:
                 try:
@@ -406,7 +614,11 @@ class DocumentHRMReasoningEngine:
                     )
                 )
             )
-            if "zero_baseline_percent_change" in preexecution_rejections:
+            # Never calculate a provisional answer when the requested period
+            # is absent or any required grounding/proof gate has failed. The
+            # selected candidates remain available for audit, but no arithmetic
+            # result is produced for an unverified mapping.
+            if missing_periods or preexecution_rejections:
                 value = None
             else:
                 try:
@@ -419,21 +631,12 @@ class DocumentHRMReasoningEngine:
                     record_stage(f"{attempt_name}_execution", stage_started)
                 except (ZeroDivisionError, InvalidOperation) as exc:
                     record_stage(f"{attempt_name}_execution", stage_started)
-                    if has_fallback:
-                        fallback_reason = f"native program was not executable: {exc}"
-                        continue
                     raise DocumentHRMError(
                         f"Predicted program is not executable: {exc}"
                     ) from exc
 
             page_index_stats = attempt_stats
             retrieval_warnings = list(attempt_warnings)
-            if attempt_index > 0 and fallback_reason:
-                retrieval_warnings.insert(
-                    0,
-                    "Native evidence was insufficient; retried with MinerU-enabled "
-                    f"index ({fallback_reason}).",
-                )
             break
         else:  # pragma: no cover - every terminal branch returns or raises
             raise DocumentSourceError("Document reasoning produced no usable evidence")
@@ -447,7 +650,17 @@ class DocumentHRMReasoningEngine:
             SelectedEvidence(position + 1, candidates[index])
             for position, index in enumerate(evidence_indices)
         )
-        unit = _infer_answer_unit(prediction.program, evidence)
+        value, normalized_currency_unit = _normalize_mixed_currency_result(
+            question,
+            prediction.program,
+            program_dag,
+            candidates,
+            evidence_indices,
+            value,
+        )
+        unit = normalized_currency_unit or _infer_answer_unit(
+            prediction.program, evidence
+        )
         threshold = _abstention_threshold_for_prediction(
             self.bundle,
             prediction,
@@ -481,22 +694,40 @@ class DocumentHRMReasoningEngine:
         proof_conditioned_acceptance = (
             _proof_conditioned_acceptance_eligible(prediction)
         )
-        abstained = (
-            (
-                prediction.confidence < threshold
-                and not proof_conditioned_acceptance
+        v14_policy_enabled = self.publication_policy == EVIDENCE_ACTION_POLICY or _uses_logical_sum_evaluation(self.bundle) or isinstance(
+            self.bundle.metadata.get("abstention_policies_by_operation"),
+            dict,
+        )
+        calibration_accepted = (
+            _prediction_calibration_accepts(self.bundle, prediction)
+            if v14_policy_enabled
+            else (
+                prediction.confidence >= threshold
+                or proof_conditioned_acceptance
             )
+        )
+        abstained = (
+            (not calibration_accepted and self.publication_policy != EVIDENCE_ACTION_POLICY)
             or bool(missing_periods)
             or derived_formula_evidence
             or bool(grounding_rejections)
         )
         warnings: list[str] = list(retrieval_warnings)
+        if default_actual_applied:
+            warnings.append("public_default_actual")
         if self._uses_calibration_fallback():
             warnings.append(
                 "The checkpoint has no valid calibrated threshold; runtime is using "
                 "the experimental fallback threshold 0.75."
             )
-        if prediction.confidence < threshold and not proof_conditioned_acceptance:
+        if self.publication_policy == EVIDENCE_ACTION_POLICY:
+            warnings.append("Experimental evidence publication policy; calibration remains diagnostic.")
+        elif v14_policy_enabled and not calibration_accepted:
+            warnings.append(
+                "ABSTAIN: the V14 operation calibration policy is disabled, "
+                "uncalibrated, or its real confidence threshold was not met."
+            )
+        elif prediction.confidence < threshold and not proof_conditioned_acceptance:
             warnings.append(
                 "ABSTAIN: program confidence is below the validation-calibrated threshold "
                 f"({prediction.confidence:.3f} < {threshold:.3f})."
@@ -539,7 +770,21 @@ class DocumentHRMReasoningEngine:
         operand_units = {
             item.candidate.unit for item in evidence if item.candidate.unit
         }
-        if prediction.program.operation in {"ADD", "SUBTRACT", "AVERAGE", "SUM3", "SUM4"} and len(operand_units) > 1:
+        convertible_currency_scales = bool(
+            operand_units
+            and all(
+                currency_unit_scale(unit) is not None
+                for unit in operand_units
+            )
+        )
+        if (
+            (
+                is_sum_operation(prediction.program.operation)
+                or prediction.program.operation in {"SUBTRACT", "AVERAGE"}
+            )
+            and len(operand_units) > 1
+            and not convertible_currency_scales
+        ):
             warnings.append("Selected operands have incompatible units.")
         if len({item.candidate.source_name for item in evidence}) > 1:
             warnings.append("Operands came from more than one source document.")
@@ -555,8 +800,9 @@ class DocumentHRMReasoningEngine:
             warnings.append(
                 "OCR-derived evidence was used. Verify every selected digit against the scan."
             )
+        verification_plan = compile_question_plan(question)
         verification = verify_program(
-            compile_question_plan(question),
+            verification_plan,
             prediction.program,
             build_evidence_graph(candidates),
             financial_identity_catalog_enabled=(
@@ -579,28 +825,77 @@ class DocumentHRMReasoningEngine:
             for _, applicability, state in proof_obligations
             if applicability == "required"
         )
-        if (
-            verification.state is VerificationState.INVALID
-            or VerificationState.INVALID.value in required_states
-        ):
-            source_action = "REJECT"
-        elif (
-            abstained
-            or not required_states
-            or any(state != VerificationState.VALID.value for state in required_states)
-        ):
-            source_action = "ABSTAIN"
-        else:
-            source_action = "ANSWER"
+        mapping_assessment = verification.mapping_assessment
+        flat_proof_acceptance = _flat_verified_program_acceptance_eligible(
+            verification_plan,
+            prediction,
+            verification,
+            missing_periods=missing_periods,
+            derived_formula_evidence=derived_formula_evidence,
+            grounding_rejections=grounding_rejections,
+        )
+        if abstained and flat_proof_acceptance and not v14_policy_enabled:
+            abstained = False
+            warnings = [
+                warning
+                for warning in warnings
+                if not warning.startswith(
+                    "ABSTAIN: program confidence is below"
+                )
+            ]
+            warnings.append(
+                "ACCEPTED: the selected flat computation uniquely satisfied "
+                "every required metric/role/period/provenance proof; the "
+                "calibrated neural-confidence threshold remains unchanged."
+            )
+        # Absence of a requested period remains an evidence-coverage gap, not
+        # contradictory evidence.  Otherwise an answer is public only after
+        # the selected operands have one unique physical mapping each.
+        source_action = _classify_source_action(
+            missing_periods=missing_periods,
+            verification_state=verification.state.value,
+            required_states=required_states,
+            mapping_assessment=mapping_assessment,
+            abstained=abstained,
+        )
+        action_decision = None
+        if v14_policy_enabled:
+            action_decision = _prediction_action_decision(
+                self.bundle, question, prediction, candidates, publication_policy=self.publication_policy)
+            if not action_decision.policy_accepted or derived_formula_evidence:
+                source_action = "REJECT" if source_action == "REJECT" else "ABSTAIN"
+                abstained = True
+                value = None
+        if source_action != "ANSWER":
+            abstained = True
+        evidence_resolution, evidence_resolution_reasons = (
+            _classify_evidence_resolution(
+                missing_periods=missing_periods,
+                required_states=required_states,
+                mapping_assessment=mapping_assessment,
+            )
+        )
+        if "question_column_role_unspecified" in evidence_resolution_reasons:
+            warnings.append(
+                "Cần làm rõ: báo cáo có cả số kế hoạch và thực hiện cho chỉ tiêu/kỳ này. "
+                "Bạn muốn số thực hiện hay số kế hoạch?"
+            )
         acceptance_basis = (
             "runtime_action_preserved",
             "full_candidate_evidence_graph_verification",
+            *(
+                ("flat_unique_slot_proof",)
+                if flat_proof_acceptance
+                else ()
+            ),
             (
                 "required_proof_valid"
                 if source_action == "ANSWER"
                 else "fail_closed"
             ),
         )
+        if action_decision is not None:
+            acceptance_basis = action_decision.acceptance_basis or ("policy_not_accepted",)
         stage_timings["total"] = time.perf_counter() - answer_started
         if progress_callback is not None:
             try:
@@ -622,14 +917,254 @@ class DocumentHRMReasoningEngine:
             program_dag=program_dag,
             page_index_stats=page_index_stats,
             stage_timings=tuple(stage_timings.items()),
+            action_decision=action_decision,
             source_action=source_action,
-            verification_state=verification.state.value,
+            # Public answer state follows the required proof contract. Optional
+            # layout diagnostics may remain UNKNOWN without contradicting an
+            # ANSWER whose every required obligation is VALID.
+            verification_state=(
+                VerificationState.UNKNOWN.value
+                if missing_periods
+                else verification.proof_contract_state.value
+            ),
             proof_obligations=proof_obligations,
+            applicability_details=verification.applicability_details,
+            lookup_recovery=lookup_recovery,
             verification_reasons=tuple(
                 dict.fromkeys((*verification.reasons, *verification.unknown_reasons))
             ),
             acceptance_basis=acceptance_basis,
+            missing_periods=tuple(missing_periods),
+            evidence_resolution=evidence_resolution,
+            evidence_resolution_reasons=tuple(evidence_resolution_reasons),
+            operand_mapping_assessments=(
+                mapping_assessment.operand_mappings
+                if mapping_assessment is not None
+                else ()
+            ),
         )
+
+    def _recover_relative_binding(self, question, candidates, prediction, plan):
+        """Rebind a failed relative operation within its existing evidence pool.
+
+        Three full-proof checks at most; no extra model call, values, retrieval
+        filtering or relaxed verification. Conflicting source facts stay present.
+        """
+        from itertools import product
+        from .symbolic_verifier import _slot_candidate_state, _source_provenance_state
+        from .physical_coordinates import physical_coordinate_key
+        graph=build_evidence_graph(candidates)
+        trace={"budget":{"binding_proposals":3,"context_recoveries":0,"additional_model_calls":0},
+               "attempts":[],"recovered":False,"context_recoveries":0,"additional_model_calls":0}
+        def check(proposal,stage):
+            result=verify_program(plan,proposal.program,graph,
+                program_dag=proposal.program_dag,slot_bindings=proposal.slot_bindings)
+            mapping=result.mapping_assessment
+            reasons=tuple(dict.fromkeys((*_grounding_gate_reasons(question,proposal.program,candidates,program_dag=proposal.program_dag),
+                *_prediction_required_proof_rejection_reasons(question,proposal,candidates))))
+            valid=result.proof_contract_state is VerificationState.VALID and mapping is not None and mapping.resolution=="UNIQUE" and not reasons
+            trace['attempts'].append({'stage':stage,'operands':list(proposal.program.operands),'eligible':valid,
+                'required_state':result.proof_contract_state.value,'resolution':mapping.resolution if mapping else 'UNKNOWN',
+                'reasons':list(dict.fromkeys((*reasons,*(mapping.reason_codes if mapping else ())))),'conflict_pool_size':len(candidates)})
+            return valid
+        initial_valid=check(prediction,'initial')
+        from .disclosure_equivalence import _quantum
+        from .program_data import currency_unit_scale
+        def precision(c):
+            scale=currency_unit_scale(c.unit)
+            return (_quantum(graph.cells[c.index],scale) if scale is not None else None) or Decimal('Infinity')
+        pools=[]
+        for slot in plan.operand_slots:
+            eligible=[c for c in candidates if _slot_candidate_state(plan,slot,graph.cells[c.index]) is VerificationState.VALID
+                      and _source_provenance_state((graph.cells[c.index],)) is VerificationState.VALID]
+            eligible.sort(key=lambda c:(precision(c),-c.relevance,repr(physical_coordinate_key(c)),c.index))
+            seen=set();unique=[]
+            for c in eligible:
+                key=physical_coordinate_key(c)
+                if key not in seen:seen.add(key);unique.append(c)
+            pools.append(unique)
+        if initial_valid and all(not pool or precision(candidates[index])<=precision(pool[0]) for index,pool in zip(prediction.program.operands,pools)):
+            return candidates,prediction,trace
+        # When the full proof established equivalent disclosures, prefer the
+        # finest source precision; never substitute numbers into a source cell.
+        pairs=sorted(((a,b) for a,b in product(*pools) if physical_coordinate_key(a)!=physical_coordinate_key(b)),
+                     key=lambda p:(precision(p[0]),precision(p[1]),-(p[0].relevance+p[1].relevance),p[0].index,p[1].index))
+        diagnostic=None
+        for pair in pairs:
+            operands=tuple(c.index for c in pair)
+            if operands==prediction.program.operands:continue
+            program=ReasoningProgram(plan.operation,operands)
+            proposal=replace(prediction,program=program,program_dag=materialize_program_dag(program,candidates),
+                slot_bindings=tuple((slot.id,c.index) for slot,c in zip(plan.operand_slots,pair)),
+                confidence=0.0,pointer_confidences=(0.0,0.0),
+                grounding_constraints_applied=tuple(dict.fromkeys((*prediction.grounding_constraints_applied,'bounded_relative_binding_recovery'))))
+            if check(proposal,'existing_pool'):
+                trace['recovered']=True
+                return candidates,proposal,trace
+            diagnostic=diagnostic or proposal
+            if len(trace['attempts'])>=3:break
+        # Explain a proven conflicting fact instead of a discarded wrong-role
+        # model choice. The ordinary proof gate still withholds the value.
+        return candidates,prediction if initial_valid else diagnostic or prediction,trace
+
+    def _recover_lookup_binding(self, question, candidates, prediction, chunks, *, limit):
+        """At most three deep binding checks; the HRM beam stays unchanged.
+
+        Reuse the original inference. One local context reconstruction is
+        allowed, and all semantically relevant retrieved evidence is retained
+        for conflict checks. No reference values or conversation cache enter
+        the ranking or verifier.
+        """
+        from .physical_coordinates import physical_coordinate_key
+        from .report_context import validated_report_field
+        from .symbolic_verifier import _slot_candidate_state, _source_provenance_state, _role_agnostic_mapping_slots
+        from .unit_defaults import monetary_label
+        plan = compile_question_plan(question)
+        if plan.operation in {"PERCENT_CHANGE", "RATIO_PERCENT", "DIVIDE"} and len(plan.operand_slots)==2:
+            return self._recover_relative_binding(question, candidates, prediction, plan)
+        slots = plan.operand_slots or _role_agnostic_mapping_slots(plan, ReasoningProgram("SELECT", (0,)))
+        if (plan.operation != "SELECT" or len(slots) != 1
+                or not monetary_label(slots[0].metric)):
+            return candidates, prediction, None
+        started = time.perf_counter()
+        slot = replace(slots[0], column_role="") if slots[0].column_role == "__role_agnostic__" else slots[0]
+        trace = {"budget": {"binding_proposals": 3, "context_recoveries": 1,
+                            "additional_model_calls": 1},
+                 "attempts": [], "context_recoveries": 0, "additional_model_calls": 0,
+                 "recovered": False, "kept_pool": [], "discarded_pool": []}
+        original_candidates, original_prediction = candidates, prediction
+        seen = set()
+        ranks = {row.program.operands[0]: row.neural_rank
+                 for row in prediction.program_search_trace
+                 if row.program.operation == "SELECT" and len(row.program.operands) == 1}
+        def key(c):
+            return (physical_coordinate_key(c), c.row_label, c.column_label,
+                    c.period, c.unit, c.entity_id)
+        original_rank = {key(c): ranks.get(c.index, 100000 + c.index) for c in candidates}
+        def sort_key(c, graph):
+            state = _slot_candidate_state(plan, slot, graph.cells[c.index])
+            complete = _source_provenance_state((graph.cells[c.index],))
+            field = bool(validated_report_field(c)) and not (slot.year or slot.period_role or slot.column_role)
+            return ({VerificationState.VALID: 0, VerificationState.UNKNOWN: 1, VerificationState.INVALID: 2}[state],
+                    0 if field else 1, 0 if complete is VerificationState.VALID else 1,
+                    original_rank.get(key(c), 200000), repr(physical_coordinate_key(c)))
+        def signature(c):
+            return {"source_name": c.source_name, "page": c.page,
+                    "line_number": c.line_number, "source_span": c.source_span,
+                    "source_line_sha256": c.source_line_sha256,
+                    "row_label": c.row_label, "column_label": c.column_label}
+        def check(pool, proposal, stage):
+            if len(trace["attempts"]) >= 3:
+                return False, proposal
+            if len(proposal.program.operands) != 1:
+                trace["attempts"].append({"ordinal":len(trace["attempts"])+1,
+                    "stage":stage,"binding":{"operands":[signature(pool[i]) for i in proposal.program.operands if 0 <= i < len(pool)]},
+                    "eligible":False,"required_state":"INVALID","resolution":"UNKNOWN",
+                    "reasons":["lookup_requires_one_operand"],"applicability":[],"conflict_pool_size":len(pool)})
+                return False, proposal
+            c = pool[proposal.program.operands[0]]
+            if key(c) in seen:
+                return False, proposal
+            seen.add(key(c))
+            graph = build_evidence_graph(pool)
+            verification = verify_program(plan, proposal.program, graph,
+                program_dag=proposal.program_dag, slot_bindings=proposal.slot_bindings)
+            mapping = verification.mapping_assessment
+            reasons = tuple(dict.fromkeys((*_grounding_gate_reasons(question, proposal.program, pool,
+                program_dag=proposal.program_dag),
+                *_prediction_required_proof_rejection_reasons(question, proposal, pool))))
+            eligible = (verification.proof_contract_state is VerificationState.VALID
+                        and mapping is not None and mapping.resolution == "UNIQUE" and not reasons)
+            trace["attempts"].append({"ordinal": len(trace["attempts"]) + 1,
+                "stage": stage, "binding": signature(c), "eligible": eligible,
+                "required_state": verification.proof_contract_state.value,
+                "resolution": mapping.resolution if mapping else "UNKNOWN",
+                "reasons": list(dict.fromkeys((*reasons, *(mapping.reason_codes if mapping else ())))),
+                "applicability": verification.applicability_details,
+                "conflict_pool_size": len(pool)})
+            if len(trace["attempts"])>1:
+                previous={x["name"]:x.get("state") for x in trace["attempts"][0]["applicability"]}
+                trace["attempts"][-1]["repaired_obligations"]=[
+                    {"name":x["name"],"before":previous.get(x["name"]),"after":x.get("state"),"witness_refs":x.get("witness_refs",[])}
+                    for x in verification.applicability_details
+                    if x.get("state")=="VALID" and previous.get(x["name"])!="VALID"]
+            if eligible:
+                proposal = replace(proposal, symbolic_proof_score=verification.proof_score,
+                    symbolic_unknown_constraints=sum(o.state is VerificationState.UNKNOWN
+                        for o in verification.proof_obligations if o.applicability == "required"))
+            return eligible, proposal
+        def proposal_for(c, pool):
+            program = ReasoningProgram("SELECT", (c.index,))
+            return replace(original_prediction, program=program,
+                program_dag=materialize_program_dag(program, pool),
+                slot_bindings=((slot.id, c.index),) if plan.operand_slots else (),
+                grounding_constraints_applied=tuple(dict.fromkeys((
+                    *original_prediction.grounding_constraints_applied, "bounded_lookup_recovery_v2"))))
+        def finish(pool, proposal, recovered):
+            trace["recovered"] = recovered
+            trace["binding_proposals"] = len(trace["attempts"])
+            trace["seconds"] = time.perf_counter() - started
+            return pool, proposal, trace
+        accepted, selected = check(candidates, prediction, "initial")
+        if accepted:
+            return finish(candidates, prediction, False)
+        graph = build_evidence_graph(candidates)
+        alternatives = [c for c in sorted(candidates, key=lambda c: sort_key(c, graph))
+                        if key(c) not in seen
+                        and _slot_candidate_state(plan, slot, graph.cells[c.index]) is not VerificationState.INVALID]
+        if alternatives:
+            candidate = alternatives[0]
+            accepted, selected = check(candidates, proposal_for(candidate, candidates), "existing_pool")
+            if accepted:
+                return finish(candidates, selected, True)
+        # Recover only around a binding already examined; this never scans a
+        # different file or jumps to a page selected using a reference answer.
+        anchor = alternatives[0] if alternatives else candidates[prediction.program.operands[0] if prediction.program.operands else 0]
+        same_source = sorted((c for c in chunks if c.source_name == anchor.source_name),
+                             key=lambda c: (c.line_start, c.line_end, c.chunk_id))
+        containing = [i for i,c in enumerate(same_source)
+                      if c.line_start <= anchor.line_number <= c.line_end]
+        if containing and len(trace["attempts"]) < 3:
+            center = min(containing, key=lambda i: (same_source[i].line_end-same_source[i].line_start,
+                                                   same_source[i].chunk_id))
+            region = same_source[max(0, center-1):center+2]
+            trace["context_recoveries"] = 1
+            trace["recovery_chunks"] = [{"source_name": c.source_name, "chunk_id": c.chunk_id,
+                                          "line_start": c.line_start, "line_end": c.line_end} for c in region]
+            fresh = merge_candidates(question, region, max_candidates=limit,
+                legacy_mode=self.bundle.model.config.hierarchical_input_mode == "legacy",
+                financial_identity_catalog_enabled=self.bundle.metadata.get("financial_identity_catalog_enabled", False) is True)
+            merged = {key(c): c for c in candidates}
+            for c in fresh:
+                previous = merged.get(key(c))
+                if previous is not None and previous.value != c.value:
+                    from .number_formats import resolution_state
+                    if resolution_state(previous) == resolution_state(c) == "VALID":
+                        trace["recovery_blocked"] = "conflicting_reconstructed_values"
+                        return finish(original_candidates, original_prediction, False)
+                merged[key(c)] = c
+            union = [replace(c, index=i) for i,c in enumerate(merged.values())]
+            union_graph = build_evidence_graph(union)
+            ordered = sorted(union, key=lambda c: sort_key(c, union_graph))
+            kept, discarded = ordered[:limit], ordered[limit:]
+            trace["kept_pool"] = [signature(c) for c in kept]
+            trace["discarded_pool"] = [signature(c) for c in discarded]
+            # Refuse rather than lose an unresolved competing binding at the
+            # input cap. Every relevant retrieved record must remain visible.
+            if any(_slot_candidate_state(plan, slot, union_graph.cells[c.index]) is not VerificationState.INVALID for c in discarded):
+                trace["recovery_blocked"] = "relevant_evidence_would_exceed_input_limit"
+                return finish(original_candidates, original_prediction, False)
+            candidates = [replace(c, index=i) for i,c in enumerate(kept)]
+            graph = build_evidence_graph(candidates)
+            alternatives = [c for c in sorted(candidates, key=lambda c: sort_key(c, graph))
+                            if key(c) not in seen and _slot_candidate_state(plan, slot, graph.cells[c.index]) is not VerificationState.INVALID]
+        if alternatives and len(trace["attempts"]) < 3:
+            candidate = next((c for c in alternatives if key(c) not in seen), None)
+            if candidate is not None:
+                accepted, selected = check(candidates, proposal_for(candidate, candidates), "bounded_context" if trace["context_recoveries"] else "existing_pool")
+                if accepted:
+                    return finish(candidates, selected, True)
+        return finish(original_candidates, original_prediction, False)
 
     def _retrieve_chunks(
         self,
@@ -718,6 +1253,42 @@ class DocumentHRMReasoningEngine:
         if not candidates:
             raise DocumentHRMError("No numerical values in context")
         prediction = self.bundle.predict(question, candidates)
+        return self._answer_candidates(question, candidates, prediction, (chunk,))
+
+    def _comparison_difference(self, output, answers):
+        """Reuse two certified SELECT inputs; never ask HRM to select them again."""
+        from .comparison_overview import verified_comparison_inputs
+        from .source_action_policy import decide_answer
+
+        candidates, blocker = verified_comparison_inputs(answers)
+        # The validated overview compiler puts the base first and the target
+        # second (earlier/later or plan/actual). It always requests target-base.
+        prediction = ProgramPrediction(
+            program=ReasoningProgram("SUBTRACT", (1, 0)),
+            operation_confidence=0.0, pointer_confidences=(0.0, 0.0),
+            confidence=0.0, segments=0, halt_q=0.0, continue_q=0.0,
+            operation_probabilities=(), neural_operation_confidence=0.0,
+            neural_pointer_confidences=(), confidence_schema="verified-comparison-inputs-v1",
+            grounding_constraints_applied=("verified_comparison_inputs",),
+            slot_bindings=tuple((s.id, i) for s, i in zip(output.plan.operand_slots, (1, 0))),
+        )
+        started = time.perf_counter()
+        result = self._answer_candidates(output.question, candidates, prediction,
+                                         tuple(chunk for a in answers for chunk in a.retrieved_chunks))
+        if blocker:
+            # A fresh proof over two cells cannot undo a failed full-pool proof
+            # of either parent, or authorize a comparison of different scopes.
+            blocked_action = "REJECT" if result.source_action == "REJECT" else "ABSTAIN"
+            result = replace(result, value=None, abstained=True, source_action=blocked_action,
+                evidence_resolution="CONFLICT" if blocked_action == "REJECT" else
+                    "MISSING" if any(a.evidence_resolution == "MISSING" for a in answers) else "UNKNOWN",
+                evidence_resolution_reasons=(blocker,), acceptance_basis=(),
+                action_decision=decide_answer(blocked_action, None, 0.0,
+                    policy_id=self.publication_policy, reason_codes=(blocker,)))
+        return replace(result, stage_timings=(("verified_input_difference", time.perf_counter()-started),))
+
+    def _answer_candidates(self, question, candidates, prediction, retrieved_chunks):
+        """Shared verification/execution path for context and certified inputs."""
         program_dag = getattr(prediction, "program_dag", None)
         if program_dag is None:
             try:
@@ -748,7 +1319,7 @@ class DocumentHRMReasoningEngine:
         )
         value = (
             None
-            if "zero_baseline_percent_change" in grounding_rejections
+            if grounding_rejections
             else (
                 execute_program_dag(program_dag, candidates)
                 if program_dag is not None
@@ -763,6 +1334,14 @@ class DocumentHRMReasoningEngine:
         evidence = tuple(
             SelectedEvidence(position + 1, candidates[index])
             for position, index in enumerate(evidence_indices)
+        )
+        value, normalized_currency_unit = _normalize_mixed_currency_result(
+            question,
+            prediction.program,
+            program_dag,
+            candidates,
+            evidence_indices,
+            value,
         )
         threshold = _abstention_threshold_for_prediction(
             self.bundle,
@@ -787,7 +1366,9 @@ class DocumentHRMReasoningEngine:
                 "The checkpoint has no valid calibrated threshold; runtime is using "
                 "the experimental fallback threshold 0.75."
             )
-        if prediction.confidence < threshold and not proof_conditioned_acceptance:
+        if self.publication_policy == EVIDENCE_ACTION_POLICY:
+            warning_items.append("Experimental evidence publication policy; calibration remains diagnostic.")
+        elif prediction.confidence < threshold and not proof_conditioned_acceptance:
             warning_items.append(
                 "ABSTAIN: program confidence is below the validation-calibrated threshold "
                 f"({prediction.confidence:.3f} < {threshold:.3f})."
@@ -809,14 +1390,45 @@ class DocumentHRMReasoningEngine:
                 + ", ".join(grounding_rejections)
                 + "."
             )
+        action_fields = {}
+        if self.publication_policy == EVIDENCE_ACTION_POLICY or _uses_logical_sum_evaluation(self.bundle) or isinstance(
+                self.bundle.metadata.get("abstention_policies_by_operation"), dict):
+            verification = verify_program(
+                compile_question_plan(question), prediction.program,
+                build_evidence_graph(candidates),
+                financial_identity_catalog_enabled=(
+                    "financial_identity_catalog" in prediction.grounding_constraints_applied),
+                program_dag=prediction.program_dag, slot_bindings=prediction.slot_bindings)
+            decision = _prediction_action_decision(self.bundle, question, prediction, candidates, publication_policy=self.publication_policy)
+            missing = _missing_requested_periods(question, candidates)
+            abstained = not decision.policy_accepted or derived_formula_evidence or bool(grounding_rejections)
+            if abstained:
+                value = None
+            mapping = verification.mapping_assessment
+            action_fields = dict(
+                action_decision=decision,
+                source_action="ANSWER" if not abstained else (
+                    "REJECT" if decision.final_action == "REJECT" else "ABSTAIN"),
+                verification_state=VerificationState.UNKNOWN.value if missing else verification.proof_contract_state.value,
+                proof_obligations=tuple((p.name,p.applicability,p.state.value if p.state else None)
+                                        for p in verification.proof_obligations),
+                verification_reasons=verification.reasons,
+                missing_periods=missing,
+                evidence_resolution=mapping.resolution if mapping else "UNKNOWN",
+                evidence_resolution_reasons=mapping.reason_codes if mapping else ("mapping_assessment_unavailable",),
+                acceptance_basis=decision.acceptance_basis,
+            )
+            warning_items.extend(decision.reason_codes)
         warnings = tuple(warning_items)
         return DocumentReasoningAnswer(
+            **action_fields,
             question=question,
             value=value,
-            unit=_infer_answer_unit(prediction.program, evidence),
+            unit=normalized_currency_unit
+            or _infer_answer_unit(prediction.program, evidence),
             prediction=prediction,
             evidence=evidence,
-            retrieved_chunks=(chunk,),
+            retrieved_chunks=tuple(retrieved_chunks),
             document_count=1,
             candidate_count=len(candidates),
             abstained=abstained,
@@ -826,6 +1438,13 @@ class DocumentHRMReasoningEngine:
         )
 
     def _uses_calibration_fallback(self) -> bool:
+        if self.publication_policy == EVIDENCE_ACTION_POLICY:
+            return False
+        if isinstance(
+            self.bundle.metadata.get("abstention_policies_by_operation"),
+            dict,
+        ):
+            return False
         raw = self.bundle.metadata.get("abstention_threshold", 0.75)
         try:
             threshold = float(raw)
@@ -851,14 +1470,53 @@ class DocumentHRMReasoningEngine:
         )
 
 
+def _metric_coverage_indices(
+    question: str,
+    candidates: Sequence[NumericCandidate],
+) -> set[int]:
+    pool = set(range(len(candidates)))
+    compatible = _metric_compatible_indices(question, candidates, pool)
+    if compatible:
+        return compatible
+    # Synthetic/plaintext fixtures may carry a structured ROW without an
+    # extraction label. Reuse the same metric matcher for coverage diagnosis;
+    # this does not admit or select a runtime operand.
+    labeled = tuple(
+        candidate
+        if candidate.extraction_method
+        else replace(candidate, extraction_method="native")
+        for candidate in candidates
+    )
+    return _metric_compatible_indices(question, labeled, pool)
+
+
 def _missing_requested_periods(
     question: str, candidates: Sequence[NumericCandidate]
 ) -> tuple[str, ...]:
+    from .report_context import validated_report_field
+    report_year = compile_question_plan(question).requested_report_year
+    if report_year:
+        compatible = _metric_coverage_indices(question, candidates)
+        return () if any((field := validated_report_field(candidates[i])) and field["report_year"] == report_year for i in compatible) else (report_year,)
     requested = set(re.findall(r"\b(?:19|20)\d{2}\b", question))
     if not requested:
         return ()
+    period_candidates: Sequence[NumericCandidate] = candidates
+    plan = compile_question_plan(question)
+    planned_operation = plan.operation or _apply_symbolic_operation_constraint(
+        question, "SELECT"
+    )
+    if planned_operation == "SELECT":
+        # A phone number, filing date or other metadata can mention the
+        # requested year without proving that the requested financial metric
+        # is disclosed for that year. Direct-fact coverage is therefore
+        # measured only over candidates compatible with the named metric.
+        compatible = _metric_coverage_indices(question, candidates)
+        if not compatible:
+            return tuple(sorted(requested))
+        period_candidates = tuple(candidates[index] for index in compatible)
     covered: set[str] = set()
-    for candidate in candidates:
+    for candidate in period_candidates:
         covered.update(_candidate_period_years(candidate, question))
     return tuple(sorted(requested - covered))
 
@@ -1387,6 +2045,105 @@ def _infer_answer_unit(
     if units and all(unit == units[0] for unit in units):
         return units[0]
     return ""
+
+
+def _normalize_mixed_currency_result(
+    question: str,
+    program: ReasoningProgram,
+    program_dag: ReasoningDAGProgram | None,
+    candidates: Sequence[NumericCandidate],
+    evidence_indices: Sequence[int],
+    value: Decimal | None,
+) -> tuple[Decimal | None, str]:
+    """Replay explicit mixed-scale currency leaves on one canonical basis."""
+
+    output_operation = program.operation
+    if program_dag is not None:
+        output_node = next(
+            (
+                node
+                for node in program_dag.nodes
+                if node.node_id == program_dag.output_node
+            ),
+            None,
+        )
+        if output_node is not None:
+            output_operation = output_node.operation
+    supported = {
+        "SELECT",
+        "ADD",
+        "SUBTRACT",
+        "AVERAGE",
+        "SUM3",
+        "SUM4",
+        SUM_N_OPERATION,
+        "DIVIDE",
+        "RATIO_PERCENT",
+        "PERCENT_CHANGE",
+        "SHARE_OF_TOTAL",
+    }
+    if value is None or output_operation not in supported:
+        return value, ""
+    scales = tuple(
+        currency_unit_scale(candidates[index].unit) for index in evidence_indices
+    )
+    if not scales or any(scale is None for scale in scales):
+        return value, ""
+    plan = compile_question_plan(question)
+    targets = {
+        "vnd": (Decimal(1), "VND"),
+        "thousand_vnd": (Decimal(1000), "nghìn đồng"),
+        "million_vnd": (Decimal(1000000), "triệu đồng"),
+        "billion_vnd": (Decimal(1000000000), "tỷ đồng"),
+    }
+    target = targets.get(plan.requested_scale)
+    currency_output = (
+        output_operation in {"SELECT", "SUBTRACT", "AVERAGE"}
+        or is_sum_operation(output_operation)
+    )
+    mixed_source_scales = len(set(scales)) > 1
+    heterogeneous_source_units = len(
+        {
+            normalize_text(candidates[index].unit)
+            for index in evidence_indices
+            if candidates[index].unit
+        }
+    ) > 1
+    target_differs = bool(
+        currency_output
+        and target is not None
+        and any(scale != target[0] for scale in scales)
+    )
+    if (
+        not mixed_source_scales
+        and not heterogeneous_source_units
+        and not target_differs
+    ):
+        return value, ""
+    converted = tuple(
+        replace(candidate, value=format(candidate.decimal * scale, "f"))
+        if (scale := currency_unit_scale(candidate.unit)) is not None
+        else candidate
+        for candidate in candidates
+    )
+    normalized = (
+        execute_program_dag(program_dag, converted)
+        if program_dag is not None
+        else execute_program(program, converted)
+    )
+    if output_operation in {
+        "RATIO_PERCENT",
+        "PERCENT_CHANGE",
+        "SHARE_OF_TOTAL",
+    }:
+        return normalized, "%"
+    if output_operation == "DIVIDE":
+        return normalized, "x"
+
+    target_scale, target_unit = targets.get(
+        plan.requested_scale, (Decimal(1), "VND")
+    )
+    return normalized / target_scale, target_unit
 
 
 def _format_value(value: Decimal | None) -> str:

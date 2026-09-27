@@ -1,0 +1,6 @@
+{
+  "config/finhrm_v14_2_practical_requests_v1.json": "f581012fa16408bbf65ca2289d68e6d4bd84215bdd9bf2a72f3492d620987722",
+  "config/finhrm_v14_2_practical_reference_v1.json": "467de32e9aa1bf2d31fd854977a5002df5af18974ed3f778e302688f7f32d6f5",
+  "scripts/run_finhrm_v14_2_practical_probe.py": "ae32d6e3b20d3ca05a2487eaee9655af794faa4430221d506b4889621ba005f0",
+  "config/finhrm_v14_2_reading_protocol_v2.json": "5f967f3f339994a67653ecadd3e2292444a0ab32db08e8daded5550f460d5aa8"
+}

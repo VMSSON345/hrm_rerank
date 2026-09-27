@@ -1,0 +1,36 @@
+{
+  "schema": "finhrm-evidence-resolution-runtime-precommit-v1",
+  "status": "FROZEN_BEFORE_IMPLEMENTATION",
+  "objective": "Expose source-derived missing, ambiguous, conflicting, unknown and unique evidence resolution without changing answer selection or source_action.",
+  "baseline": {
+    "tests": "384/384",
+    "symbolic_verifier_sha256": "491d90064e85a760adb8adb501d7aac33f09987c0f7674e3693c84d58b1dc075",
+    "document_reasoning_engine_sha256": "c41ced31dbfcb73738a005c40453d642828d710f5897aaa84f02983e88e21013"
+  },
+  "allowed_runtime_surface": [
+    "src/hrm_finance_qa/symbolic_verifier.py: diagnostic mapping assessment only",
+    "src/hrm_finance_qa/document_reasoning_engine.py: copy diagnostic fields to the public answer only"
+  ],
+  "locked_behavior": [
+    "source_action",
+    "verification_state",
+    "selected program and operands",
+    "answer value and unit",
+    "thresholds and confidence",
+    "retrieval, candidate admission and ranking",
+    "old evaluator and reports"
+  ],
+  "resolution_precedence": [
+    "explicit missing periods => MISSING",
+    "multiple distinct valid or plausible physical mappings for any required operand => AMBIGUOUS",
+    "explicit source or selected-mapping contradiction with no ambiguity => CONFLICT",
+    "incomplete evidence without multiple mappings => UNKNOWN",
+    "one valid physical mapping per operand and valid selected bindings => UNIQUE"
+  ],
+  "genericity": {
+    "company_filename_page_year_value_question_or_case_rules_allowed": false,
+    "numeric_equality_collapses_physical_identity": false,
+    "mapping_identity": ["source_name", "page", "source_span"],
+    "operand_slots_assessed_independently": true
+  }
+}

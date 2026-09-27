@@ -1,0 +1,73 @@
+{
+  "schema": "practical-probe-requests-v1",
+  "sources": {
+    "HKT": {
+      "path": "data/markdown/scope_unit_v2/HKT_23CN_BCTN--91cc265d0be6d75e.md",
+      "sha256": "b5550a26fa89acab88e14488568090db23761de4d21d8e8ee68f57fb6f6cc31a"
+    },
+    "HAV": {
+      "path": "data/markdown/scope_unit_v2/HAV_23CN_BCTN--e57968185e1c63bc.md",
+      "sha256": "fbda07867fa66a850574a03af75b746748f9d6042c28ce085aa2f31fb211d7e4"
+    },
+    "SSG": {
+      "path": "data/markdown/scope_unit_v2/SSG_24CN_BCTN--03525afbe2d1c74e.md",
+      "sha256": "0b2c2aaa5d4b0fcf968808369355160beac7687a66e0b89ad749e747cec1ecbf"
+    },
+    "ASM": {
+      "path": "data/markdown/ASM_23CN_BCTN--6e1bff5169b34a91.md",
+      "sha256": "747886793a62056d727f8b1628efe78d294fa4942c1277d519f7b85cd7158ead"
+    }
+  },
+  "cases": [
+    {
+      "case_id": "practical-01",
+      "source_id": "HKT",
+      "question": "Lợi nhuận sau thuế thực hiện năm 2023 là bao nhiêu đồng?"
+    },
+    {
+      "case_id": "practical-02",
+      "source_id": "HKT",
+      "question": "Lợi nhuận sau thuế kế hoạch năm 2023 là bao nhiêu đồng?"
+    },
+    {
+      "case_id": "practical-03",
+      "source_id": "HKT",
+      "question": "Lợi nhuận trước thuế thực hiện năm 2023 là bao nhiêu đồng?"
+    },
+    {
+      "case_id": "practical-04",
+      "source_id": "HAV",
+      "question": "Doanh thu thuần năm 2023 là bao nhiêu triệu đồng?"
+    },
+    {
+      "case_id": "practical-05",
+      "source_id": "HAV",
+      "question": "Cho biết doanh thu thuần năm 2023 là bao nhiêu triệu đồng?"
+    },
+    {
+      "case_id": "practical-06",
+      "source_id": "HAV",
+      "question": "Doanh thu thuần năm 2023 chênh lệch bao nhiêu triệu đồng so với năm 2022? Hãy tính năm 2023 trừ năm 2022."
+    },
+    {
+      "case_id": "practical-07",
+      "source_id": "SSG",
+      "question": "Lợi nhuận sau thuế thực hiện năm 2024 là bao nhiêu triệu đồng?"
+    },
+    {
+      "case_id": "practical-08",
+      "source_id": "SSG",
+      "question": "Cho biết lợi nhuận sau thuế thực hiện năm 2024 là bao nhiêu triệu đồng?"
+    },
+    {
+      "case_id": "practical-09",
+      "source_id": "SSG",
+      "question": "Lợi nhuận sau thuế kế hoạch năm 2024 là bao nhiêu triệu đồng?"
+    },
+    {
+      "case_id": "practical-10",
+      "source_id": "ASM",
+      "question": "Doanh thu thuần năm 2023 là bao nhiêu đồng?"
+    }
+  ]
+}

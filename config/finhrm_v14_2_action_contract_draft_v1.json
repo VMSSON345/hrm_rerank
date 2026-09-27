@@ -1,0 +1,54 @@
+{
+  "schema": "finhrm-v14.2-action-contract-draft-v1",
+  "status": "DESIGN_ONLY_NOT_ENABLED",
+  "purpose": "Phase 2 shared evaluator/runtime decision contract; no behavior or threshold change in Phase 1",
+  "baseline_policy": "v14-wilson-public-gate-v1",
+  "proposed_policy_id": "v14.2-policy-calibrated-public-answer-v1",
+  "decision_fields": {
+    "policy_id": "Named/versioned policy, required; never inferred from calibration being disabled",
+    "proof_eligible": "boolean from full public proof/source-action gate",
+    "calibration_status": "CALIBRATED | DISABLED | UNCALIBRATED",
+    "calibration_accepted": "boolean from unchanged per-operation CalibrationPolicy.accepts",
+    "execution_status": "NOT_RUN | VALID | INVALID",
+    "certificate_status": "NOT_RUN | VALID | INVALID",
+    "presentation_status": "NOT_RUN | VALID | INVALID",
+    "final_action": "ANSWER | PARTIAL | ABSTAIN | REJECT, or null when serving stages are NOT_RUN",
+    "acceptance_basis": "explicit policy ID plus gates satisfied",
+    "reason_codes": "ordered per-output reasons, retaining all failed and unknown required obligations",
+    "output_id": "stable request output ID; diagnostic synthetic IDs must be labeled separately"
+  },
+  "scalar_answer_condition": [
+    "proof_eligible is true",
+    "calibration_status == CALIBRATED",
+    "calibration_accepted is true",
+    "execution_status == VALID",
+    "certificate_status == VALID",
+    "presentation_status == VALID"
+  ],
+  "invariants": [
+    "No flat-unique-proof override of DISABLED/UNCALIBRATED policy under the policy-calibrated policy",
+    "UNKNOWN required source proof remains ABSTAIN; INVALID evidence retains existing source rejection semantics",
+    "NOT_RUN never becomes VALID or an accepted serving answer",
+    "No numerical provisional result in non-answer payloads",
+    "Gold annotations and correctness metrics never enter runtime decision",
+    "Proof-only release, if later requested, requires a separate named policy and independent evaluation"
+  ],
+  "multi_output": {
+    "all_required_outputs_verified": "ANSWER",
+    "some_outputs_verified": "PARTIAL; retain IDs, proof, certificate and citations for verified outputs",
+    "none_verified": "ABSTAIN or REJECT according to source rejection semantics",
+    "measurement": "Per-output acceptance and whole-request completeness reported separately"
+  },
+  "adoption_tests": [
+    "Replay current disabled-policy divergence fixtures as expected rejection under new policy",
+    "Scalar, CLI, API, multi-output, evaluator share the decision object",
+    "Missing unit/period, wrong entity, multiple valid mappings and zero denominator fail closed",
+    "Certificate tampering rejected after exact replay",
+    "Policy-calibrated and separately evaluated proof-only metrics never merged"
+  ],
+  "open_work": [
+    "Decide source REJECT vs ABSTAIN reason mapping by preserving current contract tests",
+    "Implement only after Phase 1 diagnosis is frozen",
+    "Measure end-to-end behavior before any release claim"
+  ]
+}

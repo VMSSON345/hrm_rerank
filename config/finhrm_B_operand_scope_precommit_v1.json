@@ -1,0 +1,21 @@
+{
+  "scope": "Only operand column-scope compatibility in existing decoder/search and verifier. No new runtime module, training, OCR or data/gold changes.",
+  "parent_protocol_sha256": "63a78d0da5468bdb0d80c101d6881233bf8264ef70f4eb3191f3afa8f1230244",
+  "dataset": "data/tmp/B_current_benchmark_v2/validation_mineru.jsonl",
+  "dataset_sha256": "543d9247d2f0d6ce5d2bb0861c2f8bd9e3dd66e192b3b28be2859891387cb179",
+  "targets": [
+    "synthetic-document-development-v1-000099",
+    "synthetic-document-development-v1-000100",
+    "synthetic-document-development-v1-000101",
+    "synthetic-document-development-v1-000102"
+  ],
+  "acceptance": {
+    "targets_correct": 4,
+    "preserve_core_correct": 63,
+    "preserve_revised_year_questions": 6,
+    "preserve_http_correct_outputs": 62,
+    "preserve_negative_requests": 16,
+    "preserve_partial_requests": 1
+  },
+  "run": "Targeted synthetic score/contradiction tests; core 72 and HTTP 72 on unchanged inputs; no threshold tuning from results."
+}

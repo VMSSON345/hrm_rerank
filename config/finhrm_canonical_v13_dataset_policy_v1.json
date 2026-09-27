@@ -1,0 +1,129 @@
+{
+  "schema": "finhrm-canonical-v13-dataset-policy-v1",
+  "status": "FROZEN_BEFORE_BUILD",
+  "created_at": "2026-08-30",
+  "objective": "Build one canonical train/validation/test lineage for HRM scratch-versus-warm-start experiments without leaking protected or same-source records across splits.",
+  "physical_relocation_policy": "LOGICAL_QUARANTINE_ONLY",
+  "builder": {
+    "path": "scripts/build_finhrm_canonical_v13_dataset.py",
+    "sha256": "3c85972f77e6034a119f66bf66426acb97c99c55f8918180dd3a0074c5eadf25"
+  },
+  "integrity_module": {
+    "path": "src/hrm_finance_qa/v12b2_supervision.py",
+    "sha256": "100272f4bb46a3bd51e05914c6080ddaa7f48fea3c96337aa4b6cd9a0e8db0da"
+  },
+  "train_sources": [
+    {
+      "path": "data/train.jsonl",
+      "sha256": "03642bca3865f875a1aea0b7c95477b5ac8de20c9a2a72ae25f98119d32abd2b",
+      "records": 1400,
+      "allowed_review_statuses": [
+        "verified_generator_and_independent_audit"
+      ]
+    },
+    {
+      "path": "data/document_hrm_development_v1_train.jsonl",
+      "sha256": "8d445cbc776ec10ffb9b94bf4fd0693eb1ab3857837d6cd509e49b6f4a1a5bb0",
+      "records": 1021,
+      "allowed_review_statuses": [
+        "existing_gold_not_modified",
+        "gold_program_and_execution_preserved"
+      ]
+    },
+    {
+      "path": "data/document_hrm_v12b2_development_plus_subtract_v3.jsonl",
+      "sha256": "c6e119519d2dae59933edc5e493de7aef885154c037b95be54a1290b7f529d26",
+      "records": 1246,
+      "allowed_review_statuses": [
+        "verified_generator_and_independent_audit",
+        "visually_reviewed_pass"
+      ]
+    },
+    {
+      "path": "data/finhrm_qp3_core_add_diverse_development_reviewed_cohort_v1.jsonl",
+      "sha256": "242aef8050f99ddea511d80e774cfdf5cc80ca8a673517d22e60138c8051daa7",
+      "records": 8,
+      "allowed_review_statuses": [
+        "independently_reviewed_approved"
+      ]
+    }
+  ],
+  "validation_source": {
+    "path": "data/validation.jsonl",
+    "sha256": "87bf973de7c8694524ec2d7d712a208ecee62e1a565eb61ec2fddc4c57e02712",
+    "records": 200,
+    "role": "reserved_validation_only"
+  },
+  "test_source": {
+    "path": "data/test.jsonl",
+    "sha256": "9e37c47e8f9dac8f7a2c955c07f89808b4a8f5b95034ce2fe2b54bb8ec63b3c4",
+    "records": 1500,
+    "role": "protected_consumed_regression_test_only"
+  },
+  "protected_never_train": [
+    "data/document_hrm_final_eval_v3_gold.jsonl",
+    "data/document_hrm_final_eval_v3_review_ready_v2_candidate_900_disjoint.jsonl",
+    "data/document_hrm_holdout.jsonl",
+    "data/document_hrm_test_300.jsonl",
+    "data/final.jsonl",
+    "data/final_audit.json",
+    "data/test.jsonl",
+    "data/test_audit.json",
+    "data/test_final.jsonl",
+    "data/pdf_v12b2_unseen_company_holdout_v1.jsonl",
+    "data/pdf_v12b2_unseen_company_holdout_v1_manifest.json"
+  ],
+  "pending_review_prefixes": [
+    "document_pointer_common_development_",
+    "finhrm_qp3_core_add_diverse_development_candidate_",
+    "finhrm_qp3_core_add_diversity_generated_pool_",
+    "finhrm_qp3_core_add_diversity_ocr_generated_pool_",
+    "pdf_v12b2_unseen_financial_qa_candidates_",
+    "subtract_native_development_candidates_",
+    "subtract_new_company_development_candidates_"
+  ],
+  "specialized_prefixes": [
+    "document_hrm_v12b2_reranker_",
+    "finhrm_qp3_core_development_",
+    "finhrm_qp3a_",
+    "finhrm_qp3c_",
+    "finhrm_qp3e_",
+    "pdf_development_company_catalog_",
+    "pdf_v12b2_unseen_development_",
+    "pdf_v12b2_unseen_scan_",
+    "pdf_v12c_",
+    "v12c_"
+  ],
+  "superseded_files": {
+    "data/document_hrm_v12b2_development_plus_subtract_v1.jsonl": "data/document_hrm_v12b2_development_plus_subtract_v3.jsonl",
+    "data/document_hrm_v12b2_development_plus_subtract_v2.jsonl": "data/document_hrm_v12b2_development_plus_subtract_v3.jsonl",
+    "data/document_hrm_v12b2_reranker_disjoint_folds_subtract_v2.json": "data/document_hrm_v12b2_reranker_disjoint_folds_subtract_v4.json",
+    "data/document_hrm_v12b2_reranker_disjoint_folds_subtract_v3.json": "data/document_hrm_v12b2_reranker_disjoint_folds_subtract_v4.json",
+    "data/subtract_native_development_reviewed_v1.jsonl": "data/document_hrm_v12b2_development_plus_subtract_v3.jsonl",
+    "data/subtract_native_development_reviewed_batch2_v1.jsonl": "data/document_hrm_v12b2_development_plus_subtract_v3.jsonl",
+    "data/subtract_new_company_development_reviewed_v1.jsonl": "data/document_hrm_v12b2_development_plus_subtract_v3.jsonl"
+  },
+  "outputs": {
+    "train": {
+      "path": "data/canonical_v13_v1/train.jsonl"
+    },
+    "validation": {
+      "path": "data/canonical_v13_v1/validation.jsonl"
+    },
+    "test": {
+      "path": "data/canonical_v13_v1/test.jsonl"
+    },
+    "quarantine_index": {
+      "path": "data/tmp/canonical_v13_v1/index.json"
+    },
+    "quarantine_readme": {
+      "path": "data/tmp/canonical_v13_v1/README.md"
+    },
+    "report_json": {
+      "path": "reports/finhrm_canonical_v13_dataset_v1.json"
+    },
+    "report_markdown": {
+      "path": "reports/finhrm_canonical_v13_dataset_v1.md"
+    }
+  }
+}

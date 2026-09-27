@@ -1,0 +1,1292 @@
+{
+  "heldout-app-charter-01": {
+    "source_id": "APP",
+    "identity": {
+      "metric": "Vốn điều lệ",
+      "years": [],
+      "role": "not_applicable",
+      "scope": "reporting_company",
+      "time_semantics": "undated_profile_fact"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 12,
+        "page": 1,
+        "text": "BÁO CÁO THƯỜNG NIÊN NĂM 2025 CÔNG TY CỔ PHẦN PHÁT TRIỂN PHỤ GIA VÀ SẢN PHẨM DẦU MỞ",
+        "line_sha256": "2fbf28c206cdb329a3e66b3cf8e5685522479edc7259080dd727ea103288c1c4"
+      },
+      {
+        "line_number": 13,
+        "page": 1,
+        "text": "I. Thông tin chung",
+        "line_sha256": "48731f000d32f4129f00fcdff1150f1e4edb1b2bad6ad4323db9813590a9d02a"
+      },
+      {
+        "line_number": 14,
+        "page": 1,
+        "text": "1. Thông tin khái quát",
+        "line_sha256": "a36ba8863c9d1a8613a24344f39db572143df8ed3051c07158183623ac015158"
+      },
+      {
+        "line_number": 15,
+        "page": 1,
+        "text": "\\- Tên giao dịch: Công ty Cổ phần Phát triển Phụ gia và Sản phẩm Dầu mỏ",
+        "line_sha256": "c0f575ee4f54d242b7328922876c17484534bdec62536b503b4aa9bcf3cf7284"
+      },
+      {
+        "line_number": 17,
+        "page": 1,
+        "text": "\\- Vốn điều lệ: 47.246.320.000 đồng",
+        "line_sha256": "29e084ecccf21782a846347b424605ca182872e47d6287f5456b1690089e1fda"
+      }
+    ],
+    "basis": "Read complete MinerU source and local governing context before heldout inference; source references are independent of runtime verdicts."
+  },
+  "heldout-app-charter-02": {
+    "source_id": "APP",
+    "identity": {
+      "metric": "Vốn điều lệ",
+      "years": [],
+      "role": "not_applicable",
+      "scope": "reporting_company",
+      "time_semantics": "undated_profile_fact"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 12,
+        "page": 1,
+        "text": "BÁO CÁO THƯỜNG NIÊN NĂM 2025 CÔNG TY CỔ PHẦN PHÁT TRIỂN PHỤ GIA VÀ SẢN PHẨM DẦU MỞ",
+        "line_sha256": "2fbf28c206cdb329a3e66b3cf8e5685522479edc7259080dd727ea103288c1c4"
+      },
+      {
+        "line_number": 13,
+        "page": 1,
+        "text": "I. Thông tin chung",
+        "line_sha256": "48731f000d32f4129f00fcdff1150f1e4edb1b2bad6ad4323db9813590a9d02a"
+      },
+      {
+        "line_number": 14,
+        "page": 1,
+        "text": "1. Thông tin khái quát",
+        "line_sha256": "a36ba8863c9d1a8613a24344f39db572143df8ed3051c07158183623ac015158"
+      },
+      {
+        "line_number": 15,
+        "page": 1,
+        "text": "\\- Tên giao dịch: Công ty Cổ phần Phát triển Phụ gia và Sản phẩm Dầu mỏ",
+        "line_sha256": "c0f575ee4f54d242b7328922876c17484534bdec62536b503b4aa9bcf3cf7284"
+      },
+      {
+        "line_number": 17,
+        "page": 1,
+        "text": "\\- Vốn điều lệ: 47.246.320.000 đồng",
+        "line_sha256": "29e084ecccf21782a846347b424605ca182872e47d6287f5456b1690089e1fda"
+      }
+    ],
+    "basis": "Read complete MinerU source and local governing context before heldout inference; source references are independent of runtime verdicts."
+  },
+  "heldout-app-pat-narrative-01": {
+    "source_id": "APP",
+    "identity": {
+      "metric": "Lợi nhuận sau thuế",
+      "years": [
+        "2025"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "time_semantics": "fact_year"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 52,
+        "page": 3,
+        "text": "II. Tình hình hoạt động trong năm",
+        "line_sha256": "ee10815d4acd3dec8ad177936e25bc2893079c086c271667814cebf6eb3159ec"
+      },
+      {
+        "line_number": 53,
+        "page": 3,
+        "text": "1. Tỉnh hình hoạt động sản xuất kinh doanh",
+        "line_sha256": "14f7d2fdbfd19f7e5a11f7b471570988d18e2635b5eaae17283564538183219d"
+      },
+      {
+        "line_number": 54,
+        "page": 3,
+        "text": "Kết quả hoạt động sản xuất kinh doanh năm 2025",
+        "line_sha256": "9092066f7bf78b60151dcdb15bbdaaf67617fabdb5c6236203ec4a93faeeeddc"
+      },
+      {
+        "line_number": 55,
+        "page": 3,
+        "text": "Doanh thu bán hàng và cung cấp dịch vụ của Công ty đạt 371,7 tỷ đồng trong năm 2025, tăng 161,1 tỷ đồng so với cùng kỳ năm trước, tương đương với mức tăng 76,5%. Cùng với đó chi phí bàn hàng và chi phí quản lý doanh nghiệp trong năm 2025 giảm mạnh, lần lượt giảm 6,1 tỷ đồng và 8,2 tỷ đồng so với năm 2024. Đây là các yếu tố chính dẫn tới lợi nhuận sau thuế của Công ty chuyển lãi đạt 3.606.000.053 đồng, tăng 170,9% so với cùng kỳ năm 2024. Đây là kết quả nhờ sự não lực của Ban Tổng Giám đốc Công ty trong quá trình tái cơ cấu Công ty năm 2025.",
+        "line_sha256": "5a2568287a901387a0b5c4858c9a94c0165a2a1994623405bd467cf29e5af793"
+      },
+      {
+        "line_number": 215,
+        "page": 7,
+        "text": "III. Báo cáo đánh giá của Ban Tổng Giám đốc:",
+        "line_sha256": "4e5c8ed3390e7e77d501d748d4fd3db9fae74d24ba8972447862925a47246c0b"
+      },
+      {
+        "line_number": 216,
+        "page": 7,
+        "text": "Thực hiện kế hoạch hoạt động sản xuất kinh doanh của Công ty năm 2025. Ban Tổng Giám đốc Công ty báo cáo Cổ đông kết quả kinh doanh của Công ty như sau:",
+        "line_sha256": "1a7f4d044f60716a09677ad1fb5f4ded0bc8985f42519d457e309b7e8cc8020b"
+      },
+      {
+        "line_number": 223,
+        "page": 7,
+        "text": "Kết thúc năm tài chính 2025, doanh thu thuần từ bán hàng và cung cấp dịch vụ của công ty đạt 371.761.736.221 đồng, tương đương 74,35% so với kế hoạch đặt ra, tăng 76,54% so với cùng kỳ năm 2024. Lợi nhuận sau thuế của Công ty là 3.606.000.053 đồng, vượt 10,28% so với kế hoạch đề ra. Trong tình hình kinh tế thế giới đang phải đối mặt với nhiều tin tức chính trị, thị trường xăng dầu biến động nhanh, khó lường và tính bất ổn cao; lạm phát đã tăng lên mức cao nhất trong nhiều thập kỷ buộc các quốc gia phải thất chặt chính sách tiền tệ, thì Kết quả kinh doanh năm 2025 được coi là tích cực. Điều này thể hiện sự não lực rất lớn trong công việc của toàn thể cán bộ công nhân viên và Ban lãnh đạo của Công ty để hoàn thành mục tiêu đã được đề ra.",
+        "line_sha256": "8e8de15b325bd5b4c794f55149e77c82677dc858fbbd00b0a5f0d18cb95db372"
+      }
+    ],
+    "basis": "Read complete MinerU source and local governing context before heldout inference; source references are independent of runtime verdicts."
+  },
+  "heldout-app-pat-narrative-02": {
+    "source_id": "APP",
+    "identity": {
+      "metric": "Lợi nhuận sau thuế",
+      "years": [
+        "2025"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "time_semantics": "fact_year"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 52,
+        "page": 3,
+        "text": "II. Tình hình hoạt động trong năm",
+        "line_sha256": "ee10815d4acd3dec8ad177936e25bc2893079c086c271667814cebf6eb3159ec"
+      },
+      {
+        "line_number": 53,
+        "page": 3,
+        "text": "1. Tỉnh hình hoạt động sản xuất kinh doanh",
+        "line_sha256": "14f7d2fdbfd19f7e5a11f7b471570988d18e2635b5eaae17283564538183219d"
+      },
+      {
+        "line_number": 54,
+        "page": 3,
+        "text": "Kết quả hoạt động sản xuất kinh doanh năm 2025",
+        "line_sha256": "9092066f7bf78b60151dcdb15bbdaaf67617fabdb5c6236203ec4a93faeeeddc"
+      },
+      {
+        "line_number": 55,
+        "page": 3,
+        "text": "Doanh thu bán hàng và cung cấp dịch vụ của Công ty đạt 371,7 tỷ đồng trong năm 2025, tăng 161,1 tỷ đồng so với cùng kỳ năm trước, tương đương với mức tăng 76,5%. Cùng với đó chi phí bàn hàng và chi phí quản lý doanh nghiệp trong năm 2025 giảm mạnh, lần lượt giảm 6,1 tỷ đồng và 8,2 tỷ đồng so với năm 2024. Đây là các yếu tố chính dẫn tới lợi nhuận sau thuế của Công ty chuyển lãi đạt 3.606.000.053 đồng, tăng 170,9% so với cùng kỳ năm 2024. Đây là kết quả nhờ sự não lực của Ban Tổng Giám đốc Công ty trong quá trình tái cơ cấu Công ty năm 2025.",
+        "line_sha256": "5a2568287a901387a0b5c4858c9a94c0165a2a1994623405bd467cf29e5af793"
+      },
+      {
+        "line_number": 215,
+        "page": 7,
+        "text": "III. Báo cáo đánh giá của Ban Tổng Giám đốc:",
+        "line_sha256": "4e5c8ed3390e7e77d501d748d4fd3db9fae74d24ba8972447862925a47246c0b"
+      },
+      {
+        "line_number": 216,
+        "page": 7,
+        "text": "Thực hiện kế hoạch hoạt động sản xuất kinh doanh của Công ty năm 2025. Ban Tổng Giám đốc Công ty báo cáo Cổ đông kết quả kinh doanh của Công ty như sau:",
+        "line_sha256": "1a7f4d044f60716a09677ad1fb5f4ded0bc8985f42519d457e309b7e8cc8020b"
+      },
+      {
+        "line_number": 223,
+        "page": 7,
+        "text": "Kết thúc năm tài chính 2025, doanh thu thuần từ bán hàng và cung cấp dịch vụ của công ty đạt 371.761.736.221 đồng, tương đương 74,35% so với kế hoạch đặt ra, tăng 76,54% so với cùng kỳ năm 2024. Lợi nhuận sau thuế của Công ty là 3.606.000.053 đồng, vượt 10,28% so với kế hoạch đề ra. Trong tình hình kinh tế thế giới đang phải đối mặt với nhiều tin tức chính trị, thị trường xăng dầu biến động nhanh, khó lường và tính bất ổn cao; lạm phát đã tăng lên mức cao nhất trong nhiều thập kỷ buộc các quốc gia phải thất chặt chính sách tiền tệ, thì Kết quả kinh doanh năm 2025 được coi là tích cực. Điều này thể hiện sự não lực rất lớn trong công việc của toàn thể cán bộ công nhân viên và Ban lãnh đạo của Công ty để hoàn thành mục tiêu đã được đề ra.",
+        "line_sha256": "8e8de15b325bd5b4c794f55149e77c82677dc858fbbd00b0a5f0d18cb95db372"
+      }
+    ],
+    "basis": "Read complete MinerU source and local governing context before heldout inference; source references are independent of runtime verdicts."
+  },
+  "heldout-app-revenue-plan-01": {
+    "source_id": "APP",
+    "identity": {
+      "metric": "Tổng doanh thu",
+      "years": [
+        "2026"
+      ],
+      "role": "plan",
+      "scope": "reporting_company",
+      "time_semantics": "fact_year"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 234,
+        "page": 8,
+        "text": "3. Kế hoạch kinh doanh năm 2026",
+        "line_sha256": "bb893c121ec5770fb96353ec8e8452b80434a5a43adc3051b221b184d3e06a3b"
+      },
+      {
+        "line_number": 254,
+        "page": 9,
+        "text": "STT | Chi tiêu | Kế hoạch năm 2026",
+        "line_sha256": "babca26eeeb6f7f46477ccf6c5736212bb518d3e6f1ff6e5579f856da3217556"
+      },
+      {
+        "line_number": 255,
+        "page": 9,
+        "text": "--- | --- | ---",
+        "line_sha256": "d4c408b616de3424fc51f5fcb725383723307413ae71fc907422ccb6ed39b645"
+      },
+      {
+        "line_number": 256,
+        "page": 9,
+        "text": "STT: 1 | Tổng doanh thu | Kế hoạch năm 2026: 600.000.000.000",
+        "line_sha256": "4ef74d196c13a5c0e6f301a44aa059cc4ba1f06c07151bdccd1083d4e9ed2fb1"
+      },
+      {
+        "line_number": 273,
+        "page": 9,
+        "text": "3. Kế hoạch, định hướng của Hội đồng quản trị:",
+        "line_sha256": "c3f0248aa4d2e2b9b6bc7ebdc8948a821384cd53a95d27bd2a5b7bc2a2e63d92"
+      },
+      {
+        "line_number": 284,
+        "page": 10,
+        "text": "Đơn vị tính: đồng",
+        "line_sha256": "0b3d4c52483b52b3f882f393082a0df315abdb81c72703b1325b60c38230b1fc"
+      },
+      {
+        "line_number": 285,
+        "page": 10,
+        "text": "TT | Chỉ tiêu | Thực hiện năm 2025 | Kế hoạch năm 2026",
+        "line_sha256": "751104966a389218f3dd19c0f5fea1f0055a726ed3a756e6b57f1a0b3ff6fa94"
+      },
+      {
+        "line_number": 287,
+        "page": 10,
+        "text": "+ | Tổng doanh thu | Thực hiện năm 2025: 371.761.736.221 | Kế hoạch năm 2026: 600.000.000.000",
+        "line_sha256": "74ca5527727eb69a68884e1b931f5cc6fa5bf2f9b52468b3b4537b9b1e47a8fe"
+      }
+    ],
+    "basis": "Read complete MinerU source and local governing context before heldout inference; source references are independent of runtime verdicts."
+  },
+  "heldout-app-revenue-plan-02": {
+    "source_id": "APP",
+    "identity": {
+      "metric": "Tổng doanh thu",
+      "years": [
+        "2026"
+      ],
+      "role": "plan",
+      "scope": "reporting_company",
+      "time_semantics": "fact_year"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 234,
+        "page": 8,
+        "text": "3. Kế hoạch kinh doanh năm 2026",
+        "line_sha256": "bb893c121ec5770fb96353ec8e8452b80434a5a43adc3051b221b184d3e06a3b"
+      },
+      {
+        "line_number": 254,
+        "page": 9,
+        "text": "STT | Chi tiêu | Kế hoạch năm 2026",
+        "line_sha256": "babca26eeeb6f7f46477ccf6c5736212bb518d3e6f1ff6e5579f856da3217556"
+      },
+      {
+        "line_number": 255,
+        "page": 9,
+        "text": "--- | --- | ---",
+        "line_sha256": "d4c408b616de3424fc51f5fcb725383723307413ae71fc907422ccb6ed39b645"
+      },
+      {
+        "line_number": 256,
+        "page": 9,
+        "text": "STT: 1 | Tổng doanh thu | Kế hoạch năm 2026: 600.000.000.000",
+        "line_sha256": "4ef74d196c13a5c0e6f301a44aa059cc4ba1f06c07151bdccd1083d4e9ed2fb1"
+      },
+      {
+        "line_number": 273,
+        "page": 9,
+        "text": "3. Kế hoạch, định hướng của Hội đồng quản trị:",
+        "line_sha256": "c3f0248aa4d2e2b9b6bc7ebdc8948a821384cd53a95d27bd2a5b7bc2a2e63d92"
+      },
+      {
+        "line_number": 284,
+        "page": 10,
+        "text": "Đơn vị tính: đồng",
+        "line_sha256": "0b3d4c52483b52b3f882f393082a0df315abdb81c72703b1325b60c38230b1fc"
+      },
+      {
+        "line_number": 285,
+        "page": 10,
+        "text": "TT | Chỉ tiêu | Thực hiện năm 2025 | Kế hoạch năm 2026",
+        "line_sha256": "751104966a389218f3dd19c0f5fea1f0055a726ed3a756e6b57f1a0b3ff6fa94"
+      },
+      {
+        "line_number": 287,
+        "page": 10,
+        "text": "+ | Tổng doanh thu | Thực hiện năm 2025: 371.761.736.221 | Kế hoạch năm 2026: 600.000.000.000",
+        "line_sha256": "74ca5527727eb69a68884e1b931f5cc6fa5bf2f9b52468b3b4537b9b1e47a8fe"
+      }
+    ],
+    "basis": "Read complete MinerU source and local governing context before heldout inference; source references are independent of runtime verdicts."
+  },
+  "heldout-app-finance-difference-01": {
+    "source_id": "APP",
+    "identity": {
+      "metric": "Chi phí tài chính",
+      "years": [
+        "2025",
+        "2024"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "time_semantics": "fact_year",
+      "metric_labels": [
+        "Chi phí tài chính",
+        "7. Chi phí tài chính"
+      ]
+    },
+    "source_witnesses": [
+      {
+        "line_number": 12,
+        "page": 1,
+        "text": "BÁO CÁO THƯỜNG NIÊN NĂM 2025 CÔNG TY CỔ PHẦN PHÁT TRIỂN PHỤ GIA VÀ SẢN PHẨM DẦU MỞ",
+        "line_sha256": "2fbf28c206cdb329a3e66b3cf8e5685522479edc7259080dd727ea103288c1c4"
+      },
+      {
+        "line_number": 54,
+        "page": 3,
+        "text": "Kết quả hoạt động sản xuất kinh doanh năm 2025",
+        "line_sha256": "9092066f7bf78b60151dcdb15bbdaaf67617fabdb5c6236203ec4a93faeeeddc"
+      },
+      {
+        "line_number": 79,
+        "page": 4,
+        "text": "3. Tình hình tài chính:",
+        "line_sha256": "e5f364052503b94a74b0863c7a020ea7b506d6bd69b2c1fa1b262705f5b7baf7"
+      },
+      {
+        "line_number": 80,
+        "page": 4,
+        "text": "a. Tình hình tài chính",
+        "line_sha256": "7fb1a15ca628612515320eeb69a560ff2f13f44b4fdc62510d6c35604d196c20"
+      },
+      {
+        "line_number": 81,
+        "page": 4,
+        "text": "CHỈ TIÊU | Mã số | Thuyết minh | Năm nay VND | Năm trước VND",
+        "line_sha256": "66ba3676bc175d4b6a734595e04e9f776697e3534b6135cbf3945780fc2447e3"
+      },
+      {
+        "line_number": 82,
+        "page": 4,
+        "text": "--- | --- | --- | --- | ---",
+        "line_sha256": "7c7e670977abd630339f95cfcc1cab8c7562ec43532d355ec8eb29074b6573da"
+      },
+      {
+        "line_number": 89,
+        "page": 4,
+        "text": "7. Chi phí tài chính | Mã số: 22 | Thuyết minh: 6.5 | Năm nay VND: 2.582.615.149 | Năm trước VND: 1.709.622.636",
+        "line_sha256": "ed847da792667aee68a33e961a2c10a98def67887f78ae2b1e7dd659ffb46823"
+      }
+    ],
+    "basis": "Read complete MinerU source and local governing context before heldout inference; source references are independent of runtime verdicts."
+  },
+  "heldout-app-finance-difference-02": {
+    "source_id": "APP",
+    "identity": {
+      "metric": "Chi phí tài chính",
+      "years": [
+        "2025",
+        "2024"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "time_semantics": "fact_year",
+      "metric_labels": [
+        "Chi phí tài chính",
+        "7. Chi phí tài chính"
+      ]
+    },
+    "source_witnesses": [
+      {
+        "line_number": 12,
+        "page": 1,
+        "text": "BÁO CÁO THƯỜNG NIÊN NĂM 2025 CÔNG TY CỔ PHẦN PHÁT TRIỂN PHỤ GIA VÀ SẢN PHẨM DẦU MỞ",
+        "line_sha256": "2fbf28c206cdb329a3e66b3cf8e5685522479edc7259080dd727ea103288c1c4"
+      },
+      {
+        "line_number": 54,
+        "page": 3,
+        "text": "Kết quả hoạt động sản xuất kinh doanh năm 2025",
+        "line_sha256": "9092066f7bf78b60151dcdb15bbdaaf67617fabdb5c6236203ec4a93faeeeddc"
+      },
+      {
+        "line_number": 79,
+        "page": 4,
+        "text": "3. Tình hình tài chính:",
+        "line_sha256": "e5f364052503b94a74b0863c7a020ea7b506d6bd69b2c1fa1b262705f5b7baf7"
+      },
+      {
+        "line_number": 80,
+        "page": 4,
+        "text": "a. Tình hình tài chính",
+        "line_sha256": "7fb1a15ca628612515320eeb69a560ff2f13f44b4fdc62510d6c35604d196c20"
+      },
+      {
+        "line_number": 81,
+        "page": 4,
+        "text": "CHỈ TIÊU | Mã số | Thuyết minh | Năm nay VND | Năm trước VND",
+        "line_sha256": "66ba3676bc175d4b6a734595e04e9f776697e3534b6135cbf3945780fc2447e3"
+      },
+      {
+        "line_number": 82,
+        "page": 4,
+        "text": "--- | --- | --- | --- | ---",
+        "line_sha256": "7c7e670977abd630339f95cfcc1cab8c7562ec43532d355ec8eb29074b6573da"
+      },
+      {
+        "line_number": 89,
+        "page": 4,
+        "text": "7. Chi phí tài chính | Mã số: 22 | Thuyết minh: 6.5 | Năm nay VND: 2.582.615.149 | Năm trước VND: 1.709.622.636",
+        "line_sha256": "ed847da792667aee68a33e961a2c10a98def67887f78ae2b1e7dd659ffb46823"
+      }
+    ],
+    "basis": "Read complete MinerU source and local governing context before heldout inference; source references are independent of runtime verdicts."
+  },
+  "heldout-bhh-charter-01": {
+    "source_id": "BHH",
+    "identity": {
+      "metric": "Vốn điều lệ",
+      "years": [],
+      "role": "not_applicable",
+      "scope": "reporting_company",
+      "time_semantics": "undated_profile_fact"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 13,
+        "page": 1,
+        "text": "BÁO CÁO THƯỜNG NIÊN NĂM 2024",
+        "line_sha256": "e77ca16c27470e2793554baa78ca8b10aefa159070ca057fdabcb6a3a3a0e66b"
+      },
+      {
+        "line_number": 16,
+        "page": 1,
+        "text": "I. Thông tin chung:",
+        "line_sha256": "a5ab5bcde37769e6fc6f75da60761381b8c231d86efc28615b71f07f0963b028"
+      },
+      {
+        "line_number": 17,
+        "page": 1,
+        "text": "1. Thông tin khái quát",
+        "line_sha256": "a36ba8863c9d1a8613a24344f39db572143df8ed3051c07158183623ac015158"
+      },
+      {
+        "line_number": 18,
+        "page": 1,
+        "text": "\\- Tên giao dịch: Công ty Cổ phần Thương mại Bia Hà Nội – Hưng Yên 89",
+        "line_sha256": "caa8c62b851038df9ec8bd54ae9c8408365e9fc13886eddab03d34afef82bb10"
+      },
+      {
+        "line_number": 20,
+        "page": 1,
+        "text": "\\- Vốn điều lệ: 60.000.000.000 đồng",
+        "line_sha256": "bd4c1abcd0d431464050356704e9aeb02667cc1c149fa34e3e53ad3d7e46bac1"
+      }
+    ],
+    "basis": "Read complete MinerU source and local governing context before heldout inference; source references are independent of runtime verdicts."
+  },
+  "heldout-bhh-charter-02": {
+    "source_id": "BHH",
+    "identity": {
+      "metric": "Vốn điều lệ",
+      "years": [],
+      "role": "not_applicable",
+      "scope": "reporting_company",
+      "time_semantics": "undated_profile_fact"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 13,
+        "page": 1,
+        "text": "BÁO CÁO THƯỜNG NIÊN NĂM 2024",
+        "line_sha256": "e77ca16c27470e2793554baa78ca8b10aefa159070ca057fdabcb6a3a3a0e66b"
+      },
+      {
+        "line_number": 16,
+        "page": 1,
+        "text": "I. Thông tin chung:",
+        "line_sha256": "a5ab5bcde37769e6fc6f75da60761381b8c231d86efc28615b71f07f0963b028"
+      },
+      {
+        "line_number": 17,
+        "page": 1,
+        "text": "1. Thông tin khái quát",
+        "line_sha256": "a36ba8863c9d1a8613a24344f39db572143df8ed3051c07158183623ac015158"
+      },
+      {
+        "line_number": 18,
+        "page": 1,
+        "text": "\\- Tên giao dịch: Công ty Cổ phần Thương mại Bia Hà Nội – Hưng Yên 89",
+        "line_sha256": "caa8c62b851038df9ec8bd54ae9c8408365e9fc13886eddab03d34afef82bb10"
+      },
+      {
+        "line_number": 20,
+        "page": 1,
+        "text": "\\- Vốn điều lệ: 60.000.000.000 đồng",
+        "line_sha256": "bd4c1abcd0d431464050356704e9aeb02667cc1c149fa34e3e53ad3d7e46bac1"
+      }
+    ],
+    "basis": "Read complete MinerU source and local governing context before heldout inference; source references are independent of runtime verdicts."
+  },
+  "heldout-bhh-revenue-narrative-01": {
+    "source_id": "BHH",
+    "identity": {
+      "metric": "Doanh thu bán hàng",
+      "years": [
+        "2024"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "time_semantics": "fact_year"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 286,
+        "page": 11,
+        "text": "IV. Đánh giá của Hội đồng quản trị về hoạt động của Công ty",
+        "line_sha256": "dc131846f55e5873c96760d0ed44ef41caec6db8ec70ad2fba3f76a9f7b1bef9"
+      },
+      {
+        "line_number": 287,
+        "page": 11,
+        "text": "1. Đánh giá của Hội đồng quản trị về các mặt hoạt động của Công ty",
+        "line_sha256": "90db1aab38f113ac66737cac505d10002d5ad52100c5fcef0cc233f425e82e06"
+      },
+      {
+        "line_number": 288,
+        "page": 11,
+        "text": "Năm 2024, Công ty đã đạt được những kết quả khả quan dù gặp nhiều biến động của nền kinh tế nói chung. Doanh thu bán hàng đạt 269 tỷ đồng và tăng trưởng 6,4% so với năm 2023. Về cơ bản, các chỉ tiêu của hoạt động sản xuất kinh doanh đều tăng trưởng và đạt kế hoạch mà Đại hội đồng cổ đông đề ra.",
+        "line_sha256": "3161be708387ccac68bce295a156056f3d1d55f3fbf3f12bdbf658c346b0146b"
+      }
+    ],
+    "basis": "Read complete MinerU source and local governing context before heldout inference; source references are independent of runtime verdicts."
+  },
+  "heldout-bhh-revenue-narrative-02": {
+    "source_id": "BHH",
+    "identity": {
+      "metric": "Doanh thu bán hàng",
+      "years": [
+        "2024"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "time_semantics": "fact_year"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 286,
+        "page": 11,
+        "text": "IV. Đánh giá của Hội đồng quản trị về hoạt động của Công ty",
+        "line_sha256": "dc131846f55e5873c96760d0ed44ef41caec6db8ec70ad2fba3f76a9f7b1bef9"
+      },
+      {
+        "line_number": 287,
+        "page": 11,
+        "text": "1. Đánh giá của Hội đồng quản trị về các mặt hoạt động của Công ty",
+        "line_sha256": "90db1aab38f113ac66737cac505d10002d5ad52100c5fcef0cc233f425e82e06"
+      },
+      {
+        "line_number": 288,
+        "page": 11,
+        "text": "Năm 2024, Công ty đã đạt được những kết quả khả quan dù gặp nhiều biến động của nền kinh tế nói chung. Doanh thu bán hàng đạt 269 tỷ đồng và tăng trưởng 6,4% so với năm 2023. Về cơ bản, các chỉ tiêu của hoạt động sản xuất kinh doanh đều tăng trưởng và đạt kế hoạch mà Đại hội đồng cổ đông đề ra.",
+        "line_sha256": "3161be708387ccac68bce295a156056f3d1d55f3fbf3f12bdbf658c346b0146b"
+      }
+    ],
+    "basis": "Read complete MinerU source and local governing context before heldout inference; source references are independent of runtime verdicts."
+  },
+  "heldout-bhh-pbt-plan-01": {
+    "source_id": "BHH",
+    "identity": {
+      "metric": "Lợi nhuận trước thuế",
+      "years": [
+        "2024"
+      ],
+      "role": "plan",
+      "scope": "reporting_company",
+      "time_semantics": "fact_year",
+      "metric_labels": [
+        "Lợi nhuận trước thuế",
+        "Tổng lợi nhuận trước thuế"
+      ]
+    },
+    "source_witnesses": [
+      {
+        "line_number": 98,
+        "page": 4,
+        "text": "\\- Tình hình thực hiện so với kế hoạch:",
+        "line_sha256": "cdaaa1acfc0665e9c30b27b0a4e31a142c4220321706c5a667e92799d8500621"
+      },
+      {
+        "line_number": 99,
+        "page": 4,
+        "text": "Chỉ tiêu | Năm 2024(ĐVT: Triệu đồng) | Kế hoạch 2024(ĐVT: Triệu đồng) | Tăng/Giảm(ĐVT: Triệu đồng) | So sánh tỷ lệ %",
+        "line_sha256": "9a33cc2848fb82963b159e6ebdb1cc36675cb1208cb7e8c6ebb293217afdd48a"
+      },
+      {
+        "line_number": 102,
+        "page": 4,
+        "text": "Lợi nhuận trước thuế | Năm 2024(ĐVT: Triệu đồng): 6.010 | Kế hoạch 2024(ĐVT: Triệu đồng): 6.277 | (267) | 95,7",
+        "line_sha256": "ffff3732db3f66743b148e76ce548ad8166b09abc931cffc8167453ef8e6eb66"
+      },
+      {
+        "line_number": 209,
+        "page": 8,
+        "text": "III. Báo cáo và đánh giá của Ban Giám đốc",
+        "line_sha256": "13208f784920bec9ff482e027786806b021d94a3e385b0fa8f98efe863d15a78"
+      },
+      {
+        "line_number": 210,
+        "page": 8,
+        "text": "1. Đánh giá kết quả hoạt động sản xuất kinh doanh",
+        "line_sha256": "e3fad0320de581449b4ffad2d790564e93345f251dbf94fb5bec69f541ad8b39"
+      },
+      {
+        "line_number": 211,
+        "page": 8,
+        "text": "\\- Kết quả hoạt động sản xuất kinh doanh năm 2024",
+        "line_sha256": "8f95d744f5f24ad897956119fcc1b79059c89f289d0b20af784a2b871b362160"
+      },
+      {
+        "line_number": 213,
+        "page": 8,
+        "text": "TT | Chỉ tiêu | ĐVT | KH năm 2024 | TH năm 2024 | %TH 2024/ KH 2024",
+        "line_sha256": "10826d4ae77b6dd1ad25295ca429e1389afade153e41dd8b416c5be6bfa4cd84"
+      },
+      {
+        "line_number": 216,
+        "page": 8,
+        "text": "2 | Tổng lợi nhuận trước thuế | Triệu đồng | KH năm 2024: 6.277 | TH năm 2024: 6.010 | 95,7",
+        "line_sha256": "14a573bd4e473558297c31aded8c27a60aad74c9f1cf82a3b1f90ecef61035f1"
+      }
+    ],
+    "basis": "Read complete MinerU source and local governing context before heldout inference; source references are independent of runtime verdicts."
+  },
+  "heldout-bhh-pbt-plan-02": {
+    "source_id": "BHH",
+    "identity": {
+      "metric": "Lợi nhuận trước thuế",
+      "years": [
+        "2024"
+      ],
+      "role": "plan",
+      "scope": "reporting_company",
+      "time_semantics": "fact_year",
+      "metric_labels": [
+        "Lợi nhuận trước thuế",
+        "Tổng lợi nhuận trước thuế"
+      ]
+    },
+    "source_witnesses": [
+      {
+        "line_number": 98,
+        "page": 4,
+        "text": "\\- Tình hình thực hiện so với kế hoạch:",
+        "line_sha256": "cdaaa1acfc0665e9c30b27b0a4e31a142c4220321706c5a667e92799d8500621"
+      },
+      {
+        "line_number": 99,
+        "page": 4,
+        "text": "Chỉ tiêu | Năm 2024(ĐVT: Triệu đồng) | Kế hoạch 2024(ĐVT: Triệu đồng) | Tăng/Giảm(ĐVT: Triệu đồng) | So sánh tỷ lệ %",
+        "line_sha256": "9a33cc2848fb82963b159e6ebdb1cc36675cb1208cb7e8c6ebb293217afdd48a"
+      },
+      {
+        "line_number": 102,
+        "page": 4,
+        "text": "Lợi nhuận trước thuế | Năm 2024(ĐVT: Triệu đồng): 6.010 | Kế hoạch 2024(ĐVT: Triệu đồng): 6.277 | (267) | 95,7",
+        "line_sha256": "ffff3732db3f66743b148e76ce548ad8166b09abc931cffc8167453ef8e6eb66"
+      },
+      {
+        "line_number": 209,
+        "page": 8,
+        "text": "III. Báo cáo và đánh giá của Ban Giám đốc",
+        "line_sha256": "13208f784920bec9ff482e027786806b021d94a3e385b0fa8f98efe863d15a78"
+      },
+      {
+        "line_number": 210,
+        "page": 8,
+        "text": "1. Đánh giá kết quả hoạt động sản xuất kinh doanh",
+        "line_sha256": "e3fad0320de581449b4ffad2d790564e93345f251dbf94fb5bec69f541ad8b39"
+      },
+      {
+        "line_number": 211,
+        "page": 8,
+        "text": "\\- Kết quả hoạt động sản xuất kinh doanh năm 2024",
+        "line_sha256": "8f95d744f5f24ad897956119fcc1b79059c89f289d0b20af784a2b871b362160"
+      },
+      {
+        "line_number": 213,
+        "page": 8,
+        "text": "TT | Chỉ tiêu | ĐVT | KH năm 2024 | TH năm 2024 | %TH 2024/ KH 2024",
+        "line_sha256": "10826d4ae77b6dd1ad25295ca429e1389afade153e41dd8b416c5be6bfa4cd84"
+      },
+      {
+        "line_number": 216,
+        "page": 8,
+        "text": "2 | Tổng lợi nhuận trước thuế | Triệu đồng | KH năm 2024: 6.277 | TH năm 2024: 6.010 | 95,7",
+        "line_sha256": "14a573bd4e473558297c31aded8c27a60aad74c9f1cf82a3b1f90ecef61035f1"
+      }
+    ],
+    "basis": "Read complete MinerU source and local governing context before heldout inference; source references are independent of runtime verdicts."
+  },
+  "heldout-bhh-pat-difference-01": {
+    "source_id": "BHH",
+    "identity": {
+      "metric": "Lợi nhuận sau thuế",
+      "years": [
+        "2024",
+        "2023"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "time_semantics": "fact_year"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 92,
+        "page": 4,
+        "text": "- Kết quả hoạt động sản xuất kinh doanh năm 2024:",
+        "line_sha256": "da6abfcaf2c2e0784c6f0d1091a02fefcde4cda411a57fff76d0ad720ba5626d"
+      },
+      {
+        "line_number": 93,
+        "page": 4,
+        "text": "Chỉ tiêu | Năm 2024(ĐVT: Triệu đồng) | Năm 2023(ĐVT: Triệu đồng) | Tăng/Giảm(ĐVT: Triệu đồng) | So sánh tỷ lệ %",
+        "line_sha256": "45505caf896701bc226f237d908b269e1e8098ac2fc04b4317f393a78d32306c"
+      },
+      {
+        "line_number": 97,
+        "page": 4,
+        "text": "Lợi nhuận sau thuế | Năm 2024(ĐVT: Triệu đồng): 4.669 | Năm 2023(ĐVT: Triệu đồng): 4.068 | 601 | 114,8",
+        "line_sha256": "387b34748afa04559ece9e212aa2bcbd616a5f72a0e2b031549bb2305e79a837"
+      },
+      {
+        "line_number": 131,
+        "page": 5,
+        "text": "4. Tình hình tài chính",
+        "line_sha256": "8955b32b9a0dbc27795c1487203706f371572101190be4bae6822b4def2cedb3"
+      },
+      {
+        "line_number": 132,
+        "page": 5,
+        "text": "Chỉ tiêu | Năm 2024(ĐVT: Triệu đồng) | Năm 2023(ĐVT: Triệu đồng) | (%) năm 2024với năm 2023",
+        "line_sha256": "d09688f56ce775e1e8d0ae3f95b864107532dbf483df8d9c40921e77e597d0c2"
+      },
+      {
+        "line_number": 139,
+        "page": 5,
+        "text": "Lợi nhuận sau thuế | Năm 2024(ĐVT: Triệu đồng): 4.669 | Năm 2023(ĐVT: Triệu đồng): 4.068 | (%) năm 2024với năm 2023: 114,8",
+        "line_sha256": "1a1506297c8ea4eedf8cc46a7a07af053564d836127ebd7560dead6713e6a4e1"
+      }
+    ],
+    "basis": "Read complete MinerU source and local governing context before heldout inference; source references are independent of runtime verdicts."
+  },
+  "heldout-bhh-pat-difference-02": {
+    "source_id": "BHH",
+    "identity": {
+      "metric": "Lợi nhuận sau thuế",
+      "years": [
+        "2024",
+        "2023"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "time_semantics": "fact_year"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 92,
+        "page": 4,
+        "text": "- Kết quả hoạt động sản xuất kinh doanh năm 2024:",
+        "line_sha256": "da6abfcaf2c2e0784c6f0d1091a02fefcde4cda411a57fff76d0ad720ba5626d"
+      },
+      {
+        "line_number": 93,
+        "page": 4,
+        "text": "Chỉ tiêu | Năm 2024(ĐVT: Triệu đồng) | Năm 2023(ĐVT: Triệu đồng) | Tăng/Giảm(ĐVT: Triệu đồng) | So sánh tỷ lệ %",
+        "line_sha256": "45505caf896701bc226f237d908b269e1e8098ac2fc04b4317f393a78d32306c"
+      },
+      {
+        "line_number": 97,
+        "page": 4,
+        "text": "Lợi nhuận sau thuế | Năm 2024(ĐVT: Triệu đồng): 4.669 | Năm 2023(ĐVT: Triệu đồng): 4.068 | 601 | 114,8",
+        "line_sha256": "387b34748afa04559ece9e212aa2bcbd616a5f72a0e2b031549bb2305e79a837"
+      },
+      {
+        "line_number": 131,
+        "page": 5,
+        "text": "4. Tình hình tài chính",
+        "line_sha256": "8955b32b9a0dbc27795c1487203706f371572101190be4bae6822b4def2cedb3"
+      },
+      {
+        "line_number": 132,
+        "page": 5,
+        "text": "Chỉ tiêu | Năm 2024(ĐVT: Triệu đồng) | Năm 2023(ĐVT: Triệu đồng) | (%) năm 2024với năm 2023",
+        "line_sha256": "d09688f56ce775e1e8d0ae3f95b864107532dbf483df8d9c40921e77e597d0c2"
+      },
+      {
+        "line_number": 139,
+        "page": 5,
+        "text": "Lợi nhuận sau thuế | Năm 2024(ĐVT: Triệu đồng): 4.669 | Năm 2023(ĐVT: Triệu đồng): 4.068 | (%) năm 2024với năm 2023: 114,8",
+        "line_sha256": "1a1506297c8ea4eedf8cc46a7a07af053564d836127ebd7560dead6713e6a4e1"
+      }
+    ],
+    "basis": "Read complete MinerU source and local governing context before heldout inference; source references are independent of runtime verdicts."
+  },
+  "heldout-bhk-charter-01": {
+    "source_id": "BHK",
+    "identity": {
+      "metric": "Vốn điều lệ",
+      "years": [],
+      "role": "not_applicable",
+      "scope": "reporting_company",
+      "time_semantics": "undated_profile_fact"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 8,
+        "page": 1,
+        "text": "BÁO CÁO THƯỜNG NIÊN NĂM 2024",
+        "line_sha256": "e77ca16c27470e2793554baa78ca8b10aefa159070ca057fdabcb6a3a3a0e66b"
+      },
+      {
+        "line_number": 11,
+        "page": 1,
+        "text": "I. Thông tin chung",
+        "line_sha256": "48731f000d32f4129f00fcdff1150f1e4edb1b2bad6ad4323db9813590a9d02a"
+      },
+      {
+        "line_number": 12,
+        "page": 1,
+        "text": "1. Thông tin khái quát",
+        "line_sha256": "a36ba8863c9d1a8613a24344f39db572143df8ed3051c07158183623ac015158"
+      },
+      {
+        "line_number": 13,
+        "page": 1,
+        "text": "\\- Tên giao dịch: Công ty cổ phần Bia Hà Nội- Kim Bài",
+        "line_sha256": "89b3eda131661399a2232931f073a3d454f639a00dfe2e417b3488169b1b718d"
+      },
+      {
+        "line_number": 15,
+        "page": 1,
+        "text": "\\- Vốn điều lệ: 39 860 000 000 đồng",
+        "line_sha256": "6a5caca091946493ecc333cb990985a1e8ac5dd5755e1a3f0270a8a4a7b47694"
+      },
+      {
+        "line_number": 25,
+        "page": 1,
+        "text": "\\- Hiện tại vốn điều lệ của Công ty là 39,86 tỷ.",
+        "line_sha256": "645614ff16ed8a024a293d58c9150262defd4542b57a6222a06543b46b620df5"
+      }
+    ],
+    "basis": "Read complete MinerU source and local governing context before heldout inference; source references are independent of runtime verdicts."
+  },
+  "heldout-bhk-charter-02": {
+    "source_id": "BHK",
+    "identity": {
+      "metric": "Vốn điều lệ",
+      "years": [],
+      "role": "not_applicable",
+      "scope": "reporting_company",
+      "time_semantics": "undated_profile_fact"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 8,
+        "page": 1,
+        "text": "BÁO CÁO THƯỜNG NIÊN NĂM 2024",
+        "line_sha256": "e77ca16c27470e2793554baa78ca8b10aefa159070ca057fdabcb6a3a3a0e66b"
+      },
+      {
+        "line_number": 11,
+        "page": 1,
+        "text": "I. Thông tin chung",
+        "line_sha256": "48731f000d32f4129f00fcdff1150f1e4edb1b2bad6ad4323db9813590a9d02a"
+      },
+      {
+        "line_number": 12,
+        "page": 1,
+        "text": "1. Thông tin khái quát",
+        "line_sha256": "a36ba8863c9d1a8613a24344f39db572143df8ed3051c07158183623ac015158"
+      },
+      {
+        "line_number": 13,
+        "page": 1,
+        "text": "\\- Tên giao dịch: Công ty cổ phần Bia Hà Nội- Kim Bài",
+        "line_sha256": "89b3eda131661399a2232931f073a3d454f639a00dfe2e417b3488169b1b718d"
+      },
+      {
+        "line_number": 15,
+        "page": 1,
+        "text": "\\- Vốn điều lệ: 39 860 000 000 đồng",
+        "line_sha256": "6a5caca091946493ecc333cb990985a1e8ac5dd5755e1a3f0270a8a4a7b47694"
+      },
+      {
+        "line_number": 25,
+        "page": 1,
+        "text": "\\- Hiện tại vốn điều lệ của Công ty là 39,86 tỷ.",
+        "line_sha256": "645614ff16ed8a024a293d58c9150262defd4542b57a6222a06543b46b620df5"
+      }
+    ],
+    "basis": "Read complete MinerU source and local governing context before heldout inference; source references are independent of runtime verdicts."
+  },
+  "heldout-bhk-capital-history-01": {
+    "source_id": "BHK",
+    "identity": {
+      "metric": "Vốn điều lệ",
+      "years": [
+        "2008"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "time_semantics": "fact_year"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 22,
+        "page": 1,
+        "text": "Quá trình hình thành và phát triển:",
+        "line_sha256": "bd9650e62e4f6450e17d9d5b5adfdec7130f176bf8acef37295104484eb33767"
+      },
+      {
+        "line_number": 23,
+        "page": 1,
+        "text": "\\- Năm 2005, Công ty chế biến kinh doanh lương thực và thực phẩm Hà Tây thực hiện cổ phần hóa doanh nghiệp nhà nước, bán toàn bộ vốn Nhà nước cho cán bộ công nhân viên trong Công ty và đổi tên thành Công ty Cổ phần Bia Kim Bài.",
+        "line_sha256": "a59b7dbc5cb6e2fc7e5d74b8a5b38497857e7882944b31e7335b7850eb3311c2"
+      },
+      {
+        "line_number": 24,
+        "page": 1,
+        "text": "\\- Năm 2008 là Công ty liên kết của Tổng Công ty CP Bia- Rượu- NGK Hà Nội, sau khi cơ cấu lại vốn điều lệ từ 8 tỷ lên 13 tỷ và đổi tên thành Công ty cổ phần Bia Hà Nội – Kim Bài. Từ đó đến nay Công ty là đơn vị thành viên của Tổng Công ty cổ phần Bia Rượu Nước giải khát Hà Nội.",
+        "line_sha256": "b1fbaa3e7204f703ef1ae5861b0ee65e9942b0173d560dd001707735c326566a"
+      }
+    ],
+    "basis": "Read complete MinerU source and local governing context before heldout inference; source references are independent of runtime verdicts."
+  },
+  "heldout-bhk-capital-history-02": {
+    "source_id": "BHK",
+    "identity": {
+      "metric": "Vốn điều lệ",
+      "years": [
+        "2008"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "time_semantics": "fact_year"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 22,
+        "page": 1,
+        "text": "Quá trình hình thành và phát triển:",
+        "line_sha256": "bd9650e62e4f6450e17d9d5b5adfdec7130f176bf8acef37295104484eb33767"
+      },
+      {
+        "line_number": 23,
+        "page": 1,
+        "text": "\\- Năm 2005, Công ty chế biến kinh doanh lương thực và thực phẩm Hà Tây thực hiện cổ phần hóa doanh nghiệp nhà nước, bán toàn bộ vốn Nhà nước cho cán bộ công nhân viên trong Công ty và đổi tên thành Công ty Cổ phần Bia Kim Bài.",
+        "line_sha256": "a59b7dbc5cb6e2fc7e5d74b8a5b38497857e7882944b31e7335b7850eb3311c2"
+      },
+      {
+        "line_number": 24,
+        "page": 1,
+        "text": "\\- Năm 2008 là Công ty liên kết của Tổng Công ty CP Bia- Rượu- NGK Hà Nội, sau khi cơ cấu lại vốn điều lệ từ 8 tỷ lên 13 tỷ và đổi tên thành Công ty cổ phần Bia Hà Nội – Kim Bài. Từ đó đến nay Công ty là đơn vị thành viên của Tổng Công ty cổ phần Bia Rượu Nước giải khát Hà Nội.",
+        "line_sha256": "b1fbaa3e7204f703ef1ae5861b0ee65e9942b0173d560dd001707735c326566a"
+      }
+    ],
+    "basis": "Read complete MinerU source and local governing context before heldout inference; source references are independent of runtime verdicts."
+  },
+  "heldout-bhk-pbt-01": {
+    "source_id": "BHK",
+    "identity": {
+      "metric": "Lợi nhuận trước thuế",
+      "years": [
+        "2024"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "time_semantics": "fact_year",
+      "metric_labels": [
+        "Lợi nhuận trước thuế",
+        "Tổng lợi nhuận trước thuế."
+      ]
+    },
+    "source_witnesses": [
+      {
+        "line_number": 81,
+        "page": 4,
+        "text": "- Kết quả hoạt động sản xuất kinh doanh trong năm 2024",
+        "line_sha256": "cfb4c77a6f414a4912adbe6434fde18f109d036850fa8c7c80394c0ccdf3ec23"
+      },
+      {
+        "line_number": 82,
+        "page": 4,
+        "text": "Chỉ tiêu | Năm 2024 | Năm 2023 | Tăng/Giảm | So sánh tỷ lệ %",
+        "line_sha256": "3a196025989674c63464748082acd757868e6fa4c560bb596531de3a949a767e"
+      },
+      {
+        "line_number": 85,
+        "page": 4,
+        "text": "Lợi nhuận trước thuế | Năm 2024: 5.768.708.337 | Năm 2023: 5.023.312.338 | 745.395.999 | 114,8",
+        "line_sha256": "0c0f403c433032204c38d8d786195c05ecfb933a66f9c854ab5b9512a157e99f"
+      },
+      {
+        "line_number": 87,
+        "page": 4,
+        "text": "- Tình hình thực hiện so với kế hoạch",
+        "line_sha256": "21e85c05fb249e3d96535f57402f886995caa49bcab3bf96303d255239dea773"
+      },
+      {
+        "line_number": 88,
+        "page": 4,
+        "text": "Chỉ tiêu | Năm 2024 | Kế hoạch 2024 | Tăng/ Giảm | Tỷ lệ %",
+        "line_sha256": "e8765d6b5d6a594dd530f776eafbca2cec8f087458bcc66f8e5ba643fd12a44e"
+      },
+      {
+        "line_number": 91,
+        "page": 4,
+        "text": "Lợi nhuận trước thuế | Năm 2024: 5.768.708.337 | Kế hoạch 2024: 5.700.000.000 | 68.708.337 | 101,2",
+        "line_sha256": "25b89b5ad2b8c41bfba682bc3741880e478d476d7a46ff1420f245a72e076385"
+      },
+      {
+        "line_number": 118,
+        "page": 5,
+        "text": "4. Tình hình tài chính",
+        "line_sha256": "8955b32b9a0dbc27795c1487203706f371572101190be4bae6822b4def2cedb3"
+      },
+      {
+        "line_number": 119,
+        "page": 5,
+        "text": "Chỉ tiêu | Năm 2024 | Năm 2023 | (%) năm2024 vớinăm 2023",
+        "line_sha256": "985eccfbf394a60c9296e8f084c7db171b737aa15178db1a658fc2bc57c452f7"
+      },
+      {
+        "line_number": 125,
+        "page": 5,
+        "text": "Lợi nhuận trước thuế | Năm 2024: 5.768.708.337 | Năm 2023: 5.023.312.338 | (%) năm2024 vớinăm 2023: 114,8",
+        "line_sha256": "7fe2626bf11fed6263edaf41c87ebc4cf7a14d4750665189cbab726e0c4e8926"
+      },
+      {
+        "line_number": 173,
+        "page": 7,
+        "text": "\\- Trong nhữngtháng đầu năm thời tiết lạnh mưa nhiều, sang tháng 05, 06 thời tiết diễn biến thất thường mưa nhiều vào buổi chiềuđân tới ảnh hưởng đến sản lượng tiêu thụ các sản phẩm của Công ty năm 2024. Dưới sự chỉ đạo của Đắng uỷ, HĐQT, BGD với mục tiêu đặt ra tiết kiệm chi phí, cải tiến chất lượng, thúc đẩy mở rộng thị trường tiêu thụ. Kết quả SXKD của Công ty thực hiện năm 2024 cụ thể như sau:",
+        "line_sha256": "b08fce17d26ba337019b8258730c8d5f199b4c8f0455f6c83dbc0c936d77e73b"
+      },
+      {
+        "line_number": 178,
+        "page": 8,
+        "text": "STT | Chỉ tiêu | ĐVT | KH năm 2024 | TH năm 2024 | % TH 2024/KH 2024",
+        "line_sha256": "fb3630abdc5820bfdcf95c027953d6fe45bf792e299f950ab750348fd149a68d"
+      },
+      {
+        "line_number": 181,
+        "page": 8,
+        "text": "STT: 2 | Tổng lợi nhuận trước thuế. | Đồng | KH năm 2024: 5.700.000.000 | TH năm 2024: 5.768.708.337 | % TH 2024/KH 2024: 101,2",
+        "line_sha256": "8c3ba0b7b1690b6888510cc1e6d4499544d641e24ad9ceb84aee6926c4744b59"
+      }
+    ],
+    "basis": "Read complete MinerU source and local governing context before heldout inference; source references are independent of runtime verdicts."
+  },
+  "heldout-bhk-pbt-02": {
+    "source_id": "BHK",
+    "identity": {
+      "metric": "Lợi nhuận trước thuế",
+      "years": [
+        "2024"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "time_semantics": "fact_year",
+      "metric_labels": [
+        "Lợi nhuận trước thuế",
+        "Tổng lợi nhuận trước thuế."
+      ]
+    },
+    "source_witnesses": [
+      {
+        "line_number": 81,
+        "page": 4,
+        "text": "- Kết quả hoạt động sản xuất kinh doanh trong năm 2024",
+        "line_sha256": "cfb4c77a6f414a4912adbe6434fde18f109d036850fa8c7c80394c0ccdf3ec23"
+      },
+      {
+        "line_number": 82,
+        "page": 4,
+        "text": "Chỉ tiêu | Năm 2024 | Năm 2023 | Tăng/Giảm | So sánh tỷ lệ %",
+        "line_sha256": "3a196025989674c63464748082acd757868e6fa4c560bb596531de3a949a767e"
+      },
+      {
+        "line_number": 85,
+        "page": 4,
+        "text": "Lợi nhuận trước thuế | Năm 2024: 5.768.708.337 | Năm 2023: 5.023.312.338 | 745.395.999 | 114,8",
+        "line_sha256": "0c0f403c433032204c38d8d786195c05ecfb933a66f9c854ab5b9512a157e99f"
+      },
+      {
+        "line_number": 87,
+        "page": 4,
+        "text": "- Tình hình thực hiện so với kế hoạch",
+        "line_sha256": "21e85c05fb249e3d96535f57402f886995caa49bcab3bf96303d255239dea773"
+      },
+      {
+        "line_number": 88,
+        "page": 4,
+        "text": "Chỉ tiêu | Năm 2024 | Kế hoạch 2024 | Tăng/ Giảm | Tỷ lệ %",
+        "line_sha256": "e8765d6b5d6a594dd530f776eafbca2cec8f087458bcc66f8e5ba643fd12a44e"
+      },
+      {
+        "line_number": 91,
+        "page": 4,
+        "text": "Lợi nhuận trước thuế | Năm 2024: 5.768.708.337 | Kế hoạch 2024: 5.700.000.000 | 68.708.337 | 101,2",
+        "line_sha256": "25b89b5ad2b8c41bfba682bc3741880e478d476d7a46ff1420f245a72e076385"
+      },
+      {
+        "line_number": 118,
+        "page": 5,
+        "text": "4. Tình hình tài chính",
+        "line_sha256": "8955b32b9a0dbc27795c1487203706f371572101190be4bae6822b4def2cedb3"
+      },
+      {
+        "line_number": 119,
+        "page": 5,
+        "text": "Chỉ tiêu | Năm 2024 | Năm 2023 | (%) năm2024 vớinăm 2023",
+        "line_sha256": "985eccfbf394a60c9296e8f084c7db171b737aa15178db1a658fc2bc57c452f7"
+      },
+      {
+        "line_number": 125,
+        "page": 5,
+        "text": "Lợi nhuận trước thuế | Năm 2024: 5.768.708.337 | Năm 2023: 5.023.312.338 | (%) năm2024 vớinăm 2023: 114,8",
+        "line_sha256": "7fe2626bf11fed6263edaf41c87ebc4cf7a14d4750665189cbab726e0c4e8926"
+      },
+      {
+        "line_number": 173,
+        "page": 7,
+        "text": "\\- Trong nhữngtháng đầu năm thời tiết lạnh mưa nhiều, sang tháng 05, 06 thời tiết diễn biến thất thường mưa nhiều vào buổi chiềuđân tới ảnh hưởng đến sản lượng tiêu thụ các sản phẩm của Công ty năm 2024. Dưới sự chỉ đạo của Đắng uỷ, HĐQT, BGD với mục tiêu đặt ra tiết kiệm chi phí, cải tiến chất lượng, thúc đẩy mở rộng thị trường tiêu thụ. Kết quả SXKD của Công ty thực hiện năm 2024 cụ thể như sau:",
+        "line_sha256": "b08fce17d26ba337019b8258730c8d5f199b4c8f0455f6c83dbc0c936d77e73b"
+      },
+      {
+        "line_number": 178,
+        "page": 8,
+        "text": "STT | Chỉ tiêu | ĐVT | KH năm 2024 | TH năm 2024 | % TH 2024/KH 2024",
+        "line_sha256": "fb3630abdc5820bfdcf95c027953d6fe45bf792e299f950ab750348fd149a68d"
+      },
+      {
+        "line_number": 181,
+        "page": 8,
+        "text": "STT: 2 | Tổng lợi nhuận trước thuế. | Đồng | KH năm 2024: 5.700.000.000 | TH năm 2024: 5.768.708.337 | % TH 2024/KH 2024: 101,2",
+        "line_sha256": "8c3ba0b7b1690b6888510cc1e6d4499544d641e24ad9ceb84aee6926c4744b59"
+      }
+    ],
+    "basis": "Read complete MinerU source and local governing context before heldout inference; source references are independent of runtime verdicts."
+  },
+  "heldout-bhk-pbt-difference-01": {
+    "source_id": "BHK",
+    "identity": {
+      "metric": "Lợi nhuận trước thuế",
+      "years": [
+        "2024",
+        "2023"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "time_semantics": "fact_year"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 81,
+        "page": 4,
+        "text": "- Kết quả hoạt động sản xuất kinh doanh trong năm 2024",
+        "line_sha256": "cfb4c77a6f414a4912adbe6434fde18f109d036850fa8c7c80394c0ccdf3ec23"
+      },
+      {
+        "line_number": 82,
+        "page": 4,
+        "text": "Chỉ tiêu | Năm 2024 | Năm 2023 | Tăng/Giảm | So sánh tỷ lệ %",
+        "line_sha256": "3a196025989674c63464748082acd757868e6fa4c560bb596531de3a949a767e"
+      },
+      {
+        "line_number": 85,
+        "page": 4,
+        "text": "Lợi nhuận trước thuế | Năm 2024: 5.768.708.337 | Năm 2023: 5.023.312.338 | 745.395.999 | 114,8",
+        "line_sha256": "0c0f403c433032204c38d8d786195c05ecfb933a66f9c854ab5b9512a157e99f"
+      },
+      {
+        "line_number": 118,
+        "page": 5,
+        "text": "4. Tình hình tài chính",
+        "line_sha256": "8955b32b9a0dbc27795c1487203706f371572101190be4bae6822b4def2cedb3"
+      },
+      {
+        "line_number": 119,
+        "page": 5,
+        "text": "Chỉ tiêu | Năm 2024 | Năm 2023 | (%) năm2024 vớinăm 2023",
+        "line_sha256": "985eccfbf394a60c9296e8f084c7db171b737aa15178db1a658fc2bc57c452f7"
+      },
+      {
+        "line_number": 125,
+        "page": 5,
+        "text": "Lợi nhuận trước thuế | Năm 2024: 5.768.708.337 | Năm 2023: 5.023.312.338 | (%) năm2024 vớinăm 2023: 114,8",
+        "line_sha256": "7fe2626bf11fed6263edaf41c87ebc4cf7a14d4750665189cbab726e0c4e8926"
+      }
+    ],
+    "basis": "Read complete MinerU source and local governing context before heldout inference; source references are independent of runtime verdicts."
+  },
+  "heldout-bhk-pbt-difference-02": {
+    "source_id": "BHK",
+    "identity": {
+      "metric": "Lợi nhuận trước thuế",
+      "years": [
+        "2024",
+        "2023"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "time_semantics": "fact_year"
+    },
+    "source_witnesses": [
+      {
+        "line_number": 81,
+        "page": 4,
+        "text": "- Kết quả hoạt động sản xuất kinh doanh trong năm 2024",
+        "line_sha256": "cfb4c77a6f414a4912adbe6434fde18f109d036850fa8c7c80394c0ccdf3ec23"
+      },
+      {
+        "line_number": 82,
+        "page": 4,
+        "text": "Chỉ tiêu | Năm 2024 | Năm 2023 | Tăng/Giảm | So sánh tỷ lệ %",
+        "line_sha256": "3a196025989674c63464748082acd757868e6fa4c560bb596531de3a949a767e"
+      },
+      {
+        "line_number": 85,
+        "page": 4,
+        "text": "Lợi nhuận trước thuế | Năm 2024: 5.768.708.337 | Năm 2023: 5.023.312.338 | 745.395.999 | 114,8",
+        "line_sha256": "0c0f403c433032204c38d8d786195c05ecfb933a66f9c854ab5b9512a157e99f"
+      },
+      {
+        "line_number": 118,
+        "page": 5,
+        "text": "4. Tình hình tài chính",
+        "line_sha256": "8955b32b9a0dbc27795c1487203706f371572101190be4bae6822b4def2cedb3"
+      },
+      {
+        "line_number": 119,
+        "page": 5,
+        "text": "Chỉ tiêu | Năm 2024 | Năm 2023 | (%) năm2024 vớinăm 2023",
+        "line_sha256": "985eccfbf394a60c9296e8f084c7db171b737aa15178db1a658fc2bc57c452f7"
+      },
+      {
+        "line_number": 125,
+        "page": 5,
+        "text": "Lợi nhuận trước thuế | Năm 2024: 5.768.708.337 | Năm 2023: 5.023.312.338 | (%) năm2024 vớinăm 2023: 114,8",
+        "line_sha256": "7fe2626bf11fed6263edaf41c87ebc4cf7a14d4750665189cbab726e0c4e8926"
+      }
+    ],
+    "basis": "Read complete MinerU source and local governing context before heldout inference; source references are independent of runtime verdicts."
+  }
+}

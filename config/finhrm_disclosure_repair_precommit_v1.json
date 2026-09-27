@@ -1,0 +1,12 @@
+{
+  "parent_protocol": "config/finhrm_policy_candidate_repair_protocol_v1.json",
+  "archive": "archive/disclosure_repair_parent_20260910_v1.zip",
+  "archive_sha256": "1012306923348a224d5281d117ba2cb7b796f88fdef124df93d3c25c904fd10f",
+  "scope": [
+    "mapping diagnosis and bounded duplicate facts",
+    "report year distinct from fact period",
+    "concise verified responses",
+    "replay 14 old cases and practical questions on existing MinerU reports"
+  ],
+  "no_new_ocr": true
+}

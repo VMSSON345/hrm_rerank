@@ -1,0 +1,107 @@
+{
+  "parent_runtime": "config/finhrm_B_default_unit_v2_protocol_v1.json",
+  "policy": "B only; default missing monetary unit VND remains active.",
+  "changes": "Accounting perimeter vs legal entity; descriptor row-code syntax; financial-statement attribution; repeated undated report fields.",
+  "prohibited_runtime_keys": [
+    "company code",
+    "page number",
+    "expected value",
+    "case id"
+  ],
+  "smoke": [
+    "fresh-cms-consolidated",
+    "fresh-cms-separate",
+    "owner-check-hkt-2023",
+    "newsource-hfx-plan",
+    "fresh-pdb-actual",
+    "owner-hav-parent",
+    "newsource-bth-capital",
+    "check-dxg-notice"
+  ],
+  "regression": "Original38 plus the outstanding HKT report-field question; original25 correct must retain values.",
+  "extra": "9 requests on AGP/MGG/PDB:3 positive source facts,3 paraphrases,3 missing-year negatives. Sources already used historically; not training-disjoint or unseen-report evaluation.",
+  "cms_policy_refs": {
+    "fresh-cms-consolidated": {
+      "case_id": "fresh-cms-consolidated",
+      "source_id": "CMS",
+      "question": "Doanh thu thuần hợp nhất năm 2023 là bao nhiêu đồng?",
+      "expected_action": "ANSWER",
+      "expected_canonical": "98101923040",
+      "canonical_unit": "VND",
+      "metric": "doanh thu thuan",
+      "years": [
+        "2023"
+      ],
+      "role": "actual",
+      "scope": "consolidated",
+      "operation": "SELECT",
+      "pdf_pages": [
+        12,
+        13
+      ],
+      "source_pdf": {
+        "path": "pdf/PDF_23/CMS_23CN_BCTN.pdf",
+        "sha256": "b5944cc10f6fe4f003249e81aeb6bb2ba6b01bc7a4f63d1367478652488308eb"
+      },
+      "review_images": [
+        {
+          "path": "tmp/pdfs/B_semantic_format_v1/CMS-12.png",
+          "sha256": "ec7fbf7d5197ab76b9d1804bc61996ceabdf956c2c1c92b3818208508899545f"
+        },
+        {
+          "path": "tmp/pdfs/B_semantic_format_v1/CMS-13.png",
+          "sha256": "aa7f73ed086bfd104abad0e078b4136727cfc0c3f44900f9807381135a4c07cb"
+        }
+      ],
+      "source_literal": "98.101.923.040",
+      "reference_status": "UNIT_NOT_CONFIRMED",
+      "reference_note": "PDF reviewed: consolidated table and audited consolidated footer; no explicit currency unit found on reviewed pages. Canonical gold remains unresolved; excluded from correctness denominator. Evaluation uses the user-authorized VND assumption, not a PDF unit declaration.",
+      "unit_basis": "user_default_vnd",
+      "source_unit_confirmed": false,
+      "source_only_expected_action": "UNRESOLVED"
+    },
+    "fresh-cms-separate": {
+      "case_id": "fresh-cms-separate",
+      "source_id": "CMS",
+      "question": "Doanh thu thuần riêng công ty mẹ năm 2023 là bao nhiêu đồng?",
+      "expected_action": "ANSWER",
+      "expected_canonical": "97312008435",
+      "canonical_unit": "VND",
+      "metric": "doanh thu thuan",
+      "years": [
+        "2023"
+      ],
+      "role": "actual",
+      "scope": "separate",
+      "operation": "SELECT",
+      "pdf_pages": [
+        13,
+        14
+      ],
+      "source_pdf": {
+        "path": "pdf/PDF_23/CMS_23CN_BCTN.pdf",
+        "sha256": "b5944cc10f6fe4f003249e81aeb6bb2ba6b01bc7a4f63d1367478652488308eb"
+      },
+      "review_images": [
+        {
+          "path": "tmp/pdfs/B_semantic_format_v1/CMS-13.png",
+          "sha256": "aa7f73ed086bfd104abad0e078b4136727cfc0c3f44900f9807381135a4c07cb"
+        },
+        {
+          "path": "tmp/pdfs/B_semantic_format_v1/CMS-14.png",
+          "sha256": "3fb6bb4da69566fef2dbd1999071067e0d93edc8ac92be0dfa7c468a17c978e8"
+        }
+      ],
+      "source_literal": "97.312.008.435",
+      "reference_status": "UNIT_NOT_CONFIRMED",
+      "reference_note": "PDF reviewed: separate parent table and separate audited footer; currency unit unconfirmed. Not scored as a correct negative or a model failure. Evaluation uses the user-authorized VND assumption, not a PDF unit declaration.",
+      "unit_basis": "user_default_vnd",
+      "source_unit_confirmed": false,
+      "source_only_expected_action": "UNRESOLVED"
+    }
+  },
+  "source_review": "CMS pages13/14 and HKT pages3/10; only MinerU supplies extracted text. Poppler images verify layout.",
+  "no_ocr": true,
+  "no_training": true,
+  "no_reference_changes_after_inference": true
+}

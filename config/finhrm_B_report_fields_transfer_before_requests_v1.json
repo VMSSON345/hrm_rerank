@@ -1,0 +1,25 @@
+{
+  "schema": "mineru-real-http-requests-v1",
+  "sources": {
+    "BHG": {
+      "path": "data/markdown/scope_unit_v2/BHG_23CN_BCTN--62a6808775bffb52.md",
+      "sha256": "b3c461ce5230b341c8c18cf348efc4745c093cd835fded8bf05a47d7b1da94b0"
+    },
+    "HAV": {
+      "path": "data/markdown/scope_unit_v2/HAV_23CN_BCTN--e57968185e1c63bc.md",
+      "sha256": "fbda07867fa66a850574a03af75b746748f9d6042c28ce085aa2f31fb211d7e4"
+    }
+  },
+  "cases": [
+    {
+      "case_id": "transfer-bhg-owner",
+      "source_id": "BHG",
+      "question": "Vốn đầu tư của chủ sở hữu được nêu trong báo cáo năm 2023 là bao nhiêu đồng?"
+    },
+    {
+      "case_id": "transfer-hav-capital",
+      "source_id": "HAV",
+      "question": "Vốn điều lệ được nêu trong báo cáo năm 2023 là bao nhiêu đồng?"
+    }
+  ]
+}

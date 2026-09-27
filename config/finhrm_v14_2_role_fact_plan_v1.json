@@ -1,0 +1,37 @@
+{
+  "schema": "finhrm-v14.2-role-fact-plan-v1",
+  "baseline_proof": 18,
+  "requests": 64,
+  "outputs": 73,
+  "parent_snapshot": "tmp/finhrm_v14_2_role_fact_parent_v1",
+  "constraints": [
+    "No implicit ACTUAL for a bare year question. Clarify explicit PLAN/ACTUAL competition.",
+    "Repeated disclosures require explicit role, year/period, metric, unit, entity and bounded identical section/scope; distinct tables only. Preserve every physical mapping.",
+    "No rounding tolerance or unknown-role equivalence. No runtime company/value exceptions.",
+    "Same 64 HTTP requests; preserve all 18 proof outputs, correct negative reasons 17/17; each new eligible formerly wrong proposal must be corrected and reviewed.",
+    "No training, calibration, source/gold changes."
+  ],
+  "baseline_oracles": [
+    {
+      "path": "config/finhrm_v14_2_scope_unit_protocol_v3.json",
+      "sha256": "f5c4bd9fa34b68f46775431459aace342bb4d8bcc86d13a7590865e983fb5bd7"
+    },
+    {
+      "path": "reports/finhrm_v14_2_scope_unit_observations_v3.json",
+      "sha256": "99d5630dfbfb85458ce9db46f3307c3b3c57e4d10b2e4d20f68a541c9b802708"
+    },
+    {
+      "path": "reports/finhrm_v14_2_scope_unit_comparison_v3.json",
+      "sha256": "15da1077dcb4d0892976a9bcadc9b66d7ce4d3f88f5eb9187e5b473842b7bab3"
+    },
+    {
+      "path": "reports/finhrm_v14_2_scope_unit_observed_v3.json",
+      "sha256": "21d3a6208fdfcdfb34178dcac1078eaf253a2515ed029948fb954fdf70fed28f"
+    },
+    {
+      "path": "reports/finhrm_v14_2_gate_utility_v1_results.json",
+      "sha256": "b0575f81d22ab5a999c88898749bb83bb4b5ed19946192935863fc8f085acd12"
+    }
+  ],
+  "feasibility": "PASS: full unobserved baseline, source-reviewed proposal records, comparison rows and exact target fields present"
+}

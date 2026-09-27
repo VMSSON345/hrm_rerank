@@ -1,9 +1,0 @@
-BÁO CÁO TÌNH HÌNH TÀI CHÍNH
-Đơn vị tính: triệu đồng
-
-| Chỉ tiêu | Năm 2027 |
-|---|---:|
-| Vay và nợ thuê tài chính dài hạn | 20 |
-| Tổng nguồn vốn | 1.000 |
-| Doanh thu thuần | 7.500 |
-| Vay và nợ thuê tài chính ngắn hạn | 80 |

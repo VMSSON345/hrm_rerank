@@ -12,6 +12,7 @@ class VariableSpec:
     item_ids: tuple[str, ...]
     statement: str | None
     aliases: tuple[str, ...]
+    unit_family: str = "currency"
 
 
 @dataclass(frozen=True)
@@ -269,6 +270,24 @@ FORMULAS: dict[str, FormulaSpec] = {
         "Biến thể gần đúng do CSV không có debt service theo hợp đồng tín dụng.",
     ),
 }
+
+
+def metric_unit_family(value: str) -> str:
+    """Resolve a complete metric identity, never a substring or source value.
+
+    Revenue is money; revenue per employee is a different quantity. Unknown
+    identities intentionally retain source-dependent units.
+    """
+    normalized = normalize_text(value)
+    families = {
+        spec.unit_family for spec in VARIABLES.values()
+        if normalized in {normalize_text(a) for a in (spec.key, spec.label, *spec.aliases)}
+    }
+    families.update(
+        spec.unit for spec in FORMULAS.values()
+        if normalized in {normalize_text(a) for a in (spec.key, spec.label, *spec.aliases)}
+    )
+    return next(iter(families)) if len(families) == 1 else ""
 
 
 def resolve_metric(value: str) -> FormulaSpec | None:

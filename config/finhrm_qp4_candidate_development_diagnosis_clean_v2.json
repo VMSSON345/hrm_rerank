@@ -1,0 +1,365 @@
+{
+  "schema": "finhrm-qp4-candidate-development-diagnosis-precommit-clean-v2",
+  "status": "PASS",
+  "classification": "development_only_authoring_and_static_preflight",
+  "governance": {
+    "head": "ca83acc4e0dfa2e4c0167a9324c2855ec81532b7",
+    "parent": "50df502b002cbeb5769c341c133d4904faf31276",
+    "trust_root": "5da2ff00bf58496a36be7c08d5bbdb1959a9542e",
+    "fresh_clean_rebuild": true,
+    "historical_candidate_binding_artifacts_used": false,
+    "current_candidate_outputs_observed": 0,
+    "candidate_calls_during_precommit": 0,
+    "model_calls_during_precommit": 0,
+    "binding_calls_during_precommit": 0
+  },
+  "denominator": {
+    "path": "reports/finhrm_qp4_candidate_eligible_denominator_clean_v2.json",
+    "commit": "ca83acc4e0dfa2e4c0167a9324c2855ec81532b7",
+    "bytes": 14757,
+    "sha256": "913c735e41c9e08ac8adf8ab4e93613eb3c027364d4ce9918e64d871dd4688ee",
+    "eligible_anchors": 5,
+    "queries_per_anchor": 10,
+    "candidate_query_cases": 50,
+    "base_question_executed": false,
+    "order": "for each eligible anchor in manifest order, seven surface transforms then three counterfactual transforms"
+  },
+  "reviewed_parent": {
+    "path": "reports/finhrm_qp3_core_add_diverse_development_reviewed_cohort_v1.json",
+    "bytes": 20350,
+    "sha256": "f187e5966f47069717cbdc1cdf9fd063ef74d2418a1b5e1850a89bb3cdbca28f",
+    "use": "base questions, source/company/layout provenance, and posthoc expected operand physical signatures only"
+  },
+  "query_expansion_contract": {
+    "source": "scripts/evaluate_qp4_development_baseline.py",
+    "surface_function": "_source_surface lines 229-253",
+    "counterfactual_function": "_source_counterfactual lines 256-263",
+    "period_function": "_source_period_counterfactual lines 209-226",
+    "suffix_function": "_insert_before_suffix lines 168-173",
+    "loop": "run_source_backed lines 576-673",
+    "surface_order": [
+      "SHORT_LONG_EQUIVALENT",
+      "DISCOURSE_PREFIX_SUFFIX",
+      "CLAUSE_PERMUTATION",
+      "PUNCTUATION_VARIANT",
+      "NO_DIACRITICS",
+      "BILINGUAL_PARENTHETICAL",
+      "IRRELEVANT_DISTRACTOR_CLAUSE"
+    ],
+    "counterfactual_order": [
+      "OPERAND_YEAR",
+      "ENTITY_SCOPE",
+      "UNIT_SCALE"
+    ],
+    "mechanical_check": "all 50 position/query_case_id/UTF-8 question SHA-256 triples must exactly equal the committed denominator"
+  },
+  "accounting": {
+    "labels": {
+      "S": "SOURCE_PRECONDITION_FAILURE",
+      "Q": "UPSTREAM_PLAN_MISMATCH",
+      "F": "CURRENT_CANDIDATE_FAILURE",
+      "P": "CURRENT_CANDIDATE_PASS"
+    },
+    "ordered_predicate": [
+      "S iff source/query integrity fails: committed denominator, exact transform hash, original source hash, copied source hash, or fresh phase input precondition fails.",
+      "Q iff not S and the governing question planner raises, is not ADD, abstains, has invalid DAG, changes semantic projection for a surface, or does not change the targeted dimension for a counterfactual.",
+      "F iff not S/Q and the Candidate stage raises, the locked posthoc two-operand physical-support predicate fails, or no distinct perfect assignment exists.",
+      "P otherwise: source/upstream pass and both Candidate support and distinct assignment pass."
+    ],
+    "priority": [
+      "S",
+      "Q",
+      "F",
+      "P"
+    ],
+    "disjoint": true,
+    "exhaustive": true,
+    "equation": "F + P + S + Q = 50",
+    "precommit_counts": {
+      "F": "UNKNOWN",
+      "P": "UNKNOWN",
+      "S": "UNKNOWN",
+      "Q": "UNKNOWN"
+    },
+    "source_or_upstream_never_counted_as_candidate_failure_or_pass": true
+  },
+  "upstream_plan_contract": {
+    "compiler": "src/hrm_finance_qa/question_planner.py:compile_question_plan line 400",
+    "schema": "QuestionPlan lines 67-100",
+    "semantic_projection": "scripts/evaluate_qp4_development_baseline.py:_semantic_projection lines 89-127",
+    "dimension_projection": "scripts/evaluate_qp4_development_baseline.py:_dimension_projection lines 130-165",
+    "surface_rule": "base and transformed semantic projections exactly equal",
+    "counterfactual_rule": "target dimension projection differs",
+    "common_rules": [
+      "base operation ADD",
+      "transformed operation ADD",
+      "no abstention reason",
+      "no program DAG validation errors"
+    ]
+  },
+  "candidate_support_contract": {
+    "gold_usage": "posthoc only after baseline/instrumented Candidate snapshots and exact noninterference comparison; never passed to retrieval/ranking/extraction/merge/augmentation",
+    "expected_arity": 2,
+    "physical_match": [
+      "exact decimal string value",
+      "exact source_name",
+      "exact PDF page",
+      "normalized period equality",
+      "normalized compatible row label",
+      "normalized compatible column label",
+      "exact source_span"
+    ],
+    "support_pass": "each expected operand has at least one physical match in final-before-predict candidates",
+    "assignment_pass": "there exists a distinct-candidate perfect assignment for both expected operands"
+  },
+  "source_contract": {
+    "engine_path": "src/hrm_finance_qa/document_reasoning_engine.py",
+    "files": [
+      {
+        "path": "src/hrm_finance_qa/document_reasoning_engine.py",
+        "sha256": "3883500011472716bc01f8e04a6d6f925173b35a14bbedd945c5ca4fb0063fa2"
+      },
+      {
+        "path": "src/hrm_finance_qa/document_sources.py",
+        "sha256": "e9eb7b3ddcc2ed13060a573a6a0101a216fa49ff21dd65cd5fc2629b92f5fc0b"
+      },
+      {
+        "path": "src/hrm_finance_qa/program_data.py",
+        "sha256": "5199434fc0628b7d270ce62b12657366cbe118901065edd9f1e1f6ca0f1f8d54"
+      }
+    ],
+    "definition_points": [
+      {
+        "path": "src/hrm_finance_qa/document_reasoning_engine.py",
+        "function": "_retrieve_chunks",
+        "line": 634
+      },
+      {
+        "path": "src/hrm_finance_qa/document_sources.py",
+        "function": "rank_chunks",
+        "line": 1465
+      },
+      {
+        "path": "src/hrm_finance_qa/document_sources.py",
+        "function": "expand_neighbor_chunks",
+        "line": 1513
+      },
+      {
+        "path": "src/hrm_finance_qa/program_data.py",
+        "function": "merge_candidates",
+        "line": 911
+      },
+      {
+        "path": "src/hrm_finance_qa/document_reasoning_engine.py",
+        "function": "_augment_financial_identity_candidates",
+        "line": 1137
+      }
+    ],
+    "answer_call_points": [
+      {
+        "call": "self._retrieve_chunks",
+        "line": 280
+      },
+      {
+        "call": "rank_chunks",
+        "line": 302
+      },
+      {
+        "call": "expand_neighbor_chunks",
+        "line": 303
+      },
+      {
+        "call": "merge_candidates",
+        "line": 323
+      },
+      {
+        "call": "_augment_financial_identity_candidates",
+        "line": 337
+      },
+      {
+        "call": "self.bundle.predict",
+        "line": 370
+      }
+    ],
+    "stop_before_predict_line": 370,
+    "instrumented_points": [
+      "_retrieve_chunks return",
+      "rank_chunks return",
+      "expand_neighbor_chunks return",
+      "merge_candidates return",
+      "_augment_financial_identity_candidates return",
+      "final candidates immediately before DocumentHRMBundle.predict"
+    ],
+    "observer_rule": "each wrapper delegates exactly once with identical args/kwargs and returns the exact original object unchanged"
+  },
+  "future_replay": {
+    "authorized_now": false,
+    "phase_order": [
+      "baseline",
+      "instrumented"
+    ],
+    "baseline_query_evaluations": 50,
+    "instrumented_query_evaluations": 50,
+    "total_query_evaluations": 100,
+    "same_query_order": true,
+    "source_copy": "fresh per-query copy in independent phase directory; original and both phase copies must hash to the committed source hash",
+    "page_index": "fresh absent per-query path with rebuild_page_index=true; no cross-query or cross-phase reuse",
+    "mineru_cache": "fresh empty per-query directory",
+    "mineru_auto_generate": false,
+    "adaptive_selection": false,
+    "candidate_permutation": false,
+    "predictor_call": false,
+    "model_calls": 0,
+    "binding_calls": 0,
+    "stop_boundary": "final candidates immediately before DocumentHRMBundle.predict"
+  },
+  "noninterference": {
+    "required": "50/50 exact",
+    "projection": [
+      "query_case_id",
+      "source precondition result",
+      "complete upstream plan projections and reasons",
+      "terminal Candidate kind/stage/error",
+      "all attempt retrieval chunks/stats/warnings",
+      "rank_chunks output",
+      "expand_neighbor_chunks output",
+      "merge_candidates output",
+      "augmented candidates",
+      "final-before-predict candidates",
+      "missing-period and native-gap decisions"
+    ],
+    "excluded_only": [
+      "observer event list",
+      "phase-local temporary path spelling",
+      "retrieve.stats.index_seconds",
+      "retrieve.stats.selected_mineru_seconds",
+      "retrieve.stats.total_seconds"
+    ],
+    "failure_behavior": "any mismatch, missing query, count other than 50/50, predictor call, or Binding call makes execution HOLD"
+  },
+  "candidate_failure_causal_signature": {
+    "required_per_F": true,
+    "fields": [
+      "Candidate exception type",
+      "Candidate exception stage",
+      "missing expected operand roles",
+      "support_pass",
+      "assignment_pass"
+    ],
+    "no_company_filename_page_year_value_specific_rule": true
+  },
+  "genericity": {
+    "source": "current committed denominator plus governing reviewed development parent only",
+    "minimums": {
+      "cases": 3,
+      "companies": 3,
+      "sources": 3,
+      "document_layouts": 3,
+      "table_layouts": 3,
+      "extraction_families": 2
+    },
+    "table_layout_definition": "layout_stratum plus generic period-column family derived from reviewed operand column/period: calendar-year, ending, opening, current, or other",
+    "extraction_family_definition": "native for NATIVE_TEXT_TABLE, otherwise ocr_or_hybrid",
+    "case_specific_runtime_rules": 0
+  },
+  "runtime": {
+    "checkpoint_path": "models/document_hrm_V8_candidate.pt",
+    "checkpoint_sha256": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de",
+    "checkpoint_bytes": 3413128,
+    "device": "cpu",
+    "runtime_modified": false,
+    "threshold_modified": false,
+    "model_modified": false
+  },
+  "static_preflight": {
+    "mode": "AST/schema/source-contract/synthetic mocks only",
+    "runtime_candidate_imports": 0,
+    "candidate_calls": 0,
+    "model_calls": 0,
+    "binding_calls": 0,
+    "real_candidate_outputs_observed": 0,
+    "future_execute_mode_invoked": false
+  },
+  "frozen_inputs": [
+    {
+      "path": "reports/finhrm_qp4_candidate_eligible_denominator_clean_v2.json",
+      "bytes": 14757,
+      "sha256": "913c735e41c9e08ac8adf8ab4e93613eb3c027364d4ce9918e64d871dd4688ee"
+    },
+    {
+      "path": "reports/finhrm_qp3_core_add_diverse_development_reviewed_cohort_v1.json",
+      "bytes": 20350,
+      "sha256": "f187e5966f47069717cbdc1cdf9fd063ef74d2418a1b5e1850a89bb3cdbca28f"
+    },
+    {
+      "path": "config/finhrm_qp4_development_cohort_v1.json",
+      "bytes": 13032,
+      "sha256": "1d8cf947c4af4819f50e9d5384c8c2426fd3cadbe5ca18837b1186f6ef0d1af2"
+    },
+    {
+      "path": "scripts/evaluate_qp4_development_baseline.py",
+      "bytes": 45905,
+      "sha256": "118c956a243a73c48e1de05bd2fa650449422bf3a9809b74d36ff5d6c8bd51c5"
+    },
+    {
+      "path": "src/hrm_finance_qa/ontology.py",
+      "bytes": 9472,
+      "sha256": "47375f6a95057ddda75433fd40a8e9c2be3448165e288c2764d1d54bc83e400b"
+    },
+    {
+      "path": "src/hrm_finance_qa/question_planner.py",
+      "bytes": 63416,
+      "sha256": "443ddb0b385728a7f943a4c6adc75ccb52ff495ff47875105d8da0a46cd62b4b"
+    },
+    {
+      "path": "src/hrm_finance_qa/document_reasoning_engine.py",
+      "bytes": 53059,
+      "sha256": "3883500011472716bc01f8e04a6d6f925173b35a14bbedd945c5ca4fb0063fa2"
+    },
+    {
+      "path": "src/hrm_finance_qa/document_sources.py",
+      "bytes": 57613,
+      "sha256": "e9eb7b3ddcc2ed13060a573a6a0101a216fa49ff21dd65cd5fc2629b92f5fc0b"
+    },
+    {
+      "path": "src/hrm_finance_qa/program_data.py",
+      "bytes": 135728,
+      "sha256": "5199434fc0628b7d270ce62b12657366cbe118901065edd9f1e1f6ca0f1f8d54"
+    },
+    {
+      "path": "models/document_hrm_V8_candidate.pt",
+      "bytes": 3413128,
+      "sha256": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de"
+    }
+  ],
+  "boundaries": {
+    "binding_deferred": true,
+    "qp5_opened": false,
+    "phase_d_opened": false,
+    "next_action": "separately authorize future execute mode; review 50 S/Q/F/P records and 50/50 noninterference; stop before predictor and Binding"
+  },
+  "authoring_artifacts": {
+    "script_path": "scripts/run_qp4_candidate_development_diagnosis_clean_v2.py",
+    "config_path": "config/finhrm_qp4_candidate_development_diagnosis_clean_v2.json",
+    "markdown_path": "reports/finhrm_qp4_candidate_development_diagnosis_precommit_v2.md",
+    "lock_path": "reports/finhrm_qp4_candidate_development_diagnosis_precommit_lock_v2.json"
+  },
+  "worktree": {
+    "status_command": "git status --porcelain=v1 --untracked-files=all",
+    "allowed_v2_paths": [
+      "config/finhrm_qp4_candidate_development_diagnosis_clean_v2.json",
+      "reports/finhrm_qp4_candidate_development_diagnosis_precommit_lock_v2.json",
+      "reports/finhrm_qp4_candidate_development_diagnosis_precommit_v2.md",
+      "scripts/run_qp4_candidate_development_diagnosis_clean_v2.py"
+    ],
+    "ignored_paths": [
+      "note.md",
+      "config/finhrm_qp4_candidate_development_diagnosis_precommit_v1.json",
+      "reports/finhrm_qp4_candidate_development_diagnosis_precommit_lock_v1.json",
+      "reports/finhrm_qp4_candidate_development_diagnosis_precommit_v1.md",
+      "scripts/run_qp4_candidate_development_diagnosis_precommit.py"
+    ],
+    "ignored_path_contents_read_or_hashed": false,
+    "unexpected_path_policy": "HOLD"
+  }
+}

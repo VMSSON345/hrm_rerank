@@ -1,0 +1,2020 @@
+{
+  "schema": "finhrm-qp4-candidate-plaintext-sub1000-runtime-repair-precommit-v1",
+  "created_at": "2026-08-27T17:24:17.855174+07:00",
+  "classification": "candidate_generic_root_cause_reopen_and_runtime_repair_precommit_only",
+  "status": "PASS",
+  "governance": {
+    "head": "ca83acc4e0dfa2e4c0167a9324c2855ec81532b7",
+    "candidate_previous_closure": "CLOSED_WITHOUT_RUNTIME_REPAIR_AUTHORIZATION",
+    "candidate_reopened_only_for": "_plaintext_financial_row_context sub-1000 plaintext identity loss",
+    "binding_stage": "NOT_EVALUABLE / zero eligible denominator",
+    "runtime_changed_during_precommit": false,
+    "deterministic_candidate_baseline": "CLOSED",
+    "determinism_repairs_preserved": [
+      "_fuzzy_content_overlap: for term in sorted(expected)",
+      "_ocr_row_metric_score: for term in sorted(expected)"
+    ]
+  },
+  "inputs": [
+    {
+      "path": "reports/finhrm_qp4_post_question_surface_post_cache_residual_coverage_cohort_build_v1.json",
+      "bytes": 40607,
+      "sha256": "e084ec16312488c1badb5b645cfdf135a623cf89486d0f189648404fc5de35e6"
+    },
+    {
+      "path": "reports/finhrm_qp4_candidate_development_diagnosis_clean_v2.json",
+      "bytes": 41507010,
+      "sha256": "7192220b00b106f45bcc5324643c3b9e9a1e4898d92336418fd323b137a2126b"
+    },
+    {
+      "path": "reports/finhrm_qp4_candidate_development_diagnosis_closure_v2.json",
+      "bytes": 5223,
+      "sha256": "9528b079184aa342321efe3cd74ec802d27945850febbbf108d37f6c6aaea6dd"
+    },
+    {
+      "path": "config/finhrm_qp4_binding_provenance_diagnosis_precommit_v1.json",
+      "bytes": 24367,
+      "sha256": "78c1d31e526f9a8bb21161dc3e59cb98c86445e0a7c67cbb38288de55a061315"
+    },
+    {
+      "path": "reports/finhrm_qp4_binding_provenance_diagnosis_precommit_lock_v1.json",
+      "bytes": 3653,
+      "sha256": "cb62a843575f22180a52c05650a4cd47efce2ac21826e0537782b6b76fe5a91f"
+    }
+  ],
+  "cohort": {
+    "path": "reports/finhrm_qp4_post_question_surface_post_cache_residual_coverage_cohort_build_v1.json",
+    "sha256": "e084ec16312488c1badb5b645cfdf135a623cf89486d0f189648404fc5de35e6",
+    "positive_target_universe": 60,
+    "universe_id_order_sha256": "1512b981af735e01aec5fd05e3b88a4fe74ff070895a426188a62f711a840f1e"
+  },
+  "reopen_justification": {
+    "evidence_is_new_after_previous_closure": true,
+    "independent_binding_zero_denominator_attribution": true,
+    "complete_causal_signature": {
+      "function": "_plaintext_financial_row_context",
+      "current_match_predicate": "parsed is not None AND (abs(parsed) >= Decimal(1000) OR percent)",
+      "failure_chain": [
+        "legitimate sub-1000 target omitted from matches",
+        "target_index = -1",
+        "target_index < 0 returns empty context",
+        "ROW/COLUMN/PERIOD/TABLE identity absent",
+        "physical Candidate support false"
+      ]
+    },
+    "genericity_threshold": {
+      "cases": 3,
+      "companies": 3,
+      "sources": 3,
+      "document_layouts": 3,
+      "table_layouts": 3,
+      "extraction_families": 2
+    },
+    "clusters_independently_meet_threshold": [
+      "cluster_1a",
+      "cluster_1b"
+    ],
+    "historical_candidate_clusters_reopened": false
+  },
+  "repair_scope": {
+    "runtime_file": "src/hrm_finance_qa/program_data.py",
+    "pre_repair_sha256": "668b4aa15448cc544a0c2c4539401cd7ad4af0c99a16b1ae787b1b12c56e35b8",
+    "function": "_plaintext_financial_row_context",
+    "allowed_edit": "function body only; make exact accepted target eligibility and structured plaintext financial-row proof magnitude-independent",
+    "signature_change_allowed": false,
+    "new_helper_or_import_allowed": false,
+    "genericity_constraints": [
+      "no company",
+      "no source",
+      "no file",
+      "no page",
+      "no layout",
+      "no literal year",
+      "no literal value",
+      "no question literal",
+      "no case ID"
+    ],
+    "forbidden_runtime_symbols": [
+      "extract_numeric_candidates",
+      "_candidate_context",
+      "_flattened_table_role_inventory_manifest",
+      "_retrieve_chunks",
+      "rank_chunks",
+      "merge_candidates",
+      "_augment_financial_identity_candidates",
+      "_YEAR_RE",
+      "_NUMBER_RE",
+      "parse_decimal"
+    ],
+    "forbidden_areas": [
+      "Binding runtime",
+      "models",
+      "retrieval/MinerU",
+      "source-span logic",
+      "SCG year-like rejection",
+      "thresholds",
+      "quotas",
+      "fallbacks"
+    ]
+  },
+  "proposed_generic_invariant": {
+    "statement": "A numeric target already accepted by governing operand filters must not lose plaintext financial row identity solely because abs(value) is below 1000.",
+    "positive_proof": "Sub-1000 admission requires source-derived financial-row structure; magnitude alone is neither sufficient nor disqualifying.",
+    "year_control": "Tokens classified as actual year metadata remain excluded before Candidate construction.",
+    "percentage_control": "Percent tokens retain percentage semantics and current handling.",
+    "noise_control": "Identifiers, ordinals, dates, and unrelated numeric prose cannot gain financial identity without governing structural proof.",
+    "large_value_control": "Existing non-year-like >=1000 financial reconstruction remains behaviorally unchanged."
+  },
+  "cohorts": {
+    "repair": {
+      "cluster_1a": {
+        "name": "base_target_sub1000_plaintext_identity_loss",
+        "count": 15,
+        "id_order_sha256": "ec0bcff9ade17ed5dd75075281e1bfdf23dc4eb2c7d67b7f8e77f67deada6cd3",
+        "diversity": {
+          "cases": 15,
+          "companies": 3,
+          "sources": 3,
+          "document_layouts": 3,
+          "table_layouts": 3,
+          "extraction_families": 2
+        },
+        "case_ids": [
+          "qp4-rcc-agr-total-expense:base_target:canonical",
+          "qp4-rcc-agr-total-expense:base_target:paraphrase_1",
+          "qp4-rcc-agr-total-expense:base_target:long_clause",
+          "qp4-rcc-agr-total-expense:base_target:clause_reordered",
+          "qp4-rcc-agr-total-expense:base_target:no_diacritics",
+          "qp4-rcc-hub-parent-profit-after-tax:base_target:canonical",
+          "qp4-rcc-hub-parent-profit-after-tax:base_target:paraphrase_1",
+          "qp4-rcc-hub-parent-profit-after-tax:base_target:long_clause",
+          "qp4-rcc-hub-parent-profit-after-tax:base_target:clause_reordered",
+          "qp4-rcc-hub-parent-profit-after-tax:base_target:no_diacritics",
+          "qp4-rcc-vnl-profit-before-tax:base_target:canonical",
+          "qp4-rcc-vnl-profit-before-tax:base_target:paraphrase_1",
+          "qp4-rcc-vnl-profit-before-tax:base_target:long_clause",
+          "qp4-rcc-vnl-profit-before-tax:base_target:clause_reordered",
+          "qp4-rcc-vnl-profit-before-tax:base_target:no_diacritics"
+        ]
+      },
+      "cluster_1b": {
+        "name": "reference_target_sub1000_plaintext_identity_loss",
+        "count": 15,
+        "id_order_sha256": "7919789b3092a601b77d5d3e30c41d57b3c975b80d7adeb105fc2ba3dcdc89f3",
+        "diversity": {
+          "cases": 15,
+          "companies": 3,
+          "sources": 3,
+          "document_layouts": 3,
+          "table_layouts": 3,
+          "extraction_families": 2
+        },
+        "case_ids": [
+          "qp4-rcc-agr-total-expense:reference_base_mutation_target:canonical",
+          "qp4-rcc-agr-total-expense:reference_base_mutation_target:paraphrase_1",
+          "qp4-rcc-agr-total-expense:reference_base_mutation_target:long_clause",
+          "qp4-rcc-agr-total-expense:reference_base_mutation_target:clause_reordered",
+          "qp4-rcc-agr-total-expense:reference_base_mutation_target:no_diacritics",
+          "qp4-rcc-hub-parent-profit-after-tax:reference_base_mutation_target:canonical",
+          "qp4-rcc-hub-parent-profit-after-tax:reference_base_mutation_target:paraphrase_1",
+          "qp4-rcc-hub-parent-profit-after-tax:reference_base_mutation_target:long_clause",
+          "qp4-rcc-hub-parent-profit-after-tax:reference_base_mutation_target:clause_reordered",
+          "qp4-rcc-hub-parent-profit-after-tax:reference_base_mutation_target:no_diacritics",
+          "qp4-rcc-vnl-profit-before-tax:reference_base_mutation_target:canonical",
+          "qp4-rcc-vnl-profit-before-tax:reference_base_mutation_target:paraphrase_1",
+          "qp4-rcc-vnl-profit-before-tax:reference_base_mutation_target:long_clause",
+          "qp4-rcc-vnl-profit-before-tax:reference_base_mutation_target:clause_reordered",
+          "qp4-rcc-vnl-profit-before-tax:reference_base_mutation_target:no_diacritics"
+        ]
+      }
+    },
+    "regression": {
+      "name": "unrelated_candidate_mechanisms_exact_noninterference",
+      "count": 30,
+      "id_order_sha256": "6392187e23c68b310b421fd62f753c145c8fe4b9c7f0ee473af92ecbc7d030d9",
+      "purpose": "PIC retrieval/numeric-only, ICT manifest, and SCG year-like cases are controls only and receive no repair credit",
+      "case_ids": [
+        "qp4-rcc-ict-total-revenue:base_target:canonical",
+        "qp4-rcc-ict-total-revenue:base_target:paraphrase_1",
+        "qp4-rcc-ict-total-revenue:base_target:long_clause",
+        "qp4-rcc-ict-total-revenue:base_target:clause_reordered",
+        "qp4-rcc-ict-total-revenue:base_target:no_diacritics",
+        "qp4-rcc-ict-total-revenue:reference_base_mutation_target:canonical",
+        "qp4-rcc-ict-total-revenue:reference_base_mutation_target:paraphrase_1",
+        "qp4-rcc-ict-total-revenue:reference_base_mutation_target:long_clause",
+        "qp4-rcc-ict-total-revenue:reference_base_mutation_target:clause_reordered",
+        "qp4-rcc-ict-total-revenue:reference_base_mutation_target:no_diacritics",
+        "qp4-rcc-pic-total-revenue:base_target:canonical",
+        "qp4-rcc-pic-total-revenue:base_target:paraphrase_1",
+        "qp4-rcc-pic-total-revenue:base_target:long_clause",
+        "qp4-rcc-pic-total-revenue:base_target:clause_reordered",
+        "qp4-rcc-pic-total-revenue:base_target:no_diacritics",
+        "qp4-rcc-pic-total-revenue:reference_base_mutation_target:canonical",
+        "qp4-rcc-pic-total-revenue:reference_base_mutation_target:paraphrase_1",
+        "qp4-rcc-pic-total-revenue:reference_base_mutation_target:long_clause",
+        "qp4-rcc-pic-total-revenue:reference_base_mutation_target:clause_reordered",
+        "qp4-rcc-pic-total-revenue:reference_base_mutation_target:no_diacritics",
+        "qp4-rcc-scg-total-revenue:base_target:canonical",
+        "qp4-rcc-scg-total-revenue:base_target:paraphrase_1",
+        "qp4-rcc-scg-total-revenue:base_target:long_clause",
+        "qp4-rcc-scg-total-revenue:base_target:clause_reordered",
+        "qp4-rcc-scg-total-revenue:base_target:no_diacritics",
+        "qp4-rcc-scg-total-revenue:reference_base_mutation_target:canonical",
+        "qp4-rcc-scg-total-revenue:reference_base_mutation_target:paraphrase_1",
+        "qp4-rcc-scg-total-revenue:reference_base_mutation_target:long_clause",
+        "qp4-rcc-scg-total-revenue:reference_base_mutation_target:clause_reordered",
+        "qp4-rcc-scg-total-revenue:reference_base_mutation_target:no_diacritics"
+      ]
+    },
+    "controls": [
+      {
+        "control_id": "sub1000-native-comma",
+        "category": "valid_financial_below_1000",
+        "fixture": {
+          "line": "Tổng chi phí 177,8 215,0 245,6 138% 114%",
+          "target": "245,6",
+          "context": "nearby financial headers and currency scale"
+        },
+        "expected_invariant": "the accepted target is eligible for structured row alignment despite magnitude below 1000"
+      },
+      {
+        "control_id": "sub1000-hybrid-comma",
+        "category": "valid_financial_below_1000",
+        "fixture": {
+          "line": "Lãi trước thuế 43,70 51,00 86% 53,90 81%",
+          "target": "43,70",
+          "context": "nearby period/role headers and currency scale"
+        },
+        "expected_invariant": "the accepted target is eligible for structured row alignment despite magnitude below 1000"
+      },
+      {
+        "control_id": "year-plain-2023",
+        "category": "year_like_numeric_tokens",
+        "fixture": {
+          "line": "Kế hoạch năm 2023",
+          "target": "2023"
+        },
+        "expected_invariant": "year metadata remains excluded as an arithmetic financial operand"
+      },
+      {
+        "control_id": "year-grouped-2023",
+        "category": "year_like_numeric_tokens",
+        "fixture": {
+          "line": "Niên độ 2.023",
+          "target": "2.023"
+        },
+        "expected_invariant": "digits normalizing to a governing year remain excluded as an arithmetic financial operand"
+      },
+      {
+        "control_id": "percent-95",
+        "category": "percentage_tokens",
+        "fixture": {
+          "line": "Hoàn thành 95% kế hoạch",
+          "target": "95%"
+        },
+        "expected_invariant": "percentage semantics remain percentage and are not retyped as a currency operand"
+      },
+      {
+        "control_id": "percent-114",
+        "category": "percentage_tokens",
+        "fixture": {
+          "line": "Đạt 114% kế hoạch",
+          "target": "114%"
+        },
+        "expected_invariant": "existing percentage matching and handling remain unchanged"
+      },
+      {
+        "control_id": "noise-identifier",
+        "category": "unrelated_numeric_noise",
+        "fixture": {
+          "line": "Mục 12 mã số 345 phiên bản 7",
+          "target": "345"
+        },
+        "expected_invariant": "identifier-like numeric noise without financial row proof does not acquire structured financial identity"
+      },
+      {
+        "control_id": "noise-legal-ordinal",
+        "category": "unrelated_numeric_noise",
+        "fixture": {
+          "line": "Điều 42 khoản 3",
+          "target": "42"
+        },
+        "expected_invariant": "ordinal and unrelated prose numbers remain non-financial"
+      },
+      {
+        "control_id": "existing-large-decimal",
+        "category": "existing_financial_at_or_above_1000",
+        "fixture": {
+          "line": "Tổng doanh thu 1.600 1.526,69 95%",
+          "target": "1.526,69"
+        },
+        "expected_invariant": "existing >=1000 plaintext financial reconstruction is unchanged"
+      },
+      {
+        "control_id": "existing-large-five-digit",
+        "category": "existing_financial_at_or_above_1000",
+        "fixture": {
+          "line": "Doanh thu kế hoạch 12.500 tỷ đồng",
+          "target": "12.500"
+        },
+        "expected_invariant": "existing non-year-like >=1000 financial handling is unchanged"
+      }
+    ]
+  },
+  "control_category_counts": {
+    "valid_financial_below_1000": 2,
+    "year_like_numeric_tokens": 2,
+    "percentage_tokens": 2,
+    "unrelated_numeric_noise": 2,
+    "existing_financial_at_or_above_1000": 2
+  },
+  "expected_causal_transformation": {
+    "before": {
+      "sub1000_target_in_matches": false,
+      "target_index": -1,
+      "plaintext_context": "",
+      "structured_identity": "LOST"
+    },
+    "after": {
+      "sub1000_target_in_matches": "eligible only with governing financial-row proof",
+      "target_index": "nonnegative for frozen 1A/1B targets",
+      "plaintext_context": "source-derived structured context",
+      "structured_identity": "ROW/COLUMN/PERIOD/TABLE retained"
+    },
+    "repair_gate": "30/30 repair cases satisfy the unchanged shared physical-support matcher after implementation"
+  },
+  "noninterference": {
+    "repair_cases": {
+      "allowed_changes": [
+        "source-derived Candidate context",
+        "row_label",
+        "column_label",
+        "period",
+        "table_id",
+        "section/scope/entity/subtable identity",
+        "unit inferred from the same source context",
+        "deterministic downstream ordering needed to retain the repaired operands"
+      ],
+      "locked_fields": [
+        "numeric value",
+        "raw token",
+        "source name",
+        "physical page",
+        "source span",
+        "extraction method",
+        "retrieved chunks",
+        "ranked chunks",
+        "question plan"
+      ],
+      "no_new_numeric_candidate_without_existing_source_token": true
+    },
+    "regression_cases": "30/30 exact full Candidate pipeline record equality against a pre-edit baseline",
+    "controls": "10/10 exact expected invariants",
+    "model_calls": 0,
+    "binding_calls": 0,
+    "cross_cohort_regression_cases": "50/50 pre-edit and 50/50 post-edit exact frozen projection equality"
+  },
+  "post_implementation_evaluation": {
+    "baseline_must_be_materialized_before_edit": true,
+    "baseline_candidate_cases": 110,
+    "post_repair_candidate_cases": 110,
+    "total_candidate_evaluations": 220,
+    "exact_frozen_order": true,
+    "repair_gate": "30/30",
+    "regression_noninterference_gate": "30/30",
+    "control_gate": "10/10",
+    "model_calls": 0,
+    "binding_calls": 0,
+    "adaptive_patch": false,
+    "automatic_second_implementation": false,
+    "cross_cohort_regression_cases_per_phase": 50,
+    "cross_cohort_pre_edit_gate": "50/50 exact against frozen deterministic pre-repair projections",
+    "cross_cohort_post_edit_gate": "50/50 exact against frozen deterministic pre-repair projections",
+    "phase_composition": {
+      "repair_and_existing_regression": 60,
+      "cross_cohort_regression": 50
+    },
+    "baseline_materialized": true,
+    "baseline_artifact_path": "reports/finhrm_qp4_candidate_plaintext_sub1000_deterministic_pre_edit_baseline_v1.json",
+    "baseline_artifact_sha256": "0ec3f5736d2b0420c4f4f2ca1deb25e02d486d13057924810970725c04196702",
+    "implementation_candidate_evaluations_remaining": 110
+  },
+  "precommit_accounting": {
+    "candidate_calls": 0,
+    "model_calls": 0,
+    "binding_calls": 0,
+    "runtime_repair_executions": 0,
+    "current_candidate_outputs_observed": 0
+  },
+  "artifacts": {
+    "harness": "scripts/run_qp4_candidate_plaintext_sub1000_runtime_repair_precommit_v1.py",
+    "config": "config/finhrm_qp4_candidate_plaintext_sub1000_runtime_repair_precommit_v1.json",
+    "markdown": "reports/finhrm_qp4_candidate_plaintext_sub1000_runtime_repair_precommit_v1.md",
+    "lock": "reports/finhrm_qp4_candidate_plaintext_sub1000_runtime_repair_precommit_lock_v1.json"
+  },
+  "runtime_implementation_authorized_if_static_preflight_passes": true,
+  "next_allowed_action": "QP4 CANDIDATE SUB-1000 PLAINTEXT IDENTITY RUNTIME IMPLEMENTATION + LOCKED EVALUATION ONLY",
+  "cross_cohort_addendum_at": "2026-08-27T19:50:55.954338+07:00",
+  "cross_cohort_regression": {
+    "name": "previous_governing_50_case_candidate_diagnosis_cross_cohort_regression",
+    "purpose": "non-regression safeguard only; not evidence for the sub-1000 defect and not repair credit",
+    "governing_diagnosis_path": "reports/finhrm_qp4_candidate_development_diagnosis_clean_v2.json",
+    "governing_diagnosis_sha256": "7192220b00b106f45bcc5324643c3b9e9a1e4898d92336418fd323b137a2126b",
+    "count": 50,
+    "case_ids": [
+      "synthetic-document-000005::surface::SHORT_LONG_EQUIVALENT",
+      "synthetic-document-000005::surface::DISCOURSE_PREFIX_SUFFIX",
+      "synthetic-document-000005::surface::CLAUSE_PERMUTATION",
+      "synthetic-document-000005::surface::PUNCTUATION_VARIANT",
+      "synthetic-document-000005::surface::NO_DIACRITICS",
+      "synthetic-document-000005::surface::BILINGUAL_PARENTHETICAL",
+      "synthetic-document-000005::surface::IRRELEVANT_DISTRACTOR_CLAUSE",
+      "synthetic-document-000005::counterfactual::OPERAND_YEAR",
+      "synthetic-document-000005::counterfactual::ENTITY_SCOPE",
+      "synthetic-document-000005::counterfactual::UNIT_SCALE",
+      "synthetic-document-000012::surface::SHORT_LONG_EQUIVALENT",
+      "synthetic-document-000012::surface::DISCOURSE_PREFIX_SUFFIX",
+      "synthetic-document-000012::surface::CLAUSE_PERMUTATION",
+      "synthetic-document-000012::surface::PUNCTUATION_VARIANT",
+      "synthetic-document-000012::surface::NO_DIACRITICS",
+      "synthetic-document-000012::surface::BILINGUAL_PARENTHETICAL",
+      "synthetic-document-000012::surface::IRRELEVANT_DISTRACTOR_CLAUSE",
+      "synthetic-document-000012::counterfactual::OPERAND_YEAR",
+      "synthetic-document-000012::counterfactual::ENTITY_SCOPE",
+      "synthetic-document-000012::counterfactual::UNIT_SCALE",
+      "synthetic-document-000066::surface::SHORT_LONG_EQUIVALENT",
+      "synthetic-document-000066::surface::DISCOURSE_PREFIX_SUFFIX",
+      "synthetic-document-000066::surface::CLAUSE_PERMUTATION",
+      "synthetic-document-000066::surface::PUNCTUATION_VARIANT",
+      "synthetic-document-000066::surface::NO_DIACRITICS",
+      "synthetic-document-000066::surface::BILINGUAL_PARENTHETICAL",
+      "synthetic-document-000066::surface::IRRELEVANT_DISTRACTOR_CLAUSE",
+      "synthetic-document-000066::counterfactual::OPERAND_YEAR",
+      "synthetic-document-000066::counterfactual::ENTITY_SCOPE",
+      "synthetic-document-000066::counterfactual::UNIT_SCALE",
+      "synthetic-document-000014::surface::SHORT_LONG_EQUIVALENT",
+      "synthetic-document-000014::surface::DISCOURSE_PREFIX_SUFFIX",
+      "synthetic-document-000014::surface::CLAUSE_PERMUTATION",
+      "synthetic-document-000014::surface::PUNCTUATION_VARIANT",
+      "synthetic-document-000014::surface::NO_DIACRITICS",
+      "synthetic-document-000014::surface::BILINGUAL_PARENTHETICAL",
+      "synthetic-document-000014::surface::IRRELEVANT_DISTRACTOR_CLAUSE",
+      "synthetic-document-000014::counterfactual::OPERAND_YEAR",
+      "synthetic-document-000014::counterfactual::ENTITY_SCOPE",
+      "synthetic-document-000014::counterfactual::UNIT_SCALE",
+      "synthetic-document-000106::surface::SHORT_LONG_EQUIVALENT",
+      "synthetic-document-000106::surface::DISCOURSE_PREFIX_SUFFIX",
+      "synthetic-document-000106::surface::CLAUSE_PERMUTATION",
+      "synthetic-document-000106::surface::PUNCTUATION_VARIANT",
+      "synthetic-document-000106::surface::NO_DIACRITICS",
+      "synthetic-document-000106::surface::BILINGUAL_PARENTHETICAL",
+      "synthetic-document-000106::surface::IRRELEVANT_DISTRACTOR_CLAUSE",
+      "synthetic-document-000106::counterfactual::OPERAND_YEAR",
+      "synthetic-document-000106::counterfactual::ENTITY_SCOPE",
+      "synthetic-document-000106::counterfactual::UNIT_SCALE"
+    ],
+    "id_order_sha256": "5ed2c03ccd90133b7d7118ac303547eaf281e4bc078dd537b9008ee6cef6c6cf",
+    "projection_source": "current deterministic pre-edit baseline after the two independently authorized determinism repairs",
+    "projection_fields": [
+      "query_case_id",
+      "bucket",
+      "predictor_boundary_state",
+      "final_candidate_count",
+      "ordered_candidate_projection_sha256",
+      "support_boolean",
+      "operand_assignment",
+      "normalized_full_record_sha256"
+    ],
+    "expected_pre_repair_projections": [
+      {
+        "query_case_id": "synthetic-document-000005::surface::SHORT_LONG_EQUIVALENT",
+        "bucket": "F",
+        "predictor_boundary_state": "candidate_snapshot",
+        "final_candidate_count": 64,
+        "ordered_candidate_projection_sha256": "1312e6cd02631660519189b02753d0168c9b4b9f5e7b245fee61a5ff2c9a3339",
+        "support_boolean": false,
+        "operand_assignment": [],
+        "normalized_full_record_sha256": "3e046c4ac407d2773e2b9c29bc0ad1f34d19026237b6105dc2378c6a64c194e1"
+      },
+      {
+        "query_case_id": "synthetic-document-000005::surface::DISCOURSE_PREFIX_SUFFIX",
+        "bucket": "F",
+        "predictor_boundary_state": "candidate_snapshot",
+        "final_candidate_count": 64,
+        "ordered_candidate_projection_sha256": "77b15891682bb4e8cd606d4e8df713de22e06b4f5927772f41df4996468cdfb6",
+        "support_boolean": false,
+        "operand_assignment": [],
+        "normalized_full_record_sha256": "313fb6f441ab3f7712b2b9f0a29797b3e0fee7b2c13324b9866280558ea3c45c"
+      },
+      {
+        "query_case_id": "synthetic-document-000005::surface::CLAUSE_PERMUTATION",
+        "bucket": "F",
+        "predictor_boundary_state": "candidate_snapshot",
+        "final_candidate_count": 64,
+        "ordered_candidate_projection_sha256": "77b15891682bb4e8cd606d4e8df713de22e06b4f5927772f41df4996468cdfb6",
+        "support_boolean": false,
+        "operand_assignment": [],
+        "normalized_full_record_sha256": "2da8269e01175933e5b10a51be825332d91c47f29c9a4fcc8cf507a024cc10b6"
+      },
+      {
+        "query_case_id": "synthetic-document-000005::surface::PUNCTUATION_VARIANT",
+        "bucket": "F",
+        "predictor_boundary_state": "candidate_snapshot",
+        "final_candidate_count": 64,
+        "ordered_candidate_projection_sha256": "77b15891682bb4e8cd606d4e8df713de22e06b4f5927772f41df4996468cdfb6",
+        "support_boolean": false,
+        "operand_assignment": [],
+        "normalized_full_record_sha256": "a3c152e67f58719a15787f7c67798dc62dc3a53ee41e2561b67f29706f602f99"
+      },
+      {
+        "query_case_id": "synthetic-document-000005::surface::NO_DIACRITICS",
+        "bucket": "F",
+        "predictor_boundary_state": "candidate_snapshot",
+        "final_candidate_count": 64,
+        "ordered_candidate_projection_sha256": "77b15891682bb4e8cd606d4e8df713de22e06b4f5927772f41df4996468cdfb6",
+        "support_boolean": false,
+        "operand_assignment": [],
+        "normalized_full_record_sha256": "3619c3c89e380aa6044c5328cbf811dd540651304052b0e48da02bef91f3e281"
+      },
+      {
+        "query_case_id": "synthetic-document-000005::surface::BILINGUAL_PARENTHETICAL",
+        "bucket": "F",
+        "predictor_boundary_state": "candidate_snapshot",
+        "final_candidate_count": 64,
+        "ordered_candidate_projection_sha256": "145b9d03a2a6080e127edf52a23b1da0ecd181d17e89228c0a1878c739886351",
+        "support_boolean": false,
+        "operand_assignment": [],
+        "normalized_full_record_sha256": "b0ce3d17503c2e8c59e02212b8eb8e02c8e9fe41d30e78136d81fff447dde596"
+      },
+      {
+        "query_case_id": "synthetic-document-000005::surface::IRRELEVANT_DISTRACTOR_CLAUSE",
+        "bucket": "F",
+        "predictor_boundary_state": "candidate_snapshot",
+        "final_candidate_count": 64,
+        "ordered_candidate_projection_sha256": "c5c911ffece5ce14c3b54eab8092643a22277896469c1f4da94fa11b62270efd",
+        "support_boolean": false,
+        "operand_assignment": [],
+        "normalized_full_record_sha256": "fecddadf596df6b3e7929bc2afdfcfa06ccf44113765218eb7e29095279e9571"
+      },
+      {
+        "query_case_id": "synthetic-document-000005::counterfactual::OPERAND_YEAR",
+        "bucket": "Q",
+        "predictor_boundary_state": "not_entered",
+        "final_candidate_count": 0,
+        "ordered_candidate_projection_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "support_boolean": false,
+        "operand_assignment": [],
+        "normalized_full_record_sha256": "5a8e01906c17a39f1e28add0242f6c5de9ee09dd0b31fa775ca24410595a93ea"
+      },
+      {
+        "query_case_id": "synthetic-document-000005::counterfactual::ENTITY_SCOPE",
+        "bucket": "F",
+        "predictor_boundary_state": "candidate_snapshot",
+        "final_candidate_count": 64,
+        "ordered_candidate_projection_sha256": "f2a758a48775e1ce1cc8b583978aadc478808a16e654458870868523d73244db",
+        "support_boolean": false,
+        "operand_assignment": [],
+        "normalized_full_record_sha256": "0d85f2d4f9f94d90c4861140fc7e7a596649c22f3af5de8408c4c1b4e3308c73"
+      },
+      {
+        "query_case_id": "synthetic-document-000005::counterfactual::UNIT_SCALE",
+        "bucket": "F",
+        "predictor_boundary_state": "candidate_snapshot",
+        "final_candidate_count": 64,
+        "ordered_candidate_projection_sha256": "7902dfb47076ec2f45b0e04174242876aa8d401b7a49eb39fad1df01da27a88d",
+        "support_boolean": false,
+        "operand_assignment": [],
+        "normalized_full_record_sha256": "265041b87fff42283c718b50ce5dcb0578eedd80569f4d98db5a8b570dbf39b2"
+      },
+      {
+        "query_case_id": "synthetic-document-000012::surface::SHORT_LONG_EQUIVALENT",
+        "bucket": "F",
+        "predictor_boundary_state": "candidate_snapshot",
+        "final_candidate_count": 64,
+        "ordered_candidate_projection_sha256": "34bfacc926e4a8bde86c82e57a46028362e032f97092447b726aa94c505ffe70",
+        "support_boolean": false,
+        "operand_assignment": [],
+        "normalized_full_record_sha256": "aef7a32411059101d11f5ff216c4916718711fcfb1b41e1432ab62baa89148eb"
+      },
+      {
+        "query_case_id": "synthetic-document-000012::surface::DISCOURSE_PREFIX_SUFFIX",
+        "bucket": "F",
+        "predictor_boundary_state": "candidate_snapshot",
+        "final_candidate_count": 64,
+        "ordered_candidate_projection_sha256": "7971343312d14d6aa2401dc0375973ca7ddbcac4e693ebd860bef1452e4b11b9",
+        "support_boolean": false,
+        "operand_assignment": [],
+        "normalized_full_record_sha256": "bb9ed601068b5deb27586c01260b032da8dd55abfc7d978553948491a4b8e722"
+      },
+      {
+        "query_case_id": "synthetic-document-000012::surface::CLAUSE_PERMUTATION",
+        "bucket": "F",
+        "predictor_boundary_state": "candidate_snapshot",
+        "final_candidate_count": 64,
+        "ordered_candidate_projection_sha256": "ff18fc9f49707c51c79223b19ded11754b8438cf920f359645d725fce676a8c5",
+        "support_boolean": false,
+        "operand_assignment": [],
+        "normalized_full_record_sha256": "bfec983eea637eefc20a83b9abf0eb70764d91c8652303220bff9c012df2cc8a"
+      },
+      {
+        "query_case_id": "synthetic-document-000012::surface::PUNCTUATION_VARIANT",
+        "bucket": "F",
+        "predictor_boundary_state": "candidate_snapshot",
+        "final_candidate_count": 64,
+        "ordered_candidate_projection_sha256": "5cb120e78d33c48d149e20ec5c166ef791c42ebd4ca2536ae2dc6f312b827773",
+        "support_boolean": false,
+        "operand_assignment": [],
+        "normalized_full_record_sha256": "c69bfd1096378621cb0e5adac99b2079227cf07b0999a01cf4f2ff5c3b13571e"
+      },
+      {
+        "query_case_id": "synthetic-document-000012::surface::NO_DIACRITICS",
+        "bucket": "F",
+        "predictor_boundary_state": "candidate_snapshot",
+        "final_candidate_count": 64,
+        "ordered_candidate_projection_sha256": "5cb120e78d33c48d149e20ec5c166ef791c42ebd4ca2536ae2dc6f312b827773",
+        "support_boolean": false,
+        "operand_assignment": [],
+        "normalized_full_record_sha256": "198b27b26d8aebc371304a907c314b869f9171637ad5e46cc608ed53b6172670"
+      },
+      {
+        "query_case_id": "synthetic-document-000012::surface::BILINGUAL_PARENTHETICAL",
+        "bucket": "F",
+        "predictor_boundary_state": "candidate_snapshot",
+        "final_candidate_count": 64,
+        "ordered_candidate_projection_sha256": "a5f7ed3b1fc260c134bb6574bde34664d25749659294ff9c493c2ad8088897eb",
+        "support_boolean": false,
+        "operand_assignment": [],
+        "normalized_full_record_sha256": "f577adfc257f586f65e08f1bba52bb014e9a68be52075311e2b92d0626e8a2c7"
+      },
+      {
+        "query_case_id": "synthetic-document-000012::surface::IRRELEVANT_DISTRACTOR_CLAUSE",
+        "bucket": "F",
+        "predictor_boundary_state": "candidate_snapshot",
+        "final_candidate_count": 64,
+        "ordered_candidate_projection_sha256": "4202b01e038bcaef7726c116f076c833078e89feca9f2158edd3401fba2df40a",
+        "support_boolean": false,
+        "operand_assignment": [],
+        "normalized_full_record_sha256": "d77d6e8dfa73bab3f595d144f7902f04c1120bb82ac01060fef4702079ff1640"
+      },
+      {
+        "query_case_id": "synthetic-document-000012::counterfactual::OPERAND_YEAR",
+        "bucket": "F",
+        "predictor_boundary_state": "candidate_snapshot",
+        "final_candidate_count": 64,
+        "ordered_candidate_projection_sha256": "3babef67694ef880bb387f31083de7cbe89cb23e57ef2f042ad2ef77b1a3d65b",
+        "support_boolean": false,
+        "operand_assignment": [],
+        "normalized_full_record_sha256": "c5d28ffac5ac357b992165be7985fd302eaac032727cf08bec74006c133ee860"
+      },
+      {
+        "query_case_id": "synthetic-document-000012::counterfactual::ENTITY_SCOPE",
+        "bucket": "F",
+        "predictor_boundary_state": "candidate_snapshot",
+        "final_candidate_count": 64,
+        "ordered_candidate_projection_sha256": "a1ce910c74aa12f897cbeb2f9d1972053e74dee48ec40cd12e4838feea613b47",
+        "support_boolean": false,
+        "operand_assignment": [],
+        "normalized_full_record_sha256": "43a9dc591a34f0f6c9614da497dd42114777f111add471ee0a32968a3fff211e"
+      },
+      {
+        "query_case_id": "synthetic-document-000012::counterfactual::UNIT_SCALE",
+        "bucket": "F",
+        "predictor_boundary_state": "candidate_snapshot",
+        "final_candidate_count": 64,
+        "ordered_candidate_projection_sha256": "df22e75966f6a92a98829041a7c38d8b921d8c2ec10ebc7b8bb1d5cd06fc3f1a",
+        "support_boolean": false,
+        "operand_assignment": [],
+        "normalized_full_record_sha256": "bf8d85ebeb31872b07c3bd005caa4fd84711a05039214d7f5d83e08b63b82059"
+      },
+      {
+        "query_case_id": "synthetic-document-000066::surface::SHORT_LONG_EQUIVALENT",
+        "bucket": "F",
+        "predictor_boundary_state": "candidate_snapshot",
+        "final_candidate_count": 64,
+        "ordered_candidate_projection_sha256": "083e3e46fcf08c006b4879ec0651c16a5f8e03343e2aa9b4edca7c2aa1c14f8d",
+        "support_boolean": false,
+        "operand_assignment": [],
+        "normalized_full_record_sha256": "e25211e60ec4da10914a1d7c4f259a940c15e91e62429c0f204172133e8cb2ed"
+      },
+      {
+        "query_case_id": "synthetic-document-000066::surface::DISCOURSE_PREFIX_SUFFIX",
+        "bucket": "F",
+        "predictor_boundary_state": "candidate_snapshot",
+        "final_candidate_count": 64,
+        "ordered_candidate_projection_sha256": "08095a6dbba27663c3d4e4e2fe9e5c31833ea1eb61caf8fbe5ae116e4748d307",
+        "support_boolean": false,
+        "operand_assignment": [],
+        "normalized_full_record_sha256": "17cdd9c2b3128200e6014d6480fd103646af3e731b589558d21a538f84645700"
+      },
+      {
+        "query_case_id": "synthetic-document-000066::surface::CLAUSE_PERMUTATION",
+        "bucket": "F",
+        "predictor_boundary_state": "candidate_snapshot",
+        "final_candidate_count": 64,
+        "ordered_candidate_projection_sha256": "799de2f2ca13b9615efa901aa494d47c03f0fe7698258bf36bd7f0e8d951b1ee",
+        "support_boolean": false,
+        "operand_assignment": [],
+        "normalized_full_record_sha256": "4004cbf924d8546c38cbd4ac621d25c44c489a748696f08aa2729a818af6f596"
+      },
+      {
+        "query_case_id": "synthetic-document-000066::surface::PUNCTUATION_VARIANT",
+        "bucket": "F",
+        "predictor_boundary_state": "candidate_snapshot",
+        "final_candidate_count": 64,
+        "ordered_candidate_projection_sha256": "799de2f2ca13b9615efa901aa494d47c03f0fe7698258bf36bd7f0e8d951b1ee",
+        "support_boolean": false,
+        "operand_assignment": [],
+        "normalized_full_record_sha256": "020da0ca46eb038b05db04231835368c20ea7f856d18d28184f57eaa8488de36"
+      },
+      {
+        "query_case_id": "synthetic-document-000066::surface::NO_DIACRITICS",
+        "bucket": "F",
+        "predictor_boundary_state": "candidate_snapshot",
+        "final_candidate_count": 64,
+        "ordered_candidate_projection_sha256": "799de2f2ca13b9615efa901aa494d47c03f0fe7698258bf36bd7f0e8d951b1ee",
+        "support_boolean": false,
+        "operand_assignment": [],
+        "normalized_full_record_sha256": "045cf5942ee5f1cfd53c8d1e10317ef06d027dd989335aec0ccf63cffd8cf9f3"
+      },
+      {
+        "query_case_id": "synthetic-document-000066::surface::BILINGUAL_PARENTHETICAL",
+        "bucket": "F",
+        "predictor_boundary_state": "candidate_snapshot",
+        "final_candidate_count": 64,
+        "ordered_candidate_projection_sha256": "5608ad9dc08fdaed2e3724358d88bb45df2ab0280b45aaae4d7e37bc61590b90",
+        "support_boolean": false,
+        "operand_assignment": [],
+        "normalized_full_record_sha256": "6d5ff91b3711074e407e76563478bd4c1456ddf40f7bf5da43b678e2c9b29d34"
+      },
+      {
+        "query_case_id": "synthetic-document-000066::surface::IRRELEVANT_DISTRACTOR_CLAUSE",
+        "bucket": "F",
+        "predictor_boundary_state": "candidate_snapshot",
+        "final_candidate_count": 64,
+        "ordered_candidate_projection_sha256": "942cc49891930751a0b669d97c4fada394c04fd92244528af7c55288abedf767",
+        "support_boolean": false,
+        "operand_assignment": [],
+        "normalized_full_record_sha256": "bac38c065d70dff22245963514e16af13cc282bcd93d47c965973a0c7217e8c5"
+      },
+      {
+        "query_case_id": "synthetic-document-000066::counterfactual::OPERAND_YEAR",
+        "bucket": "Q",
+        "predictor_boundary_state": "not_entered",
+        "final_candidate_count": 0,
+        "ordered_candidate_projection_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "support_boolean": false,
+        "operand_assignment": [],
+        "normalized_full_record_sha256": "0ec9b0a77d313acbd4d49b7d2b4ed40e389b611aed8a47a5491eb1b219adf7de"
+      },
+      {
+        "query_case_id": "synthetic-document-000066::counterfactual::ENTITY_SCOPE",
+        "bucket": "F",
+        "predictor_boundary_state": "candidate_snapshot",
+        "final_candidate_count": 64,
+        "ordered_candidate_projection_sha256": "bcb639b93ea0bb81cebcec23c18318f2494aaed79114b3e7088a6747e4af5d91",
+        "support_boolean": false,
+        "operand_assignment": [],
+        "normalized_full_record_sha256": "f05bb328710563acb02196b226f03ef231b6f4af97d7453df94651262b75c306"
+      },
+      {
+        "query_case_id": "synthetic-document-000066::counterfactual::UNIT_SCALE",
+        "bucket": "F",
+        "predictor_boundary_state": "candidate_snapshot",
+        "final_candidate_count": 64,
+        "ordered_candidate_projection_sha256": "6bbb8374b30d6cfd218f63bfc97a1fd514ce1b8818fd93b9327f84e40503e915",
+        "support_boolean": false,
+        "operand_assignment": [],
+        "normalized_full_record_sha256": "bedfbe5e3ca2ce194931f14ec2897206aa0cea62490bc3130ed683554b88c66f"
+      },
+      {
+        "query_case_id": "synthetic-document-000014::surface::SHORT_LONG_EQUIVALENT",
+        "bucket": "F",
+        "predictor_boundary_state": "candidate_snapshot",
+        "final_candidate_count": 14,
+        "ordered_candidate_projection_sha256": "4c88d1e8f28215568a0bdcea8b18741a1545f66c7664503652e4b10039bd383f",
+        "support_boolean": false,
+        "operand_assignment": [],
+        "normalized_full_record_sha256": "b0dbf45953e41b891f8ff34b7b9106166f56a0ee98089c279dad2f34840f52ea"
+      },
+      {
+        "query_case_id": "synthetic-document-000014::surface::DISCOURSE_PREFIX_SUFFIX",
+        "bucket": "F",
+        "predictor_boundary_state": "candidate_snapshot",
+        "final_candidate_count": 14,
+        "ordered_candidate_projection_sha256": "70feedb9223258ad5a47da2191d46e28179c727162210773f24f12cca1b60d86",
+        "support_boolean": false,
+        "operand_assignment": [],
+        "normalized_full_record_sha256": "c4c73bc99f0be15233fc688bc3ab14724de5ce0e4eddea64fa4085ebe5e07f1b"
+      },
+      {
+        "query_case_id": "synthetic-document-000014::surface::CLAUSE_PERMUTATION",
+        "bucket": "F",
+        "predictor_boundary_state": "candidate_snapshot",
+        "final_candidate_count": 14,
+        "ordered_candidate_projection_sha256": "70feedb9223258ad5a47da2191d46e28179c727162210773f24f12cca1b60d86",
+        "support_boolean": false,
+        "operand_assignment": [],
+        "normalized_full_record_sha256": "09a57c5036cac45f521112657b1f1ea75fa3d4ff2ba43b5dc1ac69e935e21949"
+      },
+      {
+        "query_case_id": "synthetic-document-000014::surface::PUNCTUATION_VARIANT",
+        "bucket": "F",
+        "predictor_boundary_state": "candidate_snapshot",
+        "final_candidate_count": 14,
+        "ordered_candidate_projection_sha256": "70feedb9223258ad5a47da2191d46e28179c727162210773f24f12cca1b60d86",
+        "support_boolean": false,
+        "operand_assignment": [],
+        "normalized_full_record_sha256": "81fc03c44f7ca6211319866e54e6f398635ffc9e2dde77a8d6a7c4159dab43ce"
+      },
+      {
+        "query_case_id": "synthetic-document-000014::surface::NO_DIACRITICS",
+        "bucket": "F",
+        "predictor_boundary_state": "candidate_snapshot",
+        "final_candidate_count": 14,
+        "ordered_candidate_projection_sha256": "70feedb9223258ad5a47da2191d46e28179c727162210773f24f12cca1b60d86",
+        "support_boolean": false,
+        "operand_assignment": [],
+        "normalized_full_record_sha256": "eb44dadce95749698cbd23e74c9fe0513bf38cf3afacbcbbc96a4aa39e50234b"
+      },
+      {
+        "query_case_id": "synthetic-document-000014::surface::BILINGUAL_PARENTHETICAL",
+        "bucket": "F",
+        "predictor_boundary_state": "candidate_snapshot",
+        "final_candidate_count": 14,
+        "ordered_candidate_projection_sha256": "551e599009ac980e2b0cab5850852cdfbfa0e3462861d9a5013243f07edddba3",
+        "support_boolean": false,
+        "operand_assignment": [],
+        "normalized_full_record_sha256": "e34850deb121decb71b516432f01389f9214bbddc308ff10f4fb9ec79872ac9a"
+      },
+      {
+        "query_case_id": "synthetic-document-000014::surface::IRRELEVANT_DISTRACTOR_CLAUSE",
+        "bucket": "F",
+        "predictor_boundary_state": "candidate_snapshot",
+        "final_candidate_count": 14,
+        "ordered_candidate_projection_sha256": "b79334d7da9a05e13dd54c3f442392c9a3e592f6753a983cf18df987d2b04aea",
+        "support_boolean": false,
+        "operand_assignment": [],
+        "normalized_full_record_sha256": "0a75fb68951f37920138ee80d9abe69088f9b909574fb3f3542612fbcd87a782"
+      },
+      {
+        "query_case_id": "synthetic-document-000014::counterfactual::OPERAND_YEAR",
+        "bucket": "Q",
+        "predictor_boundary_state": "not_entered",
+        "final_candidate_count": 0,
+        "ordered_candidate_projection_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "support_boolean": false,
+        "operand_assignment": [],
+        "normalized_full_record_sha256": "3969e5cc0f707d0efe70ace227c6fc4a346316bd91ab44433e6b6b533a1bd227"
+      },
+      {
+        "query_case_id": "synthetic-document-000014::counterfactual::ENTITY_SCOPE",
+        "bucket": "F",
+        "predictor_boundary_state": "candidate_snapshot",
+        "final_candidate_count": 14,
+        "ordered_candidate_projection_sha256": "1f6b07fc956d859e5f2bb8380da5614c4958b3572258b31116efc9e76f18508f",
+        "support_boolean": false,
+        "operand_assignment": [],
+        "normalized_full_record_sha256": "cf15df76215fbadcacd021fdf70de998142e8eeb56b5c3f42696ade97a2b9805"
+      },
+      {
+        "query_case_id": "synthetic-document-000014::counterfactual::UNIT_SCALE",
+        "bucket": "F",
+        "predictor_boundary_state": "candidate_snapshot",
+        "final_candidate_count": 14,
+        "ordered_candidate_projection_sha256": "70feedb9223258ad5a47da2191d46e28179c727162210773f24f12cca1b60d86",
+        "support_boolean": false,
+        "operand_assignment": [],
+        "normalized_full_record_sha256": "1a9599baac61340e1bd2bec65afa08bd513ebdab86a11e02ce029028f9c19bdb"
+      },
+      {
+        "query_case_id": "synthetic-document-000106::surface::SHORT_LONG_EQUIVALENT",
+        "bucket": "F",
+        "predictor_boundary_state": "candidate_snapshot",
+        "final_candidate_count": 7,
+        "ordered_candidate_projection_sha256": "f7062f08b75fcac26c60ae7a051d6be912485036957ee615264e96e524d06fe8",
+        "support_boolean": false,
+        "operand_assignment": [],
+        "normalized_full_record_sha256": "b00c3e74e77cc47a4bcdf78f1be7c9b78e34bdf077578c47981aeafc7bcd0fc9"
+      },
+      {
+        "query_case_id": "synthetic-document-000106::surface::DISCOURSE_PREFIX_SUFFIX",
+        "bucket": "F",
+        "predictor_boundary_state": "candidate_exception",
+        "final_candidate_count": 0,
+        "ordered_candidate_projection_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "support_boolean": false,
+        "operand_assignment": [],
+        "normalized_full_record_sha256": "47e8aa1b57abdb2b9be29c52cdf7dd754375d910e7abd837b6d4aef84ab1688e"
+      },
+      {
+        "query_case_id": "synthetic-document-000106::surface::CLAUSE_PERMUTATION",
+        "bucket": "F",
+        "predictor_boundary_state": "candidate_exception",
+        "final_candidate_count": 0,
+        "ordered_candidate_projection_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "support_boolean": false,
+        "operand_assignment": [],
+        "normalized_full_record_sha256": "09ecd97d560e8165fed78e3ad95f19d9f9aa6edc8071f0f03364237358482824"
+      },
+      {
+        "query_case_id": "synthetic-document-000106::surface::PUNCTUATION_VARIANT",
+        "bucket": "F",
+        "predictor_boundary_state": "candidate_exception",
+        "final_candidate_count": 0,
+        "ordered_candidate_projection_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "support_boolean": false,
+        "operand_assignment": [],
+        "normalized_full_record_sha256": "1c4fb6d032f23697e5dde4e47ec3dbf69ea804fbdd107c09e64742b2f561811b"
+      },
+      {
+        "query_case_id": "synthetic-document-000106::surface::NO_DIACRITICS",
+        "bucket": "F",
+        "predictor_boundary_state": "candidate_exception",
+        "final_candidate_count": 0,
+        "ordered_candidate_projection_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "support_boolean": false,
+        "operand_assignment": [],
+        "normalized_full_record_sha256": "c118d41501c5ef4bfdbbf0781d529711c8fd1e4bd7434c0c860df5d69647567f"
+      },
+      {
+        "query_case_id": "synthetic-document-000106::surface::BILINGUAL_PARENTHETICAL",
+        "bucket": "F",
+        "predictor_boundary_state": "candidate_exception",
+        "final_candidate_count": 0,
+        "ordered_candidate_projection_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "support_boolean": false,
+        "operand_assignment": [],
+        "normalized_full_record_sha256": "ff09e040070b8dc22a130dbb6b6ee41f23574d03a615277b714c1603b907ed87"
+      },
+      {
+        "query_case_id": "synthetic-document-000106::surface::IRRELEVANT_DISTRACTOR_CLAUSE",
+        "bucket": "F",
+        "predictor_boundary_state": "candidate_exception",
+        "final_candidate_count": 0,
+        "ordered_candidate_projection_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "support_boolean": false,
+        "operand_assignment": [],
+        "normalized_full_record_sha256": "ec663b3bffb4b7c60bb987de23c386c137d5957b982b11c60a42379395c241b7"
+      },
+      {
+        "query_case_id": "synthetic-document-000106::counterfactual::OPERAND_YEAR",
+        "bucket": "Q",
+        "predictor_boundary_state": "not_entered",
+        "final_candidate_count": 0,
+        "ordered_candidate_projection_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "support_boolean": false,
+        "operand_assignment": [],
+        "normalized_full_record_sha256": "0b2cef9aae8a7f316e53d7b096b42256d564068f9fb1c322196d8975dbb75f01"
+      },
+      {
+        "query_case_id": "synthetic-document-000106::counterfactual::ENTITY_SCOPE",
+        "bucket": "F",
+        "predictor_boundary_state": "candidate_snapshot",
+        "final_candidate_count": 7,
+        "ordered_candidate_projection_sha256": "f7062f08b75fcac26c60ae7a051d6be912485036957ee615264e96e524d06fe8",
+        "support_boolean": false,
+        "operand_assignment": [],
+        "normalized_full_record_sha256": "c1766de99001e0fd434421eef16a64cbe7028a345abbf61f2c6582d82b314726"
+      },
+      {
+        "query_case_id": "synthetic-document-000106::counterfactual::UNIT_SCALE",
+        "bucket": "F",
+        "predictor_boundary_state": "candidate_exception",
+        "final_candidate_count": 0,
+        "ordered_candidate_projection_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "support_boolean": false,
+        "operand_assignment": [],
+        "normalized_full_record_sha256": "8fa75e68bbecbecc7af18b90b1422cbddc4e304a219894d2228f59c0d857d18c"
+      }
+    ],
+    "expected_projection_set_sha256": "80aae1474cefc14392cb80408fb6a4e7a642d649ab7faba6abdc790cff33646c",
+    "comparison": "each fresh pre-edit and post-edit record must exactly equal its frozen expected projection in exact order",
+    "excluded_only": [
+      "observer event list",
+      "phase-local temporary path spelling",
+      "retrieve.stats.index_seconds",
+      "retrieve.stats.selected_mineru_seconds",
+      "retrieve.stats.total_seconds"
+    ],
+    "not_authorized_uses": [
+      "sub-1000 root-cause evidence",
+      "repair credit",
+      "genericity evidence",
+      "reclassification of prior Candidate clusters"
+    ],
+    "deterministic_baseline_path": "reports/finhrm_qp4_candidate_plaintext_sub1000_deterministic_pre_edit_baseline_v1.json",
+    "deterministic_baseline_sha256": "0ec3f5736d2b0420c4f4f2ca1deb25e02d486d13057924810970725c04196702"
+  },
+  "deterministic_pre_edit_baseline": {
+    "path": "reports/finhrm_qp4_candidate_plaintext_sub1000_deterministic_pre_edit_baseline_v1.json",
+    "bytes": 53029211,
+    "sha256": "0ec3f5736d2b0420c4f4f2ca1deb25e02d486d13057924810970725c04196702",
+    "runtime_sha256": "668b4aa15448cc544a0c2c4539401cd7ad4af0c99a16b1ae787b1b12c56e35b8",
+    "python_hash_seed": "0",
+    "candidate_evaluations": {
+      "current_universe": 60,
+      "cross_cohort": 50,
+      "total": 110
+    },
+    "model_calls": 0,
+    "binding_calls": 0,
+    "universe_id_order_sha256": "1512b981af735e01aec5fd05e3b88a4fe74ff070895a426188a62f711a840f1e",
+    "cross_cohort_id_order_sha256": "5ed2c03ccd90133b7d7118ac303547eaf281e4bc078dd537b9008ee6cef6c6cf",
+    "expected_current_universe_projections": [
+      {
+        "case_id": "qp4-rcc-agr-total-expense:base_target:canonical",
+        "group": "cluster_1a",
+        "source_preconditions_pass": true,
+        "current_plan_exact": true,
+        "predictor_boundary_state": "candidate_snapshot",
+        "final_candidate_count": 64,
+        "ordered_candidate_projection_sha256": "d7d24eb0f67e38e5987e2a1d9aa1a323876f6f6ede8f7b1d8fa1a6b5b469d716",
+        "normalized_full_record_sha256": "968fe75dc387d96ad8c05bece57a9c73ea9b8fe55b2c24ec20f16175a45b3368",
+        "physical_support_boolean": false,
+        "operand_assignment": [],
+        "support_sets": [
+          [],
+          []
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-agr-total-expense:base_target:paraphrase_1",
+        "group": "cluster_1a",
+        "source_preconditions_pass": true,
+        "current_plan_exact": true,
+        "predictor_boundary_state": "candidate_snapshot",
+        "final_candidate_count": 64,
+        "ordered_candidate_projection_sha256": "b70c5db2c48f4af9aea01d13b8d19fd5e6dabf8217ea1b209b508a1c535c99ca",
+        "normalized_full_record_sha256": "4d40a3d16395ce899c01e3d50d949c0b88bf41673806813f7e839b6fb4183363",
+        "physical_support_boolean": false,
+        "operand_assignment": [],
+        "support_sets": [
+          [],
+          []
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-agr-total-expense:base_target:long_clause",
+        "group": "cluster_1a",
+        "source_preconditions_pass": true,
+        "current_plan_exact": true,
+        "predictor_boundary_state": "candidate_snapshot",
+        "final_candidate_count": 64,
+        "ordered_candidate_projection_sha256": "3f5f162b416af62358ba5a7ccb0d670e13636e1ddf92c8122e58ea8cf740d630",
+        "normalized_full_record_sha256": "4cd4086853bda35b8b36610ed480c3b7680010304a8a9651fae68bc70c1f4ddb",
+        "physical_support_boolean": false,
+        "operand_assignment": [],
+        "support_sets": [
+          [],
+          []
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-agr-total-expense:base_target:clause_reordered",
+        "group": "cluster_1a",
+        "source_preconditions_pass": true,
+        "current_plan_exact": true,
+        "predictor_boundary_state": "candidate_snapshot",
+        "final_candidate_count": 64,
+        "ordered_candidate_projection_sha256": "3242194ba59e0acca827b3664bbb8a3dee6b7f13c1cdc0c995a949b0eef80944",
+        "normalized_full_record_sha256": "cdb9bed1767a3e577192110e1a992c2fb6ac191be600a07f0f01f1fbb055ed05",
+        "physical_support_boolean": false,
+        "operand_assignment": [],
+        "support_sets": [
+          [],
+          []
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-agr-total-expense:base_target:no_diacritics",
+        "group": "cluster_1a",
+        "source_preconditions_pass": true,
+        "current_plan_exact": true,
+        "predictor_boundary_state": "candidate_snapshot",
+        "final_candidate_count": 64,
+        "ordered_candidate_projection_sha256": "d7d24eb0f67e38e5987e2a1d9aa1a323876f6f6ede8f7b1d8fa1a6b5b469d716",
+        "normalized_full_record_sha256": "c1da1ee66fcfdd6868a3c26143210ceb6f1ae5073037c5ade1d8c5c105e51cbb",
+        "physical_support_boolean": false,
+        "operand_assignment": [],
+        "support_sets": [
+          [],
+          []
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-agr-total-expense:reference_base_mutation_target:canonical",
+        "group": "cluster_1b",
+        "source_preconditions_pass": true,
+        "current_plan_exact": true,
+        "predictor_boundary_state": "candidate_snapshot",
+        "final_candidate_count": 64,
+        "ordered_candidate_projection_sha256": "a538151ad698d0386a3d1ffde26adb69327e0ed7e997c9f5cf5757d91f397004",
+        "normalized_full_record_sha256": "de4ff95f4c2cde47d5ccd76909bbef9362a7a591edee8b904734f5b10c63e720",
+        "physical_support_boolean": false,
+        "operand_assignment": [],
+        "support_sets": [
+          [],
+          []
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-agr-total-expense:reference_base_mutation_target:paraphrase_1",
+        "group": "cluster_1b",
+        "source_preconditions_pass": true,
+        "current_plan_exact": true,
+        "predictor_boundary_state": "candidate_snapshot",
+        "final_candidate_count": 64,
+        "ordered_candidate_projection_sha256": "08b973f052e293ca75fe0edd5e1c41ec22d48095eba5bdc2ce5e68fc2b3b2eca",
+        "normalized_full_record_sha256": "20dd19190ef30a167cfbce6ac39829691c34247fe9c599a9b082fbbc39102b22",
+        "physical_support_boolean": false,
+        "operand_assignment": [],
+        "support_sets": [
+          [],
+          []
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-agr-total-expense:reference_base_mutation_target:long_clause",
+        "group": "cluster_1b",
+        "source_preconditions_pass": true,
+        "current_plan_exact": true,
+        "predictor_boundary_state": "candidate_snapshot",
+        "final_candidate_count": 64,
+        "ordered_candidate_projection_sha256": "6f898459bd11db4e03d07e13269a3c5de7f2a76be413037fe6c27927c311769a",
+        "normalized_full_record_sha256": "142381b33b16f9cbc1c8ec195dc962fc9b8e7654b5cf0fe76632a3a09c0d4ece",
+        "physical_support_boolean": false,
+        "operand_assignment": [],
+        "support_sets": [
+          [],
+          []
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-agr-total-expense:reference_base_mutation_target:clause_reordered",
+        "group": "cluster_1b",
+        "source_preconditions_pass": true,
+        "current_plan_exact": true,
+        "predictor_boundary_state": "candidate_snapshot",
+        "final_candidate_count": 64,
+        "ordered_candidate_projection_sha256": "63ed9d9b7f16ac46b40accbc59c847e2f92158fc387bfc2bf369ba095daa61aa",
+        "normalized_full_record_sha256": "7f10d96ee0a7429711a9cab480d614276492e83ff3c371b9326b2c5ce8beb70c",
+        "physical_support_boolean": false,
+        "operand_assignment": [],
+        "support_sets": [
+          [],
+          []
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-agr-total-expense:reference_base_mutation_target:no_diacritics",
+        "group": "cluster_1b",
+        "source_preconditions_pass": true,
+        "current_plan_exact": true,
+        "predictor_boundary_state": "candidate_snapshot",
+        "final_candidate_count": 64,
+        "ordered_candidate_projection_sha256": "a538151ad698d0386a3d1ffde26adb69327e0ed7e997c9f5cf5757d91f397004",
+        "normalized_full_record_sha256": "d0896c53120dd234ffa0cee3767c2568d4903434252c1fbd296ea6adcd78679e",
+        "physical_support_boolean": false,
+        "operand_assignment": [],
+        "support_sets": [
+          [],
+          []
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-hub-parent-profit-after-tax:base_target:canonical",
+        "group": "cluster_1a",
+        "source_preconditions_pass": true,
+        "current_plan_exact": true,
+        "predictor_boundary_state": "candidate_snapshot",
+        "final_candidate_count": 64,
+        "ordered_candidate_projection_sha256": "0b5e00cc77ef400ffd05aa7d6bc23d054ecd0f5ebd845a98f34e06336657fb29",
+        "normalized_full_record_sha256": "04e150c7b249adf0f76aba841f14c269e9db68d387d5d4a697ceb46fd89e1050",
+        "physical_support_boolean": false,
+        "operand_assignment": [],
+        "support_sets": [
+          [],
+          []
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-hub-parent-profit-after-tax:base_target:paraphrase_1",
+        "group": "cluster_1a",
+        "source_preconditions_pass": true,
+        "current_plan_exact": true,
+        "predictor_boundary_state": "candidate_snapshot",
+        "final_candidate_count": 64,
+        "ordered_candidate_projection_sha256": "95a94c4aaa351fd119119ca5fdc5ff96b00776c8b77d90a4e1d0f95f711e1b1a",
+        "normalized_full_record_sha256": "d1d5cc4adb46d109cbe4f039c14a1eeca2a9ae04c51bbbe301afa63e19a714b9",
+        "physical_support_boolean": false,
+        "operand_assignment": [],
+        "support_sets": [
+          [],
+          []
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-hub-parent-profit-after-tax:base_target:long_clause",
+        "group": "cluster_1a",
+        "source_preconditions_pass": true,
+        "current_plan_exact": true,
+        "predictor_boundary_state": "candidate_snapshot",
+        "final_candidate_count": 64,
+        "ordered_candidate_projection_sha256": "d7a11a1449feb123364de819b8bf558ef6390b7aab2bfdb02786765aaec71a09",
+        "normalized_full_record_sha256": "15eb0482bc79917decad2cdeb5a6f40986b43a8dd95a5b33933a374427910545",
+        "physical_support_boolean": false,
+        "operand_assignment": [],
+        "support_sets": [
+          [],
+          []
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-hub-parent-profit-after-tax:base_target:clause_reordered",
+        "group": "cluster_1a",
+        "source_preconditions_pass": true,
+        "current_plan_exact": true,
+        "predictor_boundary_state": "candidate_snapshot",
+        "final_candidate_count": 64,
+        "ordered_candidate_projection_sha256": "3614d642bb198b515400b5c502053276d155c8a7c1a6dceae5f279e38bd297f0",
+        "normalized_full_record_sha256": "8452b61a085d38f1db633730d6237e52401c7a88f6bbc5d32472dcc766b2bb6a",
+        "physical_support_boolean": false,
+        "operand_assignment": [],
+        "support_sets": [
+          [],
+          []
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-hub-parent-profit-after-tax:base_target:no_diacritics",
+        "group": "cluster_1a",
+        "source_preconditions_pass": true,
+        "current_plan_exact": true,
+        "predictor_boundary_state": "candidate_snapshot",
+        "final_candidate_count": 64,
+        "ordered_candidate_projection_sha256": "0b5e00cc77ef400ffd05aa7d6bc23d054ecd0f5ebd845a98f34e06336657fb29",
+        "normalized_full_record_sha256": "a16c6d2bce5bd9b21aa481f0d8128cf6025e18aca6abd9d1f6f176115fa365ee",
+        "physical_support_boolean": false,
+        "operand_assignment": [],
+        "support_sets": [
+          [],
+          []
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-hub-parent-profit-after-tax:reference_base_mutation_target:canonical",
+        "group": "cluster_1b",
+        "source_preconditions_pass": true,
+        "current_plan_exact": true,
+        "predictor_boundary_state": "candidate_snapshot",
+        "final_candidate_count": 64,
+        "ordered_candidate_projection_sha256": "e2118edb938e1124e575795140b2bbfa492a715e37cac9dda35d7fd430b9d7b3",
+        "normalized_full_record_sha256": "dee31f844233daa68c95204e2b3f2ab263eecf5062193f3b206190aaf73fad7a",
+        "physical_support_boolean": false,
+        "operand_assignment": [],
+        "support_sets": [
+          [],
+          []
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-hub-parent-profit-after-tax:reference_base_mutation_target:paraphrase_1",
+        "group": "cluster_1b",
+        "source_preconditions_pass": true,
+        "current_plan_exact": true,
+        "predictor_boundary_state": "candidate_snapshot",
+        "final_candidate_count": 64,
+        "ordered_candidate_projection_sha256": "59c906e087e3bf7331494a53d0e786fb99b6ace6d91a2cd35ded02f7ddf5f025",
+        "normalized_full_record_sha256": "ed8f3a64808aed4b360513b6c826fffc8449c71fad39b7c10bee17bc5e0478e8",
+        "physical_support_boolean": false,
+        "operand_assignment": [],
+        "support_sets": [
+          [],
+          []
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-hub-parent-profit-after-tax:reference_base_mutation_target:long_clause",
+        "group": "cluster_1b",
+        "source_preconditions_pass": true,
+        "current_plan_exact": true,
+        "predictor_boundary_state": "candidate_snapshot",
+        "final_candidate_count": 64,
+        "ordered_candidate_projection_sha256": "177dcced463cd382e3f06cfa2a460c539bf11098020bfc08e50547eca07b2e90",
+        "normalized_full_record_sha256": "9e8b9748fad05d7bbf6dc6caf9ed8c0c456a7123b586be05c6e6e947200b3a7c",
+        "physical_support_boolean": false,
+        "operand_assignment": [],
+        "support_sets": [
+          [],
+          []
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-hub-parent-profit-after-tax:reference_base_mutation_target:clause_reordered",
+        "group": "cluster_1b",
+        "source_preconditions_pass": true,
+        "current_plan_exact": true,
+        "predictor_boundary_state": "candidate_snapshot",
+        "final_candidate_count": 64,
+        "ordered_candidate_projection_sha256": "aef0007fe23647d7640eeb646737ecc80a09960923f4d2856620480adbdee981",
+        "normalized_full_record_sha256": "0c8fcd3bd214683077c0ab7c9891c9e61769a1bdfe0392a72981e8881016c470",
+        "physical_support_boolean": false,
+        "operand_assignment": [],
+        "support_sets": [
+          [],
+          []
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-hub-parent-profit-after-tax:reference_base_mutation_target:no_diacritics",
+        "group": "cluster_1b",
+        "source_preconditions_pass": true,
+        "current_plan_exact": true,
+        "predictor_boundary_state": "candidate_snapshot",
+        "final_candidate_count": 64,
+        "ordered_candidate_projection_sha256": "e2118edb938e1124e575795140b2bbfa492a715e37cac9dda35d7fd430b9d7b3",
+        "normalized_full_record_sha256": "3052cd9b925ba538b3307b638a71592ab4ecc476b7db6879b48d7ee91e11882c",
+        "physical_support_boolean": false,
+        "operand_assignment": [],
+        "support_sets": [
+          [],
+          []
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-ict-total-revenue:base_target:canonical",
+        "group": "regression_30",
+        "source_preconditions_pass": true,
+        "current_plan_exact": true,
+        "predictor_boundary_state": "candidate_snapshot",
+        "final_candidate_count": 64,
+        "ordered_candidate_projection_sha256": "b3a17d77c4771cdd348ed294dca864bff2fe4723ce45a6db7d0b87396509fbf7",
+        "normalized_full_record_sha256": "af846e90c600204679aaa851424468fd072ccf28a8dd9fbd9bff5569f353d3bc",
+        "physical_support_boolean": false,
+        "operand_assignment": [],
+        "support_sets": [
+          [],
+          []
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-ict-total-revenue:base_target:paraphrase_1",
+        "group": "regression_30",
+        "source_preconditions_pass": true,
+        "current_plan_exact": true,
+        "predictor_boundary_state": "candidate_snapshot",
+        "final_candidate_count": 64,
+        "ordered_candidate_projection_sha256": "51e1ec0891f7c272512c6ea9633f2d18773f731482438d997b43a9cc4719829b",
+        "normalized_full_record_sha256": "712c7bef22da37ff2839595885ec3d232384598f4367084af0f77d421d33b096",
+        "physical_support_boolean": false,
+        "operand_assignment": [],
+        "support_sets": [
+          [],
+          []
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-ict-total-revenue:base_target:long_clause",
+        "group": "regression_30",
+        "source_preconditions_pass": true,
+        "current_plan_exact": true,
+        "predictor_boundary_state": "candidate_snapshot",
+        "final_candidate_count": 64,
+        "ordered_candidate_projection_sha256": "abdb19b7eee542ba8f4ed86d6b143f3d76ab3f0ce95256734e4e189cae2871c4",
+        "normalized_full_record_sha256": "7f0c522f8d6e7c7755df5e902ce4401e9ee719aa4b69fb14c488e1e7b4740ad4",
+        "physical_support_boolean": false,
+        "operand_assignment": [],
+        "support_sets": [
+          [],
+          []
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-ict-total-revenue:base_target:clause_reordered",
+        "group": "regression_30",
+        "source_preconditions_pass": true,
+        "current_plan_exact": true,
+        "predictor_boundary_state": "candidate_snapshot",
+        "final_candidate_count": 64,
+        "ordered_candidate_projection_sha256": "dfdb27aa61fe644273fef552aec2b9e7c88dbe8697b5c81c0318f2db0e015800",
+        "normalized_full_record_sha256": "1d253dde223e01d1c52dd7682c999150b8cd2bfee07300005b9f919b2b8117de",
+        "physical_support_boolean": false,
+        "operand_assignment": [],
+        "support_sets": [
+          [],
+          []
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-ict-total-revenue:base_target:no_diacritics",
+        "group": "regression_30",
+        "source_preconditions_pass": true,
+        "current_plan_exact": true,
+        "predictor_boundary_state": "candidate_snapshot",
+        "final_candidate_count": 64,
+        "ordered_candidate_projection_sha256": "b3a17d77c4771cdd348ed294dca864bff2fe4723ce45a6db7d0b87396509fbf7",
+        "normalized_full_record_sha256": "7d836f88f0637d2d3b471b74971664b65d6234c2942ac2a348cbff6a71f4db34",
+        "physical_support_boolean": false,
+        "operand_assignment": [],
+        "support_sets": [
+          [],
+          []
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-ict-total-revenue:reference_base_mutation_target:canonical",
+        "group": "regression_30",
+        "source_preconditions_pass": true,
+        "current_plan_exact": true,
+        "predictor_boundary_state": "candidate_snapshot",
+        "final_candidate_count": 64,
+        "ordered_candidate_projection_sha256": "9af566535999d5c92021e8b53098fc3897bc7d1da03051ea9e323d2cb652536a",
+        "normalized_full_record_sha256": "040fb738af3ffc7c55e0933dfba21268b3b02f2b67d8023d0b1b1992ba8e207c",
+        "physical_support_boolean": false,
+        "operand_assignment": [],
+        "support_sets": [
+          [],
+          []
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-ict-total-revenue:reference_base_mutation_target:paraphrase_1",
+        "group": "regression_30",
+        "source_preconditions_pass": true,
+        "current_plan_exact": true,
+        "predictor_boundary_state": "candidate_snapshot",
+        "final_candidate_count": 64,
+        "ordered_candidate_projection_sha256": "0b36e833c881ba68e17c15ec61dc1b0dbc46bccaf6255d09fc7b76788c5024a8",
+        "normalized_full_record_sha256": "d9aa6d5adc516d515390d201318f55af27f2371a4868512d6f4cdc3de605c641",
+        "physical_support_boolean": false,
+        "operand_assignment": [],
+        "support_sets": [
+          [],
+          []
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-ict-total-revenue:reference_base_mutation_target:long_clause",
+        "group": "regression_30",
+        "source_preconditions_pass": true,
+        "current_plan_exact": false,
+        "predictor_boundary_state": "candidate_snapshot",
+        "final_candidate_count": 64,
+        "ordered_candidate_projection_sha256": "4d1da9ff979d9fedd536c30d49a57f7b3501fb1808ce209073723c9c1633b28e",
+        "normalized_full_record_sha256": "59974f974674d844256c73a7c0328b512af365360e5053477e9afa0560aa21aa",
+        "physical_support_boolean": false,
+        "operand_assignment": [],
+        "support_sets": [
+          [],
+          []
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-ict-total-revenue:reference_base_mutation_target:clause_reordered",
+        "group": "regression_30",
+        "source_preconditions_pass": true,
+        "current_plan_exact": true,
+        "predictor_boundary_state": "candidate_snapshot",
+        "final_candidate_count": 64,
+        "ordered_candidate_projection_sha256": "6c0feaf44d69fadce1ff4c8c812a7e7aee6b10d7222079d867dab2d764579928",
+        "normalized_full_record_sha256": "68ed620f8402b39476a80bacb5f60058fc26e2a844d8be06d59c57c6d5508917",
+        "physical_support_boolean": false,
+        "operand_assignment": [],
+        "support_sets": [
+          [],
+          []
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-ict-total-revenue:reference_base_mutation_target:no_diacritics",
+        "group": "regression_30",
+        "source_preconditions_pass": true,
+        "current_plan_exact": true,
+        "predictor_boundary_state": "candidate_snapshot",
+        "final_candidate_count": 64,
+        "ordered_candidate_projection_sha256": "9af566535999d5c92021e8b53098fc3897bc7d1da03051ea9e323d2cb652536a",
+        "normalized_full_record_sha256": "bc9f97f21f1765d3b679447ea74181352b50f32be369e4fcea52ca306dbc6eb5",
+        "physical_support_boolean": false,
+        "operand_assignment": [],
+        "support_sets": [
+          [],
+          []
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-pic-total-revenue:base_target:canonical",
+        "group": "regression_30",
+        "source_preconditions_pass": true,
+        "current_plan_exact": true,
+        "predictor_boundary_state": "candidate_snapshot",
+        "final_candidate_count": 64,
+        "ordered_candidate_projection_sha256": "4240ad97cac0e8f07cca40c540faa12a0130750d2bbf922c77ee521a2e4615fd",
+        "normalized_full_record_sha256": "c0ec41f541e681e67869d7e8f5790b2df6a42aa9dad19e7d7a0e134031f1069d",
+        "physical_support_boolean": false,
+        "operand_assignment": [],
+        "support_sets": [
+          [],
+          []
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-pic-total-revenue:base_target:paraphrase_1",
+        "group": "regression_30",
+        "source_preconditions_pass": true,
+        "current_plan_exact": true,
+        "predictor_boundary_state": "candidate_snapshot",
+        "final_candidate_count": 64,
+        "ordered_candidate_projection_sha256": "96f39457c787571fc5bf37e9714f3cea7b5af5775f577ce7be69ea4c69360965",
+        "normalized_full_record_sha256": "ae840706584c2e0d788faa96c72d90baea789c4a6762db69b9f69c3b431196a1",
+        "physical_support_boolean": false,
+        "operand_assignment": [],
+        "support_sets": [
+          [],
+          []
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-pic-total-revenue:base_target:long_clause",
+        "group": "regression_30",
+        "source_preconditions_pass": true,
+        "current_plan_exact": true,
+        "predictor_boundary_state": "candidate_snapshot",
+        "final_candidate_count": 64,
+        "ordered_candidate_projection_sha256": "851ba3bb7bf531e06c1c438e722205b4efb626c3e5654ebd58db4b9265192a4a",
+        "normalized_full_record_sha256": "59bafdd1371abdfbe44322ddaf0388f64a7071437a08202337be366ba67e4d5e",
+        "physical_support_boolean": false,
+        "operand_assignment": [],
+        "support_sets": [
+          [],
+          []
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-pic-total-revenue:base_target:clause_reordered",
+        "group": "regression_30",
+        "source_preconditions_pass": true,
+        "current_plan_exact": true,
+        "predictor_boundary_state": "candidate_snapshot",
+        "final_candidate_count": 64,
+        "ordered_candidate_projection_sha256": "aceff569b936259461bd048611c3965f2212b856656d1fbc32f832924fc0d6c7",
+        "normalized_full_record_sha256": "6ea5abb8b7e4d4f48c28adbb8fe14b83ed31cf91690b23cee48729bdabb9cb45",
+        "physical_support_boolean": false,
+        "operand_assignment": [],
+        "support_sets": [
+          [],
+          []
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-pic-total-revenue:base_target:no_diacritics",
+        "group": "regression_30",
+        "source_preconditions_pass": true,
+        "current_plan_exact": true,
+        "predictor_boundary_state": "candidate_snapshot",
+        "final_candidate_count": 64,
+        "ordered_candidate_projection_sha256": "4240ad97cac0e8f07cca40c540faa12a0130750d2bbf922c77ee521a2e4615fd",
+        "normalized_full_record_sha256": "9727989713de21a16873c0409d004a9c31572d7d5b19536db9ca96e53458e88b",
+        "physical_support_boolean": false,
+        "operand_assignment": [],
+        "support_sets": [
+          [],
+          []
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-pic-total-revenue:reference_base_mutation_target:canonical",
+        "group": "regression_30",
+        "source_preconditions_pass": true,
+        "current_plan_exact": true,
+        "predictor_boundary_state": "candidate_snapshot",
+        "final_candidate_count": 64,
+        "ordered_candidate_projection_sha256": "5f5c74752fd5f3c46cc36ca2e36b73233e9a37c29c9dadf5e3bebdd1b0c8a93f",
+        "normalized_full_record_sha256": "8c62c52170a363614d27d447606ce991e43f16dc4d7cf2af1fd1999e6f7c9055",
+        "physical_support_boolean": false,
+        "operand_assignment": [],
+        "support_sets": [
+          [],
+          []
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-pic-total-revenue:reference_base_mutation_target:paraphrase_1",
+        "group": "regression_30",
+        "source_preconditions_pass": true,
+        "current_plan_exact": true,
+        "predictor_boundary_state": "candidate_snapshot",
+        "final_candidate_count": 64,
+        "ordered_candidate_projection_sha256": "0a75419c68584b35a782bf4254f98b7ca9c419a24ccfef93d9a34a3f4d76647d",
+        "normalized_full_record_sha256": "f5ec685b9a7f3d5ca4acd24e1ab5ac5f134680bb1e057739d561f846c7bc095c",
+        "physical_support_boolean": false,
+        "operand_assignment": [],
+        "support_sets": [
+          [],
+          []
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-pic-total-revenue:reference_base_mutation_target:long_clause",
+        "group": "regression_30",
+        "source_preconditions_pass": true,
+        "current_plan_exact": true,
+        "predictor_boundary_state": "candidate_snapshot",
+        "final_candidate_count": 64,
+        "ordered_candidate_projection_sha256": "58726b4c9de5d56fd3d96c58835e9707a8168c99670329f6113362d4cb19581d",
+        "normalized_full_record_sha256": "538d6233548fd5d476c37271f6cf5e1e721b32d0e82183697b3c69b056a8c16e",
+        "physical_support_boolean": false,
+        "operand_assignment": [],
+        "support_sets": [
+          [],
+          []
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-pic-total-revenue:reference_base_mutation_target:clause_reordered",
+        "group": "regression_30",
+        "source_preconditions_pass": true,
+        "current_plan_exact": true,
+        "predictor_boundary_state": "candidate_snapshot",
+        "final_candidate_count": 64,
+        "ordered_candidate_projection_sha256": "3ea6ed3ffa42889829d214e01ef363acda4af0c4d8812fd87c4b23db71e3cd37",
+        "normalized_full_record_sha256": "1d89d17579aa501f38f9595132226781532a53ff722c018abe16f45dab6cda30",
+        "physical_support_boolean": false,
+        "operand_assignment": [],
+        "support_sets": [
+          [],
+          []
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-pic-total-revenue:reference_base_mutation_target:no_diacritics",
+        "group": "regression_30",
+        "source_preconditions_pass": true,
+        "current_plan_exact": true,
+        "predictor_boundary_state": "candidate_snapshot",
+        "final_candidate_count": 64,
+        "ordered_candidate_projection_sha256": "5f5c74752fd5f3c46cc36ca2e36b73233e9a37c29c9dadf5e3bebdd1b0c8a93f",
+        "normalized_full_record_sha256": "806b2afa21a5a7244a5a8b124b950cdf2700a421fd7c99f052e0f0215fcd1881",
+        "physical_support_boolean": false,
+        "operand_assignment": [],
+        "support_sets": [
+          [],
+          []
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-scg-total-revenue:base_target:canonical",
+        "group": "regression_30",
+        "source_preconditions_pass": true,
+        "current_plan_exact": true,
+        "predictor_boundary_state": "candidate_snapshot",
+        "final_candidate_count": 64,
+        "ordered_candidate_projection_sha256": "d12be08dc3ca1740f0bd05b12915992b152aa4e717d5061f3bcd0109f322f59d",
+        "normalized_full_record_sha256": "7a363def6a8cfdf21b948d9b58928a4bba13d5e24892f684ea5e216c451dfb49",
+        "physical_support_boolean": false,
+        "operand_assignment": [],
+        "support_sets": [
+          [],
+          []
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-scg-total-revenue:base_target:paraphrase_1",
+        "group": "regression_30",
+        "source_preconditions_pass": true,
+        "current_plan_exact": true,
+        "predictor_boundary_state": "candidate_snapshot",
+        "final_candidate_count": 64,
+        "ordered_candidate_projection_sha256": "1e1e28486f0ba4d3532b172a340d0576a6ac4b0e11c11d5dec5a024506af502c",
+        "normalized_full_record_sha256": "0a9ca682c38f3e7241cbf3655a1d4b65ba218a1d0efe470ee78e2e5f7536343e",
+        "physical_support_boolean": false,
+        "operand_assignment": [],
+        "support_sets": [
+          [],
+          []
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-scg-total-revenue:base_target:long_clause",
+        "group": "regression_30",
+        "source_preconditions_pass": true,
+        "current_plan_exact": true,
+        "predictor_boundary_state": "candidate_snapshot",
+        "final_candidate_count": 64,
+        "ordered_candidate_projection_sha256": "f68e03a45422c209e7fec15d130195ed755c0e154eeed0f00431a50c2eb2bcae",
+        "normalized_full_record_sha256": "3737ab5a773ac977dcc2149a0d078d6775998826a6b74ac25a69601d16cae4d0",
+        "physical_support_boolean": false,
+        "operand_assignment": [],
+        "support_sets": [
+          [],
+          []
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-scg-total-revenue:base_target:clause_reordered",
+        "group": "regression_30",
+        "source_preconditions_pass": true,
+        "current_plan_exact": true,
+        "predictor_boundary_state": "candidate_snapshot",
+        "final_candidate_count": 64,
+        "ordered_candidate_projection_sha256": "b3b93f58fb21bec037fb85bf718c71522d9e5a7e98cc54988106aadf977ca0be",
+        "normalized_full_record_sha256": "a2c7c2399a49227b9c5eee0f6719719f19ffe16cf0aa31be3164a79d6530b0d0",
+        "physical_support_boolean": false,
+        "operand_assignment": [],
+        "support_sets": [
+          [],
+          []
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-scg-total-revenue:base_target:no_diacritics",
+        "group": "regression_30",
+        "source_preconditions_pass": true,
+        "current_plan_exact": true,
+        "predictor_boundary_state": "candidate_snapshot",
+        "final_candidate_count": 64,
+        "ordered_candidate_projection_sha256": "d12be08dc3ca1740f0bd05b12915992b152aa4e717d5061f3bcd0109f322f59d",
+        "normalized_full_record_sha256": "d39c966e5401ccb71df502aee236311d6d3c4617dc1d26d178fb69c38821e5ce",
+        "physical_support_boolean": false,
+        "operand_assignment": [],
+        "support_sets": [
+          [],
+          []
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-scg-total-revenue:reference_base_mutation_target:canonical",
+        "group": "regression_30",
+        "source_preconditions_pass": true,
+        "current_plan_exact": true,
+        "predictor_boundary_state": "candidate_snapshot",
+        "final_candidate_count": 64,
+        "ordered_candidate_projection_sha256": "2ce518b71292f638bab86ecce659091cdae733e66a1f24f6b115326f521cb85a",
+        "normalized_full_record_sha256": "e4517a87b4145fb8570f8f586caa7ebea0d54d01b82a452a7896ea14ea4bf04b",
+        "physical_support_boolean": false,
+        "operand_assignment": [],
+        "support_sets": [
+          [],
+          []
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-scg-total-revenue:reference_base_mutation_target:paraphrase_1",
+        "group": "regression_30",
+        "source_preconditions_pass": true,
+        "current_plan_exact": true,
+        "predictor_boundary_state": "candidate_snapshot",
+        "final_candidate_count": 64,
+        "ordered_candidate_projection_sha256": "5c96843ee32c92c04e93a9a6626ed2e47aa17527b1518325cdd668ea0467010d",
+        "normalized_full_record_sha256": "5f2b412390c7cb501b8ff4072c4a272366941792c09cea0657bbe37afcf9f94b",
+        "physical_support_boolean": false,
+        "operand_assignment": [],
+        "support_sets": [
+          [],
+          []
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-scg-total-revenue:reference_base_mutation_target:long_clause",
+        "group": "regression_30",
+        "source_preconditions_pass": true,
+        "current_plan_exact": true,
+        "predictor_boundary_state": "candidate_snapshot",
+        "final_candidate_count": 64,
+        "ordered_candidate_projection_sha256": "28979a990060079b45155312c4014c16195036619776840817bb4f8143dc149c",
+        "normalized_full_record_sha256": "2c8806fe4dddc2ca9101b5b941877b4589d10e58a9d5c043973bc07488c3d580",
+        "physical_support_boolean": false,
+        "operand_assignment": [],
+        "support_sets": [
+          [],
+          []
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-scg-total-revenue:reference_base_mutation_target:clause_reordered",
+        "group": "regression_30",
+        "source_preconditions_pass": true,
+        "current_plan_exact": true,
+        "predictor_boundary_state": "candidate_snapshot",
+        "final_candidate_count": 64,
+        "ordered_candidate_projection_sha256": "47d014e3d6a34a04a3d561b5e547d7c7268d1073ec3259e2a8c65338a30413e2",
+        "normalized_full_record_sha256": "e144c74df83263a327605249aac3a659ac9edf54404dc5f89983611a2b393d76",
+        "physical_support_boolean": false,
+        "operand_assignment": [],
+        "support_sets": [
+          [],
+          []
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-scg-total-revenue:reference_base_mutation_target:no_diacritics",
+        "group": "regression_30",
+        "source_preconditions_pass": true,
+        "current_plan_exact": true,
+        "predictor_boundary_state": "candidate_snapshot",
+        "final_candidate_count": 64,
+        "ordered_candidate_projection_sha256": "2ce518b71292f638bab86ecce659091cdae733e66a1f24f6b115326f521cb85a",
+        "normalized_full_record_sha256": "4356f4c4b62a4e834a3447e22c843b6c04a1894887c66b5f78889c3c3dca107b",
+        "physical_support_boolean": false,
+        "operand_assignment": [],
+        "support_sets": [
+          [],
+          []
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-vnl-profit-before-tax:base_target:canonical",
+        "group": "cluster_1a",
+        "source_preconditions_pass": true,
+        "current_plan_exact": true,
+        "predictor_boundary_state": "candidate_snapshot",
+        "final_candidate_count": 64,
+        "ordered_candidate_projection_sha256": "bf7d58159331b178d6115d5c00291b5b7e37f9d6c02fd4bc6d1d7f7f3fc29550",
+        "normalized_full_record_sha256": "99a3bb454d7d82eaccce43fdba01de8c7087f538f5d4eab6f390f107098f4895",
+        "physical_support_boolean": false,
+        "operand_assignment": [],
+        "support_sets": [
+          [],
+          []
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-vnl-profit-before-tax:base_target:paraphrase_1",
+        "group": "cluster_1a",
+        "source_preconditions_pass": true,
+        "current_plan_exact": true,
+        "predictor_boundary_state": "candidate_snapshot",
+        "final_candidate_count": 64,
+        "ordered_candidate_projection_sha256": "59415a0bd49f39d3fecb6ce2141c57b124b46ba4173340c12365ed14e95a2f55",
+        "normalized_full_record_sha256": "64c764661ce3ac36464ba5b2695ef6df8f5862c6537bb4e04064c6d588cbd81c",
+        "physical_support_boolean": false,
+        "operand_assignment": [],
+        "support_sets": [
+          [],
+          []
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-vnl-profit-before-tax:base_target:long_clause",
+        "group": "cluster_1a",
+        "source_preconditions_pass": true,
+        "current_plan_exact": true,
+        "predictor_boundary_state": "candidate_snapshot",
+        "final_candidate_count": 64,
+        "ordered_candidate_projection_sha256": "deb2eb9f83faec016efb8b68ab632d894c0b3c88d2827f74341b38d359424ef9",
+        "normalized_full_record_sha256": "55287b7a962f363cf834b3a7a322a85df8bc24b99e341c82be3bb9e82f0dd099",
+        "physical_support_boolean": false,
+        "operand_assignment": [],
+        "support_sets": [
+          [],
+          []
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-vnl-profit-before-tax:base_target:clause_reordered",
+        "group": "cluster_1a",
+        "source_preconditions_pass": true,
+        "current_plan_exact": true,
+        "predictor_boundary_state": "candidate_snapshot",
+        "final_candidate_count": 64,
+        "ordered_candidate_projection_sha256": "df7d1a6b4b65bd31e87175141a313fc39359ceebee334d7b578edead1e606d3c",
+        "normalized_full_record_sha256": "a0c95ba75ad4d1be63c430424d5635774651dab091d614daab15eb46556a5fbc",
+        "physical_support_boolean": false,
+        "operand_assignment": [],
+        "support_sets": [
+          [],
+          []
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-vnl-profit-before-tax:base_target:no_diacritics",
+        "group": "cluster_1a",
+        "source_preconditions_pass": true,
+        "current_plan_exact": true,
+        "predictor_boundary_state": "candidate_snapshot",
+        "final_candidate_count": 64,
+        "ordered_candidate_projection_sha256": "bf7d58159331b178d6115d5c00291b5b7e37f9d6c02fd4bc6d1d7f7f3fc29550",
+        "normalized_full_record_sha256": "22677efc056373de9442d2c9ba869870525e89e3d3ab74273f0633dd81651ac4",
+        "physical_support_boolean": false,
+        "operand_assignment": [],
+        "support_sets": [
+          [],
+          []
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-vnl-profit-before-tax:reference_base_mutation_target:canonical",
+        "group": "cluster_1b",
+        "source_preconditions_pass": true,
+        "current_plan_exact": true,
+        "predictor_boundary_state": "candidate_snapshot",
+        "final_candidate_count": 64,
+        "ordered_candidate_projection_sha256": "ca1b0586dfd7c20c8aee1f594426e76a5804ce04399295daeb3d9bca732a7f60",
+        "normalized_full_record_sha256": "a3297d5de11d4960150643189b924e740138399f3a50942adafe63be9c1adb70",
+        "physical_support_boolean": false,
+        "operand_assignment": [],
+        "support_sets": [
+          [],
+          []
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-vnl-profit-before-tax:reference_base_mutation_target:paraphrase_1",
+        "group": "cluster_1b",
+        "source_preconditions_pass": true,
+        "current_plan_exact": true,
+        "predictor_boundary_state": "candidate_snapshot",
+        "final_candidate_count": 64,
+        "ordered_candidate_projection_sha256": "04a66012ba8cc14584a6b045f5c846d10fe20619978c65fc55132bf267068a65",
+        "normalized_full_record_sha256": "4a948b5e3365b4c97f7575cd4453ed6816be1a04405f70ade29d817d96eb5215",
+        "physical_support_boolean": false,
+        "operand_assignment": [],
+        "support_sets": [
+          [],
+          []
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-vnl-profit-before-tax:reference_base_mutation_target:long_clause",
+        "group": "cluster_1b",
+        "source_preconditions_pass": true,
+        "current_plan_exact": true,
+        "predictor_boundary_state": "candidate_snapshot",
+        "final_candidate_count": 64,
+        "ordered_candidate_projection_sha256": "bb8dec1e2ec1e5cf5ba53edebf03e74cba5cffd3f7c6860a47bf1e5c7a1d7183",
+        "normalized_full_record_sha256": "9d6199965f1314bc129c77ca48c1b52a4185b5f05791050d746d65770c39b6e6",
+        "physical_support_boolean": false,
+        "operand_assignment": [],
+        "support_sets": [
+          [],
+          []
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-vnl-profit-before-tax:reference_base_mutation_target:clause_reordered",
+        "group": "cluster_1b",
+        "source_preconditions_pass": true,
+        "current_plan_exact": true,
+        "predictor_boundary_state": "candidate_snapshot",
+        "final_candidate_count": 64,
+        "ordered_candidate_projection_sha256": "d3a79718469f23fbc29c48cb24bc670f2ffc4fa38855ace1bf6c6d03bd6806df",
+        "normalized_full_record_sha256": "cf21dca8d2c0966fde29b83db1d2507224703210b384794115504e24230c8112",
+        "physical_support_boolean": false,
+        "operand_assignment": [],
+        "support_sets": [
+          [],
+          []
+        ]
+      },
+      {
+        "case_id": "qp4-rcc-vnl-profit-before-tax:reference_base_mutation_target:no_diacritics",
+        "group": "cluster_1b",
+        "source_preconditions_pass": true,
+        "current_plan_exact": true,
+        "predictor_boundary_state": "candidate_snapshot",
+        "final_candidate_count": 64,
+        "ordered_candidate_projection_sha256": "ca1b0586dfd7c20c8aee1f594426e76a5804ce04399295daeb3d9bca732a7f60",
+        "normalized_full_record_sha256": "133b007b4bdc9113c6424017bcea76c3150547bd6a1e5dd06c6063852a25e965",
+        "physical_support_boolean": false,
+        "operand_assignment": [],
+        "support_sets": [
+          [],
+          []
+        ]
+      }
+    ],
+    "current_universe_projection_set_sha256": "3c65b158387331bfd5c73a1c3a120afa4956e086c04acdb732bddbb685f2f680",
+    "cross_cohort_projection_set_sha256": "80aae1474cefc14392cb80408fb6a4e7a642d649ab7faba6abdc790cff33646c",
+    "combined_projection_set_sha256": "447cc3acf10b788b79d8803d00a46d6856eceb92955e57dd7cc9a079abb7cd1f",
+    "summary": {
+      "cluster_1a": {
+        "cases": 15,
+        "physical_support_true": 0,
+        "projection_set_sha256": "0d2c5c77c583234bdfc96293bb1645d3d1b57f8ec0e974d54417c550060e2e71"
+      },
+      "cluster_1b": {
+        "cases": 15,
+        "physical_support_true": 0,
+        "projection_set_sha256": "78fb2cdcaa8b8a6ed290674ffdaefff417a2efa5d0c19cf2b4c82233df6897c9"
+      },
+      "regression_30": {
+        "cases": 30,
+        "materialized": 30,
+        "projection_set_sha256": "5f8243ff263ec697574ef380f77f0a7e0020f77eee6d2f42f602bf2a35d5847f"
+      },
+      "cross_cohort_50": {
+        "cases": 50,
+        "exact_against_deterministic_seed0": 50,
+        "projection_set_sha256": "80aae1474cefc14392cb80408fb6a4e7a642d649ab7faba6abdc790cff33646c"
+      }
+    }
+  },
+  "deterministic_baseline_rebase_accounting": {
+    "candidate_calls": 110,
+    "current_universe_calls": 60,
+    "cross_cohort_calls": 50,
+    "model_calls": 0,
+    "binding_calls": 0,
+    "runtime_sub1000_modifications": 0,
+    "post_edit_candidate_calls": 0
+  }
+}

@@ -1,0 +1,959 @@
+{
+  "action_classes": {
+    "ABSTAIN_MISSING": "The supplied Markdown is only a disclosure notice and lacks requested financial operands; a numeric answer is forbidden.",
+    "ANSWER_EXACT": "Unique reviewed source evidence exists; operation, ordered operands, result, VND scale and physical pages must match exactly."
+  },
+  "cases": [
+    {
+      "case_id": "s15-047",
+      "category": "abstain_missing_current_revenue",
+      "expected_action_class": "ABSTAIN_MISSING",
+      "question": "Doanh thu thuần năm 2023 của doanh nghiệp mã ASM là bao nhiêu đồng?",
+      "question_sha256": "c22e067b49b1583f2b67c829990eb25e75f07e5d58c2b10be1365544a82ffcaa",
+      "source_id": "ASM",
+      "source_review": {
+        "absent_fragments": [
+          "Doanh thu thuần |",
+          "Lợi nhuận sau thuế |"
+        ],
+        "determination": "The entire frozen Markdown is only an annual-report disclosure notice. It contains neither requested revenue row nor numeric current/prior operands.",
+        "locations": [
+          {
+            "evidence_id": "asm-notice-page-1",
+            "evidence_sha256": "fc5a5a204867696eac90a92505c22601b7a6feed96be0e245c165b8d8f442eda",
+            "evidence_text": "## Page 1\n\nAn Giang, ngày 15 tháng 04 năm 2024\nKính gửi: - Ủy ban Chứng khoán nhà nước.\n- Sở Giao dịch Chứng khoán Thành phố Hồ Chí Minh.\nTên tổ chức : CÔNG TY CỔ PHẦN TẬP ĐOÀN SAO MAI\nMã chứng khoán : ASM\nTrụ sở chính : Số 326 Hùng Vương, P. Mỹ Long, Tp. Long Xuyên, tỉnh An Giang\nĐiện thoại : 02963 840 138 Fax: 02963 840 139\nNgười thực hiện công bố thông tin: Trương Công Khánh – Giám đốc tài chính\nLoại thông tin công bố: ☑ 24 giờ □ 72 giờ □ bất thường □ theo yêu cầu □ định kỳ\nNội dung thông tin công bố:\nCông ty Cổ Phần Tập Đoàn Sao Mai kính gửi đến quý cơ quan và quý cổ đông về việc Công ty đã công bố thông tin Báo cáo thường niên năm 2023. Thông tin trên đã công bố trên trang thông tin điện tử của Công ty tại website: www.saomaigroup.com.\nChúng tôi cam kết các thông tin công bố trên đây là đúng sự thật và hoàn toàn chịu trách nhiệm trước pháp luật về nội dung thông tin đã công bố.\nNGƯỜI ĐƯỢC ỦY QUYỀN\nNơi nhận:\n\\- Như trên;\n\\- Luru VT, PTC;\nCÔNG BỐ THÔNG TIN\nTRƯƠNG CÔNG KHÁNH\n1. 2023年1月1日\nCÔNG TY CỔ PHẦN\nTẬP ĐOÀN SAO MAI\nSỐ:07/ASM-2024\nCỘNG HOÀ XÃ HỘI CHỦ NGHĨA VIỆT NAM\nĐộc lập - Tự do - Hạnh phúc",
+            "line_end": 30,
+            "line_start": 5,
+            "page": 1,
+            "required_fragments": [
+              "Báo cáo thường niên"
+            ]
+          }
+        ],
+        "reason_code": "DISCLOSURE_NOTICE_HAS_NO_FINANCIAL_OPERANDS",
+        "reviewed_scope": "entire_markdown",
+        "source_id": "ASM",
+        "whole_markdown_sha256": "747886793a62056d727f8b1628efe78d294fa4942c1277d519f7b85cd7158ead"
+      }
+    },
+    {
+      "case_id": "s15-048",
+      "category": "abstain_missing_revenue_comparison",
+      "expected_action_class": "ABSTAIN_MISSING",
+      "question": "Doanh thu thuần năm 2023 của doanh nghiệp mã ASM chênh lệch bao nhiêu đồng so với năm 2022? Hãy tính năm 2023 trừ năm 2022.",
+      "question_sha256": "07684b813a28a82685a09f2fb23c28752b1f52ee70a36919fcaa5d01c719a04d",
+      "source_id": "ASM",
+      "source_review": {
+        "absent_fragments": [
+          "Doanh thu thuần |",
+          "Lợi nhuận sau thuế |"
+        ],
+        "determination": "The entire frozen Markdown is only an annual-report disclosure notice. It contains neither requested revenue row nor numeric current/prior operands.",
+        "locations": [
+          {
+            "evidence_id": "asm-notice-page-1",
+            "evidence_sha256": "fc5a5a204867696eac90a92505c22601b7a6feed96be0e245c165b8d8f442eda",
+            "evidence_text": "## Page 1\n\nAn Giang, ngày 15 tháng 04 năm 2024\nKính gửi: - Ủy ban Chứng khoán nhà nước.\n- Sở Giao dịch Chứng khoán Thành phố Hồ Chí Minh.\nTên tổ chức : CÔNG TY CỔ PHẦN TẬP ĐOÀN SAO MAI\nMã chứng khoán : ASM\nTrụ sở chính : Số 326 Hùng Vương, P. Mỹ Long, Tp. Long Xuyên, tỉnh An Giang\nĐiện thoại : 02963 840 138 Fax: 02963 840 139\nNgười thực hiện công bố thông tin: Trương Công Khánh – Giám đốc tài chính\nLoại thông tin công bố: ☑ 24 giờ □ 72 giờ □ bất thường □ theo yêu cầu □ định kỳ\nNội dung thông tin công bố:\nCông ty Cổ Phần Tập Đoàn Sao Mai kính gửi đến quý cơ quan và quý cổ đông về việc Công ty đã công bố thông tin Báo cáo thường niên năm 2023. Thông tin trên đã công bố trên trang thông tin điện tử của Công ty tại website: www.saomaigroup.com.\nChúng tôi cam kết các thông tin công bố trên đây là đúng sự thật và hoàn toàn chịu trách nhiệm trước pháp luật về nội dung thông tin đã công bố.\nNGƯỜI ĐƯỢC ỦY QUYỀN\nNơi nhận:\n\\- Như trên;\n\\- Luru VT, PTC;\nCÔNG BỐ THÔNG TIN\nTRƯƠNG CÔNG KHÁNH\n1. 2023年1月1日\nCÔNG TY CỔ PHẦN\nTẬP ĐOÀN SAO MAI\nSỐ:07/ASM-2024\nCỘNG HOÀ XÃ HỘI CHỦ NGHĨA VIỆT NAM\nĐộc lập - Tự do - Hạnh phúc",
+            "line_end": 30,
+            "line_start": 5,
+            "page": 1,
+            "required_fragments": [
+              "Báo cáo thường niên"
+            ]
+          }
+        ],
+        "reason_code": "DISCLOSURE_NOTICE_HAS_NO_FINANCIAL_OPERANDS",
+        "reviewed_scope": "entire_markdown",
+        "source_id": "ASM",
+        "whole_markdown_sha256": "747886793a62056d727f8b1628efe78d294fa4942c1277d519f7b85cd7158ead"
+      }
+    },
+    {
+      "case_id": "s15-049",
+      "category": "abstain_missing_current_revenue",
+      "expected_action_class": "ABSTAIN_MISSING",
+      "question": "Doanh thu thuần năm 2023 của doanh nghiệp mã DAT là bao nhiêu đồng?",
+      "question_sha256": "8e129a241aca115b760550110be35ae56deca432eb6e9253c17c638afb0983bb",
+      "source_id": "DAT",
+      "source_review": {
+        "absent_fragments": [
+          "Doanh thu thuần |",
+          "Lợi nhuận sau thuế |"
+        ],
+        "determination": "The entire frozen Markdown is only an annual-report disclosure notice. It contains neither requested revenue row nor numeric current/prior operands.",
+        "locations": [
+          {
+            "evidence_id": "dat-notice-page-1",
+            "evidence_sha256": "ebda3bc6514961e2129402cd02db06a21da41cd1a759eed28fef73911d6f19ce",
+            "evidence_text": "## Page 1\n\nCÔNG BỐ THÔNG TIN BẤT THƯỜNG\nKính gửi: Ủy Ban Chứng khoán Nhà Nước;\nSở Giao dịch Chứng khoán thành phố Hồ Chí Minh.\n1. Tên tổ chức: CÔNG TY CỔ PHẦN ĐẦU TƯ DỤ LỊCH VÀ PHÁT TRIỂN THỦY SẢN\n\\- Mã chứng khoán: DAT\n\\- Địa chỉ: QL 80, CCN Vàm Cống, áp An Thạnh, xã Bình Thành, huyện Lấp Vò, tỉnh Đồng Tháp.\n\\- Điện thoại: 02773 680 657 Fax: 02773 680 657\n2. Nội dung thông tin công bố:\nCông ty Cổ phần Đầu Tư Du Lịch và Phát Triển Thủy Sản xin công bố đến Quý Cơ quan Báo cáo thường niên năm 2023 của Công ty.\n3. Thông tin này đã được công bố trên trang thông tin điện tử của công ty vào ngày 08/04/2024 tại đường dẫn: www.trisedco.com\nChúng tôi xin cam kết các thông tin trên đây là đúng sự thật và hoàn toàn chịu trách nhiệm trước pháp luật về nội dung các thông tin đã công bố.\nNGƯỜI ĐẠI DIỆN PHÁP LUẬT\nNơi nhận:\n\\- Như trên;\n\\- Luru: VT, CBTT\nĐẦU TƯ ĐU LỊCH\nVÀ PHÁT TRIÊN\nLÊ VĂN LÂM\nCÔNG TY CỔ PHẦN ĐẦU TƯ DỤ\nLỊCH VÀ PHÁT TRIỂN THỦY SẢN\nCỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM\nĐộc lập – Tự do – Hạnh phúc\nTRISEDCO\nSố: 0408/2024/CBTT-DAT\nĐồng Tháp, ngày 08 tháng 04 năm 2024",
+            "line_end": 31,
+            "line_start": 5,
+            "page": 1,
+            "required_fragments": [
+              "Báo cáo thường niên"
+            ]
+          }
+        ],
+        "reason_code": "DISCLOSURE_NOTICE_HAS_NO_FINANCIAL_OPERANDS",
+        "reviewed_scope": "entire_markdown",
+        "source_id": "DAT",
+        "whole_markdown_sha256": "c701f518929fc60d4b9b8366ffe9c4001e2074bce5a63a5c4bb4256ce3a9178d"
+      }
+    },
+    {
+      "case_id": "s15-050",
+      "category": "abstain_missing_revenue_comparison",
+      "expected_action_class": "ABSTAIN_MISSING",
+      "question": "Doanh thu thuần năm 2023 của doanh nghiệp mã DAT chênh lệch bao nhiêu đồng so với năm 2022? Hãy tính năm 2023 trừ năm 2022.",
+      "question_sha256": "f38989f45a7b86f932a097018a1d8db4269153882865b7bfdeaa5a06800df73b",
+      "source_id": "DAT",
+      "source_review": {
+        "absent_fragments": [
+          "Doanh thu thuần |",
+          "Lợi nhuận sau thuế |"
+        ],
+        "determination": "The entire frozen Markdown is only an annual-report disclosure notice. It contains neither requested revenue row nor numeric current/prior operands.",
+        "locations": [
+          {
+            "evidence_id": "dat-notice-page-1",
+            "evidence_sha256": "ebda3bc6514961e2129402cd02db06a21da41cd1a759eed28fef73911d6f19ce",
+            "evidence_text": "## Page 1\n\nCÔNG BỐ THÔNG TIN BẤT THƯỜNG\nKính gửi: Ủy Ban Chứng khoán Nhà Nước;\nSở Giao dịch Chứng khoán thành phố Hồ Chí Minh.\n1. Tên tổ chức: CÔNG TY CỔ PHẦN ĐẦU TƯ DỤ LỊCH VÀ PHÁT TRIỂN THỦY SẢN\n\\- Mã chứng khoán: DAT\n\\- Địa chỉ: QL 80, CCN Vàm Cống, áp An Thạnh, xã Bình Thành, huyện Lấp Vò, tỉnh Đồng Tháp.\n\\- Điện thoại: 02773 680 657 Fax: 02773 680 657\n2. Nội dung thông tin công bố:\nCông ty Cổ phần Đầu Tư Du Lịch và Phát Triển Thủy Sản xin công bố đến Quý Cơ quan Báo cáo thường niên năm 2023 của Công ty.\n3. Thông tin này đã được công bố trên trang thông tin điện tử của công ty vào ngày 08/04/2024 tại đường dẫn: www.trisedco.com\nChúng tôi xin cam kết các thông tin trên đây là đúng sự thật và hoàn toàn chịu trách nhiệm trước pháp luật về nội dung các thông tin đã công bố.\nNGƯỜI ĐẠI DIỆN PHÁP LUẬT\nNơi nhận:\n\\- Như trên;\n\\- Luru: VT, CBTT\nĐẦU TƯ ĐU LỊCH\nVÀ PHÁT TRIÊN\nLÊ VĂN LÂM\nCÔNG TY CỔ PHẦN ĐẦU TƯ DỤ\nLỊCH VÀ PHÁT TRIỂN THỦY SẢN\nCỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM\nĐộc lập – Tự do – Hạnh phúc\nTRISEDCO\nSố: 0408/2024/CBTT-DAT\nĐồng Tháp, ngày 08 tháng 04 năm 2024",
+            "line_end": 31,
+            "line_start": 5,
+            "page": 1,
+            "required_fragments": [
+              "Báo cáo thường niên"
+            ]
+          }
+        ],
+        "reason_code": "DISCLOSURE_NOTICE_HAS_NO_FINANCIAL_OPERANDS",
+        "reviewed_scope": "entire_markdown",
+        "source_id": "DAT",
+        "whole_markdown_sha256": "c701f518929fc60d4b9b8366ffe9c4001e2074bce5a63a5c4bb4256ce3a9178d"
+      }
+    },
+    {
+      "case_id": "s15-051",
+      "category": "abstain_missing_current_revenue",
+      "expected_action_class": "ABSTAIN_MISSING",
+      "question": "Doanh thu thuần năm 2023 của doanh nghiệp mã DXG là bao nhiêu đồng?",
+      "question_sha256": "a159816c1ca0afbf11486b9b3da00429b430060aa06e7b7df5cdfa96ef011c81",
+      "source_id": "DXG",
+      "source_review": {
+        "absent_fragments": [
+          "Doanh thu thuần |",
+          "Lợi nhuận sau thuế |"
+        ],
+        "determination": "The entire frozen Markdown is only an annual-report disclosure notice. It contains neither requested revenue row nor numeric current/prior operands.",
+        "locations": [
+          {
+            "evidence_id": "dxg-notice-page-1",
+            "evidence_sha256": "cc068b1c86b2a50abf7d595e3565b9a6c1b0b9275d7a54b91ce5e36a819e883d",
+            "evidence_text": "## Page 1\n\nTp. Hồ Chí Minh, ngày 29 tháng 03 năm 2024\nHCM City, ..... ....., 2024\nCÔNG BỐ THÔNG TIN ĐỊNH KỲ PERIODIC INFORMATION DISCLOSURE\nKính gửi: - Ủy ban Chứng khoán Nhà nước\n- Sở Giao dịch Chứng khoán TP.HCM\nTo: - State Securities Commission of Vietnam\n- Hochiminh Stock Exchange\n1. Tên tổ chức/Name of organization: Công ty Cổ phần Tập đoàn Đất Xanh/Dat Xanh Group Joint Stock Company\n\\- Mã chứng khoán/ Stock code: DXG\n\\- Địa chỉ/Address: Số 2W Ung văn Khiêm, Phường 25, Quận Bình Thạnh, TP. Hồ Chí Minh/No. 2W Ung Van Khiem Street, Ward 25, Bình Thanh District, HCM City\n\\- Điện thoại liên hệ/Tel.: 028 62 52 52 52\n\\- E-mail: ir@datxanh.com.vn\n2. Nội dung công bố thông tin/Contents of disclosure:\nBáo cáo thường niên năm 2023.\nAnnual Report 2023.\n3. Thông tin này đã được công bố trên trang thông tin điện tử của công ty vào ngày .29./03/2024 tại đường dẫn https://ir.datxanh.vn /This information was published on the company's website on March 29, 2024, as in the link https://ir.datxanh.vn\nChúng tôi xin cam kết các thông tin công bố trên đây là đúng sự thật và hoàn toàn chịu trách nhiệm trước pháp luật về nội dung các thông tin đã công bố/We hereby certify that the information provided is true and correct and we bear the full responsibility to the law.\nNơi nhận/ Recipients:\n\\- SSC, HOSE;.\n\\- Luu Archived: VT, TC.\nNGUỔI ĐƯỢC ỦY QUYỀN CBTT\nperson authorized to disclose information\n0303104\nNGUYÊN HOÀNG ĐỨC\nDATXANH GROUP\nSó: 65. /2024/CV-DXG/QTCL-HT\nNo. ..... /2024/CV-DXG/QTCL-HT\nCỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM\nĐộc lập – Tự do – Hạnh phúc\nTHE SOCIALIST REPUBLIC OF VIETNAM\nIndependence - Freedom - Happiness\n---- Ⓐ ★ ⑧ ----",
+            "line_end": 38,
+            "line_start": 5,
+            "page": 1,
+            "required_fragments": [
+              "Báo cáo thường niên"
+            ]
+          }
+        ],
+        "reason_code": "DISCLOSURE_NOTICE_HAS_NO_FINANCIAL_OPERANDS",
+        "reviewed_scope": "entire_markdown",
+        "source_id": "DXG",
+        "whole_markdown_sha256": "049ff73505043f5b855e8486010ea1fd5f0180d55ea93d2b9fb9d5832ef3a3fd"
+      }
+    },
+    {
+      "case_id": "s15-052",
+      "category": "abstain_missing_revenue_comparison",
+      "expected_action_class": "ABSTAIN_MISSING",
+      "question": "Doanh thu thuần năm 2023 của doanh nghiệp mã DXG chênh lệch bao nhiêu đồng so với năm 2022? Hãy tính năm 2023 trừ năm 2022.",
+      "question_sha256": "8ccf1c5750242915677fe0c67ce2c883dbe6c105860442b1b770a7225b7331cd",
+      "source_id": "DXG",
+      "source_review": {
+        "absent_fragments": [
+          "Doanh thu thuần |",
+          "Lợi nhuận sau thuế |"
+        ],
+        "determination": "The entire frozen Markdown is only an annual-report disclosure notice. It contains neither requested revenue row nor numeric current/prior operands.",
+        "locations": [
+          {
+            "evidence_id": "dxg-notice-page-1",
+            "evidence_sha256": "cc068b1c86b2a50abf7d595e3565b9a6c1b0b9275d7a54b91ce5e36a819e883d",
+            "evidence_text": "## Page 1\n\nTp. Hồ Chí Minh, ngày 29 tháng 03 năm 2024\nHCM City, ..... ....., 2024\nCÔNG BỐ THÔNG TIN ĐỊNH KỲ PERIODIC INFORMATION DISCLOSURE\nKính gửi: - Ủy ban Chứng khoán Nhà nước\n- Sở Giao dịch Chứng khoán TP.HCM\nTo: - State Securities Commission of Vietnam\n- Hochiminh Stock Exchange\n1. Tên tổ chức/Name of organization: Công ty Cổ phần Tập đoàn Đất Xanh/Dat Xanh Group Joint Stock Company\n\\- Mã chứng khoán/ Stock code: DXG\n\\- Địa chỉ/Address: Số 2W Ung văn Khiêm, Phường 25, Quận Bình Thạnh, TP. Hồ Chí Minh/No. 2W Ung Van Khiem Street, Ward 25, Bình Thanh District, HCM City\n\\- Điện thoại liên hệ/Tel.: 028 62 52 52 52\n\\- E-mail: ir@datxanh.com.vn\n2. Nội dung công bố thông tin/Contents of disclosure:\nBáo cáo thường niên năm 2023.\nAnnual Report 2023.\n3. Thông tin này đã được công bố trên trang thông tin điện tử của công ty vào ngày .29./03/2024 tại đường dẫn https://ir.datxanh.vn /This information was published on the company's website on March 29, 2024, as in the link https://ir.datxanh.vn\nChúng tôi xin cam kết các thông tin công bố trên đây là đúng sự thật và hoàn toàn chịu trách nhiệm trước pháp luật về nội dung các thông tin đã công bố/We hereby certify that the information provided is true and correct and we bear the full responsibility to the law.\nNơi nhận/ Recipients:\n\\- SSC, HOSE;.\n\\- Luu Archived: VT, TC.\nNGUỔI ĐƯỢC ỦY QUYỀN CBTT\nperson authorized to disclose information\n0303104\nNGUYÊN HOÀNG ĐỨC\nDATXANH GROUP\nSó: 65. /2024/CV-DXG/QTCL-HT\nNo. ..... /2024/CV-DXG/QTCL-HT\nCỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM\nĐộc lập – Tự do – Hạnh phúc\nTHE SOCIALIST REPUBLIC OF VIETNAM\nIndependence - Freedom - Happiness\n---- Ⓐ ★ ⑧ ----",
+            "line_end": 38,
+            "line_start": 5,
+            "page": 1,
+            "required_fragments": [
+              "Báo cáo thường niên"
+            ]
+          }
+        ],
+        "reason_code": "DISCLOSURE_NOTICE_HAS_NO_FINANCIAL_OPERANDS",
+        "reviewed_scope": "entire_markdown",
+        "source_id": "DXG",
+        "whole_markdown_sha256": "049ff73505043f5b855e8486010ea1fd5f0180d55ea93d2b9fb9d5832ef3a3fd"
+      }
+    },
+    {
+      "case_id": "s15-053",
+      "category": "abstain_missing_current_revenue",
+      "expected_action_class": "ABSTAIN_MISSING",
+      "question": "Doanh thu thuần năm 2023 của doanh nghiệp mã HVH là bao nhiêu đồng?",
+      "question_sha256": "b5cd0f1d1ae623ff8409d0898fa10a62f1af94080301c4a02472a24b87942e1d",
+      "source_id": "HVH",
+      "source_review": {
+        "absent_fragments": [
+          "Doanh thu thuần |",
+          "Lợi nhuận sau thuế |"
+        ],
+        "determination": "The entire frozen Markdown is only an annual-report disclosure notice. It contains neither requested revenue row nor numeric current/prior operands.",
+        "locations": [
+          {
+            "evidence_id": "hvh-notice-page-1",
+            "evidence_sha256": "8c99af64e4dee96db4a9a8760fb32911906989fc6c3a20c01641c33f733510a3",
+            "evidence_text": "## Page 1\n\nCÔNG BỐ THÔNG TIN\nKính gửi: Ủy ban Chứng khoán Nhà nước\nSở giao dịch Chứng khoán Thành phố Hồ Chí Minh\nCông ty: Công ty Cổ phần Đầu tư và Công nghệ HVC\nMã chứng khoán: HVH\nTrụ sở chính: Tầng 8, Tháp C Hồ Guơm Plaza, 102 Trần Phú, Hà Đông, Hà Nội.\nĐiện thoai: 024.35402246\nFax: 024.35402247\nLoại thông tin công bố:\n□ 24h\n□ 72h\n□ Yêu cầu\n□ Bất thường\nĐịnh kỳ\nNội dung công bố: Công bố thông tin Báo cáo thường niên năm 2023 của Công ty cổ phần đầu tư và công nghệ HVC.\nThông tin này đã được công bố trên trang thông tin điện tử của Công ty vào ngày 15 tháng 04 năm 2024 tại đường dẫn http://hvcgroup.net (tại mục “QUAN HỆ CỔ ĐÔNG).\nChúng tôi xin cam kết các thông tin công bố trên đây là đúng sự thật và hoàn toàn chịu trách nhiệm trước pháp luật về nội dung các thông tin công bố.\nNơi nhận:\n\\- Như trên\n\\- Lưu HC\nNGUỔI THỰC HIỆN CBTT\nPHÓ TỔNG GIÁM ĐỐC\nVũ Thị Ngà\nCÔNG TY CỔ PHẦN ĐẦU TƯ VÀ\nCÔNG NGHỆ HVC\nSố: 37/HVC-CBTT\nCỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM\nĐộc Lập – Tự Do – Hạnh Phúc\nHà Nội, ngày 15 tháng 04 năm 2024",
+            "line_end": 35,
+            "line_start": 5,
+            "page": 1,
+            "required_fragments": [
+              "Báo cáo thường niên"
+            ]
+          }
+        ],
+        "reason_code": "DISCLOSURE_NOTICE_HAS_NO_FINANCIAL_OPERANDS",
+        "reviewed_scope": "entire_markdown",
+        "source_id": "HVH",
+        "whole_markdown_sha256": "83956970b13c0861640cfa2dbf0df059d9e7450948d9e6f940ee9467a8c511fe"
+      }
+    },
+    {
+      "case_id": "s15-054",
+      "category": "abstain_missing_revenue_comparison",
+      "expected_action_class": "ABSTAIN_MISSING",
+      "question": "Doanh thu thuần năm 2023 của doanh nghiệp mã HVH chênh lệch bao nhiêu đồng so với năm 2022? Hãy tính năm 2023 trừ năm 2022.",
+      "question_sha256": "fb737131810622110c4048160dbfe72d5849931d96894c27c0e84ac71d045cb6",
+      "source_id": "HVH",
+      "source_review": {
+        "absent_fragments": [
+          "Doanh thu thuần |",
+          "Lợi nhuận sau thuế |"
+        ],
+        "determination": "The entire frozen Markdown is only an annual-report disclosure notice. It contains neither requested revenue row nor numeric current/prior operands.",
+        "locations": [
+          {
+            "evidence_id": "hvh-notice-page-1",
+            "evidence_sha256": "8c99af64e4dee96db4a9a8760fb32911906989fc6c3a20c01641c33f733510a3",
+            "evidence_text": "## Page 1\n\nCÔNG BỐ THÔNG TIN\nKính gửi: Ủy ban Chứng khoán Nhà nước\nSở giao dịch Chứng khoán Thành phố Hồ Chí Minh\nCông ty: Công ty Cổ phần Đầu tư và Công nghệ HVC\nMã chứng khoán: HVH\nTrụ sở chính: Tầng 8, Tháp C Hồ Guơm Plaza, 102 Trần Phú, Hà Đông, Hà Nội.\nĐiện thoai: 024.35402246\nFax: 024.35402247\nLoại thông tin công bố:\n□ 24h\n□ 72h\n□ Yêu cầu\n□ Bất thường\nĐịnh kỳ\nNội dung công bố: Công bố thông tin Báo cáo thường niên năm 2023 của Công ty cổ phần đầu tư và công nghệ HVC.\nThông tin này đã được công bố trên trang thông tin điện tử của Công ty vào ngày 15 tháng 04 năm 2024 tại đường dẫn http://hvcgroup.net (tại mục “QUAN HỆ CỔ ĐÔNG).\nChúng tôi xin cam kết các thông tin công bố trên đây là đúng sự thật và hoàn toàn chịu trách nhiệm trước pháp luật về nội dung các thông tin công bố.\nNơi nhận:\n\\- Như trên\n\\- Lưu HC\nNGUỔI THỰC HIỆN CBTT\nPHÓ TỔNG GIÁM ĐỐC\nVũ Thị Ngà\nCÔNG TY CỔ PHẦN ĐẦU TƯ VÀ\nCÔNG NGHỆ HVC\nSố: 37/HVC-CBTT\nCỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM\nĐộc Lập – Tự Do – Hạnh Phúc\nHà Nội, ngày 15 tháng 04 năm 2024",
+            "line_end": 35,
+            "line_start": 5,
+            "page": 1,
+            "required_fragments": [
+              "Báo cáo thường niên"
+            ]
+          }
+        ],
+        "reason_code": "DISCLOSURE_NOTICE_HAS_NO_FINANCIAL_OPERANDS",
+        "reviewed_scope": "entire_markdown",
+        "source_id": "HVH",
+        "whole_markdown_sha256": "83956970b13c0861640cfa2dbf0df059d9e7450948d9e6f940ee9467a8c511fe"
+      }
+    },
+    {
+      "case_id": "s15-055",
+      "category": "abstain_missing_current_revenue",
+      "expected_action_class": "ABSTAIN_MISSING",
+      "question": "Doanh thu thuần năm 2023 của doanh nghiệp mã NSC là bao nhiêu đồng?",
+      "question_sha256": "b63338c766448364af75e64b509603510efe1a33e081ec26b95b972337278e00",
+      "source_id": "NSC",
+      "source_review": {
+        "absent_fragments": [
+          "Doanh thu thuần |",
+          "Lợi nhuận sau thuế |"
+        ],
+        "determination": "The entire frozen Markdown is only an annual-report disclosure notice. It contains neither requested revenue row nor numeric current/prior operands.",
+        "locations": [
+          {
+            "evidence_id": "nsc-notice-page-1",
+            "evidence_sha256": "602f1848728bf360002142a61f6da74e64017ec709a238dbf6d929683363d821",
+            "evidence_text": "## Page 1\n\nCÔNG BỐ THÔNG TIN INFORMATION DISCLOSURE\nKính gửi/ To:\n- Ủy ban chứng khoán nhà nước / State Security Commission of Vietnam\n- Sở Giao dịch Chứng khoán TP. HCM / Hochiminh Stock Exchange\n1. Tên tổ chức /Name of organization: CÔNG TY CỔ PHẦN TẬP ĐOÀN GIÓNG CÂY TRÒNG VIỆT NAM\n\\- Mã chứng khoán/ Stock code: NSC\n\\- Địa chỉ /Address: Số 1, phố Lương Đình Của, Phường Phương Mai, Quận Đống Đa, Thành phố Hà Nội\n\\- Điện thoại liên hệ/Tel.: 0243.852.3294\nFax: 0243.852.7996\n\\- E-mail: nsc@vinaseed.com.vn\n2. Nội dung thông tin công bố /Contents of disclosure:\nCông ty cổ phần Tập đoàn Giống cây trồng Việt Nam công bố Báo cáo thường niên năm 2023, thông tin này được đăng tải trên trang thông tin điện tử Công ty cổ phần Tập đoàn Giống cây trồng Việt Nam tại địa chỉ: https://vinaseed.com.vn/vi/quan-he-nha-dau-tu/bao-cao-thuong-nien/.\n3. Thông tin này đã được công bố trên trang thông tin điện tử của công ty vào ngày 17/04/2024 tại đường dẫn https://vinaseed.com.vn/vi/quan-he-nha-dau-tu/bao-cao-thuong-nien/. This information was published on the company's website on 04/17/2024, as in the link https://vinaseed.com.vn/vi/quan-he-nha-dau-tu/bao-cao-thuong-nien/.\nChúng tôi xin cam kết các thông tin công bố trên đây là đúng sự thật và hoàn toàn chịu trách nhiệm trước pháp luật về nội dung các thông tin đã công bố./We hereby certify that the information provided is true and correct and we bear the full responsibility to the law.\nĐại diện tổ chức\nOrganization representative\nNgười UQ CBTT\nPerson authorized to disclose information\nTỔNG GIÁM ĐỐC CÔNG TY\nNGUYÊN QUANG TRƯỜNG\nCÔNG TY CP TẬP ĐOÀN\nGIÓNG CÂY TRÒNG VIỆT NAM\nVIETNAM NATIONAL SEED GROUP\nJOINT STOCK COMPANY\n----\nSố/No.: 341/CBTT-VINASEED\nCỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM\nĐộc lập - Tự do - Hạnh phúc\nTHE SOCIALIST REPUBLIC OF VIETNAM\nIndependence - Freedom - Happiness\nHà Nội, ngày 17 tháng 04 năm 2024\nHanoi, day 17 month 04 year 2024",
+            "line_end": 38,
+            "line_start": 5,
+            "page": 1,
+            "required_fragments": [
+              "Báo cáo thường niên"
+            ]
+          }
+        ],
+        "reason_code": "DISCLOSURE_NOTICE_HAS_NO_FINANCIAL_OPERANDS",
+        "reviewed_scope": "entire_markdown",
+        "source_id": "NSC",
+        "whole_markdown_sha256": "31cab27652699041ce093d826e832397016c7e19a859d40565798e6f3530632c"
+      }
+    },
+    {
+      "case_id": "s15-056",
+      "category": "abstain_missing_revenue_comparison",
+      "expected_action_class": "ABSTAIN_MISSING",
+      "question": "Doanh thu thuần năm 2023 của doanh nghiệp mã NSC chênh lệch bao nhiêu đồng so với năm 2022? Hãy tính năm 2023 trừ năm 2022.",
+      "question_sha256": "747af55bdee284f05d6b2028568ddbc274454eab5bb9539543faaba36dc060fd",
+      "source_id": "NSC",
+      "source_review": {
+        "absent_fragments": [
+          "Doanh thu thuần |",
+          "Lợi nhuận sau thuế |"
+        ],
+        "determination": "The entire frozen Markdown is only an annual-report disclosure notice. It contains neither requested revenue row nor numeric current/prior operands.",
+        "locations": [
+          {
+            "evidence_id": "nsc-notice-page-1",
+            "evidence_sha256": "602f1848728bf360002142a61f6da74e64017ec709a238dbf6d929683363d821",
+            "evidence_text": "## Page 1\n\nCÔNG BỐ THÔNG TIN INFORMATION DISCLOSURE\nKính gửi/ To:\n- Ủy ban chứng khoán nhà nước / State Security Commission of Vietnam\n- Sở Giao dịch Chứng khoán TP. HCM / Hochiminh Stock Exchange\n1. Tên tổ chức /Name of organization: CÔNG TY CỔ PHẦN TẬP ĐOÀN GIÓNG CÂY TRÒNG VIỆT NAM\n\\- Mã chứng khoán/ Stock code: NSC\n\\- Địa chỉ /Address: Số 1, phố Lương Đình Của, Phường Phương Mai, Quận Đống Đa, Thành phố Hà Nội\n\\- Điện thoại liên hệ/Tel.: 0243.852.3294\nFax: 0243.852.7996\n\\- E-mail: nsc@vinaseed.com.vn\n2. Nội dung thông tin công bố /Contents of disclosure:\nCông ty cổ phần Tập đoàn Giống cây trồng Việt Nam công bố Báo cáo thường niên năm 2023, thông tin này được đăng tải trên trang thông tin điện tử Công ty cổ phần Tập đoàn Giống cây trồng Việt Nam tại địa chỉ: https://vinaseed.com.vn/vi/quan-he-nha-dau-tu/bao-cao-thuong-nien/.\n3. Thông tin này đã được công bố trên trang thông tin điện tử của công ty vào ngày 17/04/2024 tại đường dẫn https://vinaseed.com.vn/vi/quan-he-nha-dau-tu/bao-cao-thuong-nien/. This information was published on the company's website on 04/17/2024, as in the link https://vinaseed.com.vn/vi/quan-he-nha-dau-tu/bao-cao-thuong-nien/.\nChúng tôi xin cam kết các thông tin công bố trên đây là đúng sự thật và hoàn toàn chịu trách nhiệm trước pháp luật về nội dung các thông tin đã công bố./We hereby certify that the information provided is true and correct and we bear the full responsibility to the law.\nĐại diện tổ chức\nOrganization representative\nNgười UQ CBTT\nPerson authorized to disclose information\nTỔNG GIÁM ĐỐC CÔNG TY\nNGUYÊN QUANG TRƯỜNG\nCÔNG TY CP TẬP ĐOÀN\nGIÓNG CÂY TRÒNG VIỆT NAM\nVIETNAM NATIONAL SEED GROUP\nJOINT STOCK COMPANY\n----\nSố/No.: 341/CBTT-VINASEED\nCỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM\nĐộc lập - Tự do - Hạnh phúc\nTHE SOCIALIST REPUBLIC OF VIETNAM\nIndependence - Freedom - Happiness\nHà Nội, ngày 17 tháng 04 năm 2024\nHanoi, day 17 month 04 year 2024",
+            "line_end": 38,
+            "line_start": 5,
+            "page": 1,
+            "required_fragments": [
+              "Báo cáo thường niên"
+            ]
+          }
+        ],
+        "reason_code": "DISCLOSURE_NOTICE_HAS_NO_FINANCIAL_OPERANDS",
+        "reviewed_scope": "entire_markdown",
+        "source_id": "NSC",
+        "whole_markdown_sha256": "31cab27652699041ce093d826e832397016c7e19a859d40565798e6f3530632c"
+      }
+    },
+    {
+      "case_id": "s15-057",
+      "category": "abstain_missing_current_revenue",
+      "expected_action_class": "ABSTAIN_MISSING",
+      "question": "Doanh thu thuần năm 2024 của doanh nghiệp mã PGD là bao nhiêu đồng?",
+      "question_sha256": "f97186f1536b83a2771b73fceeeb393482c56fd34c7999bf751f414d75c8de88",
+      "source_id": "PGD",
+      "source_review": {
+        "absent_fragments": [
+          "Doanh thu thuần |",
+          "Lợi nhuận sau thuế |"
+        ],
+        "determination": "The entire frozen Markdown is only an annual-report disclosure notice. It contains neither requested revenue row nor numeric current/prior operands.",
+        "locations": [
+          {
+            "evidence_id": "pgd-notice-page-1",
+            "evidence_sha256": "6bf7271bb606b1e6eadad5c92bd6a52c78fae8f26c3af6aa6b224fb32b32e7ee",
+            "evidence_text": "## Page 1\n\nV/v CBTT Báo cáo thường niên năm 2024.\nCÔNG BỐ THÔNG TIN ĐỊNH KỲ\nKính gửi: - Ủy ban Chứng khoán Nhà nước;\n\\- Sở Giao dịch Chứng khoán Thành phố Hồ Chí Minh.\n1. Tên tổ chức:\n\\- Công ty: Công ty Cổ phần Phân phối Khí thấp áp Dầu khí Việt Nam\n\\- Mã chứng khoán: PGD\n\\- Địa chỉ trụ sở chính: Lầu 7, tòa nhà PVGAS, số 673 Nguyễn Hữu Thọ, xã Phước Kiển, huyện Nhà Bè, Thành phố Hồ Chí Minh.\n\\- Điện thoại: 028.37840445\nFax: 028.37840446\n\\- Email: info@pvgasd.com.vn\n2. Nội dung thông tin công bố:\nCông ty Cổ phần Phân phối Khí thấp áp Dầu khí Việt Nam công bố thông tin Báo cáo thường niên năm 2024 được lập theo quy định tại Thông tư 96/2020/TT-BTC ngày 16/11/2020 của Bộ Tài chính hướng dẫn về việc công bố thông tin trên thị trường chứng khoán.\n3. Thông tin này đã được công bố trên trang thông tin điện tử của Công ty vào ngày 12/3/2025 tại địa chỉ www.pvgasd.com.vn (vào mục “Quan hệ cổ đông/Thông tin cổ đông” chọn “Báo cáo thường niên năm 2024”).\nChúng tôi xin cam kết các thông tin công bố trên đây là đúng sự thật và hoàn toàn chịu trách nhiệm trước pháp luật về nội dung các thông tin đã công bố.\nTrân trọng./.\nNơi nhận: Aua\n\\- Như trên;\nGIÁM ĐỐC\nPETROVIETNAM PV GAS DISTR\nTỔNG CÔNG TY KHÍ VIỆT NAM - CTCP\nCÔNG TY CỔ PHẦN PHẦN PHỐI\nKHÍ THẤP ÁP DẦU KHÍ VIỆT NAM\nCỘNG HOÀ XÃ HỘI CHỦ NGHĨA VIỆT NAM\nĐộc lập - Tự do - Hạnh phúc\nThành phố Hồ Chí Minh, ngày 12 tháng 3 năm 2025\n- HĐQT, BKS (đế báo cáo);\n- Luru VT, TCNS. AV.01.\nĐỗ Phạm Hồng Minh",
+            "line_end": 35,
+            "line_start": 5,
+            "page": 1,
+            "required_fragments": [
+              "Báo cáo thường niên"
+            ]
+          }
+        ],
+        "reason_code": "DISCLOSURE_NOTICE_HAS_NO_FINANCIAL_OPERANDS",
+        "reviewed_scope": "entire_markdown",
+        "source_id": "PGD",
+        "whole_markdown_sha256": "29c2fab408e3d8086f5d59704a1cc936db9d2b611ad56753182f8277a2fb1c9d"
+      }
+    },
+    {
+      "case_id": "s15-058",
+      "category": "abstain_missing_revenue_comparison",
+      "expected_action_class": "ABSTAIN_MISSING",
+      "question": "Doanh thu thuần năm 2024 của doanh nghiệp mã PGD chênh lệch bao nhiêu đồng so với năm 2023? Hãy tính năm 2024 trừ năm 2023.",
+      "question_sha256": "0fdfcbead3ba7f70f4856b7f9baffb966031886a7cc320e4eaa282633b6a0fd5",
+      "source_id": "PGD",
+      "source_review": {
+        "absent_fragments": [
+          "Doanh thu thuần |",
+          "Lợi nhuận sau thuế |"
+        ],
+        "determination": "The entire frozen Markdown is only an annual-report disclosure notice. It contains neither requested revenue row nor numeric current/prior operands.",
+        "locations": [
+          {
+            "evidence_id": "pgd-notice-page-1",
+            "evidence_sha256": "6bf7271bb606b1e6eadad5c92bd6a52c78fae8f26c3af6aa6b224fb32b32e7ee",
+            "evidence_text": "## Page 1\n\nV/v CBTT Báo cáo thường niên năm 2024.\nCÔNG BỐ THÔNG TIN ĐỊNH KỲ\nKính gửi: - Ủy ban Chứng khoán Nhà nước;\n\\- Sở Giao dịch Chứng khoán Thành phố Hồ Chí Minh.\n1. Tên tổ chức:\n\\- Công ty: Công ty Cổ phần Phân phối Khí thấp áp Dầu khí Việt Nam\n\\- Mã chứng khoán: PGD\n\\- Địa chỉ trụ sở chính: Lầu 7, tòa nhà PVGAS, số 673 Nguyễn Hữu Thọ, xã Phước Kiển, huyện Nhà Bè, Thành phố Hồ Chí Minh.\n\\- Điện thoại: 028.37840445\nFax: 028.37840446\n\\- Email: info@pvgasd.com.vn\n2. Nội dung thông tin công bố:\nCông ty Cổ phần Phân phối Khí thấp áp Dầu khí Việt Nam công bố thông tin Báo cáo thường niên năm 2024 được lập theo quy định tại Thông tư 96/2020/TT-BTC ngày 16/11/2020 của Bộ Tài chính hướng dẫn về việc công bố thông tin trên thị trường chứng khoán.\n3. Thông tin này đã được công bố trên trang thông tin điện tử của Công ty vào ngày 12/3/2025 tại địa chỉ www.pvgasd.com.vn (vào mục “Quan hệ cổ đông/Thông tin cổ đông” chọn “Báo cáo thường niên năm 2024”).\nChúng tôi xin cam kết các thông tin công bố trên đây là đúng sự thật và hoàn toàn chịu trách nhiệm trước pháp luật về nội dung các thông tin đã công bố.\nTrân trọng./.\nNơi nhận: Aua\n\\- Như trên;\nGIÁM ĐỐC\nPETROVIETNAM PV GAS DISTR\nTỔNG CÔNG TY KHÍ VIỆT NAM - CTCP\nCÔNG TY CỔ PHẦN PHẦN PHỐI\nKHÍ THẤP ÁP DẦU KHÍ VIỆT NAM\nCỘNG HOÀ XÃ HỘI CHỦ NGHĨA VIỆT NAM\nĐộc lập - Tự do - Hạnh phúc\nThành phố Hồ Chí Minh, ngày 12 tháng 3 năm 2025\n- HĐQT, BKS (đế báo cáo);\n- Luru VT, TCNS. AV.01.\nĐỗ Phạm Hồng Minh",
+            "line_end": 35,
+            "line_start": 5,
+            "page": 1,
+            "required_fragments": [
+              "Báo cáo thường niên"
+            ]
+          }
+        ],
+        "reason_code": "DISCLOSURE_NOTICE_HAS_NO_FINANCIAL_OPERANDS",
+        "reviewed_scope": "entire_markdown",
+        "source_id": "PGD",
+        "whole_markdown_sha256": "29c2fab408e3d8086f5d59704a1cc936db9d2b611ad56753182f8277a2fb1c9d"
+      }
+    },
+    {
+      "case_id": "s15-059",
+      "category": "abstain_missing_current_revenue",
+      "expected_action_class": "ABSTAIN_MISSING",
+      "question": "Doanh thu thuần năm 2024 của doanh nghiệp mã SHI là bao nhiêu đồng?",
+      "question_sha256": "14bd8e1d735257992930babcebf596ebea7099e6d6af62ef05247d9e8ac200b0",
+      "source_id": "SHI",
+      "source_review": {
+        "absent_fragments": [
+          "Doanh thu thuần |",
+          "Lợi nhuận sau thuế |"
+        ],
+        "determination": "The entire frozen Markdown is only an annual-report disclosure notice. It contains neither requested revenue row nor numeric current/prior operands.",
+        "locations": [
+          {
+            "evidence_id": "shi-notice-page-1",
+            "evidence_sha256": "527370c1d04f7146d84f7b935061f10ebb63301fade0c21ea3b0fdf5c7792fa8",
+            "evidence_text": "## Page 1\n\nCỘNG HOÀ XÃ HỘI CHỦ NGHĨA VIỆT NAM THE SOCIALIST REPUBLIC OF VIETNAM Độc lập - Tự do - Hạnh phúc Independence - Freedom - Happiness\nSố: 33./2025/CV-SHI\nHà Nội, ngày .19. tháng 04.. năm 2025\nHanoi, 19../.04./2025\nCÔNG BỐ THÔNG TIN BẤT THƯỜNG UNUSUAL INFORMATION DISCLOSURE\nKính gửi: - Ủy ban Chứng khoán Nhà nước\n\\- Sở Giao dịch Chứng khoán thành phố Hồ Chí Minh\nTo: - State Securities Commission\n\\- Ho Chi Minh Stock Exchange\n1. Tên tổ chức/ Name of company: Công ty cổ phần Quốc tế Sơn Hà/ Sonha International Corporation\n\\- Mã chứng khoán/ Stock symbol: SHI\n\\- Địa chỉ/ Address of headoffice: Tầng 13, Tòa nhà Capital Place, số 29 Liễu Giai, phường Ngọc Khánh, quận Ba Đình, Hà Nội, Việt Nam/ 13th Floor, Capital Place Building, No. 29 Lieu Giai, Ngọc Khanh Ward, Ba Dinh District, Hanoi City, Vietnam.\n\\- Điện thoại liên hệ/ Telephone: 84-24-62656566\nFax: 84-24-62656588\n\\- E-mail: Info@sonha.com.vn\n2. Nội dung thông tin công bố/ Content of Disclosure Information: Công ty cổ phần Quốc tế Sơn Hà công bố/ Sonha International Corporation discloses:\n\\- Báo cáo thường niên năm 2024 (Bản thiết kế).\nAnnual Report 2024 (Designed Version).\n\\- Báo cáo đã được công bố trên trang diện tử của Công ty vào ngày 19./04/2025 theo đường dẫn sau: www.sonha.com.vn – Muc Quan Hế Cổ Đông.\nThe report have been published on the Company's website on 19/04/2025 at the following link: www.sonha.com.vn - Investor Relations section.\n3. Thông tin này đã được công bố trên trang thông tin điện tử của Công ty vào ngày 19.../04/2025 tại đường dẫn www.sonha.com.vn/ This information has been disclosed on the company's electronic information portal on 19.../04/2025 at website www.sonha.com.vn.\nSONHA\n",
+            "line_end": 29,
+            "line_start": 5,
+            "page": 1,
+            "required_fragments": [
+              "Báo cáo thường niên"
+            ]
+          }
+        ],
+        "reason_code": "DISCLOSURE_NOTICE_HAS_NO_FINANCIAL_OPERANDS",
+        "reviewed_scope": "entire_markdown",
+        "source_id": "SHI",
+        "whole_markdown_sha256": "a9a33f865283eaa6eaf0bafc7cfdaebc34b7faf4309fd69dc858397475d2235d"
+      }
+    },
+    {
+      "case_id": "s15-060",
+      "category": "abstain_missing_revenue_comparison",
+      "expected_action_class": "ABSTAIN_MISSING",
+      "question": "Doanh thu thuần năm 2024 của doanh nghiệp mã SHI chênh lệch bao nhiêu đồng so với năm 2023? Hãy tính năm 2024 trừ năm 2023.",
+      "question_sha256": "b66e6a896186423fef6334b8fdd1878eeb199509c9448b6e19cf9cfb0e8e2972",
+      "source_id": "SHI",
+      "source_review": {
+        "absent_fragments": [
+          "Doanh thu thuần |",
+          "Lợi nhuận sau thuế |"
+        ],
+        "determination": "The entire frozen Markdown is only an annual-report disclosure notice. It contains neither requested revenue row nor numeric current/prior operands.",
+        "locations": [
+          {
+            "evidence_id": "shi-notice-page-1",
+            "evidence_sha256": "527370c1d04f7146d84f7b935061f10ebb63301fade0c21ea3b0fdf5c7792fa8",
+            "evidence_text": "## Page 1\n\nCỘNG HOÀ XÃ HỘI CHỦ NGHĨA VIỆT NAM THE SOCIALIST REPUBLIC OF VIETNAM Độc lập - Tự do - Hạnh phúc Independence - Freedom - Happiness\nSố: 33./2025/CV-SHI\nHà Nội, ngày .19. tháng 04.. năm 2025\nHanoi, 19../.04./2025\nCÔNG BỐ THÔNG TIN BẤT THƯỜNG UNUSUAL INFORMATION DISCLOSURE\nKính gửi: - Ủy ban Chứng khoán Nhà nước\n\\- Sở Giao dịch Chứng khoán thành phố Hồ Chí Minh\nTo: - State Securities Commission\n\\- Ho Chi Minh Stock Exchange\n1. Tên tổ chức/ Name of company: Công ty cổ phần Quốc tế Sơn Hà/ Sonha International Corporation\n\\- Mã chứng khoán/ Stock symbol: SHI\n\\- Địa chỉ/ Address of headoffice: Tầng 13, Tòa nhà Capital Place, số 29 Liễu Giai, phường Ngọc Khánh, quận Ba Đình, Hà Nội, Việt Nam/ 13th Floor, Capital Place Building, No. 29 Lieu Giai, Ngọc Khanh Ward, Ba Dinh District, Hanoi City, Vietnam.\n\\- Điện thoại liên hệ/ Telephone: 84-24-62656566\nFax: 84-24-62656588\n\\- E-mail: Info@sonha.com.vn\n2. Nội dung thông tin công bố/ Content of Disclosure Information: Công ty cổ phần Quốc tế Sơn Hà công bố/ Sonha International Corporation discloses:\n\\- Báo cáo thường niên năm 2024 (Bản thiết kế).\nAnnual Report 2024 (Designed Version).\n\\- Báo cáo đã được công bố trên trang diện tử của Công ty vào ngày 19./04/2025 theo đường dẫn sau: www.sonha.com.vn – Muc Quan Hế Cổ Đông.\nThe report have been published on the Company's website on 19/04/2025 at the following link: www.sonha.com.vn - Investor Relations section.\n3. Thông tin này đã được công bố trên trang thông tin điện tử của Công ty vào ngày 19.../04/2025 tại đường dẫn www.sonha.com.vn/ This information has been disclosed on the company's electronic information portal on 19.../04/2025 at website www.sonha.com.vn.\nSONHA\n",
+            "line_end": 29,
+            "line_start": 5,
+            "page": 1,
+            "required_fragments": [
+              "Báo cáo thường niên"
+            ]
+          }
+        ],
+        "reason_code": "DISCLOSURE_NOTICE_HAS_NO_FINANCIAL_OPERANDS",
+        "reviewed_scope": "entire_markdown",
+        "source_id": "SHI",
+        "whole_markdown_sha256": "a9a33f865283eaa6eaf0bafc7cfdaebc34b7faf4309fd69dc858397475d2235d"
+      }
+    }
+  ],
+  "contract_id": "finhrm-markdown-shard15-notice-semantic-contract-v3",
+  "created_at": "2026-08-30T00:00:00+07:00",
+  "expected_counts": {
+    "cases": 14,
+    "notice_negatives": 14,
+    "classes": {
+      "ABSTAIN_MISSING": 14
+    }
+  },
+  "frozen_inputs": {
+    "case_manifest": {
+      "path": "config/finhrm_markdown_shard15_notice_case_manifest_v3.json",
+      "sha256": "b5eb7fbdbaac11519c76951c63649198d3d7d977e4f47b109834d95597670682"
+    },
+    "builder": {
+      "path": "scripts/build_finhrm_markdown_shard15_notice_v3.py",
+      "sha256": "43d6ba67d8cbd001ee6043ba8e2fd335926676a6d559e8a293cb6ba0bca14bb9"
+    },
+    "runner": {
+      "path": "scripts/run_finhrm_markdown_shard15_notice_v3.py",
+      "sha256": "20fde49cc92df51548d1d8a9cb78f6dbff11af71f5716acd28d2e2da705b8169"
+    },
+    "evaluator": {
+      "path": "scripts/evaluate_finhrm_markdown_shard15_notice_v3.py",
+      "sha256": "37da005e8db496300430e85adbd487d3229b65e79e88b4cccd0a6b6449223dad"
+    },
+    "checkpoint": {
+      "path": "models/document_hrm_V8_candidate.pt",
+      "sha256": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de"
+    },
+    "runtime_sources": {
+      "src/hrm_finance_qa/__init__.py": "c316966feb7929c62f81d9d6f0c7807985c7176b1401bbee59fb2a59bbe7de1e",
+      "src/hrm_finance_qa/answer_presentation.py": "9c6e11c320818f6892721dd846b7d96546899758c3d7e671e55015fbe1f1dba6",
+      "src/hrm_finance_qa/cache_schema.py": "73de59f448cad7585b8215ad954c892ae76b84fb8944e89757cb4658e2c561d4",
+      "src/hrm_finance_qa/candidate_evaluation.py": "21ba9da22fa8ebf1b8c77f148be1a35116af33c07e9a970f2aed6470514182f2",
+      "src/hrm_finance_qa/cli.py": "7887070672def5ba1a8d5ebe754f6b2b1c51c825774b0de49879bf0e19d06ff9",
+      "src/hrm_finance_qa/dense_retrieval.py": "6896d217e79b730f0c8555c0b4d8cf8b72fa722cf3af6a1f06093a318e577dc3",
+      "src/hrm_finance_qa/direction_contract.py": "a18aa130419fc74ce647bd92dc9c1b1217007738e636aad0f28c7f78396be937",
+      "src/hrm_finance_qa/document_agent.py": "932250766ebb63da8f99fdfe8ab390fee82bcbc5aea866ca9bb057e818c64290",
+      "src/hrm_finance_qa/document_hrm.py": "4abcaa8d760708c06b49beff81dcfd979347a88c224669cb5cf00047943ac97d",
+      "src/hrm_finance_qa/document_page_index.py": "97d356533734bb09bdeb318038d720ac2daf700046e753d1d134804f7bb7c884",
+      "src/hrm_finance_qa/document_reasoning_engine.py": "10153437df9e59484778a5c68092784ae895a5a577d53639008bb27ea84d00e7",
+      "src/hrm_finance_qa/document_search.py": "3aa79ffd648c8e6d9764ff73e09d88e2deec387d3168f94d7ffc54bb41aaf089",
+      "src/hrm_finance_qa/document_service.py": "328aab3d76d50ba98f23ce1c42823cdbfe53a7dd023eebeea72c1e49d5066c22",
+      "src/hrm_finance_qa/document_sources.py": "79b4c7eddb80119ed8f355236b2baaa72dc7a2ef82b7fb8a367d1bd87a71fb2e",
+      "src/hrm_finance_qa/engine.py": "bc8494556dd5bb15e925978bd8cc5c4a98ac188af580e0d9537f42f5566d128c",
+      "src/hrm_finance_qa/evaluation_metrics.py": "2a3b19f9ae8f08f9e9742c094e874af7c28d54cfb7838b1c39e02b5d1e6a7a76",
+      "src/hrm_finance_qa/evidence_schema.py": "1c6a9183a05a487a5b49d5ab02e771449e52178b774633b8e6a63cf475ebe51a",
+      "src/hrm_finance_qa/external_evaluation.py": "96d3a3aa79637507dd73cb776e2d70f71aaf1b977a1e192762b5b696b706ff2c",
+      "src/hrm_finance_qa/financial_identities.py": "a4b2249fcd8a7d633b874eb67da8dc86e1c556dec5d7757d3c3e8450d586d72a",
+      "src/hrm_finance_qa/flattened_table_reconstruction.py": "1e67aa3f2e3acc068d30ece065fc0a0365358c7aa75da660e065af83fa265d4c",
+      "src/hrm_finance_qa/hrm.py": "3f6cfe5e864c9c4b4e9ec7beb995d8813fe7ee6acfe39af89f0f55dd932505e5",
+      "src/hrm_finance_qa/neural.py": "ff2e2c0c3d7a62702bd2b2b1f80d5bad2521e8ec2d347f93050fb875bb4f1d7f",
+      "src/hrm_finance_qa/ontology.py": "47375f6a95057ddda75433fd40a8e9c2be3448165e288c2764d1d54bc83e400b",
+      "src/hrm_finance_qa/program_data.py": "f068d6f15929c85c25c3d6130f777a2943a440cce9dabb7a4c99b24e6ca33e33",
+      "src/hrm_finance_qa/program_reranker.py": "7d7f456649ce0639a808b809985751c38c9a4bb1d70209a65d3bc3bbc97671f4",
+      "src/hrm_finance_qa/program_synthesis.py": "df74d65ab387afc504c03091e4e951161a526fe44856dbfe7fa64b5bcf970c5b",
+      "src/hrm_finance_qa/question_planner.py": "548016f80e5dbf8a98b2f96b9c01b166401d363d020cb3ddd35941adbe902d15",
+      "src/hrm_finance_qa/question_request_planner.py": "19579ec98d5b9e95c6973fe11805ead3214b27e97c6da0dc337a31cf3ee01f51",
+      "src/hrm_finance_qa/reasoning.py": "d3244c224dbec45f62f95e64a30f1c48fb2566830c457416bf691eca6a107f74",
+      "src/hrm_finance_qa/reasoning_engine.py": "fee38cd78d0949f4c3172290199a1b50ce0fc934cd4c8f0002f188881ca658cc",
+      "src/hrm_finance_qa/repository.py": "8e83ad3f7f676eb0eacbe038b064582e7659d35f98363cb552555d2a6b9f994a",
+      "src/hrm_finance_qa/request_answer.py": "0d875fa788d3b65b025d3d29a0fc155bba275d12d06bee0708d87bedb4e72e83",
+      "src/hrm_finance_qa/symbolic_verifier.py": "a4368dc92f735077a934a91b1628df30596b75c67f8b742a724103e61a0e25b7",
+      "src/hrm_finance_qa/v11_pipeline.py": "b6611c2b2c0ba7cd2c726b4d48f29a9b1fd01be09a4da2200865379f07ba4387",
+      "src/hrm_finance_qa/v12b2_supervision.py": "100272f4bb46a3bd51e05914c6080ddaa7f48fea3c96337aa4b6cd9a0e8db0da"
+    },
+    "runtime_assets": [
+      {
+        "path": "config/financial_identities.yaml",
+        "sha256": "cc566b3093060ac7b98badbbd38b6ab8ae51004046d49ca4ee33619e6cbf1aa5"
+      },
+      {
+        "path": "requirements.txt",
+        "sha256": "0b5c4175ad1108c6ce101a5385d0d7e5b870f82020b8a3bcd69328328932b852"
+      }
+    ],
+    "tooling": {
+      "scripts/build_finhrm_markdown_shard15_notice_v3.py": "43d6ba67d8cbd001ee6043ba8e2fd335926676a6d559e8a293cb6ba0bca14bb9",
+      "scripts/evaluate_finhrm_markdown_shard15_notice_v3.py": "37da005e8db496300430e85adbd487d3229b65e79e88b4cccd0a6b6449223dad",
+      "scripts/evaluate_finhrm_markdown_shard15_v1.py": "892c891bf6f096812727951880ddeaa66f7f0cfafc059266591c02db0417a090",
+      "scripts/run_finhrm_markdown_shard15_notice_v3.py": "20fde49cc92df51548d1d8a9cb78f6dbff11af71f5716acd28d2e2da705b8169"
+    }
+  },
+  "independence_policy": {
+    "expected_action_source": "frozen_v2_source_review",
+    "runtime_output_used_to_choose_expected_action": false,
+    "non_answer_numeric_expectations_forbidden": true,
+    "runtime_changes_allowed_after_freeze": false,
+    "adaptive_patch_after_this_run_allowed": false,
+    "prior_cohort_executed": true,
+    "targeted_adaptive_regression_replay": true,
+    "unbiased_validation_claimed": false
+  },
+  "preserved_artifacts": [
+    {
+      "path": "config/finhrm_markdown_shard15_case_manifest_v2.json",
+      "sha256": "a4f615a90045ed8cb0e05e235edb620209dce98009a85663478761769ac68a78"
+    },
+    {
+      "path": "config/finhrm_markdown_shard15_semantic_contract_v2.json",
+      "sha256": "73899dcc6c5efba90f9254868996ba714b97ef28fce2673813c66e8c15aead6f"
+    },
+    {
+      "path": "reports/finhrm_markdown_shard15_evaluation_v1.json",
+      "sha256": "aa5c5b4a9abe210a19177eef629c375c4adbf28b67144876dfd3e1430a1eda41"
+    },
+    {
+      "path": "reports/finhrm_markdown_shard15_evaluation_v1.md",
+      "sha256": "258bc7de499457268c4e79086ff0b46951fb7bdc90449b04c593eb7652c5d06d"
+    },
+    {
+      "path": "reports/finhrm_markdown_shard15_evaluation_v2.json",
+      "sha256": "5778bc27e7c8ae729dcfee3eca8a3b94158ae2c274cb5f915ceac6a5da0275a7"
+    },
+    {
+      "path": "reports/finhrm_markdown_shard15_evaluation_v2.md",
+      "sha256": "a8a4d79e104f8d2cc79c787f9632f6b21e6bd58a9d3bef1700e18d695a08fd71"
+    },
+    {
+      "path": "reports/finhrm_markdown_shard15_observations_v1.json",
+      "sha256": "bd4f9f9885b0c9fc935b730d21259e7be8fd550b4e1665d8b1814882a39a0e26"
+    },
+    {
+      "path": "reports/finhrm_markdown_shard15_observations_v1.md",
+      "sha256": "51d519418fed7da94096ea4957e979934c134747e610a7c2434bbf5564d63c08"
+    },
+    {
+      "path": "reports/finhrm_markdown_shard15_observations_v2.json",
+      "sha256": "0731a8c1c90d0959b13970976cf473baf7d2cd349a2cd64771a096e25bd4fefc"
+    },
+    {
+      "path": "reports/finhrm_markdown_shard15_observations_v2.md",
+      "sha256": "7c1d28887f8748e3f8624ad08d453b42837c523ecd9ac796cec2fda30437c322"
+    },
+    {
+      "path": "reports/finhrm_qp4_mineru_markdown_60_evaluation_v1.json",
+      "sha256": "b35a42017fbc58b5ba7e5bf57236d02396f572b705f91cf61e86f6d17da1c4a9"
+    },
+    {
+      "path": "reports/finhrm_qp4_mineru_markdown_60_evaluation_v1.md",
+      "sha256": "31ce333eb230f7121b55e36786dbb01e649d5f691d13f6f046b99c8127f646e8"
+    },
+    {
+      "path": "scripts/build_finhrm_markdown_shard15_postrepair_v4.py",
+      "sha256": "6d84b7825a84bc4b3a20829bf1cb4064b459055ea8940e4f3b852d770910074d"
+    },
+    {
+      "path": "scripts/evaluate_finhrm_markdown_shard15_v2.py",
+      "sha256": "bb8df028e926cd3bf0deb806b703ae8254c0dfda7445778229692d855bffdf3e"
+    },
+    {
+      "path": "scripts/run_finhrm_markdown_shard15_evaluation.py",
+      "sha256": "27cc59591dcbf34863e8c992cde29350095b236cee140be1be1ccfa7a7e4f9d2"
+    },
+    {
+      "path": "scripts/run_qp4_mineru_markdown_60_evaluation.py",
+      "sha256": "2f8329cc4143140019747284ae2c580c916f92ab66d488adda4b22c5560fe7cb"
+    }
+  ],
+  "schema": "finhrm-markdown-shard15-notice-semantic-contract-v3",
+  "sources": {
+    "ASM": {
+      "canonical_markdown_path": "reports/mineru_markdown_development_full_v1/ASM/ASM_23CN_BCTN--6e1bff5169b34a91.md",
+      "canonical_markdown_sha256": "747886793a62056d727f8b1628efe78d294fa4942c1277d519f7b85cd7158ead",
+      "canonical_provenance_path": "reports/mineru_markdown_development_full_v1/ASM/ASM_23CN_BCTN--6e1bff5169b34a91.provenance.json",
+      "canonical_provenance_sha256": "1e4d05d4ddc9e4c1c5d3d4b6412210a36dd98da2b1c327d6a0ee59b907968b59",
+      "canonical_vnd": {},
+      "case_ids": [
+        "s15-047",
+        "s15-048"
+      ],
+      "current_year": 2023,
+      "markdown_path": "data/markdown/ASM_23CN_BCTN--6e1bff5169b34a91.md",
+      "markdown_sha256": "747886793a62056d727f8b1628efe78d294fa4942c1277d519f7b85cd7158ead",
+      "page_count": 1,
+      "pdf_path": "pdf/PDF_23/ASM_23CN_BCTN.pdf",
+      "pdf_sha256": "6e1bff5169b34a9149be95b3076e1a1b389f728ab3f971d064607d2aa6154f58",
+      "prior_year": 2022,
+      "provenance_path": "data/markdown/ASM_23CN_BCTN--6e1bff5169b34a91.provenance.json",
+      "provenance_sha256": "1e4d05d4ddc9e4c1c5d3d4b6412210a36dd98da2b1c327d6a0ee59b907968b59",
+      "reviewed_evidence": {
+        "entire_notice_pages": [
+          {
+            "evidence_id": "asm-notice-page-1",
+            "evidence_sha256": "fc5a5a204867696eac90a92505c22601b7a6feed96be0e245c165b8d8f442eda",
+            "evidence_text": "## Page 1\n\nAn Giang, ngày 15 tháng 04 năm 2024\nKính gửi: - Ủy ban Chứng khoán nhà nước.\n- Sở Giao dịch Chứng khoán Thành phố Hồ Chí Minh.\nTên tổ chức : CÔNG TY CỔ PHẦN TẬP ĐOÀN SAO MAI\nMã chứng khoán : ASM\nTrụ sở chính : Số 326 Hùng Vương, P. Mỹ Long, Tp. Long Xuyên, tỉnh An Giang\nĐiện thoại : 02963 840 138 Fax: 02963 840 139\nNgười thực hiện công bố thông tin: Trương Công Khánh – Giám đốc tài chính\nLoại thông tin công bố: ☑ 24 giờ □ 72 giờ □ bất thường □ theo yêu cầu □ định kỳ\nNội dung thông tin công bố:\nCông ty Cổ Phần Tập Đoàn Sao Mai kính gửi đến quý cơ quan và quý cổ đông về việc Công ty đã công bố thông tin Báo cáo thường niên năm 2023. Thông tin trên đã công bố trên trang thông tin điện tử của Công ty tại website: www.saomaigroup.com.\nChúng tôi cam kết các thông tin công bố trên đây là đúng sự thật và hoàn toàn chịu trách nhiệm trước pháp luật về nội dung thông tin đã công bố.\nNGƯỜI ĐƯỢC ỦY QUYỀN\nNơi nhận:\n\\- Như trên;\n\\- Luru VT, PTC;\nCÔNG BỐ THÔNG TIN\nTRƯƠNG CÔNG KHÁNH\n1. 2023年1月1日\nCÔNG TY CỔ PHẦN\nTẬP ĐOÀN SAO MAI\nSỐ:07/ASM-2024\nCỘNG HOÀ XÃ HỘI CHỦ NGHĨA VIỆT NAM\nĐộc lập - Tự do - Hạnh phúc",
+            "line_end": 30,
+            "line_start": 5,
+            "page": 1,
+            "required_fragments": [
+              "Báo cáo thường niên"
+            ]
+          }
+        ],
+        "requested_metric_terms_absent": true,
+        "whole_markdown_sha256": "747886793a62056d727f8b1628efe78d294fa4942c1277d519f7b85cd7158ead"
+      },
+      "source_kind": "DISCLOSURE_NOTICE_ONLY",
+      "source_name": "ASM_23CN_BCTN.pdf",
+      "validator_record_sha256": "9618ef278372eebb0dd2367120bc0eb3a143883c11c728f1277cb6788208399d"
+    },
+    "DAT": {
+      "canonical_markdown_path": "reports/mineru_markdown_development_full_v1/DAT/DAT_23CN_BCTN--d63cae36fb099013.md",
+      "canonical_markdown_sha256": "c701f518929fc60d4b9b8366ffe9c4001e2074bce5a63a5c4bb4256ce3a9178d",
+      "canonical_provenance_path": "reports/mineru_markdown_development_full_v1/DAT/DAT_23CN_BCTN--d63cae36fb099013.provenance.json",
+      "canonical_provenance_sha256": "132a3aa5d05a379ed9c89d867753ea6d8361e2e628d71df3e58438a47833624a",
+      "canonical_vnd": {},
+      "case_ids": [
+        "s15-049",
+        "s15-050"
+      ],
+      "current_year": 2023,
+      "markdown_path": "data/markdown/DAT_23CN_BCTN--d63cae36fb099013.md",
+      "markdown_sha256": "c701f518929fc60d4b9b8366ffe9c4001e2074bce5a63a5c4bb4256ce3a9178d",
+      "page_count": 1,
+      "pdf_path": "pdf/PDF_23/DAT_23CN_BCTN.pdf",
+      "pdf_sha256": "d63cae36fb099013a9305bd3378258997204058918f93f8b1fba1fd33d8ff37d",
+      "prior_year": 2022,
+      "provenance_path": "data/markdown/DAT_23CN_BCTN--d63cae36fb099013.provenance.json",
+      "provenance_sha256": "132a3aa5d05a379ed9c89d867753ea6d8361e2e628d71df3e58438a47833624a",
+      "reviewed_evidence": {
+        "entire_notice_pages": [
+          {
+            "evidence_id": "dat-notice-page-1",
+            "evidence_sha256": "ebda3bc6514961e2129402cd02db06a21da41cd1a759eed28fef73911d6f19ce",
+            "evidence_text": "## Page 1\n\nCÔNG BỐ THÔNG TIN BẤT THƯỜNG\nKính gửi: Ủy Ban Chứng khoán Nhà Nước;\nSở Giao dịch Chứng khoán thành phố Hồ Chí Minh.\n1. Tên tổ chức: CÔNG TY CỔ PHẦN ĐẦU TƯ DỤ LỊCH VÀ PHÁT TRIỂN THỦY SẢN\n\\- Mã chứng khoán: DAT\n\\- Địa chỉ: QL 80, CCN Vàm Cống, áp An Thạnh, xã Bình Thành, huyện Lấp Vò, tỉnh Đồng Tháp.\n\\- Điện thoại: 02773 680 657 Fax: 02773 680 657\n2. Nội dung thông tin công bố:\nCông ty Cổ phần Đầu Tư Du Lịch và Phát Triển Thủy Sản xin công bố đến Quý Cơ quan Báo cáo thường niên năm 2023 của Công ty.\n3. Thông tin này đã được công bố trên trang thông tin điện tử của công ty vào ngày 08/04/2024 tại đường dẫn: www.trisedco.com\nChúng tôi xin cam kết các thông tin trên đây là đúng sự thật và hoàn toàn chịu trách nhiệm trước pháp luật về nội dung các thông tin đã công bố.\nNGƯỜI ĐẠI DIỆN PHÁP LUẬT\nNơi nhận:\n\\- Như trên;\n\\- Luru: VT, CBTT\nĐẦU TƯ ĐU LỊCH\nVÀ PHÁT TRIÊN\nLÊ VĂN LÂM\nCÔNG TY CỔ PHẦN ĐẦU TƯ DỤ\nLỊCH VÀ PHÁT TRIỂN THỦY SẢN\nCỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM\nĐộc lập – Tự do – Hạnh phúc\nTRISEDCO\nSố: 0408/2024/CBTT-DAT\nĐồng Tháp, ngày 08 tháng 04 năm 2024",
+            "line_end": 31,
+            "line_start": 5,
+            "page": 1,
+            "required_fragments": [
+              "Báo cáo thường niên"
+            ]
+          }
+        ],
+        "requested_metric_terms_absent": true,
+        "whole_markdown_sha256": "c701f518929fc60d4b9b8366ffe9c4001e2074bce5a63a5c4bb4256ce3a9178d"
+      },
+      "source_kind": "DISCLOSURE_NOTICE_ONLY",
+      "source_name": "DAT_23CN_BCTN.pdf",
+      "validator_record_sha256": "1ea857029ab764779872e1276eed6abe455abb284096f36894b6171a0072055f"
+    },
+    "DXG": {
+      "canonical_markdown_path": "reports/mineru_markdown_development_full_v1/DXG/DXG_23CN_BCTN--a318f16b5bb351b2.md",
+      "canonical_markdown_sha256": "049ff73505043f5b855e8486010ea1fd5f0180d55ea93d2b9fb9d5832ef3a3fd",
+      "canonical_provenance_path": "reports/mineru_markdown_development_full_v1/DXG/DXG_23CN_BCTN--a318f16b5bb351b2.provenance.json",
+      "canonical_provenance_sha256": "851cbd8e78ad9c6b5d22ff6e5fbb3e8a3da3045aa1f196e3119eec51cec6a050",
+      "canonical_vnd": {},
+      "case_ids": [
+        "s15-051",
+        "s15-052"
+      ],
+      "current_year": 2023,
+      "markdown_path": "data/markdown/DXG_23CN_BCTN--a318f16b5bb351b2.md",
+      "markdown_sha256": "049ff73505043f5b855e8486010ea1fd5f0180d55ea93d2b9fb9d5832ef3a3fd",
+      "page_count": 1,
+      "pdf_path": "pdf/PDF_23/DXG_23CN_BCTN.pdf",
+      "pdf_sha256": "a318f16b5bb351b27bdace32166ba04aaafbcaf553df186a22b89814d5c6b705",
+      "prior_year": 2022,
+      "provenance_path": "data/markdown/DXG_23CN_BCTN--a318f16b5bb351b2.provenance.json",
+      "provenance_sha256": "851cbd8e78ad9c6b5d22ff6e5fbb3e8a3da3045aa1f196e3119eec51cec6a050",
+      "reviewed_evidence": {
+        "entire_notice_pages": [
+          {
+            "evidence_id": "dxg-notice-page-1",
+            "evidence_sha256": "cc068b1c86b2a50abf7d595e3565b9a6c1b0b9275d7a54b91ce5e36a819e883d",
+            "evidence_text": "## Page 1\n\nTp. Hồ Chí Minh, ngày 29 tháng 03 năm 2024\nHCM City, ..... ....., 2024\nCÔNG BỐ THÔNG TIN ĐỊNH KỲ PERIODIC INFORMATION DISCLOSURE\nKính gửi: - Ủy ban Chứng khoán Nhà nước\n- Sở Giao dịch Chứng khoán TP.HCM\nTo: - State Securities Commission of Vietnam\n- Hochiminh Stock Exchange\n1. Tên tổ chức/Name of organization: Công ty Cổ phần Tập đoàn Đất Xanh/Dat Xanh Group Joint Stock Company\n\\- Mã chứng khoán/ Stock code: DXG\n\\- Địa chỉ/Address: Số 2W Ung văn Khiêm, Phường 25, Quận Bình Thạnh, TP. Hồ Chí Minh/No. 2W Ung Van Khiem Street, Ward 25, Bình Thanh District, HCM City\n\\- Điện thoại liên hệ/Tel.: 028 62 52 52 52\n\\- E-mail: ir@datxanh.com.vn\n2. Nội dung công bố thông tin/Contents of disclosure:\nBáo cáo thường niên năm 2023.\nAnnual Report 2023.\n3. Thông tin này đã được công bố trên trang thông tin điện tử của công ty vào ngày .29./03/2024 tại đường dẫn https://ir.datxanh.vn /This information was published on the company's website on March 29, 2024, as in the link https://ir.datxanh.vn\nChúng tôi xin cam kết các thông tin công bố trên đây là đúng sự thật và hoàn toàn chịu trách nhiệm trước pháp luật về nội dung các thông tin đã công bố/We hereby certify that the information provided is true and correct and we bear the full responsibility to the law.\nNơi nhận/ Recipients:\n\\- SSC, HOSE;.\n\\- Luu Archived: VT, TC.\nNGUỔI ĐƯỢC ỦY QUYỀN CBTT\nperson authorized to disclose information\n0303104\nNGUYÊN HOÀNG ĐỨC\nDATXANH GROUP\nSó: 65. /2024/CV-DXG/QTCL-HT\nNo. ..... /2024/CV-DXG/QTCL-HT\nCỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM\nĐộc lập – Tự do – Hạnh phúc\nTHE SOCIALIST REPUBLIC OF VIETNAM\nIndependence - Freedom - Happiness\n---- Ⓐ ★ ⑧ ----",
+            "line_end": 38,
+            "line_start": 5,
+            "page": 1,
+            "required_fragments": [
+              "Báo cáo thường niên"
+            ]
+          }
+        ],
+        "requested_metric_terms_absent": true,
+        "whole_markdown_sha256": "049ff73505043f5b855e8486010ea1fd5f0180d55ea93d2b9fb9d5832ef3a3fd"
+      },
+      "source_kind": "DISCLOSURE_NOTICE_ONLY",
+      "source_name": "DXG_23CN_BCTN.pdf",
+      "validator_record_sha256": "d8519c129f172be36717566e0e669a58aaae7e4534a2a3cf8c466dc7de226c3d"
+    },
+    "HVH": {
+      "canonical_markdown_path": "reports/mineru_markdown_development_full_v1/HVH/HVH_23CN_BCTN--5e62f780926f9cb0.md",
+      "canonical_markdown_sha256": "83956970b13c0861640cfa2dbf0df059d9e7450948d9e6f940ee9467a8c511fe",
+      "canonical_provenance_path": "reports/mineru_markdown_development_full_v1/HVH/HVH_23CN_BCTN--5e62f780926f9cb0.provenance.json",
+      "canonical_provenance_sha256": "2aecf1f08a4620b3d22f82b7c6c46656806e53cb82e07ba47157e5d9f63edd78",
+      "canonical_vnd": {},
+      "case_ids": [
+        "s15-053",
+        "s15-054"
+      ],
+      "current_year": 2023,
+      "markdown_path": "data/markdown/HVH_23CN_BCTN--5e62f780926f9cb0.md",
+      "markdown_sha256": "83956970b13c0861640cfa2dbf0df059d9e7450948d9e6f940ee9467a8c511fe",
+      "page_count": 1,
+      "pdf_path": "pdf/PDF_23/HVH_23CN_BCTN.pdf",
+      "pdf_sha256": "5e62f780926f9cb043715e27075c1d59a6c238f059dd9d9d2298a5e1ef969450",
+      "prior_year": 2022,
+      "provenance_path": "data/markdown/HVH_23CN_BCTN--5e62f780926f9cb0.provenance.json",
+      "provenance_sha256": "2aecf1f08a4620b3d22f82b7c6c46656806e53cb82e07ba47157e5d9f63edd78",
+      "reviewed_evidence": {
+        "entire_notice_pages": [
+          {
+            "evidence_id": "hvh-notice-page-1",
+            "evidence_sha256": "8c99af64e4dee96db4a9a8760fb32911906989fc6c3a20c01641c33f733510a3",
+            "evidence_text": "## Page 1\n\nCÔNG BỐ THÔNG TIN\nKính gửi: Ủy ban Chứng khoán Nhà nước\nSở giao dịch Chứng khoán Thành phố Hồ Chí Minh\nCông ty: Công ty Cổ phần Đầu tư và Công nghệ HVC\nMã chứng khoán: HVH\nTrụ sở chính: Tầng 8, Tháp C Hồ Guơm Plaza, 102 Trần Phú, Hà Đông, Hà Nội.\nĐiện thoai: 024.35402246\nFax: 024.35402247\nLoại thông tin công bố:\n□ 24h\n□ 72h\n□ Yêu cầu\n□ Bất thường\nĐịnh kỳ\nNội dung công bố: Công bố thông tin Báo cáo thường niên năm 2023 của Công ty cổ phần đầu tư và công nghệ HVC.\nThông tin này đã được công bố trên trang thông tin điện tử của Công ty vào ngày 15 tháng 04 năm 2024 tại đường dẫn http://hvcgroup.net (tại mục “QUAN HỆ CỔ ĐÔNG).\nChúng tôi xin cam kết các thông tin công bố trên đây là đúng sự thật và hoàn toàn chịu trách nhiệm trước pháp luật về nội dung các thông tin công bố.\nNơi nhận:\n\\- Như trên\n\\- Lưu HC\nNGUỔI THỰC HIỆN CBTT\nPHÓ TỔNG GIÁM ĐỐC\nVũ Thị Ngà\nCÔNG TY CỔ PHẦN ĐẦU TƯ VÀ\nCÔNG NGHỆ HVC\nSố: 37/HVC-CBTT\nCỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM\nĐộc Lập – Tự Do – Hạnh Phúc\nHà Nội, ngày 15 tháng 04 năm 2024",
+            "line_end": 35,
+            "line_start": 5,
+            "page": 1,
+            "required_fragments": [
+              "Báo cáo thường niên"
+            ]
+          }
+        ],
+        "requested_metric_terms_absent": true,
+        "whole_markdown_sha256": "83956970b13c0861640cfa2dbf0df059d9e7450948d9e6f940ee9467a8c511fe"
+      },
+      "source_kind": "DISCLOSURE_NOTICE_ONLY",
+      "source_name": "HVH_23CN_BCTN.pdf",
+      "validator_record_sha256": "24c50261f8f7f7f88d2f57fe3202cfa79d7df6155d425a0acaf502f1cee78b49"
+    },
+    "NSC": {
+      "canonical_markdown_path": "reports/mineru_markdown_development_full_v1/NSC/NSC_23CN_BCTN--abb07a3a0137bf24.md",
+      "canonical_markdown_sha256": "31cab27652699041ce093d826e832397016c7e19a859d40565798e6f3530632c",
+      "canonical_provenance_path": "reports/mineru_markdown_development_full_v1/NSC/NSC_23CN_BCTN--abb07a3a0137bf24.provenance.json",
+      "canonical_provenance_sha256": "960f15e487e1ce94aad327a0bde0e4f101153b6b52889c220b82b524c580e555",
+      "canonical_vnd": {},
+      "case_ids": [
+        "s15-055",
+        "s15-056"
+      ],
+      "current_year": 2023,
+      "markdown_path": "data/markdown/NSC_23CN_BCTN--abb07a3a0137bf24.md",
+      "markdown_sha256": "31cab27652699041ce093d826e832397016c7e19a859d40565798e6f3530632c",
+      "page_count": 1,
+      "pdf_path": "pdf/PDF_23/NSC_23CN_BCTN.pdf",
+      "pdf_sha256": "abb07a3a0137bf24240e07665919b4c1953a88c02105bc19578ccd8528adbd8f",
+      "prior_year": 2022,
+      "provenance_path": "data/markdown/NSC_23CN_BCTN--abb07a3a0137bf24.provenance.json",
+      "provenance_sha256": "960f15e487e1ce94aad327a0bde0e4f101153b6b52889c220b82b524c580e555",
+      "reviewed_evidence": {
+        "entire_notice_pages": [
+          {
+            "evidence_id": "nsc-notice-page-1",
+            "evidence_sha256": "602f1848728bf360002142a61f6da74e64017ec709a238dbf6d929683363d821",
+            "evidence_text": "## Page 1\n\nCÔNG BỐ THÔNG TIN INFORMATION DISCLOSURE\nKính gửi/ To:\n- Ủy ban chứng khoán nhà nước / State Security Commission of Vietnam\n- Sở Giao dịch Chứng khoán TP. HCM / Hochiminh Stock Exchange\n1. Tên tổ chức /Name of organization: CÔNG TY CỔ PHẦN TẬP ĐOÀN GIÓNG CÂY TRÒNG VIỆT NAM\n\\- Mã chứng khoán/ Stock code: NSC\n\\- Địa chỉ /Address: Số 1, phố Lương Đình Của, Phường Phương Mai, Quận Đống Đa, Thành phố Hà Nội\n\\- Điện thoại liên hệ/Tel.: 0243.852.3294\nFax: 0243.852.7996\n\\- E-mail: nsc@vinaseed.com.vn\n2. Nội dung thông tin công bố /Contents of disclosure:\nCông ty cổ phần Tập đoàn Giống cây trồng Việt Nam công bố Báo cáo thường niên năm 2023, thông tin này được đăng tải trên trang thông tin điện tử Công ty cổ phần Tập đoàn Giống cây trồng Việt Nam tại địa chỉ: https://vinaseed.com.vn/vi/quan-he-nha-dau-tu/bao-cao-thuong-nien/.\n3. Thông tin này đã được công bố trên trang thông tin điện tử của công ty vào ngày 17/04/2024 tại đường dẫn https://vinaseed.com.vn/vi/quan-he-nha-dau-tu/bao-cao-thuong-nien/. This information was published on the company's website on 04/17/2024, as in the link https://vinaseed.com.vn/vi/quan-he-nha-dau-tu/bao-cao-thuong-nien/.\nChúng tôi xin cam kết các thông tin công bố trên đây là đúng sự thật và hoàn toàn chịu trách nhiệm trước pháp luật về nội dung các thông tin đã công bố./We hereby certify that the information provided is true and correct and we bear the full responsibility to the law.\nĐại diện tổ chức\nOrganization representative\nNgười UQ CBTT\nPerson authorized to disclose information\nTỔNG GIÁM ĐỐC CÔNG TY\nNGUYÊN QUANG TRƯỜNG\nCÔNG TY CP TẬP ĐOÀN\nGIÓNG CÂY TRÒNG VIỆT NAM\nVIETNAM NATIONAL SEED GROUP\nJOINT STOCK COMPANY\n----\nSố/No.: 341/CBTT-VINASEED\nCỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM\nĐộc lập - Tự do - Hạnh phúc\nTHE SOCIALIST REPUBLIC OF VIETNAM\nIndependence - Freedom - Happiness\nHà Nội, ngày 17 tháng 04 năm 2024\nHanoi, day 17 month 04 year 2024",
+            "line_end": 38,
+            "line_start": 5,
+            "page": 1,
+            "required_fragments": [
+              "Báo cáo thường niên"
+            ]
+          }
+        ],
+        "requested_metric_terms_absent": true,
+        "whole_markdown_sha256": "31cab27652699041ce093d826e832397016c7e19a859d40565798e6f3530632c"
+      },
+      "source_kind": "DISCLOSURE_NOTICE_ONLY",
+      "source_name": "NSC_23CN_BCTN.pdf",
+      "validator_record_sha256": "bd09beb20b967c934334cfe38b1601cdd274fb560c199d0a1fb5482ff00c0f14"
+    },
+    "PGD": {
+      "canonical_markdown_path": "reports/mineru_markdown_development_full_v1/PGD/PGD_24CN_BCTN--e70dcde234071317.md",
+      "canonical_markdown_sha256": "29c2fab408e3d8086f5d59704a1cc936db9d2b611ad56753182f8277a2fb1c9d",
+      "canonical_provenance_path": "reports/mineru_markdown_development_full_v1/PGD/PGD_24CN_BCTN--e70dcde234071317.provenance.json",
+      "canonical_provenance_sha256": "d83e8fafe0da46a664ec6002784785ef451ea918ca54bb91e2433cf61f30d270",
+      "canonical_vnd": {},
+      "case_ids": [
+        "s15-057",
+        "s15-058"
+      ],
+      "current_year": 2024,
+      "markdown_path": "data/markdown/PGD_24CN_BCTN--e70dcde234071317.md",
+      "markdown_sha256": "29c2fab408e3d8086f5d59704a1cc936db9d2b611ad56753182f8277a2fb1c9d",
+      "page_count": 1,
+      "pdf_path": "pdf/PDF_24/PDF_24/PGD_24CN_BCTN.pdf",
+      "pdf_sha256": "e70dcde23407131743a2e40c15afc34544d63599e0ca3b085821cc376ad114a6",
+      "prior_year": 2023,
+      "provenance_path": "data/markdown/PGD_24CN_BCTN--e70dcde234071317.provenance.json",
+      "provenance_sha256": "d83e8fafe0da46a664ec6002784785ef451ea918ca54bb91e2433cf61f30d270",
+      "reviewed_evidence": {
+        "entire_notice_pages": [
+          {
+            "evidence_id": "pgd-notice-page-1",
+            "evidence_sha256": "6bf7271bb606b1e6eadad5c92bd6a52c78fae8f26c3af6aa6b224fb32b32e7ee",
+            "evidence_text": "## Page 1\n\nV/v CBTT Báo cáo thường niên năm 2024.\nCÔNG BỐ THÔNG TIN ĐỊNH KỲ\nKính gửi: - Ủy ban Chứng khoán Nhà nước;\n\\- Sở Giao dịch Chứng khoán Thành phố Hồ Chí Minh.\n1. Tên tổ chức:\n\\- Công ty: Công ty Cổ phần Phân phối Khí thấp áp Dầu khí Việt Nam\n\\- Mã chứng khoán: PGD\n\\- Địa chỉ trụ sở chính: Lầu 7, tòa nhà PVGAS, số 673 Nguyễn Hữu Thọ, xã Phước Kiển, huyện Nhà Bè, Thành phố Hồ Chí Minh.\n\\- Điện thoại: 028.37840445\nFax: 028.37840446\n\\- Email: info@pvgasd.com.vn\n2. Nội dung thông tin công bố:\nCông ty Cổ phần Phân phối Khí thấp áp Dầu khí Việt Nam công bố thông tin Báo cáo thường niên năm 2024 được lập theo quy định tại Thông tư 96/2020/TT-BTC ngày 16/11/2020 của Bộ Tài chính hướng dẫn về việc công bố thông tin trên thị trường chứng khoán.\n3. Thông tin này đã được công bố trên trang thông tin điện tử của Công ty vào ngày 12/3/2025 tại địa chỉ www.pvgasd.com.vn (vào mục “Quan hệ cổ đông/Thông tin cổ đông” chọn “Báo cáo thường niên năm 2024”).\nChúng tôi xin cam kết các thông tin công bố trên đây là đúng sự thật và hoàn toàn chịu trách nhiệm trước pháp luật về nội dung các thông tin đã công bố.\nTrân trọng./.\nNơi nhận: Aua\n\\- Như trên;\nGIÁM ĐỐC\nPETROVIETNAM PV GAS DISTR\nTỔNG CÔNG TY KHÍ VIỆT NAM - CTCP\nCÔNG TY CỔ PHẦN PHẦN PHỐI\nKHÍ THẤP ÁP DẦU KHÍ VIỆT NAM\nCỘNG HOÀ XÃ HỘI CHỦ NGHĨA VIỆT NAM\nĐộc lập - Tự do - Hạnh phúc\nThành phố Hồ Chí Minh, ngày 12 tháng 3 năm 2025\n- HĐQT, BKS (đế báo cáo);\n- Luru VT, TCNS. AV.01.\nĐỗ Phạm Hồng Minh",
+            "line_end": 35,
+            "line_start": 5,
+            "page": 1,
+            "required_fragments": [
+              "Báo cáo thường niên"
+            ]
+          }
+        ],
+        "requested_metric_terms_absent": true,
+        "whole_markdown_sha256": "29c2fab408e3d8086f5d59704a1cc936db9d2b611ad56753182f8277a2fb1c9d"
+      },
+      "source_kind": "DISCLOSURE_NOTICE_ONLY",
+      "source_name": "PGD_24CN_BCTN.pdf",
+      "validator_record_sha256": "aadbabb042b96b4ca3642d78ad8393280da39796fe7caf81eab4c279f59900bb"
+    },
+    "SHI": {
+      "canonical_markdown_path": "reports/mineru_markdown_development_full_v1/SHI/SHI_24CN_BCTN--6a3fe91f4c3f02d9.md",
+      "canonical_markdown_sha256": "a9a33f865283eaa6eaf0bafc7cfdaebc34b7faf4309fd69dc858397475d2235d",
+      "canonical_provenance_path": "reports/mineru_markdown_development_full_v1/SHI/SHI_24CN_BCTN--6a3fe91f4c3f02d9.provenance.json",
+      "canonical_provenance_sha256": "029388c67c21d030921cf459acd3f0fc0f379563fc0c559cb99f61828350a4c6",
+      "canonical_vnd": {},
+      "case_ids": [
+        "s15-059",
+        "s15-060"
+      ],
+      "current_year": 2024,
+      "markdown_path": "data/markdown/SHI_24CN_BCTN--6a3fe91f4c3f02d9.md",
+      "markdown_sha256": "a9a33f865283eaa6eaf0bafc7cfdaebc34b7faf4309fd69dc858397475d2235d",
+      "page_count": 2,
+      "pdf_path": "pdf/PDF_24/PDF_24/SHI_24CN_BCTN.pdf",
+      "pdf_sha256": "6a3fe91f4c3f02d91e259f43cc8a1a989f3d7a99c8f5ad2cb6ceeb81bef165c6",
+      "prior_year": 2023,
+      "provenance_path": "data/markdown/SHI_24CN_BCTN--6a3fe91f4c3f02d9.provenance.json",
+      "provenance_sha256": "029388c67c21d030921cf459acd3f0fc0f379563fc0c559cb99f61828350a4c6",
+      "reviewed_evidence": {
+        "entire_notice_pages": [
+          {
+            "evidence_id": "shi-notice-page-1",
+            "evidence_sha256": "527370c1d04f7146d84f7b935061f10ebb63301fade0c21ea3b0fdf5c7792fa8",
+            "evidence_text": "## Page 1\n\nCỘNG HOÀ XÃ HỘI CHỦ NGHĨA VIỆT NAM THE SOCIALIST REPUBLIC OF VIETNAM Độc lập - Tự do - Hạnh phúc Independence - Freedom - Happiness\nSố: 33./2025/CV-SHI\nHà Nội, ngày .19. tháng 04.. năm 2025\nHanoi, 19../.04./2025\nCÔNG BỐ THÔNG TIN BẤT THƯỜNG UNUSUAL INFORMATION DISCLOSURE\nKính gửi: - Ủy ban Chứng khoán Nhà nước\n\\- Sở Giao dịch Chứng khoán thành phố Hồ Chí Minh\nTo: - State Securities Commission\n\\- Ho Chi Minh Stock Exchange\n1. Tên tổ chức/ Name of company: Công ty cổ phần Quốc tế Sơn Hà/ Sonha International Corporation\n\\- Mã chứng khoán/ Stock symbol: SHI\n\\- Địa chỉ/ Address of headoffice: Tầng 13, Tòa nhà Capital Place, số 29 Liễu Giai, phường Ngọc Khánh, quận Ba Đình, Hà Nội, Việt Nam/ 13th Floor, Capital Place Building, No. 29 Lieu Giai, Ngọc Khanh Ward, Ba Dinh District, Hanoi City, Vietnam.\n\\- Điện thoại liên hệ/ Telephone: 84-24-62656566\nFax: 84-24-62656588\n\\- E-mail: Info@sonha.com.vn\n2. Nội dung thông tin công bố/ Content of Disclosure Information: Công ty cổ phần Quốc tế Sơn Hà công bố/ Sonha International Corporation discloses:\n\\- Báo cáo thường niên năm 2024 (Bản thiết kế).\nAnnual Report 2024 (Designed Version).\n\\- Báo cáo đã được công bố trên trang diện tử của Công ty vào ngày 19./04/2025 theo đường dẫn sau: www.sonha.com.vn – Muc Quan Hế Cổ Đông.\nThe report have been published on the Company's website on 19/04/2025 at the following link: www.sonha.com.vn - Investor Relations section.\n3. Thông tin này đã được công bố trên trang thông tin điện tử của Công ty vào ngày 19.../04/2025 tại đường dẫn www.sonha.com.vn/ This information has been disclosed on the company's electronic information portal on 19.../04/2025 at website www.sonha.com.vn.\nSONHA\n",
+            "line_end": 29,
+            "line_start": 5,
+            "page": 1,
+            "required_fragments": [
+              "Báo cáo thường niên"
+            ]
+          }
+        ],
+        "requested_metric_terms_absent": true,
+        "whole_markdown_sha256": "a9a33f865283eaa6eaf0bafc7cfdaebc34b7faf4309fd69dc858397475d2235d"
+      },
+      "source_kind": "DISCLOSURE_NOTICE_ONLY",
+      "source_name": "SHI_24CN_BCTN.pdf",
+      "validator_record_sha256": "a8cdc2c5528ce724f7aa81ece19a5460be6dd919812a647bac4e77b191d7b2cc"
+    }
+  },
+  "status": "FROZEN_BEFORE_NOTICE_V3_EXECUTION",
+  "evaluation_revision": "notice-abstain-missing-v3",
+  "development_policy": {
+    "adaptive_development_cohort": true,
+    "baseline_outputs_read_during_repair": true,
+    "questions_and_source_gold_reused_from_v1": true,
+    "unbiased_or_company_layout_disjoint_validation_claimed": false,
+    "post_freeze_runtime_changes_allowed": false
+  },
+  "classification": "targeted_adaptive_notice_regression_replay",
+  "notice_case_ids": [
+    "s15-047",
+    "s15-048",
+    "s15-049",
+    "s15-050",
+    "s15-051",
+    "s15-052",
+    "s15-053",
+    "s15-054",
+    "s15-055",
+    "s15-056",
+    "s15-057",
+    "s15-058",
+    "s15-059",
+    "s15-060"
+  ],
+  "coverage": {
+    "notice_sources": [
+      "ASM",
+      "DAT",
+      "DXG",
+      "HVH",
+      "NSC",
+      "PGD",
+      "SHI"
+    ],
+    "previously_failing_pgd_case": [
+      "s15-057"
+    ],
+    "notice_comparisons": [
+      "s15-048",
+      "s15-050",
+      "s15-052",
+      "s15-054",
+      "s15-056",
+      "s15-058",
+      "s15-060"
+    ]
+  },
+  "evaluation_outputs": {
+    "json": {
+      "path": "reports/finhrm_markdown_shard15_notice_evaluation_v3.json"
+    },
+    "markdown": {
+      "path": "reports/finhrm_markdown_shard15_notice_evaluation_v3.md"
+    }
+  },
+  "observation_input": {
+    "path": "reports/finhrm_markdown_shard15_notice_observations_v3.json"
+  }
+}

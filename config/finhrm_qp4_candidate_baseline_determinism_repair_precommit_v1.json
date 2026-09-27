@@ -1,0 +1,255 @@
+{
+  "schema": "finhrm-qp4-candidate-baseline-determinism-repair-precommit-v1",
+  "created_at": "2026-08-27T22:30:00+07:00",
+  "status": "PASS",
+  "classification": "CANDIDATE_BASELINE_DETERMINISM_REPAIR_PRECOMMIT_ONLY",
+  "governance": {
+    "head": "ca83acc4e0dfa2e4c0167a9324c2855ec81532b7",
+    "candidate_stage_reopened_only_for": "byte-stable relevance accumulation and Candidate ordering for identical input",
+    "sub1000_repair_status": "NOT_EXECUTED_AND_STILL_BLOCKED",
+    "binding_model_status": "NOT_OPENED"
+  },
+  "inputs": [
+    {
+      "path": "src/hrm_finance_qa/program_data.py",
+      "bytes": 135728,
+      "sha256": "5199434fc0628b7d270ce62b12657366cbe118901065edd9f1e1f6ca0f1f8d54"
+    },
+    {
+      "path": "scripts/run_qp4_candidate_development_diagnosis_clean_v2.py",
+      "bytes": 49215,
+      "sha256": "fe692903c1269bf0325f781db98d112964c278c7807b84722a4fa1a0a1bd2582"
+    },
+    {
+      "path": "config/finhrm_qp4_candidate_development_diagnosis_clean_v2.json",
+      "bytes": 13904,
+      "sha256": "af9bf6fb38a49bbb7f9b291a595946eb305086412936d94f17d2b46b304189f3"
+    },
+    {
+      "path": "reports/finhrm_qp4_candidate_development_diagnosis_clean_v2.json",
+      "bytes": 41507010,
+      "sha256": "7192220b00b106f45bcc5324643c3b9e9a1e4898d92336418fd323b137a2126b"
+    },
+    {
+      "path": "config/finhrm_qp4_candidate_plaintext_sub1000_runtime_repair_precommit_v1.json",
+      "bytes": 48304,
+      "sha256": "ed84b369f76cddeefc46a81c6d430bcb2441d1cacfd8cbb70ff8e7930396e20a"
+    }
+  ],
+  "confirmed_cause": {
+    "runtime_file": "src/hrm_finance_qa/program_data.py",
+    "function": "_fuzzy_content_overlap",
+    "source_lines": [2143, 2162],
+    "first_causal_statement_line": 2147,
+    "unordered_iteration": "for term in expected:",
+    "accumulation_statement_line": 2161,
+    "accumulation": "score += best",
+    "downstream_rank_path": [
+      "merge_candidates",
+      "_candidate_rank_key",
+      "output.sort(..., reverse=True)"
+    ],
+    "observed_relevance_delta_range": [
+      "2.7755575615628914e-17",
+      "1.1102230246251565e-16"
+    ],
+    "mechanism": "set iteration order changes floating-point addition order; relevance bits can change and tied Candidate order can change without a physical Candidate gain or loss"
+  },
+  "repair_scope": {
+    "runtime_file": "src/hrm_finance_qa/program_data.py",
+    "pre_repair_file_sha256": "5199434fc0628b7d270ce62b12657366cbe118901065edd9f1e1f6ca0f1f8d54",
+    "function": "_fuzzy_content_overlap",
+    "function_body_only": true,
+    "pre_repair_function_source_sha256": "2eec586798eda365bb530cf92d54a7978ecd9589f9f7baa6a2afdaca043d1c4d",
+    "pre_repair_function_ast_sha256": "d87cd9e3d86caa63d85d62ec9a7fb8842dc1ca5d821eb220234edb1bd328d8a7",
+    "allowed_semantic_delta": "canonicalize only the outer accumulation iteration order",
+    "prohibited": [
+      "function signature change",
+      "import or helper change",
+      "scoring branch, threshold, weight, numerator, or denominator change",
+      "rounding, quantization, epsilon, tolerance, or approximate comparison",
+      "Candidate physical identity change",
+      "_plaintext_financial_row_context change",
+      "sub-1000 repair",
+      "retrieval, Binding, or model change"
+    ]
+  },
+  "minimal_proposed_repair": {
+    "old_iteration": "for term in expected:",
+    "new_iteration": "for term in sorted(expected):",
+    "changed_ast_edge_only": "outer For.iter",
+    "formula_weights_thresholds_unchanged": true,
+    "rounding_or_tolerance_added": false
+  },
+  "preferred_invariant": "identical normalized input produces byte-identical relevance floats and exact Candidate ordering across fresh processes regardless of Python hash seed",
+  "cross_cohort_regression": {
+    "name": "previous_governing_50_case_candidate_diagnosis_cross_cohort_regression",
+    "purpose": "determinism and non-regression proof only; not sub-1000 repair evidence",
+    "source_precommit_config_path": "config/finhrm_qp4_candidate_plaintext_sub1000_runtime_repair_precommit_v1.json",
+    "governing_diagnosis_path": "reports/finhrm_qp4_candidate_development_diagnosis_clean_v2.json",
+    "count": 50,
+    "case_ids": [
+      "synthetic-document-000005::surface::SHORT_LONG_EQUIVALENT",
+      "synthetic-document-000005::surface::DISCOURSE_PREFIX_SUFFIX",
+      "synthetic-document-000005::surface::CLAUSE_PERMUTATION",
+      "synthetic-document-000005::surface::PUNCTUATION_VARIANT",
+      "synthetic-document-000005::surface::NO_DIACRITICS",
+      "synthetic-document-000005::surface::BILINGUAL_PARENTHETICAL",
+      "synthetic-document-000005::surface::IRRELEVANT_DISTRACTOR_CLAUSE",
+      "synthetic-document-000005::counterfactual::OPERAND_YEAR",
+      "synthetic-document-000005::counterfactual::ENTITY_SCOPE",
+      "synthetic-document-000005::counterfactual::UNIT_SCALE",
+      "synthetic-document-000012::surface::SHORT_LONG_EQUIVALENT",
+      "synthetic-document-000012::surface::DISCOURSE_PREFIX_SUFFIX",
+      "synthetic-document-000012::surface::CLAUSE_PERMUTATION",
+      "synthetic-document-000012::surface::PUNCTUATION_VARIANT",
+      "synthetic-document-000012::surface::NO_DIACRITICS",
+      "synthetic-document-000012::surface::BILINGUAL_PARENTHETICAL",
+      "synthetic-document-000012::surface::IRRELEVANT_DISTRACTOR_CLAUSE",
+      "synthetic-document-000012::counterfactual::OPERAND_YEAR",
+      "synthetic-document-000012::counterfactual::ENTITY_SCOPE",
+      "synthetic-document-000012::counterfactual::UNIT_SCALE",
+      "synthetic-document-000066::surface::SHORT_LONG_EQUIVALENT",
+      "synthetic-document-000066::surface::DISCOURSE_PREFIX_SUFFIX",
+      "synthetic-document-000066::surface::CLAUSE_PERMUTATION",
+      "synthetic-document-000066::surface::PUNCTUATION_VARIANT",
+      "synthetic-document-000066::surface::NO_DIACRITICS",
+      "synthetic-document-000066::surface::BILINGUAL_PARENTHETICAL",
+      "synthetic-document-000066::surface::IRRELEVANT_DISTRACTOR_CLAUSE",
+      "synthetic-document-000066::counterfactual::OPERAND_YEAR",
+      "synthetic-document-000066::counterfactual::ENTITY_SCOPE",
+      "synthetic-document-000066::counterfactual::UNIT_SCALE",
+      "synthetic-document-000014::surface::SHORT_LONG_EQUIVALENT",
+      "synthetic-document-000014::surface::DISCOURSE_PREFIX_SUFFIX",
+      "synthetic-document-000014::surface::CLAUSE_PERMUTATION",
+      "synthetic-document-000014::surface::PUNCTUATION_VARIANT",
+      "synthetic-document-000014::surface::NO_DIACRITICS",
+      "synthetic-document-000014::surface::BILINGUAL_PARENTHETICAL",
+      "synthetic-document-000014::surface::IRRELEVANT_DISTRACTOR_CLAUSE",
+      "synthetic-document-000014::counterfactual::OPERAND_YEAR",
+      "synthetic-document-000014::counterfactual::ENTITY_SCOPE",
+      "synthetic-document-000014::counterfactual::UNIT_SCALE",
+      "synthetic-document-000106::surface::SHORT_LONG_EQUIVALENT",
+      "synthetic-document-000106::surface::DISCOURSE_PREFIX_SUFFIX",
+      "synthetic-document-000106::surface::CLAUSE_PERMUTATION",
+      "synthetic-document-000106::surface::PUNCTUATION_VARIANT",
+      "synthetic-document-000106::surface::NO_DIACRITICS",
+      "synthetic-document-000106::surface::BILINGUAL_PARENTHETICAL",
+      "synthetic-document-000106::surface::IRRELEVANT_DISTRACTOR_CLAUSE",
+      "synthetic-document-000106::counterfactual::OPERAND_YEAR",
+      "synthetic-document-000106::counterfactual::ENTITY_SCOPE",
+      "synthetic-document-000106::counterfactual::UNIT_SCALE"
+    ],
+    "id_order_sha256": "5ed2c03ccd90133b7d7118ac303547eaf281e4bc078dd537b9008ee6cef6c6cf",
+    "prior_nonreproducible_projection_set_sha256": "c119bf2f2d43f7c20f1ad76a7d9d579b50aae5d5b5c19ebc221555a899905bbd",
+    "prior_projection_status": "LINEAGE_ONLY_NOT_AN_EXECUTION_PASS_GATE",
+    "stable_semantic_projection_fields": [
+      "query_case_id",
+      "bucket",
+      "predictor_boundary_state",
+      "final_candidate_count",
+      "unordered complete physical Candidate multiset excluding only index and relevance",
+      "support_boolean",
+      "operand_assignment"
+    ],
+    "stable_semantic_projection_set_sha256": "6ea40124800ed46ee4059840999f63254dddb8137c24cbf53ed0594037ff9001",
+    "confirmed_pre_edit_accounting": {
+      "conformant": 35,
+      "nonreproducible": 15,
+      "physical_candidate_gain_or_loss": 0
+    },
+    "confirmed_nonreproducible_ids": [
+      "synthetic-document-000005::surface::SHORT_LONG_EQUIVALENT",
+      "synthetic-document-000005::surface::BILINGUAL_PARENTHETICAL",
+      "synthetic-document-000005::counterfactual::UNIT_SCALE",
+      "synthetic-document-000012::surface::SHORT_LONG_EQUIVALENT",
+      "synthetic-document-000012::surface::BILINGUAL_PARENTHETICAL",
+      "synthetic-document-000012::surface::IRRELEVANT_DISTRACTOR_CLAUSE",
+      "synthetic-document-000066::surface::SHORT_LONG_EQUIVALENT",
+      "synthetic-document-000066::surface::DISCOURSE_PREFIX_SUFFIX",
+      "synthetic-document-000066::surface::CLAUSE_PERMUTATION",
+      "synthetic-document-000066::surface::PUNCTUATION_VARIANT",
+      "synthetic-document-000066::surface::NO_DIACRITICS",
+      "synthetic-document-000066::surface::BILINGUAL_PARENTHETICAL",
+      "synthetic-document-000066::surface::IRRELEVANT_DISTRACTOR_CLAUSE",
+      "synthetic-document-000066::counterfactual::ENTITY_SCOPE",
+      "synthetic-document-000066::counterfactual::UNIT_SCALE"
+    ]
+  },
+  "determinism_controls": {
+    "python_hash_seeds": ["0", "1", "2", "7", "42", "314159"],
+    "overlap_vectors": [
+      {
+        "control_id": "exact_substring_and_ocr_joined_tokens",
+        "expected_tokens": ["doanh", "thu", "thuan", "hoat", "dong"],
+        "observed_tokens": ["doanhthu", "thuan", "hoatdong", "khac"],
+        "canonical_score_hex": "0x1.df3b645a1cac0p-1"
+      },
+      {
+        "control_id": "all_exact_matches",
+        "expected_tokens": ["loi", "nhuan", "sau", "thue"],
+        "observed_tokens": ["loi", "nhuan", "sau", "thue"],
+        "canonical_score_hex": "0x1.0000000000000p+0"
+      },
+      {
+        "control_id": "no_match",
+        "expected_tokens": ["tai", "san", "ngan", "han"],
+        "observed_tokens": ["doanh", "thu", "khac"],
+        "canonical_score_hex": "0x0.0p+0"
+      }
+    ],
+    "required": [
+      "exact float.hex equality across all frozen hash seeds",
+      "exact equality with the canonical sorted-term scoring oracle",
+      "no scoring threshold, branch, weight, numerator, or denominator change",
+      "no rounding or tolerance"
+    ]
+  },
+  "locked_implementation_evaluation": {
+    "candidate_runs": [
+      {"python_hash_seed": "0", "cases": 50},
+      {"python_hash_seed": "314159", "cases": 50}
+    ],
+    "exact_frozen_order": true,
+    "total_candidate_evaluations": 100,
+    "model_calls": 0,
+    "binding_calls": 0,
+    "required_gates": {
+      "byte_stable_relevance": "50/50 exact",
+      "ordered_candidate_projection": "50/50 exact",
+      "physical_candidate_multiset": "50/50 exact against frozen stable projection",
+      "support_assignment_bucket": "50/50 exact against frozen stable projection",
+      "normalized_full_record": "50/50 exact after only governing exclusions"
+    },
+    "governing_exclusions_only": [
+      "observer event list",
+      "phase-local temporary path spelling",
+      "retrieve.stats.index_seconds",
+      "retrieve.stats.selected_mineru_seconds",
+      "retrieve.stats.total_seconds"
+    ],
+    "post_edit_delta_audit": {
+      "allowed": "only relevance bits and tie-induced index/order changes produced by canonical outer-token accumulation",
+      "all_post_edit_relevance_values": "exact canonical oracle equality; no tolerance",
+      "physical_candidate_multiset": "unchanged 50/50",
+      "bucket_support_assignment": "unchanged 50/50",
+      "adaptive_second_patch": false
+    },
+    "prior_projection_hash_policy": "do not update c119... in this step or merely to make a gate pass; a new canonical projection set may be locked only after two fresh post-edit runs pass every determinism gate"
+  },
+  "precommit_accounting": {
+    "candidate_evaluations": 0,
+    "model_calls": 0,
+    "binding_calls": 0,
+    "runtime_modifications": 0,
+    "current_candidate_outputs_observed": 0
+  },
+  "artifacts": {
+    "harness": "scripts/run_qp4_candidate_baseline_determinism_repair_precommit_v1.py",
+    "config": "config/finhrm_qp4_candidate_baseline_determinism_repair_precommit_v1.json",
+    "markdown": "reports/finhrm_qp4_candidate_baseline_determinism_repair_precommit_v1.md",
+    "lock": "reports/finhrm_qp4_candidate_baseline_determinism_repair_precommit_lock_v1.json"
+  },
+  "runtime_implementation_authorized_if_static_preflight_passes": true,
+  "next_allowed_action": "QP4 CANDIDATE BASELINE DETERMINISM RUNTIME IMPLEMENTATION + LOCKED EVALUATION ONLY"
+}

@@ -1,0 +1,35 @@
+{
+  "schema": "mineru-real-http-requests-v1",
+  "sources": {
+    "HKT": {
+      "path": "data/markdown/scope_unit_v2/HKT_23CN_BCTN--91cc265d0be6d75e.md",
+      "sha256": "b5550a26fa89acab88e14488568090db23761de4d21d8e8ee68f57fb6f6cc31a"
+    },
+    "BSD": {
+      "path": "data/markdown/scope_unit_v2/BSD_23CN_BCTN--b90d50e824213031.md",
+      "sha256": "bd3d80dde2d999caa227a1d6965b03008e7f7c06146b7ea1d45e375ba5d53748"
+    }
+  },
+  "cases": [
+    {
+      "case_id": "owner-check-hkt-2023",
+      "source_id": "HKT",
+      "question": "Vốn điều lệ được nêu trong báo cáo năm 2023 là bao nhiêu đồng?"
+    },
+    {
+      "case_id": "owner-check-hkt-2024",
+      "source_id": "HKT",
+      "question": "Vốn điều lệ được nêu trong báo cáo năm 2024 là bao nhiêu đồng?"
+    },
+    {
+      "case_id": "owner-check-bsd-2023",
+      "source_id": "BSD",
+      "question": "Vốn điều lệ được nêu trong báo cáo năm 2023 là bao nhiêu đồng?"
+    },
+    {
+      "case_id": "owner-check-bsd-2024",
+      "source_id": "BSD",
+      "question": "Vốn điều lệ được nêu trong báo cáo năm 2024 là bao nhiêu đồng?"
+    }
+  ]
+}

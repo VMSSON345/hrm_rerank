@@ -1,0 +1,79 @@
+{
+  "schema": "finhrm-v14.2-source-review-decisions-v1",
+  "scope": "Development-only source review. Not a calibration or protected dataset.",
+  "evidence": {
+    "kind": "user_provided_page_image_in_conversation",
+    "original_pdf_opened": false,
+    "image_file_sha256": null,
+    "source_name_from_dataset": "CNG_25CN_BCTN.pdf",
+    "page_from_dataset": 55,
+    "attribution_limit": "Image matches visible table values; PDF filename/page attribution comes from the dataset, not a separately opened PDF."
+  },
+  "decisions": [
+    {
+      "example_id": "synthetic-validation-percent_change-0003",
+      "context_sha256": "49e5286010e9365704d7e635c9dde8e9580fb80ebc85ec2eb2d4c7a66ffd2f76",
+      "status": "QUARANTINED_ORIGINAL_ANNOTATION",
+      "reason_codes": [
+        "confirmed_wrong_source_binding",
+        "amount_vs_percentage_annotation_ambiguity"
+      ],
+      "findings": [
+        "1273.3 is total assets for 2022, visible in the top table and right chart; not long-term debt for 2025.",
+        "The row merges 4.2% and 1273.3 into one serialized cell. Exact stage causing the merge is not established.",
+        "Old gold computes relative change of displayed percentages, not growth of the debt amount.",
+        "The lower table title alone does not establish each nested row denominator; do not relabel 4.2% as share of total assets without further review."
+      ],
+      "original_program": {
+        "operands": [
+          10,
+          9
+        ],
+        "operation": "PERCENT_CHANGE"
+      },
+      "original_answer_value": "55.55555555555555555555555555555556",
+      "reviewed_facts": [
+        {
+          "metric": "Nợ dài hạn",
+          "year": 2024,
+          "value": "20.2",
+          "unit": "tỷ đồng",
+          "region": "upper monetary table"
+        },
+        {
+          "metric": "Nợ dài hạn",
+          "year": 2025,
+          "value": "45.8",
+          "unit": "tỷ đồng",
+          "region": "upper monetary table"
+        },
+        {
+          "metric": "Tổng tài sản",
+          "year": 2022,
+          "value": "1273.3",
+          "unit": "tỷ đồng",
+          "region": "upper monetary table and right chart"
+        }
+      ],
+      "replacement_case": {
+        "status": "SOURCE_REVIEWED_SPEC_NOT_EXECUTABLE_DATASET",
+        "question": "Giá trị nợ dài hạn tính bằng tỷ đồng tăng bao nhiêu phần trăm từ năm 2024 đến năm 2025?",
+        "operation": "PERCENT_CHANGE",
+        "operands": [
+          "45.8",
+          "20.2"
+        ],
+        "input_unit": "tỷ đồng",
+        "exact_answer_fraction": "12800/101",
+        "answer_unit": "%",
+        "display_value_2dp": "126.73",
+        "missing_for_runtime": [
+          "persisted source image/PDF hash",
+          "source-region coordinates",
+          "fresh source-grounded candidate extraction"
+        ],
+        "gold_operand_indices": null
+      }
+    }
+  ]
+}

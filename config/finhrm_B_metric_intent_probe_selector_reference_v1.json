@@ -1,0 +1,408 @@
+{
+  "cases": [
+    {
+      "case_id": "probe-agp-profit-1",
+      "source_id": "AGP",
+      "question": "Lợi nhuận trước thuế thực hiện năm 2025 là bao nhiêu tỷ đồng?",
+      "expected_action": "ANSWER",
+      "expected_canonical": "65900000000",
+      "canonical_unit": "VND",
+      "metric": "ln truoc thue",
+      "metric_labels": [
+        "ln truoc thue",
+        "loi nhuan truoc thue",
+        "lntt"
+      ],
+      "years": [
+        "2025"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "operation": "SELECT",
+      "pdf_pages": [
+        22
+      ],
+      "unit_basis": "source_explicit",
+      "absolute_tolerance": "50000000",
+      "reference_note": "PDF visually reviewed. AGP tolerance is half the printed 0.1-billion quantum; no other case uses tolerance.",
+      "expected_operands": {
+        "2025": "65900000000"
+      }
+    },
+    {
+      "case_id": "probe-agp-profit-2",
+      "source_id": "AGP",
+      "question": "Cho biết lợi nhuận trước thuế thực hiện năm 2025, tính bằng tỷ đồng.",
+      "expected_action": "ANSWER",
+      "expected_canonical": "65900000000",
+      "canonical_unit": "VND",
+      "metric": "ln truoc thue",
+      "metric_labels": [
+        "ln truoc thue",
+        "loi nhuan truoc thue",
+        "lntt"
+      ],
+      "years": [
+        "2025"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "operation": "SELECT",
+      "pdf_pages": [
+        22
+      ],
+      "unit_basis": "source_explicit",
+      "absolute_tolerance": "50000000",
+      "reference_note": "PDF visually reviewed. AGP tolerance is half the printed 0.1-billion quantum; no other case uses tolerance.",
+      "expected_operands": {
+        "2025": "65900000000"
+      }
+    },
+    {
+      "case_id": "probe-mgg-net-1",
+      "source_id": "MGG",
+      "question": "Doanh thu thuần thực hiện năm 2022 là bao nhiêu tỷ đồng?",
+      "expected_action": "ANSWER",
+      "expected_canonical": "1976800000000",
+      "canonical_unit": "VND",
+      "metric": "doanh thu thuan",
+      "metric_labels": [
+        "doanh thu thuan"
+      ],
+      "years": [
+        "2022"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "operation": "SELECT",
+      "pdf_pages": [
+        5
+      ],
+      "unit_basis": "source_explicit",
+      "absolute_tolerance": "0",
+      "reference_note": "PDF visually reviewed. AGP tolerance is half the printed 0.1-billion quantum; no other case uses tolerance.",
+      "expected_operands": {
+        "2022": "1976800000000"
+      }
+    },
+    {
+      "case_id": "probe-mgg-net-2",
+      "source_id": "MGG",
+      "question": "Cho biết doanh thu thuần thực hiện năm 2022, tính bằng tỷ đồng.",
+      "expected_action": "ANSWER",
+      "expected_canonical": "1976800000000",
+      "canonical_unit": "VND",
+      "metric": "doanh thu thuan",
+      "metric_labels": [
+        "doanh thu thuan"
+      ],
+      "years": [
+        "2022"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "operation": "SELECT",
+      "pdf_pages": [
+        5
+      ],
+      "unit_basis": "source_explicit",
+      "absolute_tolerance": "0",
+      "reference_note": "PDF visually reviewed. AGP tolerance is half the printed 0.1-billion quantum; no other case uses tolerance.",
+      "expected_operands": {
+        "2022": "1976800000000"
+      }
+    },
+    {
+      "case_id": "probe-mgg-tax-1",
+      "source_id": "MGG",
+      "question": "Lợi nhuận sau thuế thực hiện năm 2023 là bao nhiêu tỷ đồng?",
+      "expected_action": "ANSWER",
+      "expected_canonical": "16900000000",
+      "canonical_unit": "VND",
+      "metric": "loi nhuan sau thue",
+      "metric_labels": [
+        "loi nhuan sau thue"
+      ],
+      "years": [
+        "2023"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "operation": "SELECT",
+      "pdf_pages": [
+        5
+      ],
+      "unit_basis": "source_explicit",
+      "absolute_tolerance": "0",
+      "reference_note": "PDF visually reviewed. AGP tolerance is half the printed 0.1-billion quantum; no other case uses tolerance.",
+      "expected_operands": {
+        "2023": "16900000000"
+      }
+    },
+    {
+      "case_id": "probe-mgg-tax-2",
+      "source_id": "MGG",
+      "question": "Cho biết lợi nhuận sau thuế thực hiện năm 2023, tính bằng tỷ đồng.",
+      "expected_action": "ANSWER",
+      "expected_canonical": "16900000000",
+      "canonical_unit": "VND",
+      "metric": "loi nhuan sau thue",
+      "metric_labels": [
+        "loi nhuan sau thue"
+      ],
+      "years": [
+        "2023"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "operation": "SELECT",
+      "pdf_pages": [
+        5
+      ],
+      "unit_basis": "source_explicit",
+      "absolute_tolerance": "0",
+      "reference_note": "PDF visually reviewed. AGP tolerance is half the printed 0.1-billion quantum; no other case uses tolerance.",
+      "expected_operands": {
+        "2023": "16900000000"
+      }
+    },
+    {
+      "case_id": "probe-mgg-assets-1",
+      "source_id": "MGG",
+      "question": "Tổng giá trị tài sản thực hiện năm 2023 là bao nhiêu tỷ đồng?",
+      "expected_action": "ANSWER",
+      "expected_canonical": "853900000000",
+      "canonical_unit": "VND",
+      "metric": "tong gia tri tai san",
+      "metric_labels": [
+        "tong gia tri tai san"
+      ],
+      "years": [
+        "2023"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "operation": "SELECT",
+      "pdf_pages": [
+        5
+      ],
+      "unit_basis": "source_explicit",
+      "absolute_tolerance": "0",
+      "reference_note": "PDF visually reviewed. AGP tolerance is half the printed 0.1-billion quantum; no other case uses tolerance.",
+      "expected_operands": {
+        "2023": "853900000000"
+      }
+    },
+    {
+      "case_id": "probe-mgg-assets-2",
+      "source_id": "MGG",
+      "question": "Cho biết tổng giá trị tài sản thực hiện năm 2023, tính bằng tỷ đồng.",
+      "expected_action": "ANSWER",
+      "expected_canonical": "853900000000",
+      "canonical_unit": "VND",
+      "metric": "tong gia tri tai san",
+      "metric_labels": [
+        "tong gia tri tai san"
+      ],
+      "years": [
+        "2023"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "operation": "SELECT",
+      "pdf_pages": [
+        5
+      ],
+      "unit_basis": "source_explicit",
+      "absolute_tolerance": "0",
+      "reference_note": "PDF visually reviewed. AGP tolerance is half the printed 0.1-billion quantum; no other case uses tolerance.",
+      "expected_operands": {
+        "2023": "853900000000"
+      }
+    },
+    {
+      "case_id": "probe-pdb-profit-1",
+      "source_id": "PDB",
+      "question": "Lợi nhuận trước thuế hợp nhất thực hiện năm 2024 là bao nhiêu triệu đồng?",
+      "expected_action": "ANSWER",
+      "expected_canonical": "15656000000",
+      "canonical_unit": "VND",
+      "metric": "loi nhuan truoc thue",
+      "metric_labels": [
+        "loi nhuan truoc thue"
+      ],
+      "years": [
+        "2024"
+      ],
+      "role": "actual",
+      "scope": "consolidated",
+      "operation": "SELECT",
+      "pdf_pages": [
+        8
+      ],
+      "unit_basis": "source_explicit",
+      "absolute_tolerance": "0",
+      "reference_note": "PDF visually reviewed. AGP tolerance is half the printed 0.1-billion quantum; no other case uses tolerance.",
+      "expected_operands": {
+        "2024": "15656000000"
+      }
+    },
+    {
+      "case_id": "probe-pdb-profit-2",
+      "source_id": "PDB",
+      "question": "Cho biết lợi nhuận trước thuế hợp nhất thực hiện năm 2024, tính bằng triệu đồng.",
+      "expected_action": "ANSWER",
+      "expected_canonical": "15656000000",
+      "canonical_unit": "VND",
+      "metric": "loi nhuan truoc thue",
+      "metric_labels": [
+        "loi nhuan truoc thue"
+      ],
+      "years": [
+        "2024"
+      ],
+      "role": "actual",
+      "scope": "consolidated",
+      "operation": "SELECT",
+      "pdf_pages": [
+        8
+      ],
+      "unit_basis": "source_explicit",
+      "absolute_tolerance": "0",
+      "reference_note": "PDF visually reviewed. AGP tolerance is half the printed 0.1-billion quantum; no other case uses tolerance.",
+      "expected_operands": {
+        "2024": "15656000000"
+      }
+    },
+    {
+      "case_id": "probe-pdb-change-1",
+      "source_id": "PDB",
+      "question": "Lợi nhuận trước thuế hợp nhất thực hiện năm 2024 tăng bao nhiêu triệu đồng so với năm 2023?",
+      "expected_action": "ANSWER",
+      "expected_canonical": "12180000000",
+      "canonical_unit": "VND",
+      "metric": "loi nhuan truoc thue",
+      "metric_labels": [
+        "loi nhuan truoc thue"
+      ],
+      "years": [
+        "2024",
+        "2023"
+      ],
+      "role": "actual",
+      "scope": "consolidated",
+      "operation": "SUBTRACT",
+      "pdf_pages": [
+        8
+      ],
+      "unit_basis": "source_explicit",
+      "absolute_tolerance": "0",
+      "reference_note": "PDF visually reviewed. AGP tolerance is half the printed 0.1-billion quantum; no other case uses tolerance.",
+      "expected_operands": {
+        "2024": "15656000000",
+        "2023": "3476000000"
+      }
+    },
+    {
+      "case_id": "probe-pdb-change-2",
+      "source_id": "PDB",
+      "question": "Cho biết lợi nhuận trước thuế hợp nhất thực hiện năm 2024 tăng bao nhiêu so với năm 2023, tính bằng triệu đồng.",
+      "expected_action": "ANSWER",
+      "expected_canonical": "12180000000",
+      "canonical_unit": "VND",
+      "metric": "loi nhuan truoc thue",
+      "metric_labels": [
+        "loi nhuan truoc thue"
+      ],
+      "years": [
+        "2024",
+        "2023"
+      ],
+      "role": "actual",
+      "scope": "consolidated",
+      "operation": "SUBTRACT",
+      "pdf_pages": [
+        8
+      ],
+      "unit_basis": "source_explicit",
+      "absolute_tolerance": "0",
+      "reference_note": "PDF visually reviewed. AGP tolerance is half the printed 0.1-billion quantum; no other case uses tolerance.",
+      "expected_operands": {
+        "2024": "15656000000",
+        "2023": "3476000000"
+      }
+    },
+    {
+      "case_id": "probe-agp-missing",
+      "source_id": "AGP",
+      "question": "Lợi nhuận trước thuế thực hiện năm 2037 là bao nhiêu đồng?",
+      "expected_action": "ABSTAIN",
+      "expected_canonical": null,
+      "canonical_unit": "VND",
+      "metric": "Lợi nhuận trước thuế",
+      "years": [
+        "2037"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "operation": "SELECT"
+    },
+    {
+      "case_id": "probe-mgg-missing",
+      "source_id": "MGG",
+      "question": "Lợi nhuận sau thuế thực hiện năm 2037 là bao nhiêu đồng?",
+      "expected_action": "ABSTAIN",
+      "expected_canonical": null,
+      "canonical_unit": "VND",
+      "metric": "Lợi nhuận sau thuế",
+      "years": [
+        "2037"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "operation": "SELECT"
+    },
+    {
+      "case_id": "probe-pdb-missing",
+      "source_id": "PDB",
+      "question": "Lợi nhuận trước thuế hợp nhất thực hiện năm 2037 là bao nhiêu đồng?",
+      "expected_action": "ABSTAIN",
+      "expected_canonical": null,
+      "canonical_unit": "VND",
+      "metric": "Lợi nhuận trước thuế hợp nhất",
+      "years": [
+        "2037"
+      ],
+      "role": "actual",
+      "scope": "consolidated",
+      "operation": "SELECT"
+    }
+  ],
+  "paraphrase_pairs": [
+    [
+      "probe-agp-profit-1",
+      "probe-agp-profit-2"
+    ],
+    [
+      "probe-mgg-net-1",
+      "probe-mgg-net-2"
+    ],
+    [
+      "probe-mgg-tax-1",
+      "probe-mgg-tax-2"
+    ],
+    [
+      "probe-mgg-assets-1",
+      "probe-mgg-assets-2"
+    ],
+    [
+      "probe-pdb-profit-1",
+      "probe-pdb-profit-2"
+    ],
+    [
+      "probe-pdb-change-1",
+      "probe-pdb-change-2"
+    ]
+  ],
+  "scope": "New questions/facts, historically known sources; not unseen-report or training-disjoint certification."
+}

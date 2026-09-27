@@ -1,0 +1,237 @@
+{
+  "schema": "finhrm-qp4-candidate-baseline-determinism-followup-repair-precommit-v1",
+  "created_at": "2026-08-28T12:00:00+07:00",
+  "status": "PASS",
+  "classification": "CANDIDATE_BASELINE_DETERMINISM_FOLLOWUP_REPAIR_PRECOMMIT_ONLY",
+  "governance": {
+    "head": "ca83acc4e0dfa2e4c0167a9324c2855ec81532b7",
+    "authorized_mechanism": "_ocr_row_metric_score unordered token-set floating accumulation only",
+    "provisional_first_determinism_edit": "PRESERVED_UNCHANGED",
+    "sub1000_repair_status": "NOT_EXECUTED_AND_BLOCKED",
+    "binding_model_status": "NOT_OPENED"
+  },
+  "inputs": [
+    {
+      "path": "src/hrm_finance_qa/program_data.py",
+      "bytes": 135736,
+      "sha256": "1508d0f2ebc76b84024b01c1259fd6a45ff1ef35f1a64c2a94de6a4d7ee021aa"
+    },
+    {
+      "path": "scripts/run_qp4_candidate_baseline_determinism_repair_precommit_v1.py",
+      "bytes": 13185,
+      "sha256": "c2d6a96165a04ca9c9a8eaa2bef121adc339253bedbfcdf0f0e40a83828d9d33"
+    },
+    {
+      "path": "config/finhrm_qp4_candidate_baseline_determinism_repair_precommit_v1.json",
+      "bytes": 12743,
+      "sha256": "df983706972807955901b9172fc18483ff664f9dd95bfe749e83e887038db00d"
+    },
+    {
+      "path": "reports/finhrm_qp4_candidate_baseline_determinism_repair_precommit_v1.md",
+      "bytes": 4306,
+      "sha256": "19dd2a9f97cfe043a873b041871a29fc9599be158ba49525ec458dcfc5b030a9"
+    },
+    {
+      "path": "reports/finhrm_qp4_candidate_baseline_determinism_repair_precommit_lock_v1.json",
+      "bytes": 2648,
+      "sha256": "0ff9113b380052bea9e0db9230285bb380085b5708e28abd5c1f605443afb913"
+    },
+    {
+      "path": "reports/finhrm_qp4_candidate_development_diagnosis_clean_v2.json",
+      "bytes": 41507010,
+      "sha256": "7192220b00b106f45bcc5324643c3b9e9a1e4898d92336418fd323b137a2126b"
+    }
+  ],
+  "repair_scope": {
+    "runtime_file": "src/hrm_finance_qa/program_data.py",
+    "pre_repair_file_sha256": "1508d0f2ebc76b84024b01c1259fd6a45ff1ef35f1a64c2a94de6a4d7ee021aa",
+    "function": "_ocr_row_metric_score",
+    "function_body_only": true,
+    "target_pre_repair": {
+      "source_lines": [1162, 1201],
+      "function_source_sha256": "38014a401760f0672b641d33ca13daeafdbf4a7222db5db92ef04beb29929282",
+      "function_ast_sha256": "d356b753d0970b826df8364dce4dca331b8471a9ca230079aed1c68a5ac6b4e2"
+    },
+    "allowed_semantic_delta": "canonicalize only _ocr_row_metric_score outer expected-token accumulation order",
+    "prohibited": [
+      "function signature, import, or helper change",
+      "score formula, branch, threshold, weight, numerator, or denominator change",
+      "rounding, quantization, epsilon, tolerance, or approximate comparison",
+      "quota count, reservation, truncation, fill, ranking, or tie-break change",
+      "_quota_metric_score change",
+      "_fuzzy_content_overlap change",
+      "Candidate physical identity change",
+      "retrieval change",
+      "_plaintext_financial_row_context or sub-1000 repair",
+      "Binding or model change",
+      "any other function change"
+    ]
+  },
+  "minimal_proposed_repair": {
+    "old_iteration": "for term in expected:",
+    "new_iteration": "for term in sorted(expected):",
+    "changed_ast_edge_only": "_ocr_row_metric_score outer For.iter",
+    "formula_weights_thresholds_unchanged": true,
+    "rounding_or_tolerance_added": false
+  },
+  "preserved_provisional_edit": {
+    "runtime_file": "src/hrm_finance_qa/program_data.py",
+    "function": "_fuzzy_content_overlap",
+    "source_lines": [2143, 2162],
+    "function_source_sha256": "949a466808da2592bbbbc718d31ea9a5cd9f8124c11685b85dd07d7cd630cd93",
+    "function_ast_sha256": "373b28091ac1bc3826bdc4ecd1e585cb815c571d6679e10bbfd1ad3afe1e780e",
+    "required_iteration": "for term in sorted(expected):",
+    "status": "MUST_REMAIN_BYTE_IDENTICAL"
+  },
+  "explicitly_unauthorized_similar_reducer": {
+    "runtime_file": "src/hrm_finance_qa/program_data.py",
+    "function": "_quota_metric_score",
+    "source_lines": [1340, 1363],
+    "function_source_sha256": "47239026e9eb6f337eef5caf926bfef12fe1a1d130fc9ec7978214c5817b3a2b",
+    "function_ast_sha256": "bd0017aafa0eaca907c5d683359dfc81725c9ef6b7f432557bfc38ee3fb9b8e6",
+    "required_current_iteration": "for term in expected:",
+    "status": "OUT_OF_SCOPE_AND_UNCHANGED"
+  },
+  "single_case_causal_evidence": {
+    "query_case_id": "synthetic-document-000012::surface::IRRELEVANT_DISTRACTOR_CLAUSE",
+    "merge_input_chunk_count": 31,
+    "merge_input_ordered_sha256": "87a96d1db75c635ea66882a708b36244d28ac50f48be75508fd8b0a399b42b4c",
+    "local_quota_callsite": "extract_numeric_candidates -> _candidate_quota_indices",
+    "local_quota_callsite_line": 759,
+    "local_quota_input_count": 37,
+    "local_quota_maximum": 10,
+    "local_quota_input_full_sha256": "41d04ffde158ff9e28e183018899454e3f34dc1f132672be13271093c1dc38ca",
+    "local_quota_input_ordered_physical_sha256": "c0b94a665c39ac65b97624552b8f7f4b5d22cc0d86adca4b622b3640c5e39007",
+    "seed_0_metric_reserved": [0, 5, 9, 1, 4, 6, 2, 7],
+    "seed_314159_metric_reserved": [0, 1, 4, 2, 3, 5, 9, 6],
+    "identical_role_reserved": [0, 1, 4, 2, 5, 9, 6, 7],
+    "seed_0_selected": [0, 1, 4, 2, 5, 9, 6, 7, 10, 11],
+    "seed_314159_selected": [0, 1, 4, 2, 5, 9, 6, 7, 3, 10],
+    "seed_0_physical_survivor": "page=33,row=Tong tai san,period=2022,value=100.00%,span=[23,30]",
+    "seed_314159_physical_survivor": "page=33,row=Tai san ngan han,period=2023,value=77.51%,span=[45,51]",
+    "first_numeric_divergence": "_ocr_row_metric_score score += best after unordered expected-token traversal",
+    "first_discrete_divergence": "_candidate_quota_indices metric reservation sort/truncation",
+    "classification": "SECOND_INDEPENDENT_CODE_LOCATION_SAME_UNORDERED_FLOAT_ACCUMULATION_FAMILY"
+  },
+  "cross_cohort_regression": {
+    "name": "previous_governing_50_case_candidate_diagnosis_cross_cohort_regression",
+    "source_precommit_config_path": "config/finhrm_qp4_candidate_baseline_determinism_repair_precommit_v1.json",
+    "governing_diagnosis_path": "reports/finhrm_qp4_candidate_development_diagnosis_clean_v2.json",
+    "count": 50,
+    "case_ids": [
+      "synthetic-document-000005::surface::SHORT_LONG_EQUIVALENT",
+      "synthetic-document-000005::surface::DISCOURSE_PREFIX_SUFFIX",
+      "synthetic-document-000005::surface::CLAUSE_PERMUTATION",
+      "synthetic-document-000005::surface::PUNCTUATION_VARIANT",
+      "synthetic-document-000005::surface::NO_DIACRITICS",
+      "synthetic-document-000005::surface::BILINGUAL_PARENTHETICAL",
+      "synthetic-document-000005::surface::IRRELEVANT_DISTRACTOR_CLAUSE",
+      "synthetic-document-000005::counterfactual::OPERAND_YEAR",
+      "synthetic-document-000005::counterfactual::ENTITY_SCOPE",
+      "synthetic-document-000005::counterfactual::UNIT_SCALE",
+      "synthetic-document-000012::surface::SHORT_LONG_EQUIVALENT",
+      "synthetic-document-000012::surface::DISCOURSE_PREFIX_SUFFIX",
+      "synthetic-document-000012::surface::CLAUSE_PERMUTATION",
+      "synthetic-document-000012::surface::PUNCTUATION_VARIANT",
+      "synthetic-document-000012::surface::NO_DIACRITICS",
+      "synthetic-document-000012::surface::BILINGUAL_PARENTHETICAL",
+      "synthetic-document-000012::surface::IRRELEVANT_DISTRACTOR_CLAUSE",
+      "synthetic-document-000012::counterfactual::OPERAND_YEAR",
+      "synthetic-document-000012::counterfactual::ENTITY_SCOPE",
+      "synthetic-document-000012::counterfactual::UNIT_SCALE",
+      "synthetic-document-000066::surface::SHORT_LONG_EQUIVALENT",
+      "synthetic-document-000066::surface::DISCOURSE_PREFIX_SUFFIX",
+      "synthetic-document-000066::surface::CLAUSE_PERMUTATION",
+      "synthetic-document-000066::surface::PUNCTUATION_VARIANT",
+      "synthetic-document-000066::surface::NO_DIACRITICS",
+      "synthetic-document-000066::surface::BILINGUAL_PARENTHETICAL",
+      "synthetic-document-000066::surface::IRRELEVANT_DISTRACTOR_CLAUSE",
+      "synthetic-document-000066::counterfactual::OPERAND_YEAR",
+      "synthetic-document-000066::counterfactual::ENTITY_SCOPE",
+      "synthetic-document-000066::counterfactual::UNIT_SCALE",
+      "synthetic-document-000014::surface::SHORT_LONG_EQUIVALENT",
+      "synthetic-document-000014::surface::DISCOURSE_PREFIX_SUFFIX",
+      "synthetic-document-000014::surface::CLAUSE_PERMUTATION",
+      "synthetic-document-000014::surface::PUNCTUATION_VARIANT",
+      "synthetic-document-000014::surface::NO_DIACRITICS",
+      "synthetic-document-000014::surface::BILINGUAL_PARENTHETICAL",
+      "synthetic-document-000014::surface::IRRELEVANT_DISTRACTOR_CLAUSE",
+      "synthetic-document-000014::counterfactual::OPERAND_YEAR",
+      "synthetic-document-000014::counterfactual::ENTITY_SCOPE",
+      "synthetic-document-000014::counterfactual::UNIT_SCALE",
+      "synthetic-document-000106::surface::SHORT_LONG_EQUIVALENT",
+      "synthetic-document-000106::surface::DISCOURSE_PREFIX_SUFFIX",
+      "synthetic-document-000106::surface::CLAUSE_PERMUTATION",
+      "synthetic-document-000106::surface::PUNCTUATION_VARIANT",
+      "synthetic-document-000106::surface::NO_DIACRITICS",
+      "synthetic-document-000106::surface::BILINGUAL_PARENTHETICAL",
+      "synthetic-document-000106::surface::IRRELEVANT_DISTRACTOR_CLAUSE",
+      "synthetic-document-000106::counterfactual::OPERAND_YEAR",
+      "synthetic-document-000106::counterfactual::ENTITY_SCOPE",
+      "synthetic-document-000106::counterfactual::UNIT_SCALE"
+    ],
+    "id_order_sha256": "5ed2c03ccd90133b7d7118ac303547eaf281e4bc078dd537b9008ee6cef6c6cf",
+    "stable_semantic_projection_set_sha256": "6ea40124800ed46ee4059840999f63254dddb8137c24cbf53ed0594037ff9001"
+  },
+  "float_hex_controls": {
+    "python_hash_seeds": ["0", "1", "2", "7", "42", "314159"],
+    "synthetic_contributions": [
+      {"term": "asset", "best": 1.0},
+      {"term": "detail", "best": 0.92},
+      {"term": "long", "best": 0.85},
+      {"term": "short", "best": 0.8},
+      {"term": "total", "best": 0.78}
+    ],
+    "canonical_sum_hex": "0x1.1666666666667p+2",
+    "failing_case_targets": {
+      "77.51pct_2023": "0x1.36db6db6db6dcp+2",
+      "100.00pct_2022": "0x1.8000000000000p+1"
+    },
+    "required": "all controls exact by float.hex across every frozen seed; no tolerance"
+  },
+  "locked_implementation_evaluation": {
+    "candidate_runs": [
+      {"python_hash_seed": "0", "cases": 50},
+      {"python_hash_seed": "314159", "cases": 50}
+    ],
+    "exact_frozen_order": true,
+    "total_candidate_evaluations": 100,
+    "model_calls": 0,
+    "binding_calls": 0,
+    "required_gates": {
+      "relevance": "50/50 exact",
+      "candidate_order": "50/50 exact",
+      "normalized_full_record": "50/50 exact after only governing exclusions",
+      "physical_candidate_multiset": "50/50 exact",
+      "bucket": "50/50 unchanged",
+      "support": "50/50 unchanged",
+      "operand_assignment": "50/50 unchanged",
+      "explicit_000012_regression": "PASS in both seeds with identical local quota and final Candidate projection",
+      "float_hex_controls": "all exact"
+    },
+    "governing_exclusions_only": [
+      "observer event list",
+      "phase-local temporary path spelling",
+      "retrieve.stats.index_seconds",
+      "retrieve.stats.selected_mineru_seconds",
+      "retrieve.stats.total_seconds"
+    ],
+    "adaptive_second_edit": false,
+    "automatic_rerun_after_gate_failure": false
+  },
+  "precommit_accounting": {
+    "candidate_evaluations": 0,
+    "model_calls": 0,
+    "binding_calls": 0,
+    "runtime_modifications": 0,
+    "current_candidate_outputs_observed": 0
+  },
+  "artifacts": {
+    "harness": "scripts/run_qp4_candidate_baseline_determinism_followup_repair_precommit_v1.py",
+    "config": "config/finhrm_qp4_candidate_baseline_determinism_followup_repair_precommit_v1.json",
+    "markdown": "reports/finhrm_qp4_candidate_baseline_determinism_followup_repair_precommit_v1.md",
+    "lock": "reports/finhrm_qp4_candidate_baseline_determinism_followup_repair_precommit_lock_v1.json"
+  },
+  "runtime_implementation_authorized_if_static_preflight_passes": true,
+  "next_allowed_action": "QP4 CANDIDATE BASELINE DETERMINISM FOLLOW-UP RUNTIME IMPLEMENTATION + LOCKED EVALUATION ONLY"
+}

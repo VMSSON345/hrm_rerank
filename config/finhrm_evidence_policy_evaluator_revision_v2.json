@@ -1,0 +1,25 @@
+{
+  "reason": "Evaluator v1 refused ambiguous value/unit/source/page join: repeated numeric disclosure on same page. V2 uses recorded prediction DAG leaf pointer, validates response operand_number and exact source/context. No source/reference/prediction/output edits, no criteria change. V1 produced no aggregate result. Revision made after HTTP run and before completed scoring.",
+  "inputs": [
+    {
+      "path": "scripts/report_finhrm_evidence_policy_ab.py",
+      "sha256": "5e4302cfaa57be87be1237a10ce024b6aa55dcf4b74435410db19a8d208557cf"
+    },
+    {
+      "path": "scripts/report_finhrm_evidence_policy_ab_v2.py",
+      "sha256": "95d9d92aa0490360961442359371680fdb917ee8e4ec2e7877e37f75143d3652"
+    },
+    {
+      "path": "config/finhrm_evidence_policy_reference_v1.json",
+      "sha256": "fc986933c797837381fd1fc46cae19d289cdaf356a2d8fd677263d270e472827"
+    },
+    {
+      "path": "reports/finhrm_evidence_policy_observations_v1.json",
+      "sha256": "b1d8c901770a3b9dbd4362f37b30e1e558b4b5a04573605ab6ba8e719b8b2c1c"
+    },
+    {
+      "path": "reports/finhrm_evidence_policy_proposals_v1.json",
+      "sha256": "4e6264b44b351b7a770216f21027a025b6970d8d2fd5074f25162989c1aa2155"
+    }
+  ]
+}

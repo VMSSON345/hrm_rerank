@@ -1,0 +1,69 @@
+{
+  "schema": "mineru-real-http-requests-v1",
+  "sources": {
+    "HFX": {
+      "path": "data/markdown/policy_evaluation_v1/HFX/HFX_23CN_BCTN--ed171410df551c87.md",
+      "sha256": "393f9477562de0d315069a53ef166c742c1338599e06f2a53c418624b38d1d36"
+    },
+    "BTH": {
+      "path": "data/markdown/policy_evaluation_v1/BTH/BTH_25CN_BCTN--c3f4291745a28deb.md",
+      "sha256": "1949b44491086451fe1b04a7207cbfc8a00f2a7ebe4412ad4c052a345a9e23c5"
+    },
+    "MGG": {
+      "path": "data/markdown/policy_evaluation_v1/MGG/MGG_23CN_BCTN--cf0d9055f964e682.md",
+      "sha256": "f5d82c2f0ac85561f6e6c45f1c502353a6726fc35429f0efc88fcd83d79e946d"
+    }
+  },
+  "cases": [
+    {
+      "case_id": "newsource-hfx-plan",
+      "source_id": "HFX",
+      "question": "Tổng doanh thu kế hoạch năm 2024 là bao nhiêu tỷ đồng?"
+    },
+    {
+      "case_id": "newsource-hfx-unit",
+      "source_id": "HFX",
+      "question": "Doanh thu thuần năm 2023 là bao nhiêu tỷ đồng?"
+    },
+    {
+      "case_id": "newsource-hfx-missing",
+      "source_id": "HFX",
+      "question": "Tổng doanh thu thực hiện năm 2037 là bao nhiêu tỷ đồng?"
+    },
+    {
+      "case_id": "newsource-bth-capital",
+      "source_id": "BTH",
+      "question": "Vốn điều lệ được nêu trong báo cáo năm 2025 là bao nhiêu đồng?"
+    },
+    {
+      "case_id": "newsource-bth-liabilities",
+      "source_id": "BTH",
+      "question": "Nợ phải trả tại ngày 31/12/2025 là bao nhiêu đồng?"
+    },
+    {
+      "case_id": "newsource-bth-completion",
+      "source_id": "BTH",
+      "question": "Doanh thu bán hàng và cung cấp dịch vụ thực hiện năm 2025 đạt bao nhiêu phần trăm kế hoạch năm 2025?"
+    },
+    {
+      "case_id": "newsource-mgg-net",
+      "source_id": "MGG",
+      "question": "Doanh thu thuần năm 2023 là bao nhiêu tỷ đồng?"
+    },
+    {
+      "case_id": "newsource-mgg-net-paraphrase",
+      "source_id": "MGG",
+      "question": "Cho biết doanh thu thuần thực hiện năm 2023 là bao nhiêu tỷ đồng?"
+    },
+    {
+      "case_id": "newsource-mgg-difference",
+      "source_id": "MGG",
+      "question": "Doanh thu thuần năm 2023 chênh lệch bao nhiêu tỷ đồng so với năm 2022? Tính năm 2023 trừ năm 2022."
+    },
+    {
+      "case_id": "newsource-mgg-total",
+      "source_id": "MGG",
+      "question": "Tổng doanh thu thực hiện năm 2023 là bao nhiêu tỷ đồng?"
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "cases": [
+    {
+      "case_id": "newsource-hfx-plan",
+      "source_id": "HFX",
+      "question": "Tổng doanh thu kế hoạch năm 2024 là bao nhiêu tỷ đồng?"
+    },
+    {
+      "case_id": "newsource-hfx-unit",
+      "source_id": "HFX",
+      "question": "Doanh thu thuần năm 2023 là bao nhiêu tỷ đồng?"
+    },
+    {
+      "case_id": "newsource-hfx-missing",
+      "source_id": "HFX",
+      "question": "Tổng doanh thu thực hiện năm 2037 là bao nhiêu tỷ đồng?"
+    },
+    {
+      "case_id": "newsource-bth-capital",
+      "source_id": "BTH",
+      "question": "Vốn điều lệ được nêu trong báo cáo năm 2025 là bao nhiêu đồng?"
+    },
+    {
+      "case_id": "newsource-bth-liabilities",
+      "source_id": "BTH",
+      "question": "Nợ phải trả tại ngày 31/12/2025 là bao nhiêu đồng?"
+    },
+    {
+      "case_id": "newsource-bth-completion",
+      "source_id": "BTH",
+      "question": "Doanh thu bán hàng và cung cấp dịch vụ thực hiện năm 2025 đạt bao nhiêu phần trăm kế hoạch năm 2025?"
+    },
+    {
+      "case_id": "newsource-mgg-net",
+      "source_id": "MGG",
+      "question": "Doanh thu thuần năm 2023 là bao nhiêu tỷ đồng?"
+    },
+    {
+      "case_id": "newsource-mgg-net-paraphrase",
+      "source_id": "MGG",
+      "question": "Cho biết doanh thu thuần thực hiện năm 2023 là bao nhiêu tỷ đồng?"
+    },
+    {
+      "case_id": "newsource-mgg-difference",
+      "source_id": "MGG",
+      "question": "Doanh thu thuần năm 2023 chênh lệch bao nhiêu tỷ đồng so với năm 2022? Tính năm 2023 trừ năm 2022."
+    },
+    {
+      "case_id": "newsource-mgg-total",
+      "source_id": "MGG",
+      "question": "Tổng doanh thu thực hiện năm 2023 là bao nhiêu tỷ đồng?"
+    }
+  ]
+}

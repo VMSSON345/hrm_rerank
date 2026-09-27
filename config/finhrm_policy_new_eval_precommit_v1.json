@@ -1,0 +1,22 @@
+{
+  "created_at": "2026-09-10T02:27:18.959053+00:00",
+  "runtime_protocol_sha256": "de77cf7532a545df80ea5202a1219772b8bb5f5fc3be330753fe73b3793e5cee",
+  "requests_sha256": "98127e8394ce847cc58ee492291cde262323c71cd3e5d02af81d0b2830ffb029",
+  "reference_sha256": "fae4e7e8f09a580e1467d3a8e24fe429f8702f4657fc8d2f48e91023e12b9621",
+  "cases": 10,
+  "answerable": 8,
+  "negative": 2,
+  "paraphrases": 1,
+  "before_qa": true,
+  "criteria": [
+    "A/B exact same candidates and prediction, no gold to model",
+    "Score all 10, report numeric/identity/source/evaluator-unknown separately",
+    "No observed published wrong, gains over A, preserve negative cases, no tuning after results",
+    "No automatic default promotion from small sample or unproven full disjointness; report source and sampling limitations"
+  ],
+  "ocr_scope": {
+    "reports": 3,
+    "pages": 23,
+    "batch_pages": 1
+  }
+}

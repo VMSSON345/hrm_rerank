@@ -1,0 +1,67 @@
+{
+  "schema": "finhrm-qp4-phase2-v12b1-corrective-replay-manifest-v4",
+  "status": "FROZEN_BEFORE_V12B1_REPLAY",
+  "created_at": "2026-08-30",
+  "classification": "diagnostic_corrective_replay",
+  "architecture": "v12b1-supported-tristate-safe-residual-reranker",
+  "policy": {
+    "diagnostic_only": true,
+    "previous_cohort_results_known": true,
+    "unbiased_validation_claimed": false,
+    "runtime_changes_allowed": false,
+    "semantic_gold_available_to_runner": false,
+    "release_candidate_claimed": false
+  },
+  "known_validation_gates": {
+    "runtime_safety_gate_passed": true,
+    "reranker_release_gate_passed": false
+  },
+  "inherited_v3_manifest": {
+    "path": "config/finhrm_qp4_phase2_company_layout_disjoint_case_manifest_v3.json",
+    "sha256": "2d024a171347509b8bf8defdf085098f7749f232549da538ee8c4f63dd93fbee"
+  },
+  "frozen_v3_contract": {
+    "path": "config/finhrm_qp4_phase2_company_layout_disjoint_contract_v3.json",
+    "sha256": "63f2a9d0c9a70ebbcc1317b7e93fe2afa8a6647f3d91fb754eeafbb0da9efcdd"
+  },
+  "baseline_v3_evaluation": {
+    "path": "reports/finhrm_qp4_phase2_company_layout_disjoint_evaluation_v3.json",
+    "sha256": "a8b64c462ccd777b7bab68753dbcf5024e27b2d984c0674ad3623a5edadd7af4"
+  },
+  "base_model": {
+    "path": "models/document_hrm_V8_candidate.pt",
+    "sha256": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de"
+  },
+  "program_reranker": {
+    "path": "models/document_hrm_V12B1_program_reranker.pt",
+    "sha256": "15e09d51dc3a0d9172838660ddf1769183da5f846ec2262f3911bf5917d267c2"
+  },
+  "program_reranker_validation": {
+    "path": "reports/document_hrm_V12B1_validation.json",
+    "sha256": "75dbb9b21219eff5472332c4b4c9e426128f82b2ac8033d53fb922e42c6fbf4a"
+  },
+  "runner": {
+    "path": "scripts/run_qp4_phase2_company_layout_disjoint_v12b1_replay_v4.py",
+    "sha256": "bae3502cfe7dc10e327cfcd1dad8dfbdd91062437d83ea376e3c19f34970a416"
+  },
+  "evaluator": {
+    "path": "scripts/evaluate_qp4_phase2_company_layout_disjoint_v12b1_replay_v4.py",
+    "sha256": "6dbe23a8843c1d14d056d7d842ab72b52f2f7e6b6df94f5d8109bf70b1114c9b"
+  },
+  "observation_outputs": {
+    "json": {
+      "path": "reports/finhrm_qp4_phase2_v12b1_corrective_replay_observations_v4.json"
+    },
+    "markdown": {
+      "path": "reports/finhrm_qp4_phase2_v12b1_corrective_replay_observations_v4.md"
+    }
+  },
+  "evaluation_outputs": {
+    "json": {
+      "path": "reports/finhrm_qp4_phase2_v12b1_corrective_replay_evaluation_v4.json"
+    },
+    "markdown": {
+      "path": "reports/finhrm_qp4_phase2_v12b1_corrective_replay_evaluation_v4.md"
+    }
+  }
+}

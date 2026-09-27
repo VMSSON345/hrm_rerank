@@ -1,0 +1,187 @@
+{
+  "cases": [
+    {
+      "case_id": "check-ggg-capital",
+      "source_id": "GGG",
+      "question": "Vốn điều lệ được nêu trong báo cáo năm 2023 là bao nhiêu đồng?",
+      "metric": "von dieu le",
+      "expected_action": "ANSWER",
+      "expected_canonical": "293885890000",
+      "canonical_unit": "VND",
+      "years": [
+        "2023"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "operation": "SELECT",
+      "source_pdf": {
+        "path": "pdf/PDF_23/GGG_23CN_BCTN.pdf",
+        "sha256": "e86ead28fb761a59bdaa85c8ad3822090f1251f07eb3d39e60f89fc40a3f5f8f"
+      },
+      "period_basis": "report_year",
+      "pdf_pages": [
+        1
+      ],
+      "review_images": [
+        {
+          "path": "tmp/pdfs/B_source_context_v1/GGG-1.png",
+          "sha256": "ff1c85d16d81b06940b0b5f46cdf55b5db8bba241cb1c79fa8c0550010d4de8d"
+        }
+      ],
+      "reference_note": "PDF p1 visually checked: report year2023, charter capital293.885.890.000 đồng. Static report field, not a dated closing balance."
+    },
+    {
+      "case_id": "check-ggg-owner-capital",
+      "source_id": "GGG",
+      "question": "Vốn đầu tư của chủ sở hữu được nêu trong báo cáo năm 2023 là bao nhiêu đồng?",
+      "metric": "von dau tu cua chu so huu",
+      "expected_action": "ANSWER",
+      "expected_canonical": "293885890000",
+      "canonical_unit": "VND",
+      "years": [
+        "2023"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "operation": "SELECT",
+      "source_pdf": {
+        "path": "pdf/PDF_23/GGG_23CN_BCTN.pdf",
+        "sha256": "e86ead28fb761a59bdaa85c8ad3822090f1251f07eb3d39e60f89fc40a3f5f8f"
+      },
+      "period_basis": "report_year",
+      "pdf_pages": [
+        1
+      ],
+      "review_images": [
+        {
+          "path": "tmp/pdfs/B_source_context_v1/GGG-1.png",
+          "sha256": "ff1c85d16d81b06940b0b5f46cdf55b5db8bba241cb1c79fa8c0550010d4de8d"
+        }
+      ],
+      "reference_note": "Distinct row immediately below charter capital on PDF p1, same printed value and explicit đồng unit. Do not substitute charter-capital identity merely because values coincide."
+    }
+  ],
+  "reference_contract": "Original22 unchanged; additional6 PDF reviewed before inference. Exact canonical comparison, no post-hoc tolerance.",
+  "additional_reviews": [
+    {
+      "case_id": "additional-bsd-net",
+      "markdown": "data/markdown/scope_unit_v2/BSD_23CN_BCTN--b90d50e824213031.md",
+      "line_number": 280,
+      "source_row": "Doanh thu thuần | VNĐ | Năm 2022: 289,078,607,069 | Năm 2023: 311,192,583,425 | 108%",
+      "pdf": {
+        "bytes": 504150,
+        "path": "pdf/PDF_23/BSD_23CN_BCTN.pdf",
+        "sha256": "b90d50e8242130316d5eeb3179326b8123d2d41605a4693d40be13b36ba2e549"
+      },
+      "page": 9,
+      "visual_review_png": {
+        "path": "tmp/pdfs/B_disclosures_v1/BSD-9.png",
+        "sha256": "fd5d8f36f22e8d08e167936c2f5edea0099e514800ef0c789ca68707294aca2c"
+      },
+      "sidecar": {
+        "path": "data/markdown/scope_unit_v2/BSD_23CN_BCTN--b90d50e824213031.provenance.json",
+        "sha256": "c3032ea7deaae56268b5ebe736f3d07ee48db56e3b1683548fe07f9a4ca1b1ae"
+      }
+    },
+    {
+      "case_id": "additional-bsd-missing",
+      "markdown": "data/markdown/scope_unit_v2/BSD_23CN_BCTN--b90d50e824213031.md",
+      "line_number": 280,
+      "source_row": "Doanh thu thuần | VNĐ | Năm 2022: 289,078,607,069 | Năm 2023: 311,192,583,425 | 108%",
+      "pdf": {
+        "bytes": 504150,
+        "path": "pdf/PDF_23/BSD_23CN_BCTN.pdf",
+        "sha256": "b90d50e8242130316d5eeb3179326b8123d2d41605a4693d40be13b36ba2e549"
+      },
+      "page": 9,
+      "visual_review_png": {
+        "path": "tmp/pdfs/B_disclosures_v1/BSD-9.png",
+        "sha256": "fd5d8f36f22e8d08e167936c2f5edea0099e514800ef0c789ca68707294aca2c"
+      },
+      "sidecar": {
+        "path": "data/markdown/scope_unit_v2/BSD_23CN_BCTN--b90d50e824213031.provenance.json",
+        "sha256": "c3032ea7deaae56268b5ebe736f3d07ee48db56e3b1683548fe07f9a4ca1b1ae"
+      }
+    },
+    {
+      "case_id": "additional-bhg-plan",
+      "markdown": "data/markdown/scope_unit_v2/BHG_23CN_BCTN--62a6808775bffb52.md",
+      "line_number": 88,
+      "source_row": "STT: 3 | Lợi nhuận sau thuế | Tỷ đồng | KH 2023: 0,960 | TH 2023: 1,225 | 127,6",
+      "pdf": {
+        "bytes": 280072,
+        "path": "pdf/PDF_23/BHG_23CN_BCTN.pdf",
+        "sha256": "62a6808775bffb526b5f4894a463646522410469e7f3084407d498f987303702"
+      },
+      "page": 4,
+      "visual_review_png": {
+        "path": "tmp/pdfs/B_disclosures_v1/BHG-4.png",
+        "sha256": "6886bdc97391a67e43862904d6411e939e97a29868050512f11103e759fab3eb"
+      },
+      "sidecar": {
+        "path": "data/markdown/scope_unit_v2/BHG_23CN_BCTN--62a6808775bffb52.provenance.json",
+        "sha256": "7ad5f7902227c7a706bfc3eceaf81a93464666f4401d7d06e0c100ed4ef434b3"
+      }
+    },
+    {
+      "case_id": "additional-bhg-missing",
+      "markdown": "data/markdown/scope_unit_v2/BHG_23CN_BCTN--62a6808775bffb52.md",
+      "line_number": 88,
+      "source_row": "STT: 3 | Lợi nhuận sau thuế | Tỷ đồng | KH 2023: 0,960 | TH 2023: 1,225 | 127,6",
+      "pdf": {
+        "bytes": 280072,
+        "path": "pdf/PDF_23/BHG_23CN_BCTN.pdf",
+        "sha256": "62a6808775bffb526b5f4894a463646522410469e7f3084407d498f987303702"
+      },
+      "page": 4,
+      "visual_review_png": {
+        "path": "tmp/pdfs/B_disclosures_v1/BHG-4.png",
+        "sha256": "6886bdc97391a67e43862904d6411e939e97a29868050512f11103e759fab3eb"
+      },
+      "sidecar": {
+        "path": "data/markdown/scope_unit_v2/BHG_23CN_BCTN--62a6808775bffb52.provenance.json",
+        "sha256": "7ad5f7902227c7a706bfc3eceaf81a93464666f4401d7d06e0c100ed4ef434b3"
+      }
+    },
+    {
+      "case_id": "additional-hav-net",
+      "markdown": "data/markdown/scope_unit_v2/HAV_23CN_BCTN--e57968185e1c63bc.md",
+      "line_number": 300,
+      "source_row": "1. Doanh thu thuần | Thực hiện năm 2022: 1.055 | Kế hoạch năm 2023: 1.130 | Thực hiện năm 2023: 2.341 | 122% | 107%",
+      "pdf": {
+        "bytes": 559116,
+        "path": "pdf/PDF_23/HAV_23CN_BCTN.pdf",
+        "sha256": "e57968185e1c63bcf76bbb3cedb2f0dd252e787d7e2bcc4dae0e1a7c36de5a9a"
+      },
+      "page": 15,
+      "visual_review_png": {
+        "path": "tmp/pdfs/B_disclosures_v1/HAV-15.png",
+        "sha256": "cc6d794bb3cc308a990db2b42f420dc7ec350b579e53f090588ce44d982a1219"
+      },
+      "sidecar": {
+        "path": "data/markdown/scope_unit_v2/HAV_23CN_BCTN--e57968185e1c63bc.provenance.json",
+        "sha256": "1bfc10ce88805d100903d1bc9900e4e69484576f897c977f05c03f6f7eb94ec2"
+      }
+    },
+    {
+      "case_id": "additional-hav-difference",
+      "markdown": "data/markdown/scope_unit_v2/HAV_23CN_BCTN--e57968185e1c63bc.md",
+      "line_number": 300,
+      "source_row": "1. Doanh thu thuần | Thực hiện năm 2022: 1.055 | Kế hoạch năm 2023: 1.130 | Thực hiện năm 2023: 2.341 | 122% | 107%",
+      "pdf": {
+        "bytes": 559116,
+        "path": "pdf/PDF_23/HAV_23CN_BCTN.pdf",
+        "sha256": "e57968185e1c63bcf76bbb3cedb2f0dd252e787d7e2bcc4dae0e1a7c36de5a9a"
+      },
+      "page": 15,
+      "visual_review_png": {
+        "path": "tmp/pdfs/B_disclosures_v1/HAV-15.png",
+        "sha256": "cc6d794bb3cc308a990db2b42f420dc7ec350b579e53f090588ce44d982a1219"
+      },
+      "sidecar": {
+        "path": "data/markdown/scope_unit_v2/HAV_23CN_BCTN--e57968185e1c63bc.provenance.json",
+        "sha256": "1bfc10ce88805d100903d1bc9900e4e69484576f897c977f05c03f6f7eb94ec2"
+      }
+    }
+  ]
+}

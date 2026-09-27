@@ -1,17 +1,20 @@
 from __future__ import annotations
 
+from .physical_coordinates import LEGACY_SPAN, LINE_SPAN, TABLE_CELL, SPAN_SCOPES, line_digest
+
 import itertools
 import json
 import math
 import re
 import unicodedata
 from dataclasses import asdict, dataclass
-from decimal import Decimal, InvalidOperation, localcontext
+from decimal import Decimal, InvalidOperation
 from difflib import SequenceMatcher
 from pathlib import Path
 from typing import Iterable, Sequence
 
 from .ontology import normalize_text
+from .exact_executor import UnsupportedOperationError, execute_decimal_operation
 from .financial_identities import get_financial_identity
 from .flattened_table_reconstruction import qp3d_manifest_from_flattened_record
 from .question_planner import compile_question_plan
@@ -30,6 +33,14 @@ OPERATIONS: tuple[str, ...] = (
     "SUM4",
 )
 OPERATION_TO_ID = {name: index for index, name in enumerate(OPERATIONS)}
+# OPERATIONS is the frozen neural/checkpoint vocabulary. V14 extends the
+# logical program DSL without changing those IDs so V8/V13 operation heads keep
+# their exact tensor shapes and historical metrics remain comparable.
+SUM_N_OPERATION = "SUM_N"
+PROGRAM_OPERATIONS: tuple[str, ...] = (*OPERATIONS, SUM_N_OPERATION)
+SUM_OPERATION_ALIASES = frozenset({"ADD", "SUM3", "SUM4", SUM_N_OPERATION})
+SUM_N_MIN_OPERANDS = 2
+SUM_N_MAX_OPERANDS = 8
 OPERATION_ARITY = {
     "SELECT": 1,
     "ADD": 2,
@@ -42,7 +53,14 @@ OPERATION_ARITY = {
     "SUM3": 3,
     "SUM4": 4,
 }
-COMMUTATIVE = {"ADD", "MULTIPLY", "AVERAGE", "SUM3", "SUM4"}
+COMMUTATIVE = {
+    "ADD",
+    "MULTIPLY",
+    "AVERAGE",
+    "SUM3",
+    "SUM4",
+    SUM_N_OPERATION,
+}
 MAX_OPERANDS = 4
 
 
@@ -71,6 +89,38 @@ class ProgramDataError(ValueError):
     pass
 
 
+def is_sum_operation(operation: str) -> bool:
+    """Return whether operation belongs to the additive program family."""
+
+    return operation in SUM_OPERATION_ALIASES
+
+
+def operation_arity_bounds(operation: str) -> tuple[int, int]:
+    """Return inclusive operand-count bounds for a logical operation.
+
+    Legacy operations remain fixed-arity. SUM_N is the only V14 variable-
+    arity operation and is deliberately bounded so decoding/search stays finite.
+    """
+
+    if operation == SUM_N_OPERATION:
+        return SUM_N_MIN_OPERANDS, SUM_N_MAX_OPERANDS
+    try:
+        arity = OPERATION_ARITY[operation]
+    except KeyError as exc:
+        raise ProgramDataError(f"Unknown operation: {operation}") from exc
+    return arity, arity
+
+
+def operation_accepts_arity(operation: str, operand_count: int) -> bool:
+    """Return whether an operand count is valid for operation."""
+
+    try:
+        minimum, maximum = operation_arity_bounds(operation)
+    except ProgramDataError:
+        return False
+    return minimum <= operand_count <= maximum
+
+
 @dataclass(frozen=True)
 class NumericCandidate:
     index: int
@@ -97,11 +147,30 @@ class NumericCandidate:
     entity_id: str = ""
     subtable_id: str = ""
     source_span: tuple[int, int] | None = None
+    row_id: str = ""
+    column_id: str = ""
+    column_role: str = ""
+    source_bbox: tuple[float, float, float, float] | None = None
     derived_operation: str = ""
     derived_operands: tuple[int, ...] = ()
     derivation_id: str = ""
+    source_span_scope: str = LEGACY_SPAN
+    source_line_sha256: str = ""
+
+    source_section_path: tuple[str, ...] = ()
+    table_semantics: dict | None = None
+    number_format: dict | None = None
+    report_context: dict | None = None
+    unit_assumption: str = ""
+
+    @property
+    def source_unit(self) -> str:
+        """A default is not a unit recovered from the source."""
+        return "" if self.unit_assumption else self.unit
 
     def __post_init__(self) -> None:
+        if self.source_span_scope not in SPAN_SCOPES:
+            raise ProgramDataError("Unknown source span coordinate scope")
         fields = {
             "row_label": "ROW",
             "column_label": "COLUMN",
@@ -112,6 +181,7 @@ class NumericCandidate:
             "scope": "SCOPE",
             "entity_id": "ENTITY",
             "subtable_id": "SUBTABLE",
+            "column_role": "COLUMN_ROLE",
         }
         for attribute, label in fields.items():
             if getattr(self, attribute):
@@ -144,10 +214,13 @@ class ReasoningProgram:
     operands: tuple[int, ...]
 
     def validate(self, candidate_count: int) -> None:
-        if self.operation not in OPERATION_ARITY:
-            raise ProgramDataError(f"Unknown operation: {self.operation}")
-        expected = OPERATION_ARITY[self.operation]
-        if len(self.operands) != expected:
+        minimum, maximum = operation_arity_bounds(self.operation)
+        if not minimum <= len(self.operands) <= maximum:
+            expected = (
+                str(minimum)
+                if minimum == maximum
+                else f"between {minimum} and {maximum}"
+            )
             raise ProgramDataError(
                 f"{self.operation} needs {expected} operands, got {len(self.operands)}"
             )
@@ -179,6 +252,28 @@ def canonical_program_equal(
     return canonicalize_program(predicted) == canonicalize_program(gold)
 
 
+def canonical_sum_family_equal(
+    predicted: ReasoningProgram, gold: ReasoningProgram
+) -> bool:
+    """Compare V14 logical sums without changing historical exact metrics.
+
+    The default evaluator intentionally keeps ``ADD``/``SUM3``/``SUM4``
+    distinct from ``SUM_N``. V14 evaluators opt into this helper so a logical
+    variable-arity sum is equivalent only to the legacy alias with the same
+    operand count and the same unordered physical pointers.
+    """
+
+    if not (is_sum_operation(predicted.operation) and is_sum_operation(gold.operation)):
+        return canonical_program_equal(predicted, gold)
+    if len(predicted.operands) != len(gold.operands):
+        return False
+    if not operation_accepts_arity(predicted.operation, len(predicted.operands)):
+        return False
+    if not operation_accepts_arity(gold.operation, len(gold.operands)):
+        return False
+    return tuple(sorted(predicted.operands)) == tuple(sorted(gold.operands))
+
+
 def canonical_pointer_equal(
     operation: str,
     predicted: Sequence[int],
@@ -190,6 +285,14 @@ def canonical_pointer_equal(
 
 
 DAG_OPERATION_ARITY = {**OPERATION_ARITY, "SHARE_OF_TOTAL": 2}
+
+
+def dag_operation_arity_bounds(operation: str) -> tuple[int, int]:
+    """Return inclusive arity bounds for an executable DAG operation."""
+
+    if operation == "SHARE_OF_TOTAL":
+        return 2, 2
+    return operation_arity_bounds(operation)
 
 
 @dataclass(frozen=True)
@@ -229,13 +332,20 @@ class ReasoningDAGProgram:
             if not node.node_id or node.node_id in produced:
                 raise ProgramDataError("DAG node IDs must be non-empty and unique")
             operation = node.operation.upper()
-            if operation not in DAG_OPERATION_ARITY:
+            try:
+                minimum, maximum = dag_operation_arity_bounds(operation)
+            except ProgramDataError:
                 raise ProgramDataError(
                     f"Unsupported DAG operation: {node.operation}"
+                ) from None
+            if not minimum <= len(node.inputs) <= maximum:
+                expected = (
+                    str(minimum)
+                    if minimum == maximum
+                    else f"between {minimum} and {maximum}"
                 )
-            if len(node.inputs) != DAG_OPERATION_ARITY[operation]:
                 raise ProgramDataError(
-                    f"{operation} needs {DAG_OPERATION_ARITY[operation]} inputs, "
+                    f"{operation} needs {expected} inputs, "
                     f"got {len(node.inputs)}"
                 )
             for item in node.inputs:
@@ -333,14 +443,17 @@ class ProgramBuildReport:
 # ``26 11.678.880.397 23.109.698.971`` became one 24-digit operand.
 _NUMBER_BODY = r"(?:" + "|".join(
     (
+        # A zero integer part denotes a fraction, including 3+ decimals.
+        # Keep the whole token; do not split 0,0004 into 0,000 and 4.
+        r"0[.,]\d+(?!\d|[.,]\d)",
         # Vietnamese thousands groups; tolerate PDF whitespace before dots.
-        r"\d{1,3}(?:\s*\.\s?\d{3})+(?:,\d{1,2})?",
+        r"\d{1,3}(?:\s*\.\s?\d{3})+(?:,\d+)?(?!\d|[.,]\d)",
         # English thousands groups.
-        r"\d{1,3}(?:,\d{3})+(?:\.\d{1,2})?",
+        r"\d{1,3}(?:,\d{3})+(?:\.\d+)?(?!\d|[.,]\d)",
         # Thousands separated by ordinary spaces.
         r"\d{1,3}(?:[ \u00a0]\d{3})+",
         # Ungrouped integer or short decimal.
-        r"\d+(?:[.,]\d{1,2})?",
+        r"\d+(?:[.,]\d+)*(?!\d|[.,]\d)",
     )
 ) + r")"
 _NUMBER_RE = re.compile(
@@ -349,6 +462,33 @@ _NUMBER_RE = re.compile(
     re.IGNORECASE,
 )
 _YEAR_RE = re.compile(r"^(?:19|20)\d{2}$")
+
+# A scalar table cell can retain only some of its thousands spaces. Match
+# the whole cell value, never glue tokens across a pipe or in prose.
+_CELL_SPACED_INTEGER_RE = re.compile(
+    r"(?:(?<=\|)|(?<=:))[ \u00a0]*(?P<paren>\()?[-+]?"
+    r"(?P<head>[1-9]\d{3,})(?:[ \u00a0]+\d{3})+"
+    r"(?P<close>\))?[ \u00a0]*(?P<pct>%|phần\s*trăm)?"
+    r"(?=[ \u00a0]*(?:\||$))", re.IGNORECASE,
+)
+
+
+def _iter_number_matches(line: str):
+    """Keep partially space-grouped integers whole inside one table cell.
+
+    A suffix, range, list, note, unbalanced sign or year-like first group
+    cannot establish a single value. Original source offsets are preserved.
+    """
+    whole = [m for m in _CELL_SPACED_INTEGER_RE.finditer(line)
+             if "|" in line and not _YEAR_RE.fullmatch(m.group("head"))
+             and bool(m.group("paren")) == bool(m.group("close"))]
+    if not whole:
+        yield from _NUMBER_RE.finditer(line)
+        return
+    tokens = [m for m in _NUMBER_RE.finditer(line)
+              if not any(m.start() < cell.end() and m.end() > cell.start()
+                         for cell in whole)]
+    yield from sorted([*tokens, *whole], key=lambda m: m.start())
 
 _UNANSWERABLE_MARKERS = (
     "khong the tinh",
@@ -416,7 +556,9 @@ def parse_decimal(raw: str) -> Decimal | None:
         return None
     # Vietnamese convention: dots group thousands and comma is decimal. English
     # reports often use commas for thousands and dot for decimal.
-    if "," in text and "." in text:
+    if re.fullmatch(r"[-+]?0[.,]\d+", text):
+        text = text.replace(",", ".")
+    elif "," in text and "." in text:
         if text.rfind(",") > text.rfind(".") and len(text) - text.rfind(",") <= 4:
             text = text.replace(".", "").replace(",", ".")
         else:
@@ -454,7 +596,7 @@ def _is_ordinal_number(text: str, match: re.Match[str], value: Decimal) -> bool:
         return False
     before_cell = text[: match.start()].rsplit("|", 1)[-1].strip()
     suffix = text[match.end() :]
-    return not before_cell and bool(re.match(r"\s*[.)](?:\s|$)", suffix))
+    return not before_cell and bool(re.match(r"\s*(?:[.)](?:\s|$)|[-–—]\s*[^\W\d_])", suffix, re.UNICODE))
 
 
 def _is_context_metadata_number(
@@ -469,7 +611,9 @@ def _is_context_metadata_number(
         return True
     if _is_plaintext_note_code(line, match, value):
         return True
-    if _is_table_metadata_cell_code(line, match, value):
+    if _is_table_metadata_cell_code(
+        line, match, value, column_label=next((part[7:].strip() for part in candidate_context.splitlines() if part.startswith("COLUMN:")), "")
+    ):
         return True
     prefix = normalize_text(line[max(0, match.start() - 32) : match.start()])
     # ``normalize_text`` removes punctuation, including the ``:`` inserted by
@@ -485,6 +629,14 @@ def _is_context_metadata_number(
         "",
     )
     normalized_column = normalize_text(column_line)
+    if "|" in line and normalized_column in {"column noi dung", "column chi tieu", "column indicator", "column item", "column description", "column metric"}:
+        from .metric_semantics import row_code_equation_span
+        start = line.rfind("|", 0, match.start()) + 1
+        end = line.find("|", match.end())
+        cell = line[start:end if end >= 0 else len(line)]
+        equation = row_code_equation_span(cell)
+        if equation and equation[0] <= match.start() - start < equation[1]:
+            return True
     if any(
         field in normalized_column
         for field in (
@@ -502,7 +654,7 @@ def _is_context_metadata_number(
 
 
 def _is_table_metadata_cell_code(
-    line: str, match: re.Match[str], value: Decimal
+    line: str, match: re.Match[str], value: Decimal, *, column_label: str = ""
 ) -> bool:
     """Reject a small value placed in/after an OCR-damaged metadata cell."""
 
@@ -531,6 +683,19 @@ def _is_table_metadata_cell_code(
     ):
         return True
 
+    # An explicit period-bearing data column or inline period label is
+    # stronger evidence than a magnitude/position heuristic for note codes.
+    # Retain explicit metadata labels above, regardless of numeric format.
+    if (_inline_period_column(cells, cell_index)
+            or (_column_period(column_label)
+                and not any(label in normalize_text(column_label) for label in metadata))):
+        return False
+
+    # A grouped/decimal printed amount is not a bare note code. Explicit
+    # metadata labels above still win; magnitude alone cannot reject it.
+    if re.search(r"[.,]", match.group(0)):
+        return False
+
     # A common statement layout is ``metric | row-code | note | current |
     # prior``. Even when the header is outside the chunk, a small integer after
     # a textual metric and before two financial-scale cells is structural
@@ -544,9 +709,32 @@ def _is_table_metadata_cell_code(
     for cell in cells[cell_index + 1 :]:
         for token in _NUMBER_RE.finditer(cell):
             parsed = parse_decimal(token.group(0))
-            if parsed is not None and abs(parsed) >= Decimal(1000):
+            raw_token = token.group(0).strip()
+            if (
+                parsed is not None
+                and abs(parsed) >= Decimal(1000)
+                and (
+                    not _is_probable_year(parsed)
+                    or _has_explicit_grouped_integer_format(raw_token)
+                )
+                and not _is_natural_date_component(cell, token)
+            ):
                 following_values += 1
     return has_textual_label and following_values >= 2
+
+
+def _has_explicit_grouped_integer_format(raw: str) -> bool:
+    """Return whether punctuation explicitly encodes thousands grouping.
+
+    Plain ``2000`` remains year-like.  ``2.000`` and ``2,000`` are distinct
+    source forms: inside a numeric cell the separator is physical evidence
+    that the token was printed as an amount rather than as a year label.
+    """
+
+    cleaned = raw.strip().replace(" ", "")
+    return bool(
+        re.fullmatch(r"\(?[+-]?\d{1,3}(?:[.,]\d{3})+\)?", cleaned)
+    )
 
 
 def _is_leading_table_code(
@@ -631,13 +819,106 @@ def extract_numeric_candidates(
     retrieval_score: float = 0.0,
     extraction_method: str = "",
     financial_identity_catalog_enabled: bool = False,
+    structured_cells: Sequence[object] = (),
 ) -> tuple[NumericCandidate, ...]:
     if max_candidates < 4:
         raise ProgramDataError("max_candidates must be at least 4")
     lines = context.splitlines() or [context]
+    from .number_formats import local_records, for_candidate
+    formats = local_records(context, source_name, page, source_line_start)
     question_tokens = _content_tokens(_question_focus_text(question))
     year_tokens = {token for token in normalize_text(question).split() if _YEAR_RE.match(token)}
     raw_candidates: list[NumericCandidate] = []
+    for cell in sorted(
+        structured_cells,
+        key=lambda item: (
+            int(getattr(item, "page", 0)),
+            str(getattr(item, "table_id", "")),
+            str(getattr(item, "row_id", "")),
+            str(getattr(item, "column_id", "")),
+            tuple(getattr(item, "source_span", ())),
+        ),
+    ):
+        row_label = str(getattr(cell, "row_label", "")).strip()
+        column_label = str(getattr(cell, "column_label", "")).strip()
+        period = str(getattr(cell, "period", "")).strip()
+        table_id = str(getattr(cell, "table_id", "")).strip()
+        row_id = str(getattr(cell, "row_id", "")).strip()
+        column_id = str(getattr(cell, "column_id", "")).strip()
+        column_role = str(getattr(cell, "column_role", "")).strip().lower()
+        source_span = tuple(getattr(cell, "source_span", ()))
+        source_bbox = tuple(getattr(cell, "bbox", ()))
+        if not (
+            row_label
+            and column_label
+            and period
+            and table_id
+            and row_id
+            and column_id
+            and column_role in {"actual", "plan"}
+            and len(source_span) == 2
+            and len(source_bbox) == 4
+        ):
+            continue
+        value = parse_decimal(str(getattr(cell, "value", "")))
+        if value is None:
+            continue
+        context_parts = [
+            f"ROW: {row_label}",
+            f"ROW_TYPE: {_row_type(row_label)}",
+            f"COLUMN: {column_label}",
+            f"PERIOD: {period}",
+            f"TABLE: {table_id}",
+            f"ROW_ID: {row_id}",
+            f"COLUMN_ID: {column_id}",
+            (
+                f"CELL: {row_label} <VALUE> "
+                f"{getattr(cell, 'raw_value', getattr(cell, 'value', ''))} "
+                f"</VALUE> {column_label}"
+            ),
+        ]
+        context_value = "\n".join(context_parts)
+        relevance = (
+            _fuzzy_content_overlap(question_tokens, _content_tokens(row_label))
+            + 0.20 * max(0.0, min(1.0, retrieval_score))
+            + 0.12
+        )
+        if year_tokens and period in year_tokens:
+            relevance += 0.35
+        elif year_tokens and period:
+            relevance += 0.05
+        raw_candidates.append(
+            NumericCandidate(
+                index=-1,
+                value=_decimal_string(value),
+                raw=str(getattr(cell, "raw_value", getattr(cell, "value", ""))),
+                context=context_value,
+                line_number=source_line_start + int(source_span[0]),
+                char_start=int(source_span[0]),
+                char_end=int(source_span[1]),
+                unit=str(getattr(cell, "unit", "")),
+                is_percent=False,
+                is_year_like=False,
+                relevance=relevance,
+                source_name=source_name,
+                page=int(getattr(cell, "page", page or 0)) or page,
+                extraction_method=str(
+                    getattr(cell, "extraction_method", "structured_table")
+                ),
+                row_label=row_label,
+                column_label=column_label,
+                period=period,
+                row_type=_row_type(row_label),
+                table_id=table_id,
+                entity_id=_source_entity_id(source_name, context_value),
+                source_span=(int(source_span[0]), int(source_span[1])),
+                source_span_scope=TABLE_CELL,
+                row_id=row_id,
+                column_id=column_id,
+                column_role=column_role,
+                source_bbox=tuple(float(item) for item in source_bbox),
+            )
+        )
     page_unit = _explicit_page_unit(lines)
     for line_index, line in enumerate(lines):
         if not line.strip():
@@ -647,13 +928,14 @@ def extract_numeric_candidates(
         normalized_line = normalize_text(line)
         line_tokens = set(normalized_line.split())
         overlap = _fuzzy_content_overlap(question_tokens, line_tokens)
-        for match in _NUMBER_RE.finditer(line):
+        for match in _iter_number_matches(line):
             if (match.start() > 0 and line[match.start() - 1] == "/") or (
                 match.end() < len(line) and line[match.end()] == "/"
             ):
                 continue
             raw = match.group(0).strip()
-            value = parse_decimal(raw)
+            number_format = for_candidate(raw, match.start(), formats.get(line_index, {}).get("number_formats", ()))
+            value = Decimal(number_format["value"]) if number_format["state"] == "VALID" else parse_decimal(raw)
             if value is None:
                 continue
             # Values with 25+ integer digits are almost certainly several OCR
@@ -661,7 +943,9 @@ def extract_numeric_candidates(
             if value and value.adjusted() >= 24:
                 continue
             digits = re.sub(r"\D", "", raw)
-            is_year_like = bool(_YEAR_RE.match(digits))
+            is_year_like = bool(_YEAR_RE.fullmatch(digits)) and not (
+                _has_explicit_grouped_integer_format(raw)
+            )
             if is_year_like:
                 # Years are period metadata, never arithmetic operands in the
                 # single-result financial program schema.
@@ -671,6 +955,7 @@ def extract_numeric_candidates(
                 line_index,
                 match.start(),
                 match.end(),
+                question=question,
                 source_name=source_name,
                 page=page,
                 source_line_start=source_line_start,
@@ -681,9 +966,19 @@ def extract_numeric_candidates(
             )
             if _is_context_metadata_number(line, match, candidate_context, value):
                 continue
-            unit = _infer_unit(candidate_context, is_percent) or (
-                "" if is_percent else page_unit
-            )
+            if "|" in line:
+                unit = _table_candidate_unit(
+                    lines,
+                    line_index,
+                    match.start(),
+                    is_percent=is_percent,
+                )
+            else:
+                unit = (
+                    ("%" if is_percent else _number_local_unit(line, match.end()))
+                    or _infer_unit(candidate_context, is_percent)
+                    or ("" if is_percent else page_unit)
+                )
             relevance = overlap + 0.20 * max(0.0, min(1.0, retrieval_score))
             column_line = next(
                 (item for item in candidate_context.splitlines() if item.startswith("COLUMN:")),
@@ -724,8 +1019,11 @@ def extract_numeric_candidates(
                     index=-1,
                     value=_decimal_string(value),
                     raw=raw,
+                    number_format=number_format,
                     context=candidate_context,
                     line_number=source_line_start + line_index,
+                    source_span_scope=LINE_SPAN,
+                    source_line_sha256=line_digest(line),
                     char_start=match.start(),
                     char_end=match.end(),
                     unit=unit,
@@ -873,6 +1171,8 @@ def _implied_plaintext_blank_zero_candidates(
                 raw="0",
                 context=context,
                 line_number=source_line_start + line_index,
+                source_span_scope=LINE_SPAN,
+                source_line_sha256=line_digest(lines[line_index]),
                 char_start=char_start,
                 char_end=char_start,
                 unit=_infer_unit(context, False) or page_unit,
@@ -982,6 +1282,33 @@ def merge_candidates(
         )
     maximum_score = max(float(getattr(chunk, "score", 0.0)) for chunk in chunks)
     per_chunk = max(10, math.ceil(max_candidates * 1.5 / max(1, len(chunks))))
+    # Keep geometry-backed observations outside the effective Candidate pool
+    # until query compatibility, inventory uniqueness, conflicts and any
+    # plaintext equivalence have all been resolved. A valid table is not, by
+    # itself, evidence that the table is authoritative for this question.
+    structured_output: list[NumericCandidate] = []
+    for chunk in chunks:
+        structured_cells = tuple(getattr(chunk, "structured_cells", ()))
+        if not structured_cells:
+            continue
+        raw_score = float(getattr(chunk, "score", 0.0))
+        normalized_score = raw_score / maximum_score if maximum_score > 0 else 0.0
+        structured_output.extend(
+            extract_numeric_candidates(
+                question,
+                "",
+                max_candidates=max(max_candidates * 2, 64),
+                source_name=str(chunk.source_name),
+                page=getattr(chunk, "page_start", None),
+                source_line_start=int(getattr(chunk, "line_start", 1)),
+                retrieval_score=normalized_score,
+                extraction_method="structured_table",
+                financial_identity_catalog_enabled=(
+                    financial_identity_catalog_enabled
+                ),
+                structured_cells=structured_cells,
+            )
+        )
     # Flattened native/OCR tables are often split across overlapping retrieval
     # chunks. Reassemble only conflict-free, contiguous global-line runs from
     # the same source/page before local candidate pruning. The reconstruction
@@ -1023,15 +1350,348 @@ def merge_candidates(
             )
         )
 
+    # Attach source-wide metadata after extraction; retain all source coordinates.
+    binding_options: dict[tuple[object, ...], list[dict]] = {}
+    for chunk in chunks:
+        for item in getattr(chunk, "source_annotations", ()):
+            binding_options.setdefault((str(chunk.source_name), getattr(chunk, "page_start", None), item["line_sha256"], item.get("line_number")), []).append(item)
+    from dataclasses import replace
+    bound_output = []
+    for candidate in output:
+        options = binding_options.get((candidate.source_name, candidate.page, candidate.source_line_sha256, candidate.line_number), [])
+        unique = {json.dumps(item, sort_keys=True): item for item in options}
+        if len(unique) != 1:
+            bound_output.append(candidate)
+            continue
+        binding = next(iter(unique.values()))
+        unit = candidate.unit
+        context = candidate.context
+        if not unit and binding["unit"] and not candidate.is_percent:
+            unit = binding["unit"]
+            context += "\nUNIT_SOURCE: " + json.dumps(binding["unit_evidence"], ensure_ascii=False, sort_keys=True)
+        # A header ending in the currency code VND identifies currency, not
+        # a contradictory scale of one. Keep a declared table scale when no
+        # more specific numeric-cell unit overrides it.
+        if (unit == "VND" and binding["unit"] and not binding["unit_conflict"]
+                and currency_unit_scale(binding["unit"]) not in {None,Decimal(1)}
+                and re.search(r"\bvnd$",normalize_text(candidate.column_label))):
+            marked=next((x[5:] for x in context.splitlines() if x.startswith("CELL:")), "")
+            cell_text=re.sub(r"</?VALUE>", "", next((part for part in marked.split('|') if '<VALUE>' in part),marked))
+            after_number=cell_text.rsplit(candidate.raw,1)[-1] if candidate.raw in cell_text else ""
+            if not _explicit_currency_units(after_number):
+                unit=binding["unit"]
+                context += "\nUNIT_SOURCE: " + json.dumps(binding["unit_evidence"],ensure_ascii=False,sort_keys=True)
+        if binding["unit_conflict"]:
+            cell_text = re.sub(r"</?VALUE>", "", next((x[5:] for x in context.splitlines() if x.startswith("CELL:")), ""))
+            if not _infer_unit(cell_text, candidate.is_percent):
+                unit = ""
+                context += "\nUNIT_SOURCE_CONFLICT: true"
+        from .number_formats import for_candidate
+        number_format = for_candidate(candidate.raw, candidate.char_start, binding.get("number_formats", ()))
+        value = _decimal_string(Decimal(number_format["value"])) if number_format["state"] == "VALID" else candidate.value
+        continuation = binding.get('numbered_continuation')
+        if continuation:
+            row = re.sub(r'</?VALUE>', '', next((x[5:] for x in context.splitlines() if x.startswith('CELL:')), ''))
+            cells = _markdown_cells(row)
+            index = row[:candidate.source_span[0]].count('|') - int(row.lstrip().startswith('|'))
+            headers = _aligned_table_header_cells(_markdown_cells(continuation['headers'][-1]['text']), len(cells))
+            if 0 <= index < len(headers):
+                label = headers[index]
+                context = re.sub(r'(?m)^COLUMN:.*$', 'COLUMN: '+label, context)
+                if not re.search(r'(?m)^COLUMN:',context):context += '\nCOLUMN: '+label
+                candidate = replace(candidate, column_label=label)
+        semantic = binding.get("table_semantics")
+        entity_id = candidate.entity_id
+        if semantic and semantic.get("entity_id"):
+            if entity_id and not entity_id.startswith("entity:source:") and entity_id != semantic["entity_id"]:
+                semantic = {**semantic, "entity_conflict": True}
+            else:
+                entity_id = semantic["entity_id"]
+                context = re.sub(r"(?m)^ENTITY:.*$", "ENTITY: " + entity_id, context)
+        report_context = binding.get("report_context")
+        if report_context is None and "REPORT_FIELD_SOURCE: " in context:
+            # Field identity comes from its own hashed line. A report title is
+            # optional metadata until the question explicitly requests it.
+            report_context = {"report_year": "", "title_evidence": []}
+        owner = binding.get("entity_owner")
+        if owner:
+            semantic = {**(semantic or {}), "entity_owner": owner}
+            # The source segment binds a legal entity, not accounting scope.
+            # More specific but conflicting row/table ownership still blocks.
+            same_named_context = (entity_id.startswith("entity:context:")
+                                  and normalize_text(entity_id[len("entity:context:"):]) == normalize_text(owner["name"]))
+            if entity_id and not entity_id.startswith("entity:source:") and entity_id != owner["entity_id"] and not same_named_context:
+                semantic["entity_conflict"] = True
+            entity_id = owner["entity_id"]
+            if re.search(r"(?m)^ENTITY:", context):
+                context = re.sub(r"(?m)^ENTITY:.*$", "ENTITY: " + entity_id, context)
+            else:
+                context += "\nENTITY: " + entity_id
+            if report_context:
+                report_context = {**report_context, "entity_owner": owner}
+        bound_output.append(NumericCandidate(**{**candidate.__dict__, "value": value, "number_format": number_format, "unit": unit, "context": context,
+            "source_section_path": tuple(binding["source_section_path"]), "entity_id": entity_id,
+            "table_semantics": semantic, "report_context": report_context}))
+    from .column_context import resolved_relative_year
+    from dataclasses import replace
+    for i, candidate in enumerate(bound_output):
+        from .column_context import continued_statement_column
+        continued_column=continued_statement_column(candidate)
+        if continued_column and (not candidate.column_label or re.fullmatch(r"\d{1,3}",candidate.column_label.strip())):
+            # A separator after the first data row can make its amount look
+            # like a header. The validated continuation supplies the label.
+            context=re.sub(r"(?m)^COLUMN:.*$", "COLUMN: "+continued_column, candidate.context)
+            if not re.search(r"(?m)^COLUMN:",context):context+="\nCOLUMN: "+continued_column
+            candidate=replace(candidate,column_label=continued_column,context=context)
+            bound_output[i]=candidate
+        from .table_semantics import bound_column_context
+        context_year,_ = bound_column_context(candidate)
+        if context_year:
+            context=re.sub(r"(?m)^PERIOD:.*$", "PERIOD: "+context_year, candidate.context)
+            if not re.search(r"(?m)^PERIOD:",context):context+="\nPERIOD: "+context_year
+            candidate=replace(candidate,period=context_year,context=context,
+                table_semantics={**(candidate.table_semantics or {}),'period_origin':'local_table_context'})
+            bound_output[i]=candidate
+        year = resolved_relative_year(candidate)
+        if year:
+            context = re.sub(r"(?m)^PERIOD:.*$", "PERIOD: " + year, candidate.context)
+            bound_output[i] = replace(candidate, period=year, context=context)
+    from .number_formats import reconcile_exact_repetitions
+    from .unit_defaults import apply_default_unit
+    output = reconcile_exact_repetitions([apply_default_unit(c) for c in bound_output])
+
+    # Structured evidence participates only through one complete physical row
+    # inventory that uniquely accounts for every typed role/period slot in the
+    # question plan. Competing physical rows are ambiguity even when their
+    # values agree: numeric equality is not proof of authority.
+    plan = compile_question_plan(question)
+    raw_slots = [
+        (str(slot.column_role).strip().lower(), str(slot.year).strip())
+        for slot in plan.operand_slots
+        if str(slot.column_role).strip().lower() in {"actual", "plan"}
+        and str(slot.year).strip()
+    ]
+    requested_slots = tuple(dict.fromkeys(raw_slots))
+    duplicate_requested_slot = len(requested_slots) != len(raw_slots)
+
+    def canonical_metric_tokens(value: str) -> frozenset[str]:
+        normalized = normalize_text(value)
+        # Source-language variants of the same financial metric head.
+        normalized = re.sub(r"\blai\b", "loi nhuan", normalized)
+        return frozenset(_metric_alignment_tokens(normalized))
+
+    expected_metric = canonical_metric_tokens(
+        plan.metric_text or _question_focus_text(question)
+    )
+    expected_metric_text = plan.metric_text or _question_focus_text(question)
+
+    def metric_compatible(candidate: NumericCandidate) -> bool:
+        if not metric_qualifiers_compatible(
+            expected_metric_text, candidate.row_label
+        ):
+            return False
+        observed = canonical_metric_tokens(candidate.row_label)
+        return bool(
+            expected_metric
+            and observed
+            and (observed.issubset(expected_metric) or expected_metric.issubset(observed))
+        )
+
+    def unit_family(value: str) -> str:
+        normalized = normalize_text(value)
+        if any(token in normalized for token in ("vnd", "dong", "trieu", "ty")):
+            return "currency"
+        if "%" in value or "phan tram" in normalized:
+            return "percent"
+        if any(token in normalized for token in ("share", "co phieu", "co phan")):
+            return "shares"
+        return normalized
+
+    def plaintext_role(candidate: NumericCandidate) -> str:
+        explicit = candidate.column_role.strip().lower()
+        if explicit in {"actual", "plan"}:
+            return explicit
+        normalized = f" {normalize_text(candidate.column_label)} "
+        if any(token in normalized for token in (" ke hoach ", " plan ", " kh ")):
+            return "plan"
+        if any(
+            token in normalized
+            for token in (" thuc hien ", " thuc te ", " actual ", " th ")
+        ):
+            return "actual"
+        return ""
+
+    # Collapse repeated observations of the same physical structured cell
+    # before testing conflicts. A disagreement under one physical identity is
+    # itself a conflict and therefore admits no structured evidence.
+    physical_cells: dict[tuple[object, ...], NumericCandidate] = {}
+    physical_conflict = False
+    for candidate in structured_output:
+        physical_key = (
+            candidate.source_name,
+            candidate.page,
+            candidate.table_id,
+            candidate.row_id,
+            candidate.column_id,
+        )
+        current = physical_cells.get(physical_key)
+        if current is None:
+            physical_cells[physical_key] = candidate
+        elif (
+            current.decimal != candidate.decimal
+            or current.column_role != candidate.column_role
+            or current.period != candidate.period
+            or current.source_bbox != candidate.source_bbox
+        ):
+            physical_conflict = True
+
+    row_inventories: dict[tuple[object, ...], list[NumericCandidate]] = {}
+    for candidate in physical_cells.values():
+        if not metric_compatible(candidate):
+            continue
+        row_key = (
+            candidate.source_name,
+            candidate.page,
+            candidate.table_id,
+            candidate.row_id,
+        )
+        row_inventories.setdefault(row_key, []).append(candidate)
+
+    requested_set = set(requested_slots)
+    slot_claims: dict[tuple[str, str], set[tuple[object, ...]]] = {
+        slot: set() for slot in requested_slots
+    }
+    row_slots: dict[
+        tuple[object, ...], dict[tuple[str, str], list[NumericCandidate]]
+    ] = {}
+    for row_key, candidates in row_inventories.items():
+        inventory: dict[tuple[str, str], list[NumericCandidate]] = {}
+        for candidate in candidates:
+            slot = (candidate.column_role.strip().lower(), candidate.period.strip())
+            if slot not in requested_set:
+                continue
+            inventory.setdefault(slot, []).append(candidate)
+            slot_claims[slot].add(row_key)
+        row_slots[row_key] = inventory
+
+    ambiguous_physical_claim = any(
+        len(claiming_rows) > 1 for claiming_rows in slot_claims.values()
+    )
+    complete_rows: list[tuple[object, ...]] = []
+    for row_key, inventory in row_slots.items():
+        if requested_set and all(
+            len(inventory.get(slot, ())) == 1 for slot in requested_slots
+        ):
+            selected = [inventory[slot][0] for slot in requested_slots]
+            families = {
+                unit_family(candidate.unit) for candidate in selected if candidate.unit
+            }
+            if len(families) <= 1:
+                complete_rows.append(row_key)
+
+    admitted_structured: list[NumericCandidate] = []
+    if (
+        structured_output
+        and requested_slots
+        and not duplicate_requested_slot
+        and not physical_conflict
+        and not ambiguous_physical_claim
+        and len(complete_rows) == 1
+    ):
+        selected_inventory = row_slots[complete_rows[0]]
+        selected_structured = [
+            selected_inventory[slot][0] for slot in requested_slots
+        ]
+        plaintext_by_slot: dict[
+            tuple[str, str], list[tuple[int, NumericCandidate]]
+        ] = {slot: [] for slot in requested_slots}
+        for index, candidate in enumerate(output):
+            slot = (plaintext_role(candidate), candidate.period.strip())
+            if slot in requested_set and metric_compatible(candidate):
+                plaintext_by_slot[slot].append((index, candidate))
+
+        plaintext_conflict = False
+        equivalences: dict[int, NumericCandidate] = {}
+        unmatched: list[NumericCandidate] = []
+        used_plaintext: set[int] = set()
+        for structured in selected_structured:
+            slot = (
+                structured.column_role.strip().lower(),
+                structured.period.strip(),
+            )
+            compatible_plaintext = [
+                (index, candidate)
+                for index, candidate in plaintext_by_slot.get(slot, ())
+                if candidate.source_name == structured.source_name
+                and candidate.page == structured.page
+                and (
+                    not candidate.unit
+                    or not structured.unit
+                    or unit_family(candidate.unit) == unit_family(structured.unit)
+                )
+            ]
+            if any(
+                candidate.decimal != structured.decimal
+                for _, candidate in compatible_plaintext
+            ):
+                plaintext_conflict = True
+                break
+            exact = [
+                (index, candidate)
+                for index, candidate in compatible_plaintext
+                if candidate.decimal == structured.decimal
+            ]
+            if len(exact) > 1 or (exact and exact[0][0] in used_plaintext):
+                plaintext_conflict = True
+                break
+            if not exact:
+                unmatched.append(structured)
+                continue
+            index, plaintext = exact[0]
+            used_plaintext.add(index)
+            equivalences[index] = NumericCandidate(
+                **{
+                    **plaintext.__dict__,
+                    "row_label": structured.row_label,
+                    "column_label": structured.column_label,
+                    "period": structured.period,
+                    "table_id": structured.table_id,
+                    "entity_id": structured.entity_id,
+                    "source_span": structured.source_span,
+                    "row_id": structured.row_id,
+                    "column_id": structured.column_id,
+                    "column_role": structured.column_role,
+                    "source_bbox": structured.source_bbox,
+                }
+            )
+        if not plaintext_conflict:
+            for index, enriched in equivalences.items():
+                output[index] = enriched
+            admitted_structured.extend(unmatched)
+
+    output.extend(apply_default_unit(c) for c in admitted_structured)
+
     unique: dict[tuple[object, ...], NumericCandidate] = {}
     for candidate in output:
         key = (
-            candidate.source_name,
-            candidate.page,
-            candidate.line_number,
-            candidate.char_start,
-            candidate.char_end,
-            candidate.value,
+            (
+                "structured",
+                candidate.source_name,
+                candidate.page,
+                candidate.table_id,
+                candidate.row_id,
+                candidate.column_id,
+                candidate.value,
+            )
+            if candidate.table_id and candidate.row_id and candidate.column_id
+            else (
+                candidate.source_name,
+                candidate.page,
+                candidate.line_number,
+                candidate.char_start,
+                candidate.char_end,
+                candidate.value,
+            )
         )
         current = unique.get(key)
         if (
@@ -1167,6 +1827,7 @@ def _ocr_row_metric_score(question: str, candidate: NumericCandidate) -> float:
         "text",
         "ocr",
         "mineru",
+        "mineru_markdown",
     }:
         return 0.0
     row = next(
@@ -1179,10 +1840,13 @@ def _ocr_row_metric_score(question: str, candidate: NumericCandidate) -> float:
     )
     if not row:
         return 0.0
-    expected = _metric_alignment_tokens(_question_focus_text(question))
+    focus_text = _question_focus_text(question)
+    if not metric_qualifiers_compatible(focus_text, row):
+        return 0.0
+    expected = _metric_alignment_tokens(focus_text)
     observed = _metric_alignment_tokens(row)
     score = 0.0
-    for term in expected:
+    for term in sorted(expected):
         best = max(
             (
                 1.0
@@ -1199,6 +1863,59 @@ def _ocr_row_metric_score(question: str, candidate: NumericCandidate) -> float:
         if best >= 0.72:
             score += best
     return score
+
+
+def _quota_column_role(candidate: NumericCandidate) -> str:
+    """Read only an explicit role from a candidate's recovered header path."""
+
+    explicit = candidate.column_role.strip().lower()
+    if explicit in {"actual", "plan"}:
+        return explicit
+    normalized = f" {normalize_text(candidate.column_label)} "
+    # Comparison/ratio columns may contain both words. They are derived
+    # disclosures, not either raw operand lane.
+    if (
+        " so voi " in normalized
+        or "/" in candidate.column_label
+        or "%" in candidate.column_label
+    ):
+        return ""
+    if any(
+        marker in normalized
+        for marker in (
+            " ke hoach ",
+            " k ho ch ",
+            " plan ",
+            " kh ",
+        )
+    ):
+        return "plan"
+    if any(
+        marker in normalized
+        for marker in (
+            " thuc hien ",
+            " th c hi n ",
+            " thuc te ",
+            " actual ",
+            " th ",
+        )
+    ):
+        return "actual"
+    return ""
+
+
+def _quota_slot_period_match(
+    candidate: NumericCandidate, requested_year: str
+) -> bool:
+    if not requested_year:
+        return True
+    observed = set(
+        re.findall(
+            r"\b(?:19|20)\d{2}\b",
+            f"{candidate.period} {candidate.column_label}",
+        )
+    )
+    return requested_year in observed
 
 
 def _metric_alignment_tokens(text: str) -> set[str]:
@@ -1225,6 +1942,8 @@ def _metric_alignment_tokens(text: str) -> set[str]:
         "voi",
     }
     normalized = normalize_text(text)
+    if re.search(r"\blnst\b", normalized):
+        normalized = f"{normalized} loi nhuan sau thue"
     tokens = re.findall(r"[a-z0-9]+", normalized)
     # ``tại`` and ``tài`` both fold to ``tai``. In financial metric phrases,
     # retain it only when adjacent to ``san`` (tài sản).
@@ -1238,6 +1957,89 @@ def _metric_alignment_tokens(text: str) -> set[str]:
     return output
 
 
+def metric_contrastive_qualifiers(text: str) -> dict[str, str]:
+    """Return only metric qualifiers whose opposites change financial meaning.
+
+    The result deliberately excludes generic topical words.  Missing qualifiers
+    remain unknown, while an explicit contradiction (for example net versus
+    gross revenue) can be rejected before fuzzy token overlap is applied.
+    """
+
+    normalized = normalize_text(text)
+    padded = f" {normalized} "
+    qualifiers: dict[str, str] = {}
+    if " doanh thu " in padded:
+        if " doanh thu thuan " in padded:
+            qualifiers["revenue_basis"] = "net"
+        elif (
+            " doanh thu gop " in padded
+            or " tong doanh thu " in padded
+            or re.search(r"\bdoanh thu(?:\s+\w+){0,3}\s+ban hang\b", normalized)
+        ):
+            qualifiers["revenue_basis"] = "gross"
+
+    profit_like = " loi nhuan " in padded or bool(
+        re.search(r"\blnst\b", normalized)
+    )
+    after_tax = (
+        " loi nhuan sau thue " in padded
+        or " sau thue " in padded
+        or bool(re.search(r"\blnst\b", normalized))
+    )
+    before_tax = " loi nhuan truoc thue " in padded or " truoc thue " in padded
+    if after_tax:
+        qualifiers["tax_basis"] = "after_tax"
+    elif before_tax:
+        qualifiers["tax_basis"] = "before_tax"
+
+    parent_share = any(
+        marker in padded
+        for marker in (
+            " co dong cua cong ty me ",
+            " co dong cong ty me ",
+            " thuoc ve co dong cua cong ty me ",
+            " thuoc ve co dong cong ty me ",
+        )
+    )
+    if after_tax or (profit_like and parent_share):
+        qualifiers["parent_share"] = "parent" if parent_share else "total"
+    return qualifiers
+
+
+def _is_ratio_metric(text: str) -> bool:
+    normalized = normalize_text(text)
+    if re.search(r"\b(?:he so|ty le|ty suat|bien loi nhuan)\b", normalized):
+        return True
+    # Slash in a unit (dong/co phieu) is not a ratio of financial metrics.
+    heads = r"\b(?:doanh thu|loi nhuan|tai san|von|no|chi phi|thu nhap)\b"
+    parts = [normalize_text(part) for part in text.split("/")]
+    return len(parts) == 2 and all(re.search(heads, part) for part in parts)
+
+
+def metric_qualifiers_compatible(expected_text: str, observed_text: str) -> bool:
+    """Return false only for an explicit contrastive metric contradiction."""
+
+    # A disclosed ratio is not its numerator's monetary fact. This guard is
+    # shared by candidate quota reservation and structured metric matching.
+    if _is_ratio_metric(observed_text) and not _is_ratio_metric(expected_text):
+        return False
+    from .question_planner import _has_compound_financial_metric
+    if _has_compound_financial_metric(normalize_text(observed_text)) and not _has_compound_financial_metric(normalize_text(expected_text)):
+        return False
+    expected = metric_contrastive_qualifiers(expected_text)
+    observed = metric_contrastive_qualifiers(observed_text)
+    if (
+        observed.get("parent_share") == "parent"
+        and expected.get("parent_share") != "parent"
+    ):
+        return False
+    return all(
+        observed.get(name) == value
+        for name, value in expected.items()
+        if name in observed
+    )
+
+
 def _candidate_quota_indices(
     question: str,
     candidates: Sequence[NumericCandidate],
@@ -1248,12 +2050,24 @@ def _candidate_quota_indices(
 ) -> list[int]:
     """Preserve metric and operand-role evidence before applying a hard quota."""
 
-    def rank_key(index: int) -> tuple[float, bool, Decimal | int]:
+    def rank_key(index: int) -> tuple[object, ...]:
         candidate = candidates[index]
         final: Decimal | int = (
             abs(candidate.decimal) if prefer_magnitude else -candidate.line_number
         )
-        return candidate.relevance, not candidate.is_year_like, final
+        page = candidate.page if candidate.page is not None else 10**9
+        return (
+            candidate.relevance,
+            not candidate.is_year_like,
+            final,
+            normalize_text(candidate.source_name),
+            -page,
+            -candidate.char_start,
+            normalize_text(candidate.table_id),
+            normalize_text(candidate.row_id),
+            normalize_text(candidate.column_id),
+            candidate.value,
+        )
 
     ranked = sorted(
         range(len(candidates)),
@@ -1292,6 +2106,119 @@ def _candidate_quota_indices(
         question,
         financial_identity_catalog_enabled=financial_identity_catalog_enabled,
     )
+    plan = compile_question_plan(question)
+    explicit_column_roles = tuple(
+        dict.fromkeys(
+            role.strip().lower()
+            for role in plan.column_roles
+            if role.strip().lower() in {"actual", "plan"}
+        )
+    )
+    slot_specs = [
+        (slot.metric, slot.column_role.strip().lower(), slot.year)
+        for slot in plan.operand_slots
+        if slot.column_role.strip().lower() in {"actual", "plan"}
+        and slot.year
+    ]
+    # A scalar lookup can carry one explicit plan/actual lane without a typed
+    # operand slot. Preserve that lane under the same quota contract.
+    if not slot_specs and len(explicit_column_roles) == 1:
+        metric_text = plan.metric_text or _question_focus_text(question)
+        slot_specs = [
+            (metric_text, explicit_column_roles[0], year)
+            for year in (plan.requested_years or ("",))
+        ]
+    slot_reserved: list[int] = []
+    # Source-wide role bindings are attached after per-chunk pruning. Keep
+    # metric/period-compatible unresolved observations available for that step;
+    # this is candidate recall, never permission to label them actual or plan.
+    # Explicit competing roles stay separate and cannot fill the wrong slot.
+    if slot_specs:
+        per_slot = max(
+            1,
+            min(4, maximum // max(1, len(slot_specs))),
+        )
+        for metric_text, role, year in slot_specs:
+            slot_scores = {
+                index: _quota_metric_score(metric_text, candidate)
+                for index, candidate in enumerate(candidates)
+                if _quota_column_role(candidate) in {role, ""}
+                and _quota_slot_period_match(candidate, year)
+            }
+            best_slot = max(slot_scores.values(), default=0.0)
+            if best_slot < 1.2:
+                continue
+            matches = [
+                index
+                for index in sorted(
+                    slot_scores,
+                    key=lambda item: (
+                        slot_scores[item],
+                        _quota_column_role(candidates[item]) == role,
+                        *rank_key(item),
+                    ),
+                    reverse=True,
+                )
+                if slot_scores[index] >= best_slot - 0.30
+            ]
+            slot_reserved.extend(matches[:per_slot])
+        slot_reserved = list(dict.fromkeys(slot_reserved))
+    period_reserved: list[int] = []
+    requested_years = tuple(dict.fromkeys(plan.requested_years))
+    if not slot_specs and not explicit_column_roles and requested_years:
+        per_period = max(1, min(4, maximum // max(1, len(requested_years))))
+        metric_text = plan.metric_text or _question_focus_text(question)
+        for year in requested_years:
+            period_scores = {
+                index: _quota_metric_score(metric_text, candidate)
+                for index, candidate in enumerate(candidates)
+                if _quota_slot_period_match(candidate, year)
+            }
+            best_period = max(period_scores.values(), default=0.0)
+            if best_period < 1.2:
+                continue
+            matches = [
+                index
+                for index in sorted(
+                    period_scores,
+                    key=lambda item: (
+                        period_scores[item],
+                        *rank_key(item),
+                    ),
+                    reverse=True,
+                )
+                if period_scores[index] >= best_period - 0.30
+            ]
+            # Keep the strongest observation from every physical role lane
+            # before filling remaining capacity. Roleless questions must not
+            # silently evict either plan or actual evidence.
+            strongest_by_role: list[int] = []
+            seen_roles: set[str] = set()
+            # Explicit competing lanes take precedence over an untyped
+            # observation when the quota can retain only two cells. Keeping
+            # both exposes the ambiguity; it does not infer either role.
+            for required_role in ("actual", "plan"):
+                strongest = next(
+                    (
+                        index
+                        for index in matches
+                        if _quota_column_role(candidates[index])
+                        == required_role
+                    ),
+                    None,
+                )
+                if strongest is not None:
+                    strongest_by_role.append(strongest)
+                    seen_roles.add(required_role)
+            for index in matches:
+                role = _quota_column_role(candidates[index])
+                if role in seen_roles:
+                    continue
+                seen_roles.add(role)
+                strongest_by_role.append(index)
+            ordered = list(dict.fromkeys([*strongest_by_role, *matches]))
+            period_reserved.extend(ordered[:per_period])
+        period_reserved = list(dict.fromkeys(period_reserved))
     role_reserved: list[int] = []
     if role_parts:
         per_role = max(1, min(4, maximum // max(1, len(role_parts))))
@@ -1315,7 +2242,11 @@ def _candidate_quota_indices(
             role_reserved.extend(role_ranked[:per_role])
             role_reserved = list(dict.fromkeys(role_reserved))
 
-    selected = list(dict.fromkeys([*role_reserved, *reserved]))[:maximum]
+    selected = list(
+        dict.fromkeys(
+            [*slot_reserved, *period_reserved, *role_reserved, *reserved]
+        )
+    )[:maximum]
     selected_set = set(selected)
     for index in ranked:
         if len(selected) >= maximum:
@@ -1340,6 +2271,8 @@ def _quota_candidate_row(candidate: NumericCandidate) -> str:
 def _quota_metric_score(expected_text: str, candidate: NumericCandidate) -> float:
     row = _quota_candidate_row(candidate)
     if not row:
+        return 0.0
+    if not metric_qualifiers_compatible(expected_text, row):
         return 0.0
     expected = _metric_alignment_tokens(expected_text)
     observed = _metric_alignment_tokens(row)
@@ -1449,37 +2382,10 @@ def _chunk_extraction_method(chunk: object) -> str:
 
 
 def _execute_operation_values(operation: str, values: Sequence[Decimal]) -> Decimal:
-    with localcontext() as context:
-        context.prec = 34
-        if operation == "SELECT":
-            return values[0]
-        if operation == "ADD":
-            return values[0] + values[1]
-        if operation == "SUBTRACT":
-            return values[0] - values[1]
-        if operation == "MULTIPLY":
-            return values[0] * values[1]
-        if operation == "DIVIDE":
-            if values[1] == 0:
-                raise ZeroDivisionError("DIVIDE denominator is zero")
-            return values[0] / values[1]
-        if operation == "RATIO_PERCENT":
-            if values[1] == 0:
-                raise ZeroDivisionError("RATIO_PERCENT denominator is zero")
-            return values[0] / values[1] * Decimal(100)
-        if operation == "PERCENT_CHANGE":
-            if values[1] == 0:
-                raise ZeroDivisionError("PERCENT_CHANGE baseline is zero")
-            return (values[0] - values[1]) / values[1] * Decimal(100)
-        if operation == "AVERAGE":
-            return (values[0] + values[1]) / Decimal(2)
-        if operation in {"SUM3", "SUM4"}:
-            return sum(values, Decimal(0))
-        if operation == "SHARE_OF_TOTAL":
-            if values[1] == 0:
-                raise ZeroDivisionError("SHARE_OF_TOTAL denominator is zero")
-            return values[0] / values[1] * Decimal(100)
-    raise ProgramDataError(f"Unsupported operation: {operation}")
+    try:
+        return execute_decimal_operation(operation, values)
+    except UnsupportedOperationError as exc:
+        raise ProgramDataError(f"Unsupported operation: {operation}") from exc
 
 
 def execute_program(
@@ -1539,11 +2445,13 @@ def materialize_program_dag(
             return ProgramDAGInput.node(emitted[index])
         if index in visiting:
             raise ProgramDataError("Derived candidate lineage contains a cycle")
-        if operation not in DAG_OPERATION_ARITY:
+        try:
+            minimum, maximum = dag_operation_arity_bounds(operation)
+        except ProgramDataError:
             raise ProgramDataError(
                 f"Unsupported derived operation: {candidate.derived_operation}"
-            )
-        if len(candidate.derived_operands) != DAG_OPERATION_ARITY[operation]:
+            ) from None
+        if not minimum <= len(candidate.derived_operands) <= maximum:
             raise ProgramDataError(
                 f"Derived {operation} candidate has invalid operand arity"
             )
@@ -1677,7 +2585,7 @@ def _is_degenerate_arithmetic(
         return len(operand_values) == 2 and operand_values[1] == 1
     if operation == "AVERAGE":
         return len(operand_values) == 2 and operand_values[0] == operand_values[1]
-    if operation in {"SUM3", "SUM4"}:
+    if is_sum_operation(operation):
         return any(value == 0 for value in operand_values)
     return False
 
@@ -2144,7 +3052,7 @@ def _fuzzy_content_overlap(expected: set[str], observed: set[str]) -> float:
     if not expected:
         return 0.0
     score = 0.0
-    for term in expected:
+    for term in sorted(expected):
         best = 0.0
         for candidate in observed:
             if term == candidate:
@@ -2163,10 +3071,59 @@ def _fuzzy_content_overlap(expected: set[str], observed: set[str]) -> float:
 
 
 def _markdown_cells(line: str) -> list[str]:
-    stripped = line.strip()
-    if "|" not in stripped:
-        return []
-    return [cell.strip() for cell in stripped.strip("|").split("|")]
+    # Use one tokenizer for labels and physical spans. Strip only a paired
+    # outer border; an unbordered trailing pipe denotes an empty final cell.
+    return [text for text, _span in _markdown_cells_with_spans(line)]
+
+
+_DESCRIPTOR_HEADER_ANCHORS = {
+    "tt",
+    "stt",
+    "chi tieu",
+    "noi dung",
+    "item",
+    "indicator",
+    "ma so",
+    "don vi",
+    "don vi tinh",
+}
+
+
+def _aligned_table_header_cells(
+    cells: Sequence[str], row_width: int
+) -> list[str]:
+    """Align a MinerU header row without inventing a financial column.
+
+    MinerU may omit the trailing blank of a merged header. A descriptor in
+    the first physical column proves that the missing cell is on the right.
+    Other short rows remain right-aligned because their missing cell is
+    commonly the blank row-code corner on the left.
+    """
+
+    aligned = list(cells)
+    if len(aligned) >= row_width:
+        return aligned[-row_width:]
+    missing = row_width - len(aligned)
+    first_nonempty = next(
+        (normalize_text(cell) for cell in aligned if cell.strip()),
+        "",
+    )
+    if first_nonempty in _DESCRIPTOR_HEADER_ANCHORS or first_nonempty.startswith(
+        ("don vi ", "don vi tinh ", "dvt ")
+    ):
+        return aligned + [""] * missing
+    return [""] * missing + aligned
+
+
+def _inherited_header_cell(cells: Sequence[str], column_index: int) -> str:
+    """Resolve an explicit or left-inherited merged Markdown header cell."""
+
+    if 0 <= column_index < len(cells) and cells[column_index].strip():
+        return cells[column_index].strip()
+    for previous in range(column_index - 1, -1, -1):
+        if cells[previous].strip():
+            return cells[previous].strip()
+    return ""
 
 
 def _is_markdown_separator(line: str) -> bool:
@@ -2177,6 +3134,11 @@ def _is_markdown_separator(line: str) -> bool:
     )
 
 
+def _numbered_table_body_row(line: str) -> bool:
+    cells = _markdown_cells(line)
+    return bool(cells and re.match(r"^\d+\s*[-.)]\s*[^\W\d_]", cells[0], re.UNICODE))
+
+
 def _is_table_header_or_separator(
     lines: Sequence[str], line_index: int
 ) -> bool:
@@ -2185,9 +3147,40 @@ def _is_table_header_or_separator(
         return True
     if "|" not in line:
         return False
+    if _numbered_table_body_row(line):
+        return False
     normalized_cells = {normalize_text(cell) for cell in _markdown_cells(line)}
-    if normalized_cells & {"chi tieu", "column name"}:
+    if normalized_cells & {"chi tieu", "cac chi tieu", "column name"}:
         return True
+    # A value row before a repeated header/separator remains a body row.
+    # Require a financial descriptor and at least two scalar value cells;
+    # maturity-band headers ("trên 1.000...") are not scalar observations.
+    from .unit_defaults import monetary_label
+    cells = _markdown_cells(line)
+    scalar_values = 0
+    for cell in cells:
+        value_text = cell.rsplit(":", 1)[-1].strip()
+        if re.fullmatch(r"[()+\-−]?\d[\d., ]*[%)]?", value_text) and not re.fullmatch(r"(?:19|20)\d{2}", value_text):
+            scalar_values += 1
+    # Percentage and ratio rows are observations too. A separator following
+    # them is often the beginning of the next table in MinerU Markdown.
+    # Require a non-header descriptor in the first cell and numeric values
+    # in at least two later cells; year and maturity headers stay headers.
+    first = normalize_text(cells[0]) if cells else ""
+    descriptor = bool(re.search(r"[a-z]", first)) and first not in {
+        "chi tieu", "chi so", "noi dung", "item", "indicator", "ma so",
+        "don vi", "don vi tinh",
+    } and not re.search(r"\b(?:19|20)\d{2}\b", first)
+    # MinerU may repeat a table header immediately after a numbered body row.
+    # A row code plus a descriptor and two scalar cells is still a body row.
+    numbered_descriptor = (
+        len(cells) >= 4
+        and bool(re.fullmatch(r"\d{1,3}", cells[0].strip()))
+        and bool(re.search(r"[a-z]", normalize_text(cells[1])))
+        and not re.search(r"\b(?:19|20)\d{2}\b", normalize_text(cells[1]))
+    )
+    if scalar_values >= 2 and (descriptor or numbered_descriptor):
+        return False
     # Standard and multi-row Markdown headers are immediately followed by a
     # separator. Header numbers such as "≤ 1 năm" are period labels, not values.
     for following in range(line_index + 1, min(len(lines), line_index + 4)):
@@ -2209,6 +3202,14 @@ def _table_header_lines(lines: Sequence[str], line_index: int) -> list[str]:
             break
         block_start -= 1
 
+    # Consecutive MinerU tables can omit the blank line and separator before
+    # a repeated "Chỉ số | year | year" header. Bind each following row to
+    # the nearest explicit descriptor/year header, not an older table's values.
+    for index in range(line_index-1,block_start-1,-1):
+        cells=_markdown_cells(lines[index])
+        if (cells and normalize_text(cells[0]) in {"chi so","chi tieu","cac chi tieu","item","indicator"}
+                and sum(bool(re.search(r"\b(?:19|20)\d{2}\b",normalize_text(cell))) for cell in cells[1:])>=2):
+            return [lines[index].strip()]
     separator_index = next(
         (
             index
@@ -2230,10 +3231,17 @@ def _table_header_lines(lines: Sequence[str], line_index: int) -> list[str]:
         ):
             candidate = lines[index].strip()
             cells = _markdown_cells(candidate)
-            if not cells or _financial_value_cell_indices(cells):
+            if not cells or _financial_value_cell_indices(cells) or _numbered_table_body_row(candidate):
                 break
             headers.append(candidate)
-        return list(reversed(headers))
+        if headers:
+            return list(reversed(headers))
+        # OCR may place a separator after numbered body rows. The first
+        # explicit descriptor/year header still owns those rows.
+        first = lines[block_start].strip()
+        first_cells = _markdown_cells(first)
+        if first_cells and normalize_text(first_cells[0]) in {"chi tieu", "noi dung", "item", "indicator"}:
+            return [first]
 
     # PDF-to-text output occasionally omits Markdown's separator. Only trust
     # the first row when it contains explicit header vocabulary; never scan
@@ -2245,6 +3253,7 @@ def _table_header_lines(lines: Sequence[str], line_index: int) -> list[str]:
             token in normalized
             for token in (
                 "chi tieu",
+                "chi so",
                 "ma so",
                 "thuyet minh",
                 "cuoi ky",
@@ -2285,7 +3294,11 @@ def _table_header_lines(lines: Sequence[str], line_index: int) -> list[str]:
 
 def _row_type(row_label: str) -> str:
     normalized = normalize_text(row_label)
-    if re.search(r"(?:^| )(?:tong|tong cong|cong)(?: |$)", normalized):
+    # Accent folding maps both Vietnamese "cộng" and the proper noun
+    # component in "công ty" to "cong". Remove the entity-kind phrase
+    # before classifying arithmetic total markers.
+    total_surface = re.sub(r"\bcong\s+ty\b", " ", normalized)
+    if re.search(r"(?:^| )(?:tong|tong cong|cong)(?: |$)", total_surface):
         return "total"
     if re.match(r"^(?:I|II|III|IV|V|VI|VII|VIII|IX|X)\.[ \t]+", row_label.strip()):
         return "subtotal"
@@ -2297,7 +3310,8 @@ def _row_type(row_label: str) -> str:
 
 
 def _column_period(column_label: str) -> str:
-    normalized = normalize_text(column_label)
+    from .column_context import normalize_period_text
+    normalized = normalize_period_text(column_label)
     qualifiers = [
         term
         for term in (
@@ -2315,6 +3329,12 @@ def _column_period(column_label: str) -> str:
 
 
 def _best_row_label(row_cells: Sequence[str], cell_index: int) -> str:
+    # In a two-cell key/value row, words spelling the amount are not a label.
+    if (len(row_cells) == 2 and cell_index == 1
+            and re.search(r"[^\W\d_]", row_cells[0], re.UNICODE)
+            and not re.search(r"\d", row_cells[0])
+            and not _inline_period_column((row_cells[0],), 0)):
+        return row_cells[0]
     search_order = [*row_cells[:cell_index], *row_cells[cell_index:]]
     textual = [
         cell
@@ -2339,6 +3359,7 @@ def _candidate_context(
     start: int,
     end: int,
     *,
+    question: str = "",
     source_name: str = "context",
     page: int | None = None,
     source_line_start: int = 1,
@@ -2377,18 +3398,16 @@ def _candidate_context(
         column_parts: list[str] = []
         period_columns: list[str] = []
         for header_line in header_lines:
-            header_cells = _markdown_cells(header_line)
+            header_cells = _aligned_table_header_cells(
+                _markdown_cells(header_line),
+                len(row_cells),
+            )
             for header_cell in header_cells:
                 if _column_period(header_cell) and header_cell not in period_columns:
                     period_columns.append(header_cell)
-            # OCR can drop an empty ``Thuyet minh`` cell from a data row while
-            # retaining it in the header. Period/value columns are on the right,
-            # so align unequal rows from the right.
-            header_index = cell_index + max(0, len(header_cells) - len(row_cells))
-            if header_index < len(header_cells):
-                part = header_cells[header_index]
-                if part and part not in column_parts:
-                    column_parts.append(part)
+            part = _inherited_header_cell(header_cells, cell_index)
+            if part and part not in column_parts:
+                column_parts.append(part)
         column_label = " / ".join(column_parts)
         financial_cells = _financial_value_cell_indices(row_cells)
         if (
@@ -2423,6 +3442,9 @@ def _candidate_context(
             parts.append(f"SUBTABLE: {subtable_id}")
         if derived_formula_value:
             parts.append("VALUE_ORIGIN: DERIVED_FROM_TABLE_FORMULA")
+        header_role = _resolved_table_header_role(column_parts)
+        if header_role:
+            parts.append(f"COLUMN_ROLE: {header_role}")
         if header_lines:
             parts.append(f"HEADER: {' || '.join(header_lines)}")
         inventory_manifest = _table_role_inventory_manifest(
@@ -2446,12 +3468,46 @@ def _candidate_context(
         parts.append(f"CELL: {marked}")
         return "\n".join(parts)
 
+    from .report_context import undated_monetary_field
+    report_field = undated_monetary_field(raw_line, start, end)
+    if report_field is not None:
+        provenance = {"text": raw_line, "source_name": source_name, "page": page,
+                      "line_number": source_line_start + line_index}
+        return "\n".join(("ROW: " + report_field["row_label"],
+                          "REPORT_FIELD_SOURCE: " + json.dumps(provenance, ensure_ascii=False, sort_keys=True),
+                          "CELL: " + marked))
+    from .source_assertions import dated_amount_assertion
+    period_context = []
+    for previous_index in range(max(0, line_index - 3), line_index):
+        previous = lines[previous_index]
+        if re.fullmatch(r"nam (?:19|20)\d{2}", normalize_text(previous)):
+            from .physical_coordinates import line_digest
+            period_context.append({"text": previous, "source_name": source_name, "page": page,
+                "line_number": source_line_start + previous_index, "sha256": line_digest(previous)})
+    assertion = dated_amount_assertion(raw_line, start, end, period_context)
+    if assertion is not None:
+        # A sentence has a temporal qualifier, not a manufactured table header.
+        # Keep its original text so verification can reconstruct every binding.
+        provenance = {"text": raw_line, "source_name": source_name, "page": page,
+                      "line_number": source_line_start + line_index}
+        if period_context:
+            provenance["period_context"] = period_context
+        return "\n".join((
+            "ROW: " + assertion["row_label"],
+            "COLUMN: " + assertion["column_label"],
+            "PERIOD: " + assertion["period"],
+            "COLUMN_ROLE: " + assertion["column_role"],
+            "SOURCE_ASSERTION: " + json.dumps(provenance, ensure_ascii=False, sort_keys=True),
+            "CELL: " + marked,
+        ))
+
     plaintext_context = _plaintext_financial_row_context(
         lines,
         line_index,
         start,
         end,
         marked,
+        question=question,
         source_name=source_name,
         page=page,
         source_line_start=source_line_start,
@@ -2491,37 +3547,30 @@ def _table_identifier(lines: Sequence[str], line_index: int) -> str:
 
 
 def _markdown_cells_with_spans(line: str) -> list[tuple[str, tuple[int, int]]]:
-    """Return Markdown cells with source spans inside the unstripped line."""
+    """Tokenize cells without losing explicit blank columns or provenance.
 
+    MinerU's unbordered rows serialize a blank final field as a trailing pipe.
+    In bordered rows remove exactly one outer pipe at each edge, preserving
+    additional pipes that encode blank cells (including merged-header corners).
+    """
     separators = [index for index, value in enumerate(line) if value == "|"]
     if not separators:
         return []
-    boundaries = list(separators)
-    if not line[: separators[0]].strip():
-        starts_at = separators[0] + 1
-    else:
-        boundaries.insert(0, -1)
-        starts_at = 0
-    if not line[separators[-1] + 1 :].strip():
-        ends_at = separators[-1]
-    else:
+    bordered = not line[:separators[0]].strip()
+    boundaries = list(separators) if bordered else [-1, *separators]
+    if not (bordered and not line[separators[-1] + 1:].strip()):
         boundaries.append(len(line))
-        ends_at = len(line)
     output: list[tuple[str, tuple[int, int]]] = []
     for left, right in zip(boundaries, boundaries[1:]):
         raw_start = left + 1
-        raw_end = right
-        if raw_start < starts_at or raw_end > ends_at:
-            continue
-        raw = line[raw_start:raw_end]
-        leading = len(raw) - len(raw.lstrip())
-        trailing = len(raw.rstrip())
-        output.append(
-            (
-                raw.strip(),
-                (raw_start + leading, raw_start + trailing),
-            )
-        )
+        raw = line[raw_start:right]
+        text = raw.strip()
+        if text:
+            start = raw_start + len(raw) - len(raw.lstrip())
+            end = raw_start + len(raw.rstrip())
+        else:
+            start = end = raw_start
+        output.append((text, (start, end)))
     return output
 
 
@@ -2581,16 +3630,13 @@ def _table_role_inventory_manifest(
 
     row_width = max(len(_markdown_cells(lines[index])) for index in row_indices)
     header_cells = [_markdown_cells(raw) for raw in header_lines]
+
     header_columns: list[dict[str, object]] = []
     for column_index in range(row_width):
         path: list[str] = []
         provenance: list[str] = []
         for raw_cells in header_cells:
-            cells = (
-                [""] * (row_width - len(raw_cells)) + raw_cells
-                if len(raw_cells) < row_width
-                else raw_cells[-row_width:]
-            )
+            cells = _aligned_table_header_cells(raw_cells, row_width)
             part = cells[column_index].strip() if column_index < len(cells) else ""
             source = "explicit_header"
             if not part:
@@ -2671,7 +3717,11 @@ def _table_role_inventory_manifest(
     header_alignment_state = (
         "ALIGNED"
         if header_cells
-        and all(len(cells) == row_width for cells in header_cells)
+        and all(len(cells) <= row_width for cells in header_cells)
+        and all(
+            len(_aligned_table_header_cells(cells, row_width)) == row_width
+            for cells in header_cells
+        )
         and all(len(_markdown_cells(lines[index])) == row_width for index in row_indices)
         else "UNALIGNED"
     )
@@ -2798,24 +3848,242 @@ def _nearest_table_section(lines: Sequence[str], line_index: int) -> str:
     return ""
 
 
-def _table_scope(lines: Sequence[str], line_index: int) -> str:
-    start, _ = _table_block_bounds(lines, line_index)
-    window = lines[max(0, start - 24) : start]
-    preceding = normalize_text(" ".join(window))
-    consolidated_at = preceding.rfind("hop nhat")
-    parent_at = max(
-        preceding.rfind("cong ty me"),
-        preceding.rfind("bao cao rieng"),
-        preceding.rfind("bao cao tai chinh rieng"),
+_NUMBERED_SECTION_RE = re.compile(
+    r"^\s*(?:#{1,6}\s*)?(?!19\d{2}\b|20\d{2}\b)"
+    r"\d+(?:\.\d+)*\.?\s+\S"
+)
+
+
+def _scope_heading_text(raw_line: str) -> str:
+    text = raw_line.strip().lstrip("#•*- ").strip()
+    return re.sub(r"^\d+(?:\.\d+)*\.?\s+", "", text).strip()
+
+
+_SCOPE_NARRATIVE_MARKERS = (
+    " trong nam ",
+    " trong ky ",
+    " da thuc hien ",
+    " dang thuc hien ",
+    " se thuc hien ",
+    " theo bao cao ",
+    " cho biet ",
+    " khong co ",
+    " ghi nhan ",
+    " tang so voi ",
+    " giam so voi ",
+)
+
+
+def _scope_line_is_narrative(text: str) -> bool:
+    normalized = f" {normalize_text(text)} "
+    return (
+        len(normalized.split()) > 24
+        or "," in text
+        or ";" in text
+        or any(
+            marker in normalized for marker in _SCOPE_NARRATIVE_MARKERS
+        )
+        or bool(re.search(r"[.!?]\s*$", text.rstrip().rstrip(":")))
     )
-    if consolidated_at < 0 and parent_at < 0:
-        for raw_line in reversed(window):
-            text = raw_line.strip(" •*-:")
-            normalized = normalize_text(text)
-            if normalized.startswith(("cong ty ", "tong cong ty ", "tap doan ")):
-                return f"entity:{normalized}"
+
+
+def _statement_scope_heading(raw_line: str) -> str:
+    text = _scope_heading_text(raw_line)
+    if (
+        not text
+        or "|" in text
+        or len(text) > 140
+        or _scope_line_is_narrative(text)
+    ):
         return ""
-    return "consolidated" if consolidated_at > parent_at else "parent_company"
+    normalized = normalize_text(text).strip(" :")
+    statement_prefixes = (
+        "bao cao",
+        "bang can doi",
+        "ket qua kinh doanh",
+        "bao cao ket qua",
+        "tinh hinh tai chinh",
+    )
+    if (
+        "hop nhat" in normalized
+        and normalized.startswith(statement_prefixes)
+    ):
+        return "consolidated"
+    if (
+        normalized
+        in {"cong ty me", "bao cao rieng", "bao cao tai chinh rieng"}
+        or normalized.startswith(
+            ("bao cao rieng ", "bao cao tai chinh rieng ")
+        )
+        or (
+            normalized.startswith(statement_prefixes)
+            and "rieng cong ty me" in normalized
+        )
+    ):
+        return "parent_company"
+    return ""
+
+
+def _short_entity_scope_heading(raw_line: str) -> str:
+    text = _scope_heading_text(raw_line)
+    if (
+        not text
+        or "|" in text
+        or len(text) > 120
+        or _scope_line_is_narrative(text)
+    ):
+        return ""
+    normalized = normalize_text(text).strip(" :")
+    legal_prefixes = (
+        "cong ty co phan ",
+        "cong ty cp ",
+        "cong ty tnhh ",
+        "cong ty trach nhiem huu han ",
+        "tong cong ty ",
+        "tap doan ",
+    )
+    subtable_prefixes = (
+        "cong ty con",
+        "cong ty lien ket",
+        "cong ty lien doanh",
+        "don vi lien ket",
+        "don vi lien doanh",
+        "chi nhanh",
+    )
+    # A legal-name heading may end in a colon. A colon followed by prose is a
+    # narrative sentence, except for the common ``subsidiary: legal name`` form.
+    if ":" in text and not text.rstrip().endswith(":"):
+        prefix, suffix = (part.strip() for part in text.split(":", 1))
+        prefix_normalized = normalize_text(prefix)
+        suffix_normalized = normalize_text(suffix).strip(" :")
+        if (
+            prefix_normalized.startswith(subtable_prefixes)
+            and suffix_normalized
+            and not _scope_line_is_narrative(suffix)
+        ):
+            return suffix_normalized
+        return ""
+    if normalized.startswith(legal_prefixes):
+        return normalized
+    for prefix in subtable_prefixes:
+        marker = f"{prefix} "
+        if not normalized.startswith(marker):
+            continue
+        remainder = normalized[len(marker) :].strip()
+        if remainder.startswith(legal_prefixes):
+            return remainder
+    return ""
+
+
+def _scope_company_like_line(raw_line: str) -> bool:
+    normalized = normalize_text(_scope_heading_text(raw_line)).strip(" :")
+    return normalized.startswith(
+        ("cong ty ", "tong cong ty ", "tap doan ", "chi nhanh ", "don vi ")
+    )
+
+
+def _table_scope(lines: Sequence[str], line_index: int) -> str:
+    """Resolve only a nearby heading inside the latest numbered section."""
+
+    start, _ = _table_block_bounds(lines, line_index)
+    window_start = max(0, start - 24)
+    for index in range(start - 1, window_start - 1, -1):
+        if _NUMBERED_SECTION_RE.match(lines[index]):
+            window_start = index
+            break
+    entity_blocked = False
+    for raw_line in reversed(lines[window_start:start]):
+        statement = _statement_scope_heading(raw_line)
+        if statement:
+            return statement
+        if not entity_blocked:
+            entity = _short_entity_scope_heading(raw_line)
+            if entity:
+                return f"entity:{entity}"
+        if _scope_company_like_line(raw_line):
+            entity_blocked = True
+    return ""
+
+
+def _plaintext_assertion_identity(
+    question: str,
+    line: str,
+    start: int,
+    end: int,
+) -> tuple[str, str] | None:
+    """Prove metric and period identity for one flat sentence assertion.
+
+    The assertion must contain one non-metadata numeric value and an explicit
+    predicate.  Dates and years are metadata, not competing values.  A period
+    is bound only when the single year requested by the question is stated in
+    the same source sentence.
+    """
+
+    if not question or "|" in line:
+        return None
+    values: list[re.Match[str]] = []
+    for token in _NUMBER_RE.finditer(line):
+        if (token.start() > 0 and line[token.start() - 1] == "/") or (
+            token.end() < len(line) and line[token.end()] == "/"
+        ):
+            continue
+        parsed = parse_decimal(token.group(0))
+        suffix = normalize_text(line[token.end() : token.end() + 20])
+        explicit_date_component = (
+            parsed is not None
+            and parsed == parsed.to_integral_value()
+            and (
+                (Decimal(1) <= parsed <= Decimal(31) and suffix.startswith("thang"))
+                or (
+                    Decimal(1) <= parsed <= Decimal(12)
+                    and suffix.startswith("nam")
+                )
+            )
+        )
+        if (
+            parsed is None
+            or explicit_date_component
+            or _is_answer_metadata_number(line, token, parsed)
+        ):
+            continue
+        values.append(token)
+    if (
+        len(values) != 1
+        or values[0].start() != start
+        or values[0].end() != end
+    ):
+        return None
+
+    assertion = re.search(
+        r"(?:^|[,;:])\s*(?P<label>[^,;:]{2,200}?)\s+"
+        r"(?:là|la|is|was|were|đạt|dat|có\s+giá\s+trị|"
+        r"co\s+gia\s+tri)\s*$",
+        line[:start],
+        flags=re.IGNORECASE,
+    )
+    if assertion is None:
+        return None
+    label = assertion.group("label").strip(" .:-")
+    expected = _metric_alignment_tokens(compile_question_plan(question).metric_text)
+    observed = _metric_alignment_tokens(label)
+    if (
+        not label
+        or not expected
+        or _fuzzy_content_overlap(expected, observed) < 0.90
+    ):
+        return None
+
+    plan = compile_question_plan(question)
+    requested = tuple(dict.fromkeys(plan.requested_years))
+    source_years = set(
+        re.findall(r"\b(?:19|20)\d{2}\b", normalize_text(line))
+    )
+    period = (
+        requested[0]
+        if len(requested) == 1 and requested[0] in source_years
+        else ""
+    )
+    return label, period
 
 
 def _plaintext_financial_row_context(
@@ -2825,14 +4093,31 @@ def _plaintext_financial_row_context(
     end: int,
     marked: str,
     *,
+    question: str = "",
     source_name: str,
     page: int | None,
     source_line_start: int,
     extraction_method: str,
 ) -> str:
-    """Recover row/period metadata when native PDF extraction loses columns."""
+    """Recover source-proven row/period metadata from flattened Markdown."""
 
     line = lines[line_index]
+    assertion_identity = _plaintext_assertion_identity(
+        question, line, start, end
+    )
+    if assertion_identity is not None:
+        label, period = assertion_identity
+        section, scope = _nearby_plaintext_table_provenance(lines, line_index)
+        parts = [f"ROW: {label}", f"ROW_TYPE: {_row_type(label)}"]
+        if period:
+            parts.append(f"PERIOD: {period}")
+        if section:
+            parts.append(f"SECTION: {section}")
+        if scope:
+            parts.append(f"SCOPE: {scope}")
+        parts.append(f"CELL: {marked}")
+        return "\n".join(parts)
+
     matches: list[tuple[re.Match[str], Decimal]] = []
     for token in _NUMBER_RE.finditer(line):
         parsed = parse_decimal(token.group(0))
@@ -2840,6 +4125,14 @@ def _plaintext_financial_row_context(
             abs(parsed) >= Decimal(1000) or bool(token.group("pct"))
         ):
             matches.append((token, parsed))
+    # Sentence predicates belong around the value, not anywhere in a row
+    # label: accent folding would otherwise confuse "đất" with "đạt".
+    if matches:
+        first = matches[0][0]
+        before_value, after_value = line[:first.start()], line[first.end():]
+        if (re.search(r"\b(?:là|la|đạt)\s*$", before_value, re.IGNORECASE)
+                or re.search(r"\b(?:la|bang|dat|chiem|so voi|so ke hoach)\b", normalize_text(after_value))):
+            return ""
     target_index = next(
         (
             index
@@ -2930,10 +4223,16 @@ def _plaintext_financial_row_context(
 
 def _flattened_role_key(label: str) -> str:
     normalized = normalize_text(label)
-    if "%" in label or "ratio" in normalized:
-        if re.search(r"(?:^|\W)(?:kh|ke hoach|plan)(?:\W|$)", normalized):
+    has_plan = any(
+        token in normalized for token in ("ke hoach", " plan")
+    ) or bool(re.search(r"(?:^|\W)kh(?:\W|$)", normalized))
+    has_actual = any(
+        token in normalized for token in ("thuc hien", "thuc te", "actual")
+    ) or bool(re.search(r"(?:^|\W)th(?:\W|$)", normalized))
+    if "%" in label or "ratio" in normalized or " so voi " in f" {normalized} ":
+        if has_plan:
             return "ACTUAL_TO_PLAN_RATIO"
-        if re.search(r"(?:^|\W)(?:th|thuc hien|actual)(?:\W|$)", normalized):
+        if has_actual:
             return "ACTUAL_TO_PRIOR_RATIO"
     if any(
         token in normalized
@@ -2945,13 +4244,38 @@ def _flattened_role_key(label: str) -> str:
         )
     ):
         return "REVISED_PLAN"
-    if any(token in normalized for token in ("du bao", "uoc tinh", "forecast")):
+    if any(token in normalized for token in ("du bao", "du kien", "uoc tinh", "forecast")):
         return "FORECAST"
-    if any(token in normalized for token in ("ke hoach", " plan")):
+    if has_plan and has_actual:
+        return ""
+    if has_plan:
         return "PLAN"
-    if any(token in normalized for token in ("thuc hien", "thuc te", "actual")):
+    if has_actual:
         return "ACTUAL"
     return ""
+
+
+def _resolved_table_header_role(column_parts: Sequence[str]) -> str:
+    """Resolve only role vocabulary physically present in one header path."""
+
+    path = tuple(part for part in column_parts if part.strip())
+    if not path:
+        return ""
+    roles = {
+        role
+        for surface in (*path, " / ".join(path))
+        if (role := _flattened_role_key(surface))
+    }
+    for specialization in (
+        "ACTUAL_TO_PLAN_RATIO",
+        "ACTUAL_TO_PRIOR_RATIO",
+        "REVISED_PLAN",
+        "FORECAST",
+    ):
+        if specialization in roles:
+            return specialization.lower()
+    ordinary = roles & {"ACTUAL", "PLAN"}
+    return next(iter(ordinary)).lower() if len(ordinary) == 1 else ""
 
 
 def _flattened_numeric_cell_slots(line: str) -> list[tuple[int, int]]:
@@ -2992,7 +4316,7 @@ def _flattened_header_slot_sources(
     window_start = max(0, line_index - 12)
     role_pattern = re.compile(
         r"ke hoach dieu chinh|ke hoach sua doi|revised plan|adjusted plan|"
-        r"thuc hien|thuc te|actual|ke hoach|plan|du bao|uoc tinh|forecast"
+        r"thuc hien|thuc te|actual|ke hoach|plan|du bao|du kien|uoc tinh|forecast"
     )
     role_lines: list[tuple[int, list[tuple[int, int]]]] = []
     for index in range(window_start, line_index):
@@ -3229,11 +4553,12 @@ def _nearby_plaintext_column_labels(
     numeric cell's left/right position alone.
     """
 
-    raw_window = [
-        line.strip()
-        for line in lines[max(0, line_index - 12) : line_index]
-        if line.strip()
-    ]
+    window_start = max(0, line_index - 12)
+    for previous in range(line_index - 1, window_start - 1, -1):
+        if "|" in lines[previous]:
+            window_start = previous + 1
+            break
+    raw_window = [line.strip() for line in lines[window_start:line_index] if line.strip()]
     if not raw_window or expected_count <= 0:
         return [], []
 
@@ -3252,14 +4577,15 @@ def _nearby_plaintext_column_labels(
             match.group(0)
             for match in explicit_year_role_pattern.finditer(normalized_header)
         ]
-        if len(explicit_labels) == expected_count:
+        if (len(explicit_labels) == expected_count
+                and not re.search(r"\b(?:thuc hien|thuc te|ke hoach|actual|plan|du bao|du kien|forecast)\b", normalized_header)):
             return explicit_labels, raw_window
 
     def role_tokens(raw: str) -> list[str]:
         normalized = normalize_text(raw)
         pattern = re.compile(
             r"ke hoach dieu chinh|ke hoach sua doi|revised plan|adjusted plan|"
-            r"thuc hien|thuc te|actual|ke hoach|plan|du bao|uoc tinh|forecast"
+            r"thuc hien|thuc te|actual|ke hoach|plan|du bao|du kien|uoc tinh|forecast"
         )
         output: list[str] = []
         for match in pattern.finditer(normalized):
@@ -3372,6 +4698,8 @@ def _nearby_plaintext_period_labels(
     collected: list[tuple[int, str]] = []
     for previous in range(line_index - 1, max(-1, line_index - 13), -1):
         header = lines[previous]
+        if "|" in header:
+            break
         # A comparison/ratio column is commonly rendered on two lines:
         #
         #   Ti le (%)
@@ -3459,6 +4787,207 @@ def _financial_value_cell_indices(cells: Sequence[str]) -> list[int]:
     return output
 
 
+def _explicit_currency_units(text: str) -> set[str]:
+    """Return currency units stated by text without guessing from magnitude."""
+
+    normalized = normalize_text(
+        text.replace("Đ", "D").replace("đ", "d")
+    )
+    scaled: set[str] = set()
+    patterns = (
+        (
+            "tỷ đồng",
+            r"\bty\s*(?:dong|d|vnd)\b",
+            r"\bty\b",
+        ),
+        (
+            "triệu đồng",
+            r"\b(?:trieu|tr)\s*(?:dong|d|vnd)\b",
+            r"\b(?:trieu|tr)\b",
+        ),
+        (
+            "nghìn đồng",
+            r"\b(?:nghin|ngan|ngh)\s*(?:dong|d|vnd)\b",
+            r"\b(?:nghin|ngan|ngh)\b",
+        ),
+    )
+    # Parentheses around arbitrary prose/legal names do not declare a unit.
+    # Only a short denomination or an explicit unit declaration licenses a
+    # bare scale token; "ty" inside "cong ty" is never a denomination.
+    bare_contexts = [normalized] if len(normalized.split()) <= 2 else []
+    bare_contexts.extend(
+        normalize_text(part) for part in re.findall(r"\(([^()]*)\)", text)
+        if re.fullmatch(r"(?:ty|trieu|tr|nghin|ngan|ngh|dong|vnd|usd)", normalize_text(part)))
+    bare_contexts.extend(re.findall(
+        r"\b(?:don v(?:i)?(?: tinh)?|dvt|units?)\s*:?\s*((?:ty|trieu|tr|nghin|ngan|ngh))\b",
+        normalized))
+    unit_context = any(
+        re.fullmatch(r"(?:ty|trieu|tr|nghin|ngan|ngh|dong|vnd|usd)", part)
+        for part in bare_contexts
+    ) or bool(re.search(r"\b(?:don v(?:i)?(?: tinh)?|dvt|units?)\b", normalized))
+    for unit, paired, bare in patterns:
+        explicit_pair = bool(re.search(paired, normalized))
+        explicit_bare = bool(
+            any(re.fullmatch(bare, part.strip()) for part in bare_contexts)
+        )
+        if explicit_pair or explicit_bare:
+            scaled.add(unit)
+    output: set[str] = set(scaled)
+    if not scaled and (
+        re.search(r"\bvnd\b", normalized)
+        or (
+            re.search(r"\bdong\b", normalized)
+            and (
+                unit_context
+                or bool(re.search(r"\d\s*dong\b", normalized))
+            )
+        )
+    ):
+        output.add("VND")
+    if re.search(r"\b(?:usd|dollar)\b", normalized):
+        output.add("USD")
+    return output
+
+
+def _unique_currency_unit(
+    texts: Sequence[str],
+) -> tuple[str, bool]:
+    units: set[str] = set()
+    for text in texts:
+        units.update(_explicit_currency_units(text))
+    if len(units) == 1:
+        return next(iter(units)), False
+    return "", len(units) > 1
+
+
+def _table_column_currency_unit(
+    lines: Sequence[str],
+    line_index: int,
+    cell_index: int,
+    row_width: int,
+) -> tuple[str, bool]:
+    path: list[str] = []
+    for header_line in _table_header_lines(lines, line_index):
+        cells = _aligned_table_header_cells(
+            _markdown_cells(header_line), row_width
+        )
+        part = _inherited_header_cell(cells, cell_index)
+        if part:
+            path.append(part)
+    return _unique_currency_unit(path)
+
+
+def _table_caption_currency_unit(
+    lines: Sequence[str], line_index: int
+) -> tuple[str, bool]:
+    start, _ = _table_block_bounds(lines, line_index)
+    window_start = max(0, start - 8)
+    for index in range(start - 1, window_start - 1, -1):
+        if "|" in lines[index]:
+            window_start = index + 1
+            break
+    window = lines[window_start:start]
+    units: set[str] = set()
+    for offset, raw in enumerate(window):
+        text = raw.strip()
+        if not text or text.startswith(">"):
+            continue
+        normalized = normalize_text(
+            text.replace("Đ", "D").replace("đ", "d")
+        )
+        declared = any(
+            marker in normalized
+            for marker in ("don vi", "don v tinh", "dvt", "unit")
+        )
+        caption = normalized.startswith(("bang ", "bieu ", "table "))
+        current = _explicit_currency_units(text)
+        if declared or caption:
+            units.update(current)
+        if declared and not current:
+            for following in window[offset + 1 : offset + 3]:
+                if not following.strip() or "|" in following:
+                    break
+                units.update(_explicit_currency_units(following))
+        if (
+            current
+            and len(normalized.split()) <= 3
+            and offset >= len(window) - 2
+        ):
+            units.update(current)
+    if len(units) == 1:
+        return next(iter(units)), False
+    return "", len(units) > 1
+
+
+def _table_candidate_unit(
+    lines: Sequence[str],
+    line_index: int,
+    char_start: int,
+    *,
+    is_percent: bool,
+) -> str:
+    if is_percent:
+        return "%"
+    raw = lines[line_index]
+    number = _NUMBER_RE.match(raw, char_start)
+    local = _number_local_unit(raw, number.end()) if number else ""
+    if local:
+        return local
+    cells = _markdown_cells(raw)
+    cell_index = max(
+        0,
+        raw[:char_start].count("|")
+        - (1 if raw.lstrip().startswith("|") else 0),
+    )
+    if 0 <= cell_index < len(cells):
+        inline = _infer_unit(cells[cell_index], False)
+        if inline:
+            return inline
+    row_unit = _infer_unit(raw, False)
+    if row_unit:
+        return row_unit
+    column, conflict = _table_column_currency_unit(
+        lines, line_index, cell_index, len(cells)
+    )
+    if conflict:
+        return ""
+    if column:
+        return column
+    caption, conflict = _table_caption_currency_unit(lines, line_index)
+    return "" if conflict else caption
+
+
+def _number_local_unit(line: str, number_end: int) -> str:
+    """Prefer the unit attached to this number over row/page currency context.
+
+    Keep quantities such as floor area, headcount and shares in their own
+    dimensions even when nearby prose or a financial table declares currency.
+    """
+    if re.match(r"^\s*[đĐ₫](?!\w)", line[number_end:]):
+        return "VND"
+    suffix = normalize_text(line[number_end:].replace("²", "2").replace("³", "3"))
+    units = (
+        (r"m\s*2", "m²"), (r"m\s*3", "m³"), (r"ha", "ha"),
+        (r"kg", "kg"), (r"tan", "tấn"), (r"nguoi", "người"),
+        (r"co phieu|co phan|shares?", "shares"),
+    )
+    for pattern, unit in units:
+        if re.match(r"^\s*(?:" + pattern + r")\b", suffix):
+            return unit
+    currency = re.match(
+        r"^\s*((?:(?:ty|trieu|nghin|ngan)\s*(?:dong|vnd))|vnd|dong|usd)\b",
+        suffix)
+    if currency:
+        unit = _infer_unit(currency.group(1), False)
+        if "menh gia" in normalize_text(line) or re.search(
+            r"(?:dong|vnd)\s*/\s*(?:co phieu|co phan|shares?)\b",
+            "/".join(normalize_text(part) for part in line[number_end:].split("/")),
+        ):
+            return f"{unit}/share"
+        return unit
+    return ""
+
+
 def _infer_unit(line: str, is_percent: bool) -> str:
     normalized = normalize_text(line.replace("Đ", "D").replace("đ", "d"))
     if is_percent:
@@ -3475,14 +5004,16 @@ def _infer_unit(line: str, is_percent: bool) -> str:
         )
     ):
         return "shares"
-    if "menh gia" in normalized and any(
-        term in normalized for term in ("vnd", "dong")
-    ):
-        return "VND/share"
-    if any(term in normalized for term in ("vnd", "dong", "trieu", "ty dong")):
-        return "VND"
-    if any(term in normalized for term in ("usd", "dollar")):
-        return "USD"
+    currency_units = _explicit_currency_units(line)
+    if "menh gia" in normalized:
+        if len(currency_units) == 1:
+            unit = next(iter(currency_units))
+            return "VND/share" if unit == "VND" else f"{unit}/share"
+        return ""
+    if len(currency_units) == 1:
+        return next(iter(currency_units))
+    if len(currency_units) > 1:
+        return ""
     # A landscape extraction may concatenate ``Don vi tinh: ty dong`` from
     # one table with a coefficient heading from the adjacent table.  Explicit
     # currency tokens therefore take precedence over a generic ``he so``.
@@ -3753,3 +5284,6 @@ def _synthetic_question(
 def _format_vietnamese(value: Decimal) -> str:
     integer = int(value.to_integral_value())
     return f"{integer:,}".replace(",", ".")
+
+
+

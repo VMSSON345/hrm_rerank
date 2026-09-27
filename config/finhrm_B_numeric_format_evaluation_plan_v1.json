@@ -1,0 +1,31 @@
+{
+  "created_at": "2026-09-10T08:11:28.387509+00:00",
+  "policy": "B only",
+  "cohorts": {
+    "original10": 10,
+    "supplemental4": 4,
+    "report_boundaries2": 2,
+    "existing_ocr6": 6,
+    "additional_ocr6": 6
+  },
+  "no_independent_generalization_claim": "BSD/BHG/HAV are other complete reports, not used to implement this repair; they have historical development use and training separation is not established.",
+  "requests": {
+    "path": "config/finhrm_B_disclosures_requests_v1.json",
+    "sha256": "544441d8cf47f731755f9c1f0a29562ae210ebcd06480d8210fd49503134ce9d"
+  },
+  "reference": {
+    "path": "config/finhrm_B_disclosures_reference_v1.json",
+    "sha256": "e530efb85b4eb1bb49afaee17d6b01dbdb0783186238116d542bffb5e4b91848"
+  },
+  "baseline": "reports/finhrm_B_disclosures_results_v1.json",
+  "baseline_manual_review": "reports/finhrm_disclosure_repair_source_review_v1.json",
+  "criteria": [
+    "No observed wrong publication",
+    "Preserve baseline14 source-confirmed answers and6 justified withholdings",
+    "Trace two focal unresolved cases",
+    "Separate automatic scoring and source review",
+    "Preserve failed v1 observations; no source/gold/tolerance change; run real HRM B again."
+  ],
+  "status": "All28 are now development/regression; additional6 exposed the numeric-format failure.",
+  "numeric_format_precommit": "config/finhrm_B_numeric_format_precommit_v1.json"
+}

@@ -1,0 +1,26 @@
+{
+  "created_at": "2026-09-10T13:59:15.690111+00:00",
+  "baseline": "reports/finhrm_B_source_context_final_results_v1.json",
+  "baseline_protocol": "config/finhrm_B_source_context_final_protocol_v1.json",
+  "snapshot": {
+    "path": "archive/B_report_fields_parent_v1.zip",
+    "sha256": "95b5eea2b25939fb1445bed1a7fba8a52c76f050611b8f8f192b626423ef5284"
+  },
+  "fixed_regression": {
+    "questions": 38,
+    "correct_published": 24,
+    "expected_withheld": 11,
+    "answerable_withheld": 1,
+    "reference_unresolved": 2
+  },
+  "contract": [
+    "B only; unchanged HRM checkpoint, MinerU sources, executor and certificate.",
+    "Compare identical GGG requests on isolated semantic-format v3 and source-context v1 before repair.",
+    "Report-year is source publication context, never a manufactured financial fact date.",
+    "Generic source-bound field mapping must retain exact metric identity, unit, provenance and conflicting disclosures.",
+    "Diagnose absence of retrieved metric/period before incidental unit failures; do not claim source-wide absence from retrieval alone.",
+    "Keep original 38 questions/references unchanged; CMS stays unscored unless a separately recorded source review resolves it.",
+    "Preserve all 24 correct published values and 11 required withholdings; evaluate actual HTTP responses.",
+    "No company/page/value/case-id conditions in runtime. No training or further OCR by default."
+  ]
+}

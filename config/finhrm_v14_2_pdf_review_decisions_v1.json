@@ -1,0 +1,2841 @@
+{
+  "schema": "finhrm-v14.2-pdf-source-review-decisions-v1",
+  "scope": "All 45 SOURCE_REVIEW_REQUIRED cases; separate from the previously quarantined CNG case",
+  "input_overlay": {
+    "path": "reports/finhrm_v14_2_source_review_overlay_v2.jsonl",
+    "sha256": "7b7ddda288724c59a9e1cb26c63822a8f2067a617266ca0e0b6982400310822f"
+  },
+  "input_dataset": {
+    "path": "data/tmp/v14_2_phase2_v1/validation_coordinates_v2.jsonl",
+    "sha256": "310f5f5455681e760aa9938ac9b68ed998c5e20e273cedd6817e3fe7b6b612af"
+  },
+  "pdf_count": 7,
+  "pdf_pages_reviewed": 8,
+  "cases": [
+    {
+      "example_id": "synthetic-train-select-0091",
+      "question": "I. LƯU CHUYỂN TIỀN TỪ HOẠT ĐỘNG KINH DOANH tại Năm nay là bao nhiêu?",
+      "original_program_operation": "SELECT",
+      "original_answer_value": "21.1",
+      "original_gold_operands": [
+        {
+          "index": 3,
+          "value": "21.1",
+          "row_label": "I. LƯU CHUYỂN TIỀN TỪ HOẠT ĐỘNG KINH DOANH",
+          "column_label": "Năm nay",
+          "period": "nam nay",
+          "unit": "VND",
+          "source_name": "EVE_25CN_BCTN.pdf",
+          "page": 82
+        }
+      ],
+      "review_method": "Full-page PDF visual review; row/column/unit/scope comparison; text layer cross-check only",
+      "source": {
+        "path": "pdf/PDF_25/PDF_25/EVE_25CN_BCTN.pdf",
+        "sha256": "1cc403704a01258fd410315709fe4010de0183d736bb924f2e7c02388253965d",
+        "pdf_page_1based": 82,
+        "printed_page_labels": [
+          "81 visible on left"
+        ]
+      },
+      "disposition": "QUARANTINE_REBUILD_ANNOTATION",
+      "confirmed_issues": [
+        "cross_statement_binding",
+        "note_reference_used_as_money"
+      ],
+      "findings": [
+        "PDF đặt báo cáo kết quả kinh doanh bên trái và lưu chuyển tiền tệ bên phải; text đã ghép các hàng, mã số và cột thuyết minh giữa hai báo cáo.",
+        "21.1 là số thuyết minh ở báo cáo kết quả kinh doanh, không phải dòng tiền 21,1 VND. Tiêu đề I. Lưu chuyển tiền từ HĐKD không có số ngay trên dòng tiêu đề."
+      ],
+      "suggested_repair": {
+        "question": "Lưu chuyển tiền thuần từ hoạt động kinh doanh năm 2025 là bao nhiêu VND?",
+        "operation": "SELECT",
+        "operand_values": [
+          "79380863890"
+        ],
+        "operand_unit": "VND",
+        "answer": {
+          "fraction": "79380863890",
+          "decimal_40_digits": "79380863890"
+        },
+        "source_region": "right cash-flow statement, code 20",
+        "note": "Đây là câu hỏi sửa rõ chỉ tiêu dòng tiền thuần, không tự coi tiêu đề phần là một ô số.",
+        "status": "SOURCE_REVIEWED_SPEC_REQUIRES_REEXTRACTION_AND_NEW_DATASET_VERSION",
+        "gold_operand_indices": null
+      },
+      "new_training_or_benchmark_example_created": false
+    },
+    {
+      "example_id": "synthetic-train-add-0067",
+      "question": "Tổng 9. Chi phí quản lý doanh nghiệp và 15. Chi phí thuế TNDN hiện hành tại nam truoc là bao nhiêu?",
+      "original_program_operation": "ADD",
+      "original_answer_value": "-88173368935",
+      "original_gold_operands": [
+        {
+          "index": 17,
+          "value": "-94936293601",
+          "row_label": "9. Chi phí quản lý doanh nghiệp",
+          "column_label": "Năm trước",
+          "period": "nam truoc",
+          "unit": "VND",
+          "source_name": "EVE_25CN_BCTN.pdf",
+          "page": 82
+        },
+        {
+          "index": 28,
+          "value": "6762924666",
+          "row_label": "15. Chi phí thuế TNDN hiện hành",
+          "column_label": "Năm trước",
+          "period": "nam truoc",
+          "unit": "VND",
+          "source_name": "EVE_25CN_BCTN.pdf",
+          "page": 82
+        }
+      ],
+      "review_method": "Full-page PDF visual review; row/column/unit/scope comparison; text layer cross-check only",
+      "source": {
+        "path": "pdf/PDF_25/PDF_25/EVE_25CN_BCTN.pdf",
+        "sha256": "1cc403704a01258fd410315709fe4010de0183d736bb924f2e7c02388253965d",
+        "pdf_page_1based": 82,
+        "printed_page_labels": [
+          "81 visible on left"
+        ]
+      },
+      "disposition": "QUARANTINE_REBUILD_ANNOTATION",
+      "confirmed_issues": [
+        "cross_statement_binding",
+        "wrong_statement_and_period"
+      ],
+      "findings": [
+        "PDF đặt báo cáo kết quả kinh doanh bên trái và lưu chuyển tiền tệ bên phải; text đã ghép các hàng, mã số và cột thuyết minh giữa hai báo cáo.",
+        "Chi phí quản lý DN năm trước là (94.936.293.601); thuế TNDN hiện hành năm trước hiển thị dấu gạch. 6.762.924.666 là giảm/(tăng) chi phí trả trước năm nay trong lưu chuyển tiền tệ, không phải thuế năm trước."
+      ],
+      "suggested_repair": null,
+      "new_training_or_benchmark_example_created": false,
+      "source_facts": {
+        "prior_management_expense": "-94936293601",
+        "prior_current_tax_display": "-",
+        "misbound_cash_flow_current_prepaid_expense": "6762924666",
+        "unit": "VND"
+      },
+      "unresolved_policy": "Không tự thay dấu gạch bằng 0; phải chốt quy ước số liệu/đổi câu hỏi trước khi tạo gold cộng."
+    },
+    {
+      "example_id": "synthetic-train-multiply-0113",
+      "question": "Giá trị theo mệnh giá của Tổng số cổ phần đã phát hành tại năm 2025 là bao nhiêu?",
+      "original_program_operation": "MULTIPLY",
+      "original_answer_value": "648000000000",
+      "original_gold_operands": [
+        {
+          "index": 0,
+          "value": "64800000",
+          "row_label": "Tổng số cổ phần đã phát hành",
+          "column_label": "2025",
+          "period": "2025",
+          "unit": "shares",
+          "source_name": "LIX_25CN_BCTN.pdf",
+          "page": 44
+        },
+        {
+          "index": 9,
+          "value": "10000",
+          "row_label": "Mệnh giá cổ phần",
+          "column_label": "2025",
+          "period": "2025",
+          "unit": "VND",
+          "source_name": "LIX_25CN_BCTN.pdf",
+          "page": 44
+        }
+      ],
+      "review_method": "Full-page PDF visual review; row/column/unit/scope comparison; text layer cross-check only",
+      "source": {
+        "path": "pdf/PDF_25/PDF_25/LIX_25CN_BCTN.pdf",
+        "sha256": "383950be7a1c7932a7ed313033f4b90b10010d429d598f205759ed6db05ed80a",
+        "pdf_page_1based": 44,
+        "printed_page_labels": [
+          "86",
+          "87"
+        ]
+      },
+      "disposition": "REPAIR_METADATA_KEEP_INTENT_AND_NUMERIC_RESULT",
+      "confirmed_issues": [
+        "distractor_cross_region_binding",
+        "per_share_unit_metadata"
+      ],
+      "findings": [
+        "Candidate 50% thuộc chú thích giới hạn sở hữu nước ngoài bên trái; metadata lại trộn nghị quyết/cột bảng tăng vốn bên phải. Không chạm hai gold operands.",
+        "64.800.000 cổ phiếu và 10.000 đồng/cổ phiếu được nguồn ghi rõ; cần thể hiện đơn vị đồng/cổ phiếu cho mệnh giá thay vì chỉ VND."
+      ],
+      "suggested_repair": {
+        "question": "Giá trị theo mệnh giá của Tổng số cổ phần đã phát hành tại năm 2025 là bao nhiêu?",
+        "operation": "MULTIPLY",
+        "operand_values": [
+          "64800000",
+          "10000"
+        ],
+        "operand_unit": [
+          "cổ phiếu",
+          "VND/cổ phiếu"
+        ],
+        "answer": {
+          "fraction": "648000000000",
+          "decimal_40_digits": "648000000000"
+        },
+        "source_region": "left, shares section",
+        "note": "Kết quả 648.000.000.000 VND được đối chiếu thêm với VĐL 648.000 triệu đồng trong bảng bên phải.",
+        "status": "SOURCE_REVIEWED_SPEC_REQUIRES_REEXTRACTION_AND_NEW_DATASET_VERSION",
+        "gold_operand_indices": null
+      },
+      "new_training_or_benchmark_example_created": false
+    },
+    {
+      "example_id": "synthetic-train-divide-0030",
+      "question": "Lợi nhuận sau thuế chia cho Vốn chủ sở hữu tại 2025 bằng bao nhiêu?",
+      "original_program_operation": "DIVIDE",
+      "original_answer_value": "0.06168023304134760119886188154825973",
+      "original_gold_operands": [
+        {
+          "index": 15,
+          "value": "60113",
+          "row_label": "Lợi nhuận sau thuế",
+          "column_label": "2025",
+          "period": "2025",
+          "unit": "VND",
+          "source_name": "SGR_25CN_BCTN.pdf",
+          "page": 27
+        },
+        {
+          "index": 3,
+          "value": "974591",
+          "row_label": "Vốn chủ sở hữu",
+          "column_label": "2025",
+          "period": "2025",
+          "unit": "VND",
+          "source_name": "SGR_25CN_BCTN.pdf",
+          "page": 27
+        }
+      ],
+      "review_method": "Full-page PDF visual review; row/column/unit/scope comparison; text layer cross-check only",
+      "source": {
+        "path": "pdf/PDF_25/PDF_25/SGR_25CN_BCTN.pdf",
+        "sha256": "7dd606fa6982f7c2eb3b3129b259c3edf30ae4c2562f3277584348833d4a5bb7",
+        "pdf_page_1based": 27,
+        "printed_page_labels": [
+          "24"
+        ]
+      },
+      "disposition": "QUARANTINE_REBUILD_ANNOTATION",
+      "confirmed_issues": [
+        "wrong_year_binding",
+        "wrong_scale_and_entity_scope"
+      ],
+      "findings": [
+        "Gold dùng 60.113, 974.591 hoặc 151.466 thuộc cột 2024 nhưng metadata/câu hỏi ghi 2025. Cột 2025 ghi LNST 79.675, VCSH 1.433.475 và doanh thu thuần 218.631.",
+        "Nguồn ghi Đơn vị tính: triệu đồng và A. Công ty mẹ. Cần gắn đúng scale và phạm vi công ty mẹ."
+      ],
+      "suggested_repair": {
+        "question": "Tính tỷ lệ lợi nhuận sau thuế trên vốn chủ sở hữu của công ty mẹ năm 2025 dưới dạng hệ số.",
+        "operation": "DIVIDE",
+        "operand_values": [
+          "79675",
+          "1433475"
+        ],
+        "operand_unit": "triệu đồng",
+        "answer": {
+          "fraction": "3187/57339",
+          "decimal_40_digits": "0.05558171576065156350825790474197317706971"
+        },
+        "source_region": "upper table, company parent, 2025 column",
+        "note": "",
+        "status": "SOURCE_REVIEWED_SPEC_REQUIRES_REEXTRACTION_AND_NEW_DATASET_VERSION",
+        "gold_operand_indices": null
+      },
+      "new_training_or_benchmark_example_created": false
+    },
+    {
+      "example_id": "synthetic-train-divide-0089",
+      "question": "Lợi nhuận sau thuế chia cho Doanh thu thuần tại 2025 bằng bao nhiêu?",
+      "original_program_operation": "DIVIDE",
+      "original_answer_value": "0.3968745461027557339600966553549972",
+      "original_gold_operands": [
+        {
+          "index": 15,
+          "value": "60113",
+          "row_label": "Lợi nhuận sau thuế",
+          "column_label": "2025",
+          "period": "2025",
+          "unit": "VND",
+          "source_name": "SGR_25CN_BCTN.pdf",
+          "page": 27
+        },
+        {
+          "index": 6,
+          "value": "151466",
+          "row_label": "Doanh thu thuần",
+          "column_label": "2025",
+          "period": "2025",
+          "unit": "VND",
+          "source_name": "SGR_25CN_BCTN.pdf",
+          "page": 27
+        }
+      ],
+      "review_method": "Full-page PDF visual review; row/column/unit/scope comparison; text layer cross-check only",
+      "source": {
+        "path": "pdf/PDF_25/PDF_25/SGR_25CN_BCTN.pdf",
+        "sha256": "7dd606fa6982f7c2eb3b3129b259c3edf30ae4c2562f3277584348833d4a5bb7",
+        "pdf_page_1based": 27,
+        "printed_page_labels": [
+          "24"
+        ]
+      },
+      "disposition": "QUARANTINE_REBUILD_ANNOTATION",
+      "confirmed_issues": [
+        "wrong_year_binding",
+        "wrong_scale_and_entity_scope"
+      ],
+      "findings": [
+        "Gold dùng 60.113, 974.591 hoặc 151.466 thuộc cột 2024 nhưng metadata/câu hỏi ghi 2025. Cột 2025 ghi LNST 79.675, VCSH 1.433.475 và doanh thu thuần 218.631.",
+        "Nguồn ghi Đơn vị tính: triệu đồng và A. Công ty mẹ. Cần gắn đúng scale và phạm vi công ty mẹ."
+      ],
+      "suggested_repair": {
+        "question": "Tính tỷ lệ lợi nhuận sau thuế trên doanh thu thuần của công ty mẹ năm 2025 dưới dạng hệ số.",
+        "operation": "DIVIDE",
+        "operand_values": [
+          "79675",
+          "218631"
+        ],
+        "operand_unit": "triệu đồng",
+        "answer": {
+          "fraction": "79675/218631",
+          "decimal_40_digits": "0.3644268196184438620323741829841147870156"
+        },
+        "source_region": "upper table, company parent, 2025 column",
+        "note": "",
+        "status": "SOURCE_REVIEWED_SPEC_REQUIRES_REEXTRACTION_AND_NEW_DATASET_VERSION",
+        "gold_operand_indices": null
+      },
+      "new_training_or_benchmark_example_created": false
+    },
+    {
+      "example_id": "synthetic-train-ratio_percent-0056",
+      "question": "Lợi nhuận sau thuế chiếm bao nhiêu phần trăm Doanh thu thuần tại 2025?",
+      "original_program_operation": "RATIO_PERCENT",
+      "original_answer_value": "39.68745461027557339600966553549972",
+      "original_gold_operands": [
+        {
+          "index": 15,
+          "value": "60113",
+          "row_label": "Lợi nhuận sau thuế",
+          "column_label": "2025",
+          "period": "2025",
+          "unit": "VND",
+          "source_name": "SGR_25CN_BCTN.pdf",
+          "page": 27
+        },
+        {
+          "index": 6,
+          "value": "151466",
+          "row_label": "Doanh thu thuần",
+          "column_label": "2025",
+          "period": "2025",
+          "unit": "VND",
+          "source_name": "SGR_25CN_BCTN.pdf",
+          "page": 27
+        }
+      ],
+      "review_method": "Full-page PDF visual review; row/column/unit/scope comparison; text layer cross-check only",
+      "source": {
+        "path": "pdf/PDF_25/PDF_25/SGR_25CN_BCTN.pdf",
+        "sha256": "7dd606fa6982f7c2eb3b3129b259c3edf30ae4c2562f3277584348833d4a5bb7",
+        "pdf_page_1based": 27,
+        "printed_page_labels": [
+          "24"
+        ]
+      },
+      "disposition": "QUARANTINE_REBUILD_ANNOTATION",
+      "confirmed_issues": [
+        "wrong_year_binding",
+        "wrong_scale_and_entity_scope"
+      ],
+      "findings": [
+        "Gold dùng 60.113, 974.591 hoặc 151.466 thuộc cột 2024 nhưng metadata/câu hỏi ghi 2025. Cột 2025 ghi LNST 79.675, VCSH 1.433.475 và doanh thu thuần 218.631.",
+        "Nguồn ghi Đơn vị tính: triệu đồng và A. Công ty mẹ. Cần gắn đúng scale và phạm vi công ty mẹ."
+      ],
+      "suggested_repair": {
+        "question": "Tính tỷ lệ lợi nhuận sau thuế trên doanh thu thuần của công ty mẹ năm 2025 theo phần trăm.",
+        "operation": "RATIO_PERCENT",
+        "operand_values": [
+          "79675",
+          "218631"
+        ],
+        "operand_unit": "triệu đồng",
+        "answer": {
+          "fraction": "7967500/218631",
+          "decimal_40_digits": "36.44268196184438620323741829841147870156"
+        },
+        "source_region": "upper table, company parent, 2025 column",
+        "note": "",
+        "status": "SOURCE_REVIEWED_SPEC_REQUIRES_REEXTRACTION_AND_NEW_DATASET_VERSION",
+        "gold_operand_indices": null
+      },
+      "new_training_or_benchmark_example_created": false
+    },
+    {
+      "example_id": "synthetic-train-percent_change-0018",
+      "question": "(Lỗ)/lợi nhuận trước thuế thay đổi bao nhiêu phần trăm từ Năm trước đến Năm nay?",
+      "original_program_operation": "PERCENT_CHANGE",
+      "original_answer_value": "-7.054804453565491554377530205179824",
+      "original_gold_operands": [
+        {
+          "index": 6,
+          "value": "-472297359003",
+          "row_label": "(Lỗ)/lợi nhuận trước thuế",
+          "column_label": "Năm nay",
+          "period": "nam nay",
+          "unit": "VND",
+          "source_name": "EVE_25CN_BCTN.pdf",
+          "page": 82
+        },
+        {
+          "index": 7,
+          "value": "-508146070624",
+          "row_label": "(Lỗ)/lợi nhuận trước thuế",
+          "column_label": "Năm trước",
+          "period": "nam truoc",
+          "unit": "VND",
+          "source_name": "EVE_25CN_BCTN.pdf",
+          "page": 82
+        }
+      ],
+      "review_method": "Full-page PDF visual review; row/column/unit/scope comparison; text layer cross-check only",
+      "source": {
+        "path": "pdf/PDF_25/PDF_25/EVE_25CN_BCTN.pdf",
+        "sha256": "1cc403704a01258fd410315709fe4010de0183d736bb924f2e7c02388253965d",
+        "pdf_page_1based": 82,
+        "printed_page_labels": [
+          "81 visible on left"
+        ]
+      },
+      "disposition": "QUARANTINE_REBUILD_ANNOTATION",
+      "confirmed_issues": [
+        "cross_statement_binding",
+        "wrong_metric_cost_of_sales"
+      ],
+      "findings": [
+        "PDF đặt báo cáo kết quả kinh doanh bên trái và lưu chuyển tiền tệ bên phải; text đã ghép các hàng, mã số và cột thuyết minh giữa hai báo cáo.",
+        "(472.297.359.003) và (508.146.070.624) là Giá vốn hàng bán, không phải lợi nhuận trước thuế. Giá trị đúng là 48.543.215.916 và (28.775.648.118) VND."
+      ],
+      "suggested_repair": null,
+      "new_training_or_benchmark_example_created": false,
+      "source_facts": {
+        "pretax_2025": "48543215916",
+        "pretax_2024": "-28775648118",
+        "unit": "VND"
+      },
+      "unresolved_policy": "Kỳ gốc âm: phải khai báo quy ước tăng trưởng (mẫu số có dấu hay trị tuyệt đối), hoặc hỏi chênh lệch số tiền. Chưa tự chốt gold phần trăm."
+    },
+    {
+      "example_id": "synthetic-train-average-0012",
+      "question": "Giá trị bình quân của (Lỗ)/lợi nhuận trước thuế giữa Năm nay và Năm trước là bao nhiêu?",
+      "original_program_operation": "AVERAGE",
+      "original_answer_value": "-490221714813.5",
+      "original_gold_operands": [
+        {
+          "index": 6,
+          "value": "-472297359003",
+          "row_label": "(Lỗ)/lợi nhuận trước thuế",
+          "column_label": "Năm nay",
+          "period": "nam nay",
+          "unit": "VND",
+          "source_name": "EVE_25CN_BCTN.pdf",
+          "page": 82
+        },
+        {
+          "index": 7,
+          "value": "-508146070624",
+          "row_label": "(Lỗ)/lợi nhuận trước thuế",
+          "column_label": "Năm trước",
+          "period": "nam truoc",
+          "unit": "VND",
+          "source_name": "EVE_25CN_BCTN.pdf",
+          "page": 82
+        }
+      ],
+      "review_method": "Full-page PDF visual review; row/column/unit/scope comparison; text layer cross-check only",
+      "source": {
+        "path": "pdf/PDF_25/PDF_25/EVE_25CN_BCTN.pdf",
+        "sha256": "1cc403704a01258fd410315709fe4010de0183d736bb924f2e7c02388253965d",
+        "pdf_page_1based": 82,
+        "printed_page_labels": [
+          "81 visible on left"
+        ]
+      },
+      "disposition": "QUARANTINE_REBUILD_ANNOTATION",
+      "confirmed_issues": [
+        "cross_statement_binding",
+        "wrong_metric_cost_of_sales"
+      ],
+      "findings": [
+        "PDF đặt báo cáo kết quả kinh doanh bên trái và lưu chuyển tiền tệ bên phải; text đã ghép các hàng, mã số và cột thuyết minh giữa hai báo cáo.",
+        "(472.297.359.003) và (508.146.070.624) là Giá vốn hàng bán, không phải lợi nhuận trước thuế. Giá trị đúng là 48.543.215.916 và (28.775.648.118) VND."
+      ],
+      "suggested_repair": {
+        "question": "Lợi nhuận trước thuế bình quân giữa năm 2025 và 2024 là bao nhiêu VND?",
+        "operation": "AVERAGE",
+        "operand_values": [
+          "48543215916",
+          "-28775648118"
+        ],
+        "operand_unit": "VND",
+        "answer": {
+          "fraction": "9883783899",
+          "decimal_40_digits": "9883783899"
+        },
+        "source_region": "left statement row 14 / right cash-flow code 01",
+        "note": "",
+        "status": "SOURCE_REVIEWED_SPEC_REQUIRES_REEXTRACTION_AND_NEW_DATASET_VERSION",
+        "gold_operand_indices": null
+      },
+      "new_training_or_benchmark_example_created": false
+    },
+    {
+      "example_id": "synthetic-train-average-0081",
+      "question": "Giá trị bình quân của Dự phòng giữa Số cuối năm và Số đầu năm là bao nhiêu?",
+      "original_program_operation": "AVERAGE",
+      "original_answer_value": "14423134741.5",
+      "original_gold_operands": [
+        {
+          "index": 0,
+          "value": "14470665955",
+          "row_label": "Dự phòng",
+          "column_label": "Số cuối năm",
+          "period": "cuoi nam",
+          "unit": "VND",
+          "source_name": "ACG_25CN_BCTN.pdf",
+          "page": 92
+        },
+        {
+          "index": 1,
+          "value": "14375603528",
+          "row_label": "Dự phòng",
+          "column_label": "Số đầu năm",
+          "period": "dau nam",
+          "unit": "VND",
+          "source_name": "ACG_25CN_BCTN.pdf",
+          "page": 92
+        }
+      ],
+      "review_method": "Full-page PDF visual review; row/column/unit/scope comparison; text layer cross-check only",
+      "source": {
+        "path": "pdf/PDF_25/PDF_25/ACG_25CN_BCTN.pdf",
+        "sha256": "663c4a4d4e034e2d2566fcb8cd8efcb6cee429c38466e8d443fe4be5c1a43187",
+        "pdf_page_1based": 92,
+        "printed_page_labels": [
+          "180",
+          "181"
+        ]
+      },
+      "disposition": "QUARANTINE_REBUILD_ANNOTATION",
+      "confirmed_issues": [
+        "cross_table_wrong_metric",
+        "ambiguous_question_metric",
+        "cross_region_prose_binding"
+      ],
+      "findings": [
+        "14.470.665.955 và 14.375.603.528 là Chi phí trả trước / Ngắn hạn ở bảng bên phải, không phải Dự phòng ở bảng hàng tồn kho bên trái.",
+        "Câu hỏi chỉ ghi Dự phòng; phải chỉ rõ dự phòng giảm giá hàng tồn kho và dùng số dư ở bảng dự phòng.",
+        "Các candidate 56.544.169.976 và 149.966.693.824 thuộc chú thích thuê đất bên phải, bị ghép với câu thế chấp hàng tồn kho bên trái."
+      ],
+      "suggested_repair": {
+        "question": "Số dư dự phòng giảm giá hàng tồn kho bình quân giữa đầu và cuối năm 2025 là bao nhiêu VND?",
+        "operation": "AVERAGE",
+        "operand_values": [
+          "48241229868",
+          "34743169341"
+        ],
+        "operand_unit": "VND",
+        "answer": {
+          "fraction": "82984399209/2",
+          "decimal_40_digits": "41492199604.5"
+        },
+        "source_region": "left, inventory provision movement table",
+        "note": "Dùng số dư dương của bảng diễn giải biến động; không tự đổi dấu khoản dự phòng trong bảng giá trị thuần.",
+        "status": "SOURCE_REVIEWED_SPEC_REQUIRES_REEXTRACTION_AND_NEW_DATASET_VERSION",
+        "gold_operand_indices": null
+      },
+      "new_training_or_benchmark_example_created": false
+    },
+    {
+      "example_id": "synthetic-train-sum3-0034",
+      "question": "Tính tổng số học của I. LƯU CHUYỂN TIỀN TỪ HOẠT ĐỘNG KINH DOANH, Lãi từ hoạt động đầu tư và Giảm các khoản phải thu tại nam nay là bao nhiêu?",
+      "original_program_operation": "SUM3",
+      "original_answer_value": "-158501129021.9",
+      "original_gold_operands": [
+        {
+          "index": 3,
+          "value": "21.1",
+          "row_label": "I. LƯU CHUYỂN TIỀN TỪ HOẠT ĐỘNG KINH DOANH",
+          "column_label": "Năm nay",
+          "period": "nam nay",
+          "unit": "VND",
+          "source_name": "EVE_25CN_BCTN.pdf",
+          "page": 82
+        },
+        {
+          "index": 11,
+          "value": "-154343881861",
+          "row_label": "Lãi từ hoạt động đầu tư",
+          "column_label": "Năm nay",
+          "period": "nam nay",
+          "unit": "VND",
+          "source_name": "EVE_25CN_BCTN.pdf",
+          "page": 82
+        },
+        {
+          "index": 21,
+          "value": "-4157247182",
+          "row_label": "Giảm các khoản phải thu",
+          "column_label": "Năm nay",
+          "period": "nam nay",
+          "unit": "VND",
+          "source_name": "EVE_25CN_BCTN.pdf",
+          "page": 82
+        }
+      ],
+      "review_method": "Full-page PDF visual review; row/column/unit/scope comparison; text layer cross-check only",
+      "source": {
+        "path": "pdf/PDF_25/PDF_25/EVE_25CN_BCTN.pdf",
+        "sha256": "1cc403704a01258fd410315709fe4010de0183d736bb924f2e7c02388253965d",
+        "pdf_page_1based": 82,
+        "printed_page_labels": [
+          "81 visible on left"
+        ]
+      },
+      "disposition": "QUARANTINE_REBUILD_ANNOTATION",
+      "confirmed_issues": [
+        "cross_statement_binding",
+        "heading_and_wrong_components"
+      ],
+      "findings": [
+        "PDF đặt báo cáo kết quả kinh doanh bên trái và lưu chuyển tiền tệ bên phải; text đã ghép các hàng, mã số và cột thuyết minh giữa hai báo cáo.",
+        "21.1 là mã thuyết minh; -154.343.881.861 là chi phí bán hàng; -4.157.247.182 là chi phí khác năm trước. Không phải ba chỉ tiêu được nêu trong câu hỏi tổng."
+      ],
+      "suggested_repair": null,
+      "new_training_or_benchmark_example_created": false,
+      "source_facts": {
+        "net_operating_cash_flow_2025": "79380863890",
+        "investment_gain_cash_flow_adjustment_2025": "-28629457349",
+        "receivables_change_cash_flow_2025": "-1873073806",
+        "unit": "VND"
+      },
+      "unresolved_policy": "Chỉ dựng lại câu hỏi tổng số học khi nêu rõ từng chỉ tiêu và không diễn giải tổng này là một chỉ tiêu tài chính mới; có nguy cơ cộng thành phần với tổng."
+    },
+    {
+      "example_id": "synthetic-validation-select-0002",
+      "question": "Tổng tài sản tại 2022 là bao nhiêu?",
+      "original_program_operation": "SELECT",
+      "original_answer_value": "1273.3",
+      "original_gold_operands": [
+        {
+          "index": 1,
+          "value": "1273.3",
+          "row_label": "Tổng tài sản",
+          "column_label": "2022",
+          "period": "2022",
+          "unit": "VND",
+          "source_name": "CNG_25CN_BCTN.pdf",
+          "page": 55
+        }
+      ],
+      "review_method": "Full-page PDF visual review; row/column/unit/scope comparison; text layer cross-check only",
+      "source": {
+        "path": "pdf/PDF_25/PDF_25/CNG_25CN_BCTN.pdf",
+        "sha256": "f05881626c8405cef9f8b4bef7dacfa8c32f14b3ff82669279bc01c1480f6885",
+        "pdf_page_1based": 55,
+        "printed_page_labels": [
+          "106",
+          "107"
+        ]
+      },
+      "disposition": "REPAIR_METADATA_KEEP_INTENT_AND_NUMERIC_RESULT",
+      "confirmed_issues": [
+        "cross_chart_candidate_contamination",
+        "wrong_currency_scale"
+      ],
+      "findings": [
+        "1.273,3 là tổng tài sản 2022, thấy trong bảng số tiền và biểu đồ; không thuộc ô nợ dài hạn 2025. Candidate pool bị ghép số với 4,2%.",
+        "Các giá trị gold khớp bảng trên, nhưng nguồn ghi Tỷ đồng, candidate ghi VND không scale. Cần sửa metadata trước khi dùng làm evidence."
+      ],
+      "suggested_repair": {
+        "question": "Tổng tài sản tại 2022 là bao nhiêu?",
+        "operation": "SELECT",
+        "operand_values": [
+          "1273.3"
+        ],
+        "operand_unit": "tỷ đồng",
+        "answer": {
+          "fraction": "12733/10",
+          "decimal_40_digits": "1273.3"
+        },
+        "source_region": "left, upper monetary table",
+        "note": "Giữ kết quả số theo đơn vị hiển thị; khi cần VND phải nhân 10^9. Tỷ lệ là tính từ số tiền đã làm tròn; khai báo rounding, không gọi là tỷ lệ nguyên văn trong bảng dưới.",
+        "status": "SOURCE_REVIEWED_SPEC_REQUIRES_REEXTRACTION_AND_NEW_DATASET_VERSION",
+        "gold_operand_indices": null
+      },
+      "new_training_or_benchmark_example_created": false
+    },
+    {
+      "example_id": "synthetic-validation-select-0003",
+      "question": "Các khoản đầu tư tài tại 2021 là bao nhiêu?",
+      "original_program_operation": "SELECT",
+      "original_answer_value": "38.52",
+      "original_gold_operands": [
+        {
+          "index": 11,
+          "value": "38.52",
+          "row_label": "Các khoản đầu tư tài",
+          "column_label": "2021",
+          "period": "2021",
+          "unit": "%",
+          "source_name": "DXS_25CN_BCTN.pdf",
+          "page": 35
+        }
+      ],
+      "review_method": "Full-page PDF visual review; row/column/unit/scope comparison; text layer cross-check only",
+      "source": {
+        "path": "pdf/PDF_25/PDF_25/DXS_25CN_BCTN.pdf",
+        "sha256": "257f04694862525c2abfef8c4ad862f1c299cd72b9e88d2450cf8ae1630316af",
+        "pdf_page_1based": 35,
+        "printed_page_labels": [
+          "66",
+          "67"
+        ]
+      },
+      "disposition": "QUARANTINE_REBUILD_ANNOTATION",
+      "confirmed_issues": [
+        "cross_table_wrong_metric",
+        "truncated_and_ambiguous_metric"
+      ],
+      "findings": [
+        "Gold 38,52% (2021) hoặc 2.253 (2025) thuộc dòng Giá vốn ở bảng bên trái, không phải Các khoản đầu tư tài chính ở bảng tài sản bên phải.",
+        "Tên chỉ tiêu bị cắt. Nguồn có đầu tư tài chính ngắn hạn và dài hạn; cần nêu rõ phạm vi trước khi sửa đáp án."
+      ],
+      "suggested_repair": null,
+      "new_training_or_benchmark_example_created": false,
+      "source_facts": {
+        "2021": {
+          "short_term_financial_investments": "156",
+          "long_term_financial_investments": "21"
+        },
+        "2025": {
+          "short_term_financial_investments": "322",
+          "long_term_financial_investments": "32"
+        },
+        "unit": "tỷ đồng",
+        "region": "right asset table; amounts and percentage subcolumns"
+      }
+    },
+    {
+      "example_id": "synthetic-validation-select-0004",
+      "question": "Tổng tài sản tại 2024 là bao nhiêu?",
+      "original_program_operation": "SELECT",
+      "original_answer_value": "1365.7",
+      "original_gold_operands": [
+        {
+          "index": 3,
+          "value": "1365.7",
+          "row_label": "Tổng tài sản",
+          "column_label": "2024",
+          "period": "2024",
+          "unit": "VND",
+          "source_name": "CNG_25CN_BCTN.pdf",
+          "page": 55
+        }
+      ],
+      "review_method": "Full-page PDF visual review; row/column/unit/scope comparison; text layer cross-check only",
+      "source": {
+        "path": "pdf/PDF_25/PDF_25/CNG_25CN_BCTN.pdf",
+        "sha256": "f05881626c8405cef9f8b4bef7dacfa8c32f14b3ff82669279bc01c1480f6885",
+        "pdf_page_1based": 55,
+        "printed_page_labels": [
+          "106",
+          "107"
+        ]
+      },
+      "disposition": "REPAIR_METADATA_KEEP_INTENT_AND_NUMERIC_RESULT",
+      "confirmed_issues": [
+        "cross_chart_candidate_contamination",
+        "wrong_currency_scale"
+      ],
+      "findings": [
+        "1.273,3 là tổng tài sản 2022, thấy trong bảng số tiền và biểu đồ; không thuộc ô nợ dài hạn 2025. Candidate pool bị ghép số với 4,2%.",
+        "Các giá trị gold khớp bảng trên, nhưng nguồn ghi Tỷ đồng, candidate ghi VND không scale. Cần sửa metadata trước khi dùng làm evidence."
+      ],
+      "suggested_repair": {
+        "question": "Tổng tài sản tại 2024 là bao nhiêu?",
+        "operation": "SELECT",
+        "operand_values": [
+          "1365.7"
+        ],
+        "operand_unit": "tỷ đồng",
+        "answer": {
+          "fraction": "13657/10",
+          "decimal_40_digits": "1365.7"
+        },
+        "source_region": "left, upper monetary table",
+        "note": "Giữ kết quả số theo đơn vị hiển thị; khi cần VND phải nhân 10^9. Tỷ lệ là tính từ số tiền đã làm tròn; khai báo rounding, không gọi là tỷ lệ nguyên văn trong bảng dưới.",
+        "status": "SOURCE_REVIEWED_SPEC_REQUIRES_REEXTRACTION_AND_NEW_DATASET_VERSION",
+        "gold_operand_indices": null
+      },
+      "new_training_or_benchmark_example_created": false
+    },
+    {
+      "example_id": "synthetic-validation-select-0009",
+      "question": "Tổng tài sản tại 2021 là bao nhiêu?",
+      "original_program_operation": "SELECT",
+      "original_answer_value": "1122.6",
+      "original_gold_operands": [
+        {
+          "index": 0,
+          "value": "1122.6",
+          "row_label": "Tổng tài sản",
+          "column_label": "2021",
+          "period": "2021",
+          "unit": "VND",
+          "source_name": "CNG_25CN_BCTN.pdf",
+          "page": 55
+        }
+      ],
+      "review_method": "Full-page PDF visual review; row/column/unit/scope comparison; text layer cross-check only",
+      "source": {
+        "path": "pdf/PDF_25/PDF_25/CNG_25CN_BCTN.pdf",
+        "sha256": "f05881626c8405cef9f8b4bef7dacfa8c32f14b3ff82669279bc01c1480f6885",
+        "pdf_page_1based": 55,
+        "printed_page_labels": [
+          "106",
+          "107"
+        ]
+      },
+      "disposition": "REPAIR_METADATA_KEEP_INTENT_AND_NUMERIC_RESULT",
+      "confirmed_issues": [
+        "cross_chart_candidate_contamination",
+        "wrong_currency_scale"
+      ],
+      "findings": [
+        "1.273,3 là tổng tài sản 2022, thấy trong bảng số tiền và biểu đồ; không thuộc ô nợ dài hạn 2025. Candidate pool bị ghép số với 4,2%.",
+        "Các giá trị gold khớp bảng trên, nhưng nguồn ghi Tỷ đồng, candidate ghi VND không scale. Cần sửa metadata trước khi dùng làm evidence."
+      ],
+      "suggested_repair": {
+        "question": "Tổng tài sản tại 2021 là bao nhiêu?",
+        "operation": "SELECT",
+        "operand_values": [
+          "1122.6"
+        ],
+        "operand_unit": "tỷ đồng",
+        "answer": {
+          "fraction": "5613/5",
+          "decimal_40_digits": "1122.6"
+        },
+        "source_region": "left, upper monetary table",
+        "note": "Giữ kết quả số theo đơn vị hiển thị; khi cần VND phải nhân 10^9. Tỷ lệ là tính từ số tiền đã làm tròn; khai báo rounding, không gọi là tỷ lệ nguyên văn trong bảng dưới.",
+        "status": "SOURCE_REVIEWED_SPEC_REQUIRES_REEXTRACTION_AND_NEW_DATASET_VERSION",
+        "gold_operand_indices": null
+      },
+      "new_training_or_benchmark_example_created": false
+    },
+    {
+      "example_id": "synthetic-validation-select-0011",
+      "question": "Các khoản đầu tư tài tại 2025 là bao nhiêu?",
+      "original_program_operation": "SELECT",
+      "original_answer_value": "2253",
+      "original_gold_operands": [
+        {
+          "index": 15,
+          "value": "2253",
+          "row_label": "Các khoản đầu tư tài",
+          "column_label": "2025",
+          "period": "2025",
+          "unit": "VND",
+          "source_name": "DXS_25CN_BCTN.pdf",
+          "page": 35
+        }
+      ],
+      "review_method": "Full-page PDF visual review; row/column/unit/scope comparison; text layer cross-check only",
+      "source": {
+        "path": "pdf/PDF_25/PDF_25/DXS_25CN_BCTN.pdf",
+        "sha256": "257f04694862525c2abfef8c4ad862f1c299cd72b9e88d2450cf8ae1630316af",
+        "pdf_page_1based": 35,
+        "printed_page_labels": [
+          "66",
+          "67"
+        ]
+      },
+      "disposition": "QUARANTINE_REBUILD_ANNOTATION",
+      "confirmed_issues": [
+        "cross_table_wrong_metric",
+        "truncated_and_ambiguous_metric"
+      ],
+      "findings": [
+        "Gold 38,52% (2021) hoặc 2.253 (2025) thuộc dòng Giá vốn ở bảng bên trái, không phải Các khoản đầu tư tài chính ở bảng tài sản bên phải.",
+        "Tên chỉ tiêu bị cắt. Nguồn có đầu tư tài chính ngắn hạn và dài hạn; cần nêu rõ phạm vi trước khi sửa đáp án."
+      ],
+      "suggested_repair": null,
+      "new_training_or_benchmark_example_created": false,
+      "source_facts": {
+        "2021": {
+          "short_term_financial_investments": "156",
+          "long_term_financial_investments": "21"
+        },
+        "2025": {
+          "short_term_financial_investments": "322",
+          "long_term_financial_investments": "32"
+        },
+        "unit": "tỷ đồng",
+        "region": "right asset table; amounts and percentage subcolumns"
+      }
+    },
+    {
+      "example_id": "synthetic-validation-select-0018",
+      "question": "Tổng tài sản tại 2025 là bao nhiêu?",
+      "original_program_operation": "SELECT",
+      "original_answer_value": "1720.5",
+      "original_gold_operands": [
+        {
+          "index": 4,
+          "value": "1720.5",
+          "row_label": "Tổng tài sản",
+          "column_label": "2025",
+          "period": "2025",
+          "unit": "VND",
+          "source_name": "CNG_25CN_BCTN.pdf",
+          "page": 55
+        }
+      ],
+      "review_method": "Full-page PDF visual review; row/column/unit/scope comparison; text layer cross-check only",
+      "source": {
+        "path": "pdf/PDF_25/PDF_25/CNG_25CN_BCTN.pdf",
+        "sha256": "f05881626c8405cef9f8b4bef7dacfa8c32f14b3ff82669279bc01c1480f6885",
+        "pdf_page_1based": 55,
+        "printed_page_labels": [
+          "106",
+          "107"
+        ]
+      },
+      "disposition": "REPAIR_METADATA_KEEP_INTENT_AND_NUMERIC_RESULT",
+      "confirmed_issues": [
+        "cross_chart_candidate_contamination",
+        "wrong_currency_scale"
+      ],
+      "findings": [
+        "1.273,3 là tổng tài sản 2022, thấy trong bảng số tiền và biểu đồ; không thuộc ô nợ dài hạn 2025. Candidate pool bị ghép số với 4,2%.",
+        "Các giá trị gold khớp bảng trên, nhưng nguồn ghi Tỷ đồng, candidate ghi VND không scale. Cần sửa metadata trước khi dùng làm evidence."
+      ],
+      "suggested_repair": {
+        "question": "Tổng tài sản tại 2025 là bao nhiêu?",
+        "operation": "SELECT",
+        "operand_values": [
+          "1720.5"
+        ],
+        "operand_unit": "tỷ đồng",
+        "answer": {
+          "fraction": "3441/2",
+          "decimal_40_digits": "1720.5"
+        },
+        "source_region": "left, upper monetary table",
+        "note": "Giữ kết quả số theo đơn vị hiển thị; khi cần VND phải nhân 10^9. Tỷ lệ là tính từ số tiền đã làm tròn; khai báo rounding, không gọi là tỷ lệ nguyên văn trong bảng dưới.",
+        "status": "SOURCE_REVIEWED_SPEC_REQUIRES_REEXTRACTION_AND_NEW_DATASET_VERSION",
+        "gold_operand_indices": null
+      },
+      "new_training_or_benchmark_example_created": false
+    },
+    {
+      "example_id": "synthetic-validation-select-0019",
+      "question": "Tiền mặt tại Số cuối năm là bao nhiêu?",
+      "original_program_operation": "SELECT",
+      "original_answer_value": "4196846161",
+      "original_gold_operands": [
+        {
+          "index": 0,
+          "value": "4196846161",
+          "row_label": "Tiền mặt",
+          "column_label": "Số cuối năm",
+          "period": "cuoi nam",
+          "unit": "",
+          "source_name": "DXS_25CN_BCTN.pdf",
+          "page": 62
+        }
+      ],
+      "review_method": "Full-page PDF visual review; row/column/unit/scope comparison; text layer cross-check only",
+      "source": {
+        "path": "pdf/PDF_25/PDF_25/DXS_25CN_BCTN.pdf",
+        "sha256": "257f04694862525c2abfef8c4ad862f1c299cd72b9e88d2450cf8ae1630316af",
+        "pdf_page_1based": 62,
+        "printed_page_labels": [
+          "120",
+          "121"
+        ]
+      },
+      "disposition": "REPAIR_METADATA_KEEP_INTENT_AND_NUMERIC_RESULT",
+      "confirmed_issues": [
+        "missing_explicit_unit",
+        "cross_region_prose_binding"
+      ],
+      "findings": [
+        "Tiền mặt 4.196.846.161 cuối năm và 4.061.267.229 đầu năm khớp nguồn; đơn vị VND được in ngay trên bảng nhưng candidate để trống.",
+        "13.430.000.000 VND và ngày 21 trong thuyết minh mua vốn bên trái bị ghép thành ô bảng phải thu bên phải; candidate phụ bị gán unit %."
+      ],
+      "suggested_repair": {
+        "question": "Tiền mặt tại Số cuối năm là bao nhiêu?",
+        "operation": "SELECT",
+        "operand_values": [
+          "4196846161"
+        ],
+        "operand_unit": "VND",
+        "answer": {
+          "fraction": "4196846161",
+          "decimal_40_digits": "4196846161"
+        },
+        "source_region": "right, note 5 cash and cash equivalents, cash row",
+        "note": "",
+        "status": "SOURCE_REVIEWED_SPEC_REQUIRES_REEXTRACTION_AND_NEW_DATASET_VERSION",
+        "gold_operand_indices": null
+      },
+      "new_training_or_benchmark_example_created": false
+    },
+    {
+      "example_id": "synthetic-validation-select-0020",
+      "question": "Tổng tài sản tại 2023 là bao nhiêu?",
+      "original_program_operation": "SELECT",
+      "original_answer_value": "1158.6",
+      "original_gold_operands": [
+        {
+          "index": 2,
+          "value": "1158.6",
+          "row_label": "Tổng tài sản",
+          "column_label": "2023",
+          "period": "2023",
+          "unit": "VND",
+          "source_name": "CNG_25CN_BCTN.pdf",
+          "page": 55
+        }
+      ],
+      "review_method": "Full-page PDF visual review; row/column/unit/scope comparison; text layer cross-check only",
+      "source": {
+        "path": "pdf/PDF_25/PDF_25/CNG_25CN_BCTN.pdf",
+        "sha256": "f05881626c8405cef9f8b4bef7dacfa8c32f14b3ff82669279bc01c1480f6885",
+        "pdf_page_1based": 55,
+        "printed_page_labels": [
+          "106",
+          "107"
+        ]
+      },
+      "disposition": "REPAIR_METADATA_KEEP_INTENT_AND_NUMERIC_RESULT",
+      "confirmed_issues": [
+        "cross_chart_candidate_contamination",
+        "wrong_currency_scale"
+      ],
+      "findings": [
+        "1.273,3 là tổng tài sản 2022, thấy trong bảng số tiền và biểu đồ; không thuộc ô nợ dài hạn 2025. Candidate pool bị ghép số với 4,2%.",
+        "Các giá trị gold khớp bảng trên, nhưng nguồn ghi Tỷ đồng, candidate ghi VND không scale. Cần sửa metadata trước khi dùng làm evidence."
+      ],
+      "suggested_repair": {
+        "question": "Tổng tài sản tại 2023 là bao nhiêu?",
+        "operation": "SELECT",
+        "operand_values": [
+          "1158.6"
+        ],
+        "operand_unit": "tỷ đồng",
+        "answer": {
+          "fraction": "5793/5",
+          "decimal_40_digits": "1158.6"
+        },
+        "source_region": "left, upper monetary table",
+        "note": "Giữ kết quả số theo đơn vị hiển thị; khi cần VND phải nhân 10^9. Tỷ lệ là tính từ số tiền đã làm tròn; khai báo rounding, không gọi là tỷ lệ nguyên văn trong bảng dưới.",
+        "status": "SOURCE_REVIEWED_SPEC_REQUIRES_REEXTRACTION_AND_NEW_DATASET_VERSION",
+        "gold_operand_indices": null
+      },
+      "new_training_or_benchmark_example_created": false
+    },
+    {
+      "example_id": "synthetic-validation-subtract-0003",
+      "question": "Chênh lệch Nợ dài hạn giữa 2025 và 2024 là bao nhiêu?",
+      "original_program_operation": "SUBTRACT",
+      "original_answer_value": "1.5",
+      "original_gold_operands": [
+        {
+          "index": 13,
+          "value": "4.2",
+          "row_label": "Nợ dài hạn",
+          "column_label": "2025",
+          "period": "2025",
+          "unit": "%",
+          "source_name": "CNG_25CN_BCTN.pdf",
+          "page": 55
+        },
+        {
+          "index": 12,
+          "value": "2.7",
+          "row_label": "Nợ dài hạn",
+          "column_label": "2024",
+          "period": "2024",
+          "unit": "%",
+          "source_name": "CNG_25CN_BCTN.pdf",
+          "page": 55
+        }
+      ],
+      "review_method": "Full-page PDF visual review; row/column/unit/scope comparison; text layer cross-check only",
+      "source": {
+        "path": "pdf/PDF_25/PDF_25/CNG_25CN_BCTN.pdf",
+        "sha256": "f05881626c8405cef9f8b4bef7dacfa8c32f14b3ff82669279bc01c1480f6885",
+        "pdf_page_1based": 55,
+        "printed_page_labels": [
+          "106",
+          "107"
+        ]
+      },
+      "disposition": "QUARANTINE_REBUILD_ANNOTATION",
+      "confirmed_issues": [
+        "cross_chart_candidate_contamination",
+        "amount_vs_percentage_gold"
+      ],
+      "findings": [
+        "1.273,3 là tổng tài sản 2022, thấy trong bảng số tiền và biểu đồ; không thuộc ô nợ dài hạn 2025. Candidate pool bị ghép số với 4,2%.",
+        "Gold lấy 4,2% và 2,7% cho câu hỏi không nói rõ tỷ lệ; bảng số tiền ghi nợ dài hạn 2025 = 45,8 và 2024 = 20,2 tỷ đồng."
+      ],
+      "suggested_repair": {
+        "question": "Chênh lệch giá trị nợ dài hạn năm 2025 so với 2024 là bao nhiêu tỷ đồng?",
+        "operation": "SUBTRACT",
+        "operand_values": [
+          "45.8",
+          "20.2"
+        ],
+        "operand_unit": "tỷ đồng",
+        "answer": {
+          "fraction": "128/5",
+          "decimal_40_digits": "25.6"
+        },
+        "source_region": "left, upper monetary table",
+        "note": "",
+        "status": "SOURCE_REVIEWED_SPEC_REQUIRES_REEXTRACTION_AND_NEW_DATASET_VERSION",
+        "gold_operand_indices": null
+      },
+      "new_training_or_benchmark_example_created": false
+    },
+    {
+      "example_id": "synthetic-validation-subtract-0004",
+      "question": "Chênh lệch Chi phí sửa chữa lớn TSCĐ, chi phí khác giữa 01/01/2025 và Nguyên giá của TSCĐ hữu hình cuối năm đã khấu hao hết nhưng vẫn còn sử dụng là 15.890.076.845 VND. là bao nhiêu?",
+      "original_program_operation": "SUBTRACT",
+      "original_answer_value": "-511236000",
+      "original_gold_operands": [
+        {
+          "index": 18,
+          "value": "1171376819",
+          "row_label": "Chi phí sửa chữa lớn TSCĐ, chi phí khác",
+          "column_label": "01/01/2025",
+          "period": "2025",
+          "unit": "VND",
+          "source_name": "PIC_25CN_BCTN.pdf",
+          "page": 54
+        },
+        {
+          "index": 19,
+          "value": "1682612819",
+          "row_label": "Chi phí sửa chữa lớn TSCĐ, chi phí khác",
+          "column_label": "Nguyên giá của TSCĐ hữu hình cuối năm đã khấu hao hết nhưng vẫn còn sử dụng là 15.890.076.845 VND.",
+          "period": "cuoi nam",
+          "unit": "VND",
+          "source_name": "PIC_25CN_BCTN.pdf",
+          "page": 54
+        }
+      ],
+      "review_method": "Full-page PDF visual review; row/column/unit/scope comparison; text layer cross-check only",
+      "source": {
+        "path": "pdf/PDF_25/PDF_25/PIC_25CN_BCTN.pdf",
+        "sha256": "ff0061c265d7bcd744dd7374df99bdca7d5216682fb3b97a138a3ed636cf94eb",
+        "pdf_page_1based": 54,
+        "printed_page_labels": [
+          "86",
+          "87"
+        ]
+      },
+      "disposition": "QUARANTINE_REBUILD_ANNOTATION",
+      "confirmed_issues": [
+        "prose_promoted_to_period_header",
+        "wrong_period_assignment"
+      ],
+      "findings": [
+        "Câu Nguyên giá ... 15.890.076.845 VND là thuyết minh dưới bảng TSCĐ bên phải; không phải tên kỳ của bảng chi phí trả trước bên trái.",
+        "Cột trái bảng chi phí trả trước là 31/12/2025; cột phải là 01/01/2025. Dataset gán nhãn 01/01/2025 cho cột trái và câu văn cho cột phải."
+      ],
+      "suggested_repair": {
+        "question": "Chênh lệch chi phí sửa chữa lớn TSCĐ và chi phí khác dài hạn tại 31/12/2025 so với 01/01/2025 là bao nhiêu VND?",
+        "operation": "SUBTRACT",
+        "operand_values": [
+          "1171376819",
+          "1682612819"
+        ],
+        "operand_unit": "VND",
+        "answer": {
+          "fraction": "-511236000",
+          "decimal_40_digits": "-511236000"
+        },
+        "source_region": "left, note 4.7 prepaid expenses",
+        "note": "Số tiền và phép tính có thể giữ, nhưng câu hỏi/nhãn kỳ gốc không hợp lệ. Replacement phải version mới.",
+        "status": "SOURCE_REVIEWED_SPEC_REQUIRES_REEXTRACTION_AND_NEW_DATASET_VERSION",
+        "gold_operand_indices": null
+      },
+      "new_training_or_benchmark_example_created": false
+    },
+    {
+      "example_id": "synthetic-validation-subtract-0011",
+      "question": "Chênh lệch Tổng tài sản giữa 2025 và 2024 là bao nhiêu?",
+      "original_program_operation": "SUBTRACT",
+      "original_answer_value": "354.8",
+      "original_gold_operands": [
+        {
+          "index": 4,
+          "value": "1720.5",
+          "row_label": "Tổng tài sản",
+          "column_label": "2025",
+          "period": "2025",
+          "unit": "VND",
+          "source_name": "CNG_25CN_BCTN.pdf",
+          "page": 55
+        },
+        {
+          "index": 3,
+          "value": "1365.7",
+          "row_label": "Tổng tài sản",
+          "column_label": "2024",
+          "period": "2024",
+          "unit": "VND",
+          "source_name": "CNG_25CN_BCTN.pdf",
+          "page": 55
+        }
+      ],
+      "review_method": "Full-page PDF visual review; row/column/unit/scope comparison; text layer cross-check only",
+      "source": {
+        "path": "pdf/PDF_25/PDF_25/CNG_25CN_BCTN.pdf",
+        "sha256": "f05881626c8405cef9f8b4bef7dacfa8c32f14b3ff82669279bc01c1480f6885",
+        "pdf_page_1based": 55,
+        "printed_page_labels": [
+          "106",
+          "107"
+        ]
+      },
+      "disposition": "REPAIR_METADATA_KEEP_INTENT_AND_NUMERIC_RESULT",
+      "confirmed_issues": [
+        "cross_chart_candidate_contamination",
+        "wrong_currency_scale"
+      ],
+      "findings": [
+        "1.273,3 là tổng tài sản 2022, thấy trong bảng số tiền và biểu đồ; không thuộc ô nợ dài hạn 2025. Candidate pool bị ghép số với 4,2%.",
+        "Các giá trị gold khớp bảng trên, nhưng nguồn ghi Tỷ đồng, candidate ghi VND không scale. Cần sửa metadata trước khi dùng làm evidence."
+      ],
+      "suggested_repair": {
+        "question": "Chênh lệch Tổng tài sản giữa 2025 và 2024 là bao nhiêu?",
+        "operation": "SUBTRACT",
+        "operand_values": [
+          "1720.5",
+          "1365.7"
+        ],
+        "operand_unit": "tỷ đồng",
+        "answer": {
+          "fraction": "1774/5",
+          "decimal_40_digits": "354.8"
+        },
+        "source_region": "left, upper monetary table",
+        "note": "Giữ kết quả số theo đơn vị hiển thị; khi cần VND phải nhân 10^9. Tỷ lệ là tính từ số tiền đã làm tròn; khai báo rounding, không gọi là tỷ lệ nguyên văn trong bảng dưới.",
+        "status": "SOURCE_REVIEWED_SPEC_REQUIRES_REEXTRACTION_AND_NEW_DATASET_VERSION",
+        "gold_operand_indices": null
+      },
+      "new_training_or_benchmark_example_created": false
+    },
+    {
+      "example_id": "synthetic-validation-subtract-0013",
+      "question": "Chênh lệch Tiền mặt giữa Số cuối năm và Số đầu năm là bao nhiêu?",
+      "original_program_operation": "SUBTRACT",
+      "original_answer_value": "135578932",
+      "original_gold_operands": [
+        {
+          "index": 0,
+          "value": "4196846161",
+          "row_label": "Tiền mặt",
+          "column_label": "Số cuối năm",
+          "period": "cuoi nam",
+          "unit": "",
+          "source_name": "DXS_25CN_BCTN.pdf",
+          "page": 62
+        },
+        {
+          "index": 1,
+          "value": "4061267229",
+          "row_label": "Tiền mặt",
+          "column_label": "Số đầu năm",
+          "period": "dau nam",
+          "unit": "",
+          "source_name": "DXS_25CN_BCTN.pdf",
+          "page": 62
+        }
+      ],
+      "review_method": "Full-page PDF visual review; row/column/unit/scope comparison; text layer cross-check only",
+      "source": {
+        "path": "pdf/PDF_25/PDF_25/DXS_25CN_BCTN.pdf",
+        "sha256": "257f04694862525c2abfef8c4ad862f1c299cd72b9e88d2450cf8ae1630316af",
+        "pdf_page_1based": 62,
+        "printed_page_labels": [
+          "120",
+          "121"
+        ]
+      },
+      "disposition": "REPAIR_METADATA_KEEP_INTENT_AND_NUMERIC_RESULT",
+      "confirmed_issues": [
+        "missing_explicit_unit",
+        "cross_region_prose_binding"
+      ],
+      "findings": [
+        "Tiền mặt 4.196.846.161 cuối năm và 4.061.267.229 đầu năm khớp nguồn; đơn vị VND được in ngay trên bảng nhưng candidate để trống.",
+        "13.430.000.000 VND và ngày 21 trong thuyết minh mua vốn bên trái bị ghép thành ô bảng phải thu bên phải; candidate phụ bị gán unit %."
+      ],
+      "suggested_repair": {
+        "question": "Chênh lệch Tiền mặt giữa Số cuối năm và Số đầu năm là bao nhiêu?",
+        "operation": "SUBTRACT",
+        "operand_values": [
+          "4196846161",
+          "4061267229"
+        ],
+        "operand_unit": "VND",
+        "answer": {
+          "fraction": "135578932",
+          "decimal_40_digits": "135578932"
+        },
+        "source_region": "right, note 5 cash and cash equivalents, cash row",
+        "note": "",
+        "status": "SOURCE_REVIEWED_SPEC_REQUIRES_REEXTRACTION_AND_NEW_DATASET_VERSION",
+        "gold_operand_indices": null
+      },
+      "new_training_or_benchmark_example_created": false
+    },
+    {
+      "example_id": "synthetic-validation-subtract-0017",
+      "question": "Chênh lệch Cộng giữa 01/01/2025 và Nguyên giá của TSCĐ hữu hình cuối năm đã khấu hao hết nhưng vẫn còn sử dụng là 15.890.076.845 VND. là bao nhiêu?",
+      "original_program_operation": "SUBTRACT",
+      "original_answer_value": "-98231858",
+      "original_gold_operands": [
+        {
+          "index": 20,
+          "value": "1985905719",
+          "row_label": "Cộng",
+          "column_label": "01/01/2025",
+          "period": "2025",
+          "unit": "VND",
+          "source_name": "PIC_25CN_BCTN.pdf",
+          "page": 54
+        },
+        {
+          "index": 21,
+          "value": "2084137577",
+          "row_label": "Cộng",
+          "column_label": "Nguyên giá của TSCĐ hữu hình cuối năm đã khấu hao hết nhưng vẫn còn sử dụng là 15.890.076.845 VND.",
+          "period": "cuoi nam",
+          "unit": "VND",
+          "source_name": "PIC_25CN_BCTN.pdf",
+          "page": 54
+        }
+      ],
+      "review_method": "Full-page PDF visual review; row/column/unit/scope comparison; text layer cross-check only",
+      "source": {
+        "path": "pdf/PDF_25/PDF_25/PIC_25CN_BCTN.pdf",
+        "sha256": "ff0061c265d7bcd744dd7374df99bdca7d5216682fb3b97a138a3ed636cf94eb",
+        "pdf_page_1based": 54,
+        "printed_page_labels": [
+          "86",
+          "87"
+        ]
+      },
+      "disposition": "QUARANTINE_REBUILD_ANNOTATION",
+      "confirmed_issues": [
+        "prose_promoted_to_period_header",
+        "wrong_period_assignment",
+        "subtotal_scope_missing"
+      ],
+      "findings": [
+        "Câu Nguyên giá ... 15.890.076.845 VND là thuyết minh dưới bảng TSCĐ bên phải; không phải tên kỳ của bảng chi phí trả trước bên trái.",
+        "Cột trái bảng chi phí trả trước là 31/12/2025; cột phải là 01/01/2025. Dataset gán nhãn 01/01/2025 cho cột trái và câu văn cho cột phải.",
+        "Có hai dòng Cộng: ngắn hạn và dài hạn. Câu hỏi phải ghi rõ phạm vi; không chọn theo candidate index."
+      ],
+      "suggested_repair": {
+        "question": "Chênh lệch tổng chi phí trả trước dài hạn tại 31/12/2025 so với 01/01/2025 là bao nhiêu VND?",
+        "operation": "SUBTRACT",
+        "operand_values": [
+          "1985905719",
+          "2084137577"
+        ],
+        "operand_unit": "VND",
+        "answer": {
+          "fraction": "-98231858",
+          "decimal_40_digits": "-98231858"
+        },
+        "source_region": "left, note 4.7 prepaid expenses",
+        "note": "Số tiền và phép tính có thể giữ, nhưng câu hỏi/nhãn kỳ gốc không hợp lệ. Replacement phải version mới.",
+        "status": "SOURCE_REVIEWED_SPEC_REQUIRES_REEXTRACTION_AND_NEW_DATASET_VERSION",
+        "gold_operand_indices": null
+      },
+      "new_training_or_benchmark_example_created": false
+    },
+    {
+      "example_id": "synthetic-validation-subtract-0018",
+      "question": "Chênh lệch Chi phí công cụ, dụng cụ chờ phân bổ giữa 01/01/2025 và Nguyên giá của TSCĐ hữu hình cuối năm đã khấu hao hết nhưng vẫn còn sử dụng là 15.890.076.845 VND. là bao nhiêu?",
+      "original_program_operation": "SUBTRACT",
+      "original_answer_value": "413004142",
+      "original_gold_operands": [
+        {
+          "index": 16,
+          "value": "814528900",
+          "row_label": "Chi phí công cụ, dụng cụ chờ phân bổ",
+          "column_label": "01/01/2025",
+          "period": "2025",
+          "unit": "VND",
+          "source_name": "PIC_25CN_BCTN.pdf",
+          "page": 54
+        },
+        {
+          "index": 17,
+          "value": "401524758",
+          "row_label": "Chi phí công cụ, dụng cụ chờ phân bổ",
+          "column_label": "Nguyên giá của TSCĐ hữu hình cuối năm đã khấu hao hết nhưng vẫn còn sử dụng là 15.890.076.845 VND.",
+          "period": "cuoi nam",
+          "unit": "VND",
+          "source_name": "PIC_25CN_BCTN.pdf",
+          "page": 54
+        }
+      ],
+      "review_method": "Full-page PDF visual review; row/column/unit/scope comparison; text layer cross-check only",
+      "source": {
+        "path": "pdf/PDF_25/PDF_25/PIC_25CN_BCTN.pdf",
+        "sha256": "ff0061c265d7bcd744dd7374df99bdca7d5216682fb3b97a138a3ed636cf94eb",
+        "pdf_page_1based": 54,
+        "printed_page_labels": [
+          "86",
+          "87"
+        ]
+      },
+      "disposition": "QUARANTINE_REBUILD_ANNOTATION",
+      "confirmed_issues": [
+        "prose_promoted_to_period_header",
+        "wrong_period_assignment"
+      ],
+      "findings": [
+        "Câu Nguyên giá ... 15.890.076.845 VND là thuyết minh dưới bảng TSCĐ bên phải; không phải tên kỳ của bảng chi phí trả trước bên trái.",
+        "Cột trái bảng chi phí trả trước là 31/12/2025; cột phải là 01/01/2025. Dataset gán nhãn 01/01/2025 cho cột trái và câu văn cho cột phải."
+      ],
+      "suggested_repair": {
+        "question": "Chênh lệch chi phí công cụ, dụng cụ chờ phân bổ dài hạn tại 31/12/2025 so với 01/01/2025 là bao nhiêu VND?",
+        "operation": "SUBTRACT",
+        "operand_values": [
+          "814528900",
+          "401524758"
+        ],
+        "operand_unit": "VND",
+        "answer": {
+          "fraction": "413004142",
+          "decimal_40_digits": "413004142"
+        },
+        "source_region": "left, note 4.7 prepaid expenses",
+        "note": "Số tiền và phép tính có thể giữ, nhưng câu hỏi/nhãn kỳ gốc không hợp lệ. Replacement phải version mới.",
+        "status": "SOURCE_REVIEWED_SPEC_REQUIRES_REEXTRACTION_AND_NEW_DATASET_VERSION",
+        "gold_operand_indices": null
+      },
+      "new_training_or_benchmark_example_created": false
+    },
+    {
+      "example_id": "synthetic-validation-subtract-0019",
+      "question": "Chênh lệch Chi phí kiểm định, bảo hiểm, chi phí khác giữa 01/01/2025 và Nguyên giá của TSCĐ hữu hình cuối năm đã khấu hao hết nhưng vẫn còn sử dụng là 15.890.076.845 VND. là bao nhiêu?",
+      "original_program_operation": "SUBTRACT",
+      "original_answer_value": "-201528196",
+      "original_gold_operands": [
+        {
+          "index": 12,
+          "value": "124345593",
+          "row_label": "Chi phí kiểm định, bảo hiểm, chi phí khác",
+          "column_label": "01/01/2025",
+          "period": "2025",
+          "unit": "VND",
+          "source_name": "PIC_25CN_BCTN.pdf",
+          "page": 54
+        },
+        {
+          "index": 13,
+          "value": "325873789",
+          "row_label": "Chi phí kiểm định, bảo hiểm, chi phí khác",
+          "column_label": "Nguyên giá của TSCĐ hữu hình cuối năm đã khấu hao hết nhưng vẫn còn sử dụng là 15.890.076.845 VND.",
+          "period": "cuoi nam",
+          "unit": "VND",
+          "source_name": "PIC_25CN_BCTN.pdf",
+          "page": 54
+        }
+      ],
+      "review_method": "Full-page PDF visual review; row/column/unit/scope comparison; text layer cross-check only",
+      "source": {
+        "path": "pdf/PDF_25/PDF_25/PIC_25CN_BCTN.pdf",
+        "sha256": "ff0061c265d7bcd744dd7374df99bdca7d5216682fb3b97a138a3ed636cf94eb",
+        "pdf_page_1based": 54,
+        "printed_page_labels": [
+          "86",
+          "87"
+        ]
+      },
+      "disposition": "QUARANTINE_REBUILD_ANNOTATION",
+      "confirmed_issues": [
+        "prose_promoted_to_period_header",
+        "wrong_period_assignment"
+      ],
+      "findings": [
+        "Câu Nguyên giá ... 15.890.076.845 VND là thuyết minh dưới bảng TSCĐ bên phải; không phải tên kỳ của bảng chi phí trả trước bên trái.",
+        "Cột trái bảng chi phí trả trước là 31/12/2025; cột phải là 01/01/2025. Dataset gán nhãn 01/01/2025 cho cột trái và câu văn cho cột phải."
+      ],
+      "suggested_repair": {
+        "question": "Chênh lệch chi phí kiểm định, bảo hiểm và chi phí khác ngắn hạn tại 31/12/2025 so với 01/01/2025 là bao nhiêu VND?",
+        "operation": "SUBTRACT",
+        "operand_values": [
+          "124345593",
+          "325873789"
+        ],
+        "operand_unit": "VND",
+        "answer": {
+          "fraction": "-201528196",
+          "decimal_40_digits": "-201528196"
+        },
+        "source_region": "left, note 4.7 prepaid expenses",
+        "note": "Số tiền và phép tính có thể giữ, nhưng câu hỏi/nhãn kỳ gốc không hợp lệ. Replacement phải version mới.",
+        "status": "SOURCE_REVIEWED_SPEC_REQUIRES_REEXTRACTION_AND_NEW_DATASET_VERSION",
+        "gold_operand_indices": null
+      },
+      "new_training_or_benchmark_example_created": false
+    },
+    {
+      "example_id": "synthetic-validation-divide-0009",
+      "question": "Tài sản ngắn hạn chia cho Tổng tài sản tại 2021 bằng bao nhiêu?",
+      "original_program_operation": "DIVIDE",
+      "original_answer_value": "0.7389987528950650276144664172456797",
+      "original_gold_operands": [
+        {
+          "index": 5,
+          "value": "829.6",
+          "row_label": "Tài sản ngắn hạn",
+          "column_label": "2021",
+          "period": "2021",
+          "unit": "VND",
+          "source_name": "CNG_25CN_BCTN.pdf",
+          "page": 55
+        },
+        {
+          "index": 0,
+          "value": "1122.6",
+          "row_label": "Tổng tài sản",
+          "column_label": "2021",
+          "period": "2021",
+          "unit": "VND",
+          "source_name": "CNG_25CN_BCTN.pdf",
+          "page": 55
+        }
+      ],
+      "review_method": "Full-page PDF visual review; row/column/unit/scope comparison; text layer cross-check only",
+      "source": {
+        "path": "pdf/PDF_25/PDF_25/CNG_25CN_BCTN.pdf",
+        "sha256": "f05881626c8405cef9f8b4bef7dacfa8c32f14b3ff82669279bc01c1480f6885",
+        "pdf_page_1based": 55,
+        "printed_page_labels": [
+          "106",
+          "107"
+        ]
+      },
+      "disposition": "REPAIR_METADATA_KEEP_INTENT_AND_NUMERIC_RESULT",
+      "confirmed_issues": [
+        "cross_chart_candidate_contamination",
+        "wrong_currency_scale"
+      ],
+      "findings": [
+        "1.273,3 là tổng tài sản 2022, thấy trong bảng số tiền và biểu đồ; không thuộc ô nợ dài hạn 2025. Candidate pool bị ghép số với 4,2%.",
+        "Các giá trị gold khớp bảng trên, nhưng nguồn ghi Tỷ đồng, candidate ghi VND không scale. Cần sửa metadata trước khi dùng làm evidence."
+      ],
+      "suggested_repair": {
+        "question": "Tài sản ngắn hạn chia cho Tổng tài sản tại 2021 bằng bao nhiêu?",
+        "operation": "DIVIDE",
+        "operand_values": [
+          "829.6",
+          "1122.6"
+        ],
+        "operand_unit": "tỷ đồng",
+        "answer": {
+          "fraction": "4148/5613",
+          "decimal_40_digits": "0.7389987528950650276144664172456796721896"
+        },
+        "source_region": "left, upper monetary table",
+        "note": "Giữ kết quả số theo đơn vị hiển thị; khi cần VND phải nhân 10^9. Tỷ lệ là tính từ số tiền đã làm tròn; khai báo rounding, không gọi là tỷ lệ nguyên văn trong bảng dưới.",
+        "status": "SOURCE_REVIEWED_SPEC_REQUIRES_REEXTRACTION_AND_NEW_DATASET_VERSION",
+        "gold_operand_indices": null
+      },
+      "new_training_or_benchmark_example_created": false
+    },
+    {
+      "example_id": "synthetic-validation-divide-0010",
+      "question": "Tài sản ngắn hạn chia cho Tổng tài sản tại 2022 bằng bao nhiêu?",
+      "original_program_operation": "DIVIDE",
+      "original_answer_value": "0.8133197204115290976203565538364879",
+      "original_gold_operands": [
+        {
+          "index": 6,
+          "value": "1035.6",
+          "row_label": "Tài sản ngắn hạn",
+          "column_label": "2022",
+          "period": "2022",
+          "unit": "VND",
+          "source_name": "CNG_25CN_BCTN.pdf",
+          "page": 55
+        },
+        {
+          "index": 1,
+          "value": "1273.3",
+          "row_label": "Tổng tài sản",
+          "column_label": "2022",
+          "period": "2022",
+          "unit": "VND",
+          "source_name": "CNG_25CN_BCTN.pdf",
+          "page": 55
+        }
+      ],
+      "review_method": "Full-page PDF visual review; row/column/unit/scope comparison; text layer cross-check only",
+      "source": {
+        "path": "pdf/PDF_25/PDF_25/CNG_25CN_BCTN.pdf",
+        "sha256": "f05881626c8405cef9f8b4bef7dacfa8c32f14b3ff82669279bc01c1480f6885",
+        "pdf_page_1based": 55,
+        "printed_page_labels": [
+          "106",
+          "107"
+        ]
+      },
+      "disposition": "REPAIR_METADATA_KEEP_INTENT_AND_NUMERIC_RESULT",
+      "confirmed_issues": [
+        "cross_chart_candidate_contamination",
+        "wrong_currency_scale"
+      ],
+      "findings": [
+        "1.273,3 là tổng tài sản 2022, thấy trong bảng số tiền và biểu đồ; không thuộc ô nợ dài hạn 2025. Candidate pool bị ghép số với 4,2%.",
+        "Các giá trị gold khớp bảng trên, nhưng nguồn ghi Tỷ đồng, candidate ghi VND không scale. Cần sửa metadata trước khi dùng làm evidence."
+      ],
+      "suggested_repair": {
+        "question": "Tài sản ngắn hạn chia cho Tổng tài sản tại 2022 bằng bao nhiêu?",
+        "operation": "DIVIDE",
+        "operand_values": [
+          "1035.6",
+          "1273.3"
+        ],
+        "operand_unit": "tỷ đồng",
+        "answer": {
+          "fraction": "10356/12733",
+          "decimal_40_digits": "0.8133197204115290976203565538364878661745"
+        },
+        "source_region": "left, upper monetary table",
+        "note": "Giữ kết quả số theo đơn vị hiển thị; khi cần VND phải nhân 10^9. Tỷ lệ là tính từ số tiền đã làm tròn; khai báo rounding, không gọi là tỷ lệ nguyên văn trong bảng dưới.",
+        "status": "SOURCE_REVIEWED_SPEC_REQUIRES_REEXTRACTION_AND_NEW_DATASET_VERSION",
+        "gold_operand_indices": null
+      },
+      "new_training_or_benchmark_example_created": false
+    },
+    {
+      "example_id": "synthetic-validation-divide-0013",
+      "question": "Tài sản ngắn hạn chia cho Tổng tài sản tại 2021 bằng bao nhiêu?",
+      "original_program_operation": "DIVIDE",
+      "original_answer_value": "0.7389987528950650276144664172456797",
+      "original_gold_operands": [
+        {
+          "index": 5,
+          "value": "829.6",
+          "row_label": "Tài sản ngắn hạn",
+          "column_label": "2021",
+          "period": "2021",
+          "unit": "VND",
+          "source_name": "CNG_25CN_BCTN.pdf",
+          "page": 55
+        },
+        {
+          "index": 0,
+          "value": "1122.6",
+          "row_label": "Tổng tài sản",
+          "column_label": "2021",
+          "period": "2021",
+          "unit": "VND",
+          "source_name": "CNG_25CN_BCTN.pdf",
+          "page": 55
+        }
+      ],
+      "review_method": "Full-page PDF visual review; row/column/unit/scope comparison; text layer cross-check only",
+      "source": {
+        "path": "pdf/PDF_25/PDF_25/CNG_25CN_BCTN.pdf",
+        "sha256": "f05881626c8405cef9f8b4bef7dacfa8c32f14b3ff82669279bc01c1480f6885",
+        "pdf_page_1based": 55,
+        "printed_page_labels": [
+          "106",
+          "107"
+        ]
+      },
+      "disposition": "REPAIR_METADATA_KEEP_INTENT_AND_NUMERIC_RESULT",
+      "confirmed_issues": [
+        "cross_chart_candidate_contamination",
+        "wrong_currency_scale"
+      ],
+      "findings": [
+        "1.273,3 là tổng tài sản 2022, thấy trong bảng số tiền và biểu đồ; không thuộc ô nợ dài hạn 2025. Candidate pool bị ghép số với 4,2%.",
+        "Các giá trị gold khớp bảng trên, nhưng nguồn ghi Tỷ đồng, candidate ghi VND không scale. Cần sửa metadata trước khi dùng làm evidence."
+      ],
+      "suggested_repair": {
+        "question": "Tài sản ngắn hạn chia cho Tổng tài sản tại 2021 bằng bao nhiêu?",
+        "operation": "DIVIDE",
+        "operand_values": [
+          "829.6",
+          "1122.6"
+        ],
+        "operand_unit": "tỷ đồng",
+        "answer": {
+          "fraction": "4148/5613",
+          "decimal_40_digits": "0.7389987528950650276144664172456796721896"
+        },
+        "source_region": "left, upper monetary table",
+        "note": "Giữ kết quả số theo đơn vị hiển thị; khi cần VND phải nhân 10^9. Tỷ lệ là tính từ số tiền đã làm tròn; khai báo rounding, không gọi là tỷ lệ nguyên văn trong bảng dưới.",
+        "status": "SOURCE_REVIEWED_SPEC_REQUIRES_REEXTRACTION_AND_NEW_DATASET_VERSION",
+        "gold_operand_indices": null
+      },
+      "new_training_or_benchmark_example_created": false
+    },
+    {
+      "example_id": "synthetic-validation-divide-0015",
+      "question": "Tài sản ngắn hạn chia cho Tổng tài sản tại 2025 bằng bao nhiêu?",
+      "original_program_operation": "DIVIDE",
+      "original_answer_value": "0.8061609997093868061609997093868062",
+      "original_gold_operands": [
+        {
+          "index": 8,
+          "value": "1387.0",
+          "row_label": "Tài sản ngắn hạn",
+          "column_label": "2025",
+          "period": "2025",
+          "unit": "VND",
+          "source_name": "CNG_25CN_BCTN.pdf",
+          "page": 55
+        },
+        {
+          "index": 4,
+          "value": "1720.5",
+          "row_label": "Tổng tài sản",
+          "column_label": "2025",
+          "period": "2025",
+          "unit": "VND",
+          "source_name": "CNG_25CN_BCTN.pdf",
+          "page": 55
+        }
+      ],
+      "review_method": "Full-page PDF visual review; row/column/unit/scope comparison; text layer cross-check only",
+      "source": {
+        "path": "pdf/PDF_25/PDF_25/CNG_25CN_BCTN.pdf",
+        "sha256": "f05881626c8405cef9f8b4bef7dacfa8c32f14b3ff82669279bc01c1480f6885",
+        "pdf_page_1based": 55,
+        "printed_page_labels": [
+          "106",
+          "107"
+        ]
+      },
+      "disposition": "REPAIR_METADATA_KEEP_INTENT_AND_NUMERIC_RESULT",
+      "confirmed_issues": [
+        "cross_chart_candidate_contamination",
+        "wrong_currency_scale"
+      ],
+      "findings": [
+        "1.273,3 là tổng tài sản 2022, thấy trong bảng số tiền và biểu đồ; không thuộc ô nợ dài hạn 2025. Candidate pool bị ghép số với 4,2%.",
+        "Các giá trị gold khớp bảng trên, nhưng nguồn ghi Tỷ đồng, candidate ghi VND không scale. Cần sửa metadata trước khi dùng làm evidence."
+      ],
+      "suggested_repair": {
+        "question": "Tài sản ngắn hạn chia cho Tổng tài sản tại 2025 bằng bao nhiêu?",
+        "operation": "DIVIDE",
+        "operand_values": [
+          "1387.0",
+          "1720.5"
+        ],
+        "operand_unit": "tỷ đồng",
+        "answer": {
+          "fraction": "2774/3441",
+          "decimal_40_digits": "0.8061609997093868061609997093868061609997"
+        },
+        "source_region": "left, upper monetary table",
+        "note": "Giữ kết quả số theo đơn vị hiển thị; khi cần VND phải nhân 10^9. Tỷ lệ là tính từ số tiền đã làm tròn; khai báo rounding, không gọi là tỷ lệ nguyên văn trong bảng dưới.",
+        "status": "SOURCE_REVIEWED_SPEC_REQUIRES_REEXTRACTION_AND_NEW_DATASET_VERSION",
+        "gold_operand_indices": null
+      },
+      "new_training_or_benchmark_example_created": false
+    },
+    {
+      "example_id": "synthetic-validation-divide-0020",
+      "question": "Tài sản ngắn hạn chia cho Tổng tài sản tại 2024 bằng bao nhiêu?",
+      "original_program_operation": "DIVIDE",
+      "original_answer_value": "0.8242659442044372849088379585560518",
+      "original_gold_operands": [
+        {
+          "index": 7,
+          "value": "1125.7",
+          "row_label": "Tài sản ngắn hạn",
+          "column_label": "2024",
+          "period": "2024",
+          "unit": "VND",
+          "source_name": "CNG_25CN_BCTN.pdf",
+          "page": 55
+        },
+        {
+          "index": 3,
+          "value": "1365.7",
+          "row_label": "Tổng tài sản",
+          "column_label": "2024",
+          "period": "2024",
+          "unit": "VND",
+          "source_name": "CNG_25CN_BCTN.pdf",
+          "page": 55
+        }
+      ],
+      "review_method": "Full-page PDF visual review; row/column/unit/scope comparison; text layer cross-check only",
+      "source": {
+        "path": "pdf/PDF_25/PDF_25/CNG_25CN_BCTN.pdf",
+        "sha256": "f05881626c8405cef9f8b4bef7dacfa8c32f14b3ff82669279bc01c1480f6885",
+        "pdf_page_1based": 55,
+        "printed_page_labels": [
+          "106",
+          "107"
+        ]
+      },
+      "disposition": "REPAIR_METADATA_KEEP_INTENT_AND_NUMERIC_RESULT",
+      "confirmed_issues": [
+        "cross_chart_candidate_contamination",
+        "wrong_currency_scale"
+      ],
+      "findings": [
+        "1.273,3 là tổng tài sản 2022, thấy trong bảng số tiền và biểu đồ; không thuộc ô nợ dài hạn 2025. Candidate pool bị ghép số với 4,2%.",
+        "Các giá trị gold khớp bảng trên, nhưng nguồn ghi Tỷ đồng, candidate ghi VND không scale. Cần sửa metadata trước khi dùng làm evidence."
+      ],
+      "suggested_repair": {
+        "question": "Tài sản ngắn hạn chia cho Tổng tài sản tại 2024 bằng bao nhiêu?",
+        "operation": "DIVIDE",
+        "operand_values": [
+          "1125.7",
+          "1365.7"
+        ],
+        "operand_unit": "tỷ đồng",
+        "answer": {
+          "fraction": "11257/13657",
+          "decimal_40_digits": "0.8242659442044372849088379585560518415465"
+        },
+        "source_region": "left, upper monetary table",
+        "note": "Giữ kết quả số theo đơn vị hiển thị; khi cần VND phải nhân 10^9. Tỷ lệ là tính từ số tiền đã làm tròn; khai báo rounding, không gọi là tỷ lệ nguyên văn trong bảng dưới.",
+        "status": "SOURCE_REVIEWED_SPEC_REQUIRES_REEXTRACTION_AND_NEW_DATASET_VERSION",
+        "gold_operand_indices": null
+      },
+      "new_training_or_benchmark_example_created": false
+    },
+    {
+      "example_id": "synthetic-validation-ratio_percent-0002",
+      "question": "Tài sản ngắn hạn chiếm bao nhiêu phần trăm Tổng tài sản tại 2022?",
+      "original_program_operation": "RATIO_PERCENT",
+      "original_answer_value": "81.33197204115290976203565538364879",
+      "original_gold_operands": [
+        {
+          "index": 6,
+          "value": "1035.6",
+          "row_label": "Tài sản ngắn hạn",
+          "column_label": "2022",
+          "period": "2022",
+          "unit": "VND",
+          "source_name": "CNG_25CN_BCTN.pdf",
+          "page": 55
+        },
+        {
+          "index": 1,
+          "value": "1273.3",
+          "row_label": "Tổng tài sản",
+          "column_label": "2022",
+          "period": "2022",
+          "unit": "VND",
+          "source_name": "CNG_25CN_BCTN.pdf",
+          "page": 55
+        }
+      ],
+      "review_method": "Full-page PDF visual review; row/column/unit/scope comparison; text layer cross-check only",
+      "source": {
+        "path": "pdf/PDF_25/PDF_25/CNG_25CN_BCTN.pdf",
+        "sha256": "f05881626c8405cef9f8b4bef7dacfa8c32f14b3ff82669279bc01c1480f6885",
+        "pdf_page_1based": 55,
+        "printed_page_labels": [
+          "106",
+          "107"
+        ]
+      },
+      "disposition": "REPAIR_METADATA_KEEP_INTENT_AND_NUMERIC_RESULT",
+      "confirmed_issues": [
+        "cross_chart_candidate_contamination",
+        "wrong_currency_scale"
+      ],
+      "findings": [
+        "1.273,3 là tổng tài sản 2022, thấy trong bảng số tiền và biểu đồ; không thuộc ô nợ dài hạn 2025. Candidate pool bị ghép số với 4,2%.",
+        "Các giá trị gold khớp bảng trên, nhưng nguồn ghi Tỷ đồng, candidate ghi VND không scale. Cần sửa metadata trước khi dùng làm evidence."
+      ],
+      "suggested_repair": {
+        "question": "Tài sản ngắn hạn chiếm bao nhiêu phần trăm Tổng tài sản tại 2022?",
+        "operation": "RATIO_PERCENT",
+        "operand_values": [
+          "1035.6",
+          "1273.3"
+        ],
+        "operand_unit": "tỷ đồng",
+        "answer": {
+          "fraction": "1035600/12733",
+          "decimal_40_digits": "81.33197204115290976203565538364878661745"
+        },
+        "source_region": "left, upper monetary table",
+        "note": "Giữ kết quả số theo đơn vị hiển thị; khi cần VND phải nhân 10^9. Tỷ lệ là tính từ số tiền đã làm tròn; khai báo rounding, không gọi là tỷ lệ nguyên văn trong bảng dưới.",
+        "status": "SOURCE_REVIEWED_SPEC_REQUIRES_REEXTRACTION_AND_NEW_DATASET_VERSION",
+        "gold_operand_indices": null
+      },
+      "new_training_or_benchmark_example_created": false
+    },
+    {
+      "example_id": "synthetic-validation-ratio_percent-0011",
+      "question": "Tài sản ngắn hạn chiếm bao nhiêu phần trăm Tổng tài sản tại 2025?",
+      "original_program_operation": "RATIO_PERCENT",
+      "original_answer_value": "80.61609997093868061609997093868062",
+      "original_gold_operands": [
+        {
+          "index": 8,
+          "value": "1387.0",
+          "row_label": "Tài sản ngắn hạn",
+          "column_label": "2025",
+          "period": "2025",
+          "unit": "VND",
+          "source_name": "CNG_25CN_BCTN.pdf",
+          "page": 55
+        },
+        {
+          "index": 4,
+          "value": "1720.5",
+          "row_label": "Tổng tài sản",
+          "column_label": "2025",
+          "period": "2025",
+          "unit": "VND",
+          "source_name": "CNG_25CN_BCTN.pdf",
+          "page": 55
+        }
+      ],
+      "review_method": "Full-page PDF visual review; row/column/unit/scope comparison; text layer cross-check only",
+      "source": {
+        "path": "pdf/PDF_25/PDF_25/CNG_25CN_BCTN.pdf",
+        "sha256": "f05881626c8405cef9f8b4bef7dacfa8c32f14b3ff82669279bc01c1480f6885",
+        "pdf_page_1based": 55,
+        "printed_page_labels": [
+          "106",
+          "107"
+        ]
+      },
+      "disposition": "REPAIR_METADATA_KEEP_INTENT_AND_NUMERIC_RESULT",
+      "confirmed_issues": [
+        "cross_chart_candidate_contamination",
+        "wrong_currency_scale"
+      ],
+      "findings": [
+        "1.273,3 là tổng tài sản 2022, thấy trong bảng số tiền và biểu đồ; không thuộc ô nợ dài hạn 2025. Candidate pool bị ghép số với 4,2%.",
+        "Các giá trị gold khớp bảng trên, nhưng nguồn ghi Tỷ đồng, candidate ghi VND không scale. Cần sửa metadata trước khi dùng làm evidence."
+      ],
+      "suggested_repair": {
+        "question": "Tài sản ngắn hạn chiếm bao nhiêu phần trăm Tổng tài sản tại 2025?",
+        "operation": "RATIO_PERCENT",
+        "operand_values": [
+          "1387.0",
+          "1720.5"
+        ],
+        "operand_unit": "tỷ đồng",
+        "answer": {
+          "fraction": "277400/3441",
+          "decimal_40_digits": "80.61609997093868061609997093868061609997"
+        },
+        "source_region": "left, upper monetary table",
+        "note": "Giữ kết quả số theo đơn vị hiển thị; khi cần VND phải nhân 10^9. Tỷ lệ là tính từ số tiền đã làm tròn; khai báo rounding, không gọi là tỷ lệ nguyên văn trong bảng dưới.",
+        "status": "SOURCE_REVIEWED_SPEC_REQUIRES_REEXTRACTION_AND_NEW_DATASET_VERSION",
+        "gold_operand_indices": null
+      },
+      "new_training_or_benchmark_example_created": false
+    },
+    {
+      "example_id": "synthetic-validation-ratio_percent-0013",
+      "question": "Tài sản ngắn hạn chiếm bao nhiêu phần trăm Tổng tài sản tại 2021?",
+      "original_program_operation": "RATIO_PERCENT",
+      "original_answer_value": "73.89987528950650276144664172456797",
+      "original_gold_operands": [
+        {
+          "index": 5,
+          "value": "829.6",
+          "row_label": "Tài sản ngắn hạn",
+          "column_label": "2021",
+          "period": "2021",
+          "unit": "VND",
+          "source_name": "CNG_25CN_BCTN.pdf",
+          "page": 55
+        },
+        {
+          "index": 0,
+          "value": "1122.6",
+          "row_label": "Tổng tài sản",
+          "column_label": "2021",
+          "period": "2021",
+          "unit": "VND",
+          "source_name": "CNG_25CN_BCTN.pdf",
+          "page": 55
+        }
+      ],
+      "review_method": "Full-page PDF visual review; row/column/unit/scope comparison; text layer cross-check only",
+      "source": {
+        "path": "pdf/PDF_25/PDF_25/CNG_25CN_BCTN.pdf",
+        "sha256": "f05881626c8405cef9f8b4bef7dacfa8c32f14b3ff82669279bc01c1480f6885",
+        "pdf_page_1based": 55,
+        "printed_page_labels": [
+          "106",
+          "107"
+        ]
+      },
+      "disposition": "REPAIR_METADATA_KEEP_INTENT_AND_NUMERIC_RESULT",
+      "confirmed_issues": [
+        "cross_chart_candidate_contamination",
+        "wrong_currency_scale"
+      ],
+      "findings": [
+        "1.273,3 là tổng tài sản 2022, thấy trong bảng số tiền và biểu đồ; không thuộc ô nợ dài hạn 2025. Candidate pool bị ghép số với 4,2%.",
+        "Các giá trị gold khớp bảng trên, nhưng nguồn ghi Tỷ đồng, candidate ghi VND không scale. Cần sửa metadata trước khi dùng làm evidence."
+      ],
+      "suggested_repair": {
+        "question": "Tài sản ngắn hạn chiếm bao nhiêu phần trăm Tổng tài sản tại 2021?",
+        "operation": "RATIO_PERCENT",
+        "operand_values": [
+          "829.6",
+          "1122.6"
+        ],
+        "operand_unit": "tỷ đồng",
+        "answer": {
+          "fraction": "414800/5613",
+          "decimal_40_digits": "73.89987528950650276144664172456796721896"
+        },
+        "source_region": "left, upper monetary table",
+        "note": "Giữ kết quả số theo đơn vị hiển thị; khi cần VND phải nhân 10^9. Tỷ lệ là tính từ số tiền đã làm tròn; khai báo rounding, không gọi là tỷ lệ nguyên văn trong bảng dưới.",
+        "status": "SOURCE_REVIEWED_SPEC_REQUIRES_REEXTRACTION_AND_NEW_DATASET_VERSION",
+        "gold_operand_indices": null
+      },
+      "new_training_or_benchmark_example_created": false
+    },
+    {
+      "example_id": "synthetic-validation-ratio_percent-0014",
+      "question": "Tài sản ngắn hạn chiếm bao nhiêu phần trăm Tổng tài sản tại 2024?",
+      "original_program_operation": "RATIO_PERCENT",
+      "original_answer_value": "82.42659442044372849088379585560518",
+      "original_gold_operands": [
+        {
+          "index": 7,
+          "value": "1125.7",
+          "row_label": "Tài sản ngắn hạn",
+          "column_label": "2024",
+          "period": "2024",
+          "unit": "VND",
+          "source_name": "CNG_25CN_BCTN.pdf",
+          "page": 55
+        },
+        {
+          "index": 3,
+          "value": "1365.7",
+          "row_label": "Tổng tài sản",
+          "column_label": "2024",
+          "period": "2024",
+          "unit": "VND",
+          "source_name": "CNG_25CN_BCTN.pdf",
+          "page": 55
+        }
+      ],
+      "review_method": "Full-page PDF visual review; row/column/unit/scope comparison; text layer cross-check only",
+      "source": {
+        "path": "pdf/PDF_25/PDF_25/CNG_25CN_BCTN.pdf",
+        "sha256": "f05881626c8405cef9f8b4bef7dacfa8c32f14b3ff82669279bc01c1480f6885",
+        "pdf_page_1based": 55,
+        "printed_page_labels": [
+          "106",
+          "107"
+        ]
+      },
+      "disposition": "REPAIR_METADATA_KEEP_INTENT_AND_NUMERIC_RESULT",
+      "confirmed_issues": [
+        "cross_chart_candidate_contamination",
+        "wrong_currency_scale"
+      ],
+      "findings": [
+        "1.273,3 là tổng tài sản 2022, thấy trong bảng số tiền và biểu đồ; không thuộc ô nợ dài hạn 2025. Candidate pool bị ghép số với 4,2%.",
+        "Các giá trị gold khớp bảng trên, nhưng nguồn ghi Tỷ đồng, candidate ghi VND không scale. Cần sửa metadata trước khi dùng làm evidence."
+      ],
+      "suggested_repair": {
+        "question": "Tài sản ngắn hạn chiếm bao nhiêu phần trăm Tổng tài sản tại 2024?",
+        "operation": "RATIO_PERCENT",
+        "operand_values": [
+          "1125.7",
+          "1365.7"
+        ],
+        "operand_unit": "tỷ đồng",
+        "answer": {
+          "fraction": "1125700/13657",
+          "decimal_40_digits": "82.42659442044372849088379585560518415465"
+        },
+        "source_region": "left, upper monetary table",
+        "note": "Giữ kết quả số theo đơn vị hiển thị; khi cần VND phải nhân 10^9. Tỷ lệ là tính từ số tiền đã làm tròn; khai báo rounding, không gọi là tỷ lệ nguyên văn trong bảng dưới.",
+        "status": "SOURCE_REVIEWED_SPEC_REQUIRES_REEXTRACTION_AND_NEW_DATASET_VERSION",
+        "gold_operand_indices": null
+      },
+      "new_training_or_benchmark_example_created": false
+    },
+    {
+      "example_id": "synthetic-validation-ratio_percent-0018",
+      "question": "Tài sản ngắn hạn chiếm bao nhiêu phần trăm Tổng tài sản tại 2021?",
+      "original_program_operation": "RATIO_PERCENT",
+      "original_answer_value": "73.89987528950650276144664172456797",
+      "original_gold_operands": [
+        {
+          "index": 5,
+          "value": "829.6",
+          "row_label": "Tài sản ngắn hạn",
+          "column_label": "2021",
+          "period": "2021",
+          "unit": "VND",
+          "source_name": "CNG_25CN_BCTN.pdf",
+          "page": 55
+        },
+        {
+          "index": 0,
+          "value": "1122.6",
+          "row_label": "Tổng tài sản",
+          "column_label": "2021",
+          "period": "2021",
+          "unit": "VND",
+          "source_name": "CNG_25CN_BCTN.pdf",
+          "page": 55
+        }
+      ],
+      "review_method": "Full-page PDF visual review; row/column/unit/scope comparison; text layer cross-check only",
+      "source": {
+        "path": "pdf/PDF_25/PDF_25/CNG_25CN_BCTN.pdf",
+        "sha256": "f05881626c8405cef9f8b4bef7dacfa8c32f14b3ff82669279bc01c1480f6885",
+        "pdf_page_1based": 55,
+        "printed_page_labels": [
+          "106",
+          "107"
+        ]
+      },
+      "disposition": "REPAIR_METADATA_KEEP_INTENT_AND_NUMERIC_RESULT",
+      "confirmed_issues": [
+        "cross_chart_candidate_contamination",
+        "wrong_currency_scale"
+      ],
+      "findings": [
+        "1.273,3 là tổng tài sản 2022, thấy trong bảng số tiền và biểu đồ; không thuộc ô nợ dài hạn 2025. Candidate pool bị ghép số với 4,2%.",
+        "Các giá trị gold khớp bảng trên, nhưng nguồn ghi Tỷ đồng, candidate ghi VND không scale. Cần sửa metadata trước khi dùng làm evidence."
+      ],
+      "suggested_repair": {
+        "question": "Tài sản ngắn hạn chiếm bao nhiêu phần trăm Tổng tài sản tại 2021?",
+        "operation": "RATIO_PERCENT",
+        "operand_values": [
+          "829.6",
+          "1122.6"
+        ],
+        "operand_unit": "tỷ đồng",
+        "answer": {
+          "fraction": "414800/5613",
+          "decimal_40_digits": "73.89987528950650276144664172456796721896"
+        },
+        "source_region": "left, upper monetary table",
+        "note": "Giữ kết quả số theo đơn vị hiển thị; khi cần VND phải nhân 10^9. Tỷ lệ là tính từ số tiền đã làm tròn; khai báo rounding, không gọi là tỷ lệ nguyên văn trong bảng dưới.",
+        "status": "SOURCE_REVIEWED_SPEC_REQUIRES_REEXTRACTION_AND_NEW_DATASET_VERSION",
+        "gold_operand_indices": null
+      },
+      "new_training_or_benchmark_example_created": false
+    },
+    {
+      "example_id": "synthetic-validation-percent_change-0014",
+      "question": "Cộng thay đổi bao nhiêu phần trăm từ Nguyên giá của TSCĐ hữu hình cuối năm đã khấu hao hết nhưng vẫn còn sử dụng là 15.890.076.845 VND. đến 01/01/2025?",
+      "original_program_operation": "PERCENT_CHANGE",
+      "original_answer_value": "-4.713309672262581156848456938502769",
+      "original_gold_operands": [
+        {
+          "index": 20,
+          "value": "1985905719",
+          "row_label": "Cộng",
+          "column_label": "01/01/2025",
+          "period": "2025",
+          "unit": "VND",
+          "source_name": "PIC_25CN_BCTN.pdf",
+          "page": 54
+        },
+        {
+          "index": 21,
+          "value": "2084137577",
+          "row_label": "Cộng",
+          "column_label": "Nguyên giá của TSCĐ hữu hình cuối năm đã khấu hao hết nhưng vẫn còn sử dụng là 15.890.076.845 VND.",
+          "period": "cuoi nam",
+          "unit": "VND",
+          "source_name": "PIC_25CN_BCTN.pdf",
+          "page": 54
+        }
+      ],
+      "review_method": "Full-page PDF visual review; row/column/unit/scope comparison; text layer cross-check only",
+      "source": {
+        "path": "pdf/PDF_25/PDF_25/PIC_25CN_BCTN.pdf",
+        "sha256": "ff0061c265d7bcd744dd7374df99bdca7d5216682fb3b97a138a3ed636cf94eb",
+        "pdf_page_1based": 54,
+        "printed_page_labels": [
+          "86",
+          "87"
+        ]
+      },
+      "disposition": "QUARANTINE_REBUILD_ANNOTATION",
+      "confirmed_issues": [
+        "prose_promoted_to_period_header",
+        "wrong_period_assignment",
+        "subtotal_scope_missing"
+      ],
+      "findings": [
+        "Câu Nguyên giá ... 15.890.076.845 VND là thuyết minh dưới bảng TSCĐ bên phải; không phải tên kỳ của bảng chi phí trả trước bên trái.",
+        "Cột trái bảng chi phí trả trước là 31/12/2025; cột phải là 01/01/2025. Dataset gán nhãn 01/01/2025 cho cột trái và câu văn cho cột phải.",
+        "Có hai dòng Cộng: ngắn hạn và dài hạn. Câu hỏi phải ghi rõ phạm vi; không chọn theo candidate index."
+      ],
+      "suggested_repair": {
+        "question": "Tổng chi phí trả trước dài hạn thay đổi bao nhiêu phần trăm từ 01/01/2025 đến 31/12/2025?",
+        "operation": "PERCENT_CHANGE",
+        "operand_values": [
+          "1985905719",
+          "2084137577"
+        ],
+        "operand_unit": "VND",
+        "answer": {
+          "fraction": "-9823185800/2084137577",
+          "decimal_40_digits": "-4.713309672262581156848456938502769483917"
+        },
+        "source_region": "left, note 4.7 prepaid expenses",
+        "note": "Số tiền và phép tính có thể giữ, nhưng câu hỏi/nhãn kỳ gốc không hợp lệ. Replacement phải version mới.",
+        "status": "SOURCE_REVIEWED_SPEC_REQUIRES_REEXTRACTION_AND_NEW_DATASET_VERSION",
+        "gold_operand_indices": null
+      },
+      "new_training_or_benchmark_example_created": false
+    },
+    {
+      "example_id": "synthetic-validation-percent_change-0016",
+      "question": "Tổng tài sản thay đổi bao nhiêu phần trăm từ 2024 đến 2025?",
+      "original_program_operation": "PERCENT_CHANGE",
+      "original_answer_value": "25.97935124844402138097678846013034",
+      "original_gold_operands": [
+        {
+          "index": 4,
+          "value": "1720.5",
+          "row_label": "Tổng tài sản",
+          "column_label": "2025",
+          "period": "2025",
+          "unit": "VND",
+          "source_name": "CNG_25CN_BCTN.pdf",
+          "page": 55
+        },
+        {
+          "index": 3,
+          "value": "1365.7",
+          "row_label": "Tổng tài sản",
+          "column_label": "2024",
+          "period": "2024",
+          "unit": "VND",
+          "source_name": "CNG_25CN_BCTN.pdf",
+          "page": 55
+        }
+      ],
+      "review_method": "Full-page PDF visual review; row/column/unit/scope comparison; text layer cross-check only",
+      "source": {
+        "path": "pdf/PDF_25/PDF_25/CNG_25CN_BCTN.pdf",
+        "sha256": "f05881626c8405cef9f8b4bef7dacfa8c32f14b3ff82669279bc01c1480f6885",
+        "pdf_page_1based": 55,
+        "printed_page_labels": [
+          "106",
+          "107"
+        ]
+      },
+      "disposition": "REPAIR_METADATA_KEEP_INTENT_AND_NUMERIC_RESULT",
+      "confirmed_issues": [
+        "cross_chart_candidate_contamination",
+        "wrong_currency_scale"
+      ],
+      "findings": [
+        "1.273,3 là tổng tài sản 2022, thấy trong bảng số tiền và biểu đồ; không thuộc ô nợ dài hạn 2025. Candidate pool bị ghép số với 4,2%.",
+        "Các giá trị gold khớp bảng trên, nhưng nguồn ghi Tỷ đồng, candidate ghi VND không scale. Cần sửa metadata trước khi dùng làm evidence."
+      ],
+      "suggested_repair": {
+        "question": "Tổng tài sản thay đổi bao nhiêu phần trăm từ 2024 đến 2025?",
+        "operation": "PERCENT_CHANGE",
+        "operand_values": [
+          "1720.5",
+          "1365.7"
+        ],
+        "operand_unit": "tỷ đồng",
+        "answer": {
+          "fraction": "354800/13657",
+          "decimal_40_digits": "25.97935124844402138097678846013033609138"
+        },
+        "source_region": "left, upper monetary table",
+        "note": "Giữ kết quả số theo đơn vị hiển thị; khi cần VND phải nhân 10^9. Tỷ lệ là tính từ số tiền đã làm tròn; khai báo rounding, không gọi là tỷ lệ nguyên văn trong bảng dưới.",
+        "status": "SOURCE_REVIEWED_SPEC_REQUIRES_REEXTRACTION_AND_NEW_DATASET_VERSION",
+        "gold_operand_indices": null
+      },
+      "new_training_or_benchmark_example_created": false
+    },
+    {
+      "example_id": "synthetic-validation-percent_change-0017",
+      "question": "Cộng thay đổi bao nhiêu phần trăm từ Nguyên giá của TSCĐ hữu hình cuối năm đã khấu hao hết nhưng vẫn còn sử dụng là 15.890.076.845 VND. đến 01/01/2025?",
+      "original_program_operation": "PERCENT_CHANGE",
+      "original_answer_value": "-61.84240733764567975118735308902061",
+      "original_gold_operands": [
+        {
+          "index": 14,
+          "value": "124345593",
+          "row_label": "Cộng",
+          "column_label": "01/01/2025",
+          "period": "2025",
+          "unit": "VND",
+          "source_name": "PIC_25CN_BCTN.pdf",
+          "page": 54
+        },
+        {
+          "index": 15,
+          "value": "325873789",
+          "row_label": "Cộng",
+          "column_label": "Nguyên giá của TSCĐ hữu hình cuối năm đã khấu hao hết nhưng vẫn còn sử dụng là 15.890.076.845 VND.",
+          "period": "cuoi nam",
+          "unit": "VND",
+          "source_name": "PIC_25CN_BCTN.pdf",
+          "page": 54
+        }
+      ],
+      "review_method": "Full-page PDF visual review; row/column/unit/scope comparison; text layer cross-check only",
+      "source": {
+        "path": "pdf/PDF_25/PDF_25/PIC_25CN_BCTN.pdf",
+        "sha256": "ff0061c265d7bcd744dd7374df99bdca7d5216682fb3b97a138a3ed636cf94eb",
+        "pdf_page_1based": 54,
+        "printed_page_labels": [
+          "86",
+          "87"
+        ]
+      },
+      "disposition": "QUARANTINE_REBUILD_ANNOTATION",
+      "confirmed_issues": [
+        "prose_promoted_to_period_header",
+        "wrong_period_assignment",
+        "subtotal_scope_missing"
+      ],
+      "findings": [
+        "Câu Nguyên giá ... 15.890.076.845 VND là thuyết minh dưới bảng TSCĐ bên phải; không phải tên kỳ của bảng chi phí trả trước bên trái.",
+        "Cột trái bảng chi phí trả trước là 31/12/2025; cột phải là 01/01/2025. Dataset gán nhãn 01/01/2025 cho cột trái và câu văn cho cột phải.",
+        "Có hai dòng Cộng: ngắn hạn và dài hạn. Câu hỏi phải ghi rõ phạm vi; không chọn theo candidate index."
+      ],
+      "suggested_repair": {
+        "question": "Chi phí trả trước ngắn hạn thay đổi bao nhiêu phần trăm từ 01/01/2025 đến 31/12/2025?",
+        "operation": "PERCENT_CHANGE",
+        "operand_values": [
+          "124345593",
+          "325873789"
+        ],
+        "operand_unit": "VND",
+        "answer": {
+          "fraction": "-20152819600/325873789",
+          "decimal_40_digits": "-61.84240733764567975118735308902060852768"
+        },
+        "source_region": "left, note 4.7 prepaid expenses",
+        "note": "Số tiền và phép tính có thể giữ, nhưng câu hỏi/nhãn kỳ gốc không hợp lệ. Replacement phải version mới.",
+        "status": "SOURCE_REVIEWED_SPEC_REQUIRES_REEXTRACTION_AND_NEW_DATASET_VERSION",
+        "gold_operand_indices": null
+      },
+      "new_training_or_benchmark_example_created": false
+    },
+    {
+      "example_id": "synthetic-validation-percent_change-0018",
+      "question": "Chi phí kiểm định, bảo hiểm, chi phí khác thay đổi bao nhiêu phần trăm từ Nguyên giá của TSCĐ hữu hình cuối năm đã khấu hao hết nhưng vẫn còn sử dụng là 15.890.076.845 VND. đến 01/01/2025?",
+      "original_program_operation": "PERCENT_CHANGE",
+      "original_answer_value": "-61.84240733764567975118735308902061",
+      "original_gold_operands": [
+        {
+          "index": 12,
+          "value": "124345593",
+          "row_label": "Chi phí kiểm định, bảo hiểm, chi phí khác",
+          "column_label": "01/01/2025",
+          "period": "2025",
+          "unit": "VND",
+          "source_name": "PIC_25CN_BCTN.pdf",
+          "page": 54
+        },
+        {
+          "index": 13,
+          "value": "325873789",
+          "row_label": "Chi phí kiểm định, bảo hiểm, chi phí khác",
+          "column_label": "Nguyên giá của TSCĐ hữu hình cuối năm đã khấu hao hết nhưng vẫn còn sử dụng là 15.890.076.845 VND.",
+          "period": "cuoi nam",
+          "unit": "VND",
+          "source_name": "PIC_25CN_BCTN.pdf",
+          "page": 54
+        }
+      ],
+      "review_method": "Full-page PDF visual review; row/column/unit/scope comparison; text layer cross-check only",
+      "source": {
+        "path": "pdf/PDF_25/PDF_25/PIC_25CN_BCTN.pdf",
+        "sha256": "ff0061c265d7bcd744dd7374df99bdca7d5216682fb3b97a138a3ed636cf94eb",
+        "pdf_page_1based": 54,
+        "printed_page_labels": [
+          "86",
+          "87"
+        ]
+      },
+      "disposition": "QUARANTINE_REBUILD_ANNOTATION",
+      "confirmed_issues": [
+        "prose_promoted_to_period_header",
+        "wrong_period_assignment"
+      ],
+      "findings": [
+        "Câu Nguyên giá ... 15.890.076.845 VND là thuyết minh dưới bảng TSCĐ bên phải; không phải tên kỳ của bảng chi phí trả trước bên trái.",
+        "Cột trái bảng chi phí trả trước là 31/12/2025; cột phải là 01/01/2025. Dataset gán nhãn 01/01/2025 cho cột trái và câu văn cho cột phải."
+      ],
+      "suggested_repair": {
+        "question": "Chi phí kiểm định, bảo hiểm và chi phí khác ngắn hạn thay đổi bao nhiêu phần trăm từ 01/01/2025 đến 31/12/2025?",
+        "operation": "PERCENT_CHANGE",
+        "operand_values": [
+          "124345593",
+          "325873789"
+        ],
+        "operand_unit": "VND",
+        "answer": {
+          "fraction": "-20152819600/325873789",
+          "decimal_40_digits": "-61.84240733764567975118735308902060852768"
+        },
+        "source_region": "left, note 4.7 prepaid expenses",
+        "note": "Số tiền và phép tính có thể giữ, nhưng câu hỏi/nhãn kỳ gốc không hợp lệ. Replacement phải version mới.",
+        "status": "SOURCE_REVIEWED_SPEC_REQUIRES_REEXTRACTION_AND_NEW_DATASET_VERSION",
+        "gold_operand_indices": null
+      },
+      "new_training_or_benchmark_example_created": false
+    },
+    {
+      "example_id": "synthetic-validation-average-0001",
+      "question": "Giá trị bình quân của Cộng giữa 01/01/2025 và Nguyên giá của TSCĐ hữu hình cuối năm đã khấu hao hết nhưng vẫn còn sử dụng là 15.890.076.845 VND. là bao nhiêu?",
+      "original_program_operation": "AVERAGE",
+      "original_answer_value": "2035021648",
+      "original_gold_operands": [
+        {
+          "index": 20,
+          "value": "1985905719",
+          "row_label": "Cộng",
+          "column_label": "01/01/2025",
+          "period": "2025",
+          "unit": "VND",
+          "source_name": "PIC_25CN_BCTN.pdf",
+          "page": 54
+        },
+        {
+          "index": 21,
+          "value": "2084137577",
+          "row_label": "Cộng",
+          "column_label": "Nguyên giá của TSCĐ hữu hình cuối năm đã khấu hao hết nhưng vẫn còn sử dụng là 15.890.076.845 VND.",
+          "period": "cuoi nam",
+          "unit": "VND",
+          "source_name": "PIC_25CN_BCTN.pdf",
+          "page": 54
+        }
+      ],
+      "review_method": "Full-page PDF visual review; row/column/unit/scope comparison; text layer cross-check only",
+      "source": {
+        "path": "pdf/PDF_25/PDF_25/PIC_25CN_BCTN.pdf",
+        "sha256": "ff0061c265d7bcd744dd7374df99bdca7d5216682fb3b97a138a3ed636cf94eb",
+        "pdf_page_1based": 54,
+        "printed_page_labels": [
+          "86",
+          "87"
+        ]
+      },
+      "disposition": "QUARANTINE_REBUILD_ANNOTATION",
+      "confirmed_issues": [
+        "prose_promoted_to_period_header",
+        "wrong_period_assignment",
+        "subtotal_scope_missing"
+      ],
+      "findings": [
+        "Câu Nguyên giá ... 15.890.076.845 VND là thuyết minh dưới bảng TSCĐ bên phải; không phải tên kỳ của bảng chi phí trả trước bên trái.",
+        "Cột trái bảng chi phí trả trước là 31/12/2025; cột phải là 01/01/2025. Dataset gán nhãn 01/01/2025 cho cột trái và câu văn cho cột phải.",
+        "Có hai dòng Cộng: ngắn hạn và dài hạn. Câu hỏi phải ghi rõ phạm vi; không chọn theo candidate index."
+      ],
+      "suggested_repair": {
+        "question": "Giá trị bình quân của tổng chi phí trả trước dài hạn giữa 31/12/2025 và 01/01/2025 là bao nhiêu VND?",
+        "operation": "AVERAGE",
+        "operand_values": [
+          "1985905719",
+          "2084137577"
+        ],
+        "operand_unit": "VND",
+        "answer": {
+          "fraction": "2035021648",
+          "decimal_40_digits": "2035021648"
+        },
+        "source_region": "left, note 4.7 prepaid expenses",
+        "note": "Số tiền và phép tính có thể giữ, nhưng câu hỏi/nhãn kỳ gốc không hợp lệ. Replacement phải version mới.",
+        "status": "SOURCE_REVIEWED_SPEC_REQUIRES_REEXTRACTION_AND_NEW_DATASET_VERSION",
+        "gold_operand_indices": null
+      },
+      "new_training_or_benchmark_example_created": false
+    },
+    {
+      "example_id": "synthetic-validation-average-0002",
+      "question": "Giá trị bình quân của Chi phí sửa chữa lớn TSCĐ, chi phí khác giữa 01/01/2025 và Nguyên giá của TSCĐ hữu hình cuối năm đã khấu hao hết nhưng vẫn còn sử dụng là 15.890.076.845 VND. là bao nhiêu?",
+      "original_program_operation": "AVERAGE",
+      "original_answer_value": "1426994819",
+      "original_gold_operands": [
+        {
+          "index": 18,
+          "value": "1171376819",
+          "row_label": "Chi phí sửa chữa lớn TSCĐ, chi phí khác",
+          "column_label": "01/01/2025",
+          "period": "2025",
+          "unit": "VND",
+          "source_name": "PIC_25CN_BCTN.pdf",
+          "page": 54
+        },
+        {
+          "index": 19,
+          "value": "1682612819",
+          "row_label": "Chi phí sửa chữa lớn TSCĐ, chi phí khác",
+          "column_label": "Nguyên giá của TSCĐ hữu hình cuối năm đã khấu hao hết nhưng vẫn còn sử dụng là 15.890.076.845 VND.",
+          "period": "cuoi nam",
+          "unit": "VND",
+          "source_name": "PIC_25CN_BCTN.pdf",
+          "page": 54
+        }
+      ],
+      "review_method": "Full-page PDF visual review; row/column/unit/scope comparison; text layer cross-check only",
+      "source": {
+        "path": "pdf/PDF_25/PDF_25/PIC_25CN_BCTN.pdf",
+        "sha256": "ff0061c265d7bcd744dd7374df99bdca7d5216682fb3b97a138a3ed636cf94eb",
+        "pdf_page_1based": 54,
+        "printed_page_labels": [
+          "86",
+          "87"
+        ]
+      },
+      "disposition": "QUARANTINE_REBUILD_ANNOTATION",
+      "confirmed_issues": [
+        "prose_promoted_to_period_header",
+        "wrong_period_assignment"
+      ],
+      "findings": [
+        "Câu Nguyên giá ... 15.890.076.845 VND là thuyết minh dưới bảng TSCĐ bên phải; không phải tên kỳ của bảng chi phí trả trước bên trái.",
+        "Cột trái bảng chi phí trả trước là 31/12/2025; cột phải là 01/01/2025. Dataset gán nhãn 01/01/2025 cho cột trái và câu văn cho cột phải."
+      ],
+      "suggested_repair": {
+        "question": "Giá trị bình quân của chi phí sửa chữa lớn TSCĐ và chi phí khác dài hạn giữa 31/12/2025 và 01/01/2025 là bao nhiêu VND?",
+        "operation": "AVERAGE",
+        "operand_values": [
+          "1171376819",
+          "1682612819"
+        ],
+        "operand_unit": "VND",
+        "answer": {
+          "fraction": "1426994819",
+          "decimal_40_digits": "1426994819"
+        },
+        "source_region": "left, note 4.7 prepaid expenses",
+        "note": "Số tiền và phép tính có thể giữ, nhưng câu hỏi/nhãn kỳ gốc không hợp lệ. Replacement phải version mới.",
+        "status": "SOURCE_REVIEWED_SPEC_REQUIRES_REEXTRACTION_AND_NEW_DATASET_VERSION",
+        "gold_operand_indices": null
+      },
+      "new_training_or_benchmark_example_created": false
+    },
+    {
+      "example_id": "synthetic-validation-average-0004",
+      "question": "Giá trị bình quân của Chi phí kiểm định, bảo hiểm, chi phí khác giữa 01/01/2025 và Nguyên giá của TSCĐ hữu hình cuối năm đã khấu hao hết nhưng vẫn còn sử dụng là 15.890.076.845 VND. là bao nhiêu?",
+      "original_program_operation": "AVERAGE",
+      "original_answer_value": "225109691",
+      "original_gold_operands": [
+        {
+          "index": 12,
+          "value": "124345593",
+          "row_label": "Chi phí kiểm định, bảo hiểm, chi phí khác",
+          "column_label": "01/01/2025",
+          "period": "2025",
+          "unit": "VND",
+          "source_name": "PIC_25CN_BCTN.pdf",
+          "page": 54
+        },
+        {
+          "index": 13,
+          "value": "325873789",
+          "row_label": "Chi phí kiểm định, bảo hiểm, chi phí khác",
+          "column_label": "Nguyên giá của TSCĐ hữu hình cuối năm đã khấu hao hết nhưng vẫn còn sử dụng là 15.890.076.845 VND.",
+          "period": "cuoi nam",
+          "unit": "VND",
+          "source_name": "PIC_25CN_BCTN.pdf",
+          "page": 54
+        }
+      ],
+      "review_method": "Full-page PDF visual review; row/column/unit/scope comparison; text layer cross-check only",
+      "source": {
+        "path": "pdf/PDF_25/PDF_25/PIC_25CN_BCTN.pdf",
+        "sha256": "ff0061c265d7bcd744dd7374df99bdca7d5216682fb3b97a138a3ed636cf94eb",
+        "pdf_page_1based": 54,
+        "printed_page_labels": [
+          "86",
+          "87"
+        ]
+      },
+      "disposition": "QUARANTINE_REBUILD_ANNOTATION",
+      "confirmed_issues": [
+        "prose_promoted_to_period_header",
+        "wrong_period_assignment"
+      ],
+      "findings": [
+        "Câu Nguyên giá ... 15.890.076.845 VND là thuyết minh dưới bảng TSCĐ bên phải; không phải tên kỳ của bảng chi phí trả trước bên trái.",
+        "Cột trái bảng chi phí trả trước là 31/12/2025; cột phải là 01/01/2025. Dataset gán nhãn 01/01/2025 cho cột trái và câu văn cho cột phải."
+      ],
+      "suggested_repair": {
+        "question": "Giá trị bình quân của chi phí kiểm định, bảo hiểm và chi phí khác ngắn hạn giữa 31/12/2025 và 01/01/2025 là bao nhiêu VND?",
+        "operation": "AVERAGE",
+        "operand_values": [
+          "124345593",
+          "325873789"
+        ],
+        "operand_unit": "VND",
+        "answer": {
+          "fraction": "225109691",
+          "decimal_40_digits": "225109691"
+        },
+        "source_region": "left, note 4.7 prepaid expenses",
+        "note": "Số tiền và phép tính có thể giữ, nhưng câu hỏi/nhãn kỳ gốc không hợp lệ. Replacement phải version mới.",
+        "status": "SOURCE_REVIEWED_SPEC_REQUIRES_REEXTRACTION_AND_NEW_DATASET_VERSION",
+        "gold_operand_indices": null
+      },
+      "new_training_or_benchmark_example_created": false
+    },
+    {
+      "example_id": "synthetic-validation-average-0005",
+      "question": "Giá trị bình quân của Tổng tài sản giữa 2025 và 2024 là bao nhiêu?",
+      "original_program_operation": "AVERAGE",
+      "original_answer_value": "1543.1",
+      "original_gold_operands": [
+        {
+          "index": 4,
+          "value": "1720.5",
+          "row_label": "Tổng tài sản",
+          "column_label": "2025",
+          "period": "2025",
+          "unit": "VND",
+          "source_name": "CNG_25CN_BCTN.pdf",
+          "page": 55
+        },
+        {
+          "index": 3,
+          "value": "1365.7",
+          "row_label": "Tổng tài sản",
+          "column_label": "2024",
+          "period": "2024",
+          "unit": "VND",
+          "source_name": "CNG_25CN_BCTN.pdf",
+          "page": 55
+        }
+      ],
+      "review_method": "Full-page PDF visual review; row/column/unit/scope comparison; text layer cross-check only",
+      "source": {
+        "path": "pdf/PDF_25/PDF_25/CNG_25CN_BCTN.pdf",
+        "sha256": "f05881626c8405cef9f8b4bef7dacfa8c32f14b3ff82669279bc01c1480f6885",
+        "pdf_page_1based": 55,
+        "printed_page_labels": [
+          "106",
+          "107"
+        ]
+      },
+      "disposition": "REPAIR_METADATA_KEEP_INTENT_AND_NUMERIC_RESULT",
+      "confirmed_issues": [
+        "cross_chart_candidate_contamination",
+        "wrong_currency_scale"
+      ],
+      "findings": [
+        "1.273,3 là tổng tài sản 2022, thấy trong bảng số tiền và biểu đồ; không thuộc ô nợ dài hạn 2025. Candidate pool bị ghép số với 4,2%.",
+        "Các giá trị gold khớp bảng trên, nhưng nguồn ghi Tỷ đồng, candidate ghi VND không scale. Cần sửa metadata trước khi dùng làm evidence."
+      ],
+      "suggested_repair": {
+        "question": "Giá trị bình quân của Tổng tài sản giữa 2025 và 2024 là bao nhiêu?",
+        "operation": "AVERAGE",
+        "operand_values": [
+          "1720.5",
+          "1365.7"
+        ],
+        "operand_unit": "tỷ đồng",
+        "answer": {
+          "fraction": "15431/10",
+          "decimal_40_digits": "1543.1"
+        },
+        "source_region": "left, upper monetary table",
+        "note": "Giữ kết quả số theo đơn vị hiển thị; khi cần VND phải nhân 10^9. Tỷ lệ là tính từ số tiền đã làm tròn; khai báo rounding, không gọi là tỷ lệ nguyên văn trong bảng dưới.",
+        "status": "SOURCE_REVIEWED_SPEC_REQUIRES_REEXTRACTION_AND_NEW_DATASET_VERSION",
+        "gold_operand_indices": null
+      },
+      "new_training_or_benchmark_example_created": false
+    },
+    {
+      "example_id": "synthetic-validation-average-0010",
+      "question": "Giá trị bình quân của Nợ dài hạn giữa 2025 và 2024 là bao nhiêu?",
+      "original_program_operation": "AVERAGE",
+      "original_answer_value": "3.45",
+      "original_gold_operands": [
+        {
+          "index": 13,
+          "value": "4.2",
+          "row_label": "Nợ dài hạn",
+          "column_label": "2025",
+          "period": "2025",
+          "unit": "%",
+          "source_name": "CNG_25CN_BCTN.pdf",
+          "page": 55
+        },
+        {
+          "index": 12,
+          "value": "2.7",
+          "row_label": "Nợ dài hạn",
+          "column_label": "2024",
+          "period": "2024",
+          "unit": "%",
+          "source_name": "CNG_25CN_BCTN.pdf",
+          "page": 55
+        }
+      ],
+      "review_method": "Full-page PDF visual review; row/column/unit/scope comparison; text layer cross-check only",
+      "source": {
+        "path": "pdf/PDF_25/PDF_25/CNG_25CN_BCTN.pdf",
+        "sha256": "f05881626c8405cef9f8b4bef7dacfa8c32f14b3ff82669279bc01c1480f6885",
+        "pdf_page_1based": 55,
+        "printed_page_labels": [
+          "106",
+          "107"
+        ]
+      },
+      "disposition": "QUARANTINE_REBUILD_ANNOTATION",
+      "confirmed_issues": [
+        "cross_chart_candidate_contamination",
+        "amount_vs_percentage_gold"
+      ],
+      "findings": [
+        "1.273,3 là tổng tài sản 2022, thấy trong bảng số tiền và biểu đồ; không thuộc ô nợ dài hạn 2025. Candidate pool bị ghép số với 4,2%.",
+        "Gold lấy 4,2% và 2,7% cho câu hỏi không nói rõ tỷ lệ; bảng số tiền ghi nợ dài hạn 2025 = 45,8 và 2024 = 20,2 tỷ đồng."
+      ],
+      "suggested_repair": {
+        "question": "Giá trị nợ dài hạn bình quân giữa năm 2025 và 2024 là bao nhiêu tỷ đồng?",
+        "operation": "AVERAGE",
+        "operand_values": [
+          "45.8",
+          "20.2"
+        ],
+        "operand_unit": "tỷ đồng",
+        "answer": {
+          "fraction": "33",
+          "decimal_40_digits": "33"
+        },
+        "source_region": "left, upper monetary table",
+        "note": "",
+        "status": "SOURCE_REVIEWED_SPEC_REQUIRES_REEXTRACTION_AND_NEW_DATASET_VERSION",
+        "gold_operand_indices": null
+      },
+      "new_training_or_benchmark_example_created": false
+    },
+    {
+      "example_id": "synthetic-validation-average-0013",
+      "question": "Giá trị bình quân của Tiền mặt giữa Số cuối năm và Số đầu năm là bao nhiêu?",
+      "original_program_operation": "AVERAGE",
+      "original_answer_value": "4129056695",
+      "original_gold_operands": [
+        {
+          "index": 0,
+          "value": "4196846161",
+          "row_label": "Tiền mặt",
+          "column_label": "Số cuối năm",
+          "period": "cuoi nam",
+          "unit": "",
+          "source_name": "DXS_25CN_BCTN.pdf",
+          "page": 62
+        },
+        {
+          "index": 1,
+          "value": "4061267229",
+          "row_label": "Tiền mặt",
+          "column_label": "Số đầu năm",
+          "period": "dau nam",
+          "unit": "",
+          "source_name": "DXS_25CN_BCTN.pdf",
+          "page": 62
+        }
+      ],
+      "review_method": "Full-page PDF visual review; row/column/unit/scope comparison; text layer cross-check only",
+      "source": {
+        "path": "pdf/PDF_25/PDF_25/DXS_25CN_BCTN.pdf",
+        "sha256": "257f04694862525c2abfef8c4ad862f1c299cd72b9e88d2450cf8ae1630316af",
+        "pdf_page_1based": 62,
+        "printed_page_labels": [
+          "120",
+          "121"
+        ]
+      },
+      "disposition": "REPAIR_METADATA_KEEP_INTENT_AND_NUMERIC_RESULT",
+      "confirmed_issues": [
+        "missing_explicit_unit",
+        "cross_region_prose_binding"
+      ],
+      "findings": [
+        "Tiền mặt 4.196.846.161 cuối năm và 4.061.267.229 đầu năm khớp nguồn; đơn vị VND được in ngay trên bảng nhưng candidate để trống.",
+        "13.430.000.000 VND và ngày 21 trong thuyết minh mua vốn bên trái bị ghép thành ô bảng phải thu bên phải; candidate phụ bị gán unit %."
+      ],
+      "suggested_repair": {
+        "question": "Giá trị bình quân của Tiền mặt giữa Số cuối năm và Số đầu năm là bao nhiêu?",
+        "operation": "AVERAGE",
+        "operand_values": [
+          "4196846161",
+          "4061267229"
+        ],
+        "operand_unit": "VND",
+        "answer": {
+          "fraction": "4129056695",
+          "decimal_40_digits": "4129056695"
+        },
+        "source_region": "right, note 5 cash and cash equivalents, cash row",
+        "note": "",
+        "status": "SOURCE_REVIEWED_SPEC_REQUIRES_REEXTRACTION_AND_NEW_DATASET_VERSION",
+        "gold_operand_indices": null
+      },
+      "new_training_or_benchmark_example_created": false
+    }
+  ],
+  "previous_CNG_case_pdf_confirmation": {
+    "example_id": "synthetic-validation-percent_change-0003",
+    "source": "pdf/PDF_25/PDF_25/CNG_25CN_BCTN.pdf",
+    "sha256": "f05881626c8405cef9f8b4bef7dacfa8c32f14b3ff82669279bc01c1480f6885",
+    "pdf_page_1based": 55,
+    "printed_pages": [
+      "106",
+      "107"
+    ],
+    "previous_image_findings_confirmed": true,
+    "counted_in_45": false
+  },
+  "limitations": [
+    "Manual visual review, not a second independent reviewer",
+    "Suggested replacements are source-backed specifications, not newly extracted executable examples",
+    "Rounding and negative-base growth policies remain explicit where relevant",
+    "No PDF, historical dataset or runtime modified; no protected payload opened"
+  ]
+}

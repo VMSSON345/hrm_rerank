@@ -1,0 +1,24 @@
+{
+  "reference": {
+    "path": "config/finhrm_v14_2_mineru_rerun_reference_v1.json",
+    "sha256": "1a9657f0b13b7f7862658a85d95b32fd57e0cd30ff72d60b7e4a5a616aad197a"
+  },
+  "requests": {
+    "path": "config/finhrm_v14_2_mineru_ready_requests_v1.json",
+    "sha256": "749a7986683bf39bd8ef892b419ec28721f60c837c59c928b21a73c5d74f6143"
+  },
+  "runtime_protocol_sha256": "3ed0555a90b4c09fb909827564b9124dc7912ce1b4f9ac5cea8d9b85770cceb0",
+  "cases": 5,
+  "selected_case_ids": [
+    "new-report-01",
+    "new-report-02",
+    "new-report-03",
+    "new-report-04",
+    "new-report-05"
+  ],
+  "before_inference": true,
+  "evaluator": {
+    "path": "scripts/report_finhrm_v14_2_mineru_rerun.py",
+    "sha256": "43b8d68b1e89c27366bb20d64f9dcb5707863c96c043b31e8a1af9b4c07713bb"
+  }
+}

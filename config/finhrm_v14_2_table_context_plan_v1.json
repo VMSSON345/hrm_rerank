@@ -1,0 +1,14 @@
+{
+  "schema": "table-context-plan-v1",
+  "baseline": "config/finhrm_v14_2_role_fact_protocol_v2.json",
+  "baseline_proof": 18,
+  "baseline_complete_requests": 64,
+  "baseline_complete_outputs": 73,
+  "criteria": [
+    "Header role precedes table context; bare years alone never imply ACTUAL.",
+    "Role and accounting scope carry page/line/text/hash source evidence; conflicting scopes stay unresolved.",
+    "Equivalent disclosures across sections require explicitly matching accounting scope and entity.",
+    "Same 64 requests/gold/model; preserve 18 proofs, 17 negative reasons, review any newly eligible proposal against source.",
+    "Full unobserved baseline before observer equivalence; no training/calibration/protected payload."
+  ]
+}

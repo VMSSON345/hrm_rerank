@@ -1,0 +1,74 @@
+{
+  "schema": "finhrm-v13-candidate-freeze-v1",
+  "status": "FROZEN_BEFORE_PROTECTED_TEST_EVALUATION",
+  "created_at": "2026-08-31",
+  "candidate": {
+    "path": "models/document_hrm_V13_typed_hierarchy_clean_v2_warm_e3_seed31.pt",
+    "sha256": "90a3e25e9d04aedf5c3964f4a46e27de3573a13c1e9f2592ae84a20fea11aa70",
+    "schema_version": 11,
+    "architecture": "source-grounded-financial-HRM-v13-typed-hierarchy-v1",
+    "selected_epoch": 3,
+    "seed": 31
+  },
+  "runtime": {
+    "src/hrm_finance_qa/document_hrm.py": "0ea16b2a7821361f9461c6c2c9b8a39d24f445282aaa76958cf1347f0465289c",
+    "src/hrm_finance_qa/financial_hrm_features.py": "ab1eab7c83983a96a84724ba4dab77eb1bcef5cdb0160632eb11a9f274c9279f",
+    "src/hrm_finance_qa/question_planner.py": "8a6593c56c3bf88d08432f655ad3ed23809ff023e96c3c6a930f721abca12789",
+    "src/hrm_finance_qa/cli.py": "14fafec1e0d36efec73b6af08954c1108851b01ad509e93ba72a02174a1358c3"
+  },
+  "development_split": {
+    "manifest": "data/tmp/v13_clean_ablation_v2/manifest.json",
+    "train_sha256": "a3ede6b768dea19c59553486f54ae5108d147e954534bd6e0c93aa9669c425b7",
+    "validation_sha256": "7ebb6523a2f592d8bbd53e8f36b4e91a8531778ea849e2747a532000d8d50d53",
+    "train_records": 1865,
+    "validation_records": 244,
+    "leakage_counts": {
+      "id": 0,
+      "record": 0,
+      "evidence": 0,
+      "canonical_group": 0,
+      "runtime_group": 0
+    }
+  },
+  "development_metrics": {
+    "operation_accuracy": 0.971311,
+    "program_exact_accuracy": 0.934426,
+    "execution_accuracy": 0.938525,
+    "accepted_execution_precision": 0.919355,
+    "accepted_coverage": 0.762295,
+    "verifier_gold_false_rejection_rate": 0.0,
+    "pipeline_gold_rejection_rate": 0.0
+  },
+  "regression": {
+    "current_v13_runtime_tests": {
+      "passed": 330,
+      "failed": 0
+    },
+    "repository_discovery": {
+      "total": 1295,
+      "passed": 1153,
+      "failed": 68,
+      "errors": 74,
+      "status": "KNOWN_RED",
+      "classification": [
+        "historical frozen runtime-hash expectations",
+        "legacy data paths intentionally relocated to data/tmp",
+        "historical tests referencing scripts absent from this workspace",
+        "superseded precommit behavior assertions"
+      ]
+    },
+    "git_diff_check": "PASS"
+  },
+  "protected_test": {
+    "path": "data/test.jsonl",
+    "sha256": "2ead5ebe9846ec993eff42fefa932ff46f57a8207826130ed0b8bf4d65f5cf4f",
+    "records": 1500,
+    "record_payload_deserialized_before_freeze": false,
+    "evaluations_authorized_after_freeze": 1
+  },
+  "post_test_policy": [
+    "Do not update candidate weights, runtime, thresholds, or selection rules from protected-test outcomes",
+    "Report all protected-test metrics and limitations",
+    "Any later development requires a new version and a new untouched test cohort"
+  ]
+}

@@ -1,0 +1,2564 @@
+{
+  "inputs": [
+    {
+      "path": "cache/mineru/full-report-v1/03525afbe2d1c74e6b50d26062c604b13364ca3bf2c95c4529185facd34f2e7b/SSG_24CN_BCTN-b619191489195f2498dca40d/SSG_24CN_BCTN/hybrid_ocr/SSG_24CN_BCTN_content_list.json",
+      "sha256": "3582bb5a46f80001afd726746a9b5cfdaaa09bf250414fca6a1a6d00169b2512"
+    },
+    {
+      "path": "cache/mineru/full-report-v1/1957e2ee3f06dba63ac29c3ad462aa7ce8ee654e4a1b7e92589b6716c60a968e/PDB_24CN_BCTN-54c26683bf0475d046f5fe88/PDB_24CN_BCTN/hybrid_ocr/PDB_24CN_BCTN_content_list.json",
+      "sha256": "1ce00a507635855acb7954c1b9f852993d6b5209c292ad346c45b5251f4fe740"
+    },
+    {
+      "path": "cache/mineru/full-report-v1/1957e2ee3f06dba63ac29c3ad462aa7ce8ee654e4a1b7e92589b6716c60a968e/PDB_24CN_BCTN-68e82b40100f14558caa3e4f/PDB_24CN_BCTN/hybrid_ocr/PDB_24CN_BCTN_content_list.json",
+      "sha256": "26f87fa693ed60759ade1742ce3cf2019a65c0f36001aa18e89733d484af495f"
+    },
+    {
+      "path": "cache/mineru/full-report-v1/1957e2ee3f06dba63ac29c3ad462aa7ce8ee654e4a1b7e92589b6716c60a968e/PDB_24CN_BCTN-796a67dc83b2c778de55a9ef/PDB_24CN_BCTN/hybrid_ocr/PDB_24CN_BCTN_content_list.json",
+      "sha256": "1332e258be484871200f88095aa5b6ce8de75a564499c311f98cf8c7e4f03768"
+    },
+    {
+      "path": "cache/mineru/full-report-v1/1957e2ee3f06dba63ac29c3ad462aa7ce8ee654e4a1b7e92589b6716c60a968e/PDB_24CN_BCTN-c43d2cc2dd2f2eaeb31de479/PDB_24CN_BCTN/hybrid_ocr/PDB_24CN_BCTN_content_list.json",
+      "sha256": "cac8590b71da2a1a0b26d15890f18f3cc8e95a77dd25e97f328d3ee77bbbedd2"
+    },
+    {
+      "path": "cache/mineru/full-report-v1/1957e2ee3f06dba63ac29c3ad462aa7ce8ee654e4a1b7e92589b6716c60a968e/PDB_24CN_BCTN-eb59b97278424a97b54539e8/PDB_24CN_BCTN/hybrid_ocr/PDB_24CN_BCTN_content_list.json",
+      "sha256": "b92d1cf009c5f776e299f62e4b208ebe2bf90d65775290eb015e26a518f2d688"
+    },
+    {
+      "path": "cache/mineru/full-report-v1/62a6808775bffb526b5f4894a463646522410469e7f3084407d498f987303702/BHG_23CN_BCTN-4d4e407f9c8f6adecf767851/BHG_23CN_BCTN/hybrid_ocr/BHG_23CN_BCTN_content_list.json",
+      "sha256": "2941fcb98f9dcd571dbc8d286685ecca16378b653da80481ac464a6d17e32ccd"
+    },
+    {
+      "path": "cache/mineru/full-report-v1/62a6808775bffb526b5f4894a463646522410469e7f3084407d498f987303702/BHG_23CN_BCTN-c60bb8b5451c8fa4512e2cb1/BHG_23CN_BCTN/hybrid_ocr/BHG_23CN_BCTN_content_list.json",
+      "sha256": "d8d6d3102eb19d767adc33e42d8c13a93651536d38b75dbe4dd84ae1c905dbc1"
+    },
+    {
+      "path": "cache/mineru/full-report-v1/62a6808775bffb526b5f4894a463646522410469e7f3084407d498f987303702/BHG_23CN_BCTN-f1b6c99488c9c7363bb6468f/BHG_23CN_BCTN/hybrid_ocr/BHG_23CN_BCTN_content_list.json",
+      "sha256": "f6143c1284b2eb119e6af8389c0df7d4358111ec4d1e4043346e53e07d05b07c"
+    },
+    {
+      "path": "cache/mineru/full-report-v1/62a6808775bffb526b5f4894a463646522410469e7f3084407d498f987303702/BHG_23CN_BCTN-f4f635763cc94a3a05cbf41e/BHG_23CN_BCTN/hybrid_ocr/BHG_23CN_BCTN_content_list.json",
+      "sha256": "2bb039714dd2a859dc493f0226667cf5cd8ec1735c1880f4b06716194d174a84"
+    },
+    {
+      "path": "cache/mineru/full-report-v1/91cc265d0be6d75ee319c6821efd5231b3ae6fa41f63d076568331e9eee9d1f0/HKT_23CN_BCTN-188a57781c9a75581ba20b4f/HKT_23CN_BCTN/hybrid_ocr/HKT_23CN_BCTN_content_list.json",
+      "sha256": "40cb3deba83a3c2f4e1a5945b6b845b60c26cc4031ff03dbc4516d549b1eb6d0"
+    },
+    {
+      "path": "cache/mineru/full-report-v1/91cc265d0be6d75ee319c6821efd5231b3ae6fa41f63d076568331e9eee9d1f0/HKT_23CN_BCTN-79c3c78746fe0404a691d493/HKT_23CN_BCTN/hybrid_ocr/HKT_23CN_BCTN_content_list.json",
+      "sha256": "8587c129246c8b560fcf86b53964188d9f1afc055edc3b6ffb03a1562a837e96"
+    },
+    {
+      "path": "cache/mineru/full-report-v1/91cc265d0be6d75ee319c6821efd5231b3ae6fa41f63d076568331e9eee9d1f0/HKT_23CN_BCTN-a3e2ff0d9bd77a3d9996b5d9/HKT_23CN_BCTN/hybrid_ocr/HKT_23CN_BCTN_content_list.json",
+      "sha256": "67de894ccac22c999522786a66c3dd79b05e2b25a0cbfbe5ef289e0acc1165f6"
+    },
+    {
+      "path": "cache/mineru/full-report-v1/91cc265d0be6d75ee319c6821efd5231b3ae6fa41f63d076568331e9eee9d1f0/HKT_23CN_BCTN-b5772b27b2849ebdc87d726e/HKT_23CN_BCTN/hybrid_ocr/HKT_23CN_BCTN_content_list.json",
+      "sha256": "38b5fef50332178389a01b9f6e9a88d3e6e2804ad69195b823a8d105e42057c0"
+    },
+    {
+      "path": "cache/mineru/full-report-v1/91cc265d0be6d75ee319c6821efd5231b3ae6fa41f63d076568331e9eee9d1f0/HKT_23CN_BCTN-d319dcfd1c973117b5386e7a/HKT_23CN_BCTN/hybrid_ocr/HKT_23CN_BCTN_content_list.json",
+      "sha256": "359d617f4d7c16be9f8cdfa98b7dd40500160cb42cc88a3168f7ecfba3e068d3"
+    },
+    {
+      "path": "cache/mineru/full-report-v1/b5944cc10f6fe4f003249e81aeb6bb2ba6b01bc7a4f63d1367478652488308eb/CMS_23CN_BCTN-2499b840537ead112e9e7d4c/CMS_23CN_BCTN/hybrid_ocr/CMS_23CN_BCTN_content_list.json",
+      "sha256": "0809550376983aefdd637d9f4a9e9102687d0445ff32a92af203a30e6e2260fe"
+    },
+    {
+      "path": "cache/mineru/full-report-v1/b5944cc10f6fe4f003249e81aeb6bb2ba6b01bc7a4f63d1367478652488308eb/CMS_23CN_BCTN-26b1343d337093e8e050daf8/CMS_23CN_BCTN/hybrid_ocr/CMS_23CN_BCTN_content_list.json",
+      "sha256": "07f2bad478f2aab5bc014575ab1aa84e230f0e7e7fb010c25994dc18fa448382"
+    },
+    {
+      "path": "cache/mineru/full-report-v1/b5944cc10f6fe4f003249e81aeb6bb2ba6b01bc7a4f63d1367478652488308eb/CMS_23CN_BCTN-4a11edad40237fc1c7881d18/CMS_23CN_BCTN/hybrid_ocr/CMS_23CN_BCTN_content_list.json",
+      "sha256": "8abb44aa722cef0637be5c6fd4686cadad7c2f45315d40845617bd9595b237bf"
+    },
+    {
+      "path": "cache/mineru/full-report-v1/b5944cc10f6fe4f003249e81aeb6bb2ba6b01bc7a4f63d1367478652488308eb/CMS_23CN_BCTN-51625000a3d69656ca20a910/CMS_23CN_BCTN/hybrid_ocr/CMS_23CN_BCTN_content_list.json",
+      "sha256": "7e33ff68d399da8cd7727b81d585c5a754387a074d3bf1d9327e9f0b7ac3a0a6"
+    },
+    {
+      "path": "cache/mineru/full-report-v1/b5944cc10f6fe4f003249e81aeb6bb2ba6b01bc7a4f63d1367478652488308eb/CMS_23CN_BCTN-6b1a9483b97c8efb5452a318/CMS_23CN_BCTN/hybrid_ocr/CMS_23CN_BCTN_content_list.json",
+      "sha256": "b1fcea45088a6bed6bce86e6b50b4b9420de9dcddcc78ae744ea393fa2a8f173"
+    },
+    {
+      "path": "cache/mineru/full-report-v1/b5944cc10f6fe4f003249e81aeb6bb2ba6b01bc7a4f63d1367478652488308eb/CMS_23CN_BCTN-75e2c49f6c4ec02d70c35357/CMS_23CN_BCTN/hybrid_ocr/CMS_23CN_BCTN_content_list.json",
+      "sha256": "e11c953128abe22e98695fa76fa374d2cbc2d0145fb1bbd7ebdc9fa92a692230"
+    },
+    {
+      "path": "cache/mineru/full-report-v1/b5944cc10f6fe4f003249e81aeb6bb2ba6b01bc7a4f63d1367478652488308eb/CMS_23CN_BCTN-c1912664be23d3f31da66b65/CMS_23CN_BCTN/hybrid_ocr/CMS_23CN_BCTN_content_list.json",
+      "sha256": "6425df96f16889548888044ef17e6b7ddba67e938d61487d9bc3fa54e6545cb5"
+    },
+    {
+      "path": "cache/mineru/full-report-v1/b5944cc10f6fe4f003249e81aeb6bb2ba6b01bc7a4f63d1367478652488308eb/CMS_23CN_BCTN-c98605873275d358618ba591/CMS_23CN_BCTN/hybrid_ocr/CMS_23CN_BCTN_content_list.json",
+      "sha256": "dd3d2386503503fcc565f6b1886dbbfe5deb07a97308aa37df229cfbefd55d18"
+    },
+    {
+      "path": "cache/mineru/full-report-v1/b5944cc10f6fe4f003249e81aeb6bb2ba6b01bc7a4f63d1367478652488308eb/CMS_23CN_BCTN-f2bc2c6b52b5fd40047c541e/CMS_23CN_BCTN/hybrid_ocr/CMS_23CN_BCTN_content_list.json",
+      "sha256": "1fba228abf540898c3f01427981d856c3be5f3ccd4156199a358b27f023caadc"
+    },
+    {
+      "path": "cache/mineru/full-report-v1/b5944cc10f6fe4f003249e81aeb6bb2ba6b01bc7a4f63d1367478652488308eb/CMS_23CN_BCTN-fc060bb3d5926aa8e6849ad2/CMS_23CN_BCTN/hybrid_ocr/CMS_23CN_BCTN_content_list.json",
+      "sha256": "1ba155a2365046c0516b45b47ac70efe8daa1964c687a1d360e7a629968cde4c"
+    },
+    {
+      "path": "cache/mineru/full-report-v1/b90d50e8242130316d5eeb3179326b8123d2d41605a4693d40be13b36ba2e549/BSD_23CN_BCTN-74eba45947341566f3dba740/BSD_23CN_BCTN/hybrid_ocr/BSD_23CN_BCTN_content_list.json",
+      "sha256": "173ca592393e552c8a470d826f8b48e2ebab42846e239377304efa47b698c375"
+    },
+    {
+      "path": "cache/mineru/full-report-v1/b90d50e8242130316d5eeb3179326b8123d2d41605a4693d40be13b36ba2e549/BSD_23CN_BCTN-c9b8701b71d3416a3d9db3da/BSD_23CN_BCTN/hybrid_ocr/BSD_23CN_BCTN_content_list.json",
+      "sha256": "b617ab1d29198b26534c5b95167eb303ca44ba138e4944f3b3ba191fabffebd0"
+    },
+    {
+      "path": "cache/mineru/full-report-v1/e57968185e1c63bcf76bbb3cedb2f0dd252e787d7e2bcc4dae0e1a7c36de5a9a/HAV_23CN_BCTN-51d95eba54cbfd3ccf0f84ec/HAV_23CN_BCTN/hybrid_ocr/HAV_23CN_BCTN_content_list.json",
+      "sha256": "c5ccebc3e7ebd9c75a988f4b3de031cb1588aafd09609f9fced339fe207b347a"
+    },
+    {
+      "path": "cache/mineru/full-report-v1/e57968185e1c63bcf76bbb3cedb2f0dd252e787d7e2bcc4dae0e1a7c36de5a9a/HAV_23CN_BCTN-7f2b1faf0879a99ae4b77e39/HAV_23CN_BCTN/hybrid_ocr/HAV_23CN_BCTN_content_list.json",
+      "sha256": "801b11e605c60a5245413da088bdd0afb8d2df21d6ac2b3cd5639776a14f1148"
+    },
+    {
+      "path": "cache/mineru/full-report-v1/e57968185e1c63bcf76bbb3cedb2f0dd252e787d7e2bcc4dae0e1a7c36de5a9a/HAV_23CN_BCTN-89c493e9409b83688a08426a/HAV_23CN_BCTN/hybrid_ocr/HAV_23CN_BCTN_content_list.json",
+      "sha256": "0a3a30bf34e09abfbcfa1c91115faf29a4fcd2371e8b944d14647821f1dd5a7f"
+    },
+    {
+      "path": "cache/mineru/full-report-v1/e57968185e1c63bcf76bbb3cedb2f0dd252e787d7e2bcc4dae0e1a7c36de5a9a/HAV_23CN_BCTN-ac1ee318c6477042553d4cbb/HAV_23CN_BCTN/hybrid_ocr/HAV_23CN_BCTN_content_list.json",
+      "sha256": "39005ae5f1147df71d9d351049948897b0ec4cc2f97d1411374b027653da2014"
+    },
+    {
+      "path": "cache/mineru/full-report-v1/e57968185e1c63bcf76bbb3cedb2f0dd252e787d7e2bcc4dae0e1a7c36de5a9a/HAV_23CN_BCTN-d2062cdad314218c1d46b5b9/HAV_23CN_BCTN/hybrid_ocr/HAV_23CN_BCTN_content_list.json",
+      "sha256": "b064ad324d4e0e6ad1b2f4299291e63088afe071a64a25c727f3828ce5b8d04f"
+    },
+    {
+      "path": "config/financial_identities.yaml",
+      "sha256": "cc566b3093060ac7b98badbbd38b6ab8ae51004046d49ca4ee33619e6cbf1aa5"
+    },
+    {
+      "path": "config/finhrm_v14_2_markdown_e2e_v1_contract.json",
+      "sha256": "f6c9343a2ba108b44d63e32000610476cc7a4c177d8fa3189b075fde20c429d7"
+    },
+    {
+      "path": "config/finhrm_v14_2_markdown_e2e_v1_requests.json",
+      "sha256": "9656f7839fb248af83119f26e332c0a06cde154f3c2dd5df06ecc0382d512df8"
+    },
+    {
+      "path": "config/finhrm_v14_2_proof_observer_protocol_v1.json",
+      "sha256": "00be7e187edba3d96e994a331c4623d2068724c16f70128a2228e2e9dd58945d"
+    },
+    {
+      "path": "config/finhrm_v14_2_role_fact_plan_v1.json",
+      "sha256": "3e75c60279291331da5faf871ea667cc9ce99e216d004b83840f3b3e94b88460"
+    },
+    {
+      "path": "config/finhrm_v14_2_scope_unit_v2_contract.json",
+      "sha256": "b71203694ad369c4d55d32ef0473f4ee6e4adf4f124009943bd20e64ac42a9c3"
+    },
+    {
+      "path": "config/finhrm_v14_2_scope_unit_v2_requests.json",
+      "sha256": "149a5df148231d1cd75e140af75d8c8cce02539b5d2fd26ba249e532ee124b98"
+    },
+    {
+      "path": "config/finhrm_v14_2_table_context_plan_v1.json",
+      "sha256": "dd1fe0416f939d737b0965eaf4756a340667935f92ee8587752cfa954685c03b"
+    },
+    {
+      "path": "data/markdown/ASM_23CN_BCTN--6e1bff5169b34a91.md",
+      "sha256": "747886793a62056d727f8b1628efe78d294fa4942c1277d519f7b85cd7158ead"
+    },
+    {
+      "path": "data/markdown/ASM_23CN_BCTN--6e1bff5169b34a91.provenance.json",
+      "sha256": "1e4d05d4ddc9e4c1c5d3d4b6412210a36dd98da2b1c327d6a0ee59b907968b59"
+    },
+    {
+      "path": "data/markdown/BHG_23CN_BCTN--62a6808775bffb52.md",
+      "sha256": "cb4526df834e9448b3c23d6181df56fe3526a724f8a5fa929d895782e4c0bb18"
+    },
+    {
+      "path": "data/markdown/BHG_23CN_BCTN--62a6808775bffb52.provenance.json",
+      "sha256": "88c99cb1811c6d2d161832a644622715a97c2aa8066bd861e970908d0d6f73c4"
+    },
+    {
+      "path": "data/markdown/BSD_23CN_BCTN--b90d50e824213031.md",
+      "sha256": "97e4e876a0ceca7344312f827a20fb522a6c381afab567323e4690ee38510c6a"
+    },
+    {
+      "path": "data/markdown/BSD_23CN_BCTN--b90d50e824213031.provenance.json",
+      "sha256": "19593c0b0a64a0d15de50cc045f2fb5c8a08bf94307cf94b6e5d708566a6f25a"
+    },
+    {
+      "path": "data/markdown/CMS_23CN_BCTN--b5944cc10f6fe4f0.md",
+      "sha256": "0d01803595a6078e7dcef7288205cb6b5191fd6d9f07dd305febd95d3d6dfbf1"
+    },
+    {
+      "path": "data/markdown/CMS_23CN_BCTN--b5944cc10f6fe4f0.provenance.json",
+      "sha256": "a55aab97ea070c9f915f776903bb03f2268f03dfe40b54c91cafcf9af15399df"
+    },
+    {
+      "path": "data/markdown/DAT_23CN_BCTN--d63cae36fb099013.md",
+      "sha256": "c701f518929fc60d4b9b8366ffe9c4001e2074bce5a63a5c4bb4256ce3a9178d"
+    },
+    {
+      "path": "data/markdown/DAT_23CN_BCTN--d63cae36fb099013.provenance.json",
+      "sha256": "132a3aa5d05a379ed9c89d867753ea6d8361e2e628d71df3e58438a47833624a"
+    },
+    {
+      "path": "data/markdown/DXG_23CN_BCTN--a318f16b5bb351b2.md",
+      "sha256": "049ff73505043f5b855e8486010ea1fd5f0180d55ea93d2b9fb9d5832ef3a3fd"
+    },
+    {
+      "path": "data/markdown/DXG_23CN_BCTN--a318f16b5bb351b2.provenance.json",
+      "sha256": "851cbd8e78ad9c6b5d22ff6e5fbb3e8a3da3045aa1f196e3119eec51cec6a050"
+    },
+    {
+      "path": "data/markdown/GGG_23CN_BCTN--e86ead28fb761a59.md",
+      "sha256": "fcfe9688835b4eb0c8387f7621d15fe684537bc454a52b4d0919b05cabb09ead"
+    },
+    {
+      "path": "data/markdown/GGG_23CN_BCTN--e86ead28fb761a59.provenance.json",
+      "sha256": "8ec476d20775aa3317cb6f2526a71c06b321e96e4a821a04f84219f4e93ccbd1"
+    },
+    {
+      "path": "data/markdown/HAV_23CN_BCTN--e57968185e1c63bc.md",
+      "sha256": "d21be0ba08bf138e3f4c985179bc051c8e3c94d98c6e522b4d75a229d7aff3ba"
+    },
+    {
+      "path": "data/markdown/HAV_23CN_BCTN--e57968185e1c63bc.provenance.json",
+      "sha256": "dab0f88e9bb103f77d14aa49c083235d37e95943fb48e2f7237de6e911ca0be6"
+    },
+    {
+      "path": "data/markdown/HKT_23CN_BCTN--91cc265d0be6d75e.md",
+      "sha256": "2044d10feff95f714fbba05ce10a992b82ae791ec149a903a46142f35cf9015c"
+    },
+    {
+      "path": "data/markdown/HKT_23CN_BCTN--91cc265d0be6d75e.provenance.json",
+      "sha256": "2d5c585d8a6e36fde748a493b664802a1e8af9927f57fba8afb16168fafe1efb"
+    },
+    {
+      "path": "data/markdown/HVH_23CN_BCTN--5e62f780926f9cb0.md",
+      "sha256": "83956970b13c0861640cfa2dbf0df059d9e7450948d9e6f940ee9467a8c511fe"
+    },
+    {
+      "path": "data/markdown/HVH_23CN_BCTN--5e62f780926f9cb0.provenance.json",
+      "sha256": "2aecf1f08a4620b3d22f82b7c6c46656806e53cb82e07ba47157e5d9f63edd78"
+    },
+    {
+      "path": "data/markdown/NSC_23CN_BCTN--abb07a3a0137bf24.md",
+      "sha256": "31cab27652699041ce093d826e832397016c7e19a859d40565798e6f3530632c"
+    },
+    {
+      "path": "data/markdown/NSC_23CN_BCTN--abb07a3a0137bf24.provenance.json",
+      "sha256": "960f15e487e1ce94aad327a0bde0e4f101153b6b52889c220b82b524c580e555"
+    },
+    {
+      "path": "data/markdown/PDB_24CN_BCTN--1957e2ee3f06dba6.md",
+      "sha256": "7388957c0fc2f6955a398c7fba33a2f88a91a9a57be08b8b9eda419738745cf8"
+    },
+    {
+      "path": "data/markdown/PDB_24CN_BCTN--1957e2ee3f06dba6.provenance.json",
+      "sha256": "ac3f687c97d2be574102b464f7b242292b1748be5fe290eabc9c854af683e7b4"
+    },
+    {
+      "path": "data/markdown/PGD_24CN_BCTN--e70dcde234071317.md",
+      "sha256": "29c2fab408e3d8086f5d59704a1cc936db9d2b611ad56753182f8277a2fb1c9d"
+    },
+    {
+      "path": "data/markdown/PGD_24CN_BCTN--e70dcde234071317.provenance.json",
+      "sha256": "d83e8fafe0da46a664ec6002784785ef451ea918ca54bb91e2433cf61f30d270"
+    },
+    {
+      "path": "data/markdown/SHI_24CN_BCTN--6a3fe91f4c3f02d9.md",
+      "sha256": "a9a33f865283eaa6eaf0bafc7cfdaebc34b7faf4309fd69dc858397475d2235d"
+    },
+    {
+      "path": "data/markdown/SHI_24CN_BCTN--6a3fe91f4c3f02d9.provenance.json",
+      "sha256": "029388c67c21d030921cf459acd3f0fc0f379563fc0c559cb99f61828350a4c6"
+    },
+    {
+      "path": "data/markdown/SSG_24CN_BCTN--03525afbe2d1c74e.md",
+      "sha256": "978992a03e16713d4be70f01b01c9c23151718bd2a9010fcc6c393a5a7bc61e6"
+    },
+    {
+      "path": "data/markdown/SSG_24CN_BCTN--03525afbe2d1c74e.provenance.json",
+      "sha256": "c057e3088bec802f210eb5d5626c2415998bea7fe41b1f3a3146ea5e64f165ad"
+    },
+    {
+      "path": "data/markdown/scope_unit_v2/BHG_23CN_BCTN--62a6808775bffb52.md",
+      "sha256": "b3c461ce5230b341c8c18cf348efc4745c093cd835fded8bf05a47d7b1da94b0"
+    },
+    {
+      "path": "data/markdown/scope_unit_v2/BHG_23CN_BCTN--62a6808775bffb52.provenance.json",
+      "sha256": "7ad5f7902227c7a706bfc3eceaf81a93464666f4401d7d06e0c100ed4ef434b3"
+    },
+    {
+      "path": "data/markdown/scope_unit_v2/BSD_23CN_BCTN--b90d50e824213031.md",
+      "sha256": "bd3d80dde2d999caa227a1d6965b03008e7f7c06146b7ea1d45e375ba5d53748"
+    },
+    {
+      "path": "data/markdown/scope_unit_v2/BSD_23CN_BCTN--b90d50e824213031.provenance.json",
+      "sha256": "c3032ea7deaae56268b5ebe736f3d07ee48db56e3b1683548fe07f9a4ca1b1ae"
+    },
+    {
+      "path": "data/markdown/scope_unit_v2/CMS_23CN_BCTN--b5944cc10f6fe4f0.md",
+      "sha256": "8076e60944faa1bc3302c67eb7ad33a2b10b36c8eeea4a9cd19bbbcfbf3ee57d"
+    },
+    {
+      "path": "data/markdown/scope_unit_v2/CMS_23CN_BCTN--b5944cc10f6fe4f0.provenance.json",
+      "sha256": "8ae7c22f8fa251841122676974ac4f8de4e7a7f777477c64f5de53eb391ce433"
+    },
+    {
+      "path": "data/markdown/scope_unit_v2/HAV_23CN_BCTN--e57968185e1c63bc.md",
+      "sha256": "fbda07867fa66a850574a03af75b746748f9d6042c28ce085aa2f31fb211d7e4"
+    },
+    {
+      "path": "data/markdown/scope_unit_v2/HAV_23CN_BCTN--e57968185e1c63bc.provenance.json",
+      "sha256": "1bfc10ce88805d100903d1bc9900e4e69484576f897c977f05c03f6f7eb94ec2"
+    },
+    {
+      "path": "data/markdown/scope_unit_v2/HKT_23CN_BCTN--91cc265d0be6d75e.md",
+      "sha256": "b5550a26fa89acab88e14488568090db23761de4d21d8e8ee68f57fb6f6cc31a"
+    },
+    {
+      "path": "data/markdown/scope_unit_v2/HKT_23CN_BCTN--91cc265d0be6d75e.provenance.json",
+      "sha256": "594b93ee781a6eaca7e31f0061bfb0aeca1fe3631890661c4a119fea5263b28b"
+    },
+    {
+      "path": "data/markdown/scope_unit_v2/PDB_24CN_BCTN--1957e2ee3f06dba6.md",
+      "sha256": "06fb246ff0de4e250cb3f7202ac58b7eeaeb34a17aa47c6f7289bf58b6a4f6f7"
+    },
+    {
+      "path": "data/markdown/scope_unit_v2/PDB_24CN_BCTN--1957e2ee3f06dba6.provenance.json",
+      "sha256": "3f35985420afb5515dfb68e6b90ba89d137341faa685a82bc7ab41266d50ea8a"
+    },
+    {
+      "path": "data/markdown/scope_unit_v2/SSG_24CN_BCTN--03525afbe2d1c74e.md",
+      "sha256": "0b2c2aaa5d4b0fcf968808369355160beac7687a66e0b89ad749e747cec1ecbf"
+    },
+    {
+      "path": "data/markdown/scope_unit_v2/SSG_24CN_BCTN--03525afbe2d1c74e.provenance.json",
+      "sha256": "35f5508565e61fd3e6735cfad7cbb754de69db62bcd45790dbc797019e7a25a5"
+    },
+    {
+      "path": "models/document_hrm_V14_1_bkai_scratch_seed31_v1.pt",
+      "sha256": "e6641d13f169dc674728c32aafb508946495027985ce1fde6e2b1095a8d55413"
+    },
+    {
+      "path": "models/embedding_cache/models--bkai-foundation-models--vietnamese-bi-encoder/snapshots/84f9d9ada0d1a3c37557398b9ae9fcedcdf40be0/1_Pooling/config.json",
+      "sha256": "f2fa6333d3899e2f9368e2e2741ece8e74160337b3698f475f6e0f7f28e396fe"
+    },
+    {
+      "path": "models/embedding_cache/models--bkai-foundation-models--vietnamese-bi-encoder/snapshots/84f9d9ada0d1a3c37557398b9ae9fcedcdf40be0/README.md",
+      "sha256": "1433a6a36fb9b991999ce5eab31de89f6ebf31ef3c3a0c30c7b61685fa2ed878"
+    },
+    {
+      "path": "models/embedding_cache/models--bkai-foundation-models--vietnamese-bi-encoder/snapshots/84f9d9ada0d1a3c37557398b9ae9fcedcdf40be0/added_tokens.json",
+      "sha256": "956163bbe8b0625fcc779207447308285eab218ffe0551d3e0deeae5538da326"
+    },
+    {
+      "path": "models/embedding_cache/models--bkai-foundation-models--vietnamese-bi-encoder/snapshots/84f9d9ada0d1a3c37557398b9ae9fcedcdf40be0/bpe.codes",
+      "sha256": "9dfe53fb8abbddd3387da99641c36e00bee757a3679aad9cf0a7cdc4b30f6ef8"
+    },
+    {
+      "path": "models/embedding_cache/models--bkai-foundation-models--vietnamese-bi-encoder/snapshots/84f9d9ada0d1a3c37557398b9ae9fcedcdf40be0/config.json",
+      "sha256": "5f28d12a2d641db00b6dfaff47517b9cf6175437ceb0e18ec0763938ab4b086f"
+    },
+    {
+      "path": "models/embedding_cache/models--bkai-foundation-models--vietnamese-bi-encoder/snapshots/84f9d9ada0d1a3c37557398b9ae9fcedcdf40be0/config_sentence_transformers.json",
+      "sha256": "5a6d09833ba6faaf8b7e35d805fc6ecc42577b78173a76b6a97ea00e25a2bbb2"
+    },
+    {
+      "path": "models/embedding_cache/models--bkai-foundation-models--vietnamese-bi-encoder/snapshots/84f9d9ada0d1a3c37557398b9ae9fcedcdf40be0/model.safetensors",
+      "sha256": "e681accadaec87e79901db0c3f68e33d996cba334633b6dd0b2483dba4f398e0"
+    },
+    {
+      "path": "models/embedding_cache/models--bkai-foundation-models--vietnamese-bi-encoder/snapshots/84f9d9ada0d1a3c37557398b9ae9fcedcdf40be0/modules.json",
+      "sha256": "8f4b264b80206c830bebbdcae377e137925650a433b689343a63bdc9b3145460"
+    },
+    {
+      "path": "models/embedding_cache/models--bkai-foundation-models--vietnamese-bi-encoder/snapshots/84f9d9ada0d1a3c37557398b9ae9fcedcdf40be0/sentence_bert_config.json",
+      "sha256": "fc1993fde0a95c24ec6c022539d41cf6e2f7c9721e5415d6fb6897472a9cd4b7"
+    },
+    {
+      "path": "models/embedding_cache/models--bkai-foundation-models--vietnamese-bi-encoder/snapshots/84f9d9ada0d1a3c37557398b9ae9fcedcdf40be0/special_tokens_map.json",
+      "sha256": "d05497f1da52c5e09554c0cd874037a083e1dc1b9cfd48034d1c717f1afc07a7"
+    },
+    {
+      "path": "models/embedding_cache/models--bkai-foundation-models--vietnamese-bi-encoder/snapshots/84f9d9ada0d1a3c37557398b9ae9fcedcdf40be0/tokenizer_config.json",
+      "sha256": "9410af29b3eebbe69a1a0d8f3e1104e131409223cffcec9cf6ee46afd5892b88"
+    },
+    {
+      "path": "models/embedding_cache/models--bkai-foundation-models--vietnamese-bi-encoder/snapshots/84f9d9ada0d1a3c37557398b9ae9fcedcdf40be0/vocab.txt",
+      "sha256": "dffd7543c401fb6567253ae7c3313004532c33d062525250049c616544bad777"
+    },
+    {
+      "path": "reports/finhrm_v14_2_binding_comparison_v1.json",
+      "sha256": "a186530564a72b4675d849eaa880a6a046a3470ad1ef782c7f5f02b76fe2fdba"
+    },
+    {
+      "path": "reports/finhrm_v14_2_binding_comparison_v2.json",
+      "sha256": "c0ddd0cc7318528261f7b5dd9959e76c05ff354aff0d0b6d61d44136645a9397"
+    },
+    {
+      "path": "reports/finhrm_v14_2_binding_observations_v2.json",
+      "sha256": "7b6fcf65b4ea282a9383c7413deac1848bd897ebe24a5c8569e39d6e8036f4c4"
+    },
+    {
+      "path": "reports/finhrm_v14_2_binding_tests_v5.xml",
+      "sha256": "909a57b59e70d6136a7fb72cef700970daff62fa9ddd9793cf92ba6bcd018bbf"
+    },
+    {
+      "path": "reports/finhrm_v14_2_gate_utility_v1_results.json",
+      "sha256": "b0575f81d22ab5a999c88898749bb83bb4b5ed19946192935863fc8f085acd12"
+    },
+    {
+      "path": "reports/finhrm_v14_2_gate_utility_v1_source_review.json",
+      "sha256": "9dd86cab379d1159bd294d6e24586d909068eb203043b0c9d431f8f8bc12290f"
+    },
+    {
+      "path": "reports/finhrm_v14_2_markdown_e2e_v1_evaluation.json",
+      "sha256": "833d18526818bdee42d8cda4bd8d87eab8bef385b1e1d09170434206b12a58ec"
+    },
+    {
+      "path": "reports/finhrm_v14_2_markdown_e2e_v1_inventory.json",
+      "sha256": "93dff502323b8e997a86fcd52ca3fbcdf0a433fedc1a9904933847a96ee15c45"
+    },
+    {
+      "path": "reports/finhrm_v14_2_markdown_e2e_v1_observations.json",
+      "sha256": "aecf0df454fd5a73c822f581bbbbd16518bb505ff890bb8a957396a3a28565fa"
+    },
+    {
+      "path": "reports/finhrm_v14_2_proof_observed_v1.json",
+      "sha256": "baf233d26ad641f923ffa18dc1554b512fb9a71c64f2637579bf808de50e10b5"
+    },
+    {
+      "path": "reports/finhrm_v14_2_proof_observer_equivalence_v1.json",
+      "sha256": "770ce1a0312f7216ade350d8efd9c9691e6d946ddf6666e6e9ac5579459d444b"
+    },
+    {
+      "path": "reports/finhrm_v14_2_proof_parser_comparison_v1.json",
+      "sha256": "9237d3656bf897178595da9a7f37d98988fdc10eaf2278e2cf396725627f6a0e"
+    },
+    {
+      "path": "reports/finhrm_v14_2_proof_parser_observations_v1.json",
+      "sha256": "f2f6f268e3d467ccf75e2a3467279d67242f92a2f8ad7e23be30213dc4cd0160"
+    },
+    {
+      "path": "reports/finhrm_v14_2_proof_parser_parent_tests_v1.xml",
+      "sha256": "35b4108f59331d7090becd07e8eece5967eb347e020da3320f068b2e1c3ed36c"
+    },
+    {
+      "path": "reports/finhrm_v14_2_proof_parser_tests_v1.xml",
+      "sha256": "99127744dae7d5f72528b6e5ca72fd7fc1014d029c21efd9ca2e93a8e8540305"
+    },
+    {
+      "path": "reports/finhrm_v14_2_proof_residual_audit_v1.json",
+      "sha256": "41a972e289a1544bde1025424aeb57ee2f22af1ac97b49bc6fa7acd136526dde"
+    },
+    {
+      "path": "reports/finhrm_v14_2_proof_role_tests_v1.xml",
+      "sha256": "e4e80d3aea4552260a0cdae4db31a02dd3bce4c402f1775259e16d4971e9f752"
+    },
+    {
+      "path": "reports/finhrm_v14_2_role_fact_comparison_v1.json",
+      "sha256": "99391646756e393d70a3c83d855c147d850f44f920f944204441fa468ea0531d"
+    },
+    {
+      "path": "reports/finhrm_v14_2_role_fact_comparison_v2.json",
+      "sha256": "d9ef23e3eef48a3d70c241ce3aea53beb8ede38d1396fd584a7cb19e1dad031b"
+    },
+    {
+      "path": "reports/finhrm_v14_2_role_fact_followups_v1.json",
+      "sha256": "78fb389ed8ca9f423d490c5393c7950e7045de1d214828fbd9c9936af2ec361e"
+    },
+    {
+      "path": "reports/finhrm_v14_2_role_fact_observations_v1.json",
+      "sha256": "4c8f89400e07ffc09837e4d8f80d679e6f1822c2ced62657fae3ab354ef61e99"
+    },
+    {
+      "path": "reports/finhrm_v14_2_role_fact_observations_v2.json",
+      "sha256": "84041cc6faead3ce9a9cd0548035129a2a12ef3baaf2dde22fe5afa6f1c67285"
+    },
+    {
+      "path": "reports/finhrm_v14_2_role_fact_observed_v2.json",
+      "sha256": "88013355ea3e8e783479413f9665fc611f0f5035c06820a71e00113db1585838"
+    },
+    {
+      "path": "reports/finhrm_v14_2_role_fact_parent_tests_v1.xml",
+      "sha256": "c0595bf8ad0dbcd2545bca342adc9a5f364972d3787741faf922f9b212b74c3f"
+    },
+    {
+      "path": "reports/finhrm_v14_2_role_fact_presentation_parent_v1.xml",
+      "sha256": "0a22653d3a06b24bec1302b4094c6f10c90e66238a1427dad0522c5af7894ec3"
+    },
+    {
+      "path": "reports/finhrm_v14_2_role_fact_regression_v2.xml",
+      "sha256": "d6baba54865f499b02c049c2e17dd066549b55ef867a7a15b58a7e87c9060d06"
+    },
+    {
+      "path": "reports/finhrm_v14_2_role_fact_regression_v4.xml",
+      "sha256": "2bb4ecfe86f45e9750d569d01d4a16bb8be07b15e1df1b3726004182bd51ffd8"
+    },
+    {
+      "path": "reports/finhrm_v14_2_scope_unit_comparison_v1.json",
+      "sha256": "1f29a53a30ccb3417c6ed2a0cad943ff6fe54865e535b941e98447292a4902c9"
+    },
+    {
+      "path": "reports/finhrm_v14_2_scope_unit_comparison_v2.json",
+      "sha256": "1a1dbd3e8e9905af66d97d3648fa27bd8c0c06df47ce1221426d46a8d444828a"
+    },
+    {
+      "path": "reports/finhrm_v14_2_scope_unit_comparison_v3.json",
+      "sha256": "15da1077dcb4d0892976a9bcadc9b66d7ce4d3f88f5eb9187e5b473842b7bab3"
+    },
+    {
+      "path": "reports/finhrm_v14_2_scope_unit_coordinate_diagnosis_v2.json",
+      "sha256": "e7971411c8b6bde0988df7a20ab9cc926f8b3b5af75ddcde1a87623fabbc0a62"
+    },
+    {
+      "path": "reports/finhrm_v14_2_scope_unit_coordinate_parent_tests_v2.xml",
+      "sha256": "a91c85f00eb76521721eb1a7e00d0263db2306a4597206f802cf1f2ac1fa0d44"
+    },
+    {
+      "path": "reports/finhrm_v14_2_scope_unit_gain_review_v2r2.json",
+      "sha256": "503b976ef995774e302840af0cb91ccb38a70bfdb7d627b9fba02149f90b5ed7"
+    },
+    {
+      "path": "reports/finhrm_v14_2_scope_unit_observations_v1.json",
+      "sha256": "4868f73c864171bd61e00c4107c30917ba70adff18dc9412f8779e51b376f15e"
+    },
+    {
+      "path": "reports/finhrm_v14_2_scope_unit_observations_v2.json",
+      "sha256": "751794f3d9a28e2c7e469cc327d2cfa2432f964bc7b1797a622df69f6748b255"
+    },
+    {
+      "path": "reports/finhrm_v14_2_scope_unit_observations_v3.json",
+      "sha256": "99d5630dfbfb85458ce9db46f3307c3b3c57e4d10b2e4d20f68a541c9b802708"
+    },
+    {
+      "path": "reports/finhrm_v14_2_scope_unit_observed_v3.json",
+      "sha256": "21d3a6208fdfcdfb34178dcac1078eaf253a2515ed029948fb954fdf70fed28f"
+    },
+    {
+      "path": "reports/finhrm_v14_2_scope_unit_observer_equivalence_v2.json",
+      "sha256": "70e730c3e76dbf189271bf3daa568ad9b7fc951a2a81aca999830cc205a4dfdb"
+    },
+    {
+      "path": "reports/finhrm_v14_2_scope_unit_parent_tests_v1.xml",
+      "sha256": "ea95e1db89f912521a6a004e261b7961d915c8220676eb94711c8d9abc22b8ce"
+    },
+    {
+      "path": "reports/finhrm_v14_2_scope_unit_source_line_validation_v2.json",
+      "sha256": "85624f234623419c6e5211a597be5c5fa8cb42b60f110e16355fde8184944df0"
+    },
+    {
+      "path": "reports/finhrm_v14_2_scope_unit_source_recovery_v2.json",
+      "sha256": "e6f76dbc8f8c395ad74438e472a3c7c7ef37853a1e68f777187cc1dad62a9daf"
+    },
+    {
+      "path": "reports/finhrm_v14_2_scope_unit_tests_v2.xml",
+      "sha256": "7864eb0a417d019ef392a3ef95ec43368b096cf08ad377e2dbcdf062254ae602"
+    },
+    {
+      "path": "reports/finhrm_v14_2_scope_unit_tests_v3.xml",
+      "sha256": "dc24995d454a881d81b95307b8a007f3209b06ae5fc20cb1c281ea25fe25a4b2"
+    },
+    {
+      "path": "reports/finhrm_v14_2_scope_unit_tests_v4.xml",
+      "sha256": "3f02255e346919f258079c0a56a7e9127d75ccbf19ada0fe64c016ab8678bd9c"
+    },
+    {
+      "path": "reports/finhrm_v14_2_selection_comparison_v1.json",
+      "sha256": "8daab41723fad776ea18a82cf3ee6ed6b4f6d31a474a7529b13993e75a588eaf"
+    },
+    {
+      "path": "reports/finhrm_v14_2_selection_decode_tests_v1.xml",
+      "sha256": "9eb82725aeb7876a35621632a15c78ced3baf0e0de56001d077b577f7817cc88"
+    },
+    {
+      "path": "reports/finhrm_v14_2_selection_observations_v1.json",
+      "sha256": "4a54ab91c832965423145e5b93516156ea1bcfb5100caff48516ffcc181edc6c"
+    },
+    {
+      "path": "reports/finhrm_v14_2_selection_tests_v1.xml",
+      "sha256": "cc11e2caaa0a14e208526ad3c5af8cdaa043f8031b4cdc8dfc3bff16c4e09ce4"
+    },
+    {
+      "path": "reports/finhrm_v14_2_selection_trace_current_v1.json",
+      "sha256": "e4eeeeee1a697883024ace6729c28d86aa51d91909aa03495f0a75c0f945ec64"
+    },
+    {
+      "path": "reports/finhrm_v14_2_selection_trace_parent_v1.json",
+      "sha256": "ead78bd5181ef3d5cf37aad7b8c517b4dd352a78701e73602abad078a362cbd0"
+    },
+    {
+      "path": "reports/finhrm_v14_2_table_context_boundary_parent_v1.xml",
+      "sha256": "3581b4d97de8c23d3540278f42c7eab0cf4448dab0f3d6d82955323348709faf"
+    },
+    {
+      "path": "reports/finhrm_v14_2_table_context_metadata_probe_v2.json",
+      "sha256": "99742f6379d2c882a2a61ebaf17c99517b8d35473cc54fedab3bac568d416f54"
+    },
+    {
+      "path": "reports/finhrm_v14_2_table_context_metadata_probe_v3.json",
+      "sha256": "99742f6379d2c882a2a61ebaf17c99517b8d35473cc54fedab3bac568d416f54"
+    },
+    {
+      "path": "reports/finhrm_v14_2_table_context_parent_tests_v2.xml",
+      "sha256": "09836e32f4d63642c63fece7a15ab0ac12e49edab3a4f6e9c007047d10f34bf6"
+    },
+    {
+      "path": "reports/finhrm_v14_2_table_context_regression_v1.xml",
+      "sha256": "b3c7b543308c18cd8ed2c4a1cdf4110b414b93fca8ae053cf1c40376954b45ca"
+    },
+    {
+      "path": "reports/finhrm_v14_2_table_context_regression_v4.xml",
+      "sha256": "e777f9ed842e3531088b7f9d8a3122e6b910d9a6699c2e3353e53cc5ce3429f8"
+    },
+    {
+      "path": "reports/finhrm_v14_2_table_context_regression_v6.xml",
+      "sha256": "23964cd51f630612f261bb2f2b87a9722664262957236cf361b55bd60ecad535"
+    },
+    {
+      "path": "reports/finhrm_v14_2_table_context_trial_v1.json",
+      "sha256": "8f5c9eb69e885eb764ae619318391828bb4d63477a4739dfa6aac251d0462462"
+    },
+    {
+      "path": "reports/finhrm_v14_2_yearless_mapping_probe_v1.json",
+      "sha256": "bdded49de6ad229bd7ba1e849c6b1e657884f83866cc4ac17db892f075ebd04a"
+    },
+    {
+      "path": "requirements.txt",
+      "sha256": "a06b71f42893b03ee795e9501aeb1e5d53f65e07ebcc77eaec345dd215f6c465"
+    },
+    {
+      "path": "scripts/audit_finhrm_v14_2_proof_residuals.py",
+      "sha256": "87a4283fa8ce695929d169d947fe45ef681f7a920a254fbb02f7e0a92e94d8e1"
+    },
+    {
+      "path": "scripts/audit_finhrm_v14_2_role_fact_v2.py",
+      "sha256": "d59b35017167738af43f4073fe1e442032b476b10e650fb16f8d228c425732bb"
+    },
+    {
+      "path": "scripts/build_finhrm_v14_2_baseline.py",
+      "sha256": "db8fdd7ff5b94559b0313ac0f54a6c02e0eaac6b6e9ff724e39e97502e7cd871"
+    },
+    {
+      "path": "scripts/build_finhrm_v14_2_markdown_e2e.py",
+      "sha256": "bc4f948bb8c6316c76979a74ec2718f1b24aaf4d096a8fbf8e5c9cac4eaa1139"
+    },
+    {
+      "path": "scripts/compare_finhrm_v14_2_binding_e2e_v2.py",
+      "sha256": "731a9c5f23ae0b6a07d02d36e13a42da2d3369a80acbb7166c9b276a40923a6f"
+    },
+    {
+      "path": "scripts/compare_finhrm_v14_2_proof_parser_e2e.py",
+      "sha256": "5648cd3e50050ba9d40259f8d8539ac8e68b261345a1b801e155c0ab48a2681b"
+    },
+    {
+      "path": "scripts/compare_finhrm_v14_2_role_fact_e2e_v1.py",
+      "sha256": "672530e74d3832290aba14c0263d562d4339ed8014cea40a6272649d4ddfec2c"
+    },
+    {
+      "path": "scripts/compare_finhrm_v14_2_role_fact_e2e_v2.py",
+      "sha256": "3d172483cd9117c5cd3ac5e5f0a71468f476ce18c11a45bae8206e5e6b6352d0"
+    },
+    {
+      "path": "scripts/compare_finhrm_v14_2_scope_unit_e2e.py",
+      "sha256": "745dc27fc7f0df96c74ee26fb8287bd947f5f4d5adb019807976596b5488657f"
+    },
+    {
+      "path": "scripts/compare_finhrm_v14_2_scope_unit_e2e_v2.py",
+      "sha256": "77b960113c9ff9b87fbe680322934f649259674317b6329cb3c86f9abc00aab2"
+    },
+    {
+      "path": "scripts/compare_finhrm_v14_2_scope_unit_e2e_v3.py",
+      "sha256": "3748db7ebcc2f4f7edff3be50f9a8a209251156308c6285648af417e2e7f9dee"
+    },
+    {
+      "path": "scripts/compare_finhrm_v14_2_selection_e2e.py",
+      "sha256": "39bc1b5fbe6af9b956ea550ad9b94a1675927cbea130c74edde6e775865d91a7"
+    },
+    {
+      "path": "scripts/compare_finhrm_v14_2_table_context_e2e_v1.py",
+      "sha256": "721c1d75ecfdd11196ea81850b0cade454ceadd38e89d7cdcbf72c3cc822f994"
+    },
+    {
+      "path": "scripts/compare_finhrm_v14_2_table_context_e2e_v2.py",
+      "sha256": "979399572ef9658ca8f456209ad2a410e260c5118cb4839ab8490411698dc984"
+    },
+    {
+      "path": "scripts/evaluate_finhrm_markdown_shard15_v1.py",
+      "sha256": "892c891bf6f096812727951880ddeaa66f7f0cfafc059266591c02db0417a090"
+    },
+    {
+      "path": "scripts/evaluate_finhrm_v14_2_markdown_e2e.py",
+      "sha256": "38624d0f0eb7bddf93e0787b5c5d32e602836b7e788d7f9b3bf3097d5c4fc3c5"
+    },
+    {
+      "path": "scripts/evaluate_finhrm_v14_2_markdown_e2e_v2.py",
+      "sha256": "c796e1f6da4829bbc83f742076ea2b6fe1e824a27d16ca2bf5a212de4cbefe90"
+    },
+    {
+      "path": "scripts/freeze_finhrm_v14_2_binding_v2.py",
+      "sha256": "450e955e3a2440006bd2cb83daf8de3df82885587e3067e90e665e34ef96e25a"
+    },
+    {
+      "path": "scripts/freeze_finhrm_v14_2_proof_parser.py",
+      "sha256": "fbebd490c36b2d485a1dbe99d8fb6ce4f4d490156881807dd54d58e0cca1e6d8"
+    },
+    {
+      "path": "scripts/freeze_finhrm_v14_2_role_fact_v1.py",
+      "sha256": "72c384f664e9097fb79fd043a30c993204535272070edbb5e59e9932e79dab88"
+    },
+    {
+      "path": "scripts/freeze_finhrm_v14_2_role_fact_v2.py",
+      "sha256": "26675b4a4ee9fb79ef416ab6924728fc88f302e4fe0adc7b0bf59cdf8b2bc01c"
+    },
+    {
+      "path": "scripts/freeze_finhrm_v14_2_scope_unit.py",
+      "sha256": "4fd6e25bf37bc7423be932709b060ff420c859054a059ed849d97ad6ff758a65"
+    },
+    {
+      "path": "scripts/freeze_finhrm_v14_2_scope_unit_v2.py",
+      "sha256": "9e6a16f649482619f8a4692b5ab23bdd7e3d5730ec34227582b23e78d2772ff0"
+    },
+    {
+      "path": "scripts/freeze_finhrm_v14_2_scope_unit_v3.py",
+      "sha256": "cb515f3a4b54e6efc0a28610495f1ffcac4ea2e1dba20e28de922a131f467b98"
+    },
+    {
+      "path": "scripts/freeze_finhrm_v14_2_selection.py",
+      "sha256": "2b3713e061eecb220ae941c8fb550b8a6c57e47f400831700072d28d95daddcd"
+    },
+    {
+      "path": "scripts/freeze_finhrm_v14_2_table_context_v1.py",
+      "sha256": "868342a29e5ecc00b06ad8ca294b5ba386dd3e30e220cfef720896010ebbc4f5"
+    },
+    {
+      "path": "scripts/freeze_finhrm_v14_2_table_context_v2.py",
+      "sha256": "89283a3dc01da49cfd784873e37bd514eb7824c21d53ae5f1d88d2e5bb347df0"
+    },
+    {
+      "path": "scripts/probe_finhrm_v14_2_role_fact_followups_v1.py",
+      "sha256": "9c2597da171193532102ce59f99efe1ff32ed4d7a1a8b3589dcb2b950d84d939"
+    },
+    {
+      "path": "scripts/probe_finhrm_v14_2_table_context_v2.py",
+      "sha256": "3a3b998a42d6f2a80a98022eb74ff4fa441bbe2cfe4bc2281d52216ae9e6e93c"
+    },
+    {
+      "path": "scripts/probe_finhrm_v14_2_table_context_v3.py",
+      "sha256": "11f1948dc3864e1052e4b056ab278ee6b07e65d87ff9f2f881c1e9679426639e"
+    },
+    {
+      "path": "scripts/probe_finhrm_v14_2_yearless_mapping.py",
+      "sha256": "60559be3d150cb915236779e4493a10580329364c118cac85cbfa0f6c4bfb9ee"
+    },
+    {
+      "path": "scripts/recover_finhrm_v14_2_mineru_footnotes.py",
+      "sha256": "a315fc5a9e6a84bcb8ca24acfb3af4a19045555b48288bcc7b977654922810b9"
+    },
+    {
+      "path": "scripts/review_finhrm_v14_2_scope_unit_gains_v3.py",
+      "sha256": "af2a765369856cf62639b33c947dfade915f25bdcad32ce7e6c71b8da2a37db3"
+    },
+    {
+      "path": "scripts/review_finhrm_v14_2_table_context_gains_v2.py",
+      "sha256": "690db885950b06f0fb28f4ee1cb49cad0a858abfafa72bc7936042e0d761b2da"
+    },
+    {
+      "path": "scripts/run_finhrm_v14_2_binding_e2e_v2.py",
+      "sha256": "5d05c75905a0e105b356fcc3cd4f21b7160326bfc2843184bb953e12310a7078"
+    },
+    {
+      "path": "scripts/run_finhrm_v14_2_markdown_e2e.py",
+      "sha256": "b1c028ded4eb25434e707ad41805bfec8249afc065d00078689983e2fe04a13a"
+    },
+    {
+      "path": "scripts/run_finhrm_v14_2_proof_parser_e2e.py",
+      "sha256": "bf20c0d6ba37181f29a8556f3bd54edcf00528dc9a4b8e83373db9b7e0e159e8"
+    },
+    {
+      "path": "scripts/run_finhrm_v14_2_role_fact_e2e_v1.py",
+      "sha256": "a7f1ca77ba17c670b82e10821ca4932a5b0682d7e066b7342d5648f3400a176b"
+    },
+    {
+      "path": "scripts/run_finhrm_v14_2_role_fact_e2e_v2.py",
+      "sha256": "5ed239412568b209ad727bc70b5e2f2b2b3fc41b71f76b14b31c73a096bc699b"
+    },
+    {
+      "path": "scripts/run_finhrm_v14_2_role_fact_observer_v1.py",
+      "sha256": "96801f335d4a45564029adfe3eac8775de3af1d8becf31fb659ef3c79c908fd9"
+    },
+    {
+      "path": "scripts/run_finhrm_v14_2_role_fact_observer_v2.py",
+      "sha256": "d11172b0c3f3a381a46959b25200e8db9d494701d25f6c916ce39786499e0388"
+    },
+    {
+      "path": "scripts/run_finhrm_v14_2_scope_unit_e2e.py",
+      "sha256": "45295c35ea903eb1985337e886c1ddddf219332d4ba85c39b0b7168c070ff3f8"
+    },
+    {
+      "path": "scripts/run_finhrm_v14_2_scope_unit_e2e_v2.py",
+      "sha256": "b6b7edcb8df07ec7ecc07adfb178b81cbe61f42dcf88c0a0fb77e17e8b3c5879"
+    },
+    {
+      "path": "scripts/run_finhrm_v14_2_scope_unit_e2e_v3.py",
+      "sha256": "c64fd9441258fa84209fc56efdb60f80d68e5c1aaf852dce07a9f0bf451cb632"
+    },
+    {
+      "path": "scripts/run_finhrm_v14_2_scope_unit_observer.py",
+      "sha256": "b58205b4add86714143633f27f7cce9f9535b9e55f0c5f3bfe05e733216d2b6a"
+    },
+    {
+      "path": "scripts/run_finhrm_v14_2_scope_unit_observer_v2.py",
+      "sha256": "ac17e9f71224adea956dd819e74f2c8a36e3593a5a01bcdf8db8ccff6b0b13f1"
+    },
+    {
+      "path": "scripts/run_finhrm_v14_2_scope_unit_observer_v3.py",
+      "sha256": "dfa7832a888b75dfc06194b8431285f771991b54616826e72006850c17d21bef"
+    },
+    {
+      "path": "scripts/run_finhrm_v14_2_selection_e2e.py",
+      "sha256": "4fab932fb5355a36639468898cbbf69399d63b5b0e93df371664f768e5fa64df"
+    },
+    {
+      "path": "scripts/run_finhrm_v14_2_table_context_e2e_v1.py",
+      "sha256": "c1757dc6b077db198904b85dcf8554ff3e9ba6950ecb2ff4754b504e946a0781"
+    },
+    {
+      "path": "scripts/run_finhrm_v14_2_table_context_e2e_v2.py",
+      "sha256": "8b1f334c357d871c02b27fd0ee2fb49a2fd1db7795c415ba7bb9d8b2c97b9403"
+    },
+    {
+      "path": "scripts/run_finhrm_v14_2_table_context_observer_v1.py",
+      "sha256": "350c5b6f9070d4a455050f11e623c9a1bd3c4e03e9d802fdac20b2df47b9f830"
+    },
+    {
+      "path": "scripts/run_finhrm_v14_2_table_context_observer_v2.py",
+      "sha256": "afd9a35dd3e51d514362a313b61f6679ec5fb209c526fed6ea41996ff68f86f5"
+    },
+    {
+      "path": "scripts/trace_finhrm_v14_2_selection.py",
+      "sha256": "12b904119bf65ac6e0865ff70e1b4a077950c1172ae40a0dead5b2676b6dbd01"
+    },
+    {
+      "path": "tests/test_finhrm_v14_2_binding_repair.py",
+      "sha256": "feeaf4896b3232f6758f2bb8a9930679effe09d52c93dfeb6c4028ad4dc25acc"
+    },
+    {
+      "path": "tests/test_finhrm_v14_2_binding_table_alignment.py",
+      "sha256": "f006c79f118aaa3b07b8c0ef14838ea81ff05aad5c86357461c25239863def7c"
+    },
+    {
+      "path": "tests/test_finhrm_v14_2_markdown_e2e.py",
+      "sha256": "38bb952c18a2da912da1f28c62da8f02a43136c61b5c67620472dbeaec1d262b"
+    },
+    {
+      "path": "tests/test_finhrm_v14_2_proof_parser_consistency.py",
+      "sha256": "c0874812f61462220544411a9b8182079e6fbc008c59cff072e65145b0df67da"
+    },
+    {
+      "path": "tests/test_finhrm_v14_2_role_fact.py",
+      "sha256": "580536d06d92ba8d87afb5fe8ee76beb59d9c08b5cead76cec7b4885f7272e4c"
+    },
+    {
+      "path": "tests/test_finhrm_v14_2_role_fact_context_v2.py",
+      "sha256": "750a4b2e0287c1b65f8a56c4b61cfbbd00d7cd9d01e64d1a2b0903af61136d48"
+    },
+    {
+      "path": "tests/test_finhrm_v14_2_role_fact_presentation.py",
+      "sha256": "70641a33ec39c19f8df3f9cb1967179ddd317d3ca99955b1b942289c1ddd1a7f"
+    },
+    {
+      "path": "tests/test_finhrm_v14_2_scope_unit.py",
+      "sha256": "7aa4f93964e439a00caab536b586abb6506b4b3020cd6825f4813e80f7f86e69"
+    },
+    {
+      "path": "tests/test_finhrm_v14_2_scope_unit_v2.py",
+      "sha256": "1032086492b9c234c06ef12d03e0165cd60a8d91e34d17d69c919ee16282975f"
+    },
+    {
+      "path": "tests/test_finhrm_v14_2_scope_unit_v3.py",
+      "sha256": "d296f2ac7a9539d1b12208cb6fc25ff41bb59c3b4a7e48e7869153a35d8750ec"
+    },
+    {
+      "path": "tests/test_finhrm_v14_2_selection_repair.py",
+      "sha256": "167cccea95b8dc51e411520d8f1026c5a2e9a86416af60c1e15c1a5c8c8291a2"
+    },
+    {
+      "path": "tests/test_finhrm_v14_2_table_context.py",
+      "sha256": "5d226b3c228b89426a2cb9d0ad25c3fbdc616e44205da9181ea880362f718ba2"
+    },
+    {
+      "path": "tests/test_finhrm_v14_2_table_context_boundaries.py",
+      "sha256": "49fb270c6774216f3194c739185f1337e22de2971822674a1c873e91535a9f3c"
+    },
+    {
+      "path": "config/finhrm_v14_2_reading_requests_v1.json",
+      "sha256": "d0a198e454c1f6661c3f2b404fa249f8480838ca67cd7ff4aa7c6bff12491e13"
+    }
+  ],
+  "environment": {
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+    "executable": "/usr/bin/python3",
+    "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "machine": "x86_64",
+    "distributions": [
+      {
+        "name": "antlr4-python3-runtime",
+        "version": "4.9.3",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "anyio",
+        "version": "4.14.2",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "attrs",
+        "version": "23.2.0",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "automat",
+        "version": "22.10.0",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "babel",
+        "version": "2.10.3",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "bcrypt",
+        "version": "3.2.2",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "blinker",
+        "version": "1.7.0",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "certifi",
+        "version": "2023.11.17",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "certifi",
+        "version": "2026.6.17",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "chardet",
+        "version": "5.2.0",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "charset-normalizer",
+        "version": "3.5.1",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "click",
+        "version": "8.1.6",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "click",
+        "version": "8.4.2",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "cloud-init",
+        "version": "25.1.4",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "colorama",
+        "version": "0.4.6",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "colorlog",
+        "version": "6.10.1",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "command-not-found",
+        "version": "0.3",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "configobj",
+        "version": "5.0.8",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "constantly",
+        "version": "23.10.4",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "cryptography",
+        "version": "41.0.7",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "cryptography",
+        "version": "41.0.7",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "cuda-bindings",
+        "version": "13.3.1",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "cuda-pathfinder",
+        "version": "1.8.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "cuda-toolkit",
+        "version": "13.0.3.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "dbus-python",
+        "version": "1.3.2",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "distro",
+        "version": "1.9.0",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "distro-info",
+        "version": "1.7+build1",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "docker",
+        "version": "5.0.3",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "docker-compose",
+        "version": "1.29.2",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "dockerpty",
+        "version": "0.4.1",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "docopt",
+        "version": "0.6.2",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "fastembed",
+        "version": "0.8.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "filelock",
+        "version": "3.29.7",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "flatbuffers",
+        "version": "25.12.19",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "fsspec",
+        "version": "2026.7.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "gyp",
+        "version": "0.1",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "h11",
+        "version": "0.16.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "hf-xet",
+        "version": "1.6.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "httpcore",
+        "version": "1.0.9",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "httplib2",
+        "version": "0.20.4",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "httpx",
+        "version": "0.28.1",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "huggingface-hub",
+        "version": "0.36.2",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "hyperlink",
+        "version": "21.0.0",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "idna",
+        "version": "3.18",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "idna",
+        "version": "3.6",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "incremental",
+        "version": "22.10.0",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "iniconfig",
+        "version": "2.3.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "jinja2",
+        "version": "3.1.2",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "jinja2",
+        "version": "3.1.6",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "joblib",
+        "version": "1.6.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "jsonpatch",
+        "version": "1.32",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "jsonpointer",
+        "version": "2.0",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "jsonschema",
+        "version": "4.10.3",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "launchpadlib",
+        "version": "1.11.0",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "lazr.restfulclient",
+        "version": "0.14.6",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "lazr.uri",
+        "version": "1.0.6",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "loguru",
+        "version": "0.7.3",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "markdown-it-py",
+        "version": "3.0.0",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "markupsafe",
+        "version": "2.1.5",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "markupsafe",
+        "version": "3.0.3",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "mdurl",
+        "version": "0.1.2",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "mmh3",
+        "version": "5.2.1",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "mpmath",
+        "version": "1.3.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "narwhals",
+        "version": "2.25.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "netifaces",
+        "version": "0.11.0",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "networkx",
+        "version": "3.6.1",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "numpy",
+        "version": "2.5.2",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "nvidia-cublas",
+        "version": "13.1.1.3",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "nvidia-cuda-cupti",
+        "version": "13.0.85",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "nvidia-cuda-nvrtc",
+        "version": "13.0.88",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "nvidia-cuda-runtime",
+        "version": "13.0.96",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "nvidia-cudnn-cu13",
+        "version": "9.20.0.48",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "nvidia-cufft",
+        "version": "12.0.0.61",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "nvidia-cufile",
+        "version": "1.15.1.6",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "nvidia-curand",
+        "version": "10.4.0.35",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "nvidia-cusolver",
+        "version": "12.0.4.66",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "nvidia-cusparse",
+        "version": "12.6.3.3",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "nvidia-cusparselt-cu13",
+        "version": "0.8.1",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "nvidia-nccl-cu13",
+        "version": "2.29.7",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "nvidia-nvjitlink",
+        "version": "13.3.33",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "nvidia-nvshmem-cu13",
+        "version": "3.4.5",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "nvidia-nvtx",
+        "version": "13.0.85",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "oauthlib",
+        "version": "3.2.2",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "omegaconf",
+        "version": "2.3.1",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "onnxruntime",
+        "version": "1.27.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "opencv-python",
+        "version": "5.0.0.93",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "packaging",
+        "version": "24.0",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "packaging",
+        "version": "26.3",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "pillow",
+        "version": "12.3.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "pip",
+        "version": "24.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "pip",
+        "version": "24.0",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "pluggy",
+        "version": "1.6.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "protobuf",
+        "version": "7.35.1",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "py-rust-stemmers",
+        "version": "0.1.8",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "pyasn1",
+        "version": "0.4.8",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "pyasn1-modules",
+        "version": "0.2.8",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "pyclipper",
+        "version": "1.4.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "pycurl",
+        "version": "7.45.3",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "pygments",
+        "version": "2.17.2",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "pygments",
+        "version": "2.20.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "pygobject",
+        "version": "3.48.2",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "pyhamcrest",
+        "version": "2.1.0",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "pyjwt",
+        "version": "2.7.0",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "pymupdf",
+        "version": "1.28.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "pyopenssl",
+        "version": "23.2.0",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "pyparsing",
+        "version": "3.1.1",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "pypdf",
+        "version": "6.14.2",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "pyrsistent",
+        "version": "0.20.0",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "pyserial",
+        "version": "3.5",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "pytest",
+        "version": "9.1.1",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "python-apt",
+        "version": "2.7.7+ubuntu5.1",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "python-crfsuite",
+        "version": "0.9.12",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "python-dotenv",
+        "version": "1.0.1",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "pytz",
+        "version": "2024.1",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "pyvi",
+        "version": "0.1.1",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "pyyaml",
+        "version": "6.0.1",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "pyyaml",
+        "version": "6.0.3",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "rapidocr",
+        "version": "3.9.1",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "regex",
+        "version": "2026.8.31",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "requests",
+        "version": "2.31.0",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "requests",
+        "version": "2.34.2",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "rich",
+        "version": "13.7.1",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "safetensors",
+        "version": "0.8.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "scikit-learn",
+        "version": "1.9.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "scipy",
+        "version": "1.18.1",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "sentence-transformers",
+        "version": "5.1.2",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "service-identity",
+        "version": "24.1.0",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "setuptools",
+        "version": "68.1.2",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "setuptools",
+        "version": "83.0.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "shapely",
+        "version": "2.1.2",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "six",
+        "version": "1.16.0",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "six",
+        "version": "1.17.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "sklearn-crfsuite",
+        "version": "0.5.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "ssh-import-id",
+        "version": "5.11",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "sympy",
+        "version": "1.14.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "systemd-python",
+        "version": "235",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "tabulate",
+        "version": "0.10.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "texttable",
+        "version": "1.6.7",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "threadpoolctl",
+        "version": "3.6.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "tokenizers",
+        "version": "0.22.2",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "torch",
+        "version": "2.13.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "tqdm",
+        "version": "4.68.4",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "transformers",
+        "version": "4.57.6",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "triton",
+        "version": "3.7.1",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "twisted",
+        "version": "24.3.0",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "typing-extensions",
+        "version": "4.10.0",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "typing-extensions",
+        "version": "4.16.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "ubuntu-pro-client",
+        "version": "8001",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "unattended-upgrades",
+        "version": "0.1",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "urllib3",
+        "version": "2.0.7",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "urllib3",
+        "version": "2.7.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      {
+        "name": "wadllib",
+        "version": "1.3.6",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "websocket-client",
+        "version": "1.7.0",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "wheel",
+        "version": "0.42.0",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      {
+        "name": "zope.interface",
+        "version": "6.1",
+        "location": "/usr/lib/python3/dist-packages"
+      }
+    ],
+    "duplicate_metadata": {
+      "('cryptography', '/usr/lib/python3/dist-packages')": 2
+    },
+    "required_runtime": {
+      "torch": {
+        "version": "2.13.0",
+        "origin": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages/torch/__init__.py"
+      },
+      "numpy": {
+        "version": "2.5.2",
+        "origin": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages/numpy/__init__.py"
+      },
+      "sentence-transformers": {
+        "version": "5.1.2",
+        "origin": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages/sentence_transformers/__init__.py"
+      },
+      "transformers": {
+        "version": "4.57.6",
+        "origin": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages/transformers/__init__.py"
+      },
+      "huggingface-hub": {
+        "version": "0.36.2",
+        "origin": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages/huggingface_hub/__init__.py"
+      },
+      "tokenizers": {
+        "version": "0.22.2",
+        "origin": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages/tokenizers/__init__.py"
+      },
+      "safetensors": {
+        "version": "0.8.0",
+        "origin": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages/safetensors/__init__.py"
+      },
+      "pyvi": {
+        "version": "0.1.1",
+        "origin": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages/pyvi/__init__.py"
+      },
+      "scipy": {
+        "version": "1.18.1",
+        "origin": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages/scipy/__init__.py"
+      },
+      "scikit-learn": {
+        "version": "1.9.0",
+        "origin": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages/sklearn/__init__.py"
+      }
+    },
+    "resolution_policy": "sys.path order; repeated names in different locations are shadowed, not active duplicates",
+    "resolved_distributions": {
+      "antlr4-python3-runtime": {
+        "version": "4.9.3",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "anyio": {
+        "version": "4.14.2",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "attrs": {
+        "version": "23.2.0",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "automat": {
+        "version": "22.10.0",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "babel": {
+        "version": "2.10.3",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "bcrypt": {
+        "version": "3.2.2",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "blinker": {
+        "version": "1.7.0",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "certifi": {
+        "version": "2026.6.17",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "chardet": {
+        "version": "5.2.0",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "charset-normalizer": {
+        "version": "3.5.1",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "click": {
+        "version": "8.4.2",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "cloud-init": {
+        "version": "25.1.4",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "colorama": {
+        "version": "0.4.6",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "colorlog": {
+        "version": "6.10.1",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "command-not-found": {
+        "version": "0.3",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "configobj": {
+        "version": "5.0.8",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "constantly": {
+        "version": "23.10.4",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "cryptography": {
+        "version": "41.0.7",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "cuda-bindings": {
+        "version": "13.3.1",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "cuda-pathfinder": {
+        "version": "1.8.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "cuda-toolkit": {
+        "version": "13.0.3.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "dbus-python": {
+        "version": "1.3.2",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "distro": {
+        "version": "1.9.0",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "distro-info": {
+        "version": "1.7+build1",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "docker": {
+        "version": "5.0.3",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "docker-compose": {
+        "version": "1.29.2",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "dockerpty": {
+        "version": "0.4.1",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "docopt": {
+        "version": "0.6.2",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "fastembed": {
+        "version": "0.8.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "filelock": {
+        "version": "3.29.7",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "flatbuffers": {
+        "version": "25.12.19",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "fsspec": {
+        "version": "2026.7.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "gyp": {
+        "version": "0.1",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "h11": {
+        "version": "0.16.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "hf-xet": {
+        "version": "1.6.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "httpcore": {
+        "version": "1.0.9",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "httplib2": {
+        "version": "0.20.4",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "httpx": {
+        "version": "0.28.1",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "huggingface-hub": {
+        "version": "0.36.2",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "hyperlink": {
+        "version": "21.0.0",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "idna": {
+        "version": "3.18",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "incremental": {
+        "version": "22.10.0",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "iniconfig": {
+        "version": "2.3.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "jinja2": {
+        "version": "3.1.6",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "joblib": {
+        "version": "1.6.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "jsonpatch": {
+        "version": "1.32",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "jsonpointer": {
+        "version": "2.0",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "jsonschema": {
+        "version": "4.10.3",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "launchpadlib": {
+        "version": "1.11.0",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "lazr.restfulclient": {
+        "version": "0.14.6",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "lazr.uri": {
+        "version": "1.0.6",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "loguru": {
+        "version": "0.7.3",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "markdown-it-py": {
+        "version": "3.0.0",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "markupsafe": {
+        "version": "3.0.3",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "mdurl": {
+        "version": "0.1.2",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "mmh3": {
+        "version": "5.2.1",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "mpmath": {
+        "version": "1.3.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "narwhals": {
+        "version": "2.25.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "netifaces": {
+        "version": "0.11.0",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "networkx": {
+        "version": "3.6.1",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "numpy": {
+        "version": "2.5.2",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "nvidia-cublas": {
+        "version": "13.1.1.3",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "nvidia-cuda-cupti": {
+        "version": "13.0.85",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "nvidia-cuda-nvrtc": {
+        "version": "13.0.88",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "nvidia-cuda-runtime": {
+        "version": "13.0.96",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "nvidia-cudnn-cu13": {
+        "version": "9.20.0.48",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "nvidia-cufft": {
+        "version": "12.0.0.61",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "nvidia-cufile": {
+        "version": "1.15.1.6",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "nvidia-curand": {
+        "version": "10.4.0.35",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "nvidia-cusolver": {
+        "version": "12.0.4.66",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "nvidia-cusparse": {
+        "version": "12.6.3.3",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "nvidia-cusparselt-cu13": {
+        "version": "0.8.1",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "nvidia-nccl-cu13": {
+        "version": "2.29.7",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "nvidia-nvjitlink": {
+        "version": "13.3.33",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "nvidia-nvshmem-cu13": {
+        "version": "3.4.5",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "nvidia-nvtx": {
+        "version": "13.0.85",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "oauthlib": {
+        "version": "3.2.2",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "omegaconf": {
+        "version": "2.3.1",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "onnxruntime": {
+        "version": "1.27.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "opencv-python": {
+        "version": "5.0.0.93",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "packaging": {
+        "version": "26.3",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "pillow": {
+        "version": "12.3.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "pip": {
+        "version": "24.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "pluggy": {
+        "version": "1.6.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "protobuf": {
+        "version": "7.35.1",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "py-rust-stemmers": {
+        "version": "0.1.8",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "pyasn1": {
+        "version": "0.4.8",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "pyasn1-modules": {
+        "version": "0.2.8",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "pyclipper": {
+        "version": "1.4.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "pycurl": {
+        "version": "7.45.3",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "pygments": {
+        "version": "2.20.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "pygobject": {
+        "version": "3.48.2",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "pyhamcrest": {
+        "version": "2.1.0",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "pyjwt": {
+        "version": "2.7.0",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "pymupdf": {
+        "version": "1.28.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "pyopenssl": {
+        "version": "23.2.0",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "pyparsing": {
+        "version": "3.1.1",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "pypdf": {
+        "version": "6.14.2",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "pyrsistent": {
+        "version": "0.20.0",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "pyserial": {
+        "version": "3.5",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "pytest": {
+        "version": "9.1.1",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "python-apt": {
+        "version": "2.7.7+ubuntu5.1",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "python-crfsuite": {
+        "version": "0.9.12",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "python-dotenv": {
+        "version": "1.0.1",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "pytz": {
+        "version": "2024.1",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "pyvi": {
+        "version": "0.1.1",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "pyyaml": {
+        "version": "6.0.3",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "rapidocr": {
+        "version": "3.9.1",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "regex": {
+        "version": "2026.8.31",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "requests": {
+        "version": "2.34.2",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "rich": {
+        "version": "13.7.1",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "safetensors": {
+        "version": "0.8.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "scikit-learn": {
+        "version": "1.9.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "scipy": {
+        "version": "1.18.1",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "sentence-transformers": {
+        "version": "5.1.2",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "service-identity": {
+        "version": "24.1.0",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "setuptools": {
+        "version": "83.0.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "shapely": {
+        "version": "2.1.2",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "six": {
+        "version": "1.17.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "sklearn-crfsuite": {
+        "version": "0.5.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "ssh-import-id": {
+        "version": "5.11",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "sympy": {
+        "version": "1.14.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "systemd-python": {
+        "version": "235",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "tabulate": {
+        "version": "0.10.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "texttable": {
+        "version": "1.6.7",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "threadpoolctl": {
+        "version": "3.6.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "tokenizers": {
+        "version": "0.22.2",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "torch": {
+        "version": "2.13.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "tqdm": {
+        "version": "4.68.4",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "transformers": {
+        "version": "4.57.6",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "triton": {
+        "version": "3.7.1",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "twisted": {
+        "version": "24.3.0",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "typing-extensions": {
+        "version": "4.16.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "ubuntu-pro-client": {
+        "version": "8001",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "unattended-upgrades": {
+        "version": "0.1",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "urllib3": {
+        "version": "2.7.0",
+        "location": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages"
+      },
+      "wadllib": {
+        "version": "1.3.6",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "websocket-client": {
+        "version": "1.7.0",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "wheel": {
+        "version": "0.42.0",
+        "location": "/usr/lib/python3/dist-packages"
+      },
+      "zope.interface": {
+        "version": "6.1",
+        "location": "/usr/lib/python3/dist-packages"
+      }
+    }
+  },
+  "run": {
+    "mode": "actual HTTP /v1/answer with PersistentDocumentHRMService; adaptive bundle.predict defaults",
+    "seed": 31,
+    "device": "cpu",
+    "threads": 4,
+    "interop_threads": 1,
+    "max_segments": "checkpoint config",
+    "ocr": "Markdown path bypasses OCR; no ingestion worker; auto_generate false",
+    "retrieval": {
+      "top_k_chunks": 8,
+      "neighbor_chunks": 1,
+      "page_top_k": 6,
+      "page_neighbor_pages": 1
+    },
+    "cache": "fresh vector DB per process; sequential requests; source Markdown is whole document",
+    "request_order": [
+      "s15-001",
+      "s15-002",
+      "s15-003",
+      "s15-004",
+      "s15-005",
+      "s15-006",
+      "s15-007",
+      "s15-008",
+      "s15-009",
+      "s15-010",
+      "s15-011",
+      "s15-012",
+      "s15-013",
+      "s15-014",
+      "s15-015",
+      "s15-016",
+      "s15-017",
+      "s15-018",
+      "s15-019",
+      "s15-020",
+      "s15-021",
+      "s15-022",
+      "s15-023",
+      "s15-024",
+      "s15-025",
+      "s15-026",
+      "s15-027",
+      "s15-028",
+      "s15-029",
+      "s15-030",
+      "s15-031",
+      "s15-032",
+      "s15-033",
+      "s15-034",
+      "s15-035",
+      "s15-036",
+      "s15-037",
+      "s15-038",
+      "s15-039",
+      "s15-040",
+      "s15-041",
+      "s15-042",
+      "s15-043",
+      "s15-044",
+      "s15-045",
+      "s15-046",
+      "s15-047",
+      "s15-048",
+      "s15-049",
+      "s15-050",
+      "s15-051",
+      "s15-052",
+      "s15-053",
+      "s15-054",
+      "s15-055",
+      "s15-056",
+      "s15-057",
+      "s15-058",
+      "s15-059",
+      "s15-060",
+      "p3-061",
+      "p3-062",
+      "p3-063",
+      "p3-064"
+    ]
+  },
+  "schema": "finhrm-reading-development-v1",
+  "runtime": [
+    {
+      "path": "src/hrm_finance_qa/__init__.py",
+      "sha256": "c316966feb7929c62f81d9d6f0c7807985c7176b1401bbee59fb2a59bbe7de1e"
+    },
+    {
+      "path": "src/hrm_finance_qa/answer_presentation.py",
+      "sha256": "8c6052b4ebe504176cdd1b83d00c5d759a69a67da533ce4dc0154ffea470077a"
+    },
+    {
+      "path": "src/hrm_finance_qa/cache_schema.py",
+      "sha256": "73de59f448cad7585b8215ad954c892ae76b84fb8944e89757cb4658e2c561d4"
+    },
+    {
+      "path": "src/hrm_finance_qa/calibration_policy.py",
+      "sha256": "e568ad4957f5fb8dbf2a27c6e6e48bf869b796e7bcb1335d70918f909bea37d3"
+    },
+    {
+      "path": "src/hrm_finance_qa/candidate_evaluation.py",
+      "sha256": "21ba9da22fa8ebf1b8c77f148be1a35116af33c07e9a970f2aed6470514182f2"
+    },
+    {
+      "path": "src/hrm_finance_qa/cli.py",
+      "sha256": "fd342a5f150ad05af54c2df44d3416ef08cc9a5deb01629bdc89518c308a3d22"
+    },
+    {
+      "path": "src/hrm_finance_qa/dense_retrieval.py",
+      "sha256": "6896d217e79b730f0c8555c0b4d8cf8b72fa722cf3af6a1f06093a318e577dc3"
+    },
+    {
+      "path": "src/hrm_finance_qa/direction_contract.py",
+      "sha256": "a18aa130419fc74ce647bd92dc9c1b1217007738e636aad0f28c7f78396be937"
+    },
+    {
+      "path": "src/hrm_finance_qa/document_agent.py",
+      "sha256": "932250766ebb63da8f99fdfe8ab390fee82bcbc5aea866ca9bb057e818c64290"
+    },
+    {
+      "path": "src/hrm_finance_qa/document_hrm.py",
+      "sha256": "7d87abc314dd316de5bfde1cf62e8e09eb148ab3b79eb7f8e436a4f1f03a0a76"
+    },
+    {
+      "path": "src/hrm_finance_qa/document_page_index.py",
+      "sha256": "97d356533734bb09bdeb318038d720ac2daf700046e753d1d134804f7bb7c884"
+    },
+    {
+      "path": "src/hrm_finance_qa/document_reasoning_engine.py",
+      "sha256": "302a509abe62965a5659b373fcc57808e39a5790bf727247a1103e761ddd34d5"
+    },
+    {
+      "path": "src/hrm_finance_qa/document_search.py",
+      "sha256": "3aa79ffd648c8e6d9764ff73e09d88e2deec387d3168f94d7ffc54bb41aaf089"
+    },
+    {
+      "path": "src/hrm_finance_qa/document_service.py",
+      "sha256": "c436f0d911b282f96c019406f3ca466508ba3d0656365363180dc52bcb4af805"
+    },
+    {
+      "path": "src/hrm_finance_qa/document_sources.py",
+      "sha256": "64327f3fa3ecef45c71e1380a66c5f46829b9b35d6b6d94da018634ef41d5d16"
+    },
+    {
+      "path": "src/hrm_finance_qa/engine.py",
+      "sha256": "bc8494556dd5bb15e925978bd8cc5c4a98ac188af580e0d9537f42f5566d128c"
+    },
+    {
+      "path": "src/hrm_finance_qa/evaluation_metrics.py",
+      "sha256": "2a3b19f9ae8f08f9e9742c094e874af7c28d54cfb7838b1c39e02b5d1e6a7a76"
+    },
+    {
+      "path": "src/hrm_finance_qa/evidence_schema.py",
+      "sha256": "a211b748aa60b863b40105191faff7adff244b396fbb9334eaabb1d20445a428"
+    },
+    {
+      "path": "src/hrm_finance_qa/exact_dag_executor.py",
+      "sha256": "ee1aa0f90c4f71913108a1dd8ea28d966188c8e9c4993786f2bb9b3a7e422fa5"
+    },
+    {
+      "path": "src/hrm_finance_qa/exact_executor.py",
+      "sha256": "97a897e7e76f6d1a089c625017464cf1755143440928eb5ced819c6b7294fd9d"
+    },
+    {
+      "path": "src/hrm_finance_qa/external_evaluation.py",
+      "sha256": "96d3a3aa79637507dd73cb776e2d70f71aaf1b977a1e192762b5b696b706ff2c"
+    },
+    {
+      "path": "src/hrm_finance_qa/financial_hrm_features.py",
+      "sha256": "b5c0d351b6acf94bf4b2ced08e5b2aebc91c7b1bc7b53c6dbbbd405183c30a59"
+    },
+    {
+      "path": "src/hrm_finance_qa/financial_identities.py",
+      "sha256": "a4b2249fcd8a7d633b874eb67da8dc86e1c556dec5d7757d3c3e8450d586d72a"
+    },
+    {
+      "path": "src/hrm_finance_qa/flattened_table_reconstruction.py",
+      "sha256": "1e67aa3f2e3acc068d30ece065fc0a0365358c7aa75da660e065af83fa265d4c"
+    },
+    {
+      "path": "src/hrm_finance_qa/hrm.py",
+      "sha256": "3f6cfe5e864c9c4b4e9ec7beb995d8813fe7ee6acfe39af89f0f55dd932505e5"
+    },
+    {
+      "path": "src/hrm_finance_qa/neural.py",
+      "sha256": "ff2e2c0c3d7a62702bd2b2b1f80d5bad2521e8ec2d347f93050fb875bb4f1d7f"
+    },
+    {
+      "path": "src/hrm_finance_qa/ontology.py",
+      "sha256": "47375f6a95057ddda75433fd40a8e9c2be3448165e288c2764d1d54bc83e400b"
+    },
+    {
+      "path": "src/hrm_finance_qa/physical_coordinates.py",
+      "sha256": "8b805eb0ba991710edad6af7eb46f6c421f57643fcc5efb6b5663e90691da6ea"
+    },
+    {
+      "path": "src/hrm_finance_qa/program_data.py",
+      "sha256": "4218fb0119877e1eb0465f487d41322f912358389e759a87edb53f3d97efdb37"
+    },
+    {
+      "path": "src/hrm_finance_qa/program_reranker.py",
+      "sha256": "7d7f456649ce0639a808b809985751c38c9a4bb1d70209a65d3bc3bbc97671f4"
+    },
+    {
+      "path": "src/hrm_finance_qa/program_synthesis.py",
+      "sha256": "756ca351ae05259b4b24f4f62cbe74eeff89033d3a1ec8912671ea976c44a0ea"
+    },
+    {
+      "path": "src/hrm_finance_qa/question_planner.py",
+      "sha256": "7d7727aa7555107faa262fdcae6de20e25ce6e31ae440256bb24f05e4b18400b"
+    },
+    {
+      "path": "src/hrm_finance_qa/question_request_planner.py",
+      "sha256": "8f2bafba2ff352256fa57def156ffba56a2478ee7fca102f2395ae9ba35fb4ac"
+    },
+    {
+      "path": "src/hrm_finance_qa/reasoning.py",
+      "sha256": "d3244c224dbec45f62f95e64a30f1c48fb2566830c457416bf691eca6a107f74"
+    },
+    {
+      "path": "src/hrm_finance_qa/reasoning_engine.py",
+      "sha256": "fee38cd78d0949f4c3172290199a1b50ce0fc934cd4c8f0002f188881ca658cc"
+    },
+    {
+      "path": "src/hrm_finance_qa/repository.py",
+      "sha256": "8e83ad3f7f676eb0eacbe038b064582e7659d35f98363cb552555d2a6b9f994a"
+    },
+    {
+      "path": "src/hrm_finance_qa/request_answer.py",
+      "sha256": "c677cb199c852f0c2e248db2eed81737dc402b2fc82e8be4d8e4b3f23bb9920a"
+    },
+    {
+      "path": "src/hrm_finance_qa/semantic_encoder.py",
+      "sha256": "870bd5bcd04cf54ac1343e16ba3445f2216551a49bac6cf19ada92c842ab2ebe"
+    },
+    {
+      "path": "src/hrm_finance_qa/source_action_policy.py",
+      "sha256": "88ebdddc05f7775919258b36886733b6775a5f6f99639aa76666963cdbaba170"
+    },
+    {
+      "path": "src/hrm_finance_qa/source_binding.py",
+      "sha256": "dd325743d5643625454f26dc1821cbe916bb5b6c739c0b335e8c0d4e01519fbe"
+    },
+    {
+      "path": "src/hrm_finance_qa/source_bindings.py",
+      "sha256": "e466f375758d891adf8545059898a05702ed403eb95154a9f0d779f4ab20ec71"
+    },
+    {
+      "path": "src/hrm_finance_qa/symbolic_verifier.py",
+      "sha256": "780f330f56163ccf8d699e8e5ab1eda7554f737cde2e1c5919aee2facf47a7a9"
+    },
+    {
+      "path": "src/hrm_finance_qa/table_semantics.py",
+      "sha256": "9bc2e621d68584e5a2e2b0eb0c6346dcdad04f0de81e04add2ca7186e749c3be"
+    },
+    {
+      "path": "src/hrm_finance_qa/training_state.py",
+      "sha256": "d1548b9ab06d289dfd37168da7954a0493db0abdcf6732e04e8c915ab763018b"
+    },
+    {
+      "path": "src/hrm_finance_qa/v11_pipeline.py",
+      "sha256": "b6611c2b2c0ba7cd2c726b4d48f29a9b1fd01be09a4da2200865379f07ba4387"
+    },
+    {
+      "path": "src/hrm_finance_qa/v12b2_supervision.py",
+      "sha256": "100272f4bb46a3bd51e05914c6080ddaa7f48fea3c96337aa4b6cd9a0e8db0da"
+    }
+  ],
+  "parent_protocol": "config/finhrm_v14_2_table_context_protocol_v2.json",
+  "parent_snapshot": "tmp/finhrm_v14_2_reading_parent_v1",
+  "purpose": "Public actual intent default, section retrieval, context selection, honest nonanswer presentation; unchanged source/verifier/executor/weights/calibration.",
+  "promotion": "HOLD; development smoke and independent same-pool selector diagnostic, not certification"
+}

@@ -1,0 +1,605 @@
+{
+  "schema": "finhrm-v14.2-mineru-only-rerun-v1",
+  "created_at": "2026-09-09T13:39:21.921950+00:00",
+  "scope": "Development replay after caption composition and metric dimension fixes; same five questions, full MinerU artifacts, model, policy and references. No new OCR or training.",
+  "inputs": [
+    {
+      "path": "archive/mineru_verify_fix_parent_20260909_v1.zip",
+      "sha256": "561f179f0e51c04553b1d9ad7984768802270dd56e8a56583a5580ab53c9590a"
+    },
+    {
+      "path": "cache/mineru/mineru-rerun-v1/full-report-v1/663c4a4d4e034e2d2566fcb8cd8efcb6cee429c38466e8d443fe4be5c1a43187/ACG_25CN_BCTN-048b1d1b5a7eba58df9e5e91/ACG_25CN_BCTN/hybrid_ocr/ACG_25CN_BCTN_content_list.json",
+      "sha256": "76ca63d801c0c3384e1a9582903952c51fdd28827ad9e66eb5d06872381c97e1"
+    },
+    {
+      "path": "cache/mineru/mineru-rerun-v1/full-report-v1/663c4a4d4e034e2d2566fcb8cd8efcb6cee429c38466e8d443fe4be5c1a43187/ACG_25CN_BCTN-0c6f435ffaae7256ced7a961/ACG_25CN_BCTN/hybrid_ocr/ACG_25CN_BCTN_content_list.json",
+      "sha256": "874a2813563a820a2768806fda5b0bb8e7d50d881b16cab08ce993658cf0f257"
+    },
+    {
+      "path": "cache/mineru/mineru-rerun-v1/full-report-v1/663c4a4d4e034e2d2566fcb8cd8efcb6cee429c38466e8d443fe4be5c1a43187/ACG_25CN_BCTN-20fc3378a05514ba987327cc/ACG_25CN_BCTN/hybrid_ocr/ACG_25CN_BCTN_content_list.json",
+      "sha256": "392d9505034cabedee99753ac7cd9edc0af71b45ae059b7e51f0ecaf1a932883"
+    },
+    {
+      "path": "cache/mineru/mineru-rerun-v1/full-report-v1/663c4a4d4e034e2d2566fcb8cd8efcb6cee429c38466e8d443fe4be5c1a43187/ACG_25CN_BCTN-21881c6277aa2e8b32e9f2d1/ACG_25CN_BCTN/hybrid_ocr/ACG_25CN_BCTN_content_list.json",
+      "sha256": "ac769bdeee7ab974dc7d0f82c057560cc74ce8a1f987f6a8d8857e8d5784f297"
+    },
+    {
+      "path": "cache/mineru/mineru-rerun-v1/full-report-v1/663c4a4d4e034e2d2566fcb8cd8efcb6cee429c38466e8d443fe4be5c1a43187/ACG_25CN_BCTN-27a4042bdd212c2b32c62ef2/ACG_25CN_BCTN/hybrid_ocr/ACG_25CN_BCTN_content_list.json",
+      "sha256": "574bb9b71e0369644fedf4de60e768f63d34a2ee0caf79ed1f4f7c8d0d84dec0"
+    },
+    {
+      "path": "cache/mineru/mineru-rerun-v1/full-report-v1/663c4a4d4e034e2d2566fcb8cd8efcb6cee429c38466e8d443fe4be5c1a43187/ACG_25CN_BCTN-2ecab3e5367de44b872c2c44/ACG_25CN_BCTN/hybrid_ocr/ACG_25CN_BCTN_content_list.json",
+      "sha256": "8d840deb3c3aedbbf8106d889f76d09c8fe4da7340725c51783f640c4bae2fae"
+    },
+    {
+      "path": "cache/mineru/mineru-rerun-v1/full-report-v1/663c4a4d4e034e2d2566fcb8cd8efcb6cee429c38466e8d443fe4be5c1a43187/ACG_25CN_BCTN-34ed65a9237919333b25d991/ACG_25CN_BCTN/hybrid_ocr/ACG_25CN_BCTN_content_list.json",
+      "sha256": "79c809ef920c313454dcae3be02bd7b6628c6e3592889004c1acf03af3283fda"
+    },
+    {
+      "path": "cache/mineru/mineru-rerun-v1/full-report-v1/663c4a4d4e034e2d2566fcb8cd8efcb6cee429c38466e8d443fe4be5c1a43187/ACG_25CN_BCTN-3801ea7c88e7bd82911513ad/ACG_25CN_BCTN/hybrid_ocr/ACG_25CN_BCTN_content_list.json",
+      "sha256": "74ff674d40dc8aa680e17d5a572ef587d47097fe1fd7c338813b13757941d9d6"
+    },
+    {
+      "path": "cache/mineru/mineru-rerun-v1/full-report-v1/663c4a4d4e034e2d2566fcb8cd8efcb6cee429c38466e8d443fe4be5c1a43187/ACG_25CN_BCTN-3964c81fd91872d4364aab89/ACG_25CN_BCTN/hybrid_ocr/ACG_25CN_BCTN_content_list.json",
+      "sha256": "b392ff08ee6aeceabd2ab865c0a7fcfb03eccb35b39bad91a1f0972033e62b7e"
+    },
+    {
+      "path": "cache/mineru/mineru-rerun-v1/full-report-v1/663c4a4d4e034e2d2566fcb8cd8efcb6cee429c38466e8d443fe4be5c1a43187/ACG_25CN_BCTN-3cae550609ecfd3afcb98739/ACG_25CN_BCTN/hybrid_ocr/ACG_25CN_BCTN_content_list.json",
+      "sha256": "a0b52a6aebd23757b6e52eb5de259c0646550ebd42e207349c5126f6b1f9bfed"
+    },
+    {
+      "path": "cache/mineru/mineru-rerun-v1/full-report-v1/663c4a4d4e034e2d2566fcb8cd8efcb6cee429c38466e8d443fe4be5c1a43187/ACG_25CN_BCTN-4de959cb62148bac6e0d6846/ACG_25CN_BCTN/hybrid_ocr/ACG_25CN_BCTN_content_list.json",
+      "sha256": "39ed8bc438fb77dba86a773fcde23c46ea6aa2427e9d19de2caf5dc60dcbe9be"
+    },
+    {
+      "path": "cache/mineru/mineru-rerun-v1/full-report-v1/663c4a4d4e034e2d2566fcb8cd8efcb6cee429c38466e8d443fe4be5c1a43187/ACG_25CN_BCTN-58a6cb58011aee4e51c6cb53/ACG_25CN_BCTN/hybrid_ocr/ACG_25CN_BCTN_content_list.json",
+      "sha256": "6252042e38d7a3796946582de9e284f10c9600c70094475c4da02e085d6f054a"
+    },
+    {
+      "path": "cache/mineru/mineru-rerun-v1/full-report-v1/663c4a4d4e034e2d2566fcb8cd8efcb6cee429c38466e8d443fe4be5c1a43187/ACG_25CN_BCTN-59efc60c0a84294483de2798/ACG_25CN_BCTN/hybrid_ocr/ACG_25CN_BCTN_content_list.json",
+      "sha256": "25f62272aa73965e81feae6a8417806f4fb188611ec2f34d7d1854a4d7b34fe6"
+    },
+    {
+      "path": "cache/mineru/mineru-rerun-v1/full-report-v1/663c4a4d4e034e2d2566fcb8cd8efcb6cee429c38466e8d443fe4be5c1a43187/ACG_25CN_BCTN-762f80ddbce1995273c87292/ACG_25CN_BCTN/hybrid_ocr/ACG_25CN_BCTN_content_list.json",
+      "sha256": "11a4de7e05e6bea1bd312dbb432edc057e566769dec4bbe862c4ffd80cb8822a"
+    },
+    {
+      "path": "cache/mineru/mineru-rerun-v1/full-report-v1/663c4a4d4e034e2d2566fcb8cd8efcb6cee429c38466e8d443fe4be5c1a43187/ACG_25CN_BCTN-7b935a02a2c4836100686a0b/ACG_25CN_BCTN/hybrid_ocr/ACG_25CN_BCTN_content_list.json",
+      "sha256": "c55b52f99628f4ac32fea5bd7ca34031986b9fb11dafed41c7885cba966f29e6"
+    },
+    {
+      "path": "cache/mineru/mineru-rerun-v1/full-report-v1/663c4a4d4e034e2d2566fcb8cd8efcb6cee429c38466e8d443fe4be5c1a43187/ACG_25CN_BCTN-7d4301810bd18cb4b2f81d47/ACG_25CN_BCTN/hybrid_ocr/ACG_25CN_BCTN_content_list.json",
+      "sha256": "32ff198bf260fdf2230262fd00ddc541d967e61e2b3ad3882635686982fe96ae"
+    },
+    {
+      "path": "cache/mineru/mineru-rerun-v1/full-report-v1/663c4a4d4e034e2d2566fcb8cd8efcb6cee429c38466e8d443fe4be5c1a43187/ACG_25CN_BCTN-8cc9bdf10173a9ff3a7bed48/ACG_25CN_BCTN/hybrid_ocr/ACG_25CN_BCTN_content_list.json",
+      "sha256": "2be5a200b0c4f8159145771ba0073c3430cba1194909d86762c3b2ee66d3ce7f"
+    },
+    {
+      "path": "cache/mineru/mineru-rerun-v1/full-report-v1/663c4a4d4e034e2d2566fcb8cd8efcb6cee429c38466e8d443fe4be5c1a43187/ACG_25CN_BCTN-95196d8ad3ed8b519cc19c96/ACG_25CN_BCTN/hybrid_ocr/ACG_25CN_BCTN_content_list.json",
+      "sha256": "4d508ad2fbbf56016b852c1fea6db6660e262c2b814d7fe09dd966a4db50e363"
+    },
+    {
+      "path": "cache/mineru/mineru-rerun-v1/full-report-v1/663c4a4d4e034e2d2566fcb8cd8efcb6cee429c38466e8d443fe4be5c1a43187/ACG_25CN_BCTN-a12f6b291d40c28d52020c67/ACG_25CN_BCTN/hybrid_ocr/ACG_25CN_BCTN_content_list.json",
+      "sha256": "d0452cf5093248b466075bd93e169bfe8fe43d34f2d7d7d9bf98160baf1a4a0d"
+    },
+    {
+      "path": "cache/mineru/mineru-rerun-v1/full-report-v1/663c4a4d4e034e2d2566fcb8cd8efcb6cee429c38466e8d443fe4be5c1a43187/ACG_25CN_BCTN-a8cb335e1399acf915f7b1f1/ACG_25CN_BCTN/hybrid_ocr/ACG_25CN_BCTN_content_list.json",
+      "sha256": "5290c0cebd48a0fe6d3af936145c4e324785aba83d2f6492efd1757b67be95cc"
+    },
+    {
+      "path": "cache/mineru/mineru-rerun-v1/full-report-v1/663c4a4d4e034e2d2566fcb8cd8efcb6cee429c38466e8d443fe4be5c1a43187/ACG_25CN_BCTN-a99d8775c0f389b4074703d0/ACG_25CN_BCTN/hybrid_ocr/ACG_25CN_BCTN_content_list.json",
+      "sha256": "07f467b8edd0d710a0b9ecd7a1c67ae1bb7bfac818bf63688352f47305928b18"
+    },
+    {
+      "path": "cache/mineru/mineru-rerun-v1/full-report-v1/663c4a4d4e034e2d2566fcb8cd8efcb6cee429c38466e8d443fe4be5c1a43187/ACG_25CN_BCTN-a9ed3de5a33b07d5c47e3242/ACG_25CN_BCTN/hybrid_ocr/ACG_25CN_BCTN_content_list.json",
+      "sha256": "5a0ab480ee81cd32e12af48b204712f1bba632753edfbf80e4f5f516b2a5f7a1"
+    },
+    {
+      "path": "cache/mineru/mineru-rerun-v1/full-report-v1/663c4a4d4e034e2d2566fcb8cd8efcb6cee429c38466e8d443fe4be5c1a43187/ACG_25CN_BCTN-af6a02dcc86bcca974490a8c/ACG_25CN_BCTN/hybrid_ocr/ACG_25CN_BCTN_content_list.json",
+      "sha256": "44aad1d3e8fc6b5831bb48053bf325dfad3f9b18b53eda4f40922abffaa9deb2"
+    },
+    {
+      "path": "cache/mineru/mineru-rerun-v1/full-report-v1/663c4a4d4e034e2d2566fcb8cd8efcb6cee429c38466e8d443fe4be5c1a43187/ACG_25CN_BCTN-b3c787cf4b33d7d1a530d4b1/ACG_25CN_BCTN/hybrid_ocr/ACG_25CN_BCTN_content_list.json",
+      "sha256": "12f2407f037087cd04e39966ff866189dd266a21d143d8afa77b5f808c5d1161"
+    },
+    {
+      "path": "cache/mineru/mineru-rerun-v1/full-report-v1/663c4a4d4e034e2d2566fcb8cd8efcb6cee429c38466e8d443fe4be5c1a43187/ACG_25CN_BCTN-c022581e16ca53076ebf2ee4/ACG_25CN_BCTN/hybrid_ocr/ACG_25CN_BCTN_content_list.json",
+      "sha256": "10cfc4dc1790141c0036d745c43666ac2b3678f4dd443bd90dc6fe0242169669"
+    },
+    {
+      "path": "cache/mineru/mineru-rerun-v1/full-report-v1/663c4a4d4e034e2d2566fcb8cd8efcb6cee429c38466e8d443fe4be5c1a43187/ACG_25CN_BCTN-cb391d490867fa70f8a602b5/ACG_25CN_BCTN/hybrid_ocr/ACG_25CN_BCTN_content_list.json",
+      "sha256": "42e83649ed4d2adbeffc7de442ba975cc321f2c782304f194b3c7057ed93afe6"
+    },
+    {
+      "path": "cache/mineru/mineru-rerun-v1/full-report-v1/663c4a4d4e034e2d2566fcb8cd8efcb6cee429c38466e8d443fe4be5c1a43187/ACG_25CN_BCTN-cf28e6e2e1efdd94345bb6f9/ACG_25CN_BCTN/hybrid_ocr/ACG_25CN_BCTN_content_list.json",
+      "sha256": "6d860efa5cc28247b8a5c990f71b9b323010bc45d28aefaabd2d86f6c8c8af98"
+    },
+    {
+      "path": "cache/mineru/mineru-rerun-v1/full-report-v1/663c4a4d4e034e2d2566fcb8cd8efcb6cee429c38466e8d443fe4be5c1a43187/ACG_25CN_BCTN-ec489cf8092f1c806a094d43/ACG_25CN_BCTN/hybrid_ocr/ACG_25CN_BCTN_content_list.json",
+      "sha256": "dbf12ec85a2c9be7d42c1a3d3ef03eecf42f34932af0792d5154126477f14eb2"
+    },
+    {
+      "path": "cache/mineru/mineru-rerun-v1/full-report-v1/663c4a4d4e034e2d2566fcb8cd8efcb6cee429c38466e8d443fe4be5c1a43187/ACG_25CN_BCTN-ecb212096b103aef873dfc10/ACG_25CN_BCTN/hybrid_ocr/ACG_25CN_BCTN_content_list.json",
+      "sha256": "73a73b78273411b205f205e868a617ee7371b817cf52f2c2cf7df8f65fa228f3"
+    },
+    {
+      "path": "cache/mineru/mineru-rerun-v1/full-report-v1/663c4a4d4e034e2d2566fcb8cd8efcb6cee429c38466e8d443fe4be5c1a43187/ACG_25CN_BCTN-ecff6eca766a5975fdad17ce/ACG_25CN_BCTN/hybrid_ocr/ACG_25CN_BCTN_content_list.json",
+      "sha256": "5bf85acf02f1ad137593655df7a81efd51b9008487965f2c1bcfe5c9824f7334"
+    },
+    {
+      "path": "cache/mineru/mineru-rerun-v1/full-report-v1/663c4a4d4e034e2d2566fcb8cd8efcb6cee429c38466e8d443fe4be5c1a43187/ACG_25CN_BCTN-ef3d103856288efdc714a930/ACG_25CN_BCTN/hybrid_ocr/ACG_25CN_BCTN_content_list.json",
+      "sha256": "fa997ed8b78df5cd3d0455e0235b5498bafb214767c92e49e42b82960f534306"
+    },
+    {
+      "path": "cache/mineru/mineru-rerun-v1/full-report-v1/9312653697855dbbc6b2799fa5cad8ebef0c593a13338824514a626643d3299d/ALT_25CN_BCTN-0e778608860d540b6c465c08/ALT_25CN_BCTN/hybrid_ocr/ALT_25CN_BCTN_content_list.json",
+      "sha256": "ee5238c9548ec1e3bae88394c08de217ef1d5cb7b4bffd4c5c4de5f4594dcb48"
+    },
+    {
+      "path": "cache/mineru/mineru-rerun-v1/full-report-v1/9312653697855dbbc6b2799fa5cad8ebef0c593a13338824514a626643d3299d/ALT_25CN_BCTN-83ecbfd1e497e3aa4009eaff/ALT_25CN_BCTN/hybrid_ocr/ALT_25CN_BCTN_content_list.json",
+      "sha256": "cedd466796a3fa3e7fffd3c5a575c835c6e03bfc0cb0181c9f810d9324742ef6"
+    },
+    {
+      "path": "cache/mineru/mineru-rerun-v1/full-report-v1/9312653697855dbbc6b2799fa5cad8ebef0c593a13338824514a626643d3299d/ALT_25CN_BCTN-a104365cdca481109e6a276e/ALT_25CN_BCTN/hybrid_ocr/ALT_25CN_BCTN_content_list.json",
+      "sha256": "7bb7abb61779240e43a7d569a67c01f66b13e34f1f518846fd7bf58d7dee11ab"
+    },
+    {
+      "path": "cache/mineru/mineru-rerun-v1/full-report-v1/9312653697855dbbc6b2799fa5cad8ebef0c593a13338824514a626643d3299d/ALT_25CN_BCTN-a169ad7cffdba4f1baaaab84/ALT_25CN_BCTN/hybrid_ocr/ALT_25CN_BCTN_content_list.json",
+      "sha256": "b70461565a29b78ffab8fa5c2106d482672c1033bdf7275494a1875aed1791ec"
+    },
+    {
+      "path": "cache/mineru/mineru-rerun-v1/full-report-v1/e8991085d41d3c084e98ce10ceb97a752c2053f52e20b808bb80159e3dd3ddf0/AGP_25CN_BCTN-03a5ff10af4294d8fbc68ea7/AGP_25CN_BCTN/hybrid_ocr/AGP_25CN_BCTN_content_list.json",
+      "sha256": "f84c8345af2af5fc1bacf6203f518aa77c6e52a38af3dff83e03bade1c9d0ea5"
+    },
+    {
+      "path": "cache/mineru/mineru-rerun-v1/full-report-v1/e8991085d41d3c084e98ce10ceb97a752c2053f52e20b808bb80159e3dd3ddf0/AGP_25CN_BCTN-108f359b1092860b56a6223d/AGP_25CN_BCTN/hybrid_ocr/AGP_25CN_BCTN_content_list.json",
+      "sha256": "44067dd59016e162a938015567535843ed85c31bd9033bc39f13da160da730c3"
+    },
+    {
+      "path": "cache/mineru/mineru-rerun-v1/full-report-v1/e8991085d41d3c084e98ce10ceb97a752c2053f52e20b808bb80159e3dd3ddf0/AGP_25CN_BCTN-19f681d3236fbb86100a63e3/AGP_25CN_BCTN/hybrid_ocr/AGP_25CN_BCTN_content_list.json",
+      "sha256": "645a7708573d3ea7487d057547845778460993df3ffc1cfbd17d00429507f03b"
+    },
+    {
+      "path": "cache/mineru/mineru-rerun-v1/full-report-v1/e8991085d41d3c084e98ce10ceb97a752c2053f52e20b808bb80159e3dd3ddf0/AGP_25CN_BCTN-378df008cb4e84171a52bc12/AGP_25CN_BCTN/hybrid_ocr/AGP_25CN_BCTN_content_list.json",
+      "sha256": "085294d315f3f6156ce22aa547fd127d605524e1900b2e9ec80c7477df9cd9b9"
+    },
+    {
+      "path": "cache/mineru/mineru-rerun-v1/full-report-v1/e8991085d41d3c084e98ce10ceb97a752c2053f52e20b808bb80159e3dd3ddf0/AGP_25CN_BCTN-3df235dffc9b08387091cd6d/AGP_25CN_BCTN/hybrid_ocr/AGP_25CN_BCTN_content_list.json",
+      "sha256": "db138ddccfb730b47c559a00ecae463ee6db6c9ce5716a5faf891c0f58cd9a0a"
+    },
+    {
+      "path": "cache/mineru/mineru-rerun-v1/full-report-v1/e8991085d41d3c084e98ce10ceb97a752c2053f52e20b808bb80159e3dd3ddf0/AGP_25CN_BCTN-3f00286a78c689eb02fb9c0b/AGP_25CN_BCTN/hybrid_ocr/AGP_25CN_BCTN_content_list.json",
+      "sha256": "bb3b7c7c30f2d48ae34516fddb96c8208cfb49a9f1089429cdce490455c0af66"
+    },
+    {
+      "path": "cache/mineru/mineru-rerun-v1/full-report-v1/e8991085d41d3c084e98ce10ceb97a752c2053f52e20b808bb80159e3dd3ddf0/AGP_25CN_BCTN-47e76f8a383e35a32b35b063/AGP_25CN_BCTN/hybrid_ocr/AGP_25CN_BCTN_content_list.json",
+      "sha256": "85fcf1f79609da0114480bef558d8f7af4a71890c6cc5dfc48db542853f56c4f"
+    },
+    {
+      "path": "cache/mineru/mineru-rerun-v1/full-report-v1/e8991085d41d3c084e98ce10ceb97a752c2053f52e20b808bb80159e3dd3ddf0/AGP_25CN_BCTN-5459623f17947dac79c40702/AGP_25CN_BCTN/hybrid_ocr/AGP_25CN_BCTN_content_list.json",
+      "sha256": "eb45ba8900feac230c0c8e5a1a190876a9b3fcdf6e1e32fd085a37f7745dc2e2"
+    },
+    {
+      "path": "cache/mineru/mineru-rerun-v1/full-report-v1/e8991085d41d3c084e98ce10ceb97a752c2053f52e20b808bb80159e3dd3ddf0/AGP_25CN_BCTN-8614e1c41dad4374e7dff550/AGP_25CN_BCTN/hybrid_ocr/AGP_25CN_BCTN_content_list.json",
+      "sha256": "6822c5d9d996802ab4b2ab59b74835df8a5db758a40d819dfcaa72cb5988634f"
+    },
+    {
+      "path": "cache/mineru/mineru-rerun-v1/full-report-v1/e8991085d41d3c084e98ce10ceb97a752c2053f52e20b808bb80159e3dd3ddf0/AGP_25CN_BCTN-8ecdd578c1afaa317b7e430b/AGP_25CN_BCTN/hybrid_ocr/AGP_25CN_BCTN_content_list.json",
+      "sha256": "3aed76efe025a5f2989906e6c5cafff2614a02cda6889273ad881f49c06b5ada"
+    },
+    {
+      "path": "cache/mineru/mineru-rerun-v1/full-report-v1/e8991085d41d3c084e98ce10ceb97a752c2053f52e20b808bb80159e3dd3ddf0/AGP_25CN_BCTN-a39ff930acb3d95a277e9c28/AGP_25CN_BCTN/hybrid_ocr/AGP_25CN_BCTN_content_list.json",
+      "sha256": "8b8d90998fa03e471328a603087fc3d9b0430783a1786555bcd2898840508537"
+    },
+    {
+      "path": "cache/mineru/mineru-rerun-v1/full-report-v1/e8991085d41d3c084e98ce10ceb97a752c2053f52e20b808bb80159e3dd3ddf0/AGP_25CN_BCTN-a619a2969b6633999660cf83/AGP_25CN_BCTN/hybrid_ocr/AGP_25CN_BCTN_content_list.json",
+      "sha256": "706cf4a189ff66b3c79a23a1b0d4fb210f101566a48d97b77b6003bdc8084562"
+    },
+    {
+      "path": "cache/mineru/mineru-rerun-v1/full-report-v1/e8991085d41d3c084e98ce10ceb97a752c2053f52e20b808bb80159e3dd3ddf0/AGP_25CN_BCTN-bc356aa1b920cda7c3cc5109/AGP_25CN_BCTN/hybrid_ocr/AGP_25CN_BCTN_content_list.json",
+      "sha256": "2474aceadc881d3cef43272d1b0c9734ed7ca0fc67f2ca04c126af23e7ccdfcd"
+    },
+    {
+      "path": "cache/mineru/mineru-rerun-v1/full-report-v1/e8991085d41d3c084e98ce10ceb97a752c2053f52e20b808bb80159e3dd3ddf0/AGP_25CN_BCTN-f58914e262b3fa6b4aaae0c8/AGP_25CN_BCTN/hybrid_ocr/AGP_25CN_BCTN_content_list.json",
+      "sha256": "981e25493f152910a1c120e4394ca1e18953aa92f3321e43a8d9474bac503a5f"
+    },
+    {
+      "path": "cache/mineru/mineru-rerun-v1/full-report-v1/e8991085d41d3c084e98ce10ceb97a752c2053f52e20b808bb80159e3dd3ddf0/AGP_25CN_BCTN-fb25624cfd0e7c720a5f2099/AGP_25CN_BCTN/hybrid_ocr/AGP_25CN_BCTN_content_list.json",
+      "sha256": "f96a81fad9f8bcca9f11b013e4d6c156d74ebb69f5f7869b9d1fc550fa78e6bf"
+    },
+    {
+      "path": "config/financial_identities.yaml",
+      "sha256": "cc566b3093060ac7b98badbbd38b6ab8ae51004046d49ca4ee33619e6cbf1aa5"
+    },
+    {
+      "path": "config/finhrm_v14_2_mineru_ready_requests_v1.json",
+      "sha256": "749a7986683bf39bd8ef892b419ec28721f60c837c59c928b21a73c5d74f6143"
+    },
+    {
+      "path": "data/markdown/mineru_rerun_v1/ACG/ACG_25CN_BCTN--663c4a4d4e034e2d.md",
+      "sha256": "d4d68d1b90d0f17bb1732a34203e1cf4e3803855971964f88d1e457cd921a8e8"
+    },
+    {
+      "path": "data/markdown/mineru_rerun_v1/ACG/ACG_25CN_BCTN--663c4a4d4e034e2d.provenance.json",
+      "sha256": "864a7737589d4b8e565a4a6131c2bf42f6eb12256edf5058f006133e99a0fc7a"
+    },
+    {
+      "path": "data/markdown/mineru_rerun_v1/AGP/AGP_25CN_BCTN--e8991085d41d3c08.md",
+      "sha256": "7af3e977b1cefced4abe5786f1145c82e65f13e67cac8c301fcdbdf950a275bc"
+    },
+    {
+      "path": "data/markdown/mineru_rerun_v1/AGP/AGP_25CN_BCTN--e8991085d41d3c08.provenance.json",
+      "sha256": "6ecf72c6c05f2c4fbf3cdc79c19af16541acd263653271b65f13e63d1a140503"
+    },
+    {
+      "path": "models/document_hrm_V14_1_bkai_scratch_seed31_v1.pt",
+      "sha256": "e6641d13f169dc674728c32aafb508946495027985ce1fde6e2b1095a8d55413"
+    },
+    {
+      "path": "models/embedding_cache/models--bkai-foundation-models--vietnamese-bi-encoder/snapshots/84f9d9ada0d1a3c37557398b9ae9fcedcdf40be0/1_Pooling/config.json",
+      "sha256": "f2fa6333d3899e2f9368e2e2741ece8e74160337b3698f475f6e0f7f28e396fe"
+    },
+    {
+      "path": "models/embedding_cache/models--bkai-foundation-models--vietnamese-bi-encoder/snapshots/84f9d9ada0d1a3c37557398b9ae9fcedcdf40be0/README.md",
+      "sha256": "1433a6a36fb9b991999ce5eab31de89f6ebf31ef3c3a0c30c7b61685fa2ed878"
+    },
+    {
+      "path": "models/embedding_cache/models--bkai-foundation-models--vietnamese-bi-encoder/snapshots/84f9d9ada0d1a3c37557398b9ae9fcedcdf40be0/added_tokens.json",
+      "sha256": "956163bbe8b0625fcc779207447308285eab218ffe0551d3e0deeae5538da326"
+    },
+    {
+      "path": "models/embedding_cache/models--bkai-foundation-models--vietnamese-bi-encoder/snapshots/84f9d9ada0d1a3c37557398b9ae9fcedcdf40be0/bpe.codes",
+      "sha256": "9dfe53fb8abbddd3387da99641c36e00bee757a3679aad9cf0a7cdc4b30f6ef8"
+    },
+    {
+      "path": "models/embedding_cache/models--bkai-foundation-models--vietnamese-bi-encoder/snapshots/84f9d9ada0d1a3c37557398b9ae9fcedcdf40be0/config.json",
+      "sha256": "5f28d12a2d641db00b6dfaff47517b9cf6175437ceb0e18ec0763938ab4b086f"
+    },
+    {
+      "path": "models/embedding_cache/models--bkai-foundation-models--vietnamese-bi-encoder/snapshots/84f9d9ada0d1a3c37557398b9ae9fcedcdf40be0/config_sentence_transformers.json",
+      "sha256": "5a6d09833ba6faaf8b7e35d805fc6ecc42577b78173a76b6a97ea00e25a2bbb2"
+    },
+    {
+      "path": "models/embedding_cache/models--bkai-foundation-models--vietnamese-bi-encoder/snapshots/84f9d9ada0d1a3c37557398b9ae9fcedcdf40be0/model.safetensors",
+      "sha256": "e681accadaec87e79901db0c3f68e33d996cba334633b6dd0b2483dba4f398e0"
+    },
+    {
+      "path": "models/embedding_cache/models--bkai-foundation-models--vietnamese-bi-encoder/snapshots/84f9d9ada0d1a3c37557398b9ae9fcedcdf40be0/modules.json",
+      "sha256": "8f4b264b80206c830bebbdcae377e137925650a433b689343a63bdc9b3145460"
+    },
+    {
+      "path": "models/embedding_cache/models--bkai-foundation-models--vietnamese-bi-encoder/snapshots/84f9d9ada0d1a3c37557398b9ae9fcedcdf40be0/sentence_bert_config.json",
+      "sha256": "fc1993fde0a95c24ec6c022539d41cf6e2f7c9721e5415d6fb6897472a9cd4b7"
+    },
+    {
+      "path": "models/embedding_cache/models--bkai-foundation-models--vietnamese-bi-encoder/snapshots/84f9d9ada0d1a3c37557398b9ae9fcedcdf40be0/special_tokens_map.json",
+      "sha256": "d05497f1da52c5e09554c0cd874037a083e1dc1b9cfd48034d1c717f1afc07a7"
+    },
+    {
+      "path": "models/embedding_cache/models--bkai-foundation-models--vietnamese-bi-encoder/snapshots/84f9d9ada0d1a3c37557398b9ae9fcedcdf40be0/tokenizer_config.json",
+      "sha256": "9410af29b3eebbe69a1a0d8f3e1104e131409223cffcec9cf6ee46afd5892b88"
+    },
+    {
+      "path": "models/embedding_cache/models--bkai-foundation-models--vietnamese-bi-encoder/snapshots/84f9d9ada0d1a3c37557398b9ae9fcedcdf40be0/vocab.txt",
+      "sha256": "dffd7543c401fb6567253ae7c3313004532c33d062525250049c616544bad777"
+    },
+    {
+      "path": "pdf/PDF_25/PDF_25/ACG_25CN_BCTN.pdf",
+      "sha256": "663c4a4d4e034e2d2566fcb8cd8efcb6cee429c38466e8d443fe4be5c1a43187"
+    },
+    {
+      "path": "pdf/PDF_25/PDF_25/AGP_25CN_BCTN.pdf",
+      "sha256": "e8991085d41d3c084e98ce10ceb97a752c2053f52e20b808bb80159e3dd3ddf0"
+    },
+    {
+      "path": "requirements.txt",
+      "sha256": "c67176aca05560c7aa10929862ba2d41c062ac28ad475f8fce763ea15bfa9066"
+    },
+    {
+      "path": "scripts/build_finhrm_v14_2_baseline.py",
+      "sha256": "db8fdd7ff5b94559b0313ac0f54a6c02e0eaac6b6e9ff724e39e97502e7cd871"
+    },
+    {
+      "path": "scripts/evaluate_finhrm_v14_2_markdown_e2e.py",
+      "sha256": "38624d0f0eb7bddf93e0787b5c5d32e602836b7e788d7f9b3bf3097d5c4fc3c5"
+    },
+    {
+      "path": "scripts/freeze_finhrm_v14_2_mineru_rerun.py",
+      "sha256": "3da662049c31c734d2570a9de35958e7c59533295b867957cdd5d337924a7a6b"
+    },
+    {
+      "path": "scripts/freeze_finhrm_v14_2_mineru_verify_fix.py",
+      "sha256": "855fbc887ad0984c17eb36bcb1655e6ad57f83c2f53ccd8f2063ce3fef8fcc8e"
+    },
+    {
+      "path": "scripts/prepare_finhrm_mineru_markdown_batch.py",
+      "sha256": "c92be0dbff260ca1957ea59ae0e7a95941c45a7a465c75aceacb6ab5c862d003"
+    },
+    {
+      "path": "scripts/report_finhrm_v14_2_mineru_rerun.py",
+      "sha256": "7834ee690440409d889bcdb188e238989a4b29b09229d3c6004576233f7d7816"
+    },
+    {
+      "path": "scripts/run_finhrm_v14_2_mineru_rerun_http.py",
+      "sha256": "17db7ca03ad7e092c398146c0ac84c00f92b2b2e15967eb5073e84eb84b464ef"
+    },
+    {
+      "path": "tests/test_mineru_verify_semantics.py",
+      "sha256": "235b43b51731243d9ab46dffaff3a0174a9c5ca1d6b0d0dda24979b09bd971ec"
+    }
+  ],
+  "runtime": [
+    {
+      "path": "src/hrm_finance_qa/__init__.py",
+      "sha256": "c316966feb7929c62f81d9d6f0c7807985c7176b1401bbee59fb2a59bbe7de1e"
+    },
+    {
+      "path": "src/hrm_finance_qa/answer_presentation.py",
+      "sha256": "89afe131085bc4e691e01c7417c33299ecfb952c6a7e43cdcebcffd99a733ed7"
+    },
+    {
+      "path": "src/hrm_finance_qa/cache_schema.py",
+      "sha256": "73de59f448cad7585b8215ad954c892ae76b84fb8944e89757cb4658e2c561d4"
+    },
+    {
+      "path": "src/hrm_finance_qa/calibration_policy.py",
+      "sha256": "e568ad4957f5fb8dbf2a27c6e6e48bf869b796e7bcb1335d70918f909bea37d3"
+    },
+    {
+      "path": "src/hrm_finance_qa/candidate_evaluation.py",
+      "sha256": "21ba9da22fa8ebf1b8c77f148be1a35116af33c07e9a970f2aed6470514182f2"
+    },
+    {
+      "path": "src/hrm_finance_qa/cli.py",
+      "sha256": "6aeb9ad00e573cc228138d0ee18d4517619a77961d2f11220618e88b24726140"
+    },
+    {
+      "path": "src/hrm_finance_qa/dense_retrieval.py",
+      "sha256": "6896d217e79b730f0c8555c0b4d8cf8b72fa722cf3af6a1f06093a318e577dc3"
+    },
+    {
+      "path": "src/hrm_finance_qa/direction_contract.py",
+      "sha256": "a18aa130419fc74ce647bd92dc9c1b1217007738e636aad0f28c7f78396be937"
+    },
+    {
+      "path": "src/hrm_finance_qa/document_agent.py",
+      "sha256": "932250766ebb63da8f99fdfe8ab390fee82bcbc5aea866ca9bb057e818c64290"
+    },
+    {
+      "path": "src/hrm_finance_qa/document_hrm.py",
+      "sha256": "7d87abc314dd316de5bfde1cf62e8e09eb148ab3b79eb7f8e436a4f1f03a0a76"
+    },
+    {
+      "path": "src/hrm_finance_qa/document_page_index.py",
+      "sha256": "ce9f336256396ad2e9695ea390a09a9392eb7bf4c415eadb63f0fd6f148f8312"
+    },
+    {
+      "path": "src/hrm_finance_qa/document_reasoning_engine.py",
+      "sha256": "ad1a9294563199c532a5a684f3d6ae8373afc4d27c3943e60f601027fbf966d3"
+    },
+    {
+      "path": "src/hrm_finance_qa/document_search.py",
+      "sha256": "3aa79ffd648c8e6d9764ff73e09d88e2deec387d3168f94d7ffc54bb41aaf089"
+    },
+    {
+      "path": "src/hrm_finance_qa/document_service.py",
+      "sha256": "d59365b4b7a5ea8abbc0bce12bd6570acfece7e91d95bd3b81886ee37951b5df"
+    },
+    {
+      "path": "src/hrm_finance_qa/document_sources.py",
+      "sha256": "ed57dee929c513e913b7af0af807b89c2d7c3fd242cd4d6eb07eed0b52008f90"
+    },
+    {
+      "path": "src/hrm_finance_qa/engine.py",
+      "sha256": "bc8494556dd5bb15e925978bd8cc5c4a98ac188af580e0d9537f42f5566d128c"
+    },
+    {
+      "path": "src/hrm_finance_qa/evaluation_metrics.py",
+      "sha256": "2a3b19f9ae8f08f9e9742c094e874af7c28d54cfb7838b1c39e02b5d1e6a7a76"
+    },
+    {
+      "path": "src/hrm_finance_qa/evidence_schema.py",
+      "sha256": "a211b748aa60b863b40105191faff7adff244b396fbb9334eaabb1d20445a428"
+    },
+    {
+      "path": "src/hrm_finance_qa/exact_dag_executor.py",
+      "sha256": "ee1aa0f90c4f71913108a1dd8ea28d966188c8e9c4993786f2bb9b3a7e422fa5"
+    },
+    {
+      "path": "src/hrm_finance_qa/exact_executor.py",
+      "sha256": "97a897e7e76f6d1a089c625017464cf1755143440928eb5ced819c6b7294fd9d"
+    },
+    {
+      "path": "src/hrm_finance_qa/external_evaluation.py",
+      "sha256": "96d3a3aa79637507dd73cb776e2d70f71aaf1b977a1e192762b5b696b706ff2c"
+    },
+    {
+      "path": "src/hrm_finance_qa/financial_hrm_features.py",
+      "sha256": "b5c0d351b6acf94bf4b2ced08e5b2aebc91c7b1bc7b53c6dbbbd405183c30a59"
+    },
+    {
+      "path": "src/hrm_finance_qa/financial_identities.py",
+      "sha256": "a4b2249fcd8a7d633b874eb67da8dc86e1c556dec5d7757d3c3e8450d586d72a"
+    },
+    {
+      "path": "src/hrm_finance_qa/flattened_table_reconstruction.py",
+      "sha256": "1e67aa3f2e3acc068d30ece065fc0a0365358c7aa75da660e065af83fa265d4c"
+    },
+    {
+      "path": "src/hrm_finance_qa/hrm.py",
+      "sha256": "3f6cfe5e864c9c4b4e9ec7beb995d8813fe7ee6acfe39af89f0f55dd932505e5"
+    },
+    {
+      "path": "src/hrm_finance_qa/neural.py",
+      "sha256": "ff2e2c0c3d7a62702bd2b2b1f80d5bad2521e8ec2d347f93050fb875bb4f1d7f"
+    },
+    {
+      "path": "src/hrm_finance_qa/ontology.py",
+      "sha256": "0ed2cce08e36d2570975e4cfe5156c79fa6710e540cb7122418b2a3e7f8dff3d"
+    },
+    {
+      "path": "src/hrm_finance_qa/pdf_metadata.py",
+      "sha256": "af0a8dbabaa5a0f8c9de0f22f2012387bf256721de03e86b99acb5dc75e6f212"
+    },
+    {
+      "path": "src/hrm_finance_qa/physical_coordinates.py",
+      "sha256": "8b805eb0ba991710edad6af7eb46f6c421f57643fcc5efb6b5663e90691da6ea"
+    },
+    {
+      "path": "src/hrm_finance_qa/program_data.py",
+      "sha256": "8f8387dcc438190f47b51be9b0e9121226be1f1e1647923572535e6836218300"
+    },
+    {
+      "path": "src/hrm_finance_qa/program_reranker.py",
+      "sha256": "7d7f456649ce0639a808b809985751c38c9a4bb1d70209a65d3bc3bbc97671f4"
+    },
+    {
+      "path": "src/hrm_finance_qa/program_synthesis.py",
+      "sha256": "756ca351ae05259b4b24f4f62cbe74eeff89033d3a1ec8912671ea976c44a0ea"
+    },
+    {
+      "path": "src/hrm_finance_qa/question_planner.py",
+      "sha256": "df87101dcef0720f1e4f5befcb225fc4c3733af5e07754563c35658c1d06a29f"
+    },
+    {
+      "path": "src/hrm_finance_qa/question_request_planner.py",
+      "sha256": "fe2e34d7a9b880b6c17dd1b9d6b8f7c8da787f36057fd13a0d98fec55c4a8e34"
+    },
+    {
+      "path": "src/hrm_finance_qa/reasoning.py",
+      "sha256": "d3244c224dbec45f62f95e64a30f1c48fb2566830c457416bf691eca6a107f74"
+    },
+    {
+      "path": "src/hrm_finance_qa/reasoning_engine.py",
+      "sha256": "fee38cd78d0949f4c3172290199a1b50ce0fc934cd4c8f0002f188881ca658cc"
+    },
+    {
+      "path": "src/hrm_finance_qa/repository.py",
+      "sha256": "8e83ad3f7f676eb0eacbe038b064582e7659d35f98363cb552555d2a6b9f994a"
+    },
+    {
+      "path": "src/hrm_finance_qa/request_answer.py",
+      "sha256": "c677cb199c852f0c2e248db2eed81737dc402b2fc82e8be4d8e4b3f23bb9920a"
+    },
+    {
+      "path": "src/hrm_finance_qa/semantic_encoder.py",
+      "sha256": "870bd5bcd04cf54ac1343e16ba3445f2216551a49bac6cf19ada92c842ab2ebe"
+    },
+    {
+      "path": "src/hrm_finance_qa/source_action_policy.py",
+      "sha256": "88ebdddc05f7775919258b36886733b6775a5f6f99639aa76666963cdbaba170"
+    },
+    {
+      "path": "src/hrm_finance_qa/source_binding.py",
+      "sha256": "dd325743d5643625454f26dc1821cbe916bb5b6c739c0b335e8c0d4e01519fbe"
+    },
+    {
+      "path": "src/hrm_finance_qa/source_bindings.py",
+      "sha256": "e466f375758d891adf8545059898a05702ed403eb95154a9f0d779f4ab20ec71"
+    },
+    {
+      "path": "src/hrm_finance_qa/symbolic_verifier.py",
+      "sha256": "780f330f56163ccf8d699e8e5ab1eda7554f737cde2e1c5919aee2facf47a7a9"
+    },
+    {
+      "path": "src/hrm_finance_qa/table_semantics.py",
+      "sha256": "e638391c07aa80602a502d5a0d6947e89f61fd766d4d27ef58e1cef9961d21e2"
+    },
+    {
+      "path": "src/hrm_finance_qa/training_state.py",
+      "sha256": "d1548b9ab06d289dfd37168da7954a0493db0abdcf6732e04e8c915ab763018b"
+    },
+    {
+      "path": "src/hrm_finance_qa/v11_pipeline.py",
+      "sha256": "b6611c2b2c0ba7cd2c726b4d48f29a9b1fd01be09a4da2200865379f07ba4387"
+    },
+    {
+      "path": "src/hrm_finance_qa/v12b2_supervision.py",
+      "sha256": "100272f4bb46a3bd51e05914c6080ddaa7f48fea3c96337aa4b6cd9a0e8db0da"
+    }
+  ],
+  "environment": {
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+    "executable": "/usr/bin/python3",
+    "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "machine": "x86_64",
+    "required_runtime": {
+      "torch": {
+        "version": "2.13.0",
+        "origin": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages/torch/__init__.py"
+      },
+      "numpy": {
+        "version": "2.5.2",
+        "origin": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages/numpy/__init__.py"
+      },
+      "sentence-transformers": {
+        "version": "5.1.2",
+        "origin": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages/sentence_transformers/__init__.py"
+      },
+      "transformers": {
+        "version": "4.57.6",
+        "origin": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages/transformers/__init__.py"
+      },
+      "huggingface-hub": {
+        "version": "0.36.2",
+        "origin": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages/huggingface_hub/__init__.py"
+      },
+      "tokenizers": {
+        "version": "0.22.2",
+        "origin": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages/tokenizers/__init__.py"
+      },
+      "safetensors": {
+        "version": "0.8.0",
+        "origin": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages/safetensors/__init__.py"
+      },
+      "pyvi": {
+        "version": "0.1.1",
+        "origin": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages/pyvi/__init__.py"
+      },
+      "scipy": {
+        "version": "1.18.1",
+        "origin": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages/scipy/__init__.py"
+      },
+      "scikit-learn": {
+        "version": "1.9.0",
+        "origin": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages/sklearn/__init__.py"
+      }
+    }
+  },
+  "run": {
+    "mode": "actual HTTP /v1/answer with PersistentDocumentHRMService; adaptive bundle.predict defaults",
+    "seed": 31,
+    "device": "cpu",
+    "threads": 4,
+    "interop_threads": 1,
+    "max_segments": "checkpoint config",
+    "ocr": "Markdown path bypasses OCR; no ingestion worker; auto_generate false",
+    "retrieval": {
+      "top_k_chunks": 8,
+      "neighbor_chunks": 1,
+      "page_top_k": 6,
+      "page_neighbor_pages": 1
+    },
+    "cache": "fresh vector DB per process; sequential requests; source Markdown is whole document",
+    "request_order": [
+      "new-report-01",
+      "new-report-02",
+      "new-report-03",
+      "new-report-04",
+      "new-report-05"
+    ]
+  },
+  "parent_protocol": {
+    "path": "config/finhrm_v14_2_mineru_ready_protocol_v1.json",
+    "sha256": "3ed0555a90b4c09fb909827564b9124dc7912ce1b4f9ac5cea8d9b85770cceb0"
+  },
+  "cleanup_audit": {
+    "path": "reports/mineru_only_cleanup_v1.json",
+    "sha256": "5a3620d3ce0f49ebbeb00c74d54be54e410c2a6b507b600d71ea12ee9f551cd4"
+  },
+  "changed_runtime": [
+    "src/hrm_finance_qa/ontology.py",
+    "src/hrm_finance_qa/question_planner.py",
+    "src/hrm_finance_qa/table_semantics.py"
+  ]
+}

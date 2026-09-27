@@ -1,0 +1,95 @@
+{
+  "schema": "mineru-real-http-requests-v1",
+  "sources": {
+    "HFX": {
+      "path": "data/markdown/policy_evaluation_v1/HFX/HFX_23CN_BCTN--ed171410df551c87.md",
+      "sha256": "393f9477562de0d315069a53ef166c742c1338599e06f2a53c418624b38d1d36"
+    },
+    "BTH": {
+      "path": "data/markdown/policy_evaluation_v1/BTH/BTH_25CN_BCTN--c3f4291745a28deb.md",
+      "sha256": "1949b44491086451fe1b04a7207cbfc8a00f2a7ebe4412ad4c052a345a9e23c5"
+    },
+    "MGG": {
+      "path": "data/markdown/policy_evaluation_v1/MGG/MGG_23CN_BCTN--cf0d9055f964e682.md",
+      "sha256": "f5d82c2f0ac85561f6e6c45f1c502353a6726fc35429f0efc88fcd83d79e946d"
+    },
+    "ACG": {
+      "path": "data/markdown/mineru_rerun_v1/ACG/ACG_25CN_BCTN--663c4a4d4e034e2d.md",
+      "sha256": "d4d68d1b90d0f17bb1732a34203e1cf4e3803855971964f88d1e457cd921a8e8"
+    },
+    "AGP": {
+      "path": "data/markdown/mineru_rerun_v1/AGP/AGP_25CN_BCTN--e8991085d41d3c08.md",
+      "sha256": "7af3e977b1cefced4abe5786f1145c82e65f13e67cac8c301fcdbdf950a275bc"
+    },
+    "HKT": {
+      "path": "data/markdown/scope_unit_v2/HKT_23CN_BCTN--91cc265d0be6d75e.md",
+      "sha256": "b5550a26fa89acab88e14488568090db23761de4d21d8e8ee68f57fb6f6cc31a"
+    },
+    "BSD": {
+      "path": "data/markdown/scope_unit_v2/BSD_23CN_BCTN--b90d50e824213031.md",
+      "sha256": "bd3d80dde2d999caa227a1d6965b03008e7f7c06146b7ea1d45e375ba5d53748"
+    },
+    "BHG": {
+      "path": "data/markdown/scope_unit_v2/BHG_23CN_BCTN--62a6808775bffb52.md",
+      "sha256": "b3c461ce5230b341c8c18cf348efc4745c093cd835fded8bf05a47d7b1da94b0"
+    },
+    "HAV": {
+      "path": "data/markdown/scope_unit_v2/HAV_23CN_BCTN--e57968185e1c63bc.md",
+      "sha256": "fbda07867fa66a850574a03af75b746748f9d6042c28ce085aa2f31fb211d7e4"
+    },
+    "CMS": {
+      "path": "data/markdown/scope_unit_v2/CMS_23CN_BCTN--b5944cc10f6fe4f0.md",
+      "sha256": "8076e60944faa1bc3302c67eb7ad33a2b10b36c8eeea4a9cd19bbbcfbf3ee57d"
+    },
+    "PDB": {
+      "path": "data/markdown/scope_unit_v2/PDB_24CN_BCTN--1957e2ee3f06dba6.md",
+      "sha256": "06fb246ff0de4e250cb3f7202ac58b7eeaeb34a17aa47c6f7289bf58b6a4f6f7"
+    },
+    "SSG": {
+      "path": "data/markdown/B_source_context_v1/SSG_24CN_BCTN--03525afbe2d1c74e.md",
+      "sha256": "8aa6dff4f4e2c2b1284c0a6f8ee89b918a8914f828720709174256b91a02923b"
+    }
+  },
+  "cases": [
+    {
+      "case_id": "new-report-01",
+      "source_id": "ACG",
+      "question": "Doanh thu thuần hợp nhất năm 2025 là bao nhiêu?"
+    },
+    {
+      "case_id": "new-report-05",
+      "source_id": "AGP",
+      "question": "Doanh thu thuần năm 2025 tăng bao nhiêu tỷ đồng so với năm 2024?"
+    },
+    {
+      "case_id": "additional-bsd-net",
+      "source_id": "BSD",
+      "question": "Doanh thu thuần năm 2023 là bao nhiêu đồng?"
+    },
+    {
+      "case_id": "additional-bsd-missing",
+      "source_id": "BSD",
+      "question": "Doanh thu thuần năm 2037 là bao nhiêu đồng?"
+    },
+    {
+      "case_id": "fresh-pdb-actual",
+      "source_id": "PDB",
+      "question": "Doanh thu thuần hợp nhất thực hiện năm 2024 là bao nhiêu triệu đồng?"
+    },
+    {
+      "case_id": "fresh-pdb-plan",
+      "source_id": "PDB",
+      "question": "Doanh thu thuần hợp nhất kế hoạch năm 2024 là bao nhiêu triệu đồng?"
+    },
+    {
+      "case_id": "fresh-ssg-difference",
+      "source_id": "SSG",
+      "question": "Doanh thu thuần năm 2024 tăng bao nhiêu triệu đồng so với năm 2023?"
+    },
+    {
+      "case_id": "fresh-ssg-missing",
+      "source_id": "SSG",
+      "question": "Doanh thu thuần năm 2037 là bao nhiêu triệu đồng?"
+    }
+  ]
+}

@@ -1,0 +1,300 @@
+{
+  "schema": "finhrm-qp4-candidate-structured-cell-admission-guard-repair-precommit-v1",
+  "created_at": "2026-08-29T10:00:00+07:00",
+  "classification": "candidate_structured_cell_admission_guard_repair_precommit_only",
+  "status": "PASS",
+  "governance": {
+    "head": "ca83acc4e0dfa2e4c0167a9324c2855ec81532b7",
+    "vertical_slice": "PROVISIONAL / NOT ACCEPTED",
+    "target_result": "AGR/HUB/VNL 0/30 -> 30/30",
+    "regression_blocker": "ICT 10/10 -> 0/10",
+    "candidate_calls_during_precommit": 0,
+    "model_calls_during_precommit": 0,
+    "binding_calls_during_precommit": 0
+  },
+  "inputs": [
+    {
+      "path": "reports/finhrm_qp4_post_question_surface_post_cache_residual_coverage_cohort_build_v1.json",
+      "bytes": 40607,
+      "sha256": "e084ec16312488c1badb5b645cfdf135a623cf89486d0f189648404fc5de35e6"
+    },
+    {
+      "path": "reports/finhrm_qp4_candidate_plaintext_sub1000_deterministic_pre_edit_baseline_v1.json",
+      "bytes": 53029211,
+      "sha256": "0ec3f5736d2b0420c4f4f2ca1deb25e02d486d13057924810970725c04196702"
+    }
+  ],
+  "baseline": {
+    "path": "reports/finhrm_qp4_candidate_plaintext_sub1000_deterministic_pre_edit_baseline_v1.json",
+    "runtime_sha256": "668b4aa15448cc544a0c2c4539401cd7ad4af0c99a16b1ae787b1b12c56e35b8",
+    "use": "frozen pre-vertical-slice regression projections only"
+  },
+  "root_cause": {
+    "classification": "OVER-BROAD_STRUCTURED_ADMISSION",
+    "function": "merge_candidates",
+    "mechanism": "all structured cells on expanded selected pages enter the common pool before reconciliation and quota",
+    "downstream": [
+      "structured/plaintext equivalents use disjoint dedup keys",
+      "alternate rounded or conflicting inventories remain eligible",
+      "quota and final ordering change"
+    ]
+  },
+  "runtime_scope": {
+    "allowed_files": [
+      "src/hrm_finance_qa/program_data.py"
+    ],
+    "allowed_functions": [
+      "merge_candidates"
+    ],
+    "pre_repair_file_hashes": {
+      "src/hrm_finance_qa/program_data.py": "0f75194c2f99dd591b5a84ae866eef9aa9d442acf3aab8cdaf6329f652ae4271",
+      "src/hrm_finance_qa/document_sources.py": "5d25d873ac5f6fe70297cd5b0fee783eb69f259ea3510e6d1f1d18a4ea09c38d",
+      "src/hrm_finance_qa/document_page_index.py": "97d356533734bb09bdeb318038d720ac2daf700046e753d1d134804f7bb7c884",
+      "src/hrm_finance_qa/evidence_schema.py": "828748a50c16a1d01ac731e86e4903d92cc0f9a2a8eefb588bf47a8455ec2677"
+    },
+    "pre_repair_function_sha256": "c86f374d23bf5b8f9d9256531818b86be1ff731be6fbf0f4c51b048aaa2e1d44",
+    "unchanged_function_hashes": {
+      "extract_numeric_candidates": "ea4a663408948ed6ad367021e06c418df7a2daeeca2d46ce0942bb59894cfef09",
+      "_merged_flattened_chunk_runs": "2993ce09df35935450953d94054763be3999d83b7a2eede19baa9e6ef5d5c7782",
+      "_candidate_rank_key": "63c8a368806c769d230eb714532e1fdd104ed61df8fe7395d1f5466c6ae8eb47",
+      "_candidate_quota_indices": "bdd9a146f4c20ec2202a1aa166238d30b51299fe724227ae294ab3253ed836da",
+      "_ocr_row_metric_score": "e92c2cedced559c51a84f78198c165bb5c6c77373d2b61f8986e88f51e072bc7",
+      "_fuzzy_content_overlap": "85095600b2127c94525111f1c8e126443247ea5c039a85317596058df6b19724"
+    },
+    "forbidden": [
+      "structured extraction",
+      "document_sources.py",
+      "document_page_index.py",
+      "evidence_schema.py",
+      "retrieval or page ranking",
+      "Candidate scoring",
+      "quota size or quota logic",
+      "Binding, model, HRM or MinerU",
+      "plaintext reconstruction",
+      "determinism repairs",
+      "company, source, page, year, value, question or case-specific selectors"
+    ]
+  },
+  "generic_guard_invariant": {
+    "name": "query_relevant_conflict_free_structured_row_reconciliation_before_quota",
+    "steps": [
+      "materialize plaintext candidates exactly as before without changing scores",
+      "partition structured candidates into complete table_id/row_id inventories",
+      "derive requested metric identities only from the question plan and existing metric-token semantics",
+      "admit a structured row only when its normalized metric is compatible with a requested operand metric and its role/period inventory is complete and unique",
+      "fail closed for the entire structured row when source-derived evidence with the same source/entity/normalized-metric/role/period has a different exact Decimal value",
+      "collapse equivalent structured/plaintext representations before quota using source/page/normalized-metric/exact-value and compatible role/period identity",
+      "retain the structured representative only for an admitted conflict-free row and retain plaintext unchanged otherwise",
+      "pass the reconciled deterministic sequence to the existing dedup, quota and rank code unchanged"
+    ],
+    "conflict_key": [
+      "source_name",
+      "entity_or_scope",
+      "normalized_metric",
+      "column_role",
+      "period"
+    ],
+    "equivalence_key": [
+      "source_name",
+      "page",
+      "normalized_metric",
+      "exact_decimal_value",
+      "compatible_column_role",
+      "compatible_period"
+    ],
+    "forbidden_inputs": [
+      "expected answer values",
+      "gold operands",
+      "company identity",
+      "source filename",
+      "fixed page",
+      "fixed table dimensions or column count",
+      "fixed year or value",
+      "case ID"
+    ],
+    "failure_policy": "ambiguous, incomplete or conflicting structured rows contribute zero structured candidates; the pre-existing plaintext pool remains unchanged"
+  },
+  "cohorts": {
+    "repair_preservation": {
+      "count": 30,
+      "id_order_sha256": "fee5064dd9ebb30bc7e8b30133e6d6c91f8b87027a0e0ae97b2e506c14f81605",
+      "required": "physical support and exact recovered identity remain 30/30",
+      "case_ids": [
+        "qp4-rcc-agr-total-expense:base_target:canonical",
+        "qp4-rcc-agr-total-expense:base_target:paraphrase_1",
+        "qp4-rcc-agr-total-expense:base_target:long_clause",
+        "qp4-rcc-agr-total-expense:base_target:clause_reordered",
+        "qp4-rcc-agr-total-expense:base_target:no_diacritics",
+        "qp4-rcc-agr-total-expense:reference_base_mutation_target:canonical",
+        "qp4-rcc-agr-total-expense:reference_base_mutation_target:paraphrase_1",
+        "qp4-rcc-agr-total-expense:reference_base_mutation_target:long_clause",
+        "qp4-rcc-agr-total-expense:reference_base_mutation_target:clause_reordered",
+        "qp4-rcc-agr-total-expense:reference_base_mutation_target:no_diacritics",
+        "qp4-rcc-hub-parent-profit-after-tax:base_target:canonical",
+        "qp4-rcc-hub-parent-profit-after-tax:base_target:paraphrase_1",
+        "qp4-rcc-hub-parent-profit-after-tax:base_target:long_clause",
+        "qp4-rcc-hub-parent-profit-after-tax:base_target:clause_reordered",
+        "qp4-rcc-hub-parent-profit-after-tax:base_target:no_diacritics",
+        "qp4-rcc-hub-parent-profit-after-tax:reference_base_mutation_target:canonical",
+        "qp4-rcc-hub-parent-profit-after-tax:reference_base_mutation_target:paraphrase_1",
+        "qp4-rcc-hub-parent-profit-after-tax:reference_base_mutation_target:long_clause",
+        "qp4-rcc-hub-parent-profit-after-tax:reference_base_mutation_target:clause_reordered",
+        "qp4-rcc-hub-parent-profit-after-tax:reference_base_mutation_target:no_diacritics",
+        "qp4-rcc-vnl-profit-before-tax:base_target:canonical",
+        "qp4-rcc-vnl-profit-before-tax:base_target:paraphrase_1",
+        "qp4-rcc-vnl-profit-before-tax:base_target:long_clause",
+        "qp4-rcc-vnl-profit-before-tax:base_target:clause_reordered",
+        "qp4-rcc-vnl-profit-before-tax:base_target:no_diacritics",
+        "qp4-rcc-vnl-profit-before-tax:reference_base_mutation_target:canonical",
+        "qp4-rcc-vnl-profit-before-tax:reference_base_mutation_target:paraphrase_1",
+        "qp4-rcc-vnl-profit-before-tax:reference_base_mutation_target:long_clause",
+        "qp4-rcc-vnl-profit-before-tax:reference_base_mutation_target:clause_reordered",
+        "qp4-rcc-vnl-profit-before-tax:reference_base_mutation_target:no_diacritics"
+      ]
+    },
+    "ict_regression": {
+      "count": 10,
+      "id_order_sha256": "c862a457a60e0c79a7ae75283a5aecad57371c54ede6d30a278efe65ef80adef",
+      "required": "exact frozen pre-vertical-slice Candidate projection 10/10",
+      "case_ids": [
+        "qp4-rcc-ict-total-revenue:base_target:canonical",
+        "qp4-rcc-ict-total-revenue:base_target:paraphrase_1",
+        "qp4-rcc-ict-total-revenue:base_target:long_clause",
+        "qp4-rcc-ict-total-revenue:base_target:clause_reordered",
+        "qp4-rcc-ict-total-revenue:base_target:no_diacritics",
+        "qp4-rcc-ict-total-revenue:reference_base_mutation_target:canonical",
+        "qp4-rcc-ict-total-revenue:reference_base_mutation_target:paraphrase_1",
+        "qp4-rcc-ict-total-revenue:reference_base_mutation_target:long_clause",
+        "qp4-rcc-ict-total-revenue:reference_base_mutation_target:clause_reordered",
+        "qp4-rcc-ict-total-revenue:reference_base_mutation_target:no_diacritics"
+      ]
+    },
+    "pic_scg_regression": {
+      "count": 20,
+      "id_order_sha256": "fce6d0e81bba4968a919c8ad9c7efa388e41ce8cbc102dd2ddc7f078f9a86070",
+      "required": "exact frozen pre-vertical-slice Candidate projection 20/20",
+      "case_ids": [
+        "qp4-rcc-pic-total-revenue:base_target:canonical",
+        "qp4-rcc-pic-total-revenue:base_target:paraphrase_1",
+        "qp4-rcc-pic-total-revenue:base_target:long_clause",
+        "qp4-rcc-pic-total-revenue:base_target:clause_reordered",
+        "qp4-rcc-pic-total-revenue:base_target:no_diacritics",
+        "qp4-rcc-pic-total-revenue:reference_base_mutation_target:canonical",
+        "qp4-rcc-pic-total-revenue:reference_base_mutation_target:paraphrase_1",
+        "qp4-rcc-pic-total-revenue:reference_base_mutation_target:long_clause",
+        "qp4-rcc-pic-total-revenue:reference_base_mutation_target:clause_reordered",
+        "qp4-rcc-pic-total-revenue:reference_base_mutation_target:no_diacritics",
+        "qp4-rcc-scg-total-revenue:base_target:canonical",
+        "qp4-rcc-scg-total-revenue:base_target:paraphrase_1",
+        "qp4-rcc-scg-total-revenue:base_target:long_clause",
+        "qp4-rcc-scg-total-revenue:base_target:clause_reordered",
+        "qp4-rcc-scg-total-revenue:base_target:no_diacritics",
+        "qp4-rcc-scg-total-revenue:reference_base_mutation_target:canonical",
+        "qp4-rcc-scg-total-revenue:reference_base_mutation_target:paraphrase_1",
+        "qp4-rcc-scg-total-revenue:reference_base_mutation_target:long_clause",
+        "qp4-rcc-scg-total-revenue:reference_base_mutation_target:clause_reordered",
+        "qp4-rcc-scg-total-revenue:reference_base_mutation_target:no_diacritics"
+      ]
+    },
+    "prior_candidate_regression": {
+      "count": 50,
+      "manifest": "reports/finhrm_qp4_candidate_plaintext_sub1000_deterministic_pre_edit_baseline_v1.json::cross_cohort_projections",
+      "id_order_sha256": "5ed2c03ccd90133b7d7118ac303547eaf281e4bc078dd537b9008ee6cef6c6cf",
+      "projection_set_sha256": "80aae1474cefc14392cb80408fb6a4e7a642d649ab7faba6abdc790cff33646c",
+      "required": "exact frozen Candidate behavior 50/50"
+    }
+  },
+  "control_contract": {
+    "required_categories": [
+      "multiple_valid_tables",
+      "rounded_alternate",
+      "structured_plaintext_duplicate",
+      "conflicting_role_period",
+      "single_authoritative_table",
+      "incomplete_structured"
+    ],
+    "policy": "query-relevant, complete, unique and conflict-free structured row inventories only; reconcile equivalents before quota"
+  },
+  "controls": [
+    {
+      "id": "multiple_valid_tables_only_requested_metric_admitted",
+      "category": "multiple_valid_tables",
+      "requested_metric_tokens": ["revenue", "total"],
+      "rows": [
+        {"table_id": "t0", "row_id": "r0", "metric_tokens": ["revenue", "total"], "structured": [{"physical_id": "t0:r0:c0", "role": "actual", "period": "current", "value": "20"}, {"physical_id": "t0:r0:c1", "role": "plan", "period": "current", "value": "25"}], "source_derived": []},
+        {"table_id": "t1", "row_id": "r1", "metric_tokens": ["assets", "total"], "structured": [{"physical_id": "t1:r1:c0", "role": "actual", "period": "current", "value": "80"}, {"physical_id": "t1:r1:c1", "role": "actual", "period": "prior", "value": "75"}], "source_derived": []}
+      ],
+      "expected": {"admitted_rows": 1, "structured_representatives": 2, "collapsed_plaintext": 0}
+    },
+    {
+      "id": "rounded_alternate_inventory_fails_closed",
+      "category": "rounded_alternate",
+      "requested_metric_tokens": ["profit"],
+      "rows": [
+        {"table_id": "t0", "row_id": "r0", "metric_tokens": ["profit"], "structured": [{"physical_id": "t0:r0:c0", "role": "actual", "period": "current", "value": "12"}, {"physical_id": "t0:r0:c1", "role": "plan", "period": "current", "value": "15"}], "source_derived": [{"role": "actual", "period": "current", "value": "12.75"}, {"role": "plan", "period": "current", "value": "15"}]}
+      ],
+      "expected": {"admitted_rows": 0, "structured_representatives": 0, "collapsed_plaintext": 0}
+    },
+    {
+      "id": "structured_plaintext_equivalent_collapses_before_quota",
+      "category": "structured_plaintext_duplicate",
+      "requested_metric_tokens": ["expense"],
+      "rows": [
+        {"table_id": "t0", "row_id": "r0", "metric_tokens": ["expense"], "structured": [{"physical_id": "t0:r0:c0", "role": "actual", "period": "current", "value": "9.5"}], "source_derived": [{"role": "actual", "period": "current", "value": "9.5"}]}
+      ],
+      "expected": {"admitted_rows": 1, "structured_representatives": 1, "collapsed_plaintext": 1}
+    },
+    {
+      "id": "conflicting_role_period_inventory_fails_closed",
+      "category": "conflicting_role_period",
+      "requested_metric_tokens": ["revenue"],
+      "rows": [
+        {"table_id": "t0", "row_id": "r0", "metric_tokens": ["revenue"], "structured": [{"physical_id": "t0:r0:c0", "role": "actual", "period": "current", "value": "31"}, {"physical_id": "t0:r0:c1", "role": "actual", "period": "current", "value": "32"}], "source_derived": []}
+      ],
+      "expected": {"admitted_rows": 0, "structured_representatives": 0, "collapsed_plaintext": 0}
+    },
+    {
+      "id": "single_authoritative_table_is_preserved",
+      "category": "single_authoritative_table",
+      "requested_metric_tokens": ["income", "net"],
+      "rows": [
+        {"table_id": "t0", "row_id": "r0", "metric_tokens": ["income", "net"], "structured": [{"physical_id": "t0:r0:c0", "role": "actual", "period": "current", "value": "7.25"}, {"physical_id": "t0:r0:c1", "role": "actual", "period": "prior", "value": "6.75"}], "source_derived": []}
+      ],
+      "expected": {"admitted_rows": 1, "structured_representatives": 2, "collapsed_plaintext": 0}
+    },
+    {
+      "id": "incomplete_structured_inventory_fails_closed",
+      "category": "incomplete_structured",
+      "requested_metric_tokens": ["assets"],
+      "rows": [
+        {"table_id": "t0", "row_id": "r0", "metric_tokens": ["assets"], "structured": [{"physical_id": "t0:r0:c0", "role": "", "period": "current", "value": "44"}], "source_derived": []}
+      ],
+      "expected": {"admitted_rows": 0, "structured_representatives": 0, "collapsed_plaintext": 0}
+    }
+  ],
+  "success_gates": {
+    "repair_preservation": "AGR/HUB/VNL exact physical support 30/30",
+    "ict_regression": "exact frozen Candidate projection 10/10",
+    "pic_scg_regression": "exact frozen Candidate projection 20/20",
+    "prior_candidate_regression": "exact frozen Candidate projection 50/50",
+    "controls": "6/6",
+    "scoring_quota_retrieval_extraction_unchanged": true,
+    "no_source_specific_exception": true
+  },
+  "evaluation_contract": {
+    "current_universe_id_order_sha256": "1512b981af735e01aec5fd05e3b88a4fe74ff070895a426188a62f711a840f1e",
+    "post_current_universe": 60,
+    "post_prior_candidate_regression": 50,
+    "total_candidate_evaluations": 110,
+    "model_calls": 0,
+    "binding_calls": 0,
+    "adaptive_second_edit": false
+  },
+  "artifacts": {
+    "harness": "scripts/run_qp4_candidate_structured_cell_admission_guard_repair_precommit_v1.py",
+    "config": "config/finhrm_qp4_candidate_structured_cell_admission_guard_repair_precommit_v1.json",
+    "markdown": "reports/finhrm_qp4_candidate_structured_cell_admission_guard_repair_precommit_v1.md",
+    "lock": "reports/finhrm_qp4_candidate_structured_cell_admission_guard_repair_precommit_lock_v1.json"
+  },
+  "next_allowed_action": "QP4 STRUCTURED-CELL ADMISSION GUARD RUNTIME IMPLEMENTATION + LOCKED EVALUATION ONLY"
+}

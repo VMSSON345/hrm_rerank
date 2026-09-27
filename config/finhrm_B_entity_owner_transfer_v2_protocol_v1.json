@@ -1,0 +1,1277 @@
+{
+  "schema": "B-report-fields-frozen-http-v1",
+  "created_at": "2026-09-10T16:52:04.724921+00:00",
+  "inputs": [
+    {
+      "path": "config/financial_identities.yaml",
+      "sha256": "cc566b3093060ac7b98badbbd38b6ab8ae51004046d49ca4ee33619e6cbf1aa5"
+    },
+    {
+      "path": "config/finhrm_B_entity_owner_precommit_v1.json",
+      "sha256": "4266975ae3430e27ab474cf1f5c5ff94e09091049cbf63a56d9ab4a5f5bbc655"
+    },
+    {
+      "path": "config/finhrm_B_entity_owner_transfer_v2_reference_v1.json",
+      "sha256": "7ae69a8f64c55fd9fd784071be0c5735df83dcf724f24bb54f720c09bafa60c2"
+    },
+    {
+      "path": "config/finhrm_B_entity_owner_transfer_v2_requests_v1.json",
+      "sha256": "881ef1b7483874385954d93caf051a0b56e13576d5fb0ddfc493102664b1f24c"
+    },
+    {
+      "path": "data/markdown/scope_unit_v2/BHG_23CN_BCTN--62a6808775bffb52.md",
+      "sha256": "b3c461ce5230b341c8c18cf348efc4745c093cd835fded8bf05a47d7b1da94b0"
+    },
+    {
+      "path": "data/markdown/scope_unit_v2/BHG_23CN_BCTN--62a6808775bffb52.provenance.json",
+      "sha256": "7ad5f7902227c7a706bfc3eceaf81a93464666f4401d7d06e0c100ed4ef434b3"
+    },
+    {
+      "path": "data/markdown/scope_unit_v2/HAV_23CN_BCTN--e57968185e1c63bc.md",
+      "sha256": "fbda07867fa66a850574a03af75b746748f9d6042c28ce085aa2f31fb211d7e4"
+    },
+    {
+      "path": "data/markdown/scope_unit_v2/HAV_23CN_BCTN--e57968185e1c63bc.provenance.json",
+      "sha256": "1bfc10ce88805d100903d1bc9900e4e69484576f897c977f05c03f6f7eb94ec2"
+    },
+    {
+      "path": "models/document_hrm_V14_1_bkai_scratch_seed31_v1.pt",
+      "sha256": "e6641d13f169dc674728c32aafb508946495027985ce1fde6e2b1095a8d55413"
+    },
+    {
+      "path": "models/embedding_cache/models--bkai-foundation-models--vietnamese-bi-encoder/snapshots/84f9d9ada0d1a3c37557398b9ae9fcedcdf40be0/1_Pooling/config.json",
+      "sha256": "f2fa6333d3899e2f9368e2e2741ece8e74160337b3698f475f6e0f7f28e396fe"
+    },
+    {
+      "path": "models/embedding_cache/models--bkai-foundation-models--vietnamese-bi-encoder/snapshots/84f9d9ada0d1a3c37557398b9ae9fcedcdf40be0/README.md",
+      "sha256": "1433a6a36fb9b991999ce5eab31de89f6ebf31ef3c3a0c30c7b61685fa2ed878"
+    },
+    {
+      "path": "models/embedding_cache/models--bkai-foundation-models--vietnamese-bi-encoder/snapshots/84f9d9ada0d1a3c37557398b9ae9fcedcdf40be0/added_tokens.json",
+      "sha256": "956163bbe8b0625fcc779207447308285eab218ffe0551d3e0deeae5538da326"
+    },
+    {
+      "path": "models/embedding_cache/models--bkai-foundation-models--vietnamese-bi-encoder/snapshots/84f9d9ada0d1a3c37557398b9ae9fcedcdf40be0/bpe.codes",
+      "sha256": "9dfe53fb8abbddd3387da99641c36e00bee757a3679aad9cf0a7cdc4b30f6ef8"
+    },
+    {
+      "path": "models/embedding_cache/models--bkai-foundation-models--vietnamese-bi-encoder/snapshots/84f9d9ada0d1a3c37557398b9ae9fcedcdf40be0/config.json",
+      "sha256": "5f28d12a2d641db00b6dfaff47517b9cf6175437ceb0e18ec0763938ab4b086f"
+    },
+    {
+      "path": "models/embedding_cache/models--bkai-foundation-models--vietnamese-bi-encoder/snapshots/84f9d9ada0d1a3c37557398b9ae9fcedcdf40be0/config_sentence_transformers.json",
+      "sha256": "5a6d09833ba6faaf8b7e35d805fc6ecc42577b78173a76b6a97ea00e25a2bbb2"
+    },
+    {
+      "path": "models/embedding_cache/models--bkai-foundation-models--vietnamese-bi-encoder/snapshots/84f9d9ada0d1a3c37557398b9ae9fcedcdf40be0/model.safetensors",
+      "sha256": "e681accadaec87e79901db0c3f68e33d996cba334633b6dd0b2483dba4f398e0"
+    },
+    {
+      "path": "models/embedding_cache/models--bkai-foundation-models--vietnamese-bi-encoder/snapshots/84f9d9ada0d1a3c37557398b9ae9fcedcdf40be0/modules.json",
+      "sha256": "8f4b264b80206c830bebbdcae377e137925650a433b689343a63bdc9b3145460"
+    },
+    {
+      "path": "models/embedding_cache/models--bkai-foundation-models--vietnamese-bi-encoder/snapshots/84f9d9ada0d1a3c37557398b9ae9fcedcdf40be0/sentence_bert_config.json",
+      "sha256": "fc1993fde0a95c24ec6c022539d41cf6e2f7c9721e5415d6fb6897472a9cd4b7"
+    },
+    {
+      "path": "models/embedding_cache/models--bkai-foundation-models--vietnamese-bi-encoder/snapshots/84f9d9ada0d1a3c37557398b9ae9fcedcdf40be0/special_tokens_map.json",
+      "sha256": "d05497f1da52c5e09554c0cd874037a083e1dc1b9cfd48034d1c717f1afc07a7"
+    },
+    {
+      "path": "models/embedding_cache/models--bkai-foundation-models--vietnamese-bi-encoder/snapshots/84f9d9ada0d1a3c37557398b9ae9fcedcdf40be0/tokenizer_config.json",
+      "sha256": "9410af29b3eebbe69a1a0d8f3e1104e131409223cffcec9cf6ee46afd5892b88"
+    },
+    {
+      "path": "models/embedding_cache/models--bkai-foundation-models--vietnamese-bi-encoder/snapshots/84f9d9ada0d1a3c37557398b9ae9fcedcdf40be0/vocab.txt",
+      "sha256": "dffd7543c401fb6567253ae7c3313004532c33d062525250049c616544bad777"
+    },
+    {
+      "path": "pdf/PDF_23/BHG_23CN_BCTN.pdf",
+      "sha256": "62a6808775bffb526b5f4894a463646522410469e7f3084407d498f987303702"
+    },
+    {
+      "path": "pdf/PDF_23/HAV_23CN_BCTN.pdf",
+      "sha256": "e57968185e1c63bcf76bbb3cedb2f0dd252e787d7e2bcc4dae0e1a7c36de5a9a"
+    },
+    {
+      "path": "requirements.txt",
+      "sha256": "c67176aca05560c7aa10929862ba2d41c062ac28ad475f8fce763ea15bfa9066"
+    },
+    {
+      "path": "scripts/evidence_policy_source_identity_v5.py",
+      "sha256": "5ef48a0db34db5aaabb24f0d42a4d341f851c9ddbb16deda71ca371658f7422d"
+    },
+    {
+      "path": "scripts/prepare_finhrm_B_entity_owner.py",
+      "sha256": "ac00810e61075049ce104fa7ac4bb95a30dc87cfb56fdb5e2738b6f1be61a5a5"
+    },
+    {
+      "path": "scripts/report_finhrm_B_entity_owner.py",
+      "sha256": "ac7270b419cb7c1be9b1f3782c88a46a07d361d700f863ba9ae1011c7dc321f6"
+    },
+    {
+      "path": "scripts/report_finhrm_B_report_fields.py",
+      "sha256": "f4336d73e8c7310e03333835d79bd2a0087bf4587c57683abfbf6561bdc98353"
+    },
+    {
+      "path": "scripts/report_finhrm_B_source_context.py",
+      "sha256": "d6534cc3eed12dea8d5a2d77697493b56d8e2e07ed7c4681a7e3adb36e4cef51"
+    },
+    {
+      "path": "scripts/run_finhrm_B_entity_owner.py",
+      "sha256": "47694f913c698e52408ba16547d853114b8318282b7a13d5b24bcf316bf1c914"
+    },
+    {
+      "path": "scripts/run_finhrm_B_source_context.py",
+      "sha256": "18c9beadd3a4002d6057a6af771962187b308f756e7633d6a1c919b150f98f68"
+    },
+    {
+      "path": "scripts/test_finhrm_B_entity_owner.py",
+      "sha256": "3c61efef3825258f57a4b3f1fe8f4894ddd3390a23705892ae8f645dbaabac18"
+    },
+    {
+      "path": "tests/test_B_disclosure_equivalence.py",
+      "sha256": "1ce401bca11fea537b6e0912027623aad5fbb1e283749484d41a692b116bdedf"
+    },
+    {
+      "path": "tests/test_B_entity_boundaries.py",
+      "sha256": "8f70b7b95e374014334ef9d34987ea1077d263750dbd43cd55dabe313f5b55d9"
+    },
+    {
+      "path": "tests/test_B_entity_owner.py",
+      "sha256": "fef9e40736e92ad0c168d58ff70e240c1f2ebd4e1c81376ee5d3e4dde895ae3a"
+    },
+    {
+      "path": "tests/test_B_numeric_format.py",
+      "sha256": "19238ace487afc19c9969fd9cbde20f1e0f3e25b81e19f49e2f27f9abacde4b9"
+    },
+    {
+      "path": "tests/test_B_report_fields.py",
+      "sha256": "4fd3a4c988a289bad0233dbe3556b58b6fb0589aca492364b07e6522a7728f20"
+    },
+    {
+      "path": "tests/test_B_source_context.py",
+      "sha256": "addb09e017f57c8ad1e01ed0c3393c37853d9cbd51c50a9cfafb81e288b4908f"
+    },
+    {
+      "path": "tests/test_add_visual_reviewed_final_eval_rows.py",
+      "sha256": "373a70e192338b1bbaab7025be97bb78f514c040902c715c56068ec43556d372"
+    },
+    {
+      "path": "tests/test_annotate_document_provenance.py",
+      "sha256": "2cc3b520b47d47d0503e58b672a83bcbf74fcb2ed5dcfc2cf339bf859be1faac"
+    },
+    {
+      "path": "tests/test_audit_finhrm_data_coverage.py",
+      "sha256": "e7c113eabe57de3df09101b67860f3c34aecfe353d279ac89109dfb8d8aaf186"
+    },
+    {
+      "path": "tests/test_audit_finhrm_report_readiness.py",
+      "sha256": "f7fca399bcf63c74861bc2b5abcc9ee39eeba136cb74c9aa7c14039415a4b701"
+    },
+    {
+      "path": "tests/test_audit_pdf_corpus.py",
+      "sha256": "40f5060d740f21a936f69e5d8997fe4f39e3a0394559e753bb27de5de6001df0"
+    },
+    {
+      "path": "tests/test_audit_plan_actual_header_roles_qp1.py",
+      "sha256": "09fcd78003a2ca8757b29ab796cf55a72432eb7657490cf03618e5f222db4fa8"
+    },
+    {
+      "path": "tests/test_audit_pointer_supervision.py",
+      "sha256": "f3966f0238e4198efaf5a12447935b8ada8380c1961465fb36165fc9a630409a"
+    },
+    {
+      "path": "tests/test_audit_qp2a_operand_slots.py",
+      "sha256": "384f161a763cdba01ae6badee38c14df96bda7c135e3be5db7162de25c37ee97"
+    },
+    {
+      "path": "tests/test_audit_qp2b_operation_direction.py",
+      "sha256": "57d95fdead2205e658a075c5238c4d435da1fc56ade1c53dfbfb43030d8bc298"
+    },
+    {
+      "path": "tests/test_audit_qp2c_reference_dag.py",
+      "sha256": "a7055057d3cf33eb6b8a8fb60ee6125ec9a146607f62cf413d8e5bc99e7e396f"
+    },
+    {
+      "path": "tests/test_audit_qp2d_safe_abstention.py",
+      "sha256": "15043efd203ee9fdc7e058947c411cfe2a9bacdd9aa784e2d2ebf5e43508d6af"
+    },
+    {
+      "path": "tests/test_audit_qp2e_surface_robustness.py",
+      "sha256": "c0855290df7d18bde1a5d274c3a0b82b960fd8d72028e56121337767ffb4fd1c"
+    },
+    {
+      "path": "tests/test_audit_subtract_direction_contract.py",
+      "sha256": "ec5cbe1b4b6d9c7258f81dee581edcccc055d54856f850908926d3fef5723eed"
+    },
+    {
+      "path": "tests/test_audit_v12c_joint_calibration_adequacy.py",
+      "sha256": "14be41f03a7465a91aa06cc4d4c5fb0a785e773912006548c34961e9a325a538"
+    },
+    {
+      "path": "tests/test_build_company_disjoint_folds.py",
+      "sha256": "226a6c81336eed48f6806d93a749e439c2e3a713050f61ec167b8e4205caddc7"
+    },
+    {
+      "path": "tests/test_build_final_evaluation_manifest.py",
+      "sha256": "567e35c0a37a20349c3eaae5c7227f35368b0ae61bb45dde3eb3b8a0dd9fd11c"
+    },
+    {
+      "path": "tests/test_build_financial_page_manifest.py",
+      "sha256": "0f9caee042b62a8b38ac958f300412564f1dcf57778dca5ebd4536eb50a46027"
+    },
+    {
+      "path": "tests/test_build_finhrm_canonical_v13_dataset.py",
+      "sha256": "d2b9f61e744c7ef28b9636617d2cbdb3c10340b658f236ae16123a3164f33255"
+    },
+    {
+      "path": "tests/test_build_finhrm_v13_clean_ablation_split.py",
+      "sha256": "daea0f1e077a83f3ca7dc089e39f4742cfa7584aa0f8b33fd213907d531885eb"
+    },
+    {
+      "path": "tests/test_build_finhrm_v14_1_contrastive_dataset.py",
+      "sha256": "6b52abb0e4a8ab71a356e69c74a88745f5a70b26095fbd685a6df8106d1a4fac"
+    },
+    {
+      "path": "tests/test_build_finhrm_v14_development_split.py",
+      "sha256": "eb18e62eae7ee7dc834d66593888f8647d5e7618a9285faabeeef10ca513e696"
+    },
+    {
+      "path": "tests/test_build_finhrm_v14_sum_n_augmentation.py",
+      "sha256": "b58d56b6a2611ae99051b7f1d77d227ace19db604f39aeba74a90e523950513a"
+    },
+    {
+      "path": "tests/test_build_native_supervision_discovery_manifest.py",
+      "sha256": "1b57920e029f128fae397008472f61441bb973e7e009f71a22834effe5b3bb4b"
+    },
+    {
+      "path": "tests/test_build_ocr_financial_page_manifest.py",
+      "sha256": "e59a38d29b4e43aa320f415184be0fd3951d265cab1c3f17c7719975a01b274b"
+    },
+    {
+      "path": "tests/test_build_pdf_company_manifest.py",
+      "sha256": "72071c87f713f45737e2cd4e862c036dbc1d8d2ff2b9e32c8f50cc8b360b6939"
+    },
+    {
+      "path": "tests/test_build_selective_ocr_discovery_manifest.py",
+      "sha256": "a300d89154db520b9b692ba403e05ae09a3e5929fb36042ba0d331573ecfd40f"
+    },
+    {
+      "path": "tests/test_build_subtract_development_cohort.py",
+      "sha256": "cedfe21b9615fe2b57ffe9b082f895cdd3a1f689497d2c3c2fce444b311fc8c3"
+    },
+    {
+      "path": "tests/test_build_unseen_financial_qa_candidates.py",
+      "sha256": "199331193f681d77b792571c9ab6baefd66f0804c1a7b272fddc6a881e250e56"
+    },
+    {
+      "path": "tests/test_build_unseen_scan_ocr_discovery.py",
+      "sha256": "00de6304932d0458c554d642c89637d5751882d7162b8e421b907b90371c7b06"
+    },
+    {
+      "path": "tests/test_build_v12c_independent_calibration_cohort.py",
+      "sha256": "6946bf4b6858f9437ee26b111929e9a8fe46d462f22d52b2ab5864ced954862d"
+    },
+    {
+      "path": "tests/test_build_v12c_interest_bearing_debt_share_cohort.py",
+      "sha256": "208e8771020f59f9577b0cf5ef50c4a0de7db9cbd1ba4553fd0d30d146443edf"
+    },
+    {
+      "path": "tests/test_build_v12c_negative_ambiguity_cohort.py",
+      "sha256": "b3c51badcdfaa3166cafe095ca2b714d38cb0506b24aa9ff10110d618c3af4ef"
+    },
+    {
+      "path": "tests/test_calibration_policy_v14.py",
+      "sha256": "950c5386aaeb75d0e1d188c21541f617e2ef220659db3b0db5820e4778044737"
+    },
+    {
+      "path": "tests/test_candidate_recall_and_assertions.py",
+      "sha256": "310be909664b3a024c5654ee233a5232f655c5c5cf031889e8533a3da08a306c"
+    },
+    {
+      "path": "tests/test_cli_v14_sum_n.py",
+      "sha256": "ca3872e121de8a066341faad1ed5f204a5896c373ac2ae6945f1bca594c85929"
+    },
+    {
+      "path": "tests/test_column_role_runtime_qp2.py",
+      "sha256": "ea7d3fba1157c675897aa2da9c1720192099b6b1052e0341cd3a7a76ed349935"
+    },
+    {
+      "path": "tests/test_combine_pdf_company_manifests.py",
+      "sha256": "121f5318e0ba91351c8f12d05f7c18d3db0d6002286ce5419b77e076d5224ba2"
+    },
+    {
+      "path": "tests/test_combine_pointer_datasets.py",
+      "sha256": "f6c1a1476665d25651ae8d8792a6d6609eed5cef5be9f0acf916d4fff192e4a1"
+    },
+    {
+      "path": "tests/test_compare_document_hrm_predictions.py",
+      "sha256": "a904f33ab87a44ad17e47b4de3a04f4fafd4c743916510bd474836ba7fe73a63"
+    },
+    {
+      "path": "tests/test_comparison_request_contract.py",
+      "sha256": "eb739792d60bbc23b65dcd6a074daca507ab0cb43dac1dcff679ef3bb94c0acf"
+    },
+    {
+      "path": "tests/test_compose_document_hrm_development_train.py",
+      "sha256": "e38bb4cca29451555caec2c78dfd2c8129e63db2e36c0507aac4cedb932d62ef"
+    },
+    {
+      "path": "tests/test_dense_retrieval.py",
+      "sha256": "808370767c061d149f6f685677daad9bd84b91860dd715b880502027c0cdbd49"
+    },
+    {
+      "path": "tests/test_direction_contract.py",
+      "sha256": "933273349966732a9797755d376bdd3725a9b778352f0a4012172ece3929511c"
+    },
+    {
+      "path": "tests/test_disclosure_resolution_and_report_year.py",
+      "sha256": "aa23739417471ea4a8a0f92b40dcc3e49a9056863d9f9b32becffee33929ead2"
+    },
+    {
+      "path": "tests/test_discover_v12c_calibration_pdf_pages.py",
+      "sha256": "131b30de993299f51d1d00599038fd9cdce5b59f4ea3b55770aa1877e10bc591"
+    },
+    {
+      "path": "tests/test_discover_v12c_joint_calibration_feasibility.py",
+      "sha256": "12b4d2c52d99bdb29cdab0befd422812e7ddc417cf882d53d041dabd5b45649b"
+    },
+    {
+      "path": "tests/test_discover_v12c_negative_ambiguity_pdf_pages.py",
+      "sha256": "003093d63793d07ba7a290e5fbfb949e2b118c70a951593a84ad43fd95b15cca"
+    },
+    {
+      "path": "tests/test_document_hrm.py",
+      "sha256": "e92f3600eea5a355bf6b4bfc77ccf8047cf5c83508052784422e24b648e55669"
+    },
+    {
+      "path": "tests/test_document_hrm_epoch_checkpointing.py",
+      "sha256": "eeaeb700c37828a5c39bf91544faf20a61d73f4bd65332622afc1cba96a44797"
+    },
+    {
+      "path": "tests/test_document_hrm_v13.py",
+      "sha256": "fac363909bc7120b58b9bd22d9c319cd129766ed1725efda2577234a2757788d"
+    },
+    {
+      "path": "tests/test_document_hrm_v13_training_pipeline.py",
+      "sha256": "2ceac5f5ce336d164cd5f5f219d6f086f8c772767dbeceaaa6b50992a33c8d89"
+    },
+    {
+      "path": "tests/test_document_hrm_v14_1_semantic_beam.py",
+      "sha256": "2020aa1a3488ed5f6c766135955a48ed944c1697243aae51025635080fbf51c6"
+    },
+    {
+      "path": "tests/test_document_hrm_v14_calibration.py",
+      "sha256": "93bf71a9cab397642012631066a7c7ada258cf18443c05cddd7e32dcb363583c"
+    },
+    {
+      "path": "tests/test_document_hrm_v14_sum_n.py",
+      "sha256": "bfae9fff3743d65c433ff3a72dcdc3c27f3712cc12322e594ea858427e62e97b"
+    },
+    {
+      "path": "tests/test_document_page_index.py",
+      "sha256": "fd3ea49b6efd4fbed5b3e1040c222db79eddbd254a9c4b79def20d49c3a3db54"
+    },
+    {
+      "path": "tests/test_document_search.py",
+      "sha256": "14fd7fdc4ca5241b3ad38bd23c6ae5016829259c739b1897ca886d137e094864"
+    },
+    {
+      "path": "tests/test_document_service.py",
+      "sha256": "df89612ea6ba1a916e2992a4eb0fe8b345483f4fc517c6f3019f7dd629b2bada"
+    },
+    {
+      "path": "tests/test_document_service_request_contract.py",
+      "sha256": "9fd9cec5572565343de32a1e527466a810b384a20d51f46cd4b0955cbb7bab0d"
+    },
+    {
+      "path": "tests/test_document_sources.py",
+      "sha256": "dad3d45c2bd39e47886c1a8a941b215e29d9b5f241145f11e7feabad18787138"
+    },
+    {
+      "path": "tests/test_evaluate_v12c_interest_bearing_debt_share_frozen.py",
+      "sha256": "45db8e08e710e162cf785847e37f7d78b7e95bf298d547d05d6621c59fee7aaa"
+    },
+    {
+      "path": "tests/test_evaluate_v12c_joint_calibration_operating_point.py",
+      "sha256": "c78d8110c46f8e4960ebb3ee7bbc36ec48a8bf829ac221eb1bcfac1c3752a076"
+    },
+    {
+      "path": "tests/test_evaluate_v12c_negative_ambiguity_frozen.py",
+      "sha256": "1920d5dbbc515dfa67bc9b5e4507b0df396c9fb8a6d70ca07034f78747dd643b"
+    },
+    {
+      "path": "tests/test_evaluation_metrics_v2.py",
+      "sha256": "ecd4afc0f8f9fd0aa2bd98c61c97953be81f845816743508f28f8c8eefabd90a"
+    },
+    {
+      "path": "tests/test_evidence_header_roles_qp1.py",
+      "sha256": "3a3175bd080e98df18265a0de30d70e7d782b24989cf9d3627aa4d4b551259b1"
+    },
+    {
+      "path": "tests/test_evidence_policy_evaluator_aggregation.py",
+      "sha256": "4df918953fc8954d59638baac6cab1596b685929b27d272004c820297a60b597"
+    },
+    {
+      "path": "tests/test_evidence_policy_reference_scope.py",
+      "sha256": "9023771a16e26e85df5ec17ca82c92598307950e699aa4a05d3a0060f0897dc3"
+    },
+    {
+      "path": "tests/test_evidence_policy_source_identity.py",
+      "sha256": "1045196587e4a27f0220d01d29cf3ef93495cb499a535494cec2dac521fe1fd5"
+    },
+    {
+      "path": "tests/test_evidence_publication_policy.py",
+      "sha256": "dbb3f4ff0ffbfd0fc85a41ff2601d74b2c859ead1842d455ad721b2fdadba9ed"
+    },
+    {
+      "path": "tests/test_evidence_resolution.py",
+      "sha256": "313fb777529d94f6c48a1acda678fb793eb164e553449209702c25ec6dba8b51"
+    },
+    {
+      "path": "tests/test_exact_certificate_boundary.py",
+      "sha256": "f782a7dcb5ab04cfb207c8372352bf19839d019a87372f7bcb267cc230bc8a31"
+    },
+    {
+      "path": "tests/test_exact_executor.py",
+      "sha256": "c650645d098161c344becb468e3b822f0bcdd105f0f5a058519f28d2632c4e02"
+    },
+    {
+      "path": "tests/test_export_final_evaluation_review.py",
+      "sha256": "9389dd8da64836cda47b57f80f87493b5650e4ab278da28909d0e0c3b2f43319"
+    },
+    {
+      "path": "tests/test_extend_subtract_direction_folds.py",
+      "sha256": "26eaa0a8d82a247012357a3ec5f66cd4fde921375043d6b11f65b1334da97183"
+    },
+    {
+      "path": "tests/test_external_evaluation.py",
+      "sha256": "80278e7b0c9c28b020d954aee8c1cdad0a8f4581db3db620886ec0c8ad6ba08d"
+    },
+    {
+      "path": "tests/test_financial_hrm_features.py",
+      "sha256": "737be2606ab4e24208580b064ca0411b2c524556201c916d6c1f2e3307240819"
+    },
+    {
+      "path": "tests/test_financial_identities.py",
+      "sha256": "3f9e94dbd73b8e22567d26866128070bbe52d6f91c77a4c711478e864e766019"
+    },
+    {
+      "path": "tests/test_finhrm_markdown_shard15_evaluation.py",
+      "sha256": "bea11c86536c8ac1007bfdfd208f9a3a34548be99903d4821f0690ec1112beef"
+    },
+    {
+      "path": "tests/test_finhrm_markdown_shard15_evaluator_v2.py",
+      "sha256": "1b6817655de12ea7536cddec4ae22c87ad5624d8923d579294249ec3cb121e50"
+    },
+    {
+      "path": "tests/test_finhrm_markdown_shard15_notice_v3.py",
+      "sha256": "467be3cc856161fff0738816581c4b1cd839e23d19eab621b3db4f56b120eaf6"
+    },
+    {
+      "path": "tests/test_finhrm_markdown_shard15_postrepair_plans_v2.py",
+      "sha256": "1aac35c9ee66c490e4f641254f8d2fde62b2408a231e7542474039c77c831803"
+    },
+    {
+      "path": "tests/test_finhrm_markdown_shard15_postrepair_v2.py",
+      "sha256": "641bceebcbe8ae11442d5a43eb7c969694c606a66c92d7b5eb7d0b171915aff9"
+    },
+    {
+      "path": "tests/test_finhrm_report_generalization_invariant.py",
+      "sha256": "efd79636c3c3f7a94c1ece7b0cce5c1e12880e07444fd76c9e9af9c53140f330"
+    },
+    {
+      "path": "tests/test_finhrm_thesis_core_compiler_audit.py",
+      "sha256": "d04aece40988aa78c251baaed96797f52c9bfb31da3f10e93d60e4355d5b191c"
+    },
+    {
+      "path": "tests/test_finhrm_thesis_core_precommit.py",
+      "sha256": "075903b12f89a62047b00624b0105cf2fbcb687fb157ba8ca7be012d56a9a5ad"
+    },
+    {
+      "path": "tests/test_finhrm_v14_2_action_audit.py",
+      "sha256": "082c951ad5c8d86986dc701a739a0235c50e461ed7db79367ad76f3fa3e5fb94"
+    },
+    {
+      "path": "tests/test_finhrm_v14_2_baseline.py",
+      "sha256": "341281b02450a1c4bd8bd89cc933ecff396d99e542eb1f227baf738d46819638"
+    },
+    {
+      "path": "tests/test_finhrm_v14_2_binding_repair.py",
+      "sha256": "feeaf4896b3232f6758f2bb8a9930679effe09d52c93dfeb6c4028ad4dc25acc"
+    },
+    {
+      "path": "tests/test_finhrm_v14_2_binding_table_alignment.py",
+      "sha256": "f006c79f118aaa3b07b8c0ef14838ea81ff05aad5c86357461c25239863def7c"
+    },
+    {
+      "path": "tests/test_finhrm_v14_2_context_fix.py",
+      "sha256": "937e19ae48bbefa165b7f78ec6d69fb27606b74aeec829d0e33acce36078aba2"
+    },
+    {
+      "path": "tests/test_finhrm_v14_2_gate_diagnosis.py",
+      "sha256": "dca53a01c17a36d3efde45f2c3aa154edfa1ff1ffc8e515820b8ebcefe4fd0bc"
+    },
+    {
+      "path": "tests/test_finhrm_v14_2_mapping_completion.py",
+      "sha256": "cfcc80f7ac29dd88a0acca79077cca1bc96980b156e66645ca38dfdf9fa1b13e"
+    },
+    {
+      "path": "tests/test_finhrm_v14_2_markdown_certificate_audit.py",
+      "sha256": "147d7935178696b357892a898eea3ca338656e7e1e1f0b81e79de9546f5e95c7"
+    },
+    {
+      "path": "tests/test_finhrm_v14_2_markdown_e2e.py",
+      "sha256": "38bb952c18a2da912da1f28c62da8f02a43136c61b5c67620472dbeaec1d262b"
+    },
+    {
+      "path": "tests/test_finhrm_v14_2_metadata_repair.py",
+      "sha256": "836ac95da5907c6348bbf09dcdd8955308a04261b465bede29f7d3ceb213e869"
+    },
+    {
+      "path": "tests/test_finhrm_v14_2_phase2_action.py",
+      "sha256": "5621e9b2e718f7e7e8520ba7e649c759fe83e71d976f7f563f44f5cc4035fc85"
+    },
+    {
+      "path": "tests/test_finhrm_v14_2_phase2_coordinates.py",
+      "sha256": "8fd91213ab7875bd2fe28275a37cd9330bc30427a2b5e620a716ded8bc32429e"
+    },
+    {
+      "path": "tests/test_finhrm_v14_2_phase2_roles.py",
+      "sha256": "2b84302225acc9592d6db34c8edb3b0a2c51f7425ff4980f07de2224256366ed"
+    },
+    {
+      "path": "tests/test_finhrm_v14_2_phase2_search_gate.py",
+      "sha256": "b102890982d1f6a488e9289c279840654d52a56c4f003161328da03d7e29671f"
+    },
+    {
+      "path": "tests/test_finhrm_v14_2_proof_observer.py",
+      "sha256": "f05fbb4f3362596ec9f0a108d9a82733fa7b7d6eb462021704f4c3b41d50724e"
+    },
+    {
+      "path": "tests/test_finhrm_v14_2_proof_parser_consistency.py",
+      "sha256": "c0874812f61462220544411a9b8182079e6fbc008c59cff072e65145b0df67da"
+    },
+    {
+      "path": "tests/test_finhrm_v14_2_reading_repair.py",
+      "sha256": "33ada536ea1f4735392f68f169967a43ac22b195444d11bc25c3ef819ed0b20a"
+    },
+    {
+      "path": "tests/test_finhrm_v14_2_role_fact.py",
+      "sha256": "580536d06d92ba8d87afb5fe8ee76beb59d9c08b5cead76cec7b4885f7272e4c"
+    },
+    {
+      "path": "tests/test_finhrm_v14_2_role_fact_context_v2.py",
+      "sha256": "750a4b2e0287c1b65f8a56c4b61cfbbd00d7cd9d01e64d1a2b0903af61136d48"
+    },
+    {
+      "path": "tests/test_finhrm_v14_2_role_fact_presentation.py",
+      "sha256": "70641a33ec39c19f8df3f9cb1967179ddd317d3ca99955b1b942289c1ddd1a7f"
+    },
+    {
+      "path": "tests/test_finhrm_v14_2_scope_unit.py",
+      "sha256": "7aa4f93964e439a00caab536b586abb6506b4b3020cd6825f4813e80f7f86e69"
+    },
+    {
+      "path": "tests/test_finhrm_v14_2_scope_unit_v2.py",
+      "sha256": "1032086492b9c234c06ef12d03e0165cd60a8d91e34d17d69c919ee16282975f"
+    },
+    {
+      "path": "tests/test_finhrm_v14_2_scope_unit_v3.py",
+      "sha256": "d296f2ac7a9539d1b12208cb6fc25ff41bb59c3b4a7e48e7869153a35d8750ec"
+    },
+    {
+      "path": "tests/test_finhrm_v14_2_selection_repair.py",
+      "sha256": "167cccea95b8dc51e411520d8f1026c5a2e9a86416af60c1e15c1a5c8c8291a2"
+    },
+    {
+      "path": "tests/test_finhrm_v14_2_source_binding_review.py",
+      "sha256": "0e9b3178f5d861fbb53aa48c6602e76628d5b8de3224ab295b25d23c40dc3c28"
+    },
+    {
+      "path": "tests/test_finhrm_v14_2_table_context.py",
+      "sha256": "5d226b3c228b89426a2cb9d0ad25c3fbdc616e44205da9181ea880362f718ba2"
+    },
+    {
+      "path": "tests/test_finhrm_v14_2_table_context_boundaries.py",
+      "sha256": "49fb270c6774216f3194c739185f1337e22de2971822674a1c873e91535a9f3c"
+    },
+    {
+      "path": "tests/test_freeze_reviewed_final_evaluation.py",
+      "sha256": "0f0b850f0300f8c017df28d5bf898f3ccb0f5e3825ecc05548597e75637cf089"
+    },
+    {
+      "path": "tests/test_freeze_unseen_company_holdout.py",
+      "sha256": "339b633578f46c4e548a878956ff83aa0884c84efb3e034689824e2616bdf9aa"
+    },
+    {
+      "path": "tests/test_freeze_v12c_interest_bearing_debt_share_cohort.py",
+      "sha256": "97c4dab7692b635f73928705e8853a166f134c89496a9156b69508e69f981cba"
+    },
+    {
+      "path": "tests/test_generate_document_derived_programs.py",
+      "sha256": "36cb07364a297636e8ba956c3279c3279fc1afe4ef4609d634e9725696dd15d0"
+    },
+    {
+      "path": "tests/test_generate_text_statement_programs.py",
+      "sha256": "f87be34e94cf4dba8355278bf810ff1742b1a4ce332ca9305ee84def1734d07f"
+    },
+    {
+      "path": "tests/test_generic_binding_support.py",
+      "sha256": "7e554280d06b1fcd9c4948571b0b7c2d9eee2ee517b0f7474c9e76761d3cf32a"
+    },
+    {
+      "path": "tests/test_identity_evaluator_v5.py",
+      "sha256": "62634e6a511ba833a8a6646a9f21c57b49786e06f83241b82c8f73a2e1874cb2"
+    },
+    {
+      "path": "tests/test_ingest_page_index.py",
+      "sha256": "7039b3a9e50090e1f5dd336c07fbf3dc3cdaee9f913c04560dbfb16bb4e8a67e"
+    },
+    {
+      "path": "tests/test_mineru_markdown_workflow.py",
+      "sha256": "04c255fb4bf14898f6becd63f69912af8507ecb896086fe4004f7ae0c0ce81ce"
+    },
+    {
+      "path": "tests/test_mineru_verify_semantics.py",
+      "sha256": "235b43b51731243d9ab46dffaff3a0174a9c5ca1d6b0d0dda24979b09bd971ec"
+    },
+    {
+      "path": "tests/test_multi_part_comparison_contract.py",
+      "sha256": "39ff5bb7f5db677ee93fd4d7a4a0a8b2355f5b5a9510c0f82936df108f1010fc"
+    },
+    {
+      "path": "tests/test_ocr_financial_review_pages.py",
+      "sha256": "ae67e38cf78acb956f44d7084d7b3c481bb1d91da017db409af447999cda3da4"
+    },
+    {
+      "path": "tests/test_package_imports.py",
+      "sha256": "cf41b267b2d2be327b02cb633e7846ff0bd4cc9b61099d261b52fb5a12acec0e"
+    },
+    {
+      "path": "tests/test_pre_review_final_evaluation.py",
+      "sha256": "3bc672696eabff6ff6f3538f1b9c4f5751088022d9599b276a8bedca8b6c205f"
+    },
+    {
+      "path": "tests/test_prepare_finhrm_mineru_markdown_batch.py",
+      "sha256": "5fc555710b26a06fe7522206f696dd5bb93ad068a703f3e885b0cc8b376db1b9"
+    },
+    {
+      "path": "tests/test_program_data.py",
+      "sha256": "436abf91fc17f3c7dd0635deb60538e14242241841292ce1d0bba5d55846bd40"
+    },
+    {
+      "path": "tests/test_program_reranker.py",
+      "sha256": "b7620116ae62987b82ba38c5b2fe16e88b4a0ef459122924225bc394aef1e3fd"
+    },
+    {
+      "path": "tests/test_program_synthesis.py",
+      "sha256": "905ed00b7b2c2bfdfcd59ea8aea0fd054d71f97aa38c8b9ef726e0d81012d77b"
+    },
+    {
+      "path": "tests/test_qp3_answer_presentation_implementation.py",
+      "sha256": "bdf8e0ec9542bb88f0f6ba7dd3875446e96b1956d9067ff5d93428caf22460a3"
+    },
+    {
+      "path": "tests/test_qp3_answer_presentation_implementation_report.py",
+      "sha256": "b57038dd0335368170f922078521e6dd0b26a39c64abaec6ddb0a5432ee76a01"
+    },
+    {
+      "path": "tests/test_qp3_answer_presentation_precommit.py",
+      "sha256": "1d79005cbfd0dafccc79f1f8f89971066a3168c50eb3ceab0bcf885ace8b0ab7"
+    },
+    {
+      "path": "tests/test_qp3_core_add_diverse_development_cohort.py",
+      "sha256": "45346a1a95214b213b3a6c701cad79ebdde068608d7111c3a0430a1da4104bdc"
+    },
+    {
+      "path": "tests/test_qp3_core_add_diverse_development_reviewed_cohort.py",
+      "sha256": "7bdb8078d4133ee7fc8aa900fa74454a37e90560e287145bf64ed7ca41459fec"
+    },
+    {
+      "path": "tests/test_qp3_core_add_diverse_end_to_end.py",
+      "sha256": "b1629daaf1d869f802c2933cf0406635946f86b8bedb8135a7fa8d821ecccf35"
+    },
+    {
+      "path": "tests/test_qp3_core_add_diversity_confirmation.py",
+      "sha256": "5c7ed986d819d708766ec850d0b00b563e89469434bbabdeefed7f5391880b22"
+    },
+    {
+      "path": "tests/test_qp3_core_add_real_layout_confirmation.py",
+      "sha256": "fcaf2f07b588d03f93fa1e8fc7f8b8a46f2f8dbc112ec2ad0ae3c1365da101b3"
+    },
+    {
+      "path": "tests/test_qp3_core_generalization_coverage_diagnostic_matrix.py",
+      "sha256": "211b388f1e8951374619f439a90455ae09b8f22f8228b72a7440df1e64bffc5b"
+    },
+    {
+      "path": "tests/test_qp3_core_generalization_coverage_implementation.py",
+      "sha256": "c2ca7454ffd2b2e5678472be1ae5584705230d9ae63e6f722cfbb48f96346189"
+    },
+    {
+      "path": "tests/test_qp3_core_generalization_coverage_implementation_precommit.py",
+      "sha256": "ad9a8dae81284c401a552acf6a7c40779d1ca51a2bfe05b7078a931ffd8433db"
+    },
+    {
+      "path": "tests/test_qp3_core_generalization_coverage_implementation_report.py",
+      "sha256": "af2c538033fe22b325bb125c8aa80840fff5d832b8ed10ee4868ef3b4f1c7298"
+    },
+    {
+      "path": "tests/test_qp3_core_generalization_coverage_precommit.py",
+      "sha256": "ffe42c2488cc2212ddda5a24f6ee1f27f938fa27cd4c36ab3760af6afd129fa8"
+    },
+    {
+      "path": "tests/test_qp3_core_implementation.py",
+      "sha256": "4cc0a56df6127cef1983ca770ffb6cfcbabbe4508551f611f6a347b0e740a9b8"
+    },
+    {
+      "path": "tests/test_qp3_core_precommit.py",
+      "sha256": "4f74c901aebbadc1e705fb8253891a9e91924aa33a64d87bc75530637c442538"
+    },
+    {
+      "path": "tests/test_qp3_core_s4_safe_replay.py",
+      "sha256": "8d1d381c4708e6d67e1324ad325311265b7885d0dc8d2c047966b18d892b7e90"
+    },
+    {
+      "path": "tests/test_qp3a_column_role_proof_precommit.py",
+      "sha256": "37a3b1244432f5e05dc1aa45d19d7d747d8c8fe8835cfe67661ee9c958b577ba"
+    },
+    {
+      "path": "tests/test_qp3b_column_role_proof.py",
+      "sha256": "5295177ef4aa6ac580cca1cdbe78016ac38095a77cfa30aee19e26d5bca257a9"
+    },
+    {
+      "path": "tests/test_qp3c_role_inventory_producer_precommit.py",
+      "sha256": "2b5c1f285e9d91f7de507054937e357ded7e4b4efc141948ff84857d19812a05"
+    },
+    {
+      "path": "tests/test_qp3d_role_inventory_producer.py",
+      "sha256": "8ba6a9b5ac622b5536200d53e3fa08c058a36b9863fdf626d137c3b1c8cf3702"
+    },
+    {
+      "path": "tests/test_qp3e_flattened_table_provenance_precommit.py",
+      "sha256": "83e8357bb5bc93910680df59f064139d58893da3ec5e6d89fbebe00ff4599974"
+    },
+    {
+      "path": "tests/test_qp3f_flattened_table_reconstruction.py",
+      "sha256": "5c00414e54b2b2db0d4fee92c04cd08f1aa9f0a54b50e587fecb89f733946c9e"
+    },
+    {
+      "path": "tests/test_qp4_actual_plan_source_cohort.py",
+      "sha256": "88e78c7b68e9d6cf2fc392c9e1b5b3ceef910bb42007082efba851190540a25a"
+    },
+    {
+      "path": "tests/test_qp4_development_baseline.py",
+      "sha256": "4e0d1504bec008b648d95aa792539a0a06b7090b39f84b4eafd8196da156232f"
+    },
+    {
+      "path": "tests/test_qp4_development_baseline_report.py",
+      "sha256": "46e48cc4aa06cec0ef00c37d2958eed43c3213816070816d5e805afbf253c955"
+    },
+    {
+      "path": "tests/test_qp4_mineru_markdown_60_semantic_contract.py",
+      "sha256": "9bf410110ce9cee6efc4782e82d47820d6244cd654c90f8ee0ed551fbc62100a"
+    },
+    {
+      "path": "tests/test_qp4_mineru_markdown_60_semantic_reason_v2.py",
+      "sha256": "e596daa91bc88b4c19c3ca817bfaf41ada72e3541d3df099e46ff33252cb6f1a"
+    },
+    {
+      "path": "tests/test_qp4_phase2_company_layout_disjoint_contract.py",
+      "sha256": "00abdae70aebdd2eae8730871e0f32298894d0c31758566013ad493d6f251cb5"
+    },
+    {
+      "path": "tests/test_qp4_phase2_company_layout_disjoint_contract_v3.py",
+      "sha256": "c249389ae5d81c75bb54c40895748be387c49e2d026c860c2e7f9c356cedeb76"
+    },
+    {
+      "path": "tests/test_qp4_post_question_surface_baseline_diagnostic_review.py",
+      "sha256": "2b736abb06458e2fbff31bda2fc2d5436e89c289819234bdf643455d90e18d9f"
+    },
+    {
+      "path": "tests/test_qp4_post_question_surface_baseline_diagnostic_review_precommit.py",
+      "sha256": "460bef894fe7f8a1648d97eae1e51abcd4085265b97cacf72170259258462d7d"
+    },
+    {
+      "path": "tests/test_qp4_post_question_surface_baseline_refresh.py",
+      "sha256": "9a5ecec02172b0ff63e98d366f0788d40fcc565f7f787c488f7880dfc32c4e18"
+    },
+    {
+      "path": "tests/test_qp4_post_question_surface_baseline_refresh_precommit.py",
+      "sha256": "d100ba31c60f30df6f3cf014da252f2c8a7302d0b697e149cf6c22dfc2d9ff3a"
+    },
+    {
+      "path": "tests/test_qp4_post_question_surface_residual_implementation.py",
+      "sha256": "b93a77dc75c1447218fb0ec4be3f113b2348e70f0c4e4c79608a13ed8f861d9f"
+    },
+    {
+      "path": "tests/test_qp4_post_unit_scale_baseline_diagnostic_review.py",
+      "sha256": "36dd0c6e4c2295324b36ad6c0c170011be8e2630739c5ebe4b593c2e4dc2cc99"
+    },
+    {
+      "path": "tests/test_qp4_post_unit_scale_baseline_diagnostic_review_precommit.py",
+      "sha256": "5bb3eea86a7fae45377e6d8c361f1f12810fcb1a7e90c8f6dac910742764d80d"
+    },
+    {
+      "path": "tests/test_qp4_post_unit_scale_development_baseline_refresh.py",
+      "sha256": "a4874e7f3871ec3b7eab1cb4b9e30b311463613a477cc0655b9d5f5167a70181"
+    },
+    {
+      "path": "tests/test_qp4_post_unit_scale_development_baseline_refresh_precommit.py",
+      "sha256": "7c9c2b725430d2279e7553e1f2178de8dc40a6b33c39b2123a62ff72a8c75094"
+    },
+    {
+      "path": "tests/test_qp4_precommit.py",
+      "sha256": "7fc8fca092552402513745370d58dba0dcfe71037d8adf2fabc70aa6e712fe03"
+    },
+    {
+      "path": "tests/test_qp4_question_surface_implementation.py",
+      "sha256": "779bd190f76349729923db11e6f32a8dcf0ce1b40dfa5e470b96d9dd9545acaf"
+    },
+    {
+      "path": "tests/test_qp4_question_surface_implementation_precommit.py",
+      "sha256": "a377fcfaac0e82ca70a0bc7a342d89ab9ac8f967218b7ce98c6720c85a6c1c3f"
+    },
+    {
+      "path": "tests/test_qp4_question_surface_implementation_precommit_correction.py",
+      "sha256": "16a7f151c835110f07f2405c81e46c852130bc3e4a0dd1facf2e3b2672bc669c"
+    },
+    {
+      "path": "tests/test_qp4_question_surface_implementation_report.py",
+      "sha256": "93efc7c525187cb9f7f0c5d42ce9e337fbf2350dd115cd662cae8e538077093d"
+    },
+    {
+      "path": "tests/test_qp4_unit_scale_frozen_action_contract_review_precommit.py",
+      "sha256": "a99cd74bcf8b74f425f922c59824954ab74c1dd0195e7f7a511d8158abc99215"
+    },
+    {
+      "path": "tests/test_qp4_unit_scale_proof_contract_gate_reclosure.py",
+      "sha256": "2c82d667cab333f0735f44ef27af135ae07c6ddfa40c56d3d2125362f1507511"
+    },
+    {
+      "path": "tests/test_qp4_unit_scale_proof_contract_implementation.py",
+      "sha256": "8567ae6fdb4400a52b84a98dcf12b610ffd3c3db29fb4a8d6d048c32031a17d7"
+    },
+    {
+      "path": "tests/test_qp4_unit_scale_proof_contract_implementation_report.py",
+      "sha256": "55c9aa4b8975cb7247af2c78d4c10d38bd736e449560742bc548fbac8347b785"
+    },
+    {
+      "path": "tests/test_qp4_unit_scale_question_planner_implementation.py",
+      "sha256": "e54455f60b104e8ee7ec8d31a21b6a92f7f058521f7d3cb22b60ba3137423628"
+    },
+    {
+      "path": "tests/test_qp4_unit_scale_question_planner_implementation_report.py",
+      "sha256": "4aa469cfc284dc03472fa071269060700917d9c8ce93a251c796a37d00564e72"
+    },
+    {
+      "path": "tests/test_qp4_unit_scale_question_planner_precommit.py",
+      "sha256": "936adc8ceca91e2a2515fbeee0485d6567f655388b495eeef6998a4156a11a80"
+    },
+    {
+      "path": "tests/test_qp4_unit_scale_source_residual_isolation_precommit.py",
+      "sha256": "0826e3e34374897f94c0fdc3a5db1cb3643a77b6a0781b6ec450e8e3cbc7bb61"
+    },
+    {
+      "path": "tests/test_question_family_qp0.py",
+      "sha256": "d4767c85f2f6f806a46844f98c36ae0f4c8dc33e3fbc564eb75c71bed09937c3"
+    },
+    {
+      "path": "tests/test_question_operand_slots_qp2a.py",
+      "sha256": "71dfd4d5354258e3109fa6bbc3377e60909851a81f1b9c841e3476bac48d03da"
+    },
+    {
+      "path": "tests/test_question_operation_direction_qp2b.py",
+      "sha256": "c04c2532febf4025df07eea3d842f826d0a61233ca69e8b8ea3a4b54d9556cc7"
+    },
+    {
+      "path": "tests/test_question_planner.py",
+      "sha256": "0dec273d81ab43cfc4e7e5a18358122380b991383a83bff607cd979a889ce01d"
+    },
+    {
+      "path": "tests/test_question_program_dag_qp2c.py",
+      "sha256": "81490b8efd97ed1a8dbeb5342bfaf4c112a23d4d40ab8e2c98256d35d164e8a1"
+    },
+    {
+      "path": "tests/test_question_request_planner.py",
+      "sha256": "5964d4fe6385f77aa01d00091b84a08f954d17a2e1fa14fa7b712d98bd4c85af"
+    },
+    {
+      "path": "tests/test_question_safe_abstention_qp2d.py",
+      "sha256": "617500218ee2da7937df50a8fa13c80770b2b84c43bee307e1965ec55e906a76"
+    },
+    {
+      "path": "tests/test_question_surface_robustness_qp2e.py",
+      "sha256": "0ab8011c426dd46965e1341c565c5ef964235cbe7b6d1c15776010bd9fc19f96"
+    },
+    {
+      "path": "tests/test_rebuild_layout_clean_final_evaluation.py",
+      "sha256": "2322540b5bec2da424d114d51a3e5781d4926236a5d4c1218794f04e9ade87d0"
+    },
+    {
+      "path": "tests/test_relative_measurement_publication.py",
+      "sha256": "44467b8ead7dd73a915ff32b081bbf5f170ceca7dd76bb0c1f46e11783209e76"
+    },
+    {
+      "path": "tests/test_report_field_source_review.py",
+      "sha256": "8ea843b14e23f4ec8d76b8a0d1977d3da7f22c0e84a75f9e95c444568a4c8fef"
+    },
+    {
+      "path": "tests/test_request_answer.py",
+      "sha256": "170d5049bd9a76d77f4ac2f4f5681da0cdc4e64beeee8e0cbacade00e9d0977b"
+    },
+    {
+      "path": "tests/test_reviewed_question_planner_coverage.py",
+      "sha256": "e062898badd043fd54eff2724358d25b75fe4c837afebcafa378e7f649720784"
+    },
+    {
+      "path": "tests/test_source_action_policy_v14.py",
+      "sha256": "ee05b09c33f8c9e526b3c757533905f8f778b00b93c42a99ac1e539a352a9cec"
+    },
+    {
+      "path": "tests/test_source_number_formats.py",
+      "sha256": "969cdb56c0af96449e583ea1b4266928598975a206cef1707d9909d9d7ffcd76"
+    },
+    {
+      "path": "tests/test_split_document_derived_development.py",
+      "sha256": "a8635026aaa487a9a79840a23894534c88981aaa4302613158d8561f44a3e3ce"
+    },
+    {
+      "path": "tests/test_sum_n_runtime_consumers_v14.py",
+      "sha256": "0aa5e56968c9228dcdc2a60f0181bd66d2deccbfbd93171dce3d86853d3b609f"
+    },
+    {
+      "path": "tests/test_sum_n_schema.py",
+      "sha256": "c7422005b3482d9a878a3b0656b03e3688a579fd08531d6ba9cd15d85d5e76c4"
+    },
+    {
+      "path": "tests/test_symbolic_sum_n_v14.py",
+      "sha256": "1831174062cf76587a8de8b7653bff4c679d74222252e40e0bb63585a5f84288"
+    },
+    {
+      "path": "tests/test_training_state.py",
+      "sha256": "6fa3e474d78d1c3ddb252c624b3316c76279131c0398174fc3c1356b1e8cf27a"
+    },
+    {
+      "path": "tests/test_v12b2_supervision.py",
+      "sha256": "a2867fbde83da817c8c1e3f606b57b464adc23589952697a2377ec81773a07ae"
+    },
+    {
+      "path": "tests/test_v12c_proof_conditioned_abstention.py",
+      "sha256": "801f800a5e466fcf036438d725c9f10054996dfdd85ab5a4d9ff80821c325af4"
+    },
+    {
+      "path": "tests/test_validate_finhrm_mineru_markdown_corpus.py",
+      "sha256": "ca625f8d7329e78b5ee07712d692532ed5d579558187efd6a4c9d004daa0c1cf"
+    },
+    {
+      "path": "tests/test_validate_v12c_joint_calibration_protocol.py",
+      "sha256": "3dd9f5ec7ee7d32cdb19e8afc819ba1883b42dc15f5217d84e827d23d132a7f2"
+    },
+    {
+      "path": "tests/test_validate_v12c_joint_calibration_source_extension.py",
+      "sha256": "436b41a6261b0a6d19782e420f9c0cab664fc0ed3c5043c32056c3214d1ef525"
+    },
+    {
+      "path": "tests/test_web_demo.py",
+      "sha256": "f434a5e0b92bc4ded2dbb3fbf55499970a3cc7623788030f5166efa24e0c0106"
+    }
+  ],
+  "runtime": [
+    {
+      "path": "src/hrm_finance_qa/__init__.py",
+      "sha256": "c316966feb7929c62f81d9d6f0c7807985c7176b1401bbee59fb2a59bbe7de1e"
+    },
+    {
+      "path": "src/hrm_finance_qa/answer_presentation.py",
+      "sha256": "4d060dbf123486483a87c98521e0e80525eda75953a124c6393660e58af7cde0"
+    },
+    {
+      "path": "src/hrm_finance_qa/cache_schema.py",
+      "sha256": "73de59f448cad7585b8215ad954c892ae76b84fb8944e89757cb4658e2c561d4"
+    },
+    {
+      "path": "src/hrm_finance_qa/calibration_policy.py",
+      "sha256": "e568ad4957f5fb8dbf2a27c6e6e48bf869b796e7bcb1335d70918f909bea37d3"
+    },
+    {
+      "path": "src/hrm_finance_qa/candidate_evaluation.py",
+      "sha256": "21ba9da22fa8ebf1b8c77f148be1a35116af33c07e9a970f2aed6470514182f2"
+    },
+    {
+      "path": "src/hrm_finance_qa/cli.py",
+      "sha256": "6aeb9ad00e573cc228138d0ee18d4517619a77961d2f11220618e88b24726140"
+    },
+    {
+      "path": "src/hrm_finance_qa/dense_retrieval.py",
+      "sha256": "6896d217e79b730f0c8555c0b4d8cf8b72fa722cf3af6a1f06093a318e577dc3"
+    },
+    {
+      "path": "src/hrm_finance_qa/direction_contract.py",
+      "sha256": "a18aa130419fc74ce647bd92dc9c1b1217007738e636aad0f28c7f78396be937"
+    },
+    {
+      "path": "src/hrm_finance_qa/disclosure_equivalence.py",
+      "sha256": "1803d03dae58c676a70e9ce4e437c857cd0bbdca37533a7128dd9b1fa8d153b6"
+    },
+    {
+      "path": "src/hrm_finance_qa/document_agent.py",
+      "sha256": "932250766ebb63da8f99fdfe8ab390fee82bcbc5aea866ca9bb057e818c64290"
+    },
+    {
+      "path": "src/hrm_finance_qa/document_hrm.py",
+      "sha256": "0840b5ee6f94a2484613b8bc0a45e0a8a92f2ede809c2d8970b28910fc47b5c9"
+    },
+    {
+      "path": "src/hrm_finance_qa/document_page_index.py",
+      "sha256": "ce9f336256396ad2e9695ea390a09a9392eb7bf4c415eadb63f0fd6f148f8312"
+    },
+    {
+      "path": "src/hrm_finance_qa/document_reasoning_engine.py",
+      "sha256": "f4138b579e99bc23dc8fd5604a6a5394e6acadd3083eb222281649ccc8b2506b"
+    },
+    {
+      "path": "src/hrm_finance_qa/document_search.py",
+      "sha256": "3aa79ffd648c8e6d9764ff73e09d88e2deec387d3168f94d7ffc54bb41aaf089"
+    },
+    {
+      "path": "src/hrm_finance_qa/document_service.py",
+      "sha256": "e0670ed1470bc8027ae4e7708fb886055a1935023e04123d6a67e46625358871"
+    },
+    {
+      "path": "src/hrm_finance_qa/document_sources.py",
+      "sha256": "ed57dee929c513e913b7af0af807b89c2d7c3fd242cd4d6eb07eed0b52008f90"
+    },
+    {
+      "path": "src/hrm_finance_qa/engine.py",
+      "sha256": "bc8494556dd5bb15e925978bd8cc5c4a98ac188af580e0d9537f42f5566d128c"
+    },
+    {
+      "path": "src/hrm_finance_qa/entity_ownership.py",
+      "sha256": "99fea7604702bcf39096ff9b5616cee8fb01c3f21f33daa292a06c9f13941fa1"
+    },
+    {
+      "path": "src/hrm_finance_qa/evaluation_metrics.py",
+      "sha256": "2a3b19f9ae8f08f9e9742c094e874af7c28d54cfb7838b1c39e02b5d1e6a7a76"
+    },
+    {
+      "path": "src/hrm_finance_qa/evidence_schema.py",
+      "sha256": "1c9cf256e17e552a868390e060f2adbc5e32a5d5ba9d781a87778ad9a4970ab8"
+    },
+    {
+      "path": "src/hrm_finance_qa/exact_dag_executor.py",
+      "sha256": "ee1aa0f90c4f71913108a1dd8ea28d966188c8e9c4993786f2bb9b3a7e422fa5"
+    },
+    {
+      "path": "src/hrm_finance_qa/exact_executor.py",
+      "sha256": "97a897e7e76f6d1a089c625017464cf1755143440928eb5ced819c6b7294fd9d"
+    },
+    {
+      "path": "src/hrm_finance_qa/external_evaluation.py",
+      "sha256": "96d3a3aa79637507dd73cb776e2d70f71aaf1b977a1e192762b5b696b706ff2c"
+    },
+    {
+      "path": "src/hrm_finance_qa/financial_hrm_features.py",
+      "sha256": "b5c0d351b6acf94bf4b2ced08e5b2aebc91c7b1bc7b53c6dbbbd405183c30a59"
+    },
+    {
+      "path": "src/hrm_finance_qa/financial_identities.py",
+      "sha256": "a4b2249fcd8a7d633b874eb67da8dc86e1c556dec5d7757d3c3e8450d586d72a"
+    },
+    {
+      "path": "src/hrm_finance_qa/flattened_table_reconstruction.py",
+      "sha256": "1e67aa3f2e3acc068d30ece065fc0a0365358c7aa75da660e065af83fa265d4c"
+    },
+    {
+      "path": "src/hrm_finance_qa/hrm.py",
+      "sha256": "3f6cfe5e864c9c4b4e9ec7beb995d8813fe7ee6acfe39af89f0f55dd932505e5"
+    },
+    {
+      "path": "src/hrm_finance_qa/metric_semantics.py",
+      "sha256": "c6849e7d8876fb02e879b688ebab4d3878189fe13051dec1e031489a336553c0"
+    },
+    {
+      "path": "src/hrm_finance_qa/mineru_context_recovery.py",
+      "sha256": "6eb49adc464631853c953bf378afa61224392538af85ba3238cb9f717ef882f0"
+    },
+    {
+      "path": "src/hrm_finance_qa/neural.py",
+      "sha256": "ff2e2c0c3d7a62702bd2b2b1f80d5bad2521e8ec2d347f93050fb875bb4f1d7f"
+    },
+    {
+      "path": "src/hrm_finance_qa/number_formats.py",
+      "sha256": "1395e2045368781601cccbce70b3e1f6a069a6363ce33f13cf1e326e4416c5a9"
+    },
+    {
+      "path": "src/hrm_finance_qa/ontology.py",
+      "sha256": "0ed2cce08e36d2570975e4cfe5156c79fa6710e540cb7122418b2a3e7f8dff3d"
+    },
+    {
+      "path": "src/hrm_finance_qa/pdf_metadata.py",
+      "sha256": "af0a8dbabaa5a0f8c9de0f22f2012387bf256721de03e86b99acb5dc75e6f212"
+    },
+    {
+      "path": "src/hrm_finance_qa/physical_coordinates.py",
+      "sha256": "8b805eb0ba991710edad6af7eb46f6c421f57643fcc5efb6b5663e90691da6ea"
+    },
+    {
+      "path": "src/hrm_finance_qa/program_data.py",
+      "sha256": "36baa05f31045bfcfac2f98eb65cca206839fb2628d5b63c8aac02d5d316b9b2"
+    },
+    {
+      "path": "src/hrm_finance_qa/program_reranker.py",
+      "sha256": "7d7f456649ce0639a808b809985751c38c9a4bb1d70209a65d3bc3bbc97671f4"
+    },
+    {
+      "path": "src/hrm_finance_qa/program_synthesis.py",
+      "sha256": "756ca351ae05259b4b24f4f62cbe74eeff89033d3a1ec8912671ea976c44a0ea"
+    },
+    {
+      "path": "src/hrm_finance_qa/question_planner.py",
+      "sha256": "661e3356a687484910d61fcec5a8ad14398bce6f6c2446734344078110c9eae0"
+    },
+    {
+      "path": "src/hrm_finance_qa/question_request_planner.py",
+      "sha256": "fe2e34d7a9b880b6c17dd1b9d6b8f7c8da787f36057fd13a0d98fec55c4a8e34"
+    },
+    {
+      "path": "src/hrm_finance_qa/reasoning.py",
+      "sha256": "d3244c224dbec45f62f95e64a30f1c48fb2566830c457416bf691eca6a107f74"
+    },
+    {
+      "path": "src/hrm_finance_qa/reasoning_engine.py",
+      "sha256": "fee38cd78d0949f4c3172290199a1b50ce0fc934cd4c8f0002f188881ca658cc"
+    },
+    {
+      "path": "src/hrm_finance_qa/relative_measurement.py",
+      "sha256": "73a774b8867e06f64a47c85b3ba6eedae6a9d42fd6af33365400ea522b9ff5eb"
+    },
+    {
+      "path": "src/hrm_finance_qa/report_context.py",
+      "sha256": "0d488f8859db568894642b803b6e998b8de22018fcb2fbce605f06080b4e1d89"
+    },
+    {
+      "path": "src/hrm_finance_qa/repository.py",
+      "sha256": "8e83ad3f7f676eb0eacbe038b064582e7659d35f98363cb552555d2a6b9f994a"
+    },
+    {
+      "path": "src/hrm_finance_qa/request_answer.py",
+      "sha256": "c677cb199c852f0c2e248db2eed81737dc402b2fc82e8be4d8e4b3f23bb9920a"
+    },
+    {
+      "path": "src/hrm_finance_qa/semantic_encoder.py",
+      "sha256": "870bd5bcd04cf54ac1343e16ba3445f2216551a49bac6cf19ada92c842ab2ebe"
+    },
+    {
+      "path": "src/hrm_finance_qa/source_action_policy.py",
+      "sha256": "2c77885eaf4ffa10ae787ef7a9fb228aab7d2a4a903362516bbcdc6a723490f3"
+    },
+    {
+      "path": "src/hrm_finance_qa/source_assertions.py",
+      "sha256": "b1a6803834fc9f4c3d9970b89154150817dcb47ae2efb5b5ab89d02d07de6540"
+    },
+    {
+      "path": "src/hrm_finance_qa/source_binding.py",
+      "sha256": "dd325743d5643625454f26dc1821cbe916bb5b6c739c0b335e8c0d4e01519fbe"
+    },
+    {
+      "path": "src/hrm_finance_qa/source_bindings.py",
+      "sha256": "ac84948a27b60ae890fc398aef6396793c75582246ae581672869175a82f551f"
+    },
+    {
+      "path": "src/hrm_finance_qa/symbolic_verifier.py",
+      "sha256": "c8e6d282dd9562ba80209a1aacfb7f9b4fb3b8a89b3b200c2da723b601ac9646"
+    },
+    {
+      "path": "src/hrm_finance_qa/table_semantics.py",
+      "sha256": "1e53d24f1af4613a815ec540d8ea26848d0c9071ed9c3f9dd1f6ccf8410f5a79"
+    },
+    {
+      "path": "src/hrm_finance_qa/training_state.py",
+      "sha256": "d1548b9ab06d289dfd37168da7954a0493db0abdcf6732e04e8c915ab763018b"
+    },
+    {
+      "path": "src/hrm_finance_qa/v11_pipeline.py",
+      "sha256": "b6611c2b2c0ba7cd2c726b4d48f29a9b1fd01be09a4da2200865379f07ba4387"
+    },
+    {
+      "path": "src/hrm_finance_qa/v12b2_supervision.py",
+      "sha256": "100272f4bb46a3bd51e05914c6080ddaa7f48fea3c96337aa4b6cd9a0e8db0da"
+    }
+  ],
+  "environment": {
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+    "executable": "/usr/bin/python3",
+    "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "machine": "x86_64",
+    "required_runtime": {
+      "torch": {
+        "version": "2.13.0",
+        "origin": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages/torch/__init__.py"
+      },
+      "numpy": {
+        "version": "2.5.2",
+        "origin": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages/numpy/__init__.py"
+      },
+      "sentence-transformers": {
+        "version": "5.1.2",
+        "origin": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages/sentence_transformers/__init__.py"
+      },
+      "transformers": {
+        "version": "4.57.6",
+        "origin": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages/transformers/__init__.py"
+      },
+      "huggingface-hub": {
+        "version": "0.36.2",
+        "origin": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages/huggingface_hub/__init__.py"
+      },
+      "tokenizers": {
+        "version": "0.22.2",
+        "origin": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages/tokenizers/__init__.py"
+      },
+      "safetensors": {
+        "version": "0.8.0",
+        "origin": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages/safetensors/__init__.py"
+      },
+      "pyvi": {
+        "version": "0.1.1",
+        "origin": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages/pyvi/__init__.py"
+      },
+      "scipy": {
+        "version": "1.18.1",
+        "origin": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages/scipy/__init__.py"
+      },
+      "scikit-learn": {
+        "version": "1.9.0",
+        "origin": "/mnt/d/reasoning_model_V4/reasoning_model/venv/lib/python3.12/site-packages/sklearn/__init__.py"
+      }
+    }
+  },
+  "run": {
+    "mode": "actual HTTP /v1/answer with PersistentDocumentHRMService; adaptive bundle.predict defaults",
+    "seed": 31,
+    "device": "cpu",
+    "threads": 4,
+    "interop_threads": 1,
+    "max_segments": "checkpoint config",
+    "ocr": "Markdown path bypasses OCR; no ingestion worker; auto_generate false",
+    "retrieval": {
+      "top_k_chunks": 8,
+      "neighbor_chunks": 1,
+      "page_top_k": 6,
+      "page_neighbor_pages": 1
+    },
+    "cache": "fresh vector DB per process; sequential requests; source Markdown is whole document",
+    "request_order": [
+      "transfer-bhg-owner",
+      "transfer-bhg-owner-paraphrase",
+      "transfer-bhg-wrong-report",
+      "transfer-hav-capital"
+    ]
+  },
+  "publication_policy": "v14.2-policy-evidence-public-answer-experimental-v1",
+  "parent_protocol_sha256": "db0aaea69471b2730aec9ed0a416e4eeb4c56cc8121e82a22209dd37e2dbcc06",
+  "runtime_root": "src"
+}

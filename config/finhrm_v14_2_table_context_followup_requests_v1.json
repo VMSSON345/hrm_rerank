@@ -1,0 +1,26 @@
+{
+  "schema": "table-context-clarified-requests-v1",
+  "sources": {
+    "HKT": {
+      "path": "data/markdown/scope_unit_v2/HKT_23CN_BCTN--91cc265d0be6d75e.md",
+      "sha256": "b5550a26fa89acab88e14488568090db23761de4d21d8e8ee68f57fb6f6cc31a"
+    }
+  },
+  "cases": [
+    {
+      "case_id": "context-clarified-1",
+      "question": "Theo mục 4.1 Tình hình tài chính, doanh thu thuần thực hiện năm 2023 là bao nhiêu đồng?",
+      "source_id": "HKT"
+    },
+    {
+      "case_id": "context-clarified-2",
+      "question": "Theo mục 4.1 Tình hình tài chính, doanh thu thuần thực hiện năm 2023 chênh lệch bao nhiêu đồng so với năm 2022? Hãy tính năm 2023 trừ năm 2022.",
+      "source_id": "HKT"
+    },
+    {
+      "case_id": "context-clarified-3",
+      "question": "Hãy trả lời riêng: (1) Theo mục 4.1 Tình hình tài chính, doanh thu thuần thực hiện năm 2023 là bao nhiêu đồng? (2) Theo mục 4.1 Tình hình tài chính, lợi nhuận sau thuế thực hiện năm 2023 là bao nhiêu đồng?",
+      "source_id": "HKT"
+    }
+  ]
+}

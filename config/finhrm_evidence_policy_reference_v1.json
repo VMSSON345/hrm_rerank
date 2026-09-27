@@ -1,0 +1,119 @@
+{
+  "scope": "development regression only; NOT held-out or promotion evidence",
+  "cases": [
+    {
+      "case_id": "new-report-01",
+      "operand_values_vnd": [
+        "4608700000000"
+      ],
+      "expected_result_vnd": "4608700000000",
+      "metric": "doanh thu thuan",
+      "years": [
+        "2025"
+      ],
+      "role": "actual",
+      "scope": "consolidated",
+      "reviewed_pdf_pages": [
+        38
+      ],
+      "expected_action": "ANSWER_IF_POLICY_ELIGIBLE"
+    },
+    {
+      "case_id": "new-report-02",
+      "operand_values_vnd": [
+        "4608700000000"
+      ],
+      "expected_result_vnd": "4608700000000",
+      "metric": "doanh thu thuan",
+      "years": [
+        "2025"
+      ],
+      "role": "actual",
+      "scope": "consolidated",
+      "reviewed_pdf_pages": [
+        38
+      ],
+      "expected_action": "ANSWER_IF_POLICY_ELIGIBLE"
+    },
+    {
+      "case_id": "new-report-03",
+      "operand_values_vnd": [
+        "930000000000"
+      ],
+      "expected_result_vnd": "930000000000",
+      "metric": "doanh thu thuan",
+      "years": [
+        "2026"
+      ],
+      "role": "plan",
+      "scope": "reporting_company",
+      "reviewed_pdf_pages": [
+        22
+      ],
+      "expected_action": "ANSWER_IF_POLICY_ELIGIBLE"
+    },
+    {
+      "case_id": "new-report-04",
+      "operand_values_vnd": [
+        "844700000000"
+      ],
+      "expected_result_vnd": "844700000000",
+      "metric": "doanh thu thuan",
+      "years": [
+        "2025"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "reviewed_pdf_pages": [
+        13,
+        22
+      ],
+      "expected_action": "ANSWER_IF_POLICY_ELIGIBLE"
+    },
+    {
+      "case_id": "new-report-05",
+      "operand_values_vnd": [
+        "844700000000",
+        "793300000000"
+      ],
+      "expected_result_vnd": "51400000000",
+      "metric": "doanh thu thuan",
+      "years": [
+        "2025",
+        "2024"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "reviewed_pdf_pages": [
+        13
+      ],
+      "expected_action": "ANSWER_IF_POLICY_ELIGIBLE"
+    },
+    {
+      "case_id": "policy-hkt-actual",
+      "expected_result_vnd": "461013161",
+      "metric": "loi nhuan sau thue",
+      "years": [
+        "2023"
+      ],
+      "role": "actual",
+      "review_basis": "MinerU full HKT table KH/TH and prior source review; rows 165/182/212"
+    },
+    {
+      "case_id": "policy-hkt-plan",
+      "expected_result_vnd": "4800000000",
+      "metric": "loi nhuan sau thue",
+      "years": [
+        "2023"
+      ],
+      "role": "plan",
+      "review_basis": "MinerU full HKT row 182 and prior source review"
+    },
+    {
+      "case_id": "policy-hkt-missing",
+      "expected_result_vnd": null,
+      "expected_action": "ABSTAIN",
+      "review_basis": "Full 2023 report has no 2037 token; missing requested period"
+    }
+  ]
+}

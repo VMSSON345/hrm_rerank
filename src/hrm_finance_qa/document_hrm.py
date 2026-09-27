@@ -1,11 +1,14 @@
 from __future__ import annotations
 
+from .source_binding import program_binding_issues
+
 import json
 import math
 import random
 import re
 import sqlite3
 import threading
+import unicodedata
 from copy import deepcopy
 from collections import Counter
 from dataclasses import asdict, dataclass, replace
@@ -28,13 +31,23 @@ except ImportError as exc:  # pragma: no cover
     ) from exc
 
 from .ontology import normalize_text
-from .dense_retrieval import DEFAULT_DENSE_MODEL, FastEmbedEncoder
+from .dense_retrieval import DEFAULT_DENSE_MODEL
+from .semantic_encoder import (
+    FINANCIAL_VI_SEMANTIC_TEMPLATE,
+    LEGACY_SEMANTIC_TEMPLATE,
+    SemanticEncoderError,
+    SemanticEncoderSpec,
+    build_role_aware_encoder,
+)
 from .program_data import (
+    _is_ratio_metric,
     COMMUTATIVE,
     MAX_OPERANDS,
     OPERATION_ARITY,
     OPERATION_TO_ID,
     OPERATIONS,
+    SUM_N_MAX_OPERANDS,
+    SUM_N_OPERATION,
     NumericCandidate,
     ProgramDataError,
     ProgramExample,
@@ -42,13 +55,23 @@ from .program_data import (
     ReasoningProgram,
     canonical_pointer_equal,
     canonical_program_equal,
+    canonical_sum_family_equal,
     currency_unit_scale,
     execute_program,
     execute_program_dag,
+    is_sum_operation,
+    operation_accepts_arity,
     load_program_examples,
     materialize_program_dag,
 )
-from .evidence_schema import EvidenceGraph, build_evidence_graph, evidence_cells
+from .calibration_policy import (
+    CalibrationPolicy,
+    CalibrationPolicyError,
+    CalibrationStatus,
+    wilson_lower_bound,
+)
+from .source_action_policy import classify_source_action
+from .evidence_schema import EvidenceGraph, build_evidence_graph, evidence_cells, _unit_key
 from .direction_contract import (
     orient_program_direction,
     reversed_pair_is_proven_negative,
@@ -58,8 +81,31 @@ from .financial_identities import (
     get_financial_identity,
     target_matches_metric,
 )
-from .question_planner import QuestionPlan, compile_question_plan
+from .financial_hrm_features import (
+    FINANCIAL_CANDIDATE_FEATURE_SIZE,
+    FINANCIAL_SLOT_FEATURES,
+    FINANCIAL_SLOT_FEATURE_SIZE,
+    build_financial_feature_matrices,
+    financial_physical_identity,
+    financial_same_physical_pairs,
+)
+from .question_planner import (
+    QuestionPlan,
+    compile_question_plan,
+    requests_financial_identity_computation,
+)
+from .training_state import (
+    TRAINING_STATE_SCHEMA,
+    TrainingStateError,
+    atomic_save_training_state,
+    canonical_payload_sha256,
+    decode_python_random_state,
+    encode_python_random_state,
+    load_training_state,
+    restore_optimizer_state_device,
+)
 from .symbolic_verifier import (
+    _metric_obligation_state,
     VerificationResult,
     VerificationState,
     verify_program,
@@ -78,14 +124,24 @@ from .program_synthesis import (
 from .v12b2_supervision import semantic_program_signature
 
 
-DOCUMENT_HRM_SCHEMA_VERSION = 10
-LEGACY_DOCUMENT_HRM_SCHEMA_VERSIONS = {4, 5, 6, 7, 8, 9}
+DOCUMENT_HRM_SCHEMA_VERSION = 13
+LEGACY_DOCUMENT_HRM_SCHEMA_VERSIONS = {4, 5, 6, 7, 8, 9, 10, 11, 12}
 DEFAULT_SEMANTIC_CACHE_DIR = (
     Path(__file__).resolve().parents[2] / "models" / "embedding_cache"
 )
+_PROJECT_ROOT = Path(__file__).resolve().parents[2]
+_PROTECTED_TRAINING_INPUTS = frozenset(
+    {
+        (_PROJECT_ROOT / "data" / "test.jsonl").resolve(),
+        (_PROJECT_ROOT / "data" / "canonical_v13_v1" / "test.jsonl").resolve(),
+    }
+)
 PAIR_FEATURE_SIZE = 20
 DEFAULT_ABSTENTION_STABILITY_ERRORS = 1
-MULTI_OPERAND_OPERATIONS = frozenset({"SUM3", "SUM4"})
+MULTI_OPERAND_OPERATIONS = frozenset({"SUM3", "SUM4", SUM_N_OPERATION})
+SUM_FAMILY_OPERATION_IDS = tuple(
+    OPERATION_TO_ID[name] for name in ("ADD", "SUM3", "SUM4")
+)
 VERIFIER_GUIDED_OPERATIONS = frozenset(
     {
         "SELECT",
@@ -103,6 +159,17 @@ MAX_VERIFIER_GUIDED_PAIR_CANDIDATES = 24
 
 class DocumentHRMError(ValueError):
     pass
+
+
+def _reject_protected_training_input(path: str | Path, *, role: str) -> Path:
+    """Resolve a training input and reject the frozen canonical test split."""
+
+    resolved = Path(path).expanduser().resolve()
+    if resolved in _PROTECTED_TRAINING_INPUTS:
+        raise DocumentHRMError(
+            f"Protected test split cannot be used as {role}: {resolved}"
+        )
+    return resolved
 
 
 @dataclass(frozen=True)
@@ -128,6 +195,16 @@ class DocumentHRMConfig:
     input_encoder_mode: str = "semantic"
     semantic_model_name: str = DEFAULT_DENSE_MODEL
     semantic_embedding_size: int = 384
+    semantic_encoder_backend: str = "fastembed"
+    semantic_model_revision: str = ""
+    semantic_local_files_only: bool = False
+    semantic_encoder_output_size: int = 0
+    semantic_word_segmentation: str = "none"
+    semantic_segmenter_version: str = ""
+    semantic_prefix_mode: str = "none"
+    semantic_query_encoding_mode: str = "document"
+    semantic_text_template_version: str = LEGACY_SEMANTIC_TEMPLATE
+    semantic_adapter_mode: str = "identity"
     candidate_semantic_mode: str = "context"
     pointer_conditioning_mode: str = "independent"
     pair_backbone_mode: str = "detached"
@@ -138,7 +215,20 @@ class DocumentHRMConfig:
     pointer_teacher_forcing: float = 0.50
     pointer_hard_negative_weight: float = 0.0
     pointer_hard_negative_margin: float = 0.50
+    financial_structure_mode: str = "legacy"
+    financial_hierarchy_layers: int = 1
+    variable_sum_mode: str = "disabled"
+    max_program_operands: int = MAX_OPERANDS
+    program_search_strategy: str = "legacy"
     seed: int = 31
+
+    @property
+    def semantic_encoder_size(self) -> int:
+        return (
+            self.semantic_encoder_output_size
+            if self.semantic_encoder_output_size > 0
+            else self.semantic_embedding_size
+        )
 
     def validate(self) -> None:
         if self.vocab_size < 1024:
@@ -169,6 +259,41 @@ class DocumentHRMConfig:
             raise DocumentHRMError("input_encoder_mode must be semantic or hash")
         if self.semantic_embedding_size < 128:
             raise DocumentHRMError("semantic_embedding_size must be at least 128")
+        if self.semantic_encoder_size < 128:
+            raise DocumentHRMError(
+                "semantic_encoder_output_size must be at least 128"
+            )
+        try:
+            SemanticEncoderSpec(
+                backend=self.semantic_encoder_backend,
+                model_name=self.semantic_model_name,
+                model_revision=self.semantic_model_revision,
+                output_size=self.semantic_encoder_size,
+                local_files_only=self.semantic_local_files_only,
+                word_segmentation=self.semantic_word_segmentation,
+                segmenter_version=self.semantic_segmenter_version,
+                prefix_mode=self.semantic_prefix_mode,
+                query_encoding_mode=self.semantic_query_encoding_mode,
+                text_template_version=self.semantic_text_template_version,
+            ).validate()
+        except SemanticEncoderError as exc:
+            raise DocumentHRMError(str(exc)) from exc
+        if self.semantic_adapter_mode not in {
+            "identity",
+            "layernorm_linear_l2_v1",
+        }:
+            raise DocumentHRMError(
+                "semantic_adapter_mode must be identity or "
+                "layernorm_linear_l2_v1"
+            )
+        if (
+            self.semantic_adapter_mode == "identity"
+            and self.semantic_encoder_size
+            != self.semantic_embedding_size
+        ):
+            raise DocumentHRMError(
+                "identity semantic adapter requires equal raw and HRM dimensions"
+            )
         if self.candidate_semantic_mode not in {"context", "structured"}:
             raise DocumentHRMError(
                 "candidate_semantic_mode must be context or structured"
@@ -232,6 +357,47 @@ class DocumentHRMConfig:
             raise DocumentHRMError(
                 "pointer_hard_negative_margin must be non-negative"
             )
+        if self.financial_structure_mode not in {
+            "legacy",
+            "typed_hierarchy_v1",
+        }:
+            raise DocumentHRMError(
+                "financial_structure_mode must be legacy or typed_hierarchy_v1"
+            )
+        if not 1 <= self.financial_hierarchy_layers <= 3:
+            raise DocumentHRMError(
+                "financial_hierarchy_layers must be within [1, 3]"
+            )
+        if self.variable_sum_mode not in {"disabled", "sum_n_v1"}:
+            raise DocumentHRMError(
+                "variable_sum_mode must be disabled or sum_n_v1"
+            )
+        if not MAX_OPERANDS <= self.max_program_operands <= SUM_N_MAX_OPERANDS:
+            raise DocumentHRMError(
+                f"max_program_operands must be within "
+                f"[{MAX_OPERANDS}, {SUM_N_MAX_OPERANDS}]"
+            )
+        if (
+            self.variable_sum_mode == "disabled"
+            and self.max_program_operands != MAX_OPERANDS
+        ):
+            raise DocumentHRMError(
+                "disabled variable_sum_mode requires the legacy operand width"
+            )
+        if self.program_search_strategy not in {
+            "legacy",
+            "diverse_set_beam_v1",
+        }:
+            raise DocumentHRMError(
+                "program_search_strategy must be legacy or diverse_set_beam_v1"
+            )
+        if (
+            self.financial_structure_mode == "typed_hierarchy_v1"
+            and self.pointer_conditioning_mode != "joint_pair"
+        ):
+            raise DocumentHRMError(
+                "typed_hierarchy_v1 requires joint_pair pointer conditioning"
+            )
 
 
 @dataclass
@@ -251,6 +417,8 @@ class DocumentHRMForward:
     q_values: Tensor
     pair_logits: Tensor | None = None
     select_pointer_logits: Tensor | None = None
+    operand_count_logits: Tensor | None = None
+    sum_membership_logits: Tensor | None = None
 
 
 @dataclass(frozen=True)
@@ -267,6 +435,7 @@ class ProgramPrediction:
     neural_pointer_confidences: tuple[float, ...]
     confidence_schema: str
     grounding_constraints_applied: tuple[str, ...]
+    operand_count_confidence: float | None = None
     program_candidates_considered: int = 1
     symbolic_program_rejections: int = 0
     symbolic_proof_score: float = 0.0
@@ -279,6 +448,19 @@ class ProgramPrediction:
     typed_synthesis_status: tuple[str, ...] = ()
     program_dag: ReasoningDAGProgram | None = None
     slot_bindings: tuple[tuple[str, int], ...] = ()
+    slot_candidate_pools_at_10: tuple[tuple[int, ...], ...] = ()
+    slot_candidate_pools_at_20: tuple[tuple[int, ...], ...] = ()
+    operation_slot_candidate_pools_at_10: tuple[
+        tuple[str, tuple[tuple[int, ...], ...]], ...
+    ] = ()
+    operation_slot_candidate_pools_at_20: tuple[
+        tuple[str, tuple[tuple[int, ...], ...]], ...
+    ] = ()
+    operation_beam: tuple[str, ...] = ()
+    preverification_programs: tuple[ReasoningProgram, ...] = ()
+    selected_for_verification: tuple[ReasoningProgram, ...] = ()
+    generated_programs_before_physical_dedup: int = 0
+    generated_programs_after_physical_dedup: int = 0
 
 
 def _safe_materialize_program_dag(
@@ -320,6 +502,19 @@ class SymbolicProgramSearchResult:
     grounded_confidence_floor: float | None = None
     program_dag: ReasoningDAGProgram | None = None
     slot_bindings: tuple[tuple[str, int], ...] = ()
+    slot_candidate_pools_at_10: tuple[tuple[int, ...], ...] = ()
+    slot_candidate_pools_at_20: tuple[tuple[int, ...], ...] = ()
+    operation_slot_candidate_pools_at_10: tuple[
+        tuple[str, tuple[tuple[int, ...], ...]], ...
+    ] = ()
+    operation_slot_candidate_pools_at_20: tuple[
+        tuple[str, tuple[tuple[int, ...], ...]], ...
+    ] = ()
+    operation_beam: tuple[str, ...] = ()
+    preverification_programs: tuple[ReasoningProgram, ...] = ()
+    selected_for_verification: tuple[ReasoningProgram, ...] = ()
+    generated_programs_before_physical_dedup: int = 0
+    generated_programs_after_physical_dedup: int = 0
     # Internal memo shared by the additive V12.4 search. It avoids verifying
     # every V12.3 program twice while preserving the exact legacy winner.
     verification_cache: tuple[
@@ -384,8 +579,20 @@ class _SearchProgramCandidate:
     slot_bindings: tuple[tuple[str, int], ...] = ()
 
 
+@dataclass(frozen=True)
+class CandidateGenerationResult:
+    programs: tuple[ReasoningProgram, ...]
+    program_scores: tuple[tuple[ReasoningProgram, float], ...]
+    slot_pools_at_10: tuple[tuple[int, ...], ...]
+    slot_pools_at_20: tuple[tuple[int, ...], ...]
+    generated_before_physical_dedup: int
+    generated_after_physical_dedup: int
+
+
 _TRAINING_UNKNOWN_REJECTION_REASONS = frozenset(
     {
+        "unproven_physical_mapping",
+        "source_cell_binding_ambiguous",
         "missing_structured_row",
         "missing_requested_operand_roles",
         "operand_role_mismatch",
@@ -446,6 +653,8 @@ class DocumentHRMTrainingReport:
     accepted_coverage: float
     accepted_precision: float
     operation_counts: dict[str, int]
+    pointer_slot_support: tuple[int, ...] = ()
+    accepted_precision_defined: bool = True
 
 
 @dataclass(frozen=True)
@@ -459,13 +668,39 @@ class EncodedBatch:
     candidate_mask: Tensor
     question_semantic: Tensor | None = None
     candidate_semantic: Tensor | None = None
+    slot_semantic: Tensor | None = None
     operation_targets: Tensor | None = None
     pointer_targets: Tensor | None = None
+    semantic_pointer_targets: Tensor | None = None
+    semantic_slot_declared: Tensor | None = None
+    operand_count_targets: Tensor | None = None
+    sum_family_targets: Tensor | None = None
     pair_features: Tensor | None = None
     unary_structural_negatives: Tensor | None = None
     pair_structural_negatives: Tensor | None = None
     verifier_unary_invalid_negatives: Tensor | None = None
     verifier_pair_invalid_negatives: Tensor | None = None
+    financial_candidate_features: Tensor | None = None
+    financial_slot_features: Tensor | None = None
+    financial_slot_mismatch_mask: Tensor | None = None
+    financial_same_physical_mask: Tensor | None = None
+
+
+def _semantic_encoder_spec_from_config(
+    config: DocumentHRMConfig,
+) -> SemanticEncoderSpec:
+    return SemanticEncoderSpec(
+        backend=config.semantic_encoder_backend,
+        model_name=config.semantic_model_name,
+        model_revision=config.semantic_model_revision,
+        output_size=config.semantic_encoder_size,
+        local_files_only=config.semantic_local_files_only,
+        word_segmentation=config.semantic_word_segmentation,
+        segmenter_version=config.semantic_segmenter_version,
+        prefix_mode=config.semantic_prefix_mode,
+        query_encoding_mode=config.semantic_query_encoding_mode,
+        text_template_version=config.semantic_text_template_version,
+    )
 
 
 class SemanticEmbeddingCache:
@@ -476,10 +711,31 @@ class SemanticEmbeddingCache:
         model_name: str,
         embedding_size: int,
         cache_dir: str | Path | None = None,
+        *,
+        spec: SemanticEncoderSpec | None = None,
+        encoder: object | None = None,
     ) -> None:
+        self.spec = spec or SemanticEncoderSpec(
+            backend="fastembed",
+            model_name=model_name,
+            model_revision="",
+            output_size=embedding_size,
+            text_template_version=LEGACY_SEMANTIC_TEMPLATE,
+        )
+        self.spec.validate()
+        if self.spec.model_name != model_name:
+            raise DocumentHRMError(
+                "Semantic cache model name does not match its encoder spec"
+            )
+        if self.spec.output_size != embedding_size:
+            raise DocumentHRMError(
+                "Semantic cache dimension does not match its encoder spec"
+            )
         self.model_name = model_name
         self.embedding_size = embedding_size
-        self.encoder = FastEmbedEncoder(model_name, cache_dir)
+        self.encoder = encoder or build_role_aware_encoder(
+            self.spec, cache_dir
+        )
         self._vectors: dict[str, np.ndarray] = {}
         self._lock = threading.RLock()
         cache_root = Path(cache_dir or DEFAULT_SEMANTIC_CACHE_DIR)
@@ -494,7 +750,22 @@ class SemanticEmbeddingCache:
             "PRIMARY KEY (model, cache_key))"
         )
 
-    def _load_cached_vectors(self, keys: Sequence[str]) -> None:
+    def _database_model_key(self, role: str) -> str:
+        if (
+            self.spec.backend == "fastembed"
+            and not self.spec.model_revision
+            and self.spec.word_segmentation == "none"
+            and self.spec.prefix_mode == "none"
+            and self.spec.query_encoding_mode == "document"
+            and self.spec.text_template_version
+            == LEGACY_SEMANTIC_TEMPLATE
+        ):
+            return self.model_name
+        return self.spec.cache_namespace(role)
+
+    def _load_cached_vectors(
+        self, keys: Sequence[str], *, role: str
+    ) -> None:
         """Load only requested vectors instead of scanning the whole SQLite cache."""
         with self._lock:
             pending = list(
@@ -512,24 +783,49 @@ class SemanticEmbeddingCache:
                     f"WHERE model = ? AND cache_key IN ({placeholders})"
                 )
                 for cache_key, blob in self._database.execute(
-                    query, (self.model_name, *current)
+                    query, (self._database_model_key(role), *current)
                 ):
                     vector = np.frombuffer(blob, dtype=np.float32).copy()
-                    if vector.shape == (self.embedding_size,):
+                    norm = float(np.linalg.norm(vector))
+                    legacy_namespace = (
+                        self._database_model_key(role) == self.model_name
+                    )
+                    if (
+                        vector.shape == (self.embedding_size,)
+                        and np.isfinite(vector).all()
+                        and norm > 0
+                        and (
+                            legacy_namespace
+                            or math.isclose(norm, 1.0, rel_tol=1e-4, abs_tol=1e-4)
+                        )
+                    ):
                         self._vectors[cache_key] = vector
 
-    def _cache_key(self, text: str) -> str:
+    def _cache_key(self, text: str, *, role: str = "evidence") -> str:
+        if role not in {"query", "evidence"}:
+            raise DocumentHRMError("Semantic cache role is invalid")
         digest = blake2b(digest_size=20)
-        digest.update(self.model_name.encode("utf-8"))
+        digest.update(self._database_model_key(role).encode("utf-8"))
         digest.update(b"\0")
+        if self._database_model_key(role) != self.model_name:
+            digest.update(role.encode("ascii"))
+            digest.update(b"\0")
         digest.update(text.encode("utf-8"))
         return digest.hexdigest()
 
-    def encode(self, texts: Sequence[str], *, batch_size: int = 64) -> np.ndarray:
+    def encode(
+        self,
+        texts: Sequence[str],
+        *,
+        batch_size: int = 64,
+        role: str = "evidence",
+    ) -> np.ndarray:
         with self._lock:
             normalized = [text.strip() or "[empty]" for text in texts]
-            keys = [self._cache_key(text) for text in normalized]
-            self._load_cached_vectors(keys)
+            keys = [
+                self._cache_key(text, role=role) for text in normalized
+            ]
+            self._load_cached_vectors(keys, role=role)
             missing_map = {
                 key: text
                 for key, text in zip(keys, normalized)
@@ -537,9 +833,17 @@ class SemanticEmbeddingCache:
             }
             missing = list(missing_map)
             if missing:
-                vectors = self.encoder.encode_documents(
-                    (missing_map[key] for key in missing), batch_size=batch_size
-                )
+                raw_texts = [missing_map[key] for key in missing]
+                if role == "query" and hasattr(
+                    self.encoder, "encode_queries"
+                ):
+                    vectors = self.encoder.encode_queries(
+                        raw_texts, batch_size=batch_size
+                    )
+                else:
+                    vectors = self.encoder.encode_documents(
+                        raw_texts, batch_size=batch_size
+                    )
                 pending: list[tuple[str, str, bytes]] = []
                 for key, raw in zip(missing, vectors):
                     vector = np.asarray(raw, dtype=np.float32)
@@ -548,10 +852,22 @@ class SemanticEmbeddingCache:
                             f"Semantic encoder returned {vector.shape}; "
                             f"expected ({self.embedding_size},)"
                         )
+                    if not np.isfinite(vector).all():
+                        raise DocumentHRMError(
+                            "Semantic encoder returned a non-finite vector"
+                        )
                     norm = float(np.linalg.norm(vector))
-                    self._vectors[key] = vector / norm if norm > 0 else vector
+                    if norm <= 0:
+                        raise DocumentHRMError(
+                            "Semantic encoder returned a zero vector"
+                        )
+                    self._vectors[key] = vector / norm
                     pending.append(
-                        (self.model_name, key, self._vectors[key].tobytes())
+                        (
+                            self._database_model_key(role),
+                            key,
+                            self._vectors[key].tobytes(),
+                        )
                     )
                 self._database.executemany(
                     "INSERT OR REPLACE INTO embeddings(model, cache_key, vector) "
@@ -569,17 +885,52 @@ class SemanticEmbeddingCache:
         candidate_semantic_mode: str = "context",
     ) -> None:
         texts: list[str] = []
+        query_texts: list[str] = []
+        slot_query_texts: list[str] = []
         for example in examples:
-            texts.append(example.question)
+            plan = compile_question_plan(example.question)
+            query_texts.append(
+                _question_semantic_text(
+                    example.question,
+                    plan,
+                    template_version=self.spec.text_template_version,
+                )
+            )
+            slot_query_texts.extend(
+                _slot_semantic_text(
+                    example.question,
+                    plan,
+                    slot,
+                    template_version=self.spec.text_template_version,
+                )
+                for slot in range(len(example.program.operands))
+            )
             texts.extend(
                 _candidate_semantic_text(
                     candidate,
                     mode=candidate_semantic_mode,
+                    template_version=self.spec.text_template_version,
                 )
                 for candidate in example.candidates
             )
+        for start in range(0, len(query_texts), batch_size * 8):
+            self.encode(
+                query_texts[start : start + batch_size * 8],
+                batch_size=batch_size,
+                role="query",
+            )
+        for start in range(0, len(slot_query_texts), batch_size * 8):
+            self.encode(
+                slot_query_texts[start : start + batch_size * 8],
+                batch_size=batch_size,
+                role="query",
+            )
         for start in range(0, len(texts), batch_size * 8):
-            self.encode(texts[start : start + batch_size * 8], batch_size=batch_size)
+            self.encode(
+                texts[start : start + batch_size * 8],
+                batch_size=batch_size,
+                role="evidence",
+            )
 
 
 class HashSequenceTokenizer:
@@ -625,7 +976,13 @@ class RMSNorm(nn.Module):
 
 
 class RotarySelfAttention(nn.Module):
-    def __init__(self, hidden_size: int, heads: int, dropout: float) -> None:
+    def __init__(
+        self,
+        hidden_size: int,
+        heads: int,
+        dropout: float,
+        use_rotary_position: bool = True,
+    ) -> None:
         super().__init__()
         self.hidden_size = hidden_size
         self.heads = heads
@@ -635,6 +992,7 @@ class RotarySelfAttention(nn.Module):
         self.qkv = nn.Linear(hidden_size, hidden_size * 3, bias=False)
         self.output = nn.Linear(hidden_size, hidden_size, bias=False)
         self.dropout = nn.Dropout(dropout)
+        self.use_rotary_position = use_rotary_position
         inv_freq = 1.0 / (
             10000
             ** (torch.arange(0, self.head_size, 2, dtype=torch.float32) / self.head_size)
@@ -654,8 +1012,11 @@ class RotarySelfAttention(nn.Module):
         batch, length, _ = inputs.shape
         query, key, value = self.qkv(inputs).chunk(3, dim=-1)
         reshape = lambda item: item.view(batch, length, self.heads, self.head_size).transpose(1, 2)
-        query = self._rope(reshape(query))
-        key = self._rope(reshape(key))
+        query = reshape(query)
+        key = reshape(key)
+        if self.use_rotary_position:
+            query = self._rope(query)
+            key = self._rope(key)
         value = reshape(value)
         scores = torch.matmul(query, key.transpose(-2, -1)) / math.sqrt(self.head_size)
         scores = scores.masked_fill(mask[:, None, None, :].eq(0), -1e9)
@@ -686,10 +1047,16 @@ class HRMBlock(nn.Module):
         heads: int,
         feed_forward_multiplier: int,
         dropout: float,
+        use_rotary_position: bool = True,
     ) -> None:
         super().__init__()
         self.attention_norm = RMSNorm(hidden_size)
-        self.attention = RotarySelfAttention(hidden_size, heads, dropout)
+        self.attention = RotarySelfAttention(
+            hidden_size,
+            heads,
+            dropout,
+            use_rotary_position=use_rotary_position,
+        )
         self.feed_forward_norm = RMSNorm(hidden_size)
         self.feed_forward = SwiGLU(hidden_size, feed_forward_multiplier)
         self.dropout = nn.Dropout(dropout)
@@ -731,9 +1098,22 @@ class DocumentHierarchicalReasoningModel(nn.Module):
                 nn.LayerNorm(h),
             )
             self.semantic_question = None
+            self.semantic_adapter_norm = None
+            self.semantic_adapter_projection = None
         else:
             self.token_embedding = None
             self.question_encoder = None
+            if config.semantic_adapter_mode == "layernorm_linear_l2_v1":
+                self.semantic_adapter_norm = nn.LayerNorm(
+                    config.semantic_encoder_size
+                )
+                self.semantic_adapter_projection = nn.Linear(
+                    config.semantic_encoder_size,
+                    config.semantic_embedding_size,
+                )
+            else:
+                self.semantic_adapter_norm = None
+                self.semantic_adapter_projection = None
             self.semantic_question = nn.Sequential(
                 nn.Linear(config.semantic_embedding_size, h * 2),
                 nn.GELU(),
@@ -771,6 +1151,7 @@ class DocumentHierarchicalReasoningModel(nn.Module):
             config.attention_heads,
             config.feed_forward_multiplier,
             config.dropout,
+            config.financial_structure_mode == "legacy",
         )
         self.comparative_block = HRMBlock(*block_args)
         self.low_module = HRMBlock(*block_args)
@@ -786,7 +1167,7 @@ class DocumentHierarchicalReasoningModel(nn.Module):
         )
         self.operation_head = nn.Linear(h * 2, len(OPERATIONS))
         self.pointer_queries = nn.ModuleList(
-            nn.Linear(h * 2, h) for _ in range(MAX_OPERANDS)
+            nn.Linear(h * 2, h) for _ in range(config.max_program_operands)
         )
         if config.pointer_conditioning_mode in {
             "operation_sequential",
@@ -804,7 +1185,9 @@ class DocumentHierarchicalReasoningModel(nn.Module):
                 nn.Linear(h * 2, h * 2),
             )
             self.pointer_condition_norm = nn.LayerNorm(h * 2)
-            self.pointer_slot_embedding = nn.Embedding(MAX_OPERANDS, h * 2)
+            self.pointer_slot_embedding = nn.Embedding(
+                config.max_program_operands, h * 2
+            )
         else:
             self.pointer_operation_embedding = None
             self.pointer_conditioner = None
@@ -819,7 +1202,9 @@ class DocumentHierarchicalReasoningModel(nn.Module):
         # This parameter is transformed through tanh and capped at
         # config.relevance_prior_max. It can no longer grow unbounded and replace
         # learned pointer reasoning with a hand-written relevance score.
-        self.pointer_relevance_scale = nn.Parameter(torch.full((MAX_OPERANDS,), 0.25))
+        self.pointer_relevance_scale = nn.Parameter(
+            torch.full((config.max_program_operands,), 0.25)
+        )
         self.q_head = nn.Linear(h * 2, 2)
         if config.act_mode == "q_learning":
             # HRM initializes ACT values near zero so bootstrap targets do not
@@ -849,6 +1234,83 @@ class DocumentHierarchicalReasoningModel(nn.Module):
             self.pair_feature_weights = None
             self.pair_relation_scale = None
 
+        if config.financial_structure_mode == "typed_hierarchy_v1":
+            # These modules are appended after every legacy parameter so a
+            # compatible warm start can copy the old HRM exactly.  Zero-valued
+            # residual gates make the initial typed path behavior-preserving;
+            # training then learns how strongly each structural signal matters.
+            hierarchy_hidden = max(32, h // 2)
+            self.financial_candidate_encoder = nn.Sequential(
+                nn.Linear(FINANCIAL_CANDIDATE_FEATURE_SIZE, h),
+                nn.GELU(),
+                nn.Linear(h, h),
+                nn.LayerNorm(h),
+            )
+            self.financial_candidate_scale = nn.Parameter(torch.zeros(()))
+            self.financial_hierarchy_scorers = nn.ModuleList(
+                nn.Linear(PAIR_FEATURE_SIZE, 1, bias=False)
+                for _ in range(config.financial_hierarchy_layers)
+            )
+            self.financial_hierarchy_projections = nn.ModuleList(
+                nn.Sequential(
+                    nn.Linear(h * 2, h),
+                    nn.GELU(),
+                    nn.Linear(h, h),
+                )
+                for _ in range(config.financial_hierarchy_layers)
+            )
+            self.financial_hierarchy_norms = nn.ModuleList(
+                nn.LayerNorm(h)
+                for _ in range(config.financial_hierarchy_layers)
+            )
+            self.financial_hierarchy_scales = nn.Parameter(
+                torch.zeros(config.financial_hierarchy_layers)
+            )
+            self.financial_operation_embedding = nn.Embedding(len(OPERATIONS), h)
+            self.financial_slot_embedding = nn.Embedding(
+                config.max_program_operands, h
+            )
+            self.financial_pointer_conditioner = nn.Sequential(
+                nn.Linear(h * 4, h * 2),
+                nn.GELU(),
+                nn.Dropout(config.dropout),
+                nn.Linear(h * 2, h * 2),
+            )
+            self.financial_pointer_norm = nn.LayerNorm(h * 2)
+            self.financial_pointer_scale = nn.Parameter(torch.zeros(()))
+            self.financial_slot_scorer = nn.Sequential(
+                nn.Linear(FINANCIAL_SLOT_FEATURE_SIZE, hierarchy_hidden),
+                nn.GELU(),
+                nn.Linear(hierarchy_hidden, 1),
+            )
+            self.financial_slot_scales = nn.Parameter(
+                torch.zeros(config.max_program_operands)
+            )
+        else:
+            self.financial_candidate_encoder = None
+            self.financial_candidate_scale = None
+            self.financial_hierarchy_scorers = None
+            self.financial_hierarchy_projections = None
+            self.financial_hierarchy_norms = None
+            self.financial_hierarchy_scales = None
+            self.financial_operation_embedding = None
+            self.financial_slot_embedding = None
+            self.financial_pointer_conditioner = None
+            self.financial_pointer_norm = None
+            self.financial_pointer_scale = None
+            self.financial_slot_scorer = None
+            self.financial_slot_scales = None
+        if config.variable_sum_mode == "sum_n_v1":
+            # The legacy operation classifier remains untouched. These V14-only
+            # heads predict bounded set cardinality and candidate membership.
+            self.sum_operand_count_head = nn.Linear(
+                h * 2, config.max_program_operands - 1
+            )
+            self.sum_membership_query = nn.Linear(h * 2, h)
+        else:
+            self.sum_operand_count_head = None
+            self.sum_membership_query = None
+
     def parameter_count(self) -> int:
         return sum(parameter.numel() for parameter in self.parameters())
 
@@ -856,6 +1318,66 @@ class DocumentHierarchicalReasoningModel(nn.Module):
         return self.config.relevance_prior_max * torch.tanh(
             self.pointer_relevance_scale
         )
+
+    def adapt_semantic_embeddings(self, values: Tensor) -> Tensor:
+        """Project frozen raw encoder vectors into the stable HRM semantic ABI."""
+
+        if self.semantic_adapter_projection is None:
+            if values.shape[-1] != self.config.semantic_embedding_size:
+                raise DocumentHRMError(
+                    "Identity semantic adapter received the wrong dimension"
+                )
+            return values
+        assert self.semantic_adapter_norm is not None
+        if values.shape[-1] != self.config.semantic_encoder_size:
+            raise DocumentHRMError(
+                "Semantic adapter received the wrong raw encoder dimension"
+            )
+        projected = self.semantic_adapter_projection(
+            self.semantic_adapter_norm(values)
+        )
+        return F.normalize(projected, p=2, dim=-1, eps=1e-12)
+
+    def _encode_financial_hierarchy(
+        self,
+        candidates: Tensor,
+        pair_features: Tensor,
+        candidate_mask: Tensor,
+    ) -> Tensor:
+        if self.financial_hierarchy_scorers is None:
+            return candidates
+        assert self.financial_hierarchy_projections is not None
+        assert self.financial_hierarchy_norms is not None
+        assert self.financial_hierarchy_scales is not None
+        # Equality relations are content-independent edges.  Missing metadata
+        # produces zero relation bits and is therefore never pooled together.
+        relation_indices = (0, 10, 11, 12, 13, 16, 17)
+        relation_mask = pair_features[..., relation_indices].sum(dim=-1).gt(0)
+        valid = (
+            candidate_mask.unsqueeze(2).bool()
+            & candidate_mask.unsqueeze(1).bool()
+        )
+        diagonal = torch.eye(
+            valid.shape[-1], dtype=torch.bool, device=valid.device
+        ).unsqueeze(0)
+        relation_mask = relation_mask & valid & ~diagonal
+        hidden = candidates
+        for layer, scorer in enumerate(self.financial_hierarchy_scorers):
+            logits = scorer(pair_features).squeeze(-1)
+            logits = logits.masked_fill(~relation_mask, -1e9)
+            weights = torch.softmax(logits, dim=-1) * relation_mask.to(logits.dtype)
+            weights = weights / weights.sum(dim=-1, keepdim=True).clamp_min(1e-8)
+            message = torch.einsum("bnm,bmh->bnh", weights, hidden)
+            update = self.financial_hierarchy_norms[layer](
+                self.financial_hierarchy_projections[layer](
+                    torch.cat((hidden, message), dim=-1)
+                )
+            )
+            hidden = hidden + torch.tanh(
+                self.financial_hierarchy_scales[layer]
+            ) * update
+            hidden = hidden * candidate_mask.unsqueeze(-1)
+        return hidden
 
     def encode_inputs(self, batch: EncodedBatch) -> tuple[Tensor, Tensor]:
         if self.config.input_encoder_mode == "hash":
@@ -890,13 +1412,32 @@ class DocumentHierarchicalReasoningModel(nn.Module):
             if batch.question_semantic is None or batch.candidate_semantic is None:
                 raise DocumentHRMError("Semantic embeddings are missing from the batch")
             assert self.semantic_question is not None
-            question = self.semantic_question(batch.question_semantic)
-            text = self.candidate_text(batch.candidate_semantic)
+            question_semantic = self.adapt_semantic_embeddings(
+                batch.question_semantic
+            )
+            candidate_semantic = self.adapt_semantic_embeddings(
+                batch.candidate_semantic
+            )
+            question = self.semantic_question(question_semantic)
+            text = self.candidate_text(candidate_semantic)
         question = self.question_norm(
             question + self.question_feature_encoder(batch.question_features)
         )
         b, n = batch.candidate_mask.shape
         numeric = self.numeric_encoder(batch.numeric_features)
+        if self.config.financial_structure_mode == "typed_hierarchy_v1":
+            if batch.financial_candidate_features is None:
+                raise DocumentHRMError(
+                    "Financial candidate features are missing from the batch"
+                )
+            assert self.financial_candidate_encoder is not None
+            assert self.financial_candidate_scale is not None
+            structure = self.financial_candidate_encoder(
+                batch.financial_candidate_features
+            )
+            numeric = numeric + torch.tanh(
+                self.financial_candidate_scale
+            ) * structure
         q_bias = question.unsqueeze(1).expand(-1, n, -1)
         candidates = self.candidate_norm(
             self.candidate_fusion(
@@ -908,6 +1449,16 @@ class DocumentHierarchicalReasoningModel(nn.Module):
         )
         candidates = candidates * batch.candidate_mask.unsqueeze(-1)
         candidates = self.comparative_block(candidates, batch.candidate_mask)
+        if self.config.financial_structure_mode == "typed_hierarchy_v1":
+            if batch.pair_features is None:
+                raise DocumentHRMError(
+                    "Pair features are missing from the typed hierarchy batch"
+                )
+            candidates = self._encode_financial_hierarchy(
+                candidates,
+                batch.pair_features,
+                batch.candidate_mask,
+            )
         return question, candidates
 
     def initial_state(self, candidate_mask: Tensor) -> DocumentHRMState:
@@ -976,6 +1527,7 @@ class DocumentHierarchicalReasoningModel(nn.Module):
         relevance = batch.numeric_features[:, :, 4]
         operation_context: Tensor | None = None
         previous_pointer_context: Tensor | None = None
+        financial_operation_context: Tensor | None = None
         if self.config.pointer_conditioning_mode in {
             "operation_sequential",
             "later_sequential",
@@ -986,6 +1538,15 @@ class DocumentHierarchicalReasoningModel(nn.Module):
                 self.pointer_operation_embedding.weight
             )
             previous_pointer_context = torch.zeros_like(operation_context)
+        if self.config.financial_structure_mode == "typed_hierarchy_v1":
+            if batch.financial_slot_features is None:
+                raise DocumentHRMError(
+                    "Financial slot features are missing from the batch"
+                )
+            assert self.financial_operation_embedding is not None
+            financial_operation_context = torch.softmax(
+                operation_logits, dim=-1
+            ) @ self.financial_operation_embedding.weight
         for slot, pointer_query in enumerate(self.pointer_queries):
             pointer_input = fused
             condition_this_slot = (
@@ -1009,12 +1570,40 @@ class DocumentHierarchicalReasoningModel(nn.Module):
                 pointer_input = self.pointer_condition_norm(
                     fused + condition + self.pointer_slot_embedding(slot_ids)
                 )
+            if financial_operation_context is not None:
+                assert self.financial_slot_embedding is not None
+                assert self.financial_pointer_conditioner is not None
+                assert self.financial_pointer_norm is not None
+                assert self.financial_pointer_scale is not None
+                slot_ids = torch.full(
+                    (fused.shape[0],), slot, dtype=torch.long, device=fused.device
+                )
+                slot_context = self.financial_slot_embedding(slot_ids)
+                condition = self.financial_pointer_conditioner(
+                    torch.cat(
+                        (fused, financial_operation_context, slot_context),
+                        dim=-1,
+                    )
+                )
+                pointer_input = self.financial_pointer_norm(
+                    fused
+                    + torch.tanh(self.financial_pointer_scale) * condition
+                )
             query = pointer_query(pointer_input)
             scores = torch.einsum("bd,bnd->bn", query, reasoned_candidates) / math.sqrt(
                 reasoned_candidates.shape[-1]
             )
             scale = self.effective_relevance_scales()[slot]
             scores = scores + scale * relevance
+            if financial_operation_context is not None:
+                assert self.financial_slot_scorer is not None
+                assert self.financial_slot_scales is not None
+                slot_bias = self.financial_slot_scorer(
+                    batch.financial_slot_features[:, slot]
+                ).squeeze(-1)
+                scores = scores + torch.tanh(
+                    self.financial_slot_scales[slot]
+                ) * slot_bias
             masked_scores = scores.masked_fill(batch.candidate_mask.eq(0), -1e9)
             pointer_logits.append(masked_scores)
             if operation_context is not None:
@@ -1039,6 +1628,19 @@ class DocumentHierarchicalReasoningModel(nn.Module):
                         previous_pointer_context = torch.where(
                             valid.unsqueeze(-1), blended, predicted_context
                         )
+        operand_count_logits: Tensor | None = None
+        sum_membership_logits: Tensor | None = None
+        if self.config.variable_sum_mode == "sum_n_v1":
+            assert self.sum_operand_count_head is not None
+            assert self.sum_membership_query is not None
+            operand_count_logits = self.sum_operand_count_head(fused)
+            sum_query = self.sum_membership_query(fused)
+            sum_membership_logits = torch.einsum(
+                "bd,bnd->bn", sum_query, reasoned_candidates
+            ) / math.sqrt(reasoned_candidates.shape[-1])
+            sum_membership_logits = sum_membership_logits.masked_fill(
+                batch.candidate_mask.eq(0), -1e9
+            )
         pair_logits: Tensor | None = None
         select_pointer_logits: Tensor | None = None
         if self.config.pointer_conditioning_mode == "joint_pair":
@@ -1101,6 +1703,11 @@ class DocumentHierarchicalReasoningModel(nn.Module):
                 valid_pair.shape[-1], dtype=torch.bool, device=fused.device
             ).unsqueeze(0)
             valid_pair = valid_pair & ~diagonal
+            if (
+                self.config.financial_structure_mode == "typed_hierarchy_v1"
+                and batch.financial_same_physical_mask is not None
+            ):
+                valid_pair = valid_pair & ~batch.financial_same_physical_mask.bool()
             pair_logits = pair_logits.masked_fill(
                 ~valid_pair.unsqueeze(1), -1e9
             )
@@ -1123,9 +1730,58 @@ class DocumentHierarchicalReasoningModel(nn.Module):
                 q_values=self.q_head(q_input),
                 pair_logits=pair_logits,
                 select_pointer_logits=select_pointer_logits,
+                operand_count_logits=operand_count_logits,
+                sum_membership_logits=sum_membership_logits,
             ),
             (question, candidates),
         )
+
+
+def _semantic_adapter_state_sha256(
+    model: DocumentHierarchicalReasoningModel,
+) -> str:
+    digest = sha256()
+    found = False
+    for name, tensor in sorted(model.state_dict().items()):
+        if not name.startswith("semantic_adapter_"):
+            continue
+        found = True
+        value = tensor.detach().cpu().contiguous()
+        digest.update(name.encode("utf-8"))
+        digest.update(b"\0")
+        digest.update(str(tuple(value.shape)).encode("ascii"))
+        digest.update(b"\0")
+        digest.update(str(value.dtype).encode("ascii"))
+        digest.update(b"\0")
+        digest.update(value.numpy().tobytes())
+    return digest.hexdigest() if found else "identity"
+
+
+SEMANTIC_CHECKPOINT_INTEGRITY_SCHEMA = "semantic-checkpoint-integrity-v2"
+SEMANTIC_ADAPTER_IMPLEMENTATION_VERSION = "document-hrm-adapter-v1"
+
+
+def _effective_semantic_fingerprint(
+    config: DocumentHRMConfig,
+    *,
+    frontend_fingerprint: str,
+    adapter_state_sha256: str,
+) -> str:
+    payload = {
+        "schema": SEMANTIC_CHECKPOINT_INTEGRITY_SCHEMA,
+        "frontend_fingerprint": frontend_fingerprint,
+        "adapter_state_sha256": adapter_state_sha256,
+        "adapter_mode": config.semantic_adapter_mode,
+        "adapter_implementation": SEMANTIC_ADAPTER_IMPLEMENTATION_VERSION,
+        "encoder_output_size": config.semantic_encoder_size,
+        "hrm_semantic_size": config.semantic_embedding_size,
+    }
+    serialized = json.dumps(
+        payload,
+        sort_keys=True,
+        separators=(",", ":"),
+    )
+    return sha256(serialized.encode("utf-8")).hexdigest()
 
 
 class DocumentHRMBundle:
@@ -1151,8 +1807,9 @@ class DocumentHRMBundle:
             self.tokenizer = None
             self.semantic_encoder = semantic_encoder or SemanticEmbeddingCache(
                 model.config.semantic_model_name,
-                model.config.semantic_embedding_size,
+                model.config.semantic_encoder_size,
                 DEFAULT_SEMANTIC_CACHE_DIR,
+                spec=_semantic_encoder_spec_from_config(model.config),
             )
 
     def attach_program_reranker(
@@ -1375,18 +2032,83 @@ class DocumentHRMBundle:
         use_grounded_confidence = confidence_schema == "grounded-constraints-v2"
         operation_probs = torch.softmax(output.operation_logits[row], dim=-1)
         neural_operation_id = int(operation_probs.argmax().item())
-        operation_id = neural_operation_id
-        operation = OPERATIONS[operation_id]
+        variable_sum_enabled = (
+            self.model.config.variable_sum_mode == "sum_n_v1"
+        )
+        sum_family_probability = float(
+            operation_probs[list(SUM_FAMILY_OPERATION_IDS)].sum().item()
+        )
+        best_sum_operation_id = max(
+            SUM_FAMILY_OPERATION_IDS,
+            key=lambda index: float(operation_probs[index].item()),
+        )
+        non_sum_operation_ids = tuple(
+            index
+            for index in range(len(OPERATIONS))
+            if index not in SUM_FAMILY_OPERATION_IDS
+        )
+        best_non_sum_operation_id = max(
+            non_sum_operation_ids,
+            key=lambda index: float(operation_probs[index].item()),
+        )
+        if (
+            variable_sum_enabled
+            and sum_family_probability
+            >= float(operation_probs[best_non_sum_operation_id].item())
+        ):
+            operation = SUM_N_OPERATION
+            operation_id = best_sum_operation_id
+        else:
+            operation_id = neural_operation_id
+            operation = OPERATIONS[operation_id]
         grounding_constraints: list[str] = []
+        operation_was_constrained = False
         if question:
             constrained_operation = _apply_symbolic_operation_constraint(
                 question, operation
             )
+            if variable_sum_enabled and is_sum_operation(constrained_operation):
+                constrained_operation = SUM_N_OPERATION
             if constrained_operation != operation:
                 grounding_constraints.append("operation_wording")
+                operation_was_constrained = True
             operation = constrained_operation
-            operation_id = OPERATION_TO_ID[operation]
-        arity = OPERATION_ARITY[operation]
+            operation_id = (
+                best_sum_operation_id
+                if operation == SUM_N_OPERATION
+                else OPERATION_TO_ID[operation]
+            )
+        operand_count_confidence: float | None = None
+        if operation == SUM_N_OPERATION:
+            if (
+                output.operand_count_logits is None
+                or output.sum_membership_logits is None
+            ):
+                raise DocumentHRMError(
+                    "SUM_N decoding requires count and membership heads"
+                )
+            count_probabilities = torch.softmax(
+                output.operand_count_logits[row], dim=-1
+            )
+            explicit_count = _explicit_sum_operand_count(question)
+            if explicit_count is not None:
+                if explicit_count > self.model.config.max_program_operands:
+                    raise DocumentHRMError(
+                        f"Explicit SUM_N arity {explicit_count} exceeds configured "
+                        f"maximum {self.model.config.max_program_operands}"
+                    )
+                arity = explicit_count
+                operand_count_confidence = 1.0
+                grounding_constraints.append("explicit_sum_operand_count")
+            else:
+                count_index = int(count_probabilities.argmax().item())
+                arity = count_index + 2
+                operand_count_confidence = float(
+                    count_probabilities[count_index].item()
+                )
+                grounding_constraints.append("predicted_sum_operand_count")
+        else:
+            arity = OPERATION_ARITY[operation]
         if candidates and len(candidates) < arity:
             raise DocumentHRMError(
                 f"{operation} requires {arity} distinct evidence values, "
@@ -1396,6 +2118,22 @@ class DocumentHRMBundle:
         pointer_confidences: list[float] = []
         neural_pointer_confidences: list[float] = []
         first_unfilled_slot = 0
+        same_physical_pairs: list[list[bool]] | None = None
+        if operation == SUM_N_OPERATION and candidates:
+            same_physical_pairs = financial_same_physical_pairs(candidates)
+            representatives: list[int] = []
+            for index in range(len(candidates)):
+                if any(
+                    same_physical_pairs[index][existing]
+                    for existing in representatives
+                ):
+                    continue
+                representatives.append(index)
+            if len(representatives) < arity:
+                raise DocumentHRMError(
+                    f"SUM_N requires {arity} physically unique evidence values, "
+                    f"but only {len(representatives)} were available"
+                )
         multi_operand_allowed: set[int] | None = None
         if operation in MULTI_OPERAND_OPERATIONS:
             compatible = _period_compatible_indices(
@@ -1426,7 +2164,27 @@ class DocumentHRMBundle:
                 dtype=torch.bool,
                 device=pair_scores.device,
             )
-            pair_scores = pair_scores.masked_fill(pair_diagonal, -torch.inf)
+            pair_forbidden = pair_diagonal
+            if (
+                self.model.config.financial_structure_mode
+                == "typed_hierarchy_v1"
+            ):
+                observed_duplicate_physical = torch.tensor(
+                    financial_same_physical_pairs(candidates),
+                    dtype=torch.bool,
+                    device=pair_scores.device,
+                )
+                duplicate_physical = torch.zeros_like(pair_forbidden)
+                observed_count = min(
+                    len(candidates), duplicate_physical.shape[-1]
+                )
+                duplicate_physical[
+                    :observed_count, :observed_count
+                ] = observed_duplicate_physical[
+                    :observed_count, :observed_count
+                ]
+                pair_forbidden = pair_forbidden | duplicate_physical
+            pair_scores = pair_scores.masked_fill(pair_forbidden, -torch.inf)
             unconstrained_pair_scores = pair_scores.clone()
             raw_pair_probabilities = torch.softmax(pair_scores.flatten(), dim=-1)
             has_semantic_pair_constraint = False
@@ -1521,7 +2279,16 @@ class DocumentHRMBundle:
                 )
                 temporal_mask[allowed_tensor[:, None], allowed_tensor[None, :]] = True
                 pair_scores = pair_scores.masked_fill(~temporal_mask, -1e9)
-            pair_scores = pair_scores.masked_fill(pair_diagonal, -torch.inf)
+            column_allowed = _column_scope_compatible_indices(
+                question, candidates, set(range(len(candidates)))
+            )
+            if len(column_allowed) >= arity and len(column_allowed) < len(candidates):
+                scope_mask = torch.zeros(pair_scores.shape[-1], dtype=torch.bool, device=pair_scores.device)
+                scope_mask[list(column_allowed)] = True
+                pair_scores = pair_scores.masked_fill(~(scope_mask[:, None] & scope_mask[None, :]), -1e9)
+                grounding_constraints.append("column_scope")
+                has_semantic_pair_constraint = True
+            pair_scores = pair_scores.masked_fill(pair_forbidden, -torch.inf)
             pair_probabilities = torch.softmax(pair_scores.flatten(), dim=-1)
             pair_index = int(pair_probabilities.argmax().item())
             pair_width = pair_scores.shape[-1]
@@ -1549,7 +2316,14 @@ class DocumentHRMBundle:
             first_unfilled_slot = 2
         for slot in range(first_unfilled_slot, arity):
             use_membership = operation in COMMUTATIVE and arity > 2
+            use_sum_membership = (
+                operation == SUM_N_OPERATION
+                and output.sum_membership_logits is not None
+            )
             logits = (
+                output.sum_membership_logits[row]
+                if use_sum_membership
+                else
                 _commutative_pointer_membership_logits(
                     output.pointer_logits[row], arity
                 )
@@ -1586,6 +2360,12 @@ class DocumentHRMBundle:
                     primary_weight * torch.log_softmax(logits, dim=-1)
                     + auxiliary_weight
                     * torch.log_softmax(
+                        pointer_output.sum_membership_logits[row]
+                        if (
+                            use_sum_membership
+                            and pointer_output.sum_membership_logits is not None
+                        )
+                        else
                         _commutative_pointer_membership_logits(
                             pointer_output.pointer_logits[row], arity
                         )
@@ -1601,6 +2381,13 @@ class DocumentHRMBundle:
                         secondary_weight
                         / weight_total
                         * torch.log_softmax(
+                            pointer_secondary_output.sum_membership_logits[row]
+                            if (
+                                use_sum_membership
+                                and pointer_secondary_output.sum_membership_logits
+                                is not None
+                            )
+                            else
                             _commutative_pointer_membership_logits(
                                 pointer_secondary_output.pointer_logits[row],
                                 arity,
@@ -1644,6 +2431,7 @@ class DocumentHRMBundle:
                 if narrowed_unary != unary_allowed:
                     unary_allowed = narrowed_unary
                     period_constraint_applied = True
+                unary_allowed = _prefer_requested_context_indices(question, candidates, unary_allowed)
                 scoped_unary = _prefer_reporting_entity_indices(
                     question, candidates, unary_allowed
                 )
@@ -1659,10 +2447,30 @@ class DocumentHRMBundle:
                     metric_mask = torch.zeros_like(logits, dtype=torch.bool)
                     metric_mask[list(unary_allowed)] = True
                     logits = logits.masked_fill(~metric_mask, -1e9)
-            if operands:
+            if candidates and len(candidates) < logits.shape[0]:
+                logits[len(candidates) :] = -torch.inf
+            forbidden_operands = set(operands)
+            if same_physical_pairs is not None:
+                forbidden_operands.update(
+                    candidate_index
+                    for selected in operands
+                    for candidate_index in range(len(candidates))
+                    if same_physical_pairs[selected][candidate_index]
+                )
+            if forbidden_operands:
                 # True negative infinity prevents an already-used operand from
                 # winning a tie when every remaining logit was hard-masked.
-                logits[torch.tensor(operands, device=logits.device)] = -torch.inf
+                logits[
+                    torch.tensor(
+                        sorted(forbidden_operands), device=logits.device
+                    )
+                ] = -torch.inf
+            if not torch.isfinite(logits[: len(candidates)]).any():
+                raise DocumentHRMError(
+                    "SUM_N could not fill every slot with physically unique evidence"
+                    if operation == SUM_N_OPERATION
+                    else "No valid evidence candidate remained during decoding"
+                )
             probabilities = torch.softmax(logits, dim=-1)
             pointer = int(probabilities.argmax().item())
             operands.append(pointer)
@@ -1715,19 +2523,40 @@ class DocumentHRMBundle:
         reranker_score: float | None = None
         reranker_confidence: float | None = None
         grounded_confidence_floor: float | None = None
-        typed_synthesis_enabled = (
-            self.metadata.get("typed_program_synthesis_enabled", False) is True
-        )
+        # Typed slot synthesis is a deterministic proof/reranking layer, not a
+        # learned checkpoint capability. Older checkpoints persisted ``False``
+        # before the fail-closed unique-slot verifier existed; runtime now
+        # enables the layer and still requires every final proof obligation.
+        typed_synthesis_enabled = True
         financial_identity_catalog_enabled = (
             self.metadata.get("financial_identity_catalog_enabled", False) is True
         )
         candidate_recall_v12_4_enabled = (
             self.metadata.get("candidate_recall_v12_4_enabled", False) is True
         )
+        diverse_set_beam_enabled = (
+            self.model.config.program_search_strategy
+            == "diverse_set_beam_v1"
+        )
+        if diverse_set_beam_enabled:
+            candidate_recall_v12_4_enabled = True
         synthesized_program_candidates = 0
         typed_synthesis_status: tuple[str, ...] = ()
         selected_program_dag: ReasoningDAGProgram | None = None
         selected_slot_bindings: tuple[tuple[str, int], ...] = ()
+        slot_candidate_pools_at_10: tuple[tuple[int, ...], ...] = ()
+        slot_candidate_pools_at_20: tuple[tuple[int, ...], ...] = ()
+        operation_slot_candidate_pools_at_10: tuple[
+            tuple[str, tuple[tuple[int, ...], ...]], ...
+        ] = ()
+        operation_slot_candidate_pools_at_20: tuple[
+            tuple[str, tuple[tuple[int, ...], ...]], ...
+        ] = ()
+        operation_beam: tuple[str, ...] = ()
+        preverification_programs: tuple[ReasoningProgram, ...] = ()
+        selected_for_verification: tuple[ReasoningProgram, ...] = ()
+        generated_before_physical_dedup = 0
+        generated_after_physical_dedup = 0
         if (
             question
             and candidates
@@ -1754,6 +2583,7 @@ class DocumentHRMBundle:
                 candidate_recall_v12_4_enabled=(
                     candidate_recall_v12_4_enabled
                 ),
+                diverse_set_beam_enabled=diverse_set_beam_enabled,
                 reranker=self.program_reranker,
             )
             if search_result is not None:
@@ -1779,10 +2609,39 @@ class DocumentHRMBundle:
                 typed_synthesis_status = search_result.typed_synthesis_status
                 selected_program_dag = search_result.program_dag
                 selected_slot_bindings = search_result.slot_bindings
+                slot_candidate_pools_at_10 = (
+                    search_result.slot_candidate_pools_at_10
+                )
+                slot_candidate_pools_at_20 = (
+                    search_result.slot_candidate_pools_at_20
+                )
+                operation_slot_candidate_pools_at_10 = (
+                    search_result.operation_slot_candidate_pools_at_10
+                )
+                operation_slot_candidate_pools_at_20 = (
+                    search_result.operation_slot_candidate_pools_at_20
+                )
+                operation_beam = search_result.operation_beam
+                preverification_programs = (
+                    search_result.preverification_programs
+                )
+                selected_for_verification = (
+                    search_result.selected_for_verification
+                )
+                generated_before_physical_dedup = (
+                    search_result.generated_programs_before_physical_dedup
+                )
+                generated_after_physical_dedup = (
+                    search_result.generated_programs_after_physical_dedup
+                )
                 if search_result.program != program:
                     program = search_result.program
                     operation = program.operation
                     operation_id = OPERATION_TO_ID[operation]
+                    operation_was_constrained = (
+                        operation_was_constrained
+                        or operation_id != neural_operation_id
+                    )
                     pointer_confidences = list(
                         search_result.pointer_confidences
                     )
@@ -1792,13 +2651,19 @@ class DocumentHRMBundle:
                     grounding_constraints.extend(
                         search_result.constraints_applied
                     )
-        neural_operation_confidence = float(operation_probs[operation_id].item())
+        neural_operation_confidence = (
+            sum_family_probability
+            if operation == SUM_N_OPERATION
+            else float(operation_probs[operation_id].item())
+        )
         operation_confidence = (
             1.0
-            if use_grounded_confidence and operation_id != neural_operation_id
+            if use_grounded_confidence and operation_was_constrained
             else neural_operation_confidence
         )
         confidence_parts = [operation_confidence, *pointer_confidences]
+        if operand_count_confidence is not None:
+            confidence_parts.append(operand_count_confidence)
         confidence = math.exp(
             sum(math.log(max(value, 1e-8)) for value in confidence_parts)
             / len(confidence_parts)
@@ -1826,6 +2691,7 @@ class DocumentHRMBundle:
             grounding_constraints_applied=tuple(
                 dict.fromkeys(grounding_constraints)
             ),
+            operand_count_confidence=operand_count_confidence,
             program_candidates_considered=program_candidates_considered,
             symbolic_program_rejections=symbolic_program_rejections,
             symbolic_proof_score=symbolic_proof_score,
@@ -1845,16 +2711,70 @@ class DocumentHRMBundle:
                 )
             ),
             slot_bindings=selected_slot_bindings,
+            slot_candidate_pools_at_10=slot_candidate_pools_at_10,
+            slot_candidate_pools_at_20=slot_candidate_pools_at_20,
+            operation_slot_candidate_pools_at_10=(
+                operation_slot_candidate_pools_at_10
+            ),
+            operation_slot_candidate_pools_at_20=(
+                operation_slot_candidate_pools_at_20
+            ),
+            operation_beam=operation_beam,
+            preverification_programs=preverification_programs,
+            selected_for_verification=selected_for_verification,
+            generated_programs_before_physical_dedup=(
+                generated_before_physical_dedup
+            ),
+            generated_programs_after_physical_dedup=(
+                generated_after_physical_dedup
+            ),
         )
 
-    def save(self, path: str | Path) -> Path:
+    def save(self, path: str | Path, *, overwrite: bool = True) -> Path:
         destination = Path(path).expanduser().resolve()
+        if destination.exists() and not overwrite:
+            raise DocumentHRMError(
+                f"Refusing to overwrite existing Document HRM checkpoint: {destination}"
+            )
         destination.parent.mkdir(parents=True, exist_ok=True)
+        adapter_hash = _semantic_adapter_state_sha256(self.model)
+        semantic_frontend_fingerprint = (
+            _semantic_encoder_spec_from_config(
+                self.model.config
+            ).fingerprint()
+            if self.model.config.input_encoder_mode == "semantic"
+            else "hash-input"
+        )
+        effective_fingerprint = _effective_semantic_fingerprint(
+            self.model.config,
+            frontend_fingerprint=semantic_frontend_fingerprint,
+            adapter_state_sha256=adapter_hash,
+        )
+        metadata = dict(self.metadata)
+        metadata.update(
+            {
+                "semantic_frontend_fingerprint": (
+                    semantic_frontend_fingerprint
+                ),
+                "semantic_adapter_state_sha256": adapter_hash,
+                "semantic_checkpoint_integrity_schema": (
+                    SEMANTIC_CHECKPOINT_INTEGRITY_SCHEMA
+                ),
+                "semantic_adapter_implementation": (
+                    SEMANTIC_ADAPTER_IMPLEMENTATION_VERSION
+                ),
+                "effective_semantic_fingerprint": effective_fingerprint,
+                "financial_slot_feature_names": list(
+                    FINANCIAL_SLOT_FEATURES
+                ),
+            }
+        )
+        self.metadata = metadata
         torch.save(
             {
                 "schema_version": DOCUMENT_HRM_SCHEMA_VERSION,
                 "config": asdict(self.model.config),
-                "metadata": self.metadata,
+                "metadata": metadata,
                 "state_dict": self.model.state_dict(),
             },
             destination,
@@ -1888,6 +2808,25 @@ class DocumentHRMBundle:
             raw_config.setdefault("input_encoder_mode", "hash")
             raw_config.setdefault("semantic_model_name", DEFAULT_DENSE_MODEL)
             raw_config.setdefault("semantic_embedding_size", 384)
+        if schema_version <= 12:
+            raw_config.setdefault("semantic_encoder_backend", "fastembed")
+            raw_config.setdefault("semantic_model_revision", "")
+            raw_config.setdefault(
+                "semantic_encoder_output_size",
+                raw_config.get("semantic_embedding_size", 384),
+            )
+            raw_config.setdefault("semantic_word_segmentation", "none")
+            raw_config.setdefault("semantic_segmenter_version", "")
+            raw_config.setdefault("semantic_prefix_mode", "none")
+            raw_config.setdefault(
+                "semantic_query_encoding_mode", "document"
+            )
+            raw_config.setdefault(
+                "semantic_text_template_version",
+                LEGACY_SEMANTIC_TEMPLATE,
+            )
+            raw_config.setdefault("semantic_adapter_mode", "identity")
+            raw_config.setdefault("program_search_strategy", "legacy")
         if schema_version <= 6:
             raw_config.setdefault("pointer_conditioning_mode", "independent")
             raw_config.setdefault("pointer_teacher_forcing", 0.50)
@@ -1907,6 +2846,9 @@ class DocumentHRMBundle:
             raw_config.setdefault("relevance_prior_max", 20.0)
             raw_config.setdefault("act_mode", "supervised")
             raw_config.setdefault("minimum_halt_segments", 1)
+        if schema_version <= 11:
+            raw_config.setdefault("variable_sum_mode", "disabled")
+            raw_config.setdefault("max_program_operands", MAX_OPERANDS)
         config = DocumentHRMConfig(**raw_config)
         model = DocumentHierarchicalReasoningModel(config)
         state_dict = dict(payload["state_dict"])
@@ -1919,11 +2861,91 @@ class DocumentHRMBundle:
             expanded = torch.zeros_like(model.pair_feature_weights)
             expanded[:, : pair_weights.shape[1]] = pair_weights
             state_dict["pair_feature_weights"] = expanded
+        slot_weight_name = "financial_slot_scorer.0.weight"
+        slot_weight = state_dict.get(slot_weight_name)
+        target_slot_weight = model.state_dict().get(slot_weight_name)
+        if (
+            isinstance(slot_weight, Tensor)
+            and isinstance(target_slot_weight, Tensor)
+            and slot_weight.ndim == 2
+            and target_slot_weight.ndim == 2
+            and slot_weight.shape[0] == target_slot_weight.shape[0]
+            and slot_weight.shape[1] < target_slot_weight.shape[1]
+        ):
+            expanded_slot_weight = torch.zeros_like(target_slot_weight)
+            expanded_slot_weight[:, : slot_weight.shape[1]] = slot_weight
+            state_dict[slot_weight_name] = expanded_slot_weight
         model.load_state_dict(state_dict)
         model.to(device)
         metadata = dict(payload.get("metadata", {}))
         metadata.setdefault("checkpoint_schema_version", schema_version)
         metadata.setdefault("runtime_schema_version", DOCUMENT_HRM_SCHEMA_VERSION)
+        metadata.setdefault(
+            "financial_slot_feature_names",
+            list(FINANCIAL_SLOT_FEATURES),
+        )
+        expected_adapter_hash = metadata.get(
+            "semantic_adapter_state_sha256"
+        )
+        actual_adapter_hash = _semantic_adapter_state_sha256(model)
+        strict_semantic_integrity = (
+            schema_version == DOCUMENT_HRM_SCHEMA_VERSION
+            and config.input_encoder_mode == "semantic"
+        )
+        required_integrity_fields = {
+            "semantic_frontend_fingerprint",
+            "semantic_adapter_state_sha256",
+            "semantic_checkpoint_integrity_schema",
+            "semantic_adapter_implementation",
+            "effective_semantic_fingerprint",
+        }
+        missing_integrity_fields = sorted(
+            required_integrity_fields - set(metadata)
+        )
+        if strict_semantic_integrity and missing_integrity_fields:
+            raise DocumentHRMError(
+                "Schema-13 semantic checkpoint is missing integrity fields: "
+                + ", ".join(missing_integrity_fields)
+            )
+        if expected_adapter_hash is not None and (
+            str(expected_adapter_hash) != actual_adapter_hash
+        ):
+            raise DocumentHRMError(
+                "Semantic adapter fingerprint does not match checkpoint weights"
+            )
+        if strict_semantic_integrity:
+            if metadata["semantic_checkpoint_integrity_schema"] != (
+                SEMANTIC_CHECKPOINT_INTEGRITY_SCHEMA
+            ):
+                raise DocumentHRMError(
+                    "Unsupported semantic checkpoint integrity schema"
+                )
+            if metadata["semantic_adapter_implementation"] != (
+                SEMANTIC_ADAPTER_IMPLEMENTATION_VERSION
+            ):
+                raise DocumentHRMError(
+                    "Semantic adapter implementation fingerprint mismatch"
+                )
+            actual_frontend_fingerprint = (
+                _semantic_encoder_spec_from_config(config).fingerprint()
+            )
+            if str(metadata["semantic_frontend_fingerprint"]) != (
+                actual_frontend_fingerprint
+            ):
+                raise DocumentHRMError(
+                    "Semantic frontend fingerprint does not match config"
+                )
+            actual_effective_fingerprint = _effective_semantic_fingerprint(
+                config,
+                frontend_fingerprint=actual_frontend_fingerprint,
+                adapter_state_sha256=actual_adapter_hash,
+            )
+            if str(metadata["effective_semantic_fingerprint"]) != (
+                actual_effective_fingerprint
+            ):
+                raise DocumentHRMError(
+                    "Effective semantic fingerprint does not match checkpoint"
+                )
         bundle = cls(model, metadata=metadata)
         pointer_checkpoint = metadata.get("pointer_checkpoint")
         if pointer_checkpoint:
@@ -1936,8 +2958,10 @@ class DocumentHRMBundle:
             if (
                 bundle.semantic_encoder is not None
                 and bundle.pointer_bundle.semantic_encoder is not None
-                and bundle.model.config.semantic_model_name
-                == bundle.pointer_bundle.model.config.semantic_model_name
+                and _semantic_encoder_spec_from_config(bundle.model.config)
+                == _semantic_encoder_spec_from_config(
+                    bundle.pointer_bundle.model.config
+                )
             ):
                 bundle.pointer_bundle.semantic_encoder = bundle.semantic_encoder
         pointer_secondary_checkpoint = metadata.get("pointer_secondary_checkpoint")
@@ -1953,8 +2977,10 @@ class DocumentHRMBundle:
             if (
                 bundle.semantic_encoder is not None
                 and bundle.pointer_secondary_bundle.semantic_encoder is not None
-                and bundle.model.config.semantic_model_name
-                == bundle.pointer_secondary_bundle.model.config.semantic_model_name
+                and _semantic_encoder_spec_from_config(bundle.model.config)
+                == _semantic_encoder_spec_from_config(
+                    bundle.pointer_secondary_bundle.model.config
+                )
             ):
                 bundle.pointer_secondary_bundle.semantic_encoder = bundle.semantic_encoder
         return bundle
@@ -1962,6 +2988,8 @@ class DocumentHRMBundle:
 
 def _verifier_guided_invalid_masks(
     example: ProgramExample,
+    *,
+    operand_width: int = MAX_OPERANDS,
 ) -> tuple[list[list[bool]], list[list[bool]], bool]:
     """Mine only verifier-certain negatives for common one/two-step programs.
 
@@ -1971,7 +2999,7 @@ def _verifier_guided_invalid_masks(
     """
 
     count = len(example.candidates)
-    unary = [[False] * count for _ in range(MAX_OPERANDS)]
+    unary = [[False] * count for _ in range(operand_width)]
     pairs = [[False] * count for _ in range(count)]
     operation = example.program.operation
     if operation not in VERIFIER_GUIDED_OPERATIONS:
@@ -2053,8 +3081,20 @@ def encode_examples(
     if not examples:
         raise DocumentHRMError("Cannot encode an empty batch")
     questions = [example.question for example in examples]
+    needs_question_plan = (
+        config.financial_structure_mode == "typed_hierarchy_v1"
+        or config.semantic_text_template_version
+        == FINANCIAL_VI_SEMANTIC_TEMPLATE
+    )
+    plans: list[QuestionPlan | None] = [
+        compile_question_plan(question)
+        if needs_question_plan
+        else None
+        for question in questions
+    ]
     question_semantic: Tensor | None = None
     candidate_semantic: Tensor | None = None
+    slot_semantic: Tensor | None = None
     if config.input_encoder_mode == "hash":
         if tokenizer is None:
             raise DocumentHRMError("Hash tokenizer is missing")
@@ -2069,8 +3109,16 @@ def encode_examples(
             raise DocumentHRMError("Semantic encoder is missing")
         question_ids = torch.zeros((len(examples), 1), dtype=torch.long, device=device)
         question_mask = torch.ones((len(examples), 1), dtype=torch.float32, device=device)
+        query_texts = [
+            _question_semantic_text(
+                question,
+                plan,
+                template_version=config.semantic_text_template_version,
+            )
+            for question, plan in zip(questions, plans)
+        ]
         question_semantic = torch.from_numpy(
-            semantic_encoder.encode(questions)
+            semantic_encoder.encode(query_texts, role="query")
         ).to(device)
     question_features = torch.tensor(
         [_question_features(question) for question in questions],
@@ -2079,12 +3127,18 @@ def encode_examples(
     )
     b = len(examples)
     n = config.max_candidates
+    operand_width = config.max_program_operands
     t = config.max_candidate_tokens if config.input_encoder_mode == "hash" else 1
     candidate_ids = torch.zeros((b, n, t), dtype=torch.long, device=device)
     candidate_token_mask = torch.zeros((b, n, t), dtype=torch.float32, device=device)
     if config.input_encoder_mode == "semantic":
         candidate_semantic = torch.zeros(
-            (b, n, config.semantic_embedding_size),
+            (b, n, config.semantic_encoder_size),
+            dtype=torch.float32,
+            device=device,
+        )
+        slot_semantic = torch.zeros(
+            (b, operand_width, config.semantic_encoder_size),
             dtype=torch.float32,
             device=device,
         )
@@ -2094,16 +3148,26 @@ def encode_examples(
     candidate_mask = torch.zeros((b, n), dtype=torch.float32, device=device)
     operation_targets = torch.empty((b,), dtype=torch.long, device=device)
     pointer_targets = torch.full(
-        (b, MAX_OPERANDS), -100, dtype=torch.long, device=device
+        (b, operand_width), -100, dtype=torch.long, device=device
     )
+    semantic_pointer_targets = torch.full(
+        (b, operand_width), -100, dtype=torch.long, device=device
+    )
+    semantic_slot_declared = torch.zeros(
+        (b, operand_width), dtype=torch.bool, device=device
+    )
+    operand_count_targets = torch.full(
+        (b,), -100, dtype=torch.long, device=device
+    )
+    sum_family_targets = torch.zeros((b,), dtype=torch.bool, device=device)
     unary_structural_negatives = torch.zeros(
-        (b, MAX_OPERANDS, n), dtype=torch.bool, device=device
+        (b, operand_width, n), dtype=torch.bool, device=device
     )
     pair_structural_negatives = torch.zeros(
         (b, n, n), dtype=torch.bool, device=device
     )
     verifier_unary_invalid_negatives = torch.zeros(
-        (b, MAX_OPERANDS, n), dtype=torch.bool, device=device
+        (b, operand_width, n), dtype=torch.bool, device=device
     )
     verifier_pair_invalid_negatives = torch.zeros(
         (b, n, n), dtype=torch.bool, device=device
@@ -2115,17 +3179,150 @@ def encode_examples(
         if config.pointer_conditioning_mode == "joint_pair"
         else None
     )
+    financial_candidate_feature_tensor = (
+        torch.zeros(
+            (b, n, FINANCIAL_CANDIDATE_FEATURE_SIZE),
+            dtype=torch.float32,
+            device=device,
+        )
+        if config.financial_structure_mode == "typed_hierarchy_v1"
+        else None
+    )
+    financial_slot_feature_tensor = (
+        torch.zeros(
+            (b, operand_width, n, FINANCIAL_SLOT_FEATURE_SIZE),
+            dtype=torch.float32,
+            device=device,
+        )
+        if config.financial_structure_mode == "typed_hierarchy_v1"
+        else None
+    )
+    financial_slot_mismatch_mask = (
+        torch.zeros(
+            (b, operand_width, n), dtype=torch.bool, device=device
+        )
+        if config.financial_structure_mode == "typed_hierarchy_v1"
+        else None
+    )
+    financial_same_physical_mask = (
+        torch.zeros((b, n, n), dtype=torch.bool, device=device)
+        if config.financial_structure_mode == "typed_hierarchy_v1"
+        else None
+    )
     semantic_positions: list[tuple[int, int]] = []
     semantic_texts: list[str] = []
+    slot_semantic_positions: list[tuple[int, int]] = []
+    slot_semantic_texts: list[str] = []
     for row, example in enumerate(examples):
         if len(example.candidates) > n:
             raise DocumentHRMError(
                 f"Example {example.example_id} has {len(example.candidates)} candidates; max={n}"
             )
-        operation_targets[row] = OPERATION_TO_ID[example.program.operation]
+        example.program.validate(len(example.candidates))
+        if len(example.program.operands) > operand_width:
+            raise DocumentHRMError(
+                f"Example {example.example_id} has "
+                f"{len(example.program.operands)} operands; max={operand_width}"
+            )
+        sum_family = (
+            config.variable_sum_mode == "sum_n_v1"
+            and is_sum_operation(example.program.operation)
+        )
+        if (
+            example.program.operation == SUM_N_OPERATION
+            and config.variable_sum_mode != "sum_n_v1"
+        ):
+            raise DocumentHRMError(
+                "SUM_N examples require variable_sum_mode=sum_n_v1"
+            )
+        operation_targets[row] = OPERATION_TO_ID[
+            "ADD" if sum_family else example.program.operation
+        ]
+        if sum_family:
+            sum_family_targets[row] = True
+            operand_count_targets[row] = len(example.program.operands) - 2
+        plan = plans[row]
+        semantic_gold_operands = _supervision_gold_operand_indices(example)
+        for slot, pointer in enumerate(semantic_gold_operands):
+            semantic_pointer_targets[row, slot] = pointer
+            semantic_slot_declared[row, slot] = bool(
+                plan is not None and slot < len(plan.operand_slots)
+            )
+        if config.input_encoder_mode == "semantic":
+            for slot in range(len(example.program.operands)):
+                slot_semantic_positions.append((row, slot))
+                slot_semantic_texts.append(
+                    _slot_semantic_text(
+                        example.question,
+                        plan,
+                        slot,
+                        template_version=(
+                            config.semantic_text_template_version
+                        ),
+                    )
+                )
+        if (
+            plan is not None
+            and config.financial_structure_mode == "typed_hierarchy_v1"
+        ):
+            financial_matrices = build_financial_feature_matrices(
+                plan,
+                example.candidates,
+                slot_count=operand_width,
+            )
+            same_physical = torch.tensor(
+                financial_matrices.same_physical_mask,
+                dtype=torch.bool,
+                device=device,
+            )
+            assert financial_same_physical_mask is not None
+            assert financial_candidate_feature_tensor is not None
+            assert financial_slot_feature_tensor is not None
+            assert financial_slot_mismatch_mask is not None
+            candidate_count = len(example.candidates)
+            if candidate_count:
+                financial_candidate_feature_tensor[
+                    row, :candidate_count
+                ] = torch.tensor(
+                    financial_matrices.candidate_features,
+                    dtype=torch.float32,
+                    device=device,
+                )
+                financial_slot_feature_tensor[
+                    row, :, :candidate_count
+                ] = torch.tensor(
+                    financial_matrices.slot_features,
+                    dtype=torch.float32,
+                    device=device,
+                )
+                financial_slot_mismatch_mask[
+                    row, :, :candidate_count
+                ] = torch.tensor(
+                    financial_matrices.slot_mismatch_mask,
+                    dtype=torch.bool,
+                    device=device,
+                )
+            financial_same_physical_mask[
+                row, :candidate_count, :candidate_count
+            ] = same_physical
+            pair_structural_negatives[
+                row, :candidate_count, :candidate_count
+            ] |= same_physical
+            for left_slot, right_slot in combinations(
+                range(len(example.program.operands)), 2
+            ):
+                left = example.program.operands[left_slot]
+                right = example.program.operands[right_slot]
+                if bool(same_physical[left, right].item()):
+                    raise DocumentHRMError(
+                        f"Example {example.example_id} reuses one physical "
+                        "evidence cell for multiple operands"
+                    )
         if include_verifier_negatives:
             verifier_unary, verifier_pairs, _ = (
-                _verifier_guided_invalid_masks(example)
+                _verifier_guided_invalid_masks(
+                    example, operand_width=operand_width
+                )
             )
             verifier_unary_invalid_negatives[
                 row, :, : len(example.candidates)
@@ -2150,7 +3347,9 @@ def encode_examples(
                     device=device,
                 )
             )
-        explicit_unary, explicit_pairs = _structured_negative_indices(example)
+        explicit_unary, explicit_pairs = _structured_negative_indices(
+            example, operand_width=operand_width
+        )
         for slot, candidate_indices in enumerate(explicit_unary):
             if candidate_indices:
                 unary_structural_negatives[row, slot, list(candidate_indices)] = True
@@ -2163,6 +3362,9 @@ def encode_examples(
                     _candidate_semantic_text(
                         candidate,
                         mode=config.candidate_semantic_mode,
+                        template_version=(
+                            config.semantic_text_template_version
+                        ),
                     ),
                     t,
                 )
@@ -2174,41 +3376,88 @@ def encode_examples(
                     _candidate_semantic_text(
                         candidate,
                         mode=config.candidate_semantic_mode,
+                        template_version=(
+                            config.semantic_text_template_version
+                        ),
                     )
                 )
-            numeric_features[row, column] = torch.tensor(
-                _numeric_features(
-                    candidate,
-                    column,
-                    n,
-                    question=example.question,
-                    candidates=example.candidates,
-                    feature_size=config.numeric_feature_size,
-                ),
-                device=device,
+            numeric_values = _numeric_features(
+                candidate,
+                column,
+                n,
+                question=example.question,
+                candidates=example.candidates,
+                feature_size=config.numeric_feature_size,
             )
+            if (
+                plan is not None
+                and config.financial_structure_mode
+                == "typed_hierarchy_v1"
+                and len(numeric_values) > 5
+            ):
+                # Candidate order is a retrieval implementation detail, not a
+                # financial relation.  V13 uses provenance edges instead.
+                numeric_values[5] = 0.0
+            numeric_features[row, column] = torch.tensor(
+                numeric_values, device=device
+            )
+            if (
+                plan is not None
+                and config.financial_structure_mode
+                == "typed_hierarchy_v1"
+            ):
+                assert financial_slot_mismatch_mask is not None
+                for slot in range(operand_width):
+                    if (
+                        bool(
+                            financial_slot_mismatch_mask[
+                                row, slot, column
+                            ].item()
+                        )
+                        and slot < len(example.program.operands)
+                        and column != example.program.operands[slot]
+                    ):
+                        unary_structural_negatives[row, slot, column] = True
             candidate_mask[row, column] = 1.0
         if pair_features is not None:
             for left_index, left_candidate in enumerate(example.candidates):
                 for right_index, right_candidate in enumerate(example.candidates):
+                    pair_values = _candidate_pair_features(
+                        left_candidate,
+                        right_candidate,
+                        left_index,
+                        right_index,
+                    )
+                    if (
+                        plan is not None
+                        and config.financial_structure_mode
+                        == "typed_hierarchy_v1"
+                    ):
+                        pair_values[9] = 0.0
                     pair_features[row, left_index, right_index] = torch.tensor(
-                        _candidate_pair_features(
-                            left_candidate,
-                            right_candidate,
-                            left_index,
-                            right_index,
-                        ),
-                        device=device,
+                        pair_values, device=device
                     )
     if semantic_texts:
         assert semantic_encoder is not None and candidate_semantic is not None
-        vectors = torch.from_numpy(semantic_encoder.encode(semantic_texts)).to(device)
+        vectors = torch.from_numpy(
+            semantic_encoder.encode(semantic_texts, role="evidence")
+        ).to(device)
         for index, (row, column) in enumerate(semantic_positions):
             candidate_semantic[row, column] = vectors[index]
             if config.numeric_feature_size > 17 and question_semantic is not None:
                 numeric_features[row, column, 17] = torch.dot(
                     question_semantic[row], vectors[index]
                 )
+    if slot_semantic_texts:
+        assert semantic_encoder is not None and slot_semantic is not None
+        slot_vectors = torch.from_numpy(
+            semantic_encoder.encode(
+                slot_semantic_texts,
+                role="query",
+            )
+        ).to(device)
+        for index, (row, slot) in enumerate(slot_semantic_positions):
+            slot_semantic[row, slot] = slot_vectors[index]
     return EncodedBatch(
         question_ids=question_ids,
         question_mask=question_mask,
@@ -2219,8 +3468,13 @@ def encode_examples(
         candidate_mask=candidate_mask,
         question_semantic=question_semantic,
         candidate_semantic=candidate_semantic,
+        slot_semantic=slot_semantic,
         operation_targets=operation_targets,
         pointer_targets=pointer_targets,
+        semantic_pointer_targets=semantic_pointer_targets,
+        semantic_slot_declared=semantic_slot_declared,
+        operand_count_targets=operand_count_targets,
+        sum_family_targets=sum_family_targets,
         pair_features=pair_features,
         unary_structural_negatives=unary_structural_negatives,
         pair_structural_negatives=pair_structural_negatives,
@@ -2230,6 +3484,10 @@ def encode_examples(
         verifier_pair_invalid_negatives=(
             verifier_pair_invalid_negatives
         ),
+        financial_candidate_features=financial_candidate_feature_tensor,
+        financial_slot_features=financial_slot_feature_tensor,
+        financial_slot_mismatch_mask=financial_slot_mismatch_mask,
+        financial_same_physical_mask=financial_same_physical_mask,
     )
 
 
@@ -2265,7 +3523,12 @@ def encode_inference_batch(
         candidate_mask=encoded.candidate_mask,
         question_semantic=encoded.question_semantic,
         candidate_semantic=encoded.candidate_semantic,
+        slot_semantic=encoded.slot_semantic,
         pair_features=encoded.pair_features,
+        financial_candidate_features=encoded.financial_candidate_features,
+        financial_slot_features=encoded.financial_slot_features,
+        financial_slot_mismatch_mask=encoded.financial_slot_mismatch_mask,
+        financial_same_physical_mask=encoded.financial_same_physical_mask,
     )
 
 
@@ -2273,23 +3536,149 @@ def _load_compatible_training_bundle(
     checkpoint: str | Path,
     config: DocumentHRMConfig,
     device: str | torch.device,
+    *,
+    initialization_mode: str = "exact",
 ) -> DocumentHRMBundle:
-    bundle = DocumentHRMBundle.load(checkpoint, device=device)
-    if bundle.pointer_bundle is not None or bundle.pointer_secondary_bundle is not None:
+    if initialization_mode not in {"exact", "compatible_backbone"}:
+        raise DocumentHRMError(
+            "initialization_mode must be exact or compatible_backbone"
+        )
+    source_path = Path(checkpoint).expanduser().resolve()
+    source_sha256 = _sha256_file(source_path)
+
+    # Loading a checkpoint constructs its source architecture before restoring
+    # weights. Preserve RNG state so compatible initialization gives every new
+    # target-only parameter the same initialization as a scratch model with the
+    # same seed.
+    cpu_rng_state = torch.random.get_rng_state()
+    cuda_rng_states = (
+        torch.cuda.get_rng_state_all() if torch.cuda.is_available() else None
+    )
+    source = DocumentHRMBundle.load(source_path, device=device)
+    if initialization_mode == "compatible_backbone":
+        torch.random.set_rng_state(cpu_rng_state)
+        if cuda_rng_states is not None:
+            torch.cuda.set_rng_state_all(cuda_rng_states)
+
+    if source.pointer_bundle is not None or source.pointer_secondary_bundle is not None:
         raise DocumentHRMError(
             "initialize_from must reference a single compatible HRM checkpoint"
         )
-    if bundle.model.config != config:
+    source_config = asdict(source.model.config)
+    target_config = asdict(config)
+    if initialization_mode == "exact":
         changed = [
             name
-            for name, value in asdict(config).items()
-            if asdict(bundle.model.config).get(name) != value
+            for name, value in target_config.items()
+            if name != "seed" and source_config.get(name) != value
         ]
-        raise DocumentHRMError(
-            "initialize_from architecture/config mismatch: "
-            + ", ".join(changed[:8])
-        )
-    return bundle
+        if changed:
+            raise DocumentHRMError(
+                "initialize_from architecture/config mismatch: "
+                + ", ".join(changed[:8])
+            )
+        # Seed controls the new training run, not checkpoint tensor shapes.
+        source.model.config = config
+        source.metadata = dict(source.metadata)
+        source.metadata["_training_initialization_manifest"] = {
+            "mode": "exact",
+            "source_checkpoint": str(source_path),
+            "source_checkpoint_sha256": source_sha256,
+            "copied_state_keys": len(source.model.state_dict()),
+            "target_state_keys": len(source.model.state_dict()),
+            "missing_target_keys": [],
+            "shape_mismatch_keys": [],
+            "unused_source_keys": [],
+        }
+        return source
+
+    target_model = DocumentHierarchicalReasoningModel(config).to(device)
+    source_state = source.model.state_dict()
+    target_state = target_model.state_dict()
+    copied_keys: list[str] = []
+    prefix_expanded_keys: list[str] = []
+    missing_keys: list[str] = []
+    shape_mismatches: list[dict[str, object]] = []
+    copied_numel = 0
+    for name, target_tensor in target_state.items():
+        source_tensor = source_state.get(name)
+        if source_tensor is None:
+            missing_keys.append(name)
+            continue
+        if source_tensor.shape != target_tensor.shape:
+            prefix_safe = name in {
+                "pointer_relevance_scale",
+                "pointer_slot_embedding.weight",
+                "financial_slot_embedding.weight",
+                "financial_slot_scales",
+            }
+            prefix_compatible = (
+                prefix_safe
+                and source_tensor.ndim == target_tensor.ndim
+                and source_tensor.shape[0] < target_tensor.shape[0]
+                and source_tensor.shape[1:] == target_tensor.shape[1:]
+            )
+            if prefix_compatible:
+                expanded = target_tensor.detach().clone()
+                expanded[: source_tensor.shape[0]] = source_tensor.detach()
+                target_state[name] = expanded
+                copied_keys.append(name)
+                prefix_expanded_keys.append(name)
+                copied_numel += source_tensor.numel()
+                continue
+            shape_mismatches.append(
+                {
+                    "name": name,
+                    "source_shape": list(source_tensor.shape),
+                    "target_shape": list(target_tensor.shape),
+                }
+            )
+            continue
+        target_state[name] = source_tensor.detach().clone()
+        copied_keys.append(name)
+        copied_numel += source_tensor.numel()
+    target_model.load_state_dict(target_state, strict=True)
+
+    unused_source_keys = sorted(set(source_state) - set(target_state))
+    target_numel = sum(tensor.numel() for tensor in target_state.values())
+    manifest: dict[str, object] = {
+        "mode": "compatible_backbone",
+        "copy_rule": "state_dict_name_and_shape_match",
+        "source_checkpoint": str(source_path),
+        "source_checkpoint_sha256": source_sha256,
+        "source_schema_version": source.metadata.get("checkpoint_schema_version"),
+        "copied_state_keys": len(copied_keys),
+        "target_state_keys": len(target_state),
+        "copied_numel": copied_numel,
+        "target_numel": target_numel,
+        "copied_fraction": copied_numel / max(1, target_numel),
+        "copied_keys": sorted(copied_keys),
+        "prefix_expanded_keys": sorted(prefix_expanded_keys),
+        "missing_target_keys": sorted(missing_keys),
+        "shape_mismatch_keys": shape_mismatches,
+        "unused_source_keys": unused_source_keys,
+    }
+    same_semantic_encoder = (
+        config.input_encoder_mode == "semantic"
+        and source.model.config.input_encoder_mode == "semantic"
+        and _semantic_encoder_spec_from_config(config)
+        == _semantic_encoder_spec_from_config(source.model.config)
+    )
+    same_hash_tokenizer = (
+        config.input_encoder_mode == "hash"
+        and source.model.config.input_encoder_mode == "hash"
+        and config.vocab_size == source.model.config.vocab_size
+    )
+    metadata = dict(source.metadata)
+    metadata["_training_initialization_manifest"] = manifest
+    return DocumentHRMBundle(
+        target_model,
+        tokenizer=source.tokenizer if same_hash_tokenizer else None,
+        metadata=metadata,
+        semantic_encoder=(
+            source.semantic_encoder if same_semantic_encoder else None
+        ),
+    )
 
 
 def _configure_pair_training_stage(
@@ -2341,6 +3730,66 @@ def _configure_pointer_heads_only_training(
         )
     for name, parameter in model.named_parameters():
         parameter.requires_grad_(_is_pointer_head_parameter(name))
+
+
+def _is_retrieval_training_parameter(name: str) -> bool:
+    return name.startswith(
+        (
+            "semantic_adapter_",
+            "pointer_",
+            "pair_",
+            "sum_",
+            "financial_",
+        )
+    )
+
+
+def _configure_retrieval_heads_only_training(
+    model: DocumentHierarchicalReasoningModel,
+) -> None:
+    selected = [
+        name
+        for name, _parameter in model.named_parameters()
+        if _is_retrieval_training_parameter(name)
+    ]
+    required_prefixes = (
+        "semantic_adapter_",
+        "pointer_",
+        "sum_operand_count_head.",
+        "sum_membership_query.",
+        "financial_slot_",
+    )
+    missing = [
+        prefix
+        for prefix in required_prefixes
+        if not any(name.startswith(prefix) for name in selected)
+    ]
+    if missing:
+        raise DocumentHRMError(
+            "retrieval-heads-only architecture is incomplete: "
+            + ", ".join(missing)
+        )
+    for name, parameter in model.named_parameters():
+        parameter.requires_grad_(_is_retrieval_training_parameter(name))
+
+
+def _build_retrieval_heads_only_optimizer(
+    model: DocumentHierarchicalReasoningModel,
+    *,
+    learning_rate: float,
+) -> torch.optim.Optimizer:
+    parameters = [
+        parameter
+        for parameter in model.parameters()
+        if parameter.requires_grad
+    ]
+    if not parameters:
+        raise DocumentHRMError(
+            "retrieval-heads-only training has no trainable parameters"
+        )
+    return torch.optim.AdamW(
+        parameters, lr=learning_rate, weight_decay=2e-4
+    )
 
 
 def _configure_unary_pointer_training_stage(
@@ -2540,11 +3989,14 @@ def train_document_hrm(
     learning_rate: float = 1.5e-3,
     validation_fraction: float = 0.15,
     validation_example_ids: set[str] | None = None,
+    validation_dataset_path: str | Path | None = None,
     allow_synthetic_validation: bool = False,
     synthetic_fraction: float = 1.0,
     select_best_epoch: bool = False,
     initialize_from: str | Path | None = None,
+    initialization_mode: str = "exact",
     pointer_heads_only: bool = False,
+    retrieval_heads_only: bool = False,
     pair_head_only_epochs: int = 0,
     pointer_head_only_epochs: int = 0,
     pointer_targeted_negative_weight: float = 0.0,
@@ -2554,6 +4006,9 @@ def train_document_hrm(
     add_oversample_factor: float = 1.0,
     add_select_contrastive_weight: float = 0.0,
     add_select_contrastive_margin: float = 0.75,
+    semantic_contrastive_weight: float = 0.0,
+    semantic_contrastive_temperature: float = 0.07,
+    semantic_contrastive_margin: float = 0.20,
     backbone_learning_rate: float | None = None,
     freeze_operation_head: bool = False,
     freeze_pair_head: bool = False,
@@ -2561,10 +4016,34 @@ def train_document_hrm(
     select_pointer_only: bool = False,
     abstention_target_precision: float = 0.80,
     abstention_stability_errors: int = DEFAULT_ABSTENTION_STABILITY_ERRORS,
+    best_training_state_path: str | Path | None = None,
+    last_training_state_path: str | Path | None = None,
+    resume_training_state_path: str | Path | None = None,
     device: str | torch.device = "cpu",
 ) -> tuple[DocumentHRMBundle, DocumentHRMTrainingReport]:
     config = config or DocumentHRMConfig()
     config.validate()
+    if initialization_mode not in {"exact", "compatible_backbone"}:
+        raise DocumentHRMError(
+            "initialization_mode must be exact or compatible_backbone"
+        )
+    if initialization_mode != "exact" and initialize_from is None:
+        raise DocumentHRMError(
+            "compatible_backbone initialization requires initialize_from"
+        )
+    if resume_training_state_path is not None and initialize_from is not None:
+        raise DocumentHRMError(
+            "resume_training_state_path and initialize_from are mutually exclusive"
+        )
+    if best_training_state_path is not None and not select_best_epoch:
+        raise DocumentHRMError(
+            "best_training_state_path requires select_best_epoch"
+        )
+
+    if validation_dataset_path is not None and validation_example_ids is not None:
+        raise DocumentHRMError(
+            "validation_dataset_path and validation_example_ids are mutually exclusive"
+        )
     if epochs < 1 or batch_size < 1:
         raise DocumentHRMError("epochs and batch_size must be positive")
     if not 0.0 <= synthetic_fraction <= 1.0:
@@ -2594,6 +4073,34 @@ def train_document_hrm(
     ):
         raise DocumentHRMError(
             "pointer-heads-only training cannot use another freeze/head-only mode"
+        )
+    if retrieval_heads_only and (
+        pointer_heads_only
+        or pair_head_only_epochs
+        or pointer_head_only_epochs
+        or select_pointer_only
+        or freeze_pair_head
+    ):
+        raise DocumentHRMError(
+            "retrieval-heads-only training cannot use another head-only mode"
+        )
+    if retrieval_heads_only and initialize_from is None:
+        raise DocumentHRMError(
+            "retrieval-heads-only training requires initialize_from"
+        )
+    if (
+        retrieval_heads_only
+        and config.semantic_adapter_mode != "layernorm_linear_l2_v1"
+    ):
+        raise DocumentHRMError(
+            "retrieval-heads-only training requires the semantic adapter"
+        )
+    if retrieval_heads_only and (
+        config.variable_sum_mode != "sum_n_v1"
+        or config.financial_structure_mode != "typed_hierarchy_v1"
+    ):
+        raise DocumentHRMError(
+            "retrieval-heads-only training requires SUM_N and typed hierarchy"
         )
     if pointer_heads_only and initialize_from is None:
         raise DocumentHRMError(
@@ -2670,18 +4177,112 @@ def train_document_hrm(
         raise DocumentHRMError(
             "add_select_contrastive_margin must be non-negative"
         )
+    if semantic_contrastive_weight < 0:
+        raise DocumentHRMError(
+            "semantic_contrastive_weight must be non-negative"
+        )
+    if semantic_contrastive_temperature <= 0:
+        raise DocumentHRMError(
+            "semantic_contrastive_temperature must be positive"
+        )
+    if semantic_contrastive_margin < 0:
+        raise DocumentHRMError(
+            "semantic_contrastive_margin must be non-negative"
+        )
+    if (
+        semantic_contrastive_weight > 0
+        and config.semantic_adapter_mode != "layernorm_linear_l2_v1"
+    ):
+        raise DocumentHRMError(
+            "semantic contrastive loss requires a trainable semantic adapter"
+        )
     if preserve_initial_threshold and initialize_from is None:
         raise DocumentHRMError(
             "preserve_initial_threshold requires initialize_from"
         )
-    examples = load_program_examples(dataset_path)
+    if preserve_initial_threshold and initialization_mode != "exact":
+        raise DocumentHRMError(
+            "preserve_initial_threshold requires exact initialization"
+        )
+    training_source_path = _reject_protected_training_input(
+        dataset_path, role="training data"
+    )
+    validation_source_path = (
+        _reject_protected_training_input(
+            validation_dataset_path, role="validation data"
+        )
+        if validation_dataset_path is not None
+        else None
+    )
+    best_training_state_destination = (
+        Path(best_training_state_path).expanduser().resolve()
+        if best_training_state_path is not None
+        else None
+    )
+    last_training_state_destination = (
+        Path(last_training_state_path).expanduser().resolve()
+        if last_training_state_path is not None
+        else None
+    )
+    resume_training_state_source = (
+        Path(resume_training_state_path).expanduser().resolve()
+        if resume_training_state_path is not None
+        else None
+    )
+    if (
+        best_training_state_destination is not None
+        and best_training_state_destination == last_training_state_destination
+    ):
+        raise DocumentHRMError(
+            "best and last training-state paths must be different"
+        )
+    protected_state_targets = {
+        training_source_path,
+        *(
+            (validation_source_path,)
+            if validation_source_path is not None
+            else ()
+        ),
+        *(
+            (Path(initialize_from).expanduser().resolve(),)
+            if initialize_from is not None
+            else ()
+        ),
+    }
+    for destination in (
+        best_training_state_destination,
+        last_training_state_destination,
+    ):
+        if destination is not None and destination in protected_state_targets:
+            raise DocumentHRMError(
+                "Training-state output overlaps an input artifact"
+            )
+        if (
+            destination is not None
+            and destination.exists()
+            and resume_training_state_source is None
+        ):
+            raise DocumentHRMError(
+                f"Training-state output already exists: {destination}"
+            )
+
+
+
+    examples = load_program_examples(training_source_path)
     if len(examples) < 50:
         raise DocumentHRMError("At least 50 induced program examples are required")
     if str(device).startswith("cpu") and torch.get_num_threads() > 4:
         torch.set_num_threads(4)
     random.seed(config.seed)
     torch.manual_seed(config.seed)
-    if validation_example_ids:
+    if validation_source_path is not None:
+        train_examples = list(examples)
+        validation_examples = load_program_examples(validation_source_path)
+        split_rng = random.Random(config.seed)
+        split_rng.shuffle(train_examples)
+        split_rng.shuffle(validation_examples)
+        validation_split_name = "explicit-company-disjoint-dataset"
+    elif validation_example_ids:
         train_examples, validation_examples = _split_from_validation_ids(
             examples,
             validation_example_ids,
@@ -2698,11 +4299,17 @@ def train_document_hrm(
             examples, validation_fraction, config.seed
         )
         validation_split_name = "company-grouped-balanced-real-only"
+    _validate_training_split_boundaries(train_examples, validation_examples)
     real_train = [example for example in train_examples if not _is_synthetic(example)]
     synthetic_train = [example for example in train_examples if _is_synthetic(example)]
     synthetic_per_epoch = round(len(synthetic_train) * synthetic_fraction)
     initial_bundle = (
-        _load_compatible_training_bundle(initialize_from, config, device)
+        _load_compatible_training_bundle(
+            initialize_from,
+            config,
+            device,
+            initialization_mode=initialization_mode,
+        )
         if initialize_from is not None
         else None
     )
@@ -2718,15 +4325,16 @@ def train_document_hrm(
         if initial_bundle is not None
         else SemanticEmbeddingCache(
             config.semantic_model_name,
-            config.semantic_embedding_size,
+            config.semantic_encoder_size,
             DEFAULT_SEMANTIC_CACHE_DIR,
+            spec=_semantic_encoder_spec_from_config(config),
         )
         if config.input_encoder_mode == "semantic"
         else None
     )
     if semantic_encoder is not None:
         semantic_encoder.warm_examples(
-            examples,
+            [*train_examples, *validation_examples],
             batch_size=batch_size,
             candidate_semantic_mode=config.candidate_semantic_mode,
         )
@@ -2736,7 +4344,12 @@ def train_document_hrm(
         else DocumentHierarchicalReasoningModel(config).to(device)
     )
     counts = Counter(
-        example.program.operation
+        (
+            "ADD"
+            if config.variable_sum_mode == "sum_n_v1"
+            and is_sum_operation(example.program.operation)
+            else example.program.operation
+        )
         for example in [
             *synthetic_train[:synthetic_per_epoch],
             *real_train,
@@ -2751,7 +4364,13 @@ def train_document_hrm(
     )
     operation_weights = operation_weights / operation_weights.mean()
     unary_pointer_schedule = bool(pointer_head_only_epochs or freeze_pair_head)
-    if pointer_heads_only:
+    if retrieval_heads_only:
+        _configure_retrieval_heads_only_training(model)
+        optimizer = _build_retrieval_heads_only_optimizer(
+            model,
+            learning_rate=learning_rate,
+        )
+    elif pointer_heads_only:
         _configure_pointer_heads_only_training(model)
         optimizer = _build_pointer_heads_only_optimizer(
             model,
@@ -2786,6 +4405,13 @@ def train_document_hrm(
     )
 
     def selection_score(metrics: dict[str, float]) -> tuple[float, float, float, float]:
+        if retrieval_heads_only:
+            return (
+                metrics["gold_operation_conditioned_candidate_recall_at_20"],
+                metrics["gold_operation_conditioned_candidate_recall_at_10"],
+                metrics["gold_operation_conditioned_full_coverage_at_20"],
+                metrics["gold_operation_conditioned_full_coverage_at_10"],
+            )
         if verifier_guided_training:
             return _common_operation_selection_score(metrics)
         return (
@@ -2794,12 +4420,174 @@ def train_document_hrm(
             metrics["program_exact_accuracy"],
             metrics["operation_macro_f1"],
         )
+    training_contract = {
+        "schema": "document-hrm-training-contract-v1",
+        "runtime": {
+            "document_hrm_sha256": _sha256_file(Path(__file__).resolve()),
+            "training_state_sha256": _sha256_file(
+                Path(__file__).resolve().with_name("training_state.py")
+            ),
+        },
+        "config": asdict(config),
+        "data": {
+            "training_path": str(training_source_path),
+            "training_sha256": _sha256_file(training_source_path),
+            "validation_path": (
+                str(validation_source_path)
+                if validation_source_path is not None
+                else None
+            ),
+            "validation_sha256": (
+                _sha256_file(validation_source_path)
+                if validation_source_path is not None
+                else None
+            ),
+            "validation_example_ids": (
+                sorted(validation_example_ids)
+                if validation_example_ids is not None
+                else None
+            ),
+        },
+        "training": {
+            "epochs": epochs,
+            "batch_size": batch_size,
+            "learning_rate": learning_rate,
+            "validation_fraction": validation_fraction,
+            "allow_synthetic_validation": allow_synthetic_validation,
+            "synthetic_fraction": synthetic_fraction,
+            "select_best_epoch": select_best_epoch,
+            "initialization_mode": (
+                initialization_mode if initialize_from is not None else "random"
+            ),
+            "initialize_from_sha256": (
+                _sha256_file(Path(initialize_from).expanduser().resolve())
+                if initialize_from is not None
+                else None
+            ),
+            "pointer_heads_only": pointer_heads_only,
+            "retrieval_heads_only": retrieval_heads_only,
+            "pair_head_only_epochs": pair_head_only_epochs,
+            "pointer_head_only_epochs": pointer_head_only_epochs,
+            "pointer_targeted_negative_weight": pointer_targeted_negative_weight,
+            "verifier_guided_pair_weight": verifier_guided_pair_weight,
+            "verifier_guided_unary_weight": verifier_guided_unary_weight,
+            "verifier_guided_margin": verifier_guided_margin,
+            "add_oversample_factor": add_oversample_factor,
+            "add_select_contrastive_weight": add_select_contrastive_weight,
+            "add_select_contrastive_margin": add_select_contrastive_margin,
+            "semantic_contrastive_weight": semantic_contrastive_weight,
+            "semantic_contrastive_temperature": semantic_contrastive_temperature,
+            "semantic_contrastive_margin": semantic_contrastive_margin,
+            "backbone_learning_rate": backbone_learning_rate,
+            "freeze_operation_head": freeze_operation_head,
+            "freeze_pair_head": freeze_pair_head,
+            "preserve_initial_threshold": preserve_initial_threshold,
+            "select_pointer_only": select_pointer_only,
+            "abstention_target_precision": abstention_target_precision,
+            "abstention_stability_errors": abstention_stability_errors,
+            "selection_metric_schema": (
+                "v14-logical-sum-family-selection-v1"
+                if config.variable_sum_mode == "sum_n_v1"
+                else "legacy-operation-label-selection-v1"
+            ),
+            "device_type": torch.device(device).type,
+            "optimizer_type": type(optimizer).__qualname__,
+            "optimizer_group_parameter_counts": [
+                len(group["params"]) for group in optimizer.param_groups
+            ],
+        },
+    }
+    training_contract_sha256 = canonical_payload_sha256(training_contract)
+    start_epoch = 0
+    resumed_training_state_sha256: str | None = None
+    if resume_training_state_source is not None:
+        resumed_training_state_sha256 = _sha256_file(
+            resume_training_state_source
+        )
+        try:
+            resume_payload = load_training_state(resume_training_state_source)
+        except TrainingStateError as exc:
+            raise DocumentHRMError(str(exc)) from exc
+        if (
+            resume_payload["training_contract_sha256"]
+            != training_contract_sha256
+        ):
+            raise DocumentHRMError(
+                "Resume training contract differs from the current run"
+            )
+        start_epoch = int(resume_payload["completed_epoch"])
+        if start_epoch > epochs:
+            raise DocumentHRMError(
+                "Resume state completed epoch exceeds requested epochs"
+            )
+        try:
+            model.load_state_dict(resume_payload["model_state_dict"])
+            optimizer.load_state_dict(resume_payload["optimizer_state_dict"])
+        except (KeyError, RuntimeError, ValueError) as exc:
+            raise DocumentHRMError(
+                "Resume model or optimizer state is incompatible"
+            ) from exc
+        restore_optimizer_state_device(optimizer, device)
+        raw_best_state = resume_payload.get("best_state_dict")
+        best_state = (
+            {
+                str(name): tensor.detach().cpu().clone()
+                for name, tensor in raw_best_state.items()
+            }
+            if isinstance(raw_best_state, dict)
+            else None
+        )
+        raw_best_score = resume_payload.get("best_score")
+        if not isinstance(raw_best_score, list) or len(raw_best_score) != 4:
+            raise DocumentHRMError("Resume state has an invalid best score")
+        best_score = tuple(float(value) for value in raw_best_score)
+        best_epoch = int(resume_payload["best_epoch"])
+        best_loss = float(resume_payload["best_loss"])
+        final_loss = float(resume_payload["final_loss"])
+        if select_best_epoch and best_state is None:
+            raise DocumentHRMError("Resume state is missing the best model")
+        random.setstate(
+            decode_python_random_state(resume_payload["python_random_state"])
+        )
+        rng.setstate(
+            decode_python_random_state(resume_payload["training_rng_state"])
+        )
+        torch.random.set_rng_state(resume_payload["torch_cpu_rng_state"])
+        raw_cuda_rng = resume_payload.get("torch_cuda_rng_states")
+        if torch.device(device).type == "cuda":
+            if not isinstance(raw_cuda_rng, list):
+                raise DocumentHRMError(
+                    "Resume state is missing CUDA RNG state"
+                )
+            torch.cuda.set_rng_state_all(raw_cuda_rng)
+        print(
+            f"Resumed training after epoch {start_epoch}/{epochs}: "
+            f"{resume_training_state_source}",
+            flush=True,
+        )
 
-    if select_best_epoch and initial_bundle is not None:
-        initial_metrics = evaluate_document_hrm(
-            initial_bundle,
-            validation_examples,
-            batch_size=batch_size,
+
+
+
+
+
+    if (
+        select_best_epoch
+        and initial_bundle is not None
+        and resume_training_state_source is None
+    ):
+        initial_metrics = (
+            evaluate_document_hrm_candidate_retrieval(
+                initial_bundle,
+                validation_examples,
+                batch_size=batch_size,
+            )
+            if retrieval_heads_only
+            else evaluate_document_hrm(
+                initial_bundle,
+                validation_examples,
+                batch_size=batch_size,
+            )
         )
         best_score = selection_score(initial_metrics)
         best_loss = 0.0
@@ -2807,15 +4595,31 @@ def train_document_hrm(
             name: tensor.detach().cpu().clone()
             for name, tensor in model.state_dict().items()
         }
+        if retrieval_heads_only:
+            print(
+                "Initialized epoch 0: "
+                f"gold_op_candidate@20={best_score[0]:.2%}, "
+                f"gold_op_candidate@10={best_score[1]:.2%}, "
+                f"full@20={best_score[2]:.2%}, "
+                f"full@10={best_score[3]:.2%}"
+            )
+        else:
+            print(
+                "Initialized epoch 0: "
+                f"execution={best_score[0]:.2%}, pair={best_score[1]:.2%}, "
+                f"program={best_score[2]:.2%}, macro_f1={best_score[3]:.2%}"
+            )
+    for _epoch in range(start_epoch, epochs):
         print(
-            "Initialized epoch 0: "
-            f"execution={best_score[0]:.2%}, pair={best_score[1]:.2%}, "
-            f"program={best_score[2]:.2%}, macro_f1={best_score[3]:.2%}"
+            f"Epoch {_epoch + 1}/{epochs}: training started",
+            flush=True,
         )
-    for _epoch in range(epochs):
+
         pair_head_only = _epoch < pair_head_only_epochs
         pointer_head_only = _epoch < pointer_head_only_epochs
-        if pointer_heads_only:
+        if retrieval_heads_only:
+            _configure_retrieval_heads_only_training(model)
+        elif pointer_heads_only:
             _configure_pointer_heads_only_training(model)
         elif select_pointer_only:
             _configure_select_pointer_training(model)
@@ -2832,7 +4636,9 @@ def train_document_hrm(
                 pair_head_only=pair_head_only,
                 freeze_operation_head=freeze_operation_head,
             )
-        if pointer_heads_only:
+        if retrieval_heads_only:
+            model.pair_backbone_detached = True
+        elif pointer_heads_only:
             model.pair_backbone_detached = True
         elif pointer_head_only:
             model.pair_backbone_detached = True
@@ -2842,7 +4648,9 @@ def train_document_hrm(
             model.pair_backbone_detached = (
                 _epoch < config.pair_backbone_warmup_epochs
             )
-        if pointer_heads_only:
+        if retrieval_heads_only:
+            pair_loss_scale = config.pair_loss_weight
+        elif pointer_heads_only:
             pair_loss_scale = config.pair_loss_weight
         elif select_pointer_only or unary_pointer_schedule:
             pair_loss_scale = 0.0
@@ -2913,6 +4721,10 @@ def train_document_hrm(
         model.train()
         running = 0.0
         updates = 0
+        epoch_batches = max(1, math.ceil(len(epoch_examples) / batch_size))
+        progress_every = max(1, math.ceil(epoch_batches / 20))
+
+
         for start in range(0, len(epoch_examples), batch_size):
             current = epoch_examples[start : start + batch_size]
             batch = encode_examples(
@@ -2926,6 +4738,16 @@ def train_document_hrm(
                     or verifier_guided_unary_weight > 0
                 ),
             )
+            semantic_loss = (
+                _semantic_adapter_contrastive_loss(
+                    model,
+                    batch,
+                    temperature=semantic_contrastive_temperature,
+                    hard_negative_margin=semantic_contrastive_margin,
+                )
+                if semantic_contrastive_weight > 0
+                else torch.zeros((), device=device)
+            )
             state: DocumentHRMState | None = None
             encoded: tuple[Tensor, Tensor] | None = None
             outputs: list[DocumentHRMForward] = []
@@ -2936,11 +4758,21 @@ def train_document_hrm(
 
             segment_losses: list[Tensor] = []
             for segment, output in enumerate(outputs):
-                operation_loss = F.cross_entropy(
+                assert batch.sum_family_targets is not None
+                assert batch.operand_count_targets is not None
+                operation_loss = _operation_training_loss(
                     output.operation_logits,
                     batch.operation_targets,
+                    batch.sum_family_targets,
                     weight=operation_weights,
                 )
+                if output.operand_count_logits is not None:
+                    count_valid = batch.operand_count_targets.ge(0)
+                    if count_valid.any():
+                        operation_loss = operation_loss + F.cross_entropy(
+                            output.operand_count_logits[count_valid],
+                            batch.operand_count_targets[count_valid],
+                        )
                 if add_select_contrastive_weight > 0:
                     operation_loss = operation_loss + (
                         add_select_contrastive_weight
@@ -2959,7 +4791,7 @@ def train_document_hrm(
                     dtype=torch.bool,
                     device=device,
                 )
-                for slot in range(MAX_OPERANDS):
+                for slot in range(config.max_program_operands):
                     valid = (
                         batch.pointer_targets[:, slot].ge(0)
                         & ~commutative_rows
@@ -3009,6 +4841,9 @@ def train_document_hrm(
                             batch.operation_targets,
                             batch.pointer_targets,
                             batch.candidate_mask,
+                            operand_count_targets=batch.operand_count_targets,
+                            sum_family_targets=batch.sum_family_targets,
+                            sum_membership_logits=output.sum_membership_logits,
                         )
                     )
                 pointer_loss = torch.stack(pointer_losses).mean()
@@ -3017,6 +4852,7 @@ def train_document_hrm(
                     pair_valid = (
                         batch.pointer_targets[:, 1].ge(0)
                         & _binary_operation_rows(batch.operation_targets)
+                        & ~batch.sum_family_targets
                     )
                     if pair_valid.any():
                         rows = torch.arange(
@@ -3081,23 +4917,40 @@ def train_document_hrm(
                                 )
                             )
 
-                predicted_operation = output.operation_logits.argmax(dim=-1)
+                predicted_operation = _operation_training_predictions(
+                    output.operation_logits,
+                    aggregate_sum_family=(
+                        config.variable_sum_mode == "sum_n_v1"
+                    ),
+                )
                 predicted_pointers = _training_pointer_predictions(
                     output,
                     batch.operation_targets,
                     batch.pointer_targets,
                     use_pair=config.pair_backbone_mode
                     in {"end_to_end", "normalized_end_to_end"},
+                    operand_count_targets=batch.operand_count_targets,
+                    sum_family_targets=batch.sum_family_targets,
                 )
                 operation_correct = predicted_operation.eq(batch.operation_targets)
                 pointer_correct = torch.ones_like(operation_correct)
-                for slot in range(MAX_OPERANDS):
+                for slot in range(config.max_program_operands):
                     valid = batch.pointer_targets[:, slot].ge(0)
                     pointer_correct = pointer_correct & (
                         ~valid
                         | predicted_pointers[:, slot].eq(batch.pointer_targets[:, slot])
                     )
-                exact_correct = (operation_correct & pointer_correct).float().detach()
+                count_correct = torch.ones_like(operation_correct)
+                if output.operand_count_logits is not None:
+                    count_valid = batch.operand_count_targets.ge(0)
+                    predicted_count = output.operand_count_logits.argmax(dim=-1)
+                    count_correct = (
+                        ~count_valid
+                        | predicted_count.eq(batch.operand_count_targets)
+                    )
+                exact_correct = (
+                    operation_correct & pointer_correct & count_correct
+                ).float().detach()
 
                 if config.act_mode == "q_learning":
                     # q_values are [halt, continue]. Q(halt) learns the immediate
@@ -3126,8 +4979,7 @@ def train_document_hrm(
                         halt_target = torch.zeros_like(halt_target)
                     q_loss = F.cross_entropy(output.q_values, halt_target)
 
-                segment_losses.append(
-                    _training_segment_loss(
+                segment_loss = _training_segment_loss(
                         operation_loss=operation_loss,
                         pointer_loss=pointer_loss,
                         pair_loss=pair_loss,
@@ -3135,6 +4987,12 @@ def train_document_hrm(
                         pair_loss_scale=pair_loss_scale,
                         pointer_heads_only=pointer_heads_only,
                     )
+                if semantic_contrastive_weight > 0:
+                    segment_loss = segment_loss + (
+                        semantic_contrastive_weight * semantic_loss
+                    )
+                segment_losses.append(
+                    segment_loss
                 )
             loss = _combine_segment_losses(segment_losses)
             optimizer.zero_grad(set_to_none=True)
@@ -3168,26 +5026,64 @@ def train_document_hrm(
             optimizer.step()
             running += float(loss.item())
             updates += 1
+            if (
+                updates == 1
+                or updates % progress_every == 0
+                or updates == epoch_batches
+            ):
+                print(
+                    f"Epoch {_epoch + 1}/{epochs}: batch {updates}/{epoch_batches}, "
+                    f"average_loss={running / updates:.5f}",
+                    flush=True,
+                )
         final_loss = running / max(1, updates)
+        improved = False
         if select_best_epoch:
             epoch_bundle = DocumentHRMBundle(
                 model,
                 tokenizer,
-                metadata={"confidence_schema": "grounded-constraints-v2"},
+                metadata={
+                    "confidence_schema": "grounded-constraints-v2",
+                    "evaluation_operation_schema": (
+                        "logical-sum-family-v1"
+                        if config.variable_sum_mode == "sum_n_v1"
+                        else "legacy-operation-label-v1"
+                    ),
+                },
                 semantic_encoder=semantic_encoder,
             )
-            epoch_metrics = evaluate_document_hrm(
-                epoch_bundle,
-                validation_examples,
-                batch_size=batch_size,
+            epoch_metrics = (
+                evaluate_document_hrm_candidate_retrieval(
+                    epoch_bundle,
+                    validation_examples,
+                    batch_size=batch_size,
+                )
+                if retrieval_heads_only
+                else evaluate_document_hrm(
+                    epoch_bundle,
+                    validation_examples,
+                    batch_size=batch_size,
+                )
             )
             epoch_score = selection_score(epoch_metrics)
-            print(
-                f"Epoch {_epoch + 1}/{epochs}: loss={final_loss:.5f}, "
-                f"execution={epoch_score[0]:.2%}, pair={epoch_score[1]:.2%}, "
-                f"program={epoch_score[2]:.2%}, macro_f1={epoch_score[3]:.2%}"
-            )
+            if retrieval_heads_only:
+                print(
+                    f"Epoch {_epoch + 1}/{epochs}: loss={final_loss:.5f}, "
+                    f"gold_op_candidate@20={epoch_score[0]:.2%}, "
+                    f"gold_op_candidate@10={epoch_score[1]:.2%}, "
+                    f"full@20={epoch_score[2]:.2%}, "
+                    f"full@10={epoch_score[3]:.2%}",
+                    flush=True,
+                )
+            else:
+                print(
+                    f"Epoch {_epoch + 1}/{epochs}: loss={final_loss:.5f}, "
+                    f"execution={epoch_score[0]:.2%}, pair={epoch_score[1]:.2%}, "
+                    f"program={epoch_score[2]:.2%}, macro_f1={epoch_score[3]:.2%}",
+                    flush=True,
+                )
             if epoch_score > best_score:
+                improved = True
                 best_score = epoch_score
                 best_epoch = _epoch + 1
                 best_loss = final_loss
@@ -3195,6 +5091,59 @@ def train_document_hrm(
                     name: tensor.detach().cpu().clone()
                     for name, tensor in model.state_dict().items()
                 }
+        if (
+            best_training_state_destination is not None
+            or last_training_state_destination is not None
+        ):
+            current_state = {
+                name: tensor.detach().cpu().clone()
+                for name, tensor in model.state_dict().items()
+            }
+            training_state_payload = {
+                "schema": TRAINING_STATE_SCHEMA,
+                "training_contract": training_contract,
+                "training_contract_sha256": training_contract_sha256,
+                "completed_epoch": _epoch + 1,
+                "model_state_dict": current_state,
+                "optimizer_state_dict": optimizer.state_dict(),
+                "best_state_dict": best_state,
+                "best_score": list(best_score),
+                "best_epoch": best_epoch,
+                "best_loss": best_loss,
+                "final_loss": final_loss,
+                "python_random_state": encode_python_random_state(
+                    random.getstate()
+                ),
+                "training_rng_state": encode_python_random_state(
+                    rng.getstate()
+                ),
+                "torch_cpu_rng_state": torch.random.get_rng_state().clone(),
+                "torch_cuda_rng_states": (
+                    [state.cpu() for state in torch.cuda.get_rng_state_all()]
+                    if torch.cuda.is_available()
+                    else None
+                ),
+            }
+            if improved and best_training_state_destination is not None:
+                atomic_save_training_state(
+                    training_state_payload,
+                    best_training_state_destination,
+                )
+                print(
+                    f"Saved best training state: {best_training_state_destination}",
+                    flush=True,
+                )
+            if last_training_state_destination is not None:
+                atomic_save_training_state(
+                    training_state_payload,
+                    last_training_state_destination,
+                )
+                print(
+                    f"Saved last training state: {last_training_state_destination}",
+                    flush=True,
+                )
+
+
 
     if select_best_epoch:
         if best_state is None:
@@ -3203,18 +5152,59 @@ def train_document_hrm(
             )
         model.load_state_dict(best_state)
         final_loss = best_loss
-        print(
-            f"Selected best epoch: {best_epoch}/{epochs} "
-            f"(execution={best_score[0]:.2%}, pair={best_score[1]:.2%}, "
-            f"program={best_score[2]:.2%}, macro_f1={best_score[3]:.2%})"
+        if retrieval_heads_only:
+            print(
+                f"Selected best epoch: {best_epoch}/{epochs} "
+                f"(gold_op_candidate@20={best_score[0]:.2%}, "
+                f"gold_op_candidate@10={best_score[1]:.2%}, "
+                f"full@20={best_score[2]:.2%}, "
+                f"full@10={best_score[3]:.2%})",
+                flush=True,
+            )
+        else:
+            print(
+                f"Selected best epoch: {best_epoch}/{epochs} "
+                f"(execution={best_score[0]:.2%}, pair={best_score[1]:.2%}, "
+                f"program={best_score[2]:.2%}, macro_f1={best_score[3]:.2%})",
+                flush=True,
+            )
+
+    initialization_manifest = (
+        initial_bundle.metadata.get("_training_initialization_manifest")
+        if initial_bundle is not None
+        else None
+    )
+    initialized_from_sha256: str | None = None
+    if initialize_from is not None:
+        initialized_from_sha256 = _sha256_file(
+            Path(initialize_from).expanduser().resolve()
         )
+        expected_source_sha256 = (
+            initialization_manifest.get("source_checkpoint_sha256")
+            if isinstance(initialization_manifest, dict)
+            else None
+        )
+        if (
+            isinstance(expected_source_sha256, str)
+            and initialized_from_sha256 != expected_source_sha256
+        ):
+            raise DocumentHRMError(
+                "initialize_from checkpoint changed during training"
+            )
 
     bundle = DocumentHRMBundle(
         model,
         tokenizer,
         metadata={
             "architecture": (
-                "source-grounded-semantic-HRM-v10-verifier-guided-joint-pair"
+                "source-grounded-financial-HRM-v14-variable-sum-typed-hierarchy-v1"
+                if (
+                    config.financial_structure_mode == "typed_hierarchy_v1"
+                    and config.variable_sum_mode == "sum_n_v1"
+                )
+                else "source-grounded-financial-HRM-v13-typed-hierarchy-v1"
+                if config.financial_structure_mode == "typed_hierarchy_v1"
+                else "source-grounded-semantic-HRM-v10-verifier-guided-joint-pair"
                 if verifier_guided_training
                 else "source-grounded-semantic-HRM-v9-structured-"
                 f"{config.pointer_conditioning_mode.replace('_', '-')}"
@@ -3248,10 +5238,21 @@ def train_document_hrm(
             ),
             "confidence_schema": "grounded-constraints-v2",
             "grounding_gate_schema": "structured-evidence-v1",
-            "training_dataset": str(Path(dataset_path).name),
-            "training_dataset_sha256": _sha256_file(Path(dataset_path)),
+            "training_dataset": training_source_path.name,
+            "training_dataset_path": str(training_source_path),
+            "training_dataset_sha256": _sha256_file(training_source_path),
             "training_examples": len(train_examples),
             "validation_examples": len(validation_examples),
+            "validation_dataset_path": (
+                str(validation_source_path)
+                if validation_source_path is not None
+                else None
+            ),
+            "validation_dataset_sha256": (
+                _sha256_file(validation_source_path)
+                if validation_source_path is not None
+                else None
+            ),
             "training_real_examples": len(real_train),
             "training_synthetic_examples": len(synthetic_train),
             "training_synthetic_examples_per_epoch": synthetic_per_epoch,
@@ -3259,18 +5260,77 @@ def train_document_hrm(
             "select_best_epoch": select_best_epoch,
             "selected_best_epoch": best_epoch if select_best_epoch else epochs,
             "validation_real_examples": len(validation_examples),
+            "validation_non_synthetic_examples": sum(
+                not _is_synthetic(example) for example in validation_examples
+            ),
             "validation_example_ids": [
                 example.example_id for example in validation_examples
             ],
             "validation_split": validation_split_name,
+            "training_seed": config.seed,
+            "training_state_schema": TRAINING_STATE_SCHEMA,
+            "best_training_state_path": (
+                str(best_training_state_destination)
+                if best_training_state_destination is not None
+                else None
+            ),
+            "last_training_state_path": (
+                str(last_training_state_destination)
+                if last_training_state_destination is not None
+                else None
+            ),
+            "resumed_training_state_path": (
+                str(resume_training_state_source)
+                if resume_training_state_source is not None
+                else None
+            ),
+            "resumed_training_state_sha256": resumed_training_state_sha256,
+            "resumed_after_epoch": start_epoch,
+            "training_contract_sha256": training_contract_sha256,
+            "training_epoch_checkpoint_policy": (
+                "atomic_best_on_strict_improvement_and_last_every_epoch"
+                if last_training_state_destination is not None
+                else "disabled"
+            ),
             "operations": list(OPERATIONS),
+            "logical_program_operations": (
+                list(_logical_evaluation_operations())
+                if config.variable_sum_mode == "sum_n_v1"
+                else list(OPERATIONS)
+            ),
+            # Metric semantics are part of the model/runtime contract. They
+            # must not be inferred from calibration metadata, which is only
+            # attached after epoch selection has already run.
+            "evaluation_operation_schema": (
+                "logical-sum-family-v1"
+                if config.variable_sum_mode == "sum_n_v1"
+                else "legacy-operation-label-v1"
+            ),
+            "variable_sum_mode": config.variable_sum_mode,
+            "max_program_operands": config.max_program_operands,
+            "sum_count_head_enabled": config.variable_sum_mode == "sum_n_v1",
+            "sum_shared_membership_head_enabled": (
+                config.variable_sum_mode == "sum_n_v1"
+            ),
             "uses_financial_formula_ontology": False,
             "uses_item_id_shortcut": False,
-            "reasoning_blocks": "H/L recurrent RoPE self-attention + RMSNorm + SwiGLU",
+            "reasoning_blocks": (
+                "H/L recurrent permutation-equivariant self-attention + "
+                "typed relation message passing + RMSNorm + SwiGLU"
+                if config.financial_structure_mode == "typed_hierarchy_v1"
+                else "H/L recurrent RoPE self-attention + RMSNorm + SwiGLU"
+            ),
             "one_step_gradient_approximation": True,
             "deep_supervision_segments": config.max_segments,
             "training_objective_schema": (
-                "verifier-guided-common-operation-pair-ranking-v1"
+                "v14-variable-sum-count-set-verifier-guided-v1"
+                if (
+                    config.variable_sum_mode == "sum_n_v1"
+                    and verifier_guided_training
+                )
+                else "v14-variable-sum-count-set-v1"
+                if config.variable_sum_mode == "sum_n_v1"
+                else "verifier-guided-common-operation-pair-ranking-v1"
                 if verifier_guided_pair_weight > 0
                 or verifier_guided_unary_weight > 0
                 else "late-weighted-deep-supervision-multi-operand-set-v1"
@@ -3281,8 +5341,49 @@ def train_document_hrm(
             "input_encoder_mode": config.input_encoder_mode,
             "semantic_model_name": config.semantic_model_name,
             "semantic_embedding_size": config.semantic_embedding_size,
+            "semantic_encoder_backend": config.semantic_encoder_backend,
+            "semantic_model_revision": config.semantic_model_revision,
+            "semantic_local_files_only": config.semantic_local_files_only,
+            "semantic_encoder_output_size": (
+                config.semantic_encoder_size
+            ),
+            "semantic_word_segmentation": (
+                config.semantic_word_segmentation
+            ),
+            "semantic_segmenter_version": (
+                config.semantic_segmenter_version
+            ),
+            "semantic_prefix_mode": config.semantic_prefix_mode,
+            "semantic_query_encoding_mode": (
+                config.semantic_query_encoding_mode
+            ),
+            "semantic_text_template_version": (
+                config.semantic_text_template_version
+            ),
+            "semantic_adapter_mode": config.semantic_adapter_mode,
+            "semantic_frontend_fingerprint": (
+                _semantic_encoder_spec_from_config(config).fingerprint()
+            ),
             "semantic_encoder_frozen": True,
+            "semantic_adapter_trainable": (
+                config.semantic_adapter_mode
+                == "layernorm_linear_l2_v1"
+            ),
             "candidate_semantic_mode": config.candidate_semantic_mode,
+            "financial_structure_mode": config.financial_structure_mode,
+            "financial_hierarchy_layers": config.financial_hierarchy_layers,
+            "financial_candidate_feature_size": FINANCIAL_CANDIDATE_FEATURE_SIZE,
+            "financial_slot_feature_size": FINANCIAL_SLOT_FEATURE_SIZE,
+            "financial_slot_feature_names": list(
+                FINANCIAL_SLOT_FEATURES
+            ),
+            "program_search_strategy": config.program_search_strategy,
+            "financial_same_physical_pair_mask": (
+                config.financial_structure_mode == "typed_hierarchy_v1"
+            ),
+            "candidate_position_shortcut_enabled": (
+                config.financial_structure_mode == "legacy"
+            ),
             "pointer_conditioning_mode": config.pointer_conditioning_mode,
             "pair_backbone_mode": config.pair_backbone_mode,
             "pair_backbone_warmup_epochs": config.pair_backbone_warmup_epochs,
@@ -3295,15 +5396,28 @@ def train_document_hrm(
                 else None
             ),
             "initialized_from_checkpoint_sha256": (
-                _sha256_file(Path(initialize_from).expanduser().resolve())
-                if initialize_from is not None
-                else None
+                initialized_from_sha256
             ),
+            "initialization_mode": (
+                initialization_mode
+                if initialize_from is not None
+                else "random"
+            ),
+            "initialization_manifest": initialization_manifest,
             "pair_head_only_epochs": pair_head_only_epochs,
             "pointer_head_only_epochs": pointer_head_only_epochs,
             "pointer_heads_only": pointer_heads_only,
-            "training_operation_loss_weight": 0.0 if pointer_heads_only else 1.0,
-            "training_q_loss_weight": 0.0 if pointer_heads_only else 0.20,
+            "retrieval_heads_only": retrieval_heads_only,
+            "training_operation_loss_weight": (
+                0.0
+                if pointer_heads_only or retrieval_heads_only
+                else 1.0
+            ),
+            "training_q_loss_weight": (
+                0.0
+                if pointer_heads_only or retrieval_heads_only
+                else 0.20
+            ),
             "training_pointer_loss_weight": 2.0,
             "training_pair_loss_weight": config.pair_loss_weight,
             "training_trainable_parameters": sum(
@@ -3315,13 +5429,15 @@ def train_document_hrm(
             "pair_head_learning_rate": learning_rate,
             "backbone_learning_rate": (
                 0.0
-                if pointer_heads_only
+                if pointer_heads_only or retrieval_heads_only
                 else backbone_learning_rate
                 if backbone_learning_rate is not None
                 else learning_rate
             ),
             "operation_head_frozen_during_training": (
-                freeze_operation_head or pointer_heads_only
+                freeze_operation_head
+                or pointer_heads_only
+                or retrieval_heads_only
             ),
             "pair_head_frozen_during_training": freeze_pair_head,
             "select_pointer_residual_only": select_pointer_only,
@@ -3352,9 +5468,24 @@ def train_document_hrm(
                 if verifier_guided_training
                 else list(OPERATIONS)
             ),
+            "model_selection_objective": (
+                "gold_operation_conditioned_candidate_recall_20_10_then_full_20_10"
+                if retrieval_heads_only
+                else "common_operation_execution_pointer_program_macro_f1"
+                if verifier_guided_training
+                else "execution_pointer_program_macro_f1"
+            ),
             "add_oversample_factor": add_oversample_factor,
             "add_select_contrastive_weight": add_select_contrastive_weight,
             "add_select_contrastive_margin": add_select_contrastive_margin,
+            "semantic_contrastive_weight": semantic_contrastive_weight,
+            "semantic_contrastive_temperature": (
+                semantic_contrastive_temperature
+            ),
+            "semantic_contrastive_margin": semantic_contrastive_margin,
+            "semantic_contrastive_gold_policy": (
+                "typed-slot-or-multi-positive-set-v1"
+            ),
             "pointer_teacher_forcing_schedule": (
                 "linear_to_zero"
                 if config.pointer_conditioning_mode
@@ -3370,6 +5501,7 @@ def train_document_hrm(
                 config.pointer_conditioning_mode == "joint_pair"
                 and (
                     pointer_heads_only
+                    or retrieval_heads_only
                     or config.pair_backbone_mode
                     in {"detached", "normalized_detached"}
                     or (
@@ -3381,8 +5513,9 @@ def train_document_hrm(
         },
         semantic_encoder=semantic_encoder,
     )
+    v14_policy_mode = config.variable_sum_mode == "sum_n_v1"
     minimum_threshold: float | None = None
-    if preserve_initial_threshold:
+    if preserve_initial_threshold and not v14_policy_mode:
         assert initial_bundle is not None
         raw_threshold = initial_bundle.metadata.get("abstention_threshold")
         if not isinstance(raw_threshold, (int, float)):
@@ -3390,7 +5523,47 @@ def train_document_hrm(
                 "initialize_from has no numeric abstention_threshold"
             )
         minimum_threshold = float(raw_threshold)
-    if pointer_heads_only:
+    if v14_policy_mode:
+        if pointer_heads_only:
+            assert initial_bundle is not None
+            raw_policies = initial_bundle.metadata.get(
+                "abstention_policies_by_operation"
+            )
+            if not isinstance(raw_policies, dict):
+                raise DocumentHRMError(
+                    "V14 pointer-head-only training requires initial "
+                    "abstention_policies_by_operation"
+                )
+            try:
+                policies_by_operation = {
+                    operation: CalibrationPolicy.from_dict(
+                        raw_policies[operation]
+                    )
+                    for operation in _logical_evaluation_operations()
+                }
+            except (KeyError, CalibrationPolicyError, TypeError) as exc:
+                raise DocumentHRMError(
+                    "Initial V14 calibration policies are incomplete or invalid"
+                ) from exc
+        else:
+            policies_by_operation = calibrate_operation_abstention_policies(
+                bundle,
+                validation_examples,
+                target_precision=abstention_target_precision,
+                batch_size=batch_size,
+            )
+        bundle.metadata.update(
+            {
+                "abstention_policies_by_operation": {
+                    operation: policy.to_dict()
+                    for operation, policy in policies_by_operation.items()
+                },
+                "abstention_calibration_mode": "v14-wilson-public-gate-v1",
+            }
+        )
+        threshold = 0.0
+        thresholds_by_operation: dict[str, float] = {}
+    elif pointer_heads_only:
         assert minimum_threshold is not None
         threshold = minimum_threshold
         raw_thresholds = (
@@ -3429,27 +5602,48 @@ def train_document_hrm(
             thresholds_by_operation.values(),
             default=minimum_threshold if minimum_threshold is not None else 1.0,
         )
-    bundle.metadata.update(
-        {
-            "abstention_threshold": float(threshold),
-            "abstention_thresholds_by_operation": thresholds_by_operation,
-            "abstention_calibration_mode": "validation-operation-dp-v1",
-        }
-    )
+    if not v14_policy_mode:
+        bundle.metadata.update(
+            {
+                "abstention_threshold": float(threshold),
+                "abstention_thresholds_by_operation": thresholds_by_operation,
+                "abstention_calibration_mode": "validation-operation-dp-v1",
+            }
+        )
     metrics = evaluate_document_hrm(
         bundle, validation_examples, batch_size=batch_size
     )
     accepted = round(metrics["accepted_count"])
     accepted_correct = round(metrics["accepted_execution_correct_count"])
     precision = metrics["accepted_execution_precision"]
-    target_met = accepted >= 5 and _precision_survives_errors(
-        accepted_correct,
-        accepted,
-        target_precision=abstention_target_precision,
-        stability_errors=abstention_stability_errors,
-    )
-    bundle.metadata.update(
-        {
+    if v14_policy_mode:
+        enabled_policies = tuple(
+            policy
+            for policy in policies_by_operation.values()
+            if policy.status is CalibrationStatus.CALIBRATED
+        )
+        aggregate_policy_accepted = sum(
+            policy.accepted for policy in enabled_policies
+        )
+        aggregate_policy_correct = sum(
+            policy.correct for policy in enabled_policies
+        )
+        aggregate_lower_bound = wilson_lower_bound(
+            aggregate_policy_correct,
+            aggregate_policy_accepted,
+        )
+        target_met = bool(enabled_policies) and all(
+            policy.lower_bound >= abstention_target_precision
+            for policy in enabled_policies
+        ) and aggregate_lower_bound >= abstention_target_precision
+    else:
+        target_met = accepted >= 5 and _precision_survives_errors(
+            accepted_correct,
+            accepted,
+            target_precision=abstention_target_precision,
+            stability_errors=abstention_stability_errors,
+        )
+    calibration_metadata: dict[str, object] = {
             "validation_operation_accuracy": round(metrics["operation_accuracy"], 6),
             "validation_program_exact_accuracy": round(
                 metrics["program_exact_accuracy"], 6
@@ -3458,14 +5652,25 @@ def train_document_hrm(
             "validation_pointer_pair_accuracy": round(metrics["pointer_pair_accuracy"], 6),
             "validation_pointer_slot_accuracy": [
                 round(metrics[f"pointer_slot_{slot + 1}_accuracy"], 6)
-                for slot in range(MAX_OPERANDS)
+                for slot in range(config.max_program_operands)
             ],
-            # This threshold is one of the observed confidence values. Rounding
-            # it can move the boundary above that sample, changing accepted
-            # coverage/precision after save + reload.
-            "abstention_threshold": float(threshold),
-            "abstention_thresholds_by_operation": thresholds_by_operation,
-            "abstention_calibration_mode": "validation-operation-dp-v1",
+            "validation_pointer_slot_support": [
+                int(metrics[f"pointer_slot_{slot + 1}_support"])
+                for slot in range(config.max_program_operands)
+            ],
+            "validation_pointer_slot_accuracy_defined": [
+                bool(metrics[f"pointer_slot_{slot + 1}_accuracy_defined"])
+                for slot in range(config.max_program_operands)
+            ],
+            "validation_proof_eligible_coverage": round(
+                metrics["proof_eligible_coverage"], 6
+            ),
+            "validation_proof_eligible_precision_defined": bool(
+                metrics["proof_eligible_precision_defined"]
+            ),
+            "abstention_validation_precision_defined": bool(
+                metrics["accepted_execution_precision_defined"]
+            ),
             "abstention_target_precision": abstention_target_precision,
             "abstention_validation_accepted": accepted,
             "abstention_validation_precision": round(precision, 6),
@@ -3474,8 +5679,59 @@ def train_document_hrm(
             "initial_threshold_preserved": preserve_initial_threshold,
             "initial_threshold_frozen": pointer_heads_only,
             "minimum_abstention_threshold": minimum_threshold,
+    }
+    if v14_policy_mode:
+        compatible_thresholds = {
+            operation: policy.threshold
+            for operation, policy in policies_by_operation.items()
+            if policy.status is CalibrationStatus.CALIBRATED
+            and policy.threshold is not None
         }
-    )
+        calibration_metadata.update(
+            {
+                "abstention_policies_by_operation": {
+                    operation: policy.to_dict()
+                    for operation, policy in policies_by_operation.items()
+                },
+                "abstention_calibration_mode": "v14-wilson-public-gate-v1",
+                "abstention_policy_statuses_by_operation": {
+                    operation: policy.status.value
+                    for operation, policy in policies_by_operation.items()
+                },
+                "abstention_policy_support_by_operation": {
+                    operation: policy.support
+                    for operation, policy in policies_by_operation.items()
+                },
+                "abstention_policy_enabled_count": len(enabled_policies),
+                "abstention_policy_aggregate_accepted": (
+                    aggregate_policy_accepted
+                ),
+                "abstention_policy_aggregate_correct": (
+                    aggregate_policy_correct
+                ),
+                "abstention_policy_aggregate_lower_bound": (
+                    aggregate_lower_bound
+                ),
+                # Compatibility-only projection. V14 runtime/evaluation reads
+                # the typed policies above and never these numeric thresholds.
+                "abstention_thresholds_by_operation": compatible_thresholds,
+            }
+        )
+        if compatible_thresholds:
+            calibration_metadata["abstention_threshold"] = max(
+                compatible_thresholds.values()
+            )
+    else:
+        # This threshold is one of the observed confidence values. Rounding it
+        # can move the boundary above that sample after save + reload.
+        calibration_metadata.update(
+            {
+                "abstention_threshold": float(threshold),
+                "abstention_thresholds_by_operation": thresholds_by_operation,
+                "abstention_calibration_mode": "validation-operation-dp-v1",
+            }
+        )
+    bundle.metadata.update(calibration_metadata)
     return bundle, DocumentHRMTrainingReport(
         train_examples=len(train_examples),
         validation_examples=len(validation_examples),
@@ -3493,12 +5749,244 @@ def train_document_hrm(
         pointer_pair_accuracy=metrics["pointer_pair_accuracy"],
         pointer_slot_accuracy=tuple(
             metrics[f"pointer_slot_{slot + 1}_accuracy"]
-            for slot in range(MAX_OPERANDS)
+            for slot in range(config.max_program_operands)
         ),
         accepted_coverage=metrics["accepted_coverage"],
         accepted_precision=metrics["accepted_precision"],
         operation_counts=dict(counts),
+        pointer_slot_support=tuple(
+            int(metrics[f"pointer_slot_{slot + 1}_support"])
+            for slot in range(config.max_program_operands)
+        ),
+        accepted_precision_defined=bool(
+            metrics["accepted_precision_defined"]
+        ),
     )
+
+
+def _bundle_operand_width(bundle: DocumentHRMBundle) -> int:
+    """Read dynamic V14 width while tolerating legacy/mock bundles."""
+
+    raw = getattr(
+        getattr(bundle.model, "config", None),
+        "max_program_operands",
+        MAX_OPERANDS,
+    )
+    if type(raw) is not int or not MAX_OPERANDS <= raw <= SUM_N_MAX_OPERANDS:
+        return MAX_OPERANDS
+    return raw
+
+
+def _physical_program_matches(
+    candidate_program: ReasoningProgram,
+    gold_program: ReasoningProgram,
+    candidates: Sequence[NumericCandidate],
+) -> bool:
+    candidate_operation = _logical_operation_name(
+        candidate_program.operation
+    )
+    gold_operation = _logical_operation_name(gold_program.operation)
+    if (
+        candidate_operation != gold_operation
+        or len(candidate_program.operands) != len(gold_program.operands)
+    ):
+        return False
+    if any(
+        index < 0 or index >= len(candidates)
+        for index in (
+            *candidate_program.operands,
+            *gold_program.operands,
+        )
+    ):
+        return False
+    conflicts = _conflicting_physical_indices(candidates)
+
+    def evaluation_key(index: int) -> tuple[object, ...]:
+        return (
+            ("conflict_pointer", index)
+            if index in conflicts
+            else _beam_physical_key(index, candidates)
+        )
+
+    candidate_keys = [evaluation_key(index) for index in candidate_program.operands]
+    gold_keys = [evaluation_key(index) for index in gold_program.operands]
+    if (
+        candidate_program.operation in COMMUTATIVE
+        or candidate_program.operation == SUM_N_OPERATION
+        or gold_program.operation in COMMUTATIVE
+        or gold_program.operation == SUM_N_OPERATION
+    ):
+        return sorted(candidate_keys, key=repr) == sorted(
+            gold_keys, key=repr
+        )
+    return candidate_keys == gold_keys
+
+
+def _physical_operand_set_matches(
+    candidate_program: ReasoningProgram,
+    gold_program: ReasoningProgram,
+    candidates: Sequence[NumericCandidate],
+) -> bool:
+    if len(candidate_program.operands) != len(gold_program.operands):
+        return False
+    if any(
+        index < 0 or index >= len(candidates)
+        for index in (*candidate_program.operands, *gold_program.operands)
+    ):
+        return False
+    conflicts = _conflicting_physical_indices(candidates)
+
+    def evaluation_key(index: int) -> tuple[object, ...]:
+        return (
+            ("conflict_pointer", index)
+            if index in conflicts
+            else _beam_physical_key(index, candidates)
+        )
+
+    return sorted(
+        (evaluation_key(index) for index in candidate_program.operands),
+        key=repr,
+    ) == sorted(
+        (evaluation_key(index) for index in gold_program.operands),
+        key=repr,
+    )
+
+
+def _gold_operand_slot_pool_match_count(
+    example: ProgramExample,
+    pools: Sequence[Sequence[int]],
+) -> int:
+    gold = _supervision_gold_operand_indices(example)
+    if not gold or not pools:
+        return 0
+    if any(index < 0 or index >= len(example.candidates) for index in gold):
+        return 0
+    conflicts = _conflicting_physical_indices(example.candidates)
+
+    def evaluation_key(index: int) -> tuple[object, ...]:
+        return (
+            ("conflict_pointer", index)
+            if index in conflicts
+            else _beam_physical_key(index, example.candidates)
+        )
+
+    gold_keys = [evaluation_key(index) for index in gold]
+    if len(set(gold_keys)) != len(gold_keys):
+        return 0
+    commutative = (
+        example.program.operation in COMMUTATIVE
+        or example.program.operation == SUM_N_OPERATION
+    )
+    pool_keys = [
+        {
+            evaluation_key(index)
+            for index in pool
+            if 0 <= index < len(example.candidates)
+        }
+        for pool in pools[: len(gold)]
+    ]
+    pool_keys.extend(set() for _ in range(len(gold) - len(pool_keys)))
+    if not commutative:
+        return sum(
+            gold_key in pool_keys[slot]
+            for slot, gold_key in enumerate(gold_keys)
+        )
+
+    adjacency = [
+        [slot for slot, keys in enumerate(pool_keys) if gold_key in keys]
+        for gold_key in gold_keys
+    ]
+    slot_to_gold: dict[int, int] = {}
+
+    def augment(gold_slot: int, seen_slots: set[int]) -> bool:
+        for pool_slot in adjacency[gold_slot]:
+            if pool_slot in seen_slots:
+                continue
+            seen_slots.add(pool_slot)
+            assigned_gold = slot_to_gold.get(pool_slot)
+            if assigned_gold is None or augment(assigned_gold, seen_slots):
+                slot_to_gold[pool_slot] = gold_slot
+                return True
+        return False
+
+    return sum(
+        augment(gold_slot, set()) for gold_slot in range(len(gold_keys))
+    )
+
+
+def _gold_operands_in_slot_pools(
+    example: ProgramExample,
+    pools: Sequence[Sequence[int]],
+) -> bool:
+    gold = _supervision_gold_operand_indices(example)
+    return bool(gold) and _gold_operand_slot_pool_match_count(
+        example, pools
+    ) == len(gold)
+
+
+def evaluate_document_hrm_candidate_retrieval(
+    bundle: DocumentHRMBundle,
+    examples_or_path: Sequence[ProgramExample] | str | Path,
+    *,
+    batch_size: int = 32,
+) -> dict[str, float]:
+    """Evaluate operation-conditioned slot pools without composing programs.
+
+    This development-only metric is used to select retrieval-head epochs. It
+    never changes inference and full symbolic evaluation still runs afterward.
+    """
+
+    examples = (
+        load_program_examples(examples_or_path)
+        if isinstance(examples_or_path, (str, Path))
+        else list(examples_or_path)
+    )
+    matched = {10: 0, 20: 0}
+    full = {10: 0, 20: 0}
+    gold_operand_total = 0
+    bundle.model.eval()
+    for start in range(0, len(examples), batch_size):
+        current = examples[start : start + batch_size]
+        output = bundle._predict_many_output(
+            current, bundle.model.config.max_segments
+        )
+        for row, example in enumerate(current):
+            gold = _supervision_gold_operand_indices(example)
+            arity = len(gold)
+            gold_operand_total += arity
+            operation = _logical_operation_name(example.program.operation)
+            generated = _rank_slot_candidate_pools(
+                output,
+                row,
+                operation,
+                example.question,
+                example.candidates,
+                arity=arity,
+            )
+            for cutoff, pools in (
+                (10, generated[0]),
+                (20, generated[1]),
+            ):
+                count = _gold_operand_slot_pool_match_count(example, pools)
+                matched[cutoff] += count
+                full[cutoff] += int(arity > 0 and count == arity)
+    example_total = len(examples)
+    return {
+        "gold_operation_conditioned_candidate_recall_at_10": (
+            matched[10] / gold_operand_total if gold_operand_total else 0.0
+        ),
+        "gold_operation_conditioned_candidate_recall_at_20": (
+            matched[20] / gold_operand_total if gold_operand_total else 0.0
+        ),
+        "gold_operation_conditioned_full_coverage_at_10": (
+            full[10] / example_total if example_total else 0.0
+        ),
+        "gold_operation_conditioned_full_coverage_at_20": (
+            full[20] / example_total if example_total else 0.0
+        ),
+        "gold_operation_conditioned_operand_count": float(gold_operand_total),
+        "example_count": float(example_total),
+    }
 
 
 def evaluate_document_hrm(
@@ -3513,6 +6001,18 @@ def evaluate_document_hrm(
         if isinstance(examples_or_path, (str, Path))
         else list(examples_or_path)
     )
+    logical_sum_evaluation = _uses_logical_sum_evaluation(bundle)
+    # V14 acceptance stays fail-closed before typed policies are calibrated;
+    # metric labels are nevertheless stable on every in-memory epoch bundle.
+    typed_policy_evaluation = logical_sum_evaluation or isinstance(
+        bundle.metadata.get("abstention_policies_by_operation"), dict
+    )
+    evaluation_operations = (
+        _logical_evaluation_operations()
+        if logical_sum_evaluation
+        else OPERATIONS
+    )
+    operand_width = _bundle_operand_width(bundle)
     empty = {
         "operation_accuracy": 0.0,
         "operation_macro_precision": 0.0,
@@ -3532,6 +6032,19 @@ def evaluate_document_hrm(
         "accepted_execution_precision": 0.0,
         "accepted_program_precision": 0.0,
         "accepted_grounded_semantic_program_precision": 0.0,
+        "accepted_precision_defined": False,
+        "accepted_execution_precision_defined": False,
+        "accepted_program_precision_defined": False,
+        "accepted_grounded_semantic_program_precision_defined": False,
+        "proof_eligible_coverage": 0.0,
+        "proof_eligible_precision": 0.0,
+        "proof_eligible_execution_precision": 0.0,
+        "proof_eligible_program_precision": 0.0,
+        "proof_eligible_grounded_semantic_program_precision": 0.0,
+        "proof_eligible_precision_defined": False,
+        "proof_eligible_execution_precision_defined": False,
+        "proof_eligible_program_precision_defined": False,
+        "proof_eligible_grounded_semantic_program_precision_defined": False,
         "mean_segments": 0.0,
         "program_search_change_rate": 0.0,
         "mean_program_candidates_considered": 0.0,
@@ -3539,8 +6052,39 @@ def evaluate_document_hrm(
         "mean_symbolic_unknown_constraints": 0.0,
         "gold_program_recall_at_5": 0.0,
         "gold_program_recall_at_10": 0.0,
+        "gold_physical_program_recall_at_5": 0.0,
+        "gold_physical_program_recall_at_10": 0.0,
         "gold_operand_recall_at_5": 0.0,
         "gold_operand_recall_at_10": 0.0,
+        "operand_candidate_recall_at_10": 0.0,
+        "operand_candidate_recall_at_20": 0.0,
+        "operand_candidate_full_coverage_at_10": 0.0,
+        "operand_candidate_full_coverage_at_20": 0.0,
+        "operand_candidate_recall_at_10_given_gold_operation": 0.0,
+        "operand_candidate_recall_at_20_given_gold_operation": 0.0,
+        "operand_candidate_gold_operand_count": 0.0,
+        "operand_candidate_gold_operation_operand_count": 0.0,
+        "diverse_beam_diagnostic_examples": 0.0,
+        "gold_operation_not_considered_count": 0.0,
+        "gold_operand_outside_slot_pool_at_20_count": 0.0,
+        "gold_program_not_generated_count": 0.0,
+        "gold_program_below_preverifier_top10_count": 0.0,
+        "gold_top10_verifier_rejected_count": 0.0,
+        "gold_top10_verifier_invalid_count": 0.0,
+        "gold_top10_runtime_gate_rejected_count": 0.0,
+        "gold_top10_eligible_count": 0.0,
+        "gold_pipeline_diagnostic_unavailable_count": 0.0,
+        "program_search_failure_bucket_total": 0.0,
+        "gold_operation_not_considered_rate": 0.0,
+        "gold_operand_outside_slot_pool_at_20_rate": 0.0,
+        "gold_program_not_generated_rate": 0.0,
+        "gold_program_below_preverifier_top10_rate": 0.0,
+        "gold_top10_verifier_rejected_rate": 0.0,
+        "gold_top10_runtime_gate_rejected_rate": 0.0,
+        "gold_top10_eligible_rate": 0.0,
+        "gold_pipeline_diagnostic_unavailable_rate": 0.0,
+        "mean_generated_programs_before_physical_dedup": 0.0,
+        "mean_generated_programs_after_physical_dedup": 0.0,
         "gold_symbolic_program_recall_at_5": 0.0,
         "gold_symbolic_program_recall_at_10": 0.0,
         "gold_program_generated_recall": 0.0,
@@ -3563,9 +6107,27 @@ def evaluate_document_hrm(
         "accepted_execution_correct_count": 0.0,
         "accepted_program_correct_count": 0.0,
         "accepted_grounded_semantic_program_correct_count": 0.0,
+        "proof_eligible_count": 0.0,
+        "proof_eligible_execution_correct_count": 0.0,
+        "proof_eligible_program_correct_count": 0.0,
+        "proof_eligible_grounded_semantic_program_correct_count": 0.0,
     }
-    empty.update({f"pointer_slot_{slot + 1}_accuracy": 0.0 for slot in range(MAX_OPERANDS)})
-    for operation in OPERATIONS:
+    empty.update(
+        {
+            f"pointer_slot_{slot + 1}_accuracy": 0.0
+            for slot in range(operand_width)
+        }
+    )
+    for slot in range(operand_width):
+        empty[f"pointer_slot_{slot + 1}_support"] = 0.0
+        empty[f"pointer_slot_{slot + 1}_accuracy_defined"] = False
+
+    for arity in range(2, SUM_N_MAX_OPERANDS + 1):
+        empty[f"exact_physical_set_arity_{arity}_accuracy"] = 0.0
+        empty[f"exact_physical_set_arity_{arity}_support"] = 0.0
+        empty[f"exact_physical_program_arity_{arity}_accuracy"] = 0.0
+        empty[f"exact_physical_program_arity_{arity}_support"] = 0.0
+    for operation in evaluation_operations:
         prefix = f"operation_class_{operation.lower()}"
         empty.update(
             {
@@ -3593,6 +6155,16 @@ def evaluate_document_hrm(
                 f"{quality_prefix}_accepted_count": 0.0,
                 f"{quality_prefix}_accepted_execution_correct_count": 0.0,
                 f"{quality_prefix}_accepted_program_correct_count": 0.0,
+                f"{quality_prefix}_accepted_precision_defined": False,
+                f"{quality_prefix}_accepted_execution_precision_defined": False,
+                f"{quality_prefix}_accepted_program_precision_defined": False,
+                f"{quality_prefix}_proof_eligible_coverage": 0.0,
+                f"{quality_prefix}_proof_eligible_execution_precision": 0.0,
+                f"{quality_prefix}_proof_eligible_program_precision": 0.0,
+                f"{quality_prefix}_proof_eligible_precision_defined": False,
+                f"{quality_prefix}_proof_eligible_count": 0.0,
+                f"{quality_prefix}_proof_eligible_execution_correct_count": 0.0,
+                f"{quality_prefix}_proof_eligible_program_correct_count": 0.0,
             }
         )
     if not examples:
@@ -3602,17 +6174,38 @@ def evaluate_document_hrm(
     operation_correct = program_correct = execution_correct = total = 0
     raw_program_correct = grounded_semantic_program_correct = 0
     pointer_pair_correct = raw_pointer_pair_correct = 0
-    pointer_correct = [0] * MAX_OPERANDS
-    pointer_total = [0] * MAX_OPERANDS
+    pointer_correct = [0] * operand_width
+    pointer_total = [0] * operand_width
     accepted = accepted_execution_correct = accepted_program_correct = segment_total = 0
     accepted_grounded_semantic_program_correct = 0
+    proof_eligible = 0
+    proof_eligible_execution_correct = 0
+    proof_eligible_program_correct = 0
+    proof_eligible_grounded_semantic_program_correct = 0
     program_search_changes = 0
     program_candidates_total = 0
     symbolic_rejections_total = 0
     symbolic_unknown_total = 0
     program_recall = {5: 0, 10: 0}
+    physical_program_recall = {5: 0, 10: 0}
     operand_recall = {5: 0, 10: 0}
     symbolic_program_recall = {5: 0, 10: 0}
+    operand_candidate_matches = {10: 0, 20: 0}
+    operand_candidate_full_coverage = {10: 0, 20: 0}
+    operand_candidate_matches_given_gold_operation = {10: 0, 20: 0}
+    operand_candidate_gold_operands = 0
+    operand_candidate_gold_operation_operands = 0
+    diverse_beam_diagnostic_examples = 0
+    operation_misses = pool_misses = generation_misses = ranking_misses = 0
+    verifier_invalid = runtime_gate_rejections = eligible_successes = 0
+    diagnostic_unavailable = 0
+    generated_before_total = generated_after_total = 0
+    physical_program_by_arity: dict[int, Counter[str]] = {
+        arity: Counter() for arity in range(2, SUM_N_MAX_OPERANDS + 1)
+    }
+    sum_physical_set_by_arity: dict[int, Counter[str]] = {
+        arity: Counter() for arity in range(2, SUM_N_MAX_OPERANDS + 1)
+    }
     verifier_gold_generated = 0
     eligible_gold_generated = 0
     typed_gold_generated = 0
@@ -3624,12 +6217,16 @@ def evaluate_document_hrm(
     pipeline_gold_rejections = 0
     pipeline_gold_rejection_reasons: Counter[str] = Counter()
     operation_quality: dict[str, Counter[str]] = {
-        operation: Counter() for operation in OPERATIONS
+        operation: Counter() for operation in evaluation_operations
     }
     expected_operations: list[str] = []
     predicted_operations: list[str] = []
     default_threshold = _metadata_float(
         bundle.metadata, "abstention_threshold", 0.75
+    )
+    diverse_beam_metrics_enabled = (
+        getattr(bundle.model.config, "program_search_strategy", "legacy")
+        == "diverse_set_beam_v1"
     )
 
     for start in range(0, len(examples), batch_size):
@@ -3650,9 +6247,161 @@ def evaluate_document_hrm(
             synthesized_program_candidates = int(
                 getattr(prediction, "synthesized_program_candidates", 0)
             )
+            legacy_pools_at_10 = tuple(
+                getattr(prediction, "slot_candidate_pools_at_10", ())
+            )
+            legacy_pools_at_20 = tuple(
+                getattr(prediction, "slot_candidate_pools_at_20", ())
+            )
+            operation_pools_at_10 = {
+                _logical_operation_name(operation): tuple(pools)
+                for operation, pools in getattr(
+                    prediction,
+                    "operation_slot_candidate_pools_at_10",
+                    (),
+                )
+            }
+            operation_pools_at_20 = {
+                _logical_operation_name(operation): tuple(pools)
+                for operation, pools in getattr(
+                    prediction,
+                    "operation_slot_candidate_pools_at_20",
+                    (),
+                )
+            }
+            operation_beam = tuple(
+                _logical_operation_name(operation)
+                for operation in getattr(prediction, "operation_beam", ())
+            )
+            preverification = tuple(
+                getattr(prediction, "preverification_programs", ())
+            )
+            verified_beam = tuple(
+                getattr(prediction, "selected_for_verification", ())
+            )
+            if diverse_beam_metrics_enabled:
+                diverse_beam_diagnostic_examples += 1
+                gold_operation = _logical_operation_name(
+                    example.program.operation
+                )
+                telemetry_available = bool(
+                    operation_beam
+                    or operation_pools_at_10
+                    or operation_pools_at_20
+                    or preverification
+                )
+                gold_operation_considered = gold_operation in operation_beam
+                if operation_pools_at_10 or operation_pools_at_20:
+                    pools_at_10 = operation_pools_at_10.get(
+                        gold_operation, ()
+                    )
+                    pools_at_20 = operation_pools_at_20.get(
+                        gold_operation, ()
+                    )
+                else:
+                    # Compatibility for predictions created before the
+                    # operation-conditioned telemetry fields existed.
+                    pools_at_10 = legacy_pools_at_10
+                    pools_at_20 = legacy_pools_at_20
+                    gold_operation_considered = telemetry_available
+                gold_operand_count = len(
+                    _supervision_gold_operand_indices(example)
+                )
+                operand_candidate_gold_operands += gold_operand_count
+                match_counts = {
+                    10: _gold_operand_slot_pool_match_count(
+                        example, pools_at_10
+                    ),
+                    20: _gold_operand_slot_pool_match_count(
+                        example, pools_at_20
+                    ),
+                }
+                for cutoff in (10, 20):
+                    operand_candidate_matches[cutoff] += match_counts[cutoff]
+                    operand_candidate_full_coverage[cutoff] += int(
+                        gold_operand_count > 0
+                        and match_counts[cutoff] == gold_operand_count
+                    )
+                if gold_operation_considered:
+                    operand_candidate_gold_operation_operands += (
+                        gold_operand_count
+                    )
+                    for cutoff in (10, 20):
+                        operand_candidate_matches_given_gold_operation[
+                            cutoff
+                        ] += match_counts[cutoff]
+                generated_before_total += int(
+                    getattr(
+                        prediction,
+                        "generated_programs_before_physical_dedup",
+                        0,
+                    )
+                )
+                generated_after_total += int(
+                    getattr(
+                        prediction,
+                        "generated_programs_after_physical_dedup",
+                        0,
+                    )
+                )
+                gold_preverification_ranks = [
+                    rank
+                    for rank, program in enumerate(
+                        preverification, start=1
+                    )
+                    if _physical_program_matches(
+                        program,
+                        example.program,
+                        example.candidates,
+                    )
+                ]
+                gold_selected = any(
+                    _physical_program_matches(
+                        program, example.program, example.candidates
+                    )
+                    for program in verified_beam
+                )
+                gold_selected_trace = [
+                    item
+                    for item in trace
+                    if _physical_program_matches(
+                        item.program,
+                        example.program,
+                        example.candidates,
+                    )
+                ]
+                if not telemetry_available:
+                    diagnostic_unavailable += 1
+                elif not gold_operation_considered:
+                    operation_misses += 1
+                elif match_counts[20] != gold_operand_count:
+                    pool_misses += 1
+                elif not gold_preverification_ranks:
+                    generation_misses += 1
+                elif not gold_selected:
+                    ranking_misses += 1
+                elif not gold_selected_trace:
+                    diagnostic_unavailable += 1
+                elif any(item.eligible for item in gold_selected_trace):
+                    eligible_successes += 1
+                elif any(
+                    item.verification_state == "INVALID"
+                    for item in gold_selected_trace
+                ):
+                    verifier_invalid += 1
+                else:
+                    runtime_gate_rejections += 1
             total += 1
-            expected_operations.append(example.program.operation)
-            predicted_operations.append(prediction.program.operation)
+            expected_operations.append(
+                _logical_operation_name(example.program.operation)
+                if logical_sum_evaluation
+                else example.program.operation
+            )
+            predicted_operations.append(
+                _logical_operation_name(prediction.program.operation)
+                if logical_sum_evaluation
+                else prediction.program.operation
+            )
             segment_total += int(getattr(prediction, "segments", 0))
             program_candidates_total += int(
                 getattr(prediction, "program_candidates_considered", 0)
@@ -3666,10 +6415,22 @@ def evaluate_document_hrm(
             program_search_changes += int(
                 "symbolic_program_search" in grounding_constraints
             )
-            operation_matches = prediction.program.operation == example.program.operation
+            operation_matches = (
+                _arity_normalized_operation_equal(
+                    prediction.program, example.program
+                )
+                if logical_sum_evaluation
+                else prediction.program.operation == example.program.operation
+            )
             raw_program_matches = prediction.program == example.program
-            program_matches = canonical_program_equal(
-                prediction.program, example.program
+            program_matches = (
+                canonical_sum_family_equal(
+                    prediction.program, example.program
+                )
+                if logical_sum_evaluation
+                else canonical_program_equal(
+                    prediction.program, example.program
+                )
             )
             raw_pointer_pair_matches = tuple(
                 prediction.program.operands
@@ -3680,11 +6441,32 @@ def evaluate_document_hrm(
                 example.program.operands,
             )
             execution_matches = _execution_is_correct(prediction.program, example)
+            arity = len(example.program.operands)
+            if arity in physical_program_by_arity:
+                physical_program_by_arity[arity]["support"] += 1
+                physical_program_by_arity[arity]["correct"] += int(
+                    _physical_program_matches(
+                        prediction.program,
+                        example.program,
+                        example.candidates,
+                    )
+                )
+                if _logical_operation_name(
+                    example.program.operation
+                ) == SUM_N_OPERATION:
+                    sum_physical_set_by_arity[arity]["support"] += 1
+                    sum_physical_set_by_arity[arity]["correct"] += int(
+                        _physical_operand_set_matches(
+                            prediction.program,
+                            example.program,
+                            example.candidates,
+                        )
+                    )
             grounded_semantic_program_matches = program_matches
             if (
                 not grounded_semantic_program_matches
                 and execution_matches
-                and prediction.program.operation == example.program.operation
+                and operation_matches
             ):
                 graph = build_evidence_graph(example.candidates)
                 plan = compile_question_plan(example.question)
@@ -3718,12 +6500,33 @@ def evaluate_document_hrm(
             else:
                 ranked_programs = [prediction.program]
                 symbolic_ranked_programs = [prediction.program]
+            physical_ranked_programs = (
+                list(preverification) if preverification else ranked_programs
+            )
             for cutoff in (5, 10):
                 top_programs = ranked_programs[:cutoff]
                 program_recall[cutoff] += int(
                     any(
-                        canonical_program_equal(candidate, example.program)
+                        (
+                            canonical_sum_family_equal(
+                                candidate, example.program
+                            )
+                            if logical_sum_evaluation
+                            else canonical_program_equal(
+                                candidate, example.program
+                            )
+                        )
                         for candidate in top_programs
+                    )
+                )
+                physical_program_recall[cutoff] += int(
+                    any(
+                        _physical_program_matches(
+                            candidate,
+                            example.program,
+                            example.candidates,
+                        )
+                        for candidate in physical_ranked_programs[:cutoff]
                     )
                 )
                 covered_operands = {
@@ -3736,7 +6539,15 @@ def evaluate_document_hrm(
                 )
                 symbolic_program_recall[cutoff] += int(
                     any(
-                        canonical_program_equal(candidate, example.program)
+                        (
+                            canonical_sum_family_equal(
+                                candidate, example.program
+                            )
+                            if logical_sum_evaluation
+                            else canonical_program_equal(
+                                candidate, example.program
+                            )
+                        )
                         for candidate in symbolic_ranked_programs[:cutoff]
                     )
                 )
@@ -3744,7 +6555,15 @@ def evaluate_document_hrm(
                 (
                     item
                     for item in trace
-                    if canonical_program_equal(item.program, example.program)
+                    if (
+                        canonical_sum_family_equal(
+                            item.program, example.program
+                        )
+                        if logical_sum_evaluation
+                        else canonical_program_equal(
+                            item.program, example.program
+                        )
+                    )
                 ),
                 None,
             )
@@ -3762,7 +6581,11 @@ def evaluate_document_hrm(
                     pipeline_gold_rejection_reasons.update(
                         gold_trace.rejection_reasons
                     )
-            quality = operation_quality[example.program.operation]
+            quality = operation_quality[
+                _logical_operation_name(example.program.operation)
+                if logical_sum_evaluation
+                else example.program.operation
+            ]
             quality["support"] += 1
             quality["operation_correct"] += int(operation_matches)
             if operation_matches:
@@ -3805,7 +6628,37 @@ def evaluate_document_hrm(
             threshold = _abstention_threshold_for_prediction(
                 bundle, prediction, default_threshold
             )
-            if prediction.confidence >= threshold and not grounding_rejections:
+            proof_eligible_by_runtime = (
+                _prediction_public_source_action(
+                    example.question,
+                    prediction,
+                    example.candidates,
+                )
+                == "ANSWER"
+            )
+            if proof_eligible_by_runtime:
+                proof_eligible += 1
+                proof_eligible_execution_correct += int(execution_matches)
+                proof_eligible_program_correct += int(program_matches)
+                proof_eligible_grounded_semantic_program_correct += int(
+                    grounded_semantic_program_matches
+                )
+                quality["proof_eligible"] += 1
+                quality["proof_eligible_execution_correct"] += int(execution_matches)
+                quality["proof_eligible_program_correct"] += int(program_matches)
+                quality["proof_eligible_grounded_semantic_program_correct"] += int(
+                    grounded_semantic_program_matches
+                )
+
+            accepted_by_policy = (
+                _prediction_action_decision(
+                    bundle, example.question, prediction, example.candidates
+                ).policy_accepted
+                if typed_policy_evaluation
+                else prediction.confidence >= threshold
+                and not grounding_rejections
+            )
+            if accepted_by_policy:
                 accepted += 1
                 accepted_execution_correct += int(execution_matches)
                 accepted_program_correct += int(program_matches)
@@ -3818,6 +6671,27 @@ def evaluate_document_hrm(
                 quality["accepted_grounded_semantic_program_correct"] += int(
                     grounded_semantic_program_matches
                 )
+
+    failure_bucket_total = (
+        operation_misses
+        + pool_misses
+        + generation_misses
+        + ranking_misses
+        + verifier_invalid
+        + runtime_gate_rejections
+        + eligible_successes
+        + diagnostic_unavailable
+    )
+    if diverse_beam_metrics_enabled and (
+        diverse_beam_diagnostic_examples != total
+        or failure_bucket_total != total
+    ):
+        raise DocumentHRMError(
+            "V14.1 search diagnostics are not exhaustive: "
+            f"examples={total}, diagnostic_examples="
+            f"{diverse_beam_diagnostic_examples}, buckets="
+            f"{failure_bucket_total}"
+        )
 
     metrics = {
         "operation_accuracy": operation_correct / total,
@@ -3846,6 +6720,36 @@ def evaluate_document_hrm(
             if accepted
             else 0.0
         ),
+        "accepted_precision_defined": bool(accepted),
+        "accepted_execution_precision_defined": bool(accepted),
+        "accepted_program_precision_defined": bool(accepted),
+        "accepted_grounded_semantic_program_precision_defined": bool(accepted),
+        "proof_eligible_coverage": proof_eligible / total,
+        # Backward-compatible execution-equivalence alias for proof eligibility.
+        "proof_eligible_precision": (
+            proof_eligible_execution_correct / proof_eligible
+            if proof_eligible
+            else 0.0
+        ),
+        "proof_eligible_execution_precision": (
+            proof_eligible_execution_correct / proof_eligible
+            if proof_eligible
+            else 0.0
+        ),
+        "proof_eligible_program_precision": (
+            proof_eligible_program_correct / proof_eligible
+            if proof_eligible
+            else 0.0
+        ),
+        "proof_eligible_grounded_semantic_program_precision": (
+            proof_eligible_grounded_semantic_program_correct / proof_eligible
+            if proof_eligible
+            else 0.0
+        ),
+        "proof_eligible_precision_defined": bool(proof_eligible),
+        "proof_eligible_execution_precision_defined": bool(proof_eligible),
+        "proof_eligible_program_precision_defined": bool(proof_eligible),
+        "proof_eligible_grounded_semantic_program_precision_defined": bool(proof_eligible),
         "mean_segments": segment_total / total,
         "program_search_change_rate": program_search_changes / total,
         "mean_program_candidates_considered": (
@@ -3857,8 +6761,125 @@ def evaluate_document_hrm(
         "mean_symbolic_unknown_constraints": symbolic_unknown_total / total,
         "gold_program_recall_at_5": program_recall[5] / total,
         "gold_program_recall_at_10": program_recall[10] / total,
+        "gold_physical_program_recall_at_5": (
+            physical_program_recall[5] / total
+        ),
+        "gold_physical_program_recall_at_10": (
+            physical_program_recall[10] / total
+        ),
         "gold_operand_recall_at_5": operand_recall[5] / total,
         "gold_operand_recall_at_10": operand_recall[10] / total,
+        "operand_candidate_recall_at_10": (
+            operand_candidate_matches[10] / operand_candidate_gold_operands
+            if operand_candidate_gold_operands
+            else 0.0
+        ),
+        "operand_candidate_recall_at_20": (
+            operand_candidate_matches[20] / operand_candidate_gold_operands
+            if operand_candidate_gold_operands
+            else 0.0
+        ),
+        "operand_candidate_full_coverage_at_10": (
+            operand_candidate_full_coverage[10]
+            / diverse_beam_diagnostic_examples
+            if diverse_beam_diagnostic_examples
+            else 0.0
+        ),
+        "operand_candidate_full_coverage_at_20": (
+            operand_candidate_full_coverage[20]
+            / diverse_beam_diagnostic_examples
+            if diverse_beam_diagnostic_examples
+            else 0.0
+        ),
+        "operand_candidate_recall_at_10_given_gold_operation": (
+            operand_candidate_matches_given_gold_operation[10]
+            / operand_candidate_gold_operation_operands
+            if operand_candidate_gold_operation_operands
+            else 0.0
+        ),
+        "operand_candidate_recall_at_20_given_gold_operation": (
+            operand_candidate_matches_given_gold_operation[20]
+            / operand_candidate_gold_operation_operands
+            if operand_candidate_gold_operation_operands
+            else 0.0
+        ),
+        "operand_candidate_gold_operand_count": float(
+            operand_candidate_gold_operands
+        ),
+        "operand_candidate_gold_operation_operand_count": float(
+            operand_candidate_gold_operation_operands
+        ),
+        "diverse_beam_diagnostic_examples": float(
+            diverse_beam_diagnostic_examples
+        ),
+        "gold_operation_not_considered_count": float(operation_misses),
+        "gold_operand_outside_slot_pool_at_20_count": float(
+            pool_misses
+        ),
+        "gold_program_not_generated_count": float(generation_misses),
+        "gold_program_below_preverifier_top10_count": float(
+            ranking_misses
+        ),
+        "gold_top10_verifier_rejected_count": float(verifier_invalid),
+        "gold_top10_verifier_invalid_count": float(verifier_invalid),
+        "gold_top10_runtime_gate_rejected_count": float(
+            runtime_gate_rejections
+        ),
+        "gold_top10_eligible_count": float(eligible_successes),
+        "gold_pipeline_diagnostic_unavailable_count": float(
+            diagnostic_unavailable
+        ),
+        "program_search_failure_bucket_total": float(failure_bucket_total),
+        "gold_operation_not_considered_rate": (
+            operation_misses / diverse_beam_diagnostic_examples
+            if diverse_beam_diagnostic_examples
+            else 0.0
+        ),
+        "gold_operand_outside_slot_pool_at_20_rate": (
+            pool_misses / diverse_beam_diagnostic_examples
+            if diverse_beam_diagnostic_examples
+            else 0.0
+        ),
+        "gold_program_not_generated_rate": (
+            generation_misses / diverse_beam_diagnostic_examples
+            if diverse_beam_diagnostic_examples
+            else 0.0
+        ),
+        "gold_program_below_preverifier_top10_rate": (
+            ranking_misses / diverse_beam_diagnostic_examples
+            if diverse_beam_diagnostic_examples
+            else 0.0
+        ),
+        "gold_top10_verifier_rejected_rate": (
+            verifier_invalid / diverse_beam_diagnostic_examples
+            if diverse_beam_diagnostic_examples
+            else 0.0
+        ),
+        "gold_top10_runtime_gate_rejected_rate": (
+            runtime_gate_rejections / diverse_beam_diagnostic_examples
+            if diverse_beam_diagnostic_examples
+            else 0.0
+        ),
+        "gold_top10_eligible_rate": (
+            eligible_successes / diverse_beam_diagnostic_examples
+            if diverse_beam_diagnostic_examples
+            else 0.0
+        ),
+        "gold_pipeline_diagnostic_unavailable_rate": (
+            diagnostic_unavailable / diverse_beam_diagnostic_examples
+            if diverse_beam_diagnostic_examples
+            else 0.0
+        ),
+        "mean_generated_programs_before_physical_dedup": (
+            generated_before_total / diverse_beam_diagnostic_examples
+            if diverse_beam_diagnostic_examples
+            else 0.0
+        ),
+        "mean_generated_programs_after_physical_dedup": (
+            generated_after_total / diverse_beam_diagnostic_examples
+            if diverse_beam_diagnostic_examples
+            else 0.0
+        ),
         "gold_symbolic_program_recall_at_5": (
             symbolic_program_recall[5] / total
         ),
@@ -3901,10 +6922,18 @@ def evaluate_document_hrm(
         "accepted_grounded_semantic_program_correct_count": float(
             accepted_grounded_semantic_program_correct
         ),
+        "proof_eligible_count": float(proof_eligible),
+        "proof_eligible_execution_correct_count": float(proof_eligible_execution_correct),
+        "proof_eligible_program_correct_count": float(proof_eligible_program_correct),
+        "proof_eligible_grounded_semantic_program_correct_count": float(
+            proof_eligible_grounded_semantic_program_correct
+        ),
     }
     metrics.update(
         _operation_classification_metrics(
-            expected_operations, predicted_operations
+            expected_operations,
+            predicted_operations,
+            operations=evaluation_operations,
         )
     )
     metrics.update(
@@ -3922,13 +6951,34 @@ def evaluate_document_hrm(
                 if pointer_total[slot]
                 else 0.0
             )
-            for slot in range(MAX_OPERANDS)
+            for slot in range(operand_width)
         }
     )
+    for slot in range(operand_width):
+        metrics[f"pointer_slot_{slot + 1}_support"] = float(pointer_total[slot])
+        metrics[f"pointer_slot_{slot + 1}_accuracy_defined"] = bool(pointer_total[slot])
+
+    for arity, counts_by_arity in sum_physical_set_by_arity.items():
+        support = int(counts_by_arity["support"])
+        metrics[f"exact_physical_set_arity_{arity}_support"] = float(
+            support
+        )
+        metrics[f"exact_physical_set_arity_{arity}_accuracy"] = (
+            counts_by_arity["correct"] / support if support else 0.0
+        )
+    for arity, counts_by_arity in physical_program_by_arity.items():
+        support = int(counts_by_arity["support"])
+        metrics[f"exact_physical_program_arity_{arity}_support"] = float(
+            support
+        )
+        metrics[f"exact_physical_program_arity_{arity}_accuracy"] = (
+            counts_by_arity["correct"] / support if support else 0.0
+        )
     for operation, quality in operation_quality.items():
         support = quality["support"]
         accepted_for_operation = quality["accepted"]
         prefix = f"program_operation_{operation.lower()}"
+        proof_for_operation = quality["proof_eligible"]
         metrics.update(
             {
                 f"{prefix}_support": float(support),
@@ -3983,6 +7033,32 @@ def evaluate_document_hrm(
                 f"{prefix}_accepted_program_correct_count": float(
                     quality["accepted_program_correct"]
                 ),
+                f"{prefix}_accepted_precision_defined": bool(accepted_for_operation),
+                f"{prefix}_accepted_execution_precision_defined": bool(accepted_for_operation),
+                f"{prefix}_accepted_program_precision_defined": bool(accepted_for_operation),
+                f"{prefix}_proof_eligible_coverage": (
+                    proof_for_operation / support if support else 0.0
+                ),
+                f"{prefix}_proof_eligible_execution_precision": (
+                    quality["proof_eligible_execution_correct"] / proof_for_operation
+                    if proof_for_operation
+                    else 0.0
+                ),
+                f"{prefix}_proof_eligible_program_precision": (
+                    quality["proof_eligible_program_correct"] / proof_for_operation
+                    if proof_for_operation
+                    else 0.0
+                ),
+                f"{prefix}_proof_eligible_precision_defined": bool(proof_for_operation),
+                f"{prefix}_proof_eligible_execution_precision_defined": bool(proof_for_operation),
+                f"{prefix}_proof_eligible_program_precision_defined": bool(proof_for_operation),
+                f"{prefix}_proof_eligible_count": float(proof_for_operation),
+                f"{prefix}_proof_eligible_execution_correct_count": float(
+                    quality["proof_eligible_execution_correct"]
+                ),
+                f"{prefix}_proof_eligible_program_correct_count": float(
+                    quality["proof_eligible_program_correct"]
+                ),
             }
         )
     return metrics
@@ -4010,13 +7086,14 @@ def analyze_document_hrm_errors(
     )
     if batch_size < 1:
         raise DocumentHRMError("batch_size must be positive")
+    operand_width = _bundle_operand_width(bundle)
 
     category_counts: Counter[str] = Counter()
     per_operation: dict[str, Counter[str]] = {
         operation: Counter() for operation in OPERATIONS
     }
-    pointer_correct = [0] * MAX_OPERANDS
-    pointer_total = [0] * MAX_OPERANDS
+    pointer_correct = [0] * operand_width
+    pointer_total = [0] * operand_width
     confidence_bins: dict[str, Counter[str]] = {
         "[0.0,0.2)": Counter(),
         "[0.2,0.4)": Counter(),
@@ -4271,7 +7348,7 @@ def analyze_document_hrm_errors(
             "execution_accuracy": rate(execution_correct, total),
             "pointer_slot_accuracy": [
                 rate(pointer_correct[slot], pointer_total[slot])
-                for slot in range(MAX_OPERANDS)
+                for slot in range(operand_width)
             ],
             "pointer_slot_support": pointer_total,
         },
@@ -4301,12 +7378,15 @@ def analyze_document_hrm_errors(
 
 
 def _operation_classification_metrics(
-    expected: Sequence[str], predicted: Sequence[str]
+    expected: Sequence[str],
+    predicted: Sequence[str],
+    *,
+    operations: Sequence[str] = OPERATIONS,
 ) -> dict[str, float]:
     """Compute sklearn-compatible macro and support-weighted operation scores."""
     rows: list[tuple[float, float, float, int]] = []
     result: dict[str, float] = {}
-    for operation in OPERATIONS:
+    for operation in operations:
         prefix = f"operation_class_{operation.lower()}"
         result.update(
             {
@@ -4316,7 +7396,7 @@ def _operation_classification_metrics(
                 f"{prefix}_support": 0.0,
             }
         )
-    for operation in OPERATIONS:
+    for operation in operations:
         true_positive = sum(
             truth == operation and guess == operation
             for truth, guess in zip(expected, predicted)
@@ -4511,7 +7591,10 @@ def _apply_symbolic_operation_constraint(
 
 
 def _plan_financial_identities(plan: QuestionPlan) -> tuple[FinancialIdentity, ...]:
-    if plan.operation is not None:
+    # A direct identity target is a primary SELECT, but reports that omit the
+    # disclosed total may still prove it from catalogued components.  Other
+    # explicit operations must not activate unrelated identity alternatives.
+    if plan.operation not in {None, "SELECT"}:
         return ()
     return tuple(
         get_financial_identity(identity_id)
@@ -4567,18 +7650,7 @@ def _question_requires_financial_identity_computation(
 ) -> bool:
     """Distinguish a requested derivation from a plain disclosed-value lookup."""
 
-    normalized = f" {plan.normalized} "
-    return (
-        plan.normalized.startswith("tinh ")
-        or " hay liet ke " in normalized
-        or " de kiem tra " in normalized
-        or " duoc tinh " in normalized
-        or " bao gom " in normalized
-        or " gom " in normalized
-        or " trong do " in normalized
-        or " chi tiet " in normalized
-        or " duoc cau thanh " in normalized
-    )
+    return requests_financial_identity_computation(plan.normalized)
 
 
 def _explicit_sum_operation(
@@ -4615,6 +7687,45 @@ def _explicit_sum_operation(
         if separators == 1:
             return "SUM3"
     return None
+
+
+def _explicit_sum_operand_count(question: str) -> int | None:
+    """Return a source-worded SUM cardinality without guessing missing items."""
+
+    if not question:
+        return None
+    normalized = normalize_text(question)
+    count_words = {
+        "hai": 2,
+        "ba": 3,
+        "bon": 4,
+        "nam": 5,
+        "sau": 6,
+        "bay": 7,
+        "tam": 8,
+    }
+    count_match = re.search(
+        r"\btong(?: cua)?\s+(hai|ba|bon|nam|sau|bay|tam|[2-8])\b",
+        normalized,
+    )
+    if count_match:
+        token = count_match.group(1)
+        return int(token) if token.isdigit() else count_words[token]
+
+    legacy_operation = _explicit_sum_operation(question, normalized)
+    if legacy_operation is not None:
+        return OPERATION_ARITY[legacy_operation]
+    if not re.match(r"^(?:tinh\s+)?tong\b", normalized):
+        return None
+    quoted_count = len(
+        re.findall(r'(?:"[^"]+"|\u201c[^\u201d]+\u201d)', question)
+    )
+    if 2 <= quoted_count <= SUM_N_MAX_OPERANDS:
+        return quoted_count
+    for arity in range(2, SUM_N_MAX_OPERANDS + 1):
+        if _explicit_multi_operand_parts(question, arity) is not None:
+            return arity
+    return 2 if _question_requests_addition(normalized) else None
 
 
 def _align_directed_operands(
@@ -4680,7 +7791,8 @@ def _requested_years(question: str) -> tuple[str, ...]:
 def _candidate_period_descriptor(candidate: NumericCandidate) -> str:
     period = _context_field(candidate.context, "PERIOD") or candidate.period
     column = _context_field(candidate.context, "COLUMN") or candidate.column_label
-    return normalize_text(f"{period} {column}")
+    from .column_context import normalize_period_text
+    return normalize_period_text(f"{period} {column}")
 
 
 def _candidate_period_role(candidate: NumericCandidate) -> str:
@@ -4758,6 +7870,7 @@ def _period_compatible_indices(
         "AVERAGE",
         "SUM3",
         "SUM4",
+        SUM_N_OPERATION,
     }:
         return set()
     requested = set(_requested_years(question))
@@ -4843,7 +7956,14 @@ def _is_groundable_document_candidate(candidate: NumericCandidate) -> bool:
 
     return bool(_structured_candidate_row_label(candidate)) and (
         candidate.extraction_method.lower()
-        in {"native", "text", "ocr", "mineru", "symbolic-derived"}
+        in {
+            "native",
+            "text",
+            "ocr",
+            "mineru",
+            "mineru_markdown",
+            "symbolic-derived",
+        }
     )
 
 
@@ -4954,20 +8074,43 @@ def _metric_compatible_indices(
 ) -> set[int]:
     """Constrain document SELECT pointers to the explicitly named metric."""
 
+    plan = compile_question_plan(question)
+    # Exclude known dimensional contradictions before lexical scores can
+    # promote an unrelated quantity. Unknown units remain for proof to resolve.
+    nonmonetary = {"m2", "m3", "ha", "kg", "tan", "nguoi", "share_count", "percent", "ratio"}
     structured_pool = {
         index
         for index in pool
         if _is_groundable_document_candidate(candidates[index])
+        and not (
+            plan.requested_unit_family == "currency"
+            and _unit_key(candidates[index].unit, is_percent=candidates[index].is_percent)
+            in nonmonetary
+        )
         and not _metric_modifier_conflicts(
             question, _structured_candidate_row_label(candidates[index])
         )
         and _metric_anchor_compatible(
-            _question_focus_text(question),
+            # An explicit report-field owner is a separate query dimension;
+            # it need not be repeated inside the source metric label.
+            plan.metric_text if (plan.requested_accounting_scope or (plan.requested_report_year and plan.entity_mode == "named"))
+            else _question_focus_text(question),
             _structured_candidate_row_label(candidates[index]),
         )
     }
     if not structured_pool:
         return set()
+    # A row already satisfying the verifier's semantic metric obligation
+    # must not lose to a long paragraph matching issuer/currency surface words.
+    # Keep every valid row: selection cannot establish authority by score/value.
+    proven_metric = {
+        index for index in structured_pool
+        if _metric_obligation_state(
+            plan.metric_text, _structured_candidate_row_label(candidates[index])
+        ) is VerificationState.VALID
+    }
+    if proven_metric:
+        return proven_metric
     target_terms = _alignment_terms(_question_focus_text(question))
     if not target_terms:
         return set()
@@ -5028,11 +8171,20 @@ def _explicit_multi_operand_indices(
     question: str,
     operation: str,
     candidates: Sequence[NumericCandidate],
+    *,
+    arity: int | None = None,
 ) -> tuple[int, ...] | None:
-    """Ground an explicit SUM3/SUM4 list when every metric has one clear row."""
-    if operation not in {"SUM3", "SUM4"}:
+    """Ground an explicit additive list when every metric has one clear row."""
+
+    if operation == SUM_N_OPERATION:
+        arity = arity or _explicit_sum_operand_count(question)
+        if arity is None or not 2 <= arity <= SUM_N_MAX_OPERANDS:
+            return None
+    elif operation in {"SUM3", "SUM4"}:
+        arity = OPERATION_ARITY[operation]
+    else:
         return None
-    arity = OPERATION_ARITY[operation]
+    assert arity is not None
     parts = _explicit_multi_operand_parts(question, arity)
     if parts is None:
         return None
@@ -5101,12 +8253,23 @@ _ENTITY_MATCH_STOPWORDS = {
 }
 
 
+def _column_scope_compatible_indices(question, candidates, allowed):
+    from .symbolic_verifier import _column_scope_constraint_state
+    plan = compile_question_plan(question)
+    compatible = {i for i in allowed
+                  if _column_scope_constraint_state(plan, candidates[i]) is not VerificationState.INVALID}
+    # With no compatible evidence, preserve a diagnostic prediction. The same
+    # contradiction is required and rejected by the verifier, not published.
+    return compatible or allowed
+
+
 def _prefer_reporting_entity_indices(
     question: str,
     candidates: Sequence[NumericCandidate],
     allowed: set[int],
 ) -> set[int]:
     """Prefer the report owner unless the question names an embedded entity."""
+    allowed = _column_scope_compatible_indices(question, candidates, allowed)
     embedded = {
         index
         for index in allowed
@@ -5135,8 +8298,11 @@ def _prefer_reporting_entity_indices(
 def _metric_modifier_conflicts(question: str, row_label: str) -> bool:
     """Reject opposite financial qualifiers before fuzzy row scoring."""
 
-    expected = normalize_text(_question_focus_text(question))
-    observed = normalize_text(row_label)
+    if _is_ratio_metric(row_label) and not _is_ratio_metric(question):
+        return True
+    from .metric_semantics import normalize_metric_text
+    expected = normalize_metric_text(_question_focus_text(question))
+    observed = normalize_metric_text(row_label)
     if (
         "sau thue" in expected
         and "truoc thue" in observed
@@ -5175,8 +8341,9 @@ def _metric_anchor_compatible(expected_text: str, row_label: str) -> bool:
     cover broad accounting concepts rather than issuer-specific wording.
     """
 
-    expected = normalize_text(expected_text)
-    observed = normalize_text(row_label)
+    from .metric_semantics import normalize_metric_text
+    expected = normalize_metric_text(expected_text)
+    observed = normalize_metric_text(row_label)
     expected_compact = re.sub(r"[^a-z0-9]+", "", expected)
     observed_compact = re.sub(r"[^a-z0-9]+", "", observed)
 
@@ -5218,6 +8385,42 @@ def _metric_anchor_compatible(expected_text: str, row_label: str) -> bool:
             return False
 
     return True
+
+
+def _prefer_requested_context_indices(
+    question: str, candidates: Sequence[NumericCandidate], allowed: set[int],
+) -> set[int]:
+    """Prefer source-supported intent before neural ranking, without proof promotion."""
+    allowed = _column_scope_compatible_indices(question, candidates, allowed)
+    plan = compile_question_plan(question)
+    if plan.requested_value_column:
+        matching = {i for i in allowed if normalize_text(candidates[i].column_label) == plan.requested_value_column}
+        if matching:
+            allowed = matching
+    roles = {role.lower() for role in plan.column_roles}
+    if len(roles) > 1:
+        roles = set()
+    cells = evidence_cells(candidates)
+    compatible = {
+        index for index in allowed
+        if not (roles and (cells[index].column_role_conflict
+                           or cells[index].column_role and cells[index].column_role not in roles))
+        and not (plan.requested_section and cells[index].source_section_path
+                 and plan.requested_section not in cells[index].source_section_path)
+    }
+    from .entity_ownership import query_owner_state
+    entity_compatible = {i for i in compatible if query_owner_state(plan, cells[i]) not in {"INVALID", "UNKNOWN"}}
+    if entity_compatible:
+        compatible = entity_compatible
+    if plan.entity_mode == "named":
+        proven = {i for i in compatible if query_owner_state(plan, cells[i]) == "VALID"}
+        if proven:
+            compatible = proven
+    from .symbolic_verifier import _query_accounting_scope_state
+    if plan.requested_accounting_scope:
+        proven={i for i in compatible if _query_accounting_scope_state(plan,cells[i]) is VerificationState.VALID}
+        if proven:return proven
+    return compatible or allowed
 
 
 def _combine_unary_grounding_constraints(
@@ -5480,23 +8683,29 @@ def _temporal_role_compatible_indices(
 
     if operation not in {"SUBTRACT", "PERCENT_CHANGE"} or not pool:
         return None
+    metric_focus = (
+        compile_question_plan(question).metric_text
+        or _question_focus_text(question)
+    )
     structured_pool = {
         index
         for index in pool
         if _is_groundable_document_candidate(candidates[index])
         and _metric_anchor_compatible(
-            _question_focus_text(question),
+            metric_focus,
             _structured_candidate_row_label(candidates[index]),
         )
     }
     if len(structured_pool) < 2:
         return None
-    target_terms = _alignment_terms(_question_focus_text(question))
+    target_terms = _alignment_terms(metric_focus)
     if not target_terms:
         return None
     scores = {
-        index: _fuzzy_term_score(
+        index: _role_match_score(
+            metric_focus,
             target_terms,
+            _candidate_row_label(candidates[index]),
             _alignment_terms(_candidate_row_label(candidates[index])),
         )
         for index in structured_pool
@@ -5527,7 +8736,7 @@ def _grounding_gate_reasons(
     if len(selected) != len(program.operands):
         return ("invalid_operand_pointer",)
 
-    reasons: list[str] = []
+    reasons: list[str] = list(program_binding_issues(program, candidates, program_dag))
     structured = any(
         candidate.row_label
         or candidate.column_label
@@ -5663,7 +8872,21 @@ def _grounding_gate_reasons(
         "SUM4",
     }
     units = {candidate.unit for candidate in selected if candidate.unit}
-    if program.operation in comparable_operations and len(units) > 1:
+    selected_unit_keys = {
+        cell.unit_key for cell in evidence_cells(selected) if cell.unit_key
+    }
+    explicitly_convertible_scales = bool(
+        len(selected_unit_keys) == 1
+        and selected_unit_keys
+        <= {"currency", "currency_per_share"}
+        and units
+        and all(currency_unit_scale(unit) is not None for unit in units)
+    )
+    if (
+        program.operation in comparable_operations
+        and len(units) > 1
+        and not explicitly_convertible_scales
+    ):
         reasons.append("incompatible_operand_units")
     identity_operations = (
         {
@@ -5779,8 +9002,9 @@ def _grounding_gate_reasons(
             and len(requested_years) >= 2
             and role_compatible is None
         ):
+            from .metric_semantics import identity as metric_identity
             identities = {
-                _candidate_metric_identity(candidates[index])
+                metric_identity(_structured_candidate_row_label(candidates[index]))
                 for index in program.operands[:2]
                 if _candidate_metric_identity(candidates[index])
             }
@@ -5862,7 +9086,12 @@ def _compile_symbolic_query_spec(
             and _operand_role_parts(question, "ADD") is not None
         ):
             required_operation = "ADD"
-    allowed_operations = plan.operation_candidates
+    # A pair of exact document-row anchors is stronger than punctuation in a
+    # row label. Keep the legacy binary alias here; V14 search normalizes it
+    # to SUM_N only after the model mode is known.
+    allowed_operations = (
+        ("ADD",) if anchored_binary_add else plan.operation_candidates
+    )
     if not allowed_operations and (plan.operation or required_operation):
         allowed_operations = (plan.operation or required_operation,)
     return SymbolicQuerySpec(
@@ -5900,7 +9129,7 @@ def _program_search_rejection_reasons(
     financial_identity_catalog_enabled: bool = False,
     program_dag: ReasoningDAGProgram | None = None,
 ) -> tuple[str, ...]:
-    reasons: list[str] = []
+    reasons: list[str] = list(program_binding_issues(program, candidates, program_dag))
     plan = compile_question_plan(question)
     identity_operations = (
         {
@@ -5935,11 +9164,14 @@ def _program_search_rejection_reasons(
         and not identity_operation
     ):
         reasons.append("operation_mismatch")
-    if (
-        _apply_symbolic_operation_constraint(question, program.operation)
-        != program.operation
-        and not identity_operation
-    ):
+    wording_operation = _apply_symbolic_operation_constraint(
+        question, program.operation
+    )
+    wording_matches = wording_operation == program.operation or (
+        program.operation == SUM_N_OPERATION
+        and is_sum_operation(wording_operation)
+    )
+    if not wording_matches and not identity_operation:
         reasons.append("operation_wording")
     reasons.extend(
         _grounding_gate_reasons(
@@ -5966,6 +9198,7 @@ def _program_search_rejection_reasons(
         unary_allowed = _narrow_unary_period_by_row_order(
             question, candidates, unary_allowed
         )
+        unary_allowed = _prefer_requested_context_indices(question, candidates, unary_allowed)
         unary_allowed = _prefer_reporting_entity_indices(
             question, candidates, unary_allowed
         )
@@ -5979,7 +9212,10 @@ def _program_search_rejection_reasons(
             reasons.append("unary_grounding_mismatch")
 
     explicit_multi = _explicit_multi_operand_indices(
-        question, program.operation, candidates
+        question,
+        program.operation,
+        candidates,
+        arity=len(program.operands),
     )
     if (
         explicit_multi is not None
@@ -6019,6 +9255,13 @@ def _program_search_rejection_reasons(
             elif obligation.state is VerificationState.INVALID:
                 reasons.append(f"required_proof_invalid:{obligation.name}")
 
+    from .physical_coordinates import is_versioned_coordinate
+    if any(is_versioned_coordinate(candidate) for candidate in candidates):
+        mapping = getattr(verification, "mapping_assessment", None)
+        resolution = getattr(mapping, "resolution", "UNKNOWN")
+        if resolution != "UNIQUE":
+            reasons.append("physical_mapping_conflict" if resolution == "CONFLICT"
+                           else "unproven_physical_mapping")
     return tuple(dict.fromkeys(reasons))
 
 
@@ -6055,17 +9298,31 @@ def _program_metric_alignment_score(
 
     multi_parts = _explicit_multi_operand_parts(question, len(selected))
     if multi_parts is not None and len(selected) > 2:
-        return max(
-            (
-                sum(
-                    match(expected, labels[index])
-                    for index, expected in enumerate(order)
-                )
-                / len(selected)
-                for order in permutations(multi_parts)
-            ),
-            default=0.0,
-        )
+        size = len(selected)
+        weights = [
+            [match(expected, observed) for observed in labels]
+            for expected in multi_parts
+        ]
+        # Exact maximum-weight assignment in O(k^2 * 2^k), bounded by k<=8.
+        # This replaces the previous k! permutation loop for SUM_N.
+        states: dict[int, float] = {0: 0.0}
+        for expected_index in range(size):
+            next_states: dict[int, float] = {}
+            for mask, score in states.items():
+                for observed_index in range(size):
+                    bit = 1 << observed_index
+                    if mask & bit:
+                        continue
+                    next_mask = mask | bit
+                    candidate_score = (
+                        score + weights[expected_index][observed_index]
+                    )
+                    next_states[next_mask] = max(
+                        next_states.get(next_mask, -math.inf),
+                        candidate_score,
+                    )
+            states = next_states
+        return states.get((1 << size) - 1, 0.0) / size
 
     return (
         sum(match(spec.focus_text, label) for label in labels) / len(labels)
@@ -6146,13 +9403,39 @@ def _program_neural_evidence(
     row: int,
     program: ReasoningProgram,
 ) -> tuple[float, float, tuple[float, ...]]:
-    operation_id = OPERATION_TO_ID[program.operation]
-    operation_probability = float(
-        torch.softmax(output.operation_logits[row], dim=-1)[operation_id].item()
+    operation_probabilities = torch.softmax(
+        output.operation_logits[row], dim=-1
     )
-    arity = OPERATION_ARITY[program.operation]
+    arity = len(program.operands)
+    if program.operation == SUM_N_OPERATION:
+        operation_id = OPERATION_TO_ID["ADD"]
+        operation_probability = float(
+            operation_probabilities[list(SUM_FAMILY_OPERATION_IDS)].sum().item()
+        )
+        if output.operand_count_logits is None:
+            count_probability = 1e-12
+        else:
+            count_probabilities = torch.softmax(
+                output.operand_count_logits[row], dim=-1
+            )
+            count_index = arity - 2
+            count_probability = (
+                float(count_probabilities[count_index].item())
+                if 0 <= count_index < count_probabilities.shape[0]
+                else 1e-12
+            )
+    else:
+        operation_id = OPERATION_TO_ID[program.operation]
+        operation_probability = float(
+            operation_probabilities[operation_id].item()
+        )
+        count_probability = 1.0
 
-    if output.pair_logits is not None and arity == 2:
+    if (
+        output.pair_logits is not None
+        and arity == 2
+        and program.operation != SUM_N_OPERATION
+    ):
         pair_probabilities = torch.softmax(
             output.pair_logits[row, operation_id].flatten(), dim=-1
         )
@@ -6176,7 +9459,19 @@ def _program_neural_evidence(
         )
 
     pointer_probabilities: list[float] = []
-    if program.operation in COMMUTATIVE and arity > 2:
+    if program.operation == SUM_N_OPERATION:
+        logits = (
+            output.sum_membership_logits[row]
+            if output.sum_membership_logits is not None
+            else _commutative_pointer_membership_logits(
+                output.pointer_logits[row], arity
+            )
+        )
+        probabilities = torch.softmax(logits, dim=-1)
+        pointer_probabilities = [
+            float(probabilities[index].item()) for index in program.operands
+        ]
+    elif program.operation in COMMUTATIVE and arity > 2:
         logits = _commutative_pointer_membership_logits(
             output.pointer_logits[row], arity
         )
@@ -6193,9 +9488,13 @@ def _program_neural_evidence(
                 dim=-1,
             )
             pointer_probabilities.append(float(probabilities[index].item()))
-    score = math.log(max(operation_probability, 1e-12)) + sum(
+    score = (
+        math.log(max(operation_probability, 1e-12))
+        + math.log(max(count_probability, 1e-12))
+        + sum(
         math.log(max(probability, 1e-12))
         for probability in pointer_probabilities
+        )
     )
     return operation_probability, score, tuple(pointer_probabilities)
 
@@ -6210,16 +9509,22 @@ def _symbolic_program_search_key(
     *,
     proof_guided: bool = True,
 ) -> tuple[float | int, ...]:
-    # Pairwise graph evidence is not a proof for a three/four-operand set.
-    # Preserve the established structural/neural ordering for SUM3/SUM4 until
-    # the evidence graph supports hyperedges or explicit set-completeness.
-    use_pairwise_proof = (
+    # SUM_N is proof-ranked only after the verifier has established its
+    # set-completeness/physical-uniqueness contract.
+    use_verified_proof = (
         proof_guided
         and verification is not None
-        and OPERATION_ARITY[program.operation] <= 2
+        and (
+            len(program.operands) <= 2
+            or (
+                program.operation == SUM_N_OPERATION
+                and verification.proof_contract_state
+                is VerificationState.VALID
+            )
+        )
     )
     proof_key: tuple[float | int, ...] = (
-        verification.rank_key if use_pairwise_proof else ()
+        verification.rank_key if use_verified_proof else ()
     )
     return (*proof_key,
         round(
@@ -6338,15 +9643,35 @@ def _operation_beam_for_search(
     """Return a bounded neural operation beam without inventing new DSL ops."""
 
     probabilities = torch.softmax(output.operation_logits[row], dim=-1)
+    sum_family_probability = float(
+        probabilities[list(SUM_FAMILY_OPERATION_IDS)].sum().item()
+    )
     take = min(max(1, limit), len(RERANKER_TRAIN_OPERATIONS))
     ranked_ids = torch.topk(probabilities, k=min(take + 2, len(OPERATIONS))).indices
     top_probability = float(probabilities[ranked_ids[0]].item())
     operations = [baseline_operation]
+    if (
+        output.operand_count_logits is not None
+        and output.sum_membership_logits is not None
+        and sum_family_probability >= max(0.02, top_probability * 0.08)
+        and SUM_N_OPERATION not in operations
+    ):
+        operations.append(SUM_N_OPERATION)
     for operation_id in ranked_ids.tolist():
         operation = OPERATIONS[int(operation_id)]
-        if operation not in RERANKER_TRAIN_OPERATIONS:
+        if (
+            output.operand_count_logits is not None
+            and is_sum_operation(operation)
+        ):
+            operation = SUM_N_OPERATION
+            probability = sum_family_probability
+        else:
+            probability = float(probabilities[operation_id].item())
+        if (
+            operation not in RERANKER_TRAIN_OPERATIONS
+            and operation != SUM_N_OPERATION
+        ):
             continue
-        probability = float(probabilities[operation_id].item())
         if probability < max(0.02, top_probability * 0.08):
             continue
         if operation not in operations:
@@ -6356,6 +9681,33 @@ def _operation_beam_for_search(
     return tuple(operations)
 
 
+def _sum_arity_for_search(
+    output: DocumentHRMForward,
+    row: int,
+    question: str,
+    *,
+    fallback: int | None = None,
+) -> int | None:
+    explicit = _explicit_sum_operand_count(question)
+    if explicit is not None:
+        return explicit
+    if output.operand_count_logits is not None:
+        return int(output.operand_count_logits[row].argmax().item()) + 2
+    return fallback
+
+
+def _physically_unique_operand_set(
+    operands: Sequence[int],
+    candidates: Sequence[NumericCandidate],
+) -> bool:
+    duplicate_pairs = financial_same_physical_pairs(candidates)
+    return not any(
+        duplicate_pairs[left][right]
+        for position, left in enumerate(operands)
+        for right in operands[position + 1 :]
+    )
+
+
 def _candidate_programs_for_search(
     output: DocumentHRMForward,
     row: int,
@@ -6363,15 +9715,23 @@ def _candidate_programs_for_search(
     question: str,
     candidates: Sequence[NumericCandidate],
     *,
+    arity: int | None = None,
     candidate_recall_v12_4_enabled: bool = False,
 ) -> set[ReasoningProgram]:
-    arity = OPERATION_ARITY[operation]
+    if operation == SUM_N_OPERATION:
+        arity = arity or _sum_arity_for_search(
+            output, row, question
+        )
+        if arity is None or not 2 <= arity <= SUM_N_MAX_OPERANDS:
+            return set()
+    else:
+        arity = OPERATION_ARITY[operation]
     if arity == 1:
         return {
             ReasoningProgram(operation, (index,))
             for index in range(len(candidates))
         }
-    if arity == 2:
+    if arity == 2 and operation != SUM_N_OPERATION:
         return _top_pair_programs(
             output,
             row,
@@ -6382,25 +9742,38 @@ def _candidate_programs_for_search(
         )
 
     explicit = _explicit_multi_operand_indices(
-        question, operation, candidates
+        question, operation, candidates, arity=arity
     )
     if explicit is not None:
+        if (
+            operation == SUM_N_OPERATION
+            and not _physically_unique_operand_set(explicit, candidates)
+        ):
+            return set()
         return {
             ReasoningProgram(operation, tuple(sorted(explicit)))
         }
 
     programs: set[ReasoningProgram] = set()
-    logits = _commutative_pointer_membership_logits(
-        output.pointer_logits[row], arity
+    logits = (
+        output.sum_membership_logits[row]
+        if (
+            operation == SUM_N_OPERATION
+            and output.sum_membership_logits is not None
+        )
+        else _commutative_pointer_membership_logits(
+            output.pointer_logits[row], arity
+        )
     )
-    take = min(12, len(candidates))
+    pool_limit = min(12, max(arity + 2, 8))
+    take = min(pool_limit, len(candidates))
     pool = set(torch.topk(logits, k=take).indices.tolist())
     period_allowed = _period_compatible_indices(
         question, operation, candidates, arity
     )
-    if period_allowed and len(period_allowed) <= 16:
+    if period_allowed and len(period_allowed) <= pool_limit + 2:
         pool.update(period_allowed)
-    if len(pool) > 16:
+    if len(pool) > pool_limit:
         pool = set(
             sorted(
                 pool,
@@ -6409,13 +9782,480 @@ def _candidate_programs_for_search(
                     candidates[index].relevance,
                 ),
                 reverse=True,
-            )[:16]
+            )[:pool_limit]
         )
+    ranked_combinations = sorted(
+        (
+            (
+                sum(float(logits[index].item()) for index in indices),
+                tuple(indices),
+            )
+            for indices in combinations(sorted(pool), arity)
+            if (
+                operation != SUM_N_OPERATION
+                or _physically_unique_operand_set(indices, candidates)
+            )
+        ),
+        key=lambda item: (item[0], tuple(-index for index in item[1])),
+        reverse=True,
+    )[:256]
     programs.update(
-        ReasoningProgram(operation, tuple(indices))
-        for indices in combinations(sorted(pool), arity)
+        ReasoningProgram(operation, indices)
+        for _score, indices in ranked_combinations
     )
     return programs
+
+
+def _beam_physical_key(
+    index: int,
+    candidates: Sequence[NumericCandidate],
+) -> tuple[object, ...]:
+    identity = financial_physical_identity(candidates[index])
+    return identity if identity is not None else ("pointer", index)
+
+
+def _conflicting_physical_indices(
+    candidates: Sequence[NumericCandidate],
+) -> set[int]:
+    groups: dict[tuple[object, ...], list[int]] = {}
+    for index, candidate in enumerate(candidates):
+        identity = financial_physical_identity(candidate)
+        if identity is not None:
+            groups.setdefault(identity, []).append(index)
+    conflicts: set[int] = set()
+    for indices in groups.values():
+        claims = {
+            (
+                candidates[index].value,
+                normalize_text(candidates[index].unit),
+                normalize_text(candidates[index].period),
+                normalize_text(candidates[index].column_role),
+            )
+            for index in indices
+        }
+        if len(claims) > 1:
+            conflicts.update(indices)
+    return conflicts
+
+
+def _program_physical_signature(
+    program: ReasoningProgram,
+    candidates: Sequence[NumericCandidate],
+    *,
+    conflict_indices: set[int] | None = None,
+) -> tuple[object, ...]:
+    conflicts = conflict_indices or set()
+    keys = [
+        (
+            "conflict_pointer",
+            index,
+        )
+        if index in conflicts
+        else _beam_physical_key(index, candidates)
+        for index in program.operands
+    ]
+    if program.operation in COMMUTATIVE or program.operation == SUM_N_OPERATION:
+        keys = sorted(keys, key=repr)
+    return (program.operation, len(program.operands), *keys)
+
+
+def _slot_structural_beam_score(features: Sequence[float]) -> float:
+    positive_indices = (1, 2, 3, 5, 7, 9, 11, 13, 14, 15, 24)
+    mismatch_indices = (4, 6, 8, 10, 12, 25)
+    positive = sum(
+        float(features[index])
+        for index in positive_indices
+        if index < len(features)
+    )
+    mismatch = sum(
+        float(features[index])
+        for index in mismatch_indices
+        if index < len(features)
+    )
+    relevance = float(features[22]) if len(features) > 22 else 0.0
+    return positive + 0.25 * relevance - 3.0 * mismatch
+
+
+def _round_robin_candidate_orders(
+    orders: Sequence[Sequence[int]],
+    *,
+    limit: int,
+) -> tuple[int, ...]:
+    selected: list[int] = []
+    seen: set[int] = set()
+    positions = [0 for _ in orders]
+    while len(selected) < limit:
+        progressed = False
+        for source, order in enumerate(orders):
+            while positions[source] < len(order):
+                index = int(order[positions[source]])
+                positions[source] += 1
+                if index in seen:
+                    continue
+                seen.add(index)
+                selected.append(index)
+                progressed = True
+                break
+            if len(selected) >= limit:
+                break
+        if not progressed:
+            break
+    return tuple(selected)
+
+
+def _rank_slot_candidate_pools(
+    output: DocumentHRMForward,
+    row: int,
+    operation: str,
+    question: str,
+    candidates: Sequence[NumericCandidate],
+    *,
+    arity: int,
+) -> tuple[
+    tuple[tuple[int, ...], ...],
+    tuple[tuple[int, ...], ...],
+    tuple[dict[int, float], ...],
+]:
+    if not candidates:
+        empty = tuple(() for _ in range(arity))
+        return empty, empty, tuple({} for _ in range(arity))
+    plan = compile_question_plan(question)
+    matrices = build_financial_feature_matrices(
+        plan,
+        candidates,
+        slot_count=arity,
+    )
+    conflict_indices = _conflicting_physical_indices(candidates)
+    context_allowed=_prefer_requested_context_indices(question,candidates,set(range(len(candidates))))
+    shared_membership = (
+        output.sum_membership_logits[row]
+        if (
+            operation == SUM_N_OPERATION
+            and output.sum_membership_logits is not None
+        )
+        else None
+    )
+    pools_10: list[tuple[int, ...]] = []
+    pools_20: list[tuple[int, ...]] = []
+    score_maps: list[dict[int, float]] = []
+    count = len(candidates)
+    for slot in range(arity):
+        pointer_logits = _operation_pointer_logits(
+            output,
+            row,
+            min(slot, output.pointer_logits.shape[1] - 1),
+            "ADD" if operation == SUM_N_OPERATION else operation,
+        )[:count]
+        neural = pointer_logits.clone()
+        if shared_membership is not None:
+            neural = neural + shared_membership[:count]
+        neural_order = torch.argsort(neural, descending=True).tolist()
+        neural_rank = {
+            int(index): 1.0 - rank / max(1, count - 1)
+            for rank, index in enumerate(neural_order)
+        }
+        scores = {
+            index: (
+                neural_rank[index]
+                + _slot_structural_beam_score(
+                    matrices.slot_features[slot][index]
+                )
+            )
+            for index in range(count)
+            if index not in conflict_indices and index in context_allowed
+        }
+        combined_representatives: dict[tuple[object, ...], int] = {}
+        for index in sorted(
+            scores,
+            key=lambda item: (scores[item], -item),
+            reverse=True,
+        ):
+            key = _beam_physical_key(index, candidates)
+            combined_representatives.setdefault(key, index)
+        combined_order = tuple(combined_representatives.values())
+        neural_physical_order: list[int] = []
+        seen_neural_physical: set[tuple[object, ...]] = set()
+        for index in neural_order:
+            if index in conflict_indices or index not in context_allowed:
+                continue
+            key = _beam_physical_key(index, candidates)
+            if key in seen_neural_physical:
+                continue
+            seen_neural_physical.add(key)
+            neural_physical_order.append(combined_representatives[key])
+        ranked = _round_robin_candidate_orders(
+            (tuple(neural_physical_order), combined_order),
+            limit=20,
+        )
+        pools_10.append(ranked[:10])
+        pools_20.append(ranked)
+        score_maps.append(scores)
+    return tuple(pools_10), tuple(pools_20), tuple(score_maps)
+
+
+def _incremental_set_relation_score(
+    selected: Sequence[int],
+    candidate_index: int,
+    candidates: Sequence[NumericCandidate],
+) -> float:
+    candidate = candidates[candidate_index]
+    score = 0.0
+    for prior_index in selected:
+        prior = candidates[prior_index]
+        if candidate.table_id and candidate.table_id == prior.table_id:
+            score += 0.20
+        if candidate.section and candidate.section == prior.section:
+            score += 0.10
+        if candidate.unit and candidate.unit == prior.unit:
+            score += 0.10
+        explicit_parent_component = (
+            prior_index in candidate.derived_operands
+            or candidate_index in prior.derived_operands
+        )
+        if explicit_parent_component:
+            score -= 2.0
+    return score
+
+
+def _candidate_programs_for_diverse_search(
+    output: DocumentHRMForward,
+    row: int,
+    operation: str,
+    question: str,
+    candidates: Sequence[NumericCandidate],
+    *,
+    arity: int,
+) -> CandidateGenerationResult:
+    pools_10, pools_20, slot_scores = _rank_slot_candidate_pools(
+        output,
+        row,
+        operation,
+        question,
+        candidates,
+        arity=arity,
+    )
+    explicit = _explicit_multi_operand_indices(
+        question,
+        operation,
+        candidates,
+        arity=arity,
+    )
+    if explicit is not None:
+        program = ReasoningProgram(
+            operation,
+            tuple(sorted(explicit))
+            if operation in COMMUTATIVE or operation == SUM_N_OPERATION
+            else tuple(explicit),
+        )
+        valid = _physically_unique_operand_set(
+            program.operands, candidates
+        )
+        programs = (program,) if valid else ()
+        return CandidateGenerationResult(
+            programs=programs,
+            program_scores=((program, 0.0),) if valid else (),
+            slot_pools_at_10=pools_10,
+            slot_pools_at_20=pools_20,
+            generated_before_physical_dedup=len(programs),
+            generated_after_physical_dedup=len(programs),
+        )
+
+    generation_pools = [
+        pool[:8] if pool else tuple(range(min(8, len(candidates))))
+        for pool in pools_20
+    ]
+    partials: list[tuple[tuple[int, ...], float]] = [((), 0.0)]
+    conflict_indices = _conflicting_physical_indices(candidates)
+    for slot in range(arity):
+        expanded: dict[tuple[object, ...], tuple[tuple[int, ...], float]] = {}
+        for selected, score in partials:
+            selected_physical = {
+                _beam_physical_key(index, candidates) for index in selected
+            }
+            for index in generation_pools[slot]:
+                if index in selected or index in conflict_indices:
+                    continue
+                physical = _beam_physical_key(index, candidates)
+                if physical in selected_physical:
+                    continue
+                next_selected = (*selected, index)
+                next_score = (
+                    score
+                    + slot_scores[slot].get(index, -10.0)
+                    + _incremental_set_relation_score(
+                        selected, index, candidates
+                    )
+                )
+                if operation in COMMUTATIVE or operation == SUM_N_OPERATION:
+                    key = tuple(
+                        sorted(
+                            (
+                                _beam_physical_key(item, candidates)
+                                for item in next_selected
+                            ),
+                            key=repr,
+                        )
+                    )
+                else:
+                    key = tuple(
+                        _beam_physical_key(item, candidates)
+                        for item in next_selected
+                    )
+                current = expanded.get(key)
+                if current is None or next_score > current[1]:
+                    expanded[key] = (next_selected, next_score)
+        partials = sorted(
+            expanded.values(),
+            key=lambda item: (item[1], tuple(-x for x in item[0])),
+            reverse=True,
+        )[:64]
+        if not partials:
+            break
+
+    completed: list[tuple[ReasoningProgram, float]] = []
+    for operands, score in partials[:256]:
+        if len(operands) != arity:
+            continue
+        if operation in COMMUTATIVE or operation == SUM_N_OPERATION:
+            operands = tuple(sorted(operands))
+        completed.append((ReasoningProgram(operation, operands), score))
+    before = len(completed)
+    deduplicated: dict[tuple[object, ...], tuple[ReasoningProgram, float]] = {}
+    for program, score in completed:
+        signature = _program_physical_signature(
+            program,
+            candidates,
+            conflict_indices=conflict_indices,
+        )
+        current = deduplicated.get(signature)
+        if current is None or score > current[1]:
+            deduplicated[signature] = (program, score)
+    ranked = sorted(
+        deduplicated.values(),
+        key=lambda item: (item[1], tuple(-x for x in item[0].operands)),
+        reverse=True,
+    )[:256]
+    return CandidateGenerationResult(
+        programs=tuple(program for program, _score in ranked),
+        program_scores=tuple(ranked),
+        slot_pools_at_10=pools_10,
+        slot_pools_at_20=pools_20,
+        generated_before_physical_dedup=before,
+        generated_after_physical_dedup=len(ranked),
+    )
+
+
+def _diverse_preverification_order(
+    programs: Sequence[ReasoningProgram],
+    program_sources: dict[ReasoningProgram, set[str]],
+    program_scores: dict[ReasoningProgram, float],
+    candidates: Sequence[NumericCandidate],
+    baseline: ReasoningProgram,
+) -> tuple[ReasoningProgram, ...]:
+    conflict_indices = _conflicting_physical_indices(candidates)
+    representatives: dict[tuple[object, ...], ReasoningProgram] = {}
+    for program in programs:
+        signature = _program_physical_signature(
+            program,
+            candidates,
+            conflict_indices=conflict_indices,
+        )
+        current = representatives.get(signature)
+        if current is None or (
+            "typed_slot_synthesis" in program_sources.get(program, set()),
+            program_scores.get(program, -math.inf),
+            tuple(-index for index in program.operands),
+        ) > (
+            "typed_slot_synthesis" in program_sources.get(current, set()),
+            program_scores.get(current, -math.inf),
+            tuple(-index for index in current.operands),
+        ):
+            representatives[signature] = program
+    deduplicated = list(dict.fromkeys(representatives.values()))
+    buckets: dict[tuple[object, ...], list[ReasoningProgram]] = {}
+    for program in deduplicated:
+        selected = [candidates[index] for index in program.operands]
+        tables = tuple(
+            sorted(
+                {
+                    (candidate.table_id, candidate.section)
+                    for candidate in selected
+                }
+            )
+        )
+        roles = tuple(
+            sorted(
+                {
+                    normalize_text(candidate.column_role)
+                    for candidate in selected
+                    if candidate.column_role
+                }
+            )
+        )
+        sources = program_sources.get(program, set())
+        primary_source = (
+            "typed"
+            if "typed_slot_synthesis" in sources
+            else "neural"
+            if any(source.startswith("neural") for source in sources)
+            else "identity"
+            if any(source.startswith("financial_identity:") for source in sources)
+            else "baseline"
+        )
+        key = (
+            program.operation,
+            len(program.operands),
+            tables,
+            roles,
+            primary_source,
+        )
+        buckets.setdefault(key, []).append(program)
+    for bucket in buckets.values():
+        bucket.sort(
+            key=lambda program: (
+                program_scores.get(program, -math.inf),
+                tuple(-index for index in program.operands),
+            ),
+            reverse=True,
+        )
+    ordered: list[ReasoningProgram] = []
+    reserved = [baseline]
+    best_typed = max(
+        (
+            program
+            for program in deduplicated
+            if "typed_slot_synthesis" in program_sources.get(program, set())
+        ),
+        key=lambda program: program_scores.get(program, -math.inf),
+        default=None,
+    )
+    if best_typed is not None:
+        reserved.append(best_typed)
+    for program in reserved:
+        if program in deduplicated and program not in ordered:
+            ordered.append(program)
+            for bucket in buckets.values():
+                if program in bucket:
+                    bucket.remove(program)
+    ordered_keys = sorted(
+        buckets,
+        key=lambda key: (
+            program_scores.get(buckets[key][0], -math.inf)
+            if buckets[key]
+            else -math.inf
+        ),
+        reverse=True,
+    )
+    while True:
+        progressed = False
+        for key in ordered_keys:
+            if not buckets[key]:
+                continue
+            ordered.append(buckets[key].pop(0))
+            progressed = True
+        if not progressed:
+            break
+    return tuple(ordered)
 
 
 def _has_symbolic_program_anchors(
@@ -6423,8 +10263,15 @@ def _has_symbolic_program_anchors(
     question: str,
     operation: str,
     candidates: Sequence[NumericCandidate],
+    *,
+    arity: int | None = None,
 ) -> bool:
-    arity = OPERATION_ARITY[operation]
+    if operation == SUM_N_OPERATION:
+        arity = arity or _explicit_sum_operand_count(question)
+        if arity is None:
+            return False
+    else:
+        arity = OPERATION_ARITY[operation]
     pool = set(range(len(candidates)))
     if arity == 1:
         return bool(
@@ -6593,7 +10440,11 @@ def _program_reranker_feature_vector(
         sum(relevances) / len(relevances) if relevances else 0.0,
         min(relevances) if relevances else 0.0,
         same_scope,
-        OPERATION_ARITY[program.operation] / MAX_OPERANDS,
+        (
+            len(program.operands) / SUM_N_MAX_OPERANDS
+            if program.operation == SUM_N_OPERATION
+            else OPERATION_ARITY[program.operation] / MAX_OPERANDS
+        ),
         unknown_count / count,
     )
     if len(values) != len(PROGRAM_RERANKER_FEATURES):
@@ -6670,6 +10521,14 @@ def _preserve_safe_residual_reference(
     )
     if reference_row is None:
         return chosen, False
+    if (
+        reference_row.program.operation == SUM_N_OPERATION
+        and reference_row.verification.proof_contract_state
+        is not VerificationState.VALID
+    ):
+        # SUM_N has no frozen legacy winner. Preserve it only when the current
+        # verifier proves the complete set contract, never merely by recursion.
+        return chosen, False
     return reference_row, chosen.program != reference_row.program
 
 
@@ -6741,6 +10600,7 @@ def _search_symbolic_programs(
     typed_synthesis_enabled: bool = True,
     financial_identity_catalog_enabled: bool = False,
     candidate_recall_v12_4_enabled: bool = False,
+    diverse_set_beam_enabled: bool = False,
     reranker: ProgramRerankerBundle | None = None,
 ) -> SymbolicProgramSearchResult | None:
     """Select the best verified program instead of accepting only neural top-1."""
@@ -6748,6 +10608,27 @@ def _search_symbolic_programs(
     spec = _compile_symbolic_query_spec(question, candidates)
     if not spec.has_structured_evidence:
         return None
+    sum_n_search = baseline.operation == SUM_N_OPERATION
+    if sum_n_search:
+        logical_allowed = tuple(
+            dict.fromkeys(
+                SUM_N_OPERATION if is_sum_operation(operation) else operation
+                for operation in spec.allowed_operations
+            )
+        )
+        logical_required = (
+            SUM_N_OPERATION
+            if (
+                spec.required_operation is not None
+                and is_sum_operation(spec.required_operation)
+            )
+            else spec.required_operation
+        )
+        spec = replace(
+            spec,
+            required_operation=logical_required,
+            allowed_operations=logical_allowed,
+        )
     legacy_reference_result: SymbolicProgramSearchResult | None = None
     legacy_verification_cache: dict[
         tuple[ReasoningProgram, bool],
@@ -6771,6 +10652,7 @@ def _search_symbolic_programs(
                 financial_identity_catalog_enabled
             ),
             candidate_recall_v12_4_enabled=False,
+            diverse_set_beam_enabled=False,
             reranker=None,
         )
         if legacy_reference_result is not None:
@@ -6827,11 +10709,44 @@ def _search_symbolic_programs(
         # alias match is supporting evidence, not proof that every alternative
         # operation is wrong.
         operations = tuple(dict.fromkeys((*operations, "SELECT")))
+    if sum_n_search:
+        # An identity catalog may serialize a two/three/four-term sum with a
+        # legacy alias. Keep every additive hypothesis on the logical SUM_N
+        # proof contract so an ADD proposal cannot bypass set completeness or
+        # per-operand proof obligations.
+        operations = tuple(
+            dict.fromkeys(
+                SUM_N_OPERATION if is_sum_operation(operation) else operation
+                for operation in operations
+            )
+        )
     if baseline.operation not in operations:
         operations = (*operations, baseline.operation)
+    operations = tuple(dict.fromkeys(operations))
+    operation_arities: dict[str, int] = {}
+    for operation in operations:
+        if operation == SUM_N_OPERATION:
+            arity = _sum_arity_for_search(
+                output,
+                row,
+                question,
+                fallback=len(baseline.operands),
+            )
+            if arity is None or not 2 <= arity <= SUM_N_MAX_OPERANDS:
+                continue
+            operation_arities[operation] = arity
+        else:
+            operation_arities[operation] = OPERATION_ARITY[operation]
+    operations = tuple(
+        operation for operation in operations if operation in operation_arities
+    )
     operation_has_anchors = {
         operation: _has_symbolic_program_anchors(
-            spec, question, operation, candidates
+            spec,
+            question,
+            operation,
+            candidates,
+            arity=operation_arities[operation],
         )
         for operation in operations
     }
@@ -6840,7 +10755,12 @@ def _search_symbolic_programs(
     if spec.required_operation is not None:
         explicit_operations.add(spec.required_operation)
     identity_operations = {
-        identity.operation for identity in financial_identities
+        (
+            SUM_N_OPERATION
+            if sum_n_search and is_sum_operation(identity.operation)
+            else identity.operation
+        )
+        for identity in financial_identities
     }
     synthesis_results: list[TypedSynthesisResult] = []
     if typed_synthesis_enabled:
@@ -6852,9 +10772,11 @@ def _search_symbolic_programs(
                 or operation in identity_operations
             ):
                 continue
-            arity = OPERATION_ARITY[operation]
+            arity = operation_arities[operation]
             role_texts: Sequence[str] | None = None
-            if arity == 2:
+            if operation == SUM_N_OPERATION:
+                role_texts = _explicit_multi_operand_parts(question, arity)
+            elif arity == 2:
                 role_texts = _operand_role_parts(question, operation)
             elif arity > 2:
                 role_texts = _explicit_multi_operand_parts(question, arity)
@@ -6869,9 +10791,14 @@ def _search_symbolic_programs(
             )
         if not has_direct_identity_evidence:
             for identity in financial_identities:
+                identity_operation = (
+                    SUM_N_OPERATION
+                    if sum_n_search and is_sum_operation(identity.operation)
+                    else identity.operation
+                )
                 result = synthesize_typed_programs(
                     plan,
-                    identity.operation,
+                    identity_operation,
                     graph,
                     focus_text=spec.focus_text,
                     operand_role_texts=identity.operand_texts,
@@ -6894,30 +10821,91 @@ def _search_symbolic_programs(
     program_sources: dict[ReasoningProgram, set[str]] = {
         baseline: {"neural_baseline"}
     }
+    generation_scores: dict[ReasoningProgram, float] = {}
+    slot_pool_10: dict[int, list[int]] = {}
+    slot_pool_20: dict[int, list[int]] = {}
+    operation_slot_pool_10: dict[str, tuple[tuple[int, ...], ...]] = {}
+    operation_slot_pool_20: dict[str, tuple[tuple[int, ...], ...]] = {}
+    generated_before_physical_dedup = 0
+    generated_after_physical_dedup = 0
     # Typed synthesis may recover a question for which the legacy decoder had
     # no reliable structural anchor. In that case it must not accidentally
     # unlock the entire free neural beam: only the neural baseline and typed
     # slot assignments are admissible. Otherwise an unrelated high-proof pair
     # can win merely because typed synthesis activated search at all.
     for operation in operations:
-        use_operation_beam = (
-            operation_has_anchors[operation]
-            if candidate_recall_v12_4_enabled
-            else legacy_has_anchors
-        )
+        if diverse_set_beam_enabled:
+            # V14.1 always retrieves a bounded pool for the neural baseline or
+            # an explicitly requested operation. Unrelated operation-beam
+            # hypotheses still require a structural/identity anchor, and every
+            # composed program remains subject to the unchanged verifier.
+            use_operation_beam = (
+                operation == baseline.operation
+                or operation in explicit_operations
+                or operation_has_anchors[operation]
+                or operation in identity_operations
+            )
+        else:
+            use_operation_beam = (
+                operation_has_anchors[operation]
+                if candidate_recall_v12_4_enabled
+                else legacy_has_anchors
+            )
         if use_operation_beam:
-            for program_candidate in _candidate_programs_for_search(
-                output,
-                row,
-                operation,
-                question,
-                candidates,
-                candidate_recall_v12_4_enabled=(
-                    candidate_recall_v12_4_enabled
-                ),
-            ):
+            if diverse_set_beam_enabled:
+                generated = _candidate_programs_for_diverse_search(
+                    output,
+                    row,
+                    operation,
+                    question,
+                    candidates,
+                    arity=operation_arities[operation],
+                )
+                operation_programs = generated.programs
+                generation_scores.update(dict(generated.program_scores))
+                generated_before_physical_dedup += (
+                    generated.generated_before_physical_dedup
+                )
+                generated_after_physical_dedup += (
+                    generated.generated_after_physical_dedup
+                )
+                operation_slot_pool_10[operation] = (
+                    generated.slot_pools_at_10
+                )
+                operation_slot_pool_20[operation] = (
+                    generated.slot_pools_at_20
+                )
+                for slot, pool in enumerate(
+                    generated.slot_pools_at_10
+                ):
+                    values = slot_pool_10.setdefault(slot, [])
+                    values.extend(
+                        index for index in pool if index not in values
+                    )
+                for slot, pool in enumerate(
+                    generated.slot_pools_at_20
+                ):
+                    values = slot_pool_20.setdefault(slot, [])
+                    values.extend(
+                        index for index in pool if index not in values
+                    )
+            else:
+                operation_programs = _candidate_programs_for_search(
+                    output,
+                    row,
+                    operation,
+                    question,
+                    candidates,
+                    arity=operation_arities[operation],
+                    candidate_recall_v12_4_enabled=(
+                        candidate_recall_v12_4_enabled
+                    ),
+                )
+            for program_candidate in operation_programs:
                 program_sources.setdefault(program_candidate, set()).add(
-                    "neural_operation_conditioned_beam"
+                    "diverse_set_beam_v1"
+                    if diverse_set_beam_enabled
+                    else "neural_operation_conditioned_beam"
                     if candidate_recall_v12_4_enabled
                     else "neural_structural_beam"
                 )
@@ -6925,15 +10913,28 @@ def _search_symbolic_programs(
     typed_proposals: dict[ReasoningProgram, TypedProgramProposal] = {}
     for result in synthesis_results:
         for proposal in result.proposals:
-            synthesized_programs.add(proposal.program)
-            current = typed_proposals.get(proposal.program)
+            proposal_program = (
+                ReasoningProgram(
+                    SUM_N_OPERATION,
+                    tuple(sorted(proposal.program.operands)),
+                )
+                if (
+                    result.operation == SUM_N_OPERATION
+                    and proposal.program.operation != SUM_N_OPERATION
+                )
+                else proposal.program
+            )
+            synthesized_programs.add(proposal_program)
+            current = typed_proposals.get(proposal_program)
             if current is None or proposal.type_score > current.type_score:
-                typed_proposals[proposal.program] = proposal
-            program_sources.setdefault(proposal.program, set()).add(
+                typed_proposals[proposal_program] = replace(
+                    proposal, program=proposal_program
+                )
+            program_sources.setdefault(proposal_program, set()).add(
                 "typed_slot_synthesis"
             )
             if result.template.startswith("financial_identity:"):
-                program_sources[proposal.program].add(result.template)
+                program_sources[proposal_program].add(result.template)
     if legacy_reference_result is not None:
         program_sources.setdefault(
             legacy_reference_result.program, set()
@@ -6968,22 +10969,93 @@ def _search_symbolic_programs(
             "directional_reversal_probe"
         )
     programs = set(program_sources)
+    preverification_programs: tuple[ReasoningProgram, ...] = ()
+    selected_for_verification: tuple[ReasoningProgram, ...] = ()
+    if diverse_set_beam_enabled:
+        program_count_before_dedup = len(programs)
+        for program in programs:
+            _operation_probability, neural_score, _pointers = (
+                _program_neural_evidence(output, row, program)
+            )
+            score = neural_score + 0.05 * generation_scores.get(
+                program, 0.0
+            )
+            proposal = typed_proposals.get(program)
+            if proposal is not None:
+                score += 0.10 * proposal.type_score
+            generation_scores[program] = score
+        preverification_programs = _diverse_preverification_order(
+            tuple(programs),
+            program_sources,
+            generation_scores,
+            candidates,
+            baseline,
+        )
+        conflict_indices = _conflicting_physical_indices(candidates)
+        signature_to_representative = {
+            _program_physical_signature(
+                program,
+                candidates,
+                conflict_indices=conflict_indices,
+            ): program
+            for program in preverification_programs
+        }
+        merged_sources: dict[ReasoningProgram, set[str]] = {
+            program: set() for program in preverification_programs
+        }
+        for program, sources in program_sources.items():
+            signature = _program_physical_signature(
+                program,
+                candidates,
+                conflict_indices=conflict_indices,
+            )
+            representative = signature_to_representative.get(signature)
+            if representative is None:
+                continue
+            merged_sources[representative].update(sources)
+            proposal = typed_proposals.get(program)
+            current = typed_proposals.get(representative)
+            if proposal is not None and (
+                current is None or proposal.type_score > current.type_score
+            ):
+                typed_proposals[representative] = replace(
+                    proposal,
+                    program=representative,
+                )
+        program_sources = merged_sources
+        selected_for_verification = preverification_programs[:10]
+        programs = set(selected_for_verification)
+        generated_before_physical_dedup = max(
+            generated_before_physical_dedup,
+            program_count_before_dedup,
+        )
+        generated_after_physical_dedup = len(
+            preverification_programs
+        )
 
     verification_evidence: EvidenceGraph | Sequence = (
         graph if graph_enabled else graph.cells
     )
     rejected = 0
     search_rows: list[_SearchProgramCandidate] = []
-    ordered_programs = [
-        baseline,
-        *sorted(
-            programs - {baseline},
-            key=lambda program: (
-                OPERATION_TO_ID[program.operation],
-                program.operands,
+    ordered_programs = (
+        list(selected_for_verification)
+        if diverse_set_beam_enabled
+        else [
+            baseline,
+            *sorted(
+                programs - {baseline},
+                key=lambda program: (
+                    OPERATION_TO_ID[
+                        "ADD"
+                        if program.operation == SUM_N_OPERATION
+                        else program.operation
+                    ],
+                    program.operands,
+                ),
             ),
-        ),
-    ]
+        ]
+    )
     for program in ordered_programs:
         sources = tuple(sorted(program_sources.get(program, ())))
         typed_proposal = typed_proposals.get(program)
@@ -7057,24 +11129,72 @@ def _search_symbolic_programs(
         if reasons:
             rejected += 1
 
-    ranked_rows = sorted(
-        search_rows,
-        key=lambda item: (
-            item.neural_score,
-            -OPERATION_TO_ID[item.program.operation],
-            tuple(-index for index in item.program.operands),
-        ),
-        reverse=True,
-    )
-    for rank, item in enumerate(ranked_rows, start=1):
-        item.neural_rank = rank
+    if diverse_set_beam_enabled:
+        preverification_rank = {
+            program: rank
+            for rank, program in enumerate(
+                preverification_programs, start=1
+            )
+        }
+        ranked_rows = sorted(
+            search_rows,
+            key=lambda item: preverification_rank.get(
+                item.program, len(preverification_rank) + 1
+            ),
+        )
+        for item in ranked_rows:
+            item.neural_rank = preverification_rank.get(
+                item.program, len(preverification_rank) + 1
+            )
+    else:
+        ranked_rows = sorted(
+            search_rows,
+            key=lambda item: (
+                item.neural_score,
+                -OPERATION_TO_ID[
+                    "ADD"
+                    if item.program.operation == SUM_N_OPERATION
+                    else item.program.operation
+                ],
+                tuple(-index for index in item.program.operands),
+            ),
+            reverse=True,
+        )
+        for rank, item in enumerate(ranked_rows, start=1):
+            item.neural_rank = rank
 
+    pool_width = (
+        max((*slot_pool_10.keys(), *slot_pool_20.keys()), default=-1) + 1
+    )
+    slot_candidate_pools_at_10 = tuple(
+        tuple(slot_pool_10.get(slot, ())[:10])
+        for slot in range(pool_width)
+    )
+    slot_candidate_pools_at_20 = tuple(
+        tuple(slot_pool_20.get(slot, ())[:20])
+        for slot in range(pool_width)
+    )
+    operation_slot_candidate_pools_at_10 = tuple(
+        (operation, operation_slot_pool_10[operation])
+        for operation in operations
+        if operation in operation_slot_pool_10
+    )
+    operation_slot_candidate_pools_at_20 = tuple(
+        (operation, operation_slot_pool_20[operation])
+        for operation in operations
+        if operation in operation_slot_pool_20
+    )
     eligible_rows = [item for item in ranked_rows if not item.rejection_reasons]
     if not eligible_rows:
         if not candidate_recall_v12_4_enabled:
             return None
         fallback = next(
-            item for item in ranked_rows if item.program == baseline
+            (
+                item
+                for item in ranked_rows
+                if item.program == baseline
+            ),
+            ranked_rows[0],
         )
         trace = tuple(
             ProgramCandidateTrace(
@@ -7109,11 +11229,15 @@ def _search_symbolic_programs(
             for item in ranked_rows
         )
         return SymbolicProgramSearchResult(
-            program=baseline,
+            program=fallback.program,
             pointer_confidences=fallback.pointer_confidences,
             neural_pointer_confidences=fallback.pointer_confidences,
             constraints_applied=("trace_complete_fallback",),
-            candidates_considered=len(programs),
+            candidates_considered=(
+                len(preverification_programs)
+                if diverse_set_beam_enabled
+                else len(programs)
+            ),
             candidates_rejected=rejected,
             proof_score=fallback.verification.proof_score,
             unknown_constraints=len(fallback.verification.unknown_reasons),
@@ -7135,6 +11259,23 @@ def _search_symbolic_programs(
             ),
             program_dag=fallback.program_dag,
             slot_bindings=fallback.slot_bindings,
+            slot_candidate_pools_at_10=slot_candidate_pools_at_10,
+            slot_candidate_pools_at_20=slot_candidate_pools_at_20,
+            operation_slot_candidate_pools_at_10=(
+                operation_slot_candidate_pools_at_10
+            ),
+            operation_slot_candidate_pools_at_20=(
+                operation_slot_candidate_pools_at_20
+            ),
+            operation_beam=operations,
+            preverification_programs=preverification_programs,
+            selected_for_verification=selected_for_verification,
+            generated_programs_before_physical_dedup=(
+                generated_before_physical_dedup
+            ),
+            generated_programs_after_physical_dedup=(
+                generated_after_physical_dedup
+            ),
         )
     legacy_rows = sorted(
         eligible_rows,
@@ -7237,6 +11378,34 @@ def _search_symbolic_programs(
         reranker_overridden=reranker_overridden,
     )
 
+    # Only within a source-proven equivalent SELECT group, prefer the fullest
+    # reported amount when no coarser display unit was requested. This is a
+    # source precision preference, not a new score threshold or a numeric oracle.
+    if chosen.program.operation == "SELECT" and plan.requested_scale in {None, "vnd"}:
+        from .disclosure_equivalence import _quantum
+        def equivalent_precision(item):
+            mapping = item.verification.mapping_assessment
+            if item.program.operation != "SELECT" or mapping is None or len(mapping.operand_mappings) != 1:
+                return None
+            operand = mapping.operand_mappings[0]
+            if not operand.equivalent_disclosures:
+                return None
+            cell = graph.cells[item.program.operands[0]]
+            scale = currency_unit_scale(cell.unit)
+            quantum = _quantum(cell, scale) if scale is not None else None
+            if quantum is None:
+                return None
+            group = tuple(sorted(repr(m.identity) for m in operand.valid_physical_mappings))
+            return group, quantum
+        current_precision = equivalent_precision(chosen)
+        if current_precision is not None:
+            fuller = [(precision[1], item.neural_rank, item) for item in eligible_rows
+                      if (precision := equivalent_precision(item)) is not None
+                      and precision[0] == current_precision[0] and precision[1] < current_precision[1]]
+            if fuller:
+                chosen = min(fuller, key=lambda item: (item[0], item[1], item[2].program.operands))[2]
+                chosen.generation_sources = tuple(dict.fromkeys((*chosen.generation_sources, "equivalent_disclosure_source_precision")))
+
     trace = tuple(
         ProgramCandidateTrace(
             program=item.program,
@@ -7290,12 +11459,18 @@ def _search_symbolic_programs(
         applied_constraints.append("program_reranker")
     if safe_residual_preserved:
         applied_constraints.append("v12_4_safe_residual_preserved")
+    if diverse_set_beam_enabled:
+        applied_constraints.append("diverse_set_beam_v1")
     return SymbolicProgramSearchResult(
         program=chosen.program,
         pointer_confidences=chosen.pointer_confidences,
         neural_pointer_confidences=chosen.pointer_confidences,
         constraints_applied=tuple(applied_constraints),
-        candidates_considered=len(programs),
+        candidates_considered=(
+            len(preverification_programs)
+            if diverse_set_beam_enabled
+            else len(programs)
+        ),
         candidates_rejected=rejected,
         proof_score=chosen.verification.proof_score,
         unknown_constraints=len(chosen.verification.unknown_reasons),
@@ -7329,6 +11504,23 @@ def _search_symbolic_programs(
         ),
         program_dag=chosen.program_dag,
         slot_bindings=chosen.slot_bindings,
+        slot_candidate_pools_at_10=slot_candidate_pools_at_10,
+        slot_candidate_pools_at_20=slot_candidate_pools_at_20,
+        operation_slot_candidate_pools_at_10=(
+            operation_slot_candidate_pools_at_10
+        ),
+        operation_slot_candidate_pools_at_20=(
+            operation_slot_candidate_pools_at_20
+        ),
+        operation_beam=operations,
+        preverification_programs=preverification_programs,
+        selected_for_verification=selected_for_verification,
+        generated_programs_before_physical_dedup=(
+            generated_before_physical_dedup
+        ),
+        generated_programs_after_physical_dedup=(
+            generated_after_physical_dedup
+        ),
     )
 
 
@@ -7348,6 +11540,186 @@ def _metadata_float(metadata: dict[str, object], key: str, default: float) -> fl
     if key == "pointer_relevance_weight" and not 0.0 <= value <= 10.0:
         return default
     return value
+
+
+def _logical_operation_name(operation: str) -> str:
+    return SUM_N_OPERATION if is_sum_operation(operation) else operation
+
+
+def _logical_evaluation_operations() -> tuple[str, ...]:
+    return tuple(
+        dict.fromkeys(
+            _logical_operation_name(operation)
+            for operation in (*OPERATIONS, SUM_N_OPERATION)
+        )
+    )
+
+def _uses_logical_sum_evaluation(bundle: DocumentHRMBundle) -> bool:
+    """Select metric labels from architecture, never calibration timing.
+
+    ``variable_sum_mode`` is authoritative when present. Stable schema
+    metadata supports architecture-light consumers, while the policy probe is
+    retained only for older mock/checkpoint bundles that predate both fields.
+    """
+
+    config = getattr(getattr(bundle, "model", None), "config", None)
+    variable_sum_mode = getattr(config, "variable_sum_mode", None)
+    if variable_sum_mode == "sum_n_v1":
+        return True
+    if variable_sum_mode == "disabled":
+        return False
+
+    metadata = getattr(bundle, "metadata", {})
+    if not isinstance(metadata, dict):
+        return False
+    schema = metadata.get("evaluation_operation_schema")
+    if schema == "logical-sum-family-v1":
+        return True
+    if schema == "legacy-operation-label-v1":
+        return False
+    logical_operations = metadata.get("logical_program_operations")
+    if isinstance(logical_operations, (list, tuple)):
+        return SUM_N_OPERATION in logical_operations
+
+    # Compatibility only: V14 checkpoints/mocks created before the stable
+    # architecture/schema fields used the existence of typed policies as the
+    # sole signal. New bundles never reach this fallback.
+    return isinstance(
+        metadata.get("abstention_policies_by_operation"), dict
+    )
+
+
+
+def _arity_normalized_operation_equal(
+    predicted: ReasoningProgram,
+    expected: ReasoningProgram,
+) -> bool:
+    if is_sum_operation(predicted.operation) and is_sum_operation(expected.operation):
+        return (
+            len(predicted.operands) == len(expected.operands)
+            and operation_accepts_arity(
+                predicted.operation, len(predicted.operands)
+            )
+            and operation_accepts_arity(
+                expected.operation, len(expected.operands)
+            )
+        )
+    return predicted.operation == expected.operation
+
+
+def _prediction_action_decision(bundle, question, prediction, candidates, *, publication_policy=None):
+    from .source_action_policy import decide_answer, CALIBRATED_ACTION_POLICY
+    raw = bundle.metadata.get("abstention_policies_by_operation", {})
+    payload = raw.get(_logical_operation_name(prediction.program.operation)) if isinstance(raw, dict) else None
+    reasons = (
+        *_prediction_required_proof_rejection_reasons(question, prediction, candidates),
+        *(f"missing_requested_period:{p}" for p in _evaluation_missing_requested_periods(question, candidates)),
+    )
+    return decide_answer(_prediction_public_source_action(question, prediction, candidates),
+                         payload, prediction.confidence, reason_codes=reasons,
+                         policy_id=CALIBRATED_ACTION_POLICY if publication_policy is None else publication_policy)
+
+
+def _prediction_calibration_accepts(
+    bundle: DocumentHRMBundle,
+    prediction: ProgramPrediction,
+) -> bool:
+    """Apply V14 policy metadata without falling back to numeric sentinels."""
+
+    raw = bundle.metadata.get("abstention_policies_by_operation")
+    if not isinstance(raw, dict):
+        return False
+    payload = raw.get(_logical_operation_name(prediction.program.operation))
+    if not isinstance(payload, dict):
+        return False
+    try:
+        policy = CalibrationPolicy.from_dict(payload)
+    except CalibrationPolicyError:
+        return False
+    return policy.accepts(prediction.confidence)
+
+
+def _evaluation_missing_requested_periods(
+    question: str,
+    candidates: Sequence[NumericCandidate],
+) -> tuple[str, ...]:
+    """Mirror public period coverage without importing the reasoning engine."""
+
+    requested = set(_requested_years(question))
+    if not requested:
+        return ()
+    period_candidates: Sequence[NumericCandidate] = candidates
+    plan = compile_question_plan(question)
+    if plan.operation == "SELECT":
+        pool = set(range(len(candidates)))
+        compatible = _metric_compatible_indices(question, candidates, pool)
+        if not compatible:
+            labeled = tuple(
+                candidate
+                if candidate.extraction_method
+                else replace(candidate, extraction_method="native")
+                for candidate in candidates
+            )
+            compatible = _metric_compatible_indices(question, labeled, pool)
+        if not compatible:
+            return tuple(sorted(requested))
+        period_candidates = tuple(candidates[index] for index in compatible)
+    covered: set[str] = set()
+    for candidate in period_candidates:
+        covered.update(_candidate_period_years(candidate, question))
+    return tuple(sorted(requested - covered))
+
+
+def _prediction_public_source_action(
+    question: str,
+    prediction: ProgramPrediction,
+    candidates: Sequence[NumericCandidate],
+) -> str:
+    """Replay the proof/mapping portion of the public gate for eval/calibration."""
+
+    plan = compile_question_plan(question)
+    graph = build_evidence_graph(candidates)
+    program_dag = getattr(prediction, "program_dag", None)
+    identity_enabled = (
+        "financial_identity_catalog"
+        in getattr(prediction, "grounding_constraints_applied", ())
+    )
+    verification = verify_program(
+        plan,
+        prediction.program,
+        graph,
+        financial_identity_catalog_enabled=identity_enabled,
+        program_dag=program_dag,
+        slot_bindings=getattr(prediction, "slot_bindings", ()),
+    )
+    grounding_rejections = _grounding_gate_reasons(
+        question,
+        prediction.program,
+        candidates,
+        verification,
+        financial_identity_catalog_enabled=identity_enabled,
+        program_dag=program_dag,
+    )
+    required_states = tuple(
+        obligation.state.value
+        if obligation.state is not None
+        else VerificationState.UNKNOWN.value
+        for obligation in verification.proof_obligations
+        if obligation.applicability == "required"
+    )
+    mapping_resolution = str(
+        getattr(verification.mapping_assessment, "resolution", "UNKNOWN")
+    )
+    return classify_source_action(
+        missing_periods=_evaluation_missing_requested_periods(
+            question, candidates
+        ),
+        verification_state=verification.state.value,
+        required_states=required_states,
+        mapping_resolution=mapping_resolution,
+        abstained=bool(grounding_rejections),
+    )
+
 
 def checkpoint_validation_examples(
     bundle: DocumentHRMBundle,
@@ -7480,7 +11852,7 @@ def _prediction_required_proof_rejection_reasons(
         program_dag=getattr(prediction, "program_dag", None),
         slot_bindings=getattr(prediction, "slot_bindings", ()),
     )
-    reasons: list[str] = []
+    reasons: list[str] = list(program_binding_issues(prediction.program, candidates, getattr(prediction, "program_dag", None)))
     for obligation in verification.proof_obligations:
         if obligation.applicability != "required":
             continue
@@ -7489,6 +11861,111 @@ def _prediction_required_proof_rejection_reasons(
         elif obligation.state is VerificationState.INVALID:
             reasons.append(f"required_proof_invalid:{obligation.name}")
     return tuple(dict.fromkeys(reasons))
+
+
+def calibrate_operation_abstention_policies(
+    bundle: DocumentHRMBundle,
+    examples: Sequence[ProgramExample],
+    *,
+    target_precision: float = 0.90,
+    minimum_accepted: int = 5,
+    batch_size: int = 32,
+) -> dict[str, CalibrationPolicy]:
+    """Calibrate explicit V14 policies against the public structural gate."""
+
+    if not 0.0 < target_precision <= 1.0:
+        raise DocumentHRMError("target_precision must be within (0, 1]")
+    if minimum_accepted < 1:
+        raise DocumentHRMError("minimum_accepted must be positive")
+    if batch_size < 1:
+        raise DocumentHRMError("batch_size must be positive")
+
+    records: dict[str, list[tuple[float, bool, bool]]] = {
+        operation: [] for operation in _logical_evaluation_operations()
+    }
+    for start in range(0, len(examples), batch_size):
+        current = list(examples[start : start + batch_size])
+        predictions = bundle.predict_many(current)
+        for example, prediction in zip(current, predictions):
+            operation = _logical_operation_name(prediction.program.operation)
+            records.setdefault(operation, []).append(
+                (
+                    prediction.confidence,
+                    _execution_is_correct(prediction.program, example),
+                    _prediction_public_source_action(
+                        example.question,
+                        prediction,
+                        example.candidates,
+                    )
+                    == "ANSWER",
+                )
+            )
+
+    policies: dict[str, CalibrationPolicy] = {}
+    for operation in _logical_evaluation_operations():
+        rows = records.get(operation, [])
+        support = len(rows)
+        if not support:
+            policies[operation] = CalibrationPolicy(
+                status=CalibrationStatus.UNCALIBRATED,
+                threshold=None,
+                support=0,
+                accepted=0,
+                correct=0,
+                precision=0.0,
+                lower_bound=0.0,
+                target=target_precision,
+            )
+            continue
+
+        choices: list[tuple[int, int, float, float]] = []
+        thresholds = sorted(
+            {
+                confidence
+                for confidence, _, structurally_eligible in rows
+                if structurally_eligible
+            }
+        )
+        for threshold in thresholds:
+            accepted_rows = tuple(
+                correct
+                for confidence, correct, structurally_eligible in rows
+                if structurally_eligible and confidence >= threshold
+            )
+            accepted = len(accepted_rows)
+            if accepted < minimum_accepted:
+                continue
+            correct = sum(accepted_rows)
+            lower_bound = wilson_lower_bound(correct, accepted)
+            if lower_bound >= target_precision:
+                choices.append((accepted, correct, threshold, lower_bound))
+        if not choices:
+            policies[operation] = CalibrationPolicy(
+                status=CalibrationStatus.DISABLED,
+                threshold=None,
+                support=support,
+                accepted=0,
+                correct=0,
+                precision=0.0,
+                lower_bound=0.0,
+                target=target_precision,
+            )
+            continue
+        accepted, correct, threshold, lower_bound = max(
+            choices,
+            key=lambda item: (item[0], item[1], -item[2]),
+        )
+        policies[operation] = CalibrationPolicy(
+            status=CalibrationStatus.CALIBRATED,
+            threshold=threshold,
+            support=support,
+            accepted=accepted,
+            correct=correct,
+            precision=correct / accepted,
+            lower_bound=lower_bound,
+            target=target_precision,
+        )
+    return policies
 
 
 def calibrate_abstention_threshold(
@@ -8135,9 +12612,161 @@ def _context_field(context: str, name: str) -> str:
     return match.group(1).strip() if match else ""
 
 
-def _candidate_semantic_text(
-    candidate: NumericCandidate, *, mode: str
+def _semantic_scope_label(plan: QuestionPlan | None) -> str:
+    if plan is None:
+        return ""
+    normalized = f" {plan.normalized} "
+    if " hop nhat " in normalized or " consolidated " in normalized:
+        return "hợp nhất"
+    if " cong ty me " in normalized or " parent company " in normalized:
+        return "công ty mẹ"
+    return "đơn vị báo cáo" if plan.entity_mode == "reporting" else ""
+
+
+def _semantic_question_surface(
+    question: str, plan: QuestionPlan | None
 ) -> str:
+    surface = unicodedata.normalize("NFC", question.strip())
+    if plan is None or not plan.entity_text:
+        return surface
+    # The issuer identifier is document routing metadata, not financial
+    # semantics. Remove the planner-resolved named entity from the encoder
+    # surface while retaining generic consolidated/parent-company scope.
+    return re.sub(
+        re.escape(plan.entity_text),
+        " ",
+        surface,
+        flags=re.IGNORECASE,
+    ).strip()
+
+
+def _question_semantic_text(
+    question: str,
+    plan: QuestionPlan | None,
+    *,
+    template_version: str,
+) -> str:
+    if template_version == LEGACY_SEMANTIC_TEMPLATE:
+        return question
+    if template_version != FINANCIAL_VI_SEMANTIC_TEMPLATE:
+        raise DocumentHRMError("Unsupported semantic question template")
+    active_plan = plan or compile_question_plan(question)
+    periods = (
+        *active_plan.requested_years,
+        *active_plan.requested_period_roles,
+    )
+    fields = (
+        ("Câu hỏi tài chính", _semantic_question_surface(question, active_plan)),
+        ("Chỉ tiêu", active_plan.metric_text),
+        ("Kỳ", ", ".join(periods)),
+        ("Vai trò cột", ", ".join(active_plan.column_roles)),
+        ("Phạm vi", _semantic_scope_label(active_plan)),
+        ("Đơn vị", active_plan.requested_unit_family),
+        ("Phép toán", active_plan.operation or "chưa xác định"),
+    )
+    return unicodedata.normalize(
+        "NFC",
+        "\n".join(f"{label}: {value}" for label, value in fields if value),
+    )
+
+
+def _slot_semantic_text(
+    question: str,
+    plan: QuestionPlan | None,
+    slot_index: int,
+    *,
+    template_version: str,
+) -> str:
+    if template_version == LEGACY_SEMANTIC_TEMPLATE:
+        return question
+    active_plan = plan or compile_question_plan(question)
+    slot = (
+        active_plan.operand_slots[slot_index]
+        if slot_index < len(active_plan.operand_slots)
+        else None
+    )
+    metric = (
+        slot.metric
+        if slot is not None
+        else active_plan.operand_roles[slot_index]
+        if slot_index < len(active_plan.operand_roles)
+        else active_plan.metric_text
+    )
+    year = slot.year if slot is not None else ""
+    period_role = slot.period_role if slot is not None else ""
+    column_role = slot.column_role if slot is not None else ""
+    unit_family = (
+        slot.unit_family
+        if slot is not None
+        else active_plan.requested_unit_family
+    )
+    fields = (
+        ("Câu hỏi tài chính", _semantic_question_surface(question, active_plan)),
+        ("Chỉ tiêu", metric),
+        ("Kỳ", ", ".join(value for value in (year, period_role) if value)),
+        ("Vai trò cột", column_role),
+        ("Phạm vi", _semantic_scope_label(active_plan)),
+        ("Đơn vị", unit_family),
+        ("Phép toán", active_plan.operation or "chưa xác định"),
+        ("Operand", str(slot_index + 1)),
+    )
+    return unicodedata.normalize(
+        "NFC",
+        "\n".join(f"{label}: {value}" for label, value in fields if value),
+    )
+
+
+def _candidate_semantic_text(
+    candidate: NumericCandidate,
+    *,
+    mode: str,
+    template_version: str = LEGACY_SEMANTIC_TEMPLATE,
+) -> str:
+    if template_version == FINANCIAL_VI_SEMANTIC_TEMPLATE:
+        scope_surface = normalize_text(
+            " ".join((candidate.scope, candidate.section))
+        )
+        if "hop nhat" in scope_surface or "consolidated" in scope_surface:
+            scope = "hợp nhất"
+        elif "cong ty me" in scope_surface or "parent company" in scope_surface:
+            scope = "công ty mẹ"
+        else:
+            scope = ""
+        fields = (
+            ("Dòng", candidate.row_label),
+            ("Loại dòng", candidate.row_type),
+            ("Cột", candidate.column_label),
+            ("Kỳ", candidate.period),
+            ("Vai trò cột", candidate.column_role),
+            ("Đơn vị", candidate.unit),
+            ("Phần báo cáo", candidate.section),
+            ("Phạm vi", scope),
+        )
+        structured = "\n".join(
+            f"{label}: {value}" for label, value in fields if value
+        )
+        prose = candidate.context
+        prose = re.sub(
+            r"(?im)^(?:PAGE|TABLE|ENTITY|SOURCE|SUBTABLE|VALUE|RAW|"
+            r"SOURCE_SPAN|SOURCE_BBOX):.*$",
+            " ",
+            prose,
+        )
+        for sensitive in (
+            candidate.raw,
+            candidate.value,
+            candidate.source_name,
+            candidate.entity_id,
+        ):
+            if sensitive:
+                prose = prose.replace(str(sensitive), " ")
+        prose = " ".join(prose.split())
+        return unicodedata.normalize(
+            "NFC",
+            structured or prose or "Bằng chứng văn bản",
+        )
+    if template_version != LEGACY_SEMANTIC_TEMPLATE:
+        raise DocumentHRMError("Unsupported semantic evidence template")
     provenance = "\n".join(
         f"{label}: {value}"
         for label, value in (
@@ -8308,6 +12937,54 @@ def _hard_negative_cross_entropy(
     return cross_entropy + weight * hard_margin
 
 
+def _operation_training_loss(
+    operation_logits: Tensor,
+    operation_targets: Tensor,
+    sum_family_targets: Tensor,
+    *,
+    weight: Tensor | None = None,
+) -> Tensor:
+    """Use one additive family probability without changing legacy class IDs."""
+
+    if not sum_family_targets.any():
+        return F.cross_entropy(
+            operation_logits, operation_targets, weight=weight
+        )
+    log_probabilities = torch.log_softmax(operation_logits, dim=-1)
+    row_losses = -log_probabilities.gather(
+        1, operation_targets.unsqueeze(1)
+    ).squeeze(1)
+    sum_family_log_probability = torch.logsumexp(
+        log_probabilities[:, list(SUM_FAMILY_OPERATION_IDS)], dim=-1
+    )
+    row_losses = torch.where(
+        sum_family_targets,
+        -sum_family_log_probability,
+        row_losses,
+    )
+    if weight is None:
+        return row_losses.mean()
+    row_weights = weight[operation_targets]
+    return (row_losses * row_weights).sum() / row_weights.sum().clamp_min(1e-8)
+
+
+def _operation_training_predictions(
+    operation_logits: Tensor,
+    *,
+    aggregate_sum_family: bool,
+) -> Tensor:
+    if not aggregate_sum_family:
+        return operation_logits.argmax(dim=-1)
+    family_scores = torch.logsumexp(
+        operation_logits[:, list(SUM_FAMILY_OPERATION_IDS)], dim=-1
+    )
+    scores = operation_logits.clone()
+    scores[:, OPERATION_TO_ID["ADD"]] = family_scores
+    scores[:, OPERATION_TO_ID["SUM3"]] = -torch.inf
+    scores[:, OPERATION_TO_ID["SUM4"]] = -torch.inf
+    return scores.argmax(dim=-1)
+
+
 def _commutative_pointer_membership_logits(
     pointer_logits: Tensor,
     arity: int,
@@ -8319,6 +12996,91 @@ def _commutative_pointer_membership_logits(
     return torch.logsumexp(pointer_logits[..., :arity, :], dim=-2) - math.log(
         arity
     )
+
+
+def _semantic_adapter_contrastive_loss(
+    model: DocumentHierarchicalReasoningModel,
+    batch: EncodedBatch,
+    *,
+    temperature: float = 0.07,
+    hard_negative_margin: float = 0.20,
+) -> Tensor:
+    """Contrast typed query slots against gold evidence without false negatives."""
+
+    if temperature <= 0 or hard_negative_margin < 0:
+        raise DocumentHRMError(
+            "Semantic contrastive temperature/margin are invalid"
+        )
+    if (
+        batch.slot_semantic is None
+        or batch.candidate_semantic is None
+        or batch.semantic_pointer_targets is None
+        or batch.semantic_slot_declared is None
+    ):
+        return torch.zeros((), device=batch.candidate_mask.device)
+    slot_vectors = model.adapt_semantic_embeddings(batch.slot_semantic)
+    candidate_vectors = model.adapt_semantic_embeddings(
+        batch.candidate_semantic
+    )
+    losses: list[Tensor] = []
+    for row in range(batch.candidate_mask.shape[0]):
+        valid_candidates = batch.candidate_mask[row].bool()
+        semantic_targets = batch.semantic_pointer_targets[row]
+        target_slots = semantic_targets.ge(0)
+        if not target_slots.any():
+            continue
+        gold_set = semantic_targets[target_slots].unique()
+        sum_family = bool(
+            batch.sum_family_targets is not None
+            and batch.sum_family_targets[row].item()
+        )
+        for slot in target_slots.nonzero(as_tuple=False).flatten().tolist():
+            scores = torch.einsum(
+                "h,nh->n",
+                slot_vectors[row, slot],
+                candidate_vectors[row],
+            ) / temperature
+            scores = scores.masked_fill(~valid_candidates, -torch.inf)
+            target = int(semantic_targets[slot].item())
+            typed_slot = bool(
+                batch.semantic_slot_declared[row, slot].item()
+            )
+            if sum_family and not typed_slot:
+                positive_score = torch.logsumexp(
+                    scores[gold_set], dim=0
+                )
+                loss = -(
+                    positive_score - torch.logsumexp(scores, dim=0)
+                )
+            else:
+                positive_score = scores[target]
+                loss = F.cross_entropy(
+                    scores.unsqueeze(0),
+                    torch.tensor(
+                        [target],
+                        dtype=torch.long,
+                        device=scores.device,
+                    ),
+                )
+            negative_mask = valid_candidates.clone()
+            negative_mask[gold_set] = False
+            if batch.unary_structural_negatives is not None:
+                negative_mask &= batch.unary_structural_negatives[
+                    row, slot
+                ].bool()
+            if negative_mask.any():
+                hardest_negative = scores.masked_fill(
+                    ~negative_mask, -torch.inf
+                ).max()
+                loss = loss + F.softplus(
+                    hard_negative_margin
+                    - positive_score
+                    + hardest_negative
+                )
+            losses.append(loss)
+    if not losses:
+        return torch.zeros((), device=batch.candidate_mask.device)
+    return torch.stack(losses).mean()
 
 
 def _multi_operand_set_ranking_loss(
@@ -8344,6 +13106,10 @@ def _commutative_pointer_set_loss(
     operation_targets: Tensor,
     pointer_targets: Tensor,
     candidate_mask: Tensor,
+    *,
+    operand_count_targets: Tensor | None = None,
+    sum_family_targets: Tensor | None = None,
+    sum_membership_logits: Tensor | None = None,
 ) -> Tensor:
     """Teach every gold member without assigning an arbitrary slot order."""
 
@@ -8352,14 +13118,30 @@ def _commutative_pointer_set_loss(
         operation = OPERATIONS[operation_id]
         if operation not in COMMUTATIVE:
             continue
-        arity = OPERATION_ARITY[operation]
+        sum_family_row = bool(
+            sum_family_targets is not None
+            and sum_family_targets[row].item()
+        )
+        if sum_family_row:
+            if operand_count_targets is None:
+                continue
+            count_target = int(operand_count_targets[row].item())
+            if count_target < 0:
+                continue
+            arity = count_target + 2
+        else:
+            arity = OPERATION_ARITY[operation]
         gold = pointer_targets[row, :arity]
         if gold.lt(0).any():
             continue
-        logits = _commutative_pointer_membership_logits(
-            pointer_logits[row], arity
-        ).masked_fill(candidate_mask[row].eq(0), -1e9)
-        if operation in MULTI_OPERAND_OPERATIONS:
+        if sum_family_row and sum_membership_logits is not None:
+            logits = sum_membership_logits[row]
+        else:
+            logits = _commutative_pointer_membership_logits(
+                pointer_logits[row], arity
+            )
+        logits = logits.masked_fill(candidate_mask[row].eq(0), -1e9)
+        if sum_family_row or operation in MULTI_OPERAND_OPERATIONS:
             losses.append(
                 _multi_operand_set_ranking_loss(
                     logits,
@@ -8478,6 +13260,8 @@ def _training_pointer_predictions(
     pointer_targets: Tensor,
     *,
     use_pair: bool = True,
+    operand_count_targets: Tensor | None = None,
+    sum_family_targets: Tensor | None = None,
 ) -> Tensor:
     predicted = output.pointer_logits.argmax(dim=-1)
     if output.select_pointer_logits is not None:
@@ -8491,6 +13275,8 @@ def _training_pointer_predictions(
             pointer_targets[:, 1].ge(0)
             & _binary_operation_rows(operation_targets)
         )
+        if sum_family_targets is not None:
+            pair_rows = pair_rows & ~sum_family_targets
         if pair_rows.any():
             rows = torch.arange(
                 operation_targets.shape[0], device=operation_targets.device
@@ -8504,9 +13290,25 @@ def _training_pointer_predictions(
         operation = OPERATIONS[operation_id]
         if operation not in COMMUTATIVE:
             continue
-        arity = OPERATION_ARITY[operation]
-        membership = _commutative_pointer_membership_logits(
-            output.pointer_logits[row], arity
+        sum_family_row = bool(
+            sum_family_targets is not None
+            and sum_family_targets[row].item()
+        )
+        if sum_family_row:
+            if operand_count_targets is None:
+                continue
+            count_target = int(operand_count_targets[row].item())
+            if count_target < 0:
+                continue
+            arity = count_target + 2
+        else:
+            arity = OPERATION_ARITY[operation]
+        membership = (
+            output.sum_membership_logits[row]
+            if sum_family_row and output.sum_membership_logits is not None
+            else _commutative_pointer_membership_logits(
+                output.pointer_logits[row], arity
+            )
         )
         selected = (
             {
@@ -8517,6 +13319,7 @@ def _training_pointer_predictions(
                 output.pair_logits is not None
                 and use_pair
                 and arity == 2
+                and not sum_family_row
             )
             else set()
         )
@@ -8570,20 +13373,22 @@ def _permute_candidates(
 
 def _structured_negative_indices(
     example: ProgramExample,
+    *,
+    operand_width: int = MAX_OPERANDS,
 ) -> tuple[tuple[tuple[int, ...], ...], tuple[tuple[int, int], ...]]:
     """Resolve audited hard negatives into unary slots and ordered pair targets."""
 
-    unary: list[set[int]] = [set() for _ in range(MAX_OPERANDS)]
+    unary: list[set[int]] = [set() for _ in range(operand_width)]
     pairs: set[tuple[int, int]] = set()
     supervision = example.supervision
     if not isinstance(supervision, dict):
-        return tuple(tuple() for _ in range(MAX_OPERANDS)), tuple()
+        return tuple(tuple() for _ in range(operand_width)), tuple()
     hard_negatives = supervision.get("hard_negatives")
     if not isinstance(hard_negatives, list):
-        return tuple(tuple() for _ in range(MAX_OPERANDS)), tuple()
+        return tuple(tuple() for _ in range(operand_width)), tuple()
 
     candidate_count = len(example.candidates)
-    gold_operands = example.program.operands
+    gold_operands = _supervision_gold_operand_indices(example)
     gold_pair = tuple(gold_operands[:2]) if len(gold_operands) >= 2 else None
     for raw_negative in hard_negatives:
         if not isinstance(raw_negative, dict):
@@ -8598,7 +13403,7 @@ def _structured_negative_indices(
         )
         raw_slot = raw_negative.get("operand_slot")
         slot = raw_slot if isinstance(raw_slot, int) else None
-        if slot is not None and 0 <= slot < MAX_OPERANDS:
+        if slot is not None and 0 <= slot < operand_width:
             gold = gold_operands[slot] if slot < len(gold_operands) else None
             unary[slot].update(index for index in indices if index != gold)
             if gold_pair is not None and slot < 2:
@@ -8615,6 +13420,33 @@ def _structured_negative_indices(
         tuple(tuple(sorted(indices)) for indices in unary),
         tuple(sorted(pairs)),
     )
+
+
+def _supervision_gold_operand_indices(
+    example: ProgramExample,
+) -> tuple[int, ...]:
+    """Return semantic slot order without changing commutative program order."""
+
+    supervision = example.supervision
+    if not isinstance(supervision, dict):
+        return example.program.operands
+    raw_gold = supervision.get("gold_operands")
+    if not isinstance(raw_gold, list):
+        return example.program.operands
+    ordered: list[int] = []
+    for item in raw_gold:
+        if not isinstance(item, dict):
+            return example.program.operands
+        index = item.get("candidate_index")
+        if not isinstance(index, int) or not 0 <= index < len(example.candidates):
+            return example.program.operands
+        ordered.append(index)
+    if (
+        len(ordered) != len(example.program.operands)
+        or set(ordered) != set(example.program.operands)
+    ):
+        return example.program.operands
+    return tuple(ordered)
 
 
 def _remap_supervision_candidate_indices(
@@ -8672,6 +13504,54 @@ def _example_group_key(example: ProgramExample) -> str:
     metadata_lines = "\n".join(example.context.splitlines()[:8])
     digest = blake2b(normalize_text(metadata_lines).encode("utf-8"), digest_size=8).hexdigest()
     return f"report:{digest}"
+
+
+def _validate_training_split_boundaries(
+    train_examples: Sequence[ProgramExample],
+    validation_examples: Sequence[ProgramExample],
+) -> None:
+    if not train_examples:
+        raise DocumentHRMError("Training split contains no examples")
+    if not validation_examples:
+        raise DocumentHRMError("Validation split contains no examples")
+
+    def ids_and_duplicates(
+        examples: Sequence[ProgramExample],
+    ) -> tuple[set[str], list[str]]:
+        counts = Counter(example.example_id for example in examples)
+        return set(counts), sorted(
+            example_id for example_id, count in counts.items() if count > 1
+        )
+
+    train_ids, train_duplicates = ids_and_duplicates(train_examples)
+    validation_ids, validation_duplicates = ids_and_duplicates(validation_examples)
+    if train_duplicates:
+        raise DocumentHRMError(
+            "Training split contains duplicate example IDs: "
+            + ", ".join(train_duplicates[:5])
+        )
+    if validation_duplicates:
+        raise DocumentHRMError(
+            "Validation split contains duplicate example IDs: "
+            + ", ".join(validation_duplicates[:5])
+        )
+    overlapping_ids = sorted(train_ids & validation_ids)
+    if overlapping_ids:
+        raise DocumentHRMError(
+            "Training and validation example IDs overlap: "
+            + ", ".join(overlapping_ids[:5])
+        )
+
+    train_groups = {_example_group_key(example) for example in train_examples}
+    validation_groups = {
+        _example_group_key(example) for example in validation_examples
+    }
+    overlapping_groups = sorted(train_groups & validation_groups)
+    if overlapping_groups:
+        raise DocumentHRMError(
+            "Training and validation company/report groups overlap: "
+            + ", ".join(overlapping_groups[:5])
+        )
 
 
 def _split_from_validation_ids(

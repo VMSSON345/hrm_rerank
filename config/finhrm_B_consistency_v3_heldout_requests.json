@@ -1,0 +1,258 @@
+{
+  "sources": {
+    "APP": {
+      "path": "data/markdown/finhrm_B_consistency_v3_new/APP_25CN_BCTN.md",
+      "sha256": "28fe28071b187d992e2436eac36a89102f6deaddcf3951b5e49a1395fe8884e7"
+    },
+    "BHH": {
+      "path": "data/markdown/finhrm_B_consistency_v3_new/BHH_24CN_BCTN.md",
+      "sha256": "a21baf1ed67aa396cc1c5d12180407fec1b28574864afcda53530e2a86b76994"
+    },
+    "BHK": {
+      "path": "data/markdown/finhrm_B_consistency_v3_new/BHK_24CN_BCTN.md",
+      "sha256": "449137812b1af6e13b7674cd816f41d235cd90beefd1b52d9e9c935da1c26632"
+    }
+  },
+  "cases": [
+    {
+      "case_id": "heldout-app-charter-01",
+      "source_id": "APP",
+      "question": "Vốn điều lệ của công ty là bao nhiêu?",
+      "split": "independent",
+      "fact_group": "heldout-app-charter",
+      "evidence_kind": "FIELD_VALUE"
+    },
+    {
+      "case_id": "heldout-app-charter-02",
+      "source_id": "APP",
+      "question": "Trong thông tin khái quát, công ty ghi vốn điều lệ ở mức nào?",
+      "split": "independent",
+      "fact_group": "heldout-app-charter",
+      "evidence_kind": "FIELD_VALUE"
+    },
+    {
+      "case_id": "heldout-app-pat-narrative-01",
+      "source_id": "APP",
+      "question": "Theo đoạn đánh giá, lợi nhuận sau thuế năm 2025 là bao nhiêu đồng?",
+      "split": "independent",
+      "fact_group": "heldout-app-pat-narrative",
+      "evidence_kind": "SOURCE_ASSERTION"
+    },
+    {
+      "case_id": "heldout-app-pat-narrative-02",
+      "source_id": "APP",
+      "question": "Lợi nhuận sau thuế năm 2025 được nêu trong đoạn đánh giá là bao nhiêu?",
+      "split": "independent",
+      "fact_group": "heldout-app-pat-narrative",
+      "evidence_kind": "SOURCE_ASSERTION"
+    },
+    {
+      "case_id": "heldout-app-revenue-plan-01",
+      "source_id": "APP",
+      "question": "Kế hoạch tổng doanh thu năm 2026 là bao nhiêu đồng?",
+      "split": "independent",
+      "fact_group": "heldout-app-revenue-plan",
+      "evidence_kind": "TABLE_CELL"
+    },
+    {
+      "case_id": "heldout-app-revenue-plan-02",
+      "source_id": "APP",
+      "question": "Tổng doanh thu năm 2026 theo kế hoạch được ghi là bao nhiêu?",
+      "split": "independent",
+      "fact_group": "heldout-app-revenue-plan",
+      "evidence_kind": "TABLE_CELL"
+    },
+    {
+      "case_id": "heldout-app-finance-difference-01",
+      "source_id": "APP",
+      "question": "Chi phí tài chính năm 2025 trừ năm 2024 là bao nhiêu đồng?",
+      "split": "independent",
+      "fact_group": "heldout-app-finance-difference",
+      "evidence_kind": "TABLE_CELL"
+    },
+    {
+      "case_id": "heldout-app-finance-difference-02",
+      "source_id": "APP",
+      "question": "Lấy chi phí tài chính năm 2025 trừ năm 2024 thì được bao nhiêu?",
+      "split": "independent",
+      "fact_group": "heldout-app-finance-difference",
+      "evidence_kind": "TABLE_CELL"
+    },
+    {
+      "case_id": "heldout-bhh-charter-01",
+      "source_id": "BHH",
+      "question": "Vốn điều lệ là bao nhiêu?",
+      "split": "independent",
+      "fact_group": "heldout-bhh-charter",
+      "evidence_kind": "FIELD_VALUE"
+    },
+    {
+      "case_id": "heldout-bhh-charter-02",
+      "source_id": "BHH",
+      "question": "Công ty ghi vốn điều lệ ở mức nào trong thông tin khái quát?",
+      "split": "independent",
+      "fact_group": "heldout-bhh-charter",
+      "evidence_kind": "FIELD_VALUE"
+    },
+    {
+      "case_id": "heldout-bhh-revenue-narrative-01",
+      "source_id": "BHH",
+      "question": "Theo đoạn đánh giá, doanh thu bán hàng năm 2024 là bao nhiêu tỷ đồng?",
+      "split": "independent",
+      "fact_group": "heldout-bhh-revenue-narrative",
+      "evidence_kind": "SOURCE_ASSERTION"
+    },
+    {
+      "case_id": "heldout-bhh-revenue-narrative-02",
+      "source_id": "BHH",
+      "question": "Doanh thu bán hàng năm 2024 được nêu trong đoạn đánh giá là bao nhiêu?",
+      "split": "independent",
+      "fact_group": "heldout-bhh-revenue-narrative",
+      "evidence_kind": "SOURCE_ASSERTION"
+    },
+    {
+      "case_id": "heldout-bhh-pbt-plan-01",
+      "source_id": "BHH",
+      "question": "Kế hoạch lợi nhuận trước thuế năm 2024 là bao nhiêu đồng?",
+      "split": "independent",
+      "fact_group": "heldout-bhh-pbt-plan",
+      "evidence_kind": "TABLE_CELL"
+    },
+    {
+      "case_id": "heldout-bhh-pbt-plan-02",
+      "source_id": "BHH",
+      "question": "Lợi nhuận trước thuế năm 2024 theo kế hoạch được ghi ở mức nào?",
+      "split": "independent",
+      "fact_group": "heldout-bhh-pbt-plan",
+      "evidence_kind": "TABLE_CELL"
+    },
+    {
+      "case_id": "heldout-bhh-pat-difference-01",
+      "source_id": "BHH",
+      "question": "Lợi nhuận sau thuế năm 2024 trừ năm 2023 là bao nhiêu đồng?",
+      "split": "independent",
+      "fact_group": "heldout-bhh-pat-difference",
+      "evidence_kind": "TABLE_CELL"
+    },
+    {
+      "case_id": "heldout-bhh-pat-difference-02",
+      "source_id": "BHH",
+      "question": "Lấy lợi nhuận sau thuế năm 2024 trừ năm 2023 thì được bao nhiêu?",
+      "split": "independent",
+      "fact_group": "heldout-bhh-pat-difference",
+      "evidence_kind": "TABLE_CELL"
+    },
+    {
+      "case_id": "heldout-bhk-charter-01",
+      "source_id": "BHK",
+      "question": "Vốn điều lệ của công ty là bao nhiêu?",
+      "split": "independent",
+      "fact_group": "heldout-bhk-charter",
+      "evidence_kind": "FIELD_VALUE"
+    },
+    {
+      "case_id": "heldout-bhk-charter-02",
+      "source_id": "BHK",
+      "question": "Trong thông tin khái quát, công ty ghi vốn điều lệ ở mức nào?",
+      "split": "independent",
+      "fact_group": "heldout-bhk-charter",
+      "evidence_kind": "FIELD_VALUE"
+    },
+    {
+      "case_id": "heldout-bhk-capital-history-01",
+      "source_id": "BHK",
+      "question": "Sau khi cơ cấu lại năm 2008, vốn điều lệ của công ty là bao nhiêu tỷ đồng?",
+      "split": "independent",
+      "fact_group": "heldout-bhk-capital-history",
+      "evidence_kind": "SOURCE_ASSERTION"
+    },
+    {
+      "case_id": "heldout-bhk-capital-history-02",
+      "source_id": "BHK",
+      "question": "Năm 2008, công ty cơ cấu lại vốn điều lệ lên bao nhiêu đồng?",
+      "split": "independent",
+      "fact_group": "heldout-bhk-capital-history",
+      "evidence_kind": "SOURCE_ASSERTION"
+    },
+    {
+      "case_id": "heldout-bhk-pbt-01",
+      "source_id": "BHK",
+      "question": "Lợi nhuận trước thuế năm 2024 là bao nhiêu đồng?",
+      "split": "independent",
+      "fact_group": "heldout-bhk-pbt",
+      "evidence_kind": "TABLE_CELL"
+    },
+    {
+      "case_id": "heldout-bhk-pbt-02",
+      "source_id": "BHK",
+      "question": "Năm 2024, công ty ghi lợi nhuận trước thuế thực hiện ở mức nào?",
+      "split": "independent",
+      "fact_group": "heldout-bhk-pbt",
+      "evidence_kind": "TABLE_CELL"
+    },
+    {
+      "case_id": "heldout-bhk-pbt-difference-01",
+      "source_id": "BHK",
+      "question": "Lợi nhuận trước thuế năm 2024 trừ năm 2023 là bao nhiêu đồng?",
+      "split": "independent",
+      "fact_group": "heldout-bhk-pbt-difference",
+      "evidence_kind": "TABLE_CELL"
+    },
+    {
+      "case_id": "heldout-bhk-pbt-difference-02",
+      "source_id": "BHK",
+      "question": "Lấy lợi nhuận trước thuế năm 2024 trừ năm 2023 thì được bao nhiêu?",
+      "split": "independent",
+      "fact_group": "heldout-bhk-pbt-difference",
+      "evidence_kind": "TABLE_CELL"
+    },
+    {
+      "case_id": "heldout-app-missing-year",
+      "source_id": "APP",
+      "question": "Lợi nhuận trước thuế thực hiện năm 2035 là bao nhiêu đồng?",
+      "split": "independent",
+      "fact_group": "heldout-app-missing-year",
+      "evidence_kind": "BOUNDARY"
+    },
+    {
+      "case_id": "heldout-app-conflicting-net",
+      "source_id": "APP",
+      "question": "Doanh thu thuần năm 2025 là bao nhiêu đồng?",
+      "split": "independent",
+      "fact_group": "heldout-app-conflicting-net",
+      "evidence_kind": "BOUNDARY"
+    },
+    {
+      "case_id": "heldout-bhh-missing-year",
+      "source_id": "BHH",
+      "question": "Lợi nhuận trước thuế thực hiện năm 2035 là bao nhiêu đồng?",
+      "split": "independent",
+      "fact_group": "heldout-bhh-missing-year",
+      "evidence_kind": "BOUNDARY"
+    },
+    {
+      "case_id": "heldout-bhh-wrong-company",
+      "source_id": "BHH",
+      "question": "Vốn điều lệ của Công ty ABC là bao nhiêu đồng?",
+      "split": "independent",
+      "fact_group": "heldout-bhh-wrong-company",
+      "evidence_kind": "BOUNDARY"
+    },
+    {
+      "case_id": "heldout-bhk-missing-year",
+      "source_id": "BHK",
+      "question": "Lợi nhuận trước thuế thực hiện năm 2035 là bao nhiêu đồng?",
+      "split": "independent",
+      "fact_group": "heldout-bhk-missing-year",
+      "evidence_kind": "BOUNDARY"
+    },
+    {
+      "case_id": "heldout-bhk-wrong-company",
+      "source_id": "BHK",
+      "question": "Vốn điều lệ của Công ty ABC là bao nhiêu đồng?",
+      "split": "independent",
+      "fact_group": "heldout-bhk-wrong-company",
+      "evidence_kind": "BOUNDARY"
+    }
+  ]
+}

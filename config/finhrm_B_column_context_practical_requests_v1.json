@@ -1,0 +1,64 @@
+{
+  "schema": "mineru-real-http-requests-v1",
+  "sources": {
+    "PDB": {
+      "path": "data/markdown/scope_unit_v2/PDB_24CN_BCTN--1957e2ee3f06dba6.md",
+      "sha256": "06fb246ff0de4e250cb3f7202ac58b7eeaeb34a17aa47c6f7289bf58b6a4f6f7"
+    },
+    "BTH": {
+      "path": "data/markdown/policy_evaluation_v1/BTH/BTH_25CN_BCTN--c3f4291745a28deb.md",
+      "sha256": "1949b44491086451fe1b04a7207cbfc8a00f2a7ebe4412ad4c052a345a9e23c5"
+    },
+    "HAV": {
+      "path": "data/markdown/scope_unit_v2/HAV_23CN_BCTN--e57968185e1c63bc.md",
+      "sha256": "fbda07867fa66a850574a03af75b746748f9d6042c28ce085aa2f31fb211d7e4"
+    }
+  },
+  "cases": [
+    {
+      "case_id": "practical-pdb-net-1",
+      "source_id": "PDB",
+      "question": "Doanh thu thuần hợp nhất thực hiện năm 2023 là bao nhiêu triệu đồng?"
+    },
+    {
+      "case_id": "practical-pdb-net-2",
+      "source_id": "PDB",
+      "question": "Cho biết doanh thu thuần hợp nhất thực hiện năm 2023, tính bằng triệu đồng."
+    },
+    {
+      "case_id": "practical-pdb-overview",
+      "source_id": "PDB",
+      "question": "So sánh doanh thu thuần hợp nhất thực hiện năm 2024 và năm 2023, tính bằng triệu đồng."
+    },
+    {
+      "case_id": "practical-bth-profit",
+      "source_id": "BTH",
+      "question": "Tổng lợi nhuận sau thuế thực hiện năm 2025 là bao nhiêu đồng?"
+    },
+    {
+      "case_id": "practical-bth-plan-actual",
+      "source_id": "BTH",
+      "question": "So sánh doanh thu bán hàng và cung cấp dịch vụ kế hoạch và thực hiện năm 2025, tính bằng đồng."
+    },
+    {
+      "case_id": "practical-bth-partial",
+      "source_id": "BTH",
+      "question": "So sánh doanh thu bán hàng và cung cấp dịch vụ thực hiện năm 2025 và năm 2037, tính bằng đồng."
+    },
+    {
+      "case_id": "practical-hav-finance",
+      "source_id": "HAV",
+      "question": "Chi phí tài chính thực hiện năm 2023 là bao nhiêu triệu đồng?"
+    },
+    {
+      "case_id": "practical-hav-overview",
+      "source_id": "HAV",
+      "question": "So sánh doanh thu thuần thực hiện năm 2023 và năm 2022, tính bằng triệu đồng."
+    },
+    {
+      "case_id": "practical-hav-missing",
+      "source_id": "HAV",
+      "question": "Chi phí tài chính thực hiện năm 2037 là bao nhiêu triệu đồng?"
+    }
+  ]
+}

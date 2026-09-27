@@ -1,0 +1,73 @@
+{
+  "schema": "reading-real-questions-v1",
+  "sources": {
+    "HKT": {
+      "path": "data/markdown/scope_unit_v2/HKT_23CN_BCTN--91cc265d0be6d75e.md",
+      "sha256": "b5550a26fa89acab88e14488568090db23761de4d21d8e8ee68f57fb6f6cc31a"
+    },
+    "PDB": {
+      "path": "data/markdown/scope_unit_v2/PDB_24CN_BCTN--1957e2ee3f06dba6.md",
+      "sha256": "06fb246ff0de4e250cb3f7202ac58b7eeaeb34a17aa47c6f7289bf58b6a4f6f7"
+    },
+    "BSD": {
+      "path": "data/markdown/scope_unit_v2/BSD_23CN_BCTN--b90d50e824213031.md",
+      "sha256": "bd3d80dde2d999caa227a1d6965b03008e7f7c06146b7ea1d45e375ba5d53748"
+    },
+    "ASM": {
+      "path": "data/markdown/ASM_23CN_BCTN--6e1bff5169b34a91.md",
+      "sha256": "747886793a62056d727f8b1628efe78d294fa4942c1277d519f7b85cd7158ead"
+    }
+  },
+  "cases": [
+    {
+      "case_id": "quick-1",
+      "source_id": "HKT",
+      "question": "Doanh thu thuần năm 2023 là bao nhiêu đồng?"
+    },
+    {
+      "case_id": "quick-2",
+      "source_id": "HKT",
+      "question": "Theo mục 4.1 Tình hình tài chính, doanh thu thuần thực hiện năm 2023 là bao nhiêu đồng?"
+    },
+    {
+      "case_id": "quick-3",
+      "source_id": "HKT",
+      "question": "Theo mục 4.1 Tình hình tài chính, lợi nhuận sau thuế thực hiện năm 2023 là bao nhiêu đồng?"
+    },
+    {
+      "case_id": "quick-4",
+      "source_id": "PDB",
+      "question": "Theo mục 4 Tình hình tài chính, doanh thu thuần năm 2024 chênh lệch bao nhiêu đồng so với năm 2023? Hãy tính năm 2024 trừ năm 2023."
+    },
+    {
+      "case_id": "quick-5",
+      "source_id": "BSD",
+      "question": "Doanh thu thuần năm 2023 là bao nhiêu đồng?"
+    },
+    {
+      "case_id": "quick-6",
+      "source_id": "ASM",
+      "question": "Doanh thu thuần năm 2023 là bao nhiêu đồng?"
+    },
+    {
+      "case_id": "reading-7",
+      "source_id": "HKT",
+      "question": "Theo mục 4.1 Tình hình tài chính, cho biết lợi nhuận sau thuế đã ghi nhận năm 2023 là bao nhiêu đồng?"
+    },
+    {
+      "case_id": "reading-8",
+      "source_id": "HKT",
+      "question": "Lợi nhuận sau thuế kế hoạch năm 2023 là bao nhiêu đồng?"
+    },
+    {
+      "case_id": "reading-9",
+      "source_id": "HKT",
+      "question": "Theo mục 4.1 Tình hình tài chính, lợi nhuận trước thuế thực hiện năm 2023 là bao nhiêu đồng?"
+    },
+    {
+      "case_id": "reading-10",
+      "source_id": "BSD",
+      "question": "Cho biết doanh thu thuần thực hiện năm 2023 là bao nhiêu đồng?"
+    }
+  ]
+}

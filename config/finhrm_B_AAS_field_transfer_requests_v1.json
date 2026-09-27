@@ -1,0 +1,217 @@
+{
+  "sources": {
+    "BHH": {
+      "path": "data/markdown/finhrm_B_consistency_v3_new/BHH_24CN_BCTN.md",
+      "sha256": "a21baf1ed67aa396cc1c5d12180407fec1b28574864afcda53530e2a86b76994"
+    },
+    "AAH": {
+      "path": "tmp/demo_uploads/.mineru/d416d19e0a-AAH_24CN_BCTN.md",
+      "sha256": "6ccb8982ef1903673790eaa7ae787e516de05c97c2a097ccae46336c614aaf0a"
+    },
+    "BTH": {
+      "path": "data/markdown/policy_evaluation_v1/BTH/BTH_25CN_BCTN--c3f4291745a28deb.md",
+      "sha256": "1949b44491086451fe1b04a7207cbfc8a00f2a7ebe4412ad4c052a345a9e23c5"
+    },
+    "AAS": {
+      "path": "tmp/demo_uploads/.mineru/6ebb1a1731-AAS_24CN_BCTN.md",
+      "sha256": "49dab13ee480eef64383514bdcc98450b49bdfb606cc7ede74e24cda3f0b1579"
+    },
+    "PDB": {
+      "path": "data/markdown/scope_unit_v2/PDB_24CN_BCTN--1957e2ee3f06dba6.md",
+      "sha256": "06fb246ff0de4e250cb3f7202ac58b7eeaeb34a17aa47c6f7289bf58b6a4f6f7"
+    },
+    "BHK": {
+      "path": "data/markdown/finhrm_B_consistency_v3_new/BHK_24CN_BCTN.md",
+      "sha256": "449137812b1af6e13b7674cd816f41d235cd90beefd1b52d9e9c935da1c26632"
+    }
+  },
+  "cases": [
+    {
+      "case_id": "aas-charter-first",
+      "source_id": "AAS",
+      "question": "Vốn điều lệ của công ty là bao nhiêu",
+      "expected": [
+        "2299995210000"
+      ]
+    },
+    {
+      "case_id": "aas-owner",
+      "source_id": "AAS",
+      "question": "Vốn đầu tư của chủ sở hữu là bao nhiêu đồng?",
+      "expected": [
+        "2299995210000"
+      ]
+    },
+    {
+      "case_id": "aas-charter-report",
+      "source_id": "AAS",
+      "question": "Vốn điều lệ được nêu trong báo cáo năm 2024 là bao nhiêu đồng?",
+      "expected": [
+        "2299995210000"
+      ]
+    },
+    {
+      "case_id": "aas-charter-after-revenue",
+      "source_id": "AAS",
+      "question": "Vốn điều lệ của công ty là bao nhiêu",
+      "expected": [
+        "2299995210000"
+      ],
+      "previous_question": "So sánh doanh thu thuần năm 2023 và 2024"
+    },
+    {
+      "case_id": "aas-revenue-comparison",
+      "source_id": "AAS",
+      "question": "So sánh doanh thu thuần năm 2023 và 2024",
+      "expected": [
+        "656522206728",
+        "409821494557",
+        "-246700712171"
+      ]
+    },
+    {
+      "case_id": "aas-pat",
+      "source_id": "AAS",
+      "question": "Lợi nhuận sau thuế năm 2024 là bao nhiêu đồng?",
+      "expected": [
+        "73661409934"
+      ]
+    },
+    {
+      "case_id": "aas-capital-plan",
+      "source_id": "AAS",
+      "question": "Vốn điều lệ kế hoạch năm 2025 là bao nhiêu đồng?",
+      "expected": [
+        "2299995210000"
+      ]
+    },
+    {
+      "case_id": "aas-capital-history",
+      "source_id": "AAS",
+      "question": "Vốn điều lệ ban đầu năm 2006 là bao nhiêu đồng?",
+      "expected": [
+        "22000000000"
+      ]
+    },
+    {
+      "case_id": "aas-revenue-subtract",
+      "source_id": "AAS",
+      "question": "Doanh thu thuần năm 2024 trừ năm 2023 là bao nhiêu đồng?",
+      "expected": [
+        "-246700712171"
+      ]
+    },
+    {
+      "case_id": "aas-missing-year",
+      "source_id": "AAS",
+      "question": "Lợi nhuận sau thuế thực hiện năm 2035 là bao nhiêu đồng?",
+      "expected": [
+        null
+      ]
+    },
+    {
+      "case_id": "aas-wrong-company",
+      "source_id": "AAS",
+      "question": "Vốn điều lệ của Công ty ABC là bao nhiêu đồng?",
+      "expected": [
+        null
+      ]
+    },
+    {
+      "case_id": "aah-charter",
+      "source_id": "AAH",
+      "question": "Vốn điều lệ của công ty là bao nhiêu",
+      "expected": [
+        "1179000000000"
+      ],
+      "previous_question": "Vốn điều lệ của công ty là bao nhiêu"
+    },
+    {
+      "case_id": "aah-revenue-comparison",
+      "source_id": "AAH",
+      "question": "so sánh doanh thu năm 2023 và năm 2024",
+      "expected": [
+        "232366388430",
+        "1172121547172",
+        "939755158742"
+      ]
+    },
+    {
+      "case_id": "bth-income",
+      "source_id": "BTH",
+      "question": "Thu nhập khác thực hiện năm 2025 là bao nhiêu đồng?",
+      "expected": [
+        "304470862"
+      ]
+    },
+    {
+      "case_id": "bth-plan-actual",
+      "source_id": "BTH",
+      "question": "So sánh doanh thu bán hàng và cung cấp dịch vụ kế hoạch và thực hiện năm 2025, tính bằng đồng.",
+      "expected": [
+        "169000000000",
+        "272109210439",
+        "103109210439"
+      ]
+    },
+    {
+      "case_id": "bth-partial",
+      "source_id": "BTH",
+      "question": "So sánh doanh thu bán hàng và cung cấp dịch vụ thực hiện năm 2025 và năm 2037, tính bằng đồng.",
+      "expected": [
+        "272109210439",
+        null,
+        null
+      ]
+    },
+    {
+      "case_id": "pdb-plain-subtract",
+      "source_id": "PDB",
+      "question": "Lợi nhuận trước thuế hợp nhất năm 2024 trừ năm 2023 là bao nhiêu đồng?",
+      "expected": [
+        "12180000000"
+      ]
+    },
+    {
+      "case_id": "pdb-subtract-paraphrase",
+      "source_id": "PDB",
+      "question": "Lấy lợi nhuận trước thuế hợp nhất năm 2024 trừ năm 2023 thì được bao nhiêu?",
+      "expected": [
+        "12180000000"
+      ]
+    },
+    {
+      "case_id": "bhh-plan",
+      "source_id": "BHH",
+      "question": "Kế hoạch lợi nhuận trước thuế năm 2024 là bao nhiêu đồng?",
+      "expected": [
+        "6277000000"
+      ]
+    },
+    {
+      "case_id": "bhh-plan-paraphrase",
+      "source_id": "BHH",
+      "question": "Lợi nhuận trước thuế năm 2024 theo kế hoạch được ghi ở mức nào?",
+      "expected": [
+        "6277000000"
+      ]
+    },
+    {
+      "case_id": "bhk-pbt",
+      "source_id": "BHK",
+      "question": "Lợi nhuận trước thuế năm 2024 là bao nhiêu đồng?",
+      "expected": [
+        "5768708337"
+      ]
+    },
+    {
+      "case_id": "bhk-plain-subtract",
+      "source_id": "BHK",
+      "question": "Lợi nhuận trước thuế năm 2024 trừ năm 2023 là bao nhiêu đồng?",
+      "expected": [
+        "745395999"
+      ]
+    }
+  ],
+  "basis": "References read from MinerU source and existing V3/regression source reviews before this run; development checks, not new independent transfer evidence."
+}

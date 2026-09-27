@@ -1,0 +1,606 @@
+{
+  "schema": "finhrm-qp4-candidate-structured-cell-identity-vertical-slice-repair-precommit-v1",
+  "created_at": "2026-08-28T18:00:00+07:00",
+  "classification": "candidate_structured_cell_identity_vertical_slice_repair_precommit_only",
+  "status": "PASS",
+  "governance": {
+    "head": "ca83acc4e0dfa2e4c0167a9324c2855ec81532b7",
+    "candidate_stage": "REOPENED_ONLY_FOR_STRUCTURED_CELL_IDENTITY_VERTICAL_SLICE",
+    "binding_stage": "NOT_EVALUABLE / zero eligible denominator",
+    "runtime_changed_during_precommit": false,
+    "deterministic_candidate_baseline": "CLOSED",
+    "plaintext_repairs": "FAILED / REVERTED / NOT AUTHORIZED",
+    "implementation_authorized_only_after_static_preflight": true
+  },
+  "inputs": [
+    {
+      "path": "reports/finhrm_qp4_post_question_surface_post_cache_residual_coverage_cohort_build_v1.json",
+      "bytes": 40607,
+      "sha256": "e084ec16312488c1badb5b645cfdf135a623cf89486d0f189648404fc5de35e6"
+    },
+    {
+      "path": "reports/finhrm_qp4_candidate_plaintext_sub1000_deterministic_pre_edit_baseline_v1.json",
+      "bytes": 53029211,
+      "sha256": "0ec3f5736d2b0420c4f4f2ca1deb25e02d486d13057924810970725c04196702"
+    }
+  ],
+  "baseline": {
+    "path": "reports/finhrm_qp4_candidate_plaintext_sub1000_deterministic_pre_edit_baseline_v1.json",
+    "runtime_sha256": "668b4aa15448cc544a0c2c4539401cd7ad4af0c99a16b1ae787b1b12c56e35b8",
+    "candidate_evaluations": 110,
+    "materialized": true,
+    "rerun_during_precommit": false
+  },
+  "layout_primitives": {
+    "pymupdf_version": "1.28.0",
+    "required": [
+      "Page.get_text",
+      "Page.get_text_words",
+      "Page.get_text_blocks",
+      "Page.find_tables"
+    ],
+    "pypdf_version": "6.14.2",
+    "pypdf_coordinate_visitors_available": true,
+    "selected_implementation_primitive": "PyMuPDF selected-page geometry/find_tables",
+    "probe": {
+      "AGR": {
+        "source": "pdf/PDF_24/PDF_24/AGR_24CN_BCTN.pdf",
+        "page": 13,
+        "tables": 2,
+        "target_row_cells": 6,
+        "condition": "coordinate-aligned adjacent header/data regions require complete-band proof"
+      },
+      "HUB": {
+        "source": "pdf/PDF_23/HUB_23CN_BCTN.pdf",
+        "page": 21,
+        "tables": 1,
+        "physical_columns": 21,
+        "logical_columns": 6,
+        "condition": "sparse physical bands require deterministic complete logical-band projection"
+      },
+      "VNL": {
+        "source": "pdf/PDF_23/VNL_23CN_BCTN.pdf",
+        "page": 44,
+        "tables": 1,
+        "rows": 4,
+        "columns": 6,
+        "condition": "complete matrix"
+      }
+    }
+  },
+  "schema_delta": {
+    "StructuredSourceCell": [
+      "page",
+      "bbox",
+      "source_span",
+      "table_id",
+      "row_id",
+      "column_id",
+      "row_label",
+      "column_label",
+      "column_role",
+      "period",
+      "raw_value",
+      "value",
+      "unit",
+      "extraction_method"
+    ],
+    "SourceLine": [
+      "structured_cells"
+    ],
+    "EvidenceChunk": [
+      "structured_cells"
+    ],
+    "NumericCandidate": [
+      "row_id",
+      "column_id",
+      "column_role",
+      "source_bbox"
+    ],
+    "EvidenceCell": [
+      "source_bbox"
+    ],
+    "field_policy": "No field beyond authoritative identity propagation and existing Candidate/Evidence compatibility."
+  },
+  "runtime_scope": {
+    "allowed_files": [
+      "src/hrm_finance_qa/document_sources.py",
+      "src/hrm_finance_qa/document_page_index.py",
+      "src/hrm_finance_qa/program_data.py",
+      "src/hrm_finance_qa/evidence_schema.py"
+    ],
+    "pre_repair_hashes": {
+      "src/hrm_finance_qa/document_sources.py": "e9eb7b3ddcc2ed13060a573a6a0101a216fa49ff21dd65cd5fc2629b92f5fc0b",
+      "src/hrm_finance_qa/document_page_index.py": "d531f47a22ed051863b41b3de031bb3e9d4bbf60ef71f825217559b7035386b4",
+      "src/hrm_finance_qa/program_data.py": "668b4aa15448cc544a0c2c4539401cd7ad4af0c99a16b1ae787b1b12c56e35b8",
+      "src/hrm_finance_qa/evidence_schema.py": "2f16fabf932dc9dabc8203d9642d2503bb2dab43e0e1ee0f78755dd4fb00825d"
+    },
+    "function_level": {
+      "src/hrm_finance_qa/document_sources.py": [
+        "StructuredSourceCell (new dataclass)",
+        "SourceLine",
+        "EvidenceChunk",
+        "extract_native_pdf_structured_cells (new helper)",
+        "_read_pdf",
+        "chunk_lines"
+      ],
+      "src/hrm_finance_qa/document_page_index.py": [
+        "_records_to_lines"
+      ],
+      "src/hrm_finance_qa/program_data.py": [
+        "NumericCandidate",
+        "extract_numeric_candidates",
+        "merge_candidates"
+      ],
+      "src/hrm_finance_qa/evidence_schema.py": [
+        "EvidenceCell",
+        "evidence_cells"
+      ]
+    },
+    "required_behavior": [
+      "extract only already-selected native pages",
+      "plaintext fallback unchanged",
+      "complete table/header/band proof required",
+      "deterministic physical IDs",
+      "structured identity preferred in EvidenceCell",
+      "duplicate physical cells collapsed while distinct cells remain distinct"
+    ],
+    "forbidden": [
+      "document_reasoning_engine",
+      "Binding",
+      "model/HRM",
+      "retrieval/page ranking",
+      "Candidate scoring/quota",
+      "plaintext-header heuristics",
+      "OCR framework",
+      "company/file/page/year/value/case-specific rules",
+      "two closed determinism repairs"
+    ]
+  },
+  "unchanged_function_hashes": {
+    "src/hrm_finance_qa/document_sources.py": {
+      "extract_native_pdf_pages": "696aa987151a7d3bb45bb7de2a8cadc7b94b443470e1d508b7e9993d0861906b",
+      "rank_chunks": "b5feda581a7ba6ec28175ac93a8ab756ed7efd7c6751e9a7b735ddadb660a433",
+      "expand_neighbor_chunks": "cd25cd6dc0cbbd38104fbbaf27da91b257a40729d8aaed305b5d3ff74e61ddf6",
+      "_clean_layout_line": "17dfbc93457ea13d7c0c430881f43125ec24487e36feccfdbfb206aed314bc98"
+    },
+    "src/hrm_finance_qa/document_page_index.py": {
+      "_rank_page_records": "8e874dfa31c9f8d9ecd4e764999d725b9bb50cdc36943576100afa29f6c8c249",
+      "build_page_indexed_chunks": "7cef24a16d620313b5bf18f28e6796f06aec2eb167ad0613ebb3fb1e78f1d915"
+    },
+    "src/hrm_finance_qa/program_data.py": {
+      "_candidate_rank_key": "63c8a368806c769d230eb714532e1fdd104ed61df8fe7395d1f5466c6ae8eb47",
+      "_candidate_provenance_richness": "8a0f9fe90f455415f62a84ca26e5b97a04751eeba5179f831bb895bc9b232c35",
+      "_candidate_quota_indices": "bdd9a146f4c20ec2202a1aa166238d30b51299fe724227ae294ab3253ed836da",
+      "_ocr_row_metric_score": "e92c2cedced559c51a84f78198c165bb5c6c77373d2b61f8986e88f51e072bc7",
+      "_fuzzy_content_overlap": "85095600b2127c94525111f1c8e126443247ea5c039a85317596058df6b19724",
+      "_plaintext_financial_row_context": "e3ce84521c1d493004f7168f51ea226a64d03833f327ecf2a0fb29ff667dd235",
+      "_nearby_plaintext_column_labels": "b34dd37caae99708825a117e81aa886b97b9b795362e6e38b1a1969e3d7c634c",
+      "_flattened_header_slot_sources": "d72171d918975110012088b8baa4a00d383b7e790f68faa8e5866d518d684c49"
+    },
+    "src/hrm_finance_qa/evidence_schema.py": {
+      "_resolve_column_role": "6713baed218609eb6cc35e7fb3ee14ff1e7a9abff3a64dad8e08ad46345585d1"
+    }
+  },
+  "cohorts": {
+    "repair_target": {
+      "count": 30,
+      "id_order_sha256": "fee5064dd9ebb30bc7e8b30133e6d6c91f8b87027a0e0ae97b2e506c14f81605",
+      "case_ids": [
+        "qp4-rcc-agr-total-expense:base_target:canonical",
+        "qp4-rcc-agr-total-expense:base_target:paraphrase_1",
+        "qp4-rcc-agr-total-expense:base_target:long_clause",
+        "qp4-rcc-agr-total-expense:base_target:clause_reordered",
+        "qp4-rcc-agr-total-expense:base_target:no_diacritics",
+        "qp4-rcc-agr-total-expense:reference_base_mutation_target:canonical",
+        "qp4-rcc-agr-total-expense:reference_base_mutation_target:paraphrase_1",
+        "qp4-rcc-agr-total-expense:reference_base_mutation_target:long_clause",
+        "qp4-rcc-agr-total-expense:reference_base_mutation_target:clause_reordered",
+        "qp4-rcc-agr-total-expense:reference_base_mutation_target:no_diacritics",
+        "qp4-rcc-hub-parent-profit-after-tax:base_target:canonical",
+        "qp4-rcc-hub-parent-profit-after-tax:base_target:paraphrase_1",
+        "qp4-rcc-hub-parent-profit-after-tax:base_target:long_clause",
+        "qp4-rcc-hub-parent-profit-after-tax:base_target:clause_reordered",
+        "qp4-rcc-hub-parent-profit-after-tax:base_target:no_diacritics",
+        "qp4-rcc-hub-parent-profit-after-tax:reference_base_mutation_target:canonical",
+        "qp4-rcc-hub-parent-profit-after-tax:reference_base_mutation_target:paraphrase_1",
+        "qp4-rcc-hub-parent-profit-after-tax:reference_base_mutation_target:long_clause",
+        "qp4-rcc-hub-parent-profit-after-tax:reference_base_mutation_target:clause_reordered",
+        "qp4-rcc-hub-parent-profit-after-tax:reference_base_mutation_target:no_diacritics",
+        "qp4-rcc-vnl-profit-before-tax:base_target:canonical",
+        "qp4-rcc-vnl-profit-before-tax:base_target:paraphrase_1",
+        "qp4-rcc-vnl-profit-before-tax:base_target:long_clause",
+        "qp4-rcc-vnl-profit-before-tax:base_target:clause_reordered",
+        "qp4-rcc-vnl-profit-before-tax:base_target:no_diacritics",
+        "qp4-rcc-vnl-profit-before-tax:reference_base_mutation_target:canonical",
+        "qp4-rcc-vnl-profit-before-tax:reference_base_mutation_target:paraphrase_1",
+        "qp4-rcc-vnl-profit-before-tax:reference_base_mutation_target:long_clause",
+        "qp4-rcc-vnl-profit-before-tax:reference_base_mutation_target:clause_reordered",
+        "qp4-rcc-vnl-profit-before-tax:reference_base_mutation_target:no_diacritics"
+      ],
+      "pre_physical_support": 0,
+      "post_required": ">0 with exact physical identity for every recovered case"
+    },
+    "layout_subsignatures": {
+      "AGR": {
+        "count": 10,
+        "id_order_sha256": "288ec6a20fe4e3fbc2ba0689ee5a4f8b5d6e2922699f546e779f9be382f518fe",
+        "case_ids": [
+          "qp4-rcc-agr-total-expense:base_target:canonical",
+          "qp4-rcc-agr-total-expense:base_target:paraphrase_1",
+          "qp4-rcc-agr-total-expense:base_target:long_clause",
+          "qp4-rcc-agr-total-expense:base_target:clause_reordered",
+          "qp4-rcc-agr-total-expense:base_target:no_diacritics",
+          "qp4-rcc-agr-total-expense:reference_base_mutation_target:canonical",
+          "qp4-rcc-agr-total-expense:reference_base_mutation_target:paraphrase_1",
+          "qp4-rcc-agr-total-expense:reference_base_mutation_target:long_clause",
+          "qp4-rcc-agr-total-expense:reference_base_mutation_target:clause_reordered",
+          "qp4-rcc-agr-total-expense:reference_base_mutation_target:no_diacritics"
+        ]
+      },
+      "HUB": {
+        "count": 10,
+        "id_order_sha256": "8599ef0f079cb69569e5f011cdb6e1fb11bcc7fa09e9d450cc4ce5d6d78fbacb",
+        "case_ids": [
+          "qp4-rcc-hub-parent-profit-after-tax:base_target:canonical",
+          "qp4-rcc-hub-parent-profit-after-tax:base_target:paraphrase_1",
+          "qp4-rcc-hub-parent-profit-after-tax:base_target:long_clause",
+          "qp4-rcc-hub-parent-profit-after-tax:base_target:clause_reordered",
+          "qp4-rcc-hub-parent-profit-after-tax:base_target:no_diacritics",
+          "qp4-rcc-hub-parent-profit-after-tax:reference_base_mutation_target:canonical",
+          "qp4-rcc-hub-parent-profit-after-tax:reference_base_mutation_target:paraphrase_1",
+          "qp4-rcc-hub-parent-profit-after-tax:reference_base_mutation_target:long_clause",
+          "qp4-rcc-hub-parent-profit-after-tax:reference_base_mutation_target:clause_reordered",
+          "qp4-rcc-hub-parent-profit-after-tax:reference_base_mutation_target:no_diacritics"
+        ]
+      },
+      "VNL": {
+        "count": 10,
+        "id_order_sha256": "1c5260f815ecc791e675d160804bba37e61b8d2a2002e22abd9600530948c701",
+        "case_ids": [
+          "qp4-rcc-vnl-profit-before-tax:base_target:canonical",
+          "qp4-rcc-vnl-profit-before-tax:base_target:paraphrase_1",
+          "qp4-rcc-vnl-profit-before-tax:base_target:long_clause",
+          "qp4-rcc-vnl-profit-before-tax:base_target:clause_reordered",
+          "qp4-rcc-vnl-profit-before-tax:base_target:no_diacritics",
+          "qp4-rcc-vnl-profit-before-tax:reference_base_mutation_target:canonical",
+          "qp4-rcc-vnl-profit-before-tax:reference_base_mutation_target:paraphrase_1",
+          "qp4-rcc-vnl-profit-before-tax:reference_base_mutation_target:long_clause",
+          "qp4-rcc-vnl-profit-before-tax:reference_base_mutation_target:clause_reordered",
+          "qp4-rcc-vnl-profit-before-tax:reference_base_mutation_target:no_diacritics"
+        ]
+      }
+    },
+    "pic_ict_scg_regression": {
+      "count": 30,
+      "id_order_sha256": "6392187e23c68b310b421fd62f753c145c8fe4b9c7f0ee473af92ecbc7d030d9",
+      "case_ids": [
+        "qp4-rcc-ict-total-revenue:base_target:canonical",
+        "qp4-rcc-ict-total-revenue:base_target:paraphrase_1",
+        "qp4-rcc-ict-total-revenue:base_target:long_clause",
+        "qp4-rcc-ict-total-revenue:base_target:clause_reordered",
+        "qp4-rcc-ict-total-revenue:base_target:no_diacritics",
+        "qp4-rcc-ict-total-revenue:reference_base_mutation_target:canonical",
+        "qp4-rcc-ict-total-revenue:reference_base_mutation_target:paraphrase_1",
+        "qp4-rcc-ict-total-revenue:reference_base_mutation_target:long_clause",
+        "qp4-rcc-ict-total-revenue:reference_base_mutation_target:clause_reordered",
+        "qp4-rcc-ict-total-revenue:reference_base_mutation_target:no_diacritics",
+        "qp4-rcc-pic-total-revenue:base_target:canonical",
+        "qp4-rcc-pic-total-revenue:base_target:paraphrase_1",
+        "qp4-rcc-pic-total-revenue:base_target:long_clause",
+        "qp4-rcc-pic-total-revenue:base_target:clause_reordered",
+        "qp4-rcc-pic-total-revenue:base_target:no_diacritics",
+        "qp4-rcc-pic-total-revenue:reference_base_mutation_target:canonical",
+        "qp4-rcc-pic-total-revenue:reference_base_mutation_target:paraphrase_1",
+        "qp4-rcc-pic-total-revenue:reference_base_mutation_target:long_clause",
+        "qp4-rcc-pic-total-revenue:reference_base_mutation_target:clause_reordered",
+        "qp4-rcc-pic-total-revenue:reference_base_mutation_target:no_diacritics",
+        "qp4-rcc-scg-total-revenue:base_target:canonical",
+        "qp4-rcc-scg-total-revenue:base_target:paraphrase_1",
+        "qp4-rcc-scg-total-revenue:base_target:long_clause",
+        "qp4-rcc-scg-total-revenue:base_target:clause_reordered",
+        "qp4-rcc-scg-total-revenue:base_target:no_diacritics",
+        "qp4-rcc-scg-total-revenue:reference_base_mutation_target:canonical",
+        "qp4-rcc-scg-total-revenue:reference_base_mutation_target:paraphrase_1",
+        "qp4-rcc-scg-total-revenue:reference_base_mutation_target:long_clause",
+        "qp4-rcc-scg-total-revenue:reference_base_mutation_target:clause_reordered",
+        "qp4-rcc-scg-total-revenue:reference_base_mutation_target:no_diacritics"
+      ],
+      "required": "exact no worsening"
+    },
+    "prior_candidate_regression": {
+      "count": 50,
+      "id_order_sha256": "5ed2c03ccd90133b7d7118ac303547eaf281e4bc078dd537b9008ee6cef6c6cf",
+      "projection_set_sha256": "80aae1474cefc14392cb80408fb6a4e7a642d649ab7faba6abdc790cff33646c",
+      "case_ids": [
+        "synthetic-document-000005::surface::SHORT_LONG_EQUIVALENT",
+        "synthetic-document-000005::surface::DISCOURSE_PREFIX_SUFFIX",
+        "synthetic-document-000005::surface::CLAUSE_PERMUTATION",
+        "synthetic-document-000005::surface::PUNCTUATION_VARIANT",
+        "synthetic-document-000005::surface::NO_DIACRITICS",
+        "synthetic-document-000005::surface::BILINGUAL_PARENTHETICAL",
+        "synthetic-document-000005::surface::IRRELEVANT_DISTRACTOR_CLAUSE",
+        "synthetic-document-000005::counterfactual::OPERAND_YEAR",
+        "synthetic-document-000005::counterfactual::ENTITY_SCOPE",
+        "synthetic-document-000005::counterfactual::UNIT_SCALE",
+        "synthetic-document-000012::surface::SHORT_LONG_EQUIVALENT",
+        "synthetic-document-000012::surface::DISCOURSE_PREFIX_SUFFIX",
+        "synthetic-document-000012::surface::CLAUSE_PERMUTATION",
+        "synthetic-document-000012::surface::PUNCTUATION_VARIANT",
+        "synthetic-document-000012::surface::NO_DIACRITICS",
+        "synthetic-document-000012::surface::BILINGUAL_PARENTHETICAL",
+        "synthetic-document-000012::surface::IRRELEVANT_DISTRACTOR_CLAUSE",
+        "synthetic-document-000012::counterfactual::OPERAND_YEAR",
+        "synthetic-document-000012::counterfactual::ENTITY_SCOPE",
+        "synthetic-document-000012::counterfactual::UNIT_SCALE",
+        "synthetic-document-000066::surface::SHORT_LONG_EQUIVALENT",
+        "synthetic-document-000066::surface::DISCOURSE_PREFIX_SUFFIX",
+        "synthetic-document-000066::surface::CLAUSE_PERMUTATION",
+        "synthetic-document-000066::surface::PUNCTUATION_VARIANT",
+        "synthetic-document-000066::surface::NO_DIACRITICS",
+        "synthetic-document-000066::surface::BILINGUAL_PARENTHETICAL",
+        "synthetic-document-000066::surface::IRRELEVANT_DISTRACTOR_CLAUSE",
+        "synthetic-document-000066::counterfactual::OPERAND_YEAR",
+        "synthetic-document-000066::counterfactual::ENTITY_SCOPE",
+        "synthetic-document-000066::counterfactual::UNIT_SCALE",
+        "synthetic-document-000014::surface::SHORT_LONG_EQUIVALENT",
+        "synthetic-document-000014::surface::DISCOURSE_PREFIX_SUFFIX",
+        "synthetic-document-000014::surface::CLAUSE_PERMUTATION",
+        "synthetic-document-000014::surface::PUNCTUATION_VARIANT",
+        "synthetic-document-000014::surface::NO_DIACRITICS",
+        "synthetic-document-000014::surface::BILINGUAL_PARENTHETICAL",
+        "synthetic-document-000014::surface::IRRELEVANT_DISTRACTOR_CLAUSE",
+        "synthetic-document-000014::counterfactual::OPERAND_YEAR",
+        "synthetic-document-000014::counterfactual::ENTITY_SCOPE",
+        "synthetic-document-000014::counterfactual::UNIT_SCALE",
+        "synthetic-document-000106::surface::SHORT_LONG_EQUIVALENT",
+        "synthetic-document-000106::surface::DISCOURSE_PREFIX_SUFFIX",
+        "synthetic-document-000106::surface::CLAUSE_PERMUTATION",
+        "synthetic-document-000106::surface::PUNCTUATION_VARIANT",
+        "synthetic-document-000106::surface::NO_DIACRITICS",
+        "synthetic-document-000106::surface::BILINGUAL_PARENTHETICAL",
+        "synthetic-document-000106::surface::IRRELEVANT_DISTRACTOR_CLAUSE",
+        "synthetic-document-000106::counterfactual::OPERAND_YEAR",
+        "synthetic-document-000106::counterfactual::ENTITY_SCOPE",
+        "synthetic-document-000106::counterfactual::UNIT_SCALE"
+      ],
+      "required": "exact no worsening"
+    }
+  },
+  "success_gates": {
+    "primary": "target physical support increases from 0/30 to >0/30",
+    "recovered_identity_exact": [
+      "source",
+      "page",
+      "bbox",
+      "table_id",
+      "row_id",
+      "column_id",
+      "column_role",
+      "period",
+      "value",
+      "unit",
+      "source_span",
+      "distinct operand assignment"
+    ],
+    "retrieval_ranking_unchanged": true,
+    "plaintext_fallback_unchanged": true,
+    "regressions": [
+      "PIC/ICT/SCG 30 exact no worsening",
+      "prior Candidate 50 exact no worsening"
+    ],
+    "controls": "10/10",
+    "no_unauthorized_calls_or_changes": true
+  },
+  "control_contract": {
+    "category_counts": {
+      "table_complete": 3,
+      "no_table": 2,
+      "duplicate_cell": 2,
+      "incomplete_header": 3
+    },
+    "policy": "Emit only selected native-page cells with complete table/header/band/role/period/coordinate proof; deduplicate only identical physical IDs."
+  },
+  "controls": [
+    {
+      "id": "agr_complete_split_header",
+      "category": "table_complete",
+      "selected_native_page": true,
+      "table_detected": true,
+      "header_complete": true,
+      "bands_complete": true,
+      "roles_complete": true,
+      "periods_complete": true,
+      "coordinates_complete": true,
+      "physical_cell_ids": [
+        "agr:t0:r0:c0",
+        "agr:t0:r0:c1",
+        "agr:t0:r0:c2",
+        "agr:t0:r0:c3",
+        "agr:t0:r0:c4",
+        "agr:t0:r0:c5"
+      ],
+      "expected_emit": true,
+      "expected_unique_cells": 6
+    },
+    {
+      "id": "hub_complete_sparse_bands",
+      "category": "table_complete",
+      "selected_native_page": true,
+      "table_detected": true,
+      "header_complete": true,
+      "bands_complete": true,
+      "roles_complete": true,
+      "periods_complete": true,
+      "coordinates_complete": true,
+      "physical_cell_ids": [
+        "hub:t0:r5:c0",
+        "hub:t0:r5:c1",
+        "hub:t0:r5:c2",
+        "hub:t0:r5:c3",
+        "hub:t0:r5:c4",
+        "hub:t0:r5:c5"
+      ],
+      "expected_emit": true,
+      "expected_unique_cells": 6
+    },
+    {
+      "id": "vnl_complete_matrix",
+      "category": "table_complete",
+      "selected_native_page": true,
+      "table_detected": true,
+      "header_complete": true,
+      "bands_complete": true,
+      "roles_complete": true,
+      "periods_complete": true,
+      "coordinates_complete": true,
+      "physical_cell_ids": [
+        "vnl:t0:r2:c0",
+        "vnl:t0:r2:c1",
+        "vnl:t0:r2:c2",
+        "vnl:t0:r2:c3",
+        "vnl:t0:r2:c4",
+        "vnl:t0:r2:c5"
+      ],
+      "expected_emit": true,
+      "expected_unique_cells": 6
+    },
+    {
+      "id": "narrative_numbers_no_table",
+      "category": "no_table",
+      "selected_native_page": true,
+      "table_detected": false,
+      "header_complete": false,
+      "bands_complete": false,
+      "roles_complete": false,
+      "periods_complete": false,
+      "coordinates_complete": false,
+      "physical_cell_ids": [],
+      "expected_emit": false,
+      "expected_unique_cells": 0
+    },
+    {
+      "id": "chart_ticks_no_table",
+      "category": "no_table",
+      "selected_native_page": true,
+      "table_detected": false,
+      "header_complete": false,
+      "bands_complete": false,
+      "roles_complete": false,
+      "periods_complete": false,
+      "coordinates_complete": false,
+      "physical_cell_ids": [],
+      "expected_emit": false,
+      "expected_unique_cells": 0
+    },
+    {
+      "id": "overlap_duplicate_same_physical_cell",
+      "category": "duplicate_cell",
+      "selected_native_page": true,
+      "table_detected": true,
+      "header_complete": true,
+      "bands_complete": true,
+      "roles_complete": true,
+      "periods_complete": true,
+      "coordinates_complete": true,
+      "physical_cell_ids": [
+        "doc:p1:t0:r1:c1",
+        "doc:p1:t0:r1:c1"
+      ],
+      "expected_emit": true,
+      "expected_unique_cells": 1
+    },
+    {
+      "id": "same_value_distinct_physical_cells",
+      "category": "duplicate_cell",
+      "selected_native_page": true,
+      "table_detected": true,
+      "header_complete": true,
+      "bands_complete": true,
+      "roles_complete": true,
+      "periods_complete": true,
+      "coordinates_complete": true,
+      "physical_cell_ids": [
+        "doc:p1:t0:r1:c1",
+        "doc:p1:t0:r2:c1"
+      ],
+      "expected_emit": true,
+      "expected_unique_cells": 2
+    },
+    {
+      "id": "incomplete_missing_role",
+      "category": "incomplete_header",
+      "selected_native_page": true,
+      "table_detected": true,
+      "header_complete": true,
+      "bands_complete": true,
+      "roles_complete": false,
+      "periods_complete": true,
+      "coordinates_complete": true,
+      "physical_cell_ids": [
+        "x:c0",
+        "x:c1"
+      ],
+      "expected_emit": false,
+      "expected_unique_cells": 2
+    },
+    {
+      "id": "incomplete_missing_period",
+      "category": "incomplete_header",
+      "selected_native_page": true,
+      "table_detected": true,
+      "header_complete": true,
+      "bands_complete": true,
+      "roles_complete": true,
+      "periods_complete": false,
+      "coordinates_complete": true,
+      "physical_cell_ids": [
+        "x:c0",
+        "x:c1"
+      ],
+      "expected_emit": false,
+      "expected_unique_cells": 2
+    },
+    {
+      "id": "incomplete_conflicting_band",
+      "category": "incomplete_header",
+      "selected_native_page": true,
+      "table_detected": true,
+      "header_complete": true,
+      "bands_complete": false,
+      "roles_complete": true,
+      "periods_complete": true,
+      "coordinates_complete": true,
+      "physical_cell_ids": [
+        "x:c0",
+        "x:c1"
+      ],
+      "expected_emit": false,
+      "expected_unique_cells": 2
+    }
+  ],
+  "evaluation_contract": {
+    "pre_materialized_candidate_evaluations": 110,
+    "post_current_universe": 60,
+    "post_prior_candidate_regression": 50,
+    "post_candidate_evaluations": 110,
+    "total_candidate_evaluations": 220,
+    "model_calls": 0,
+    "binding_calls": 0,
+    "adaptive_second_edit": false
+  },
+  "precommit_accounting": {
+    "candidate_calls": 0,
+    "model_calls": 0,
+    "binding_calls": 0,
+    "current_candidate_outputs_observed": 0
+  },
+  "artifacts": {
+    "harness": "scripts/run_qp4_candidate_structured_cell_identity_vertical_slice_repair_precommit_v1.py",
+    "config": "config/finhrm_qp4_candidate_structured_cell_identity_vertical_slice_repair_precommit_v1.json",
+    "markdown": "reports/finhrm_qp4_candidate_structured_cell_identity_vertical_slice_repair_precommit_v1.md",
+    "lock": "reports/finhrm_qp4_candidate_structured_cell_identity_vertical_slice_repair_precommit_lock_v1.json"
+  },
+  "next_allowed_action": "QP4 STRUCTURED CELL IDENTITY VERTICAL-SLICE RUNTIME IMPLEMENTATION + LOCKED EVALUATION ONLY"
+}
+

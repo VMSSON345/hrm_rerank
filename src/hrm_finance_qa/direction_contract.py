@@ -103,7 +103,19 @@ def _assess_named_roles(
     left: EvidenceCell,
     right: EvidenceCell,
 ) -> DirectionAssessment:
-    if len(plan.operand_roles) == 2:
+    if len(plan.operand_slots) == 2 and all(
+        slot.column_role for slot in plan.operand_slots
+    ) and len({slot.column_role for slot in plan.operand_slots}) == 2:
+        # Typed report columns (ACTUAL/PLAN/FORECAST/...) carry the same
+        # ordering evidence as named metric roles.  Use the immutable compiler
+        # slots so direction proof does not depend on values or candidate rank.
+        expected_left, expected_right = (
+            slot.column_role.lower() for slot in plan.operand_slots
+        )
+        observed = (left.column_role, right.column_role)
+        direct = observed == (expected_left, expected_right)
+        reverse = observed == (expected_right, expected_left)
+    elif len(plan.operand_roles) == 2:
         expected_left, expected_right = plan.operand_roles
         observed = (left.metric_label, right.metric_label)
         direct = (
@@ -114,18 +126,6 @@ def _assess_named_roles(
             _role_matches(expected_left, right.metric_label)
             and _role_matches(expected_right, left.metric_label)
         )
-    elif len(plan.operand_slots) == 2 and all(
-        slot.column_role for slot in plan.operand_slots
-    ):
-        # Typed report columns (ACTUAL/PLAN/FORECAST/...) carry the same
-        # ordering evidence as named metric roles.  Use the immutable compiler
-        # slots so direction proof does not depend on values or candidate rank.
-        expected_left, expected_right = (
-            slot.column_role.lower() for slot in plan.operand_slots
-        )
-        observed = (left.column_role, right.column_role)
-        direct = observed == (expected_left, expected_right)
-        reverse = observed == (expected_right, expected_left)
     else:
         return DirectionAssessment("direction_unknown")
     if direct and not reverse:

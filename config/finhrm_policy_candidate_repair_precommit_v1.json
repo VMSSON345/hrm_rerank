@@ -1,0 +1,11 @@
+{
+  "purpose": "Repair local quota dropping unresolved-role operands and bind explicit dated monetary assertions",
+  "after_completion_protocol": "config/finhrm_policy_completion_repair_protocol_v1.json",
+  "runtime_sha256": {
+    "src/hrm_finance_qa/program_data.py": "8f8387dcc438190f47b51be9b0e9121226be1f1e1647923572535e6836218300",
+    "src/hrm_finance_qa/evidence_schema.py": "a211b748aa60b863b40105191faff7adff244b396fbb9334eaabb1d20445a428"
+  },
+  "archive": "archive/policy_candidate_parent_20260910_v1.zip",
+  "questions_and_reference": "config/finhrm_policy_new_eval_reference_v1.json",
+  "no_ocr_or_training": true
+}

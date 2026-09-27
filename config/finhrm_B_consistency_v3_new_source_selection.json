@@ -1,0 +1,22 @@
+{
+  "sources": [
+    {
+      "original": "pdf/PDF_25/PDF_25/APP_25CN_BCTN.pdf",
+      "path": "tmp/finhrm_B_consistency_v3_new_pdfs/APP_25CN_BCTN.pdf",
+      "sha256": "932dbb2366bdb3ab302094e9405c8b7be6113f06dda324736a644ba5b4094f67"
+    },
+    {
+      "original": "pdf/PDF_24/PDF_24/BHH_24CN_BCTN.pdf",
+      "path": "tmp/finhrm_B_consistency_v3_new_pdfs/BHH_24CN_BCTN.pdf",
+      "sha256": "f5c042e4fc9ada6c0a8b63ab0431c16c9e5109a44be93bb79c68364e981f0d8f"
+    },
+    {
+      "original": "pdf/PDF_24/PDF_24/BHK_24CN_BCTN.pdf",
+      "path": "tmp/finhrm_B_consistency_v3_new_pdfs/BHK_24CN_BCTN.pdf",
+      "sha256": "abfea3d16b0e87dfcc8f96ba365cec7cc08153b3295844434419c5fa1d1461e8"
+    }
+  ],
+  "selected_before_inference": true,
+  "basis": "Companies absent from config/data/tmp source filename inventory; no prior source filename matches in reports/scripts/tests/src. Selected modest full-report page counts for available memory; no model outputs consulted. AAS and PGD excluded because historical development/test exposure was found.",
+  "timestamp": "2026-09-14T02:10:49.490177+00:00"
+}

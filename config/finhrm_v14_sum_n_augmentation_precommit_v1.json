@@ -1,0 +1,64 @@
+{
+  "schema": "finhrm-v14-sum-n-augmentation-precommit-v1",
+  "status": "FROZEN_BEFORE_AUGMENTATION_BUILD",
+  "created_at": "2026-08-31",
+  "objective": "Teach the V14 count and unordered-membership heads arities five through eight without adding report-, issuer-, or protected-source-specific content.",
+  "inputs": {
+    "train": {
+      "path": "data/tmp/v14_development_v1/train.jsonl",
+      "sha256": "acfd24091c612fc2e060169aba5754704dcdc9a3ac75f77895491924e2563da8",
+      "records": 1847
+    },
+    "validation": {
+      "path": "data/tmp/v14_development_v1/validation.jsonl",
+      "sha256": "3ddcb5e0a88e431787133b36edacd28a4bbb8b0fd2d1ac29494c0e9ffeec0758",
+      "records": 462,
+      "must_remain_byte_identical": true
+    }
+  },
+  "generation": {
+    "seed": 14041,
+    "logical_operation": "SUM_N",
+    "arities": [
+      5,
+      6,
+      7,
+      8
+    ],
+    "examples_per_arity": 80,
+    "expected_generated_records": 320,
+    "question_language": "Vietnamese",
+    "explicit_operand_list_required": true,
+    "structured_financial_evidence_required": true,
+    "hard_negative_families": [
+      "same metric wrong year",
+      "same metric wrong entity",
+      "same table unrelated subtotal"
+    ],
+    "physical_cell_reuse_allowed": false,
+    "value_magnitude_unit_inference_allowed": false,
+    "company_or_report_identity_features_allowed": false
+  },
+  "outputs": {
+    "augmentation_only": "data/tmp/v14_development_v1/sum_n_augmentation.jsonl",
+    "augmented_train": "data/tmp/v14_development_v1/train_sum_n_augmented.jsonl",
+    "manifest": "data/tmp/v14_development_v1/sum_n_augmentation_manifest.json",
+    "report_json": "reports/finhrm_v14_sum_n_augmentation_v1.json",
+    "report_markdown": "reports/finhrm_v14_sum_n_augmentation_v1.md"
+  },
+  "safety": {
+    "validation_rows_read_for_generation": false,
+    "historical_test_opened": false,
+    "protected_pdf_opened": false,
+    "augmentation_role": "TRAIN_ONLY",
+    "protected_or_validation_selection_influence": false
+  },
+  "required_gates": [
+    "all generated programs validate and execute",
+    "question planner proves the declared SUM_N arity",
+    "all operands have distinct physical identities",
+    "generated IDs and record fingerprints do not overlap validation",
+    "validation SHA-256 is unchanged",
+    "deterministic rebuild is byte-identical"
+  ]
+}

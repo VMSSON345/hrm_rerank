@@ -1,0 +1,378 @@
+{
+  "created_at": "2026-09-10T02:16:08.792846+00:00",
+  "scope": "10 questions on 3 source-name/company-disjoint short reports within audited history. References reviewed from Poppler-rendered PDFs before QA. No source or question excluded based on model output. 8 answerable including 1 paraphrase, 2 required-abstention cases.",
+  "cases": [
+    {
+      "case_id": "newsource-hfx-plan",
+      "source_id": "HFX",
+      "question": "Tổng doanh thu kế hoạch năm 2024 là bao nhiêu tỷ đồng?",
+      "expected_action": "ANSWER",
+      "expected_canonical": "20000000000",
+      "canonical_unit": "VND",
+      "metric": "tong doanh thu",
+      "years": [
+        "2024"
+      ],
+      "role": "plan",
+      "scope": "reporting_company",
+      "operation": "SELECT",
+      "operand_values": [
+        "20"
+      ],
+      "operand_unit": "tỷ đồng",
+      "pdf_pages": [
+        5
+      ],
+      "reference_note": "Bảng Các chỉ tiêu kế hoạch tài chính năm 2024; dòng 3 Tổng doanh thu, đơn vị Tỷ đồng, cột Kế hoạch 2024: 20.",
+      "source_pdf": {
+        "path": "pdf/PDF_23/HFX_23CN_BCTN.pdf",
+        "sha256": "ed171410df551c871ac8a74b9849b9dd4003502f01351afdeface7f0a74d3042"
+      },
+      "review_images": [
+        {
+          "path": "tmp/pdfs/policy_evaluation_v1/HFX-5.png",
+          "sha256": "9e507e20b304af3d1228441258c3a291ec0da79733cedbf0a5826e07f43f5c94"
+        }
+      ]
+    },
+    {
+      "case_id": "newsource-hfx-unit",
+      "source_id": "HFX",
+      "question": "Doanh thu thuần năm 2023 là bao nhiêu tỷ đồng?",
+      "expected_action": "ABSTAIN",
+      "expected_canonical": null,
+      "reason": "SOURCE_UNIT_UNRESOLVED",
+      "metric": "doanh thu thuan",
+      "years": [
+        "2023"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "pdf_pages": [
+        3,
+        4,
+        5
+      ],
+      "source_raw_value": "22 006 696 697",
+      "reference_note": "Bảng Tình hình tài chính trang 3 có số doanh thu thuần 2023 nhưng không khai báo đơn vị; đoạn tổng doanh thu trang 4 cũng không nêu đơn vị. Đơn vị tỷ đồng ở trang 5 thuộc bảng kế hoạch 2024 khác, không được gán ngược. Không tự suy VND để đổi sang tỷ.",
+      "source_pdf": {
+        "path": "pdf/PDF_23/HFX_23CN_BCTN.pdf",
+        "sha256": "ed171410df551c871ac8a74b9849b9dd4003502f01351afdeface7f0a74d3042"
+      },
+      "review_images": [
+        {
+          "path": "tmp/pdfs/policy_evaluation_v1/HFX-3.png",
+          "sha256": "d00161bec1490f8adce2198acbed3589679363c779283e790ef421c6ed734294"
+        },
+        {
+          "path": "tmp/pdfs/policy_evaluation_v1/HFX-4.png",
+          "sha256": "6855b6862870a4e50c0412badc49df416d43450e318cf9a0556b95351bf472c0"
+        },
+        {
+          "path": "tmp/pdfs/policy_evaluation_v1/HFX-5.png",
+          "sha256": "9e507e20b304af3d1228441258c3a291ec0da79733cedbf0a5826e07f43f5c94"
+        }
+      ]
+    },
+    {
+      "case_id": "newsource-hfx-missing",
+      "source_id": "HFX",
+      "question": "Tổng doanh thu thực hiện năm 2037 là bao nhiêu tỷ đồng?",
+      "expected_action": "ABSTAIN",
+      "expected_canonical": null,
+      "reason": "MISSING_REQUESTED_PERIOD",
+      "metric": "tong doanh thu",
+      "years": [
+        "2037"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "pdf_pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "reference_note": "Đã xem đủ 6 trang; báo cáo 2023 và kế hoạch 2024, không có công bố thực hiện 2037.",
+      "source_pdf": {
+        "path": "pdf/PDF_23/HFX_23CN_BCTN.pdf",
+        "sha256": "ed171410df551c871ac8a74b9849b9dd4003502f01351afdeface7f0a74d3042"
+      },
+      "review_images": [
+        {
+          "path": "tmp/pdfs/policy_evaluation_v1/HFX-1.png",
+          "sha256": "db83d1c80b76e7b66423a05e0c4c16a5829a1402db51bed150d0e2f9ae1abab7"
+        },
+        {
+          "path": "tmp/pdfs/policy_evaluation_v1/HFX-2.png",
+          "sha256": "6bc7c856844f10ca221a4a0cd6da1765f88ba498ca42ef7f03b118e39c6a12bb"
+        },
+        {
+          "path": "tmp/pdfs/policy_evaluation_v1/HFX-3.png",
+          "sha256": "d00161bec1490f8adce2198acbed3589679363c779283e790ef421c6ed734294"
+        },
+        {
+          "path": "tmp/pdfs/policy_evaluation_v1/HFX-4.png",
+          "sha256": "6855b6862870a4e50c0412badc49df416d43450e318cf9a0556b95351bf472c0"
+        },
+        {
+          "path": "tmp/pdfs/policy_evaluation_v1/HFX-5.png",
+          "sha256": "9e507e20b304af3d1228441258c3a291ec0da79733cedbf0a5826e07f43f5c94"
+        },
+        {
+          "path": "tmp/pdfs/policy_evaluation_v1/HFX-6.png",
+          "sha256": "c370a28d4911520a0c59666dc3bb5825136e2723662e84f79c39680766b61a1f"
+        }
+      ]
+    },
+    {
+      "case_id": "newsource-bth-capital",
+      "source_id": "BTH",
+      "question": "Vốn điều lệ được nêu trong báo cáo năm 2025 là bao nhiêu đồng?",
+      "expected_action": "ANSWER",
+      "expected_canonical": "250000000000",
+      "canonical_unit": "VND",
+      "metric": "von dieu le",
+      "years": [
+        "2025"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "operation": "SELECT",
+      "operand_values": [
+        "250000000000"
+      ],
+      "operand_unit": "VND",
+      "pdf_pages": [
+        1
+      ],
+      "reference_note": "Thông tin khái quát, báo cáo 2025: Vốn điều lệ/Charter capital 250.000.000.000 đồng; có số bằng chữ Hai trăm năm mươi tỷ đồng.",
+      "source_pdf": {
+        "path": "pdf/PDF_25/PDF_25/BTH_25CN_BCTN.pdf",
+        "sha256": "c3f4291745a28debfa81323bdb237344ad68eec8a61890670744a59e964a8066"
+      },
+      "review_images": [
+        {
+          "path": "tmp/pdfs/policy_evaluation_v1/BTH-1.png",
+          "sha256": "bc02a96482cf449227fc09bd800ec382a48bca2bdf63124017d0cdc74d0bba15"
+        }
+      ]
+    },
+    {
+      "case_id": "newsource-bth-liabilities",
+      "source_id": "BTH",
+      "question": "Nợ phải trả tại ngày 31/12/2025 là bao nhiêu đồng?",
+      "expected_action": "ANSWER",
+      "expected_canonical": "187045781498",
+      "canonical_unit": "VND",
+      "metric": "no phai tra",
+      "years": [
+        "2025"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "operation": "SELECT",
+      "operand_values": [
+        "187045781498"
+      ],
+      "operand_unit": "VND",
+      "pdf_pages": [
+        8
+      ],
+      "reference_note": "Đoạn b) Tình hình nợ phải trả/Liabilities: Nợ phải trả tại ngày 31/12/2025 là 187.045.781.498đ.",
+      "source_pdf": {
+        "path": "pdf/PDF_25/PDF_25/BTH_25CN_BCTN.pdf",
+        "sha256": "c3f4291745a28debfa81323bdb237344ad68eec8a61890670744a59e964a8066"
+      },
+      "review_images": [
+        {
+          "path": "tmp/pdfs/policy_evaluation_v1/BTH-8.png",
+          "sha256": "9f29555e65ec88470d1fead2f1337121ddf0e55e38009a3887fe6e3839f3f87e"
+        }
+      ]
+    },
+    {
+      "case_id": "newsource-bth-completion",
+      "source_id": "BTH",
+      "question": "Doanh thu bán hàng và cung cấp dịch vụ thực hiện năm 2025 đạt bao nhiêu phần trăm kế hoạch năm 2025?",
+      "expected_action": "ANSWER",
+      "expected_canonical": "161.011367123668639053254437869822485207100591715976331360947",
+      "canonical_unit": "%",
+      "absolute_tolerance": "0.005",
+      "metric": "doanh thu ban hang va cung cap dich vu",
+      "years": [
+        "2025"
+      ],
+      "role": [
+        "actual",
+        "plan"
+      ],
+      "scope": "reporting_company",
+      "operation": "RATIO_PERCENT",
+      "operand_values": [
+        "272109210439",
+        "169000000000"
+      ],
+      "operand_unit": "same_source_row_amount_unit_unspecified",
+      "pdf_pages": [
+        3
+      ],
+      "reference_note": "Bảng Kế hoạch 2025/Thực hiện 2025: 169.000.000.000 và 272.109.210.439 cùng dòng doanh thu bán hàng và cung cấp dịch vụ. Tính TH/KH×100; không nhầm cột Tăng 61% với tỷ lệ hoàn thành khoảng 161,01%. Không gán đơn vị VND; phép tỷ lệ dùng hai số cùng đơn vị trình bày trong một dòng nên thang đo triệt tiêu.",
+      "source_pdf": {
+        "path": "pdf/PDF_25/PDF_25/BTH_25CN_BCTN.pdf",
+        "sha256": "c3f4291745a28debfa81323bdb237344ad68eec8a61890670744a59e964a8066"
+      },
+      "review_images": [
+        {
+          "path": "tmp/pdfs/policy_evaluation_v1/BTH-3.png",
+          "sha256": "0192fac9e21b8e8a63c0088432cdc799d1d1d2d1abcbeb124b0ed8775ee93787"
+        }
+      ]
+    },
+    {
+      "case_id": "newsource-mgg-net",
+      "source_id": "MGG",
+      "question": "Doanh thu thuần năm 2023 là bao nhiêu tỷ đồng?",
+      "expected_action": "ANSWER",
+      "expected_canonical": "1745800000000",
+      "canonical_unit": "VND",
+      "metric": "doanh thu thuan",
+      "years": [
+        "2023"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "operation": "SELECT",
+      "operand_values": [
+        "1745.8"
+      ],
+      "operand_unit": "tỷ đồng",
+      "pdf_pages": [
+        5
+      ],
+      "reference_note": "Tình hình tài chính, ĐVT Tỷ đồng, dòng Doanh thu thuần: 2023=1.745,8; 2022=1.976,8. Không thay bằng Tổng doanh thu 2.439 ở trang 4/6.",
+      "source_pdf": {
+        "path": "pdf/PDF_23/MGG_23CN_BCTN.pdf",
+        "sha256": "cf0d9055f964e682935aba26a09bd6ee9576a676f490cf9413cd951b8ef44a96"
+      },
+      "review_images": [
+        {
+          "path": "tmp/pdfs/policy_evaluation_v1/MGG-5.png",
+          "sha256": "25eeb4042dbba5295b3d22563db807471129077013a225910a27a15b1210a02d"
+        }
+      ]
+    },
+    {
+      "case_id": "newsource-mgg-net-paraphrase",
+      "source_id": "MGG",
+      "question": "Cho biết doanh thu thuần thực hiện năm 2023 là bao nhiêu tỷ đồng?",
+      "expected_action": "ANSWER",
+      "expected_canonical": "1745800000000",
+      "canonical_unit": "VND",
+      "metric": "doanh thu thuan",
+      "years": [
+        "2023"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "operation": "SELECT",
+      "operand_values": [
+        "1745.8"
+      ],
+      "operand_unit": "tỷ đồng",
+      "pdf_pages": [
+        5
+      ],
+      "paraphrase_of": "newsource-mgg-net",
+      "reference_note": "Cùng tham chiếu với câu net, báo cáo riêng độ ổn định, không coi hai nguồn độc lập.",
+      "source_pdf": {
+        "path": "pdf/PDF_23/MGG_23CN_BCTN.pdf",
+        "sha256": "cf0d9055f964e682935aba26a09bd6ee9576a676f490cf9413cd951b8ef44a96"
+      },
+      "review_images": [
+        {
+          "path": "tmp/pdfs/policy_evaluation_v1/MGG-5.png",
+          "sha256": "25eeb4042dbba5295b3d22563db807471129077013a225910a27a15b1210a02d"
+        }
+      ]
+    },
+    {
+      "case_id": "newsource-mgg-difference",
+      "source_id": "MGG",
+      "question": "Doanh thu thuần năm 2023 chênh lệch bao nhiêu tỷ đồng so với năm 2022? Tính năm 2023 trừ năm 2022.",
+      "expected_action": "ANSWER",
+      "expected_canonical": "-231000000000",
+      "canonical_unit": "VND",
+      "metric": "doanh thu thuan",
+      "years": [
+        "2023",
+        "2022"
+      ],
+      "role": [
+        "actual",
+        "actual"
+      ],
+      "scope": "reporting_company",
+      "operation": "SUBTRACT",
+      "operand_values": [
+        "1745.8",
+        "1976.8"
+      ],
+      "operand_unit": "tỷ đồng",
+      "pdf_pages": [
+        5
+      ],
+      "reference_note": "1.745,8 - 1.976,8 = -231 tỷ đồng. Kiểm tra đúng dấu, không dùng mức giảm của tổng doanh thu.",
+      "source_pdf": {
+        "path": "pdf/PDF_23/MGG_23CN_BCTN.pdf",
+        "sha256": "cf0d9055f964e682935aba26a09bd6ee9576a676f490cf9413cd951b8ef44a96"
+      },
+      "review_images": [
+        {
+          "path": "tmp/pdfs/policy_evaluation_v1/MGG-5.png",
+          "sha256": "25eeb4042dbba5295b3d22563db807471129077013a225910a27a15b1210a02d"
+        }
+      ]
+    },
+    {
+      "case_id": "newsource-mgg-total",
+      "source_id": "MGG",
+      "question": "Tổng doanh thu thực hiện năm 2023 là bao nhiêu tỷ đồng?",
+      "expected_action": "ANSWER",
+      "expected_canonical": "2439000000000",
+      "canonical_unit": "VND",
+      "metric": "tong doanh thu",
+      "years": [
+        "2023"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "operation": "SELECT",
+      "operand_values": [
+        "2439"
+      ],
+      "operand_unit": "tỷ đồng",
+      "pdf_pages": [
+        4,
+        6
+      ],
+      "reference_note": "Tổng doanh thu, ĐVT Tỷ đồng, TH 2023=2.439. Trang 4 header cột so sánh in KH 2022 nhưng trang 6 in TH 2022; không dùng nhãn đó để sửa tham chiếu TH 2023 hoặc suy gold cho năm 2022.",
+      "source_pdf": {
+        "path": "pdf/PDF_23/MGG_23CN_BCTN.pdf",
+        "sha256": "cf0d9055f964e682935aba26a09bd6ee9576a676f490cf9413cd951b8ef44a96"
+      },
+      "review_images": [
+        {
+          "path": "tmp/pdfs/policy_evaluation_v1/MGG-4.png",
+          "sha256": "733017b946e62fb5d7ef03afbe90481c8f7d224cd1544d4477e05e1f051f31a8"
+        },
+        {
+          "path": "tmp/pdfs/policy_evaluation_v1/MGG-6.png",
+          "sha256": "a14b6c2c276fa241ee0fc66a83faf6eb2896d379e41ba0544169daca4dc9cb8a"
+        }
+      ]
+    }
+  ]
+}

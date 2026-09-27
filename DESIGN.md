@@ -1,3 +1,7 @@
+> Yêu cầu hiện hành: giữ nền trắng, chữ đen/xám và font system UI của bản cũ; chỉ lấy bố cục, màn hình và luồng thao tác từ mẫu. Màu đỏ/vàng trong mô tả trước đã được loại bỏ.
+
+> Cập nhật theo yêu cầu người dùng: `web_demo` dùng toàn bộ màn hình, bố cục và màu của `tham_khao/thamkhao_int`, chỉ giữ font system UI cũ. Phần achromatic dưới đây là thiết kế trước, không còn áp dụng cho giao diện hiện tại. Xem `WEB_DEMO.md`.
+
 # ChatGPT — Style Reference
 > graphite ink on warm paper
 

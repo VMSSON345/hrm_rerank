@@ -1,0 +1,338 @@
+{
+  "cases": [
+    {
+      "case_id": "practical-pdb-net-1",
+      "source_id": "PDB",
+      "question": "Doanh thu thuần hợp nhất thực hiện năm 2023 là bao nhiêu triệu đồng?",
+      "expected_action": "ANSWER",
+      "expected_canonical": "235110000000",
+      "canonical_unit": "VND",
+      "metric": "doanh thu thuan",
+      "years": [
+        "2023"
+      ],
+      "role": "actual",
+      "scope": "consolidated",
+      "operation": "SELECT",
+      "unit_basis": "source_explicit"
+    },
+    {
+      "case_id": "practical-pdb-net-2",
+      "source_id": "PDB",
+      "question": "Cho biết doanh thu thuần hợp nhất thực hiện năm 2023, tính bằng triệu đồng.",
+      "expected_action": "ANSWER",
+      "expected_canonical": "235110000000",
+      "canonical_unit": "VND",
+      "metric": "doanh thu thuan",
+      "years": [
+        "2023"
+      ],
+      "role": "actual",
+      "scope": "consolidated",
+      "operation": "SELECT",
+      "unit_basis": "source_explicit"
+    },
+    {
+      "case_id": "practical-pdb-overview",
+      "source_id": "PDB",
+      "question": "So sánh doanh thu thuần hợp nhất thực hiện năm 2024 và năm 2023, tính bằng triệu đồng.",
+      "expected_action": "ANSWER",
+      "expected_outputs": [
+        {
+          "expected_action": "ANSWER",
+          "expected_canonical": "235110000000",
+          "canonical_unit": "VND",
+          "metric": "doanh thu thuan",
+          "years": [
+            "2023"
+          ],
+          "role": "actual",
+          "scope": "consolidated",
+          "operation": "SELECT",
+          "unit_basis": "source_explicit"
+        },
+        {
+          "expected_action": "ANSWER",
+          "expected_canonical": "307927000000",
+          "canonical_unit": "VND",
+          "metric": "doanh thu thuan",
+          "years": [
+            "2024"
+          ],
+          "role": "actual",
+          "scope": "consolidated",
+          "operation": "SELECT",
+          "unit_basis": "source_explicit"
+        },
+        {
+          "expected_action": "ANSWER",
+          "expected_canonical": "72817000000",
+          "canonical_unit": "VND",
+          "metric": "doanh thu thuan",
+          "years": [
+            "2024",
+            "2023"
+          ],
+          "role": "actual",
+          "scope": "consolidated",
+          "operation": "SUBTRACT",
+          "unit_basis": "source_explicit"
+        }
+      ]
+    },
+    {
+      "case_id": "practical-bth-profit",
+      "source_id": "BTH",
+      "question": "Tổng lợi nhuận sau thuế thực hiện năm 2025 là bao nhiêu đồng?",
+      "expected_action": "ANSWER",
+      "expected_canonical": "186053840598",
+      "canonical_unit": "VND",
+      "metric": "tong loi nhuan sau thue",
+      "years": [
+        "2025"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "operation": "SELECT",
+      "unit_basis": "user_default_vnd"
+    },
+    {
+      "case_id": "practical-bth-plan-actual",
+      "source_id": "BTH",
+      "question": "So sánh doanh thu bán hàng và cung cấp dịch vụ kế hoạch và thực hiện năm 2025, tính bằng đồng.",
+      "expected_action": "ANSWER",
+      "expected_outputs": [
+        {
+          "expected_action": "ANSWER",
+          "expected_canonical": "169000000000",
+          "canonical_unit": "VND",
+          "metric": "doanh thu ban hang va cung cap dich vu",
+          "years": [
+            "2025"
+          ],
+          "role": "plan",
+          "scope": "reporting_company",
+          "operation": "SELECT",
+          "unit_basis": "user_default_vnd"
+        },
+        {
+          "expected_action": "ANSWER",
+          "expected_canonical": "272109210439",
+          "canonical_unit": "VND",
+          "metric": "doanh thu ban hang va cung cap dich vu",
+          "years": [
+            "2025"
+          ],
+          "role": "actual",
+          "scope": "reporting_company",
+          "operation": "SELECT",
+          "unit_basis": "user_default_vnd"
+        },
+        {
+          "expected_action": "ANSWER",
+          "expected_canonical": "103109210439",
+          "canonical_unit": "VND",
+          "metric": "doanh thu ban hang va cung cap dich vu",
+          "years": [
+            "2025"
+          ],
+          "role": [
+            "actual",
+            "plan"
+          ],
+          "scope": "reporting_company",
+          "operation": "SUBTRACT",
+          "unit_basis": "user_default_vnd"
+        }
+      ]
+    },
+    {
+      "case_id": "practical-bth-partial",
+      "source_id": "BTH",
+      "question": "So sánh doanh thu bán hàng và cung cấp dịch vụ thực hiện năm 2025 và năm 2037, tính bằng đồng.",
+      "expected_action": "PARTIAL",
+      "expected_outputs": [
+        {
+          "expected_action": "ANSWER",
+          "expected_canonical": "272109210439",
+          "canonical_unit": "VND",
+          "metric": "doanh thu ban hang va cung cap dich vu",
+          "years": [
+            "2025"
+          ],
+          "role": "actual",
+          "scope": "reporting_company",
+          "operation": "SELECT",
+          "unit_basis": "user_default_vnd"
+        },
+        {
+          "expected_action": "ABSTAIN",
+          "expected_canonical": null,
+          "canonical_unit": "VND",
+          "metric": "doanh thu ban hang va cung cap dich vu",
+          "years": [
+            "2037"
+          ],
+          "role": "actual",
+          "scope": "reporting_company",
+          "operation": "SELECT",
+          "unit_basis": "source_explicit"
+        },
+        {
+          "expected_action": "ABSTAIN",
+          "expected_canonical": null,
+          "canonical_unit": "VND",
+          "metric": "doanh thu ban hang va cung cap dich vu",
+          "years": [
+            "2037",
+            "2025"
+          ],
+          "role": "actual",
+          "scope": "reporting_company",
+          "operation": "SUBTRACT",
+          "unit_basis": "source_explicit"
+        }
+      ]
+    },
+    {
+      "case_id": "practical-hav-finance",
+      "source_id": "HAV",
+      "question": "Chi phí tài chính thực hiện năm 2023 là bao nhiêu triệu đồng?",
+      "expected_action": "ANSWER",
+      "expected_canonical": "-19000000",
+      "canonical_unit": "VND",
+      "metric": "chi phi tai chinh",
+      "years": [
+        "2023"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "operation": "SELECT",
+      "unit_basis": "source_explicit"
+    },
+    {
+      "case_id": "practical-hav-overview",
+      "source_id": "HAV",
+      "question": "So sánh doanh thu thuần thực hiện năm 2023 và năm 2022, tính bằng triệu đồng.",
+      "expected_action": "ANSWER",
+      "expected_outputs": [
+        {
+          "expected_action": "ANSWER",
+          "expected_canonical": "1055000000",
+          "canonical_unit": "VND",
+          "metric": "doanh thu thuan",
+          "years": [
+            "2022"
+          ],
+          "role": "actual",
+          "scope": "reporting_company",
+          "operation": "SELECT",
+          "unit_basis": "source_explicit"
+        },
+        {
+          "expected_action": "ANSWER",
+          "expected_canonical": "2341000000",
+          "canonical_unit": "VND",
+          "metric": "doanh thu thuan",
+          "years": [
+            "2023"
+          ],
+          "role": "actual",
+          "scope": "reporting_company",
+          "operation": "SELECT",
+          "unit_basis": "source_explicit"
+        },
+        {
+          "expected_action": "ANSWER",
+          "expected_canonical": "1286000000",
+          "canonical_unit": "VND",
+          "metric": "doanh thu thuan",
+          "years": [
+            "2023",
+            "2022"
+          ],
+          "role": "actual",
+          "scope": "reporting_company",
+          "operation": "SUBTRACT",
+          "unit_basis": "source_explicit"
+        }
+      ]
+    },
+    {
+      "case_id": "practical-hav-missing",
+      "source_id": "HAV",
+      "question": "Chi phí tài chính thực hiện năm 2037 là bao nhiêu triệu đồng?",
+      "expected_action": "ABSTAIN",
+      "expected_canonical": null,
+      "canonical_unit": "VND",
+      "metric": "chi phi tai chinh",
+      "years": [
+        "2037"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "operation": "SELECT",
+      "unit_basis": "source_explicit"
+    },
+    {
+      "case_id": "probe-agp-profit-1",
+      "source_id": "AGP",
+      "question": "Lợi nhuận trước thuế thực hiện năm 2025 là bao nhiêu tỷ đồng?",
+      "expected_action": "ANSWER",
+      "expected_canonical": "65900000000",
+      "canonical_unit": "VND",
+      "metric": "ln truoc thue",
+      "metric_labels": [
+        "ln truoc thue",
+        "loi nhuan truoc thue",
+        "lntt"
+      ],
+      "years": [
+        "2025"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "operation": "SELECT",
+      "pdf_pages": [
+        22
+      ],
+      "unit_basis": "source_explicit",
+      "absolute_tolerance": "50000000",
+      "reference_note": "PDF visually reviewed. AGP tolerance is half the printed 0.1-billion quantum; no other case uses tolerance."
+    },
+    {
+      "case_id": "probe-agp-profit-2",
+      "source_id": "AGP",
+      "question": "Cho biết lợi nhuận trước thuế thực hiện năm 2025, tính bằng tỷ đồng.",
+      "expected_action": "ANSWER",
+      "expected_canonical": "65900000000",
+      "canonical_unit": "VND",
+      "metric": "ln truoc thue",
+      "metric_labels": [
+        "ln truoc thue",
+        "loi nhuan truoc thue",
+        "lntt"
+      ],
+      "years": [
+        "2025"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "operation": "SELECT",
+      "pdf_pages": [
+        22
+      ],
+      "unit_basis": "source_explicit",
+      "absolute_tolerance": "50000000",
+      "reference_note": "PDF visually reviewed. AGP tolerance is half the printed 0.1-billion quantum; no other case uses tolerance."
+    }
+  ],
+  "paraphrase_pairs": [
+    [
+      "practical-pdb-net-1",
+      "practical-pdb-net-2"
+    ]
+  ],
+  "scope": "Different reports from AGP/MGG repair targets but all reports known historically. New questions, not training-disjoint certification.",
+  "multi_output_policy": "Compare two source-bound values and signed difference; only independently verified parts may be shown."
+}

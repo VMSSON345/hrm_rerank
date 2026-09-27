@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from .physical_coordinates import physical_coordinate_key, is_versioned_coordinate
+
 from dataclasses import dataclass
 from difflib import SequenceMatcher
 from itertools import product
@@ -12,10 +14,14 @@ from .ontology import normalize_text
 from .program_data import (
     COMMUTATIVE,
     OPERATION_ARITY,
+    SUM_N_OPERATION,
     ProgramDAGInput,
     ProgramDAGNode,
     ReasoningDAGProgram,
     ReasoningProgram,
+    metric_contrastive_qualifiers,
+    metric_qualifiers_compatible,
+    operation_accepts_arity,
 )
 from .question_planner import DirectionIntent, QuestionPlan
 
@@ -68,9 +74,12 @@ class TypedSynthesisResult:
 
 
 def _terms(text: str) -> set[str]:
+    normalized = normalize_text(text)
+    if re.search(r"\blnst\b", normalized):
+        normalized = f"{normalized} loi nhuan sau thue"
     return {
         token
-        for token in re.findall(r"[a-z0-9]+", normalize_text(text))
+        for token in re.findall(r"[a-z0-9]+", normalized)
         if len(token) > 1
         and not token.isdigit()
         and token not in _SLOT_STOPWORDS
@@ -83,8 +92,18 @@ def _metric_score(
     *,
     observed_text: str = "",
 ) -> float:
+    observed = observed_text or cell.metric_label
+    if not metric_qualifiers_compatible(expected, observed):
+        return 0.0
+    expected_qualifiers = metric_contrastive_qualifiers(expected)
+    observed_qualifiers = metric_contrastive_qualifiers(observed)
+    if any(
+        observed_qualifiers.get(name) != value
+        for name, value in expected_qualifiers.items()
+    ):
+        return 0.0
     expected_terms = _terms(expected)
-    observed_terms = _terms(observed_text or cell.metric_label)
+    observed_terms = _terms(observed)
     if not expected_terms or not observed_terms:
         return 0.0
     overlap = 0.0
@@ -114,6 +133,10 @@ def _metric_score(
 def _metric_context_score(expected: str, cell: EvidenceCell) -> float:
     """Score row semantics plus source-provenanced structural context."""
 
+    # Check the physical row before enriching it with headers. A matching
+    # header must never mask a contradictory row qualifier.
+    if not metric_qualifiers_compatible(expected, cell.metric_label):
+        return 0.0
     score = _metric_score(expected, cell)
     if (
         not cell.metric_label
@@ -305,6 +328,7 @@ def _pair_compatible(
         "AVERAGE",
         "SUM3",
         "SUM4",
+        SUM_N_OPERATION,
     }
     if comparable and left.unit_key and right.unit_key:
         if left.unit_key != right.unit_key:
@@ -330,6 +354,38 @@ def _pair_compatible(
             score += weight
             proofs.append(name)
     return True, score, tuple(proofs)
+
+
+def _physical_cell_key(cell: EvidenceCell) -> tuple[object, ...]:
+    """Return a conservative physical identity for assignment de-duplication."""
+
+    if is_versioned_coordinate(cell):
+        return physical_coordinate_key(cell) or ("unresolved_candidate", cell.index)
+    location = (
+        cell.source_name,
+        cell.page,
+        cell.table_id,
+        cell.row_id,
+        cell.column_id,
+    )
+    if cell.source_span is not None:
+        return ("span", *location, *cell.source_span)
+    if cell.source_bbox is not None:
+        return ("bbox", *location, *cell.source_bbox)
+    if cell.row_id or cell.column_id:
+        return ("cell", *location)
+    return ("candidate", cell.index)
+
+
+def _can_append_distinct_cell(
+    cells: Sequence[EvidenceCell],
+    cell: EvidenceCell,
+) -> bool:
+    return all(
+        item.index != cell.index
+        and _physical_cell_key(item) != _physical_cell_key(cell)
+        for item in cells
+    )
 
 
 def _temporal_slots(plan: QuestionPlan) -> tuple[tuple[str, str], tuple[str, str]]:
@@ -418,11 +474,16 @@ def _role_proposals(
     required_unit_families: Sequence[str] | None = None,
     max_programs: int,
 ) -> TypedSynthesisResult:
-    arity = OPERATION_ARITY[operation]
-    if len(role_texts) != arity:
+    role_count = len(role_texts)
+    if not operation_accepts_arity(operation, role_count):
         return TypedSynthesisResult(
             operation, "explicit_operand_roles", (), (), "missing_operand_roles"
         )
+    arity = (
+        role_count
+        if operation == SUM_N_OPERATION
+        else OPERATION_ARITY[operation]
+    )
     if (
         required_unit_families is None
         and operation == "MULTIPLY"
@@ -485,18 +546,31 @@ def _role_proposals(
         expanded: list[tuple[tuple[EvidenceCell, ...], float, tuple[str, ...]]] = []
         for cells, score, proofs in beams:
             for cell, cell_score, cell_proofs in slot:
-                if any(item.index == cell.index for item in cells):
+                if not _can_append_distinct_cell(cells, cell):
                     continue
                 if cells:
-                    compatible, relation_score, relation_proofs = _pair_compatible(
-                        graph,
-                        cells[0],
-                        cell,
-                        operation=operation,
-                        require_same_metric=False,
+                    comparison_cells = (
+                        cells if operation == SUM_N_OPERATION else cells[:1]
                     )
+                    relation_score = 0.0
+                    collected_relation_proofs: list[str] = []
+                    compatible = True
+                    for existing in comparison_cells:
+                        pair_ok, pair_score, pair_proofs = _pair_compatible(
+                            graph,
+                            existing,
+                            cell,
+                            operation=operation,
+                            require_same_metric=False,
+                        )
+                        if not pair_ok:
+                            compatible = False
+                            break
+                        relation_score += pair_score
+                        collected_relation_proofs.extend(pair_proofs)
                     if not compatible:
                         continue
+                    relation_proofs = tuple(collected_relation_proofs)
                 else:
                     relation_score, relation_proofs = 0.0, ()
                 expanded.append(
@@ -543,8 +617,8 @@ def _column_role_proposals(
     *,
     max_programs: int,
 ) -> TypedSynthesisResult:
-    arity = OPERATION_ARITY[operation]
-    if len(plan.column_roles) != arity:
+    role_count = len(plan.column_roles)
+    if not operation_accepts_arity(operation, role_count):
         return TypedSynthesisResult(
             operation,
             "explicit_column_roles",
@@ -552,6 +626,11 @@ def _column_role_proposals(
             (),
             "missing_column_roles",
         )
+    arity = (
+        role_count
+        if operation == SUM_N_OPERATION
+        else OPERATION_ARITY[operation]
+    )
     requested_year = plan.requested_years[-1] if plan.requested_years else ""
     required_unit = (
         "currency" if plan.requested_unit_family == "currency" else ""
@@ -578,22 +657,64 @@ def _column_role_proposals(
         )
 
     proposals: dict[ReasoningProgram, TypedProgramProposal] = {}
-    for assignment in product(*slots):
+    if operation == SUM_N_OPERATION:
+        bounded_assignments: list[
+            tuple[tuple[EvidenceCell, float, tuple[str, ...]], ...]
+        ] = [()]
+        for slot in slots:
+            expanded_assignments = [
+                (*assignment, item)
+                for assignment in bounded_assignments
+                for item in slot
+                if _can_append_distinct_cell(
+                    tuple(previous[0] for previous in assignment),
+                    item[0],
+                )
+            ]
+            bounded_assignments = sorted(
+                expanded_assignments,
+                key=lambda assignment: sum(item[1] for item in assignment),
+                reverse=True,
+            )[:max_programs]
+        assignments = bounded_assignments
+    else:
+        assignments = product(*slots)
+    for assignment in assignments:
         cells = tuple(item[0] for item in assignment)
-        if len({cell.index for cell in cells}) != len(cells):
+        if len({cell.index for cell in cells}) != len(cells) or (
+            operation == SUM_N_OPERATION
+            and len({_physical_cell_key(cell) for cell in cells}) != len(cells)
+        ):
             continue
         relation_score = 0.0
-        relation_proofs: tuple[str, ...] = ()
+        collected_relation_proofs: list[str] = []
         if len(cells) >= 2:
-            compatible, relation_score, relation_proofs = _pair_compatible(
-                graph,
-                cells[0],
-                cells[1],
-                operation=operation,
-                require_same_metric=True,
+            pairs = (
+                (
+                    (left, right)
+                    for index, left in enumerate(cells)
+                    for right in cells[index + 1 :]
+                )
+                if operation == SUM_N_OPERATION
+                else ((cells[0], cells[1]),)
             )
+            compatible = True
+            for left, right in pairs:
+                pair_ok, pair_score, pair_proofs = _pair_compatible(
+                    graph,
+                    left,
+                    right,
+                    operation=operation,
+                    require_same_metric=True,
+                )
+                if not pair_ok:
+                    compatible = False
+                    break
+                relation_score += pair_score
+                collected_relation_proofs.extend(pair_proofs)
             if not compatible:
                 continue
+        relation_proofs = tuple(collected_relation_proofs)
         operands = tuple(cell.index for cell in cells)
         if operation in COMMUTATIVE:
             operands = tuple(sorted(operands))
@@ -788,7 +909,13 @@ def _carrier_program(
 ) -> ReasoningProgram:
     """Build a flat compatibility carrier while the attached DAG is authoritative."""
 
-    arity = OPERATION_ARITY[operation]
+    arity = (
+        len(plan.operand_slots)
+        if operation == SUM_N_OPERATION
+        else OPERATION_ARITY[operation]
+    )
+    if not operation_accepts_arity(operation, arity):
+        raise ValueError("typed DAG carrier arity is outside operation bounds")
     ordered = [bindings[slot.id] for slot in plan.operand_slots]
     unique = list(dict.fromkeys(ordered))
     if arity == 1:
@@ -825,6 +952,14 @@ def _typed_operand_slot_dag_proposals(
         return TypedSynthesisResult(
             operation, "typed_operand_slot_dag", (), (), "root_operation_mismatch"
         )
+    if not operation_accepts_arity(operation, len(plan.program_dag[-1].inputs)):
+        return TypedSynthesisResult(
+            operation,
+            "typed_operand_slot_dag",
+            (),
+            (),
+            "invalid_root_arity",
+        )
     slots = [
         _slot_candidates(
             graph,
@@ -847,9 +982,34 @@ def _typed_operand_slot_dag_proposals(
         )
 
     proposals: dict[ReasoningProgram, TypedProgramProposal] = {}
-    for assignment in product(*slots):
+    if operation == SUM_N_OPERATION:
+        bounded_assignments: list[
+            tuple[tuple[EvidenceCell, float, tuple[str, ...]], ...]
+        ] = [()]
+        for slot in slots:
+            expanded_assignments = [
+                (*assignment, item)
+                for assignment in bounded_assignments
+                for item in slot
+                if _can_append_distinct_cell(
+                    tuple(previous[0] for previous in assignment),
+                    item[0],
+                )
+            ]
+            bounded_assignments = sorted(
+                expanded_assignments,
+                key=lambda assignment: sum(item[1] for item in assignment),
+                reverse=True,
+            )[:max_programs]
+        assignments = bounded_assignments
+    else:
+        assignments = product(*slots)
+    for assignment in assignments:
         cells = tuple(item[0] for item in assignment)
-        if len({cell.index for cell in cells}) != len(cells):
+        if len({cell.index for cell in cells}) != len(cells) or (
+            operation == SUM_N_OPERATION
+            and len({_physical_cell_key(cell) for cell in cells}) != len(cells)
+        ):
             continue
         score = sum(item[1] for item in assignment)
         proofs: list[str] = [proof for item in assignment for proof in item[2]]
@@ -932,11 +1092,31 @@ def synthesize_typed_programs(
     contradictions are excluded before neural scoring.
     """
 
-    if operation not in OPERATION_ARITY:
+    if operation not in OPERATION_ARITY and operation != SUM_N_OPERATION:
         return TypedSynthesisResult(
             operation, "unsupported", (), (), "unsupported_operation"
         )
-    arity = OPERATION_ARITY[operation]
+    if operation == SUM_N_OPERATION and operand_role_texts is None:
+        operand_role_texts = plan.operand_roles or None
+    if operation == SUM_N_OPERATION:
+        if plan.operand_slots and plan.program_dag:
+            arity = len(plan.program_dag[-1].inputs)
+        elif plan.column_roles:
+            arity = len(plan.column_roles)
+        elif operand_role_texts is not None:
+            arity = len(operand_role_texts)
+        else:
+            arity = 0
+        if not operation_accepts_arity(operation, arity):
+            return TypedSynthesisResult(
+                operation,
+                "variable_arity_contract",
+                (),
+                tuple(0 for _ in range(arity)),
+                "invalid_variable_arity",
+            )
+    else:
+        arity = OPERATION_ARITY[operation]
     if not graph.cells:
         return TypedSynthesisResult(operation, "empty", (), (), "empty_graph")
     if operation in {"SUBTRACT", "PERCENT_CHANGE"} and plan.direction_intent in {

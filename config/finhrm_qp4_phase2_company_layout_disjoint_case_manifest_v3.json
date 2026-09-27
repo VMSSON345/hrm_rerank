@@ -1,0 +1,496 @@
+{
+  "schema": "finhrm-qp4-phase2-company-layout-disjoint-case-manifest-v3",
+  "created_at": "2026-08-30",
+  "classification": "development_only_targeted_frozen_regression_replay",
+  "status": "FROZEN_BEFORE_V3_EXECUTION",
+  "pre_run_policy": {
+    "frozen_before_v3_execution": true,
+    "model_invoked_during_freeze": false,
+    "protected_test_final_holdout_loaded": false,
+    "semantic_expected_actions_present": false,
+    "numeric_gold_present": false,
+    "runtime_changes_allowed": false,
+    "single_execution_only": true,
+    "prior_cohort_executed": true,
+    "unbiased_validation_claimed": false,
+    "prior_results_known": true,
+    "adaptive_patch_after_this_v3_run_allowed": false
+  },
+  "selection_audit": {
+    "protected_source_names_inspected_for_exclusion_only": true,
+    "protected_question_answer_or_candidate_content_used": false,
+    "selected_source_overlap_with_protected_test_final_holdout": 0,
+    "selected_source_overlap_with_phase1_companies": 0,
+    "phase1_company_codes_excluded": [
+      "AGR",
+      "HUB",
+      "VNL",
+      "PIC",
+      "SCG",
+      "ICT"
+    ],
+    "selected_company_codes": [
+      "ECI",
+      "TVA",
+      "DBM",
+      "VNS"
+    ],
+    "selected_company_keys": [
+      "development-company-0c7371bc44f1c673",
+      "development-company-15aa4ce43c3fc979",
+      "development-company-2a2a3143b07d2833",
+      "development-company-388d036c98c1ea95"
+    ],
+    "forbidden_runtime_inputs": [
+      "expected action class",
+      "expected numeric value",
+      "expected operation",
+      "expected operand",
+      "protected test/final/holdout content",
+      "company-specific runtime rule",
+      "case-specific runtime rule"
+    ],
+    "replay_disclosure": {
+      "exact_cohort_executed_in_prior_cycle": true,
+      "prior_results_known_before_v3_freeze": true,
+      "unbiased_or_unseen_validation_claimed": false,
+      "purpose": "targeted_regression_replay",
+      "runtime_adaptation_after_v3_execution_allowed": false
+    }
+  },
+  "selection_provenance": [
+    {
+      "path": "data/pdf_development_company_catalog_v3.json",
+      "sha256": "17f74e49fe1894871453dd0c2b2ec8f13fa3650c4294c324d90bc7e47dd8bb2b"
+    },
+    {
+      "path": "data/pdf_v12b2_unseen_development_intake_v1.json",
+      "sha256": "b7328f88819eeec28a72a07225b67db06fb56fc8f6688963a2d9e815c91ada5c"
+    },
+    {
+      "path": "data/subtract_new_company_development_reviewed_v1.jsonl",
+      "sha256": "08d47314f93314c93e1f08bc507a5b0b9a4ade46619c36241cd92b5652f1d71e"
+    },
+    {
+      "path": "config/finhrm_qp4_actual_plan_ratio_direction_source_cohort_v1.json",
+      "sha256": "20ba00740ffe9ba2686c08bc01d07b8f345847d7ddbc5b8780c157bd7ef8d11f"
+    },
+    {
+      "path": "reports/finhrm_qp4_development_source_expansion_page_selective_ocr_cohort_build_v1.json",
+      "sha256": "57581e04486d265e0a1dc408c4be9b213f6a77d2931876cdbca3a1c3b5ec1142"
+    },
+    {
+      "path": "scripts/materialize_qp4_phase2_company_layout_disjoint_sources.py",
+      "sha256": "d980dab37389d23a2c4fcd528500a1403ea0472488fae0d86ec000dccc3a438f"
+    }
+  ],
+  "checkpoint": {
+    "path": "models/document_hrm_V8_candidate.pt",
+    "sha256": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de"
+  },
+  "runtime_sources": {
+    "src/hrm_finance_qa/__init__.py": "c316966feb7929c62f81d9d6f0c7807985c7176b1401bbee59fb2a59bbe7de1e",
+    "src/hrm_finance_qa/answer_presentation.py": "9c6e11c320818f6892721dd846b7d96546899758c3d7e671e55015fbe1f1dba6",
+    "src/hrm_finance_qa/cache_schema.py": "73de59f448cad7585b8215ad954c892ae76b84fb8944e89757cb4658e2c561d4",
+    "src/hrm_finance_qa/candidate_evaluation.py": "21ba9da22fa8ebf1b8c77f148be1a35116af33c07e9a970f2aed6470514182f2",
+    "src/hrm_finance_qa/cli.py": "7887070672def5ba1a8d5ebe754f6b2b1c51c825774b0de49879bf0e19d06ff9",
+    "src/hrm_finance_qa/dense_retrieval.py": "6896d217e79b730f0c8555c0b4d8cf8b72fa722cf3af6a1f06093a318e577dc3",
+    "src/hrm_finance_qa/direction_contract.py": "a18aa130419fc74ce647bd92dc9c1b1217007738e636aad0f28c7f78396be937",
+    "src/hrm_finance_qa/document_agent.py": "932250766ebb63da8f99fdfe8ab390fee82bcbc5aea866ca9bb057e818c64290",
+    "src/hrm_finance_qa/document_hrm.py": "4abcaa8d760708c06b49beff81dcfd979347a88c224669cb5cf00047943ac97d",
+    "src/hrm_finance_qa/document_page_index.py": "97d356533734bb09bdeb318038d720ac2daf700046e753d1d134804f7bb7c884",
+    "src/hrm_finance_qa/document_reasoning_engine.py": "10153437df9e59484778a5c68092784ae895a5a577d53639008bb27ea84d00e7",
+    "src/hrm_finance_qa/document_search.py": "3aa79ffd648c8e6d9764ff73e09d88e2deec387d3168f94d7ffc54bb41aaf089",
+    "src/hrm_finance_qa/document_service.py": "328aab3d76d50ba98f23ce1c42823cdbfe53a7dd023eebeea72c1e49d5066c22",
+    "src/hrm_finance_qa/document_sources.py": "79b4c7eddb80119ed8f355236b2baaa72dc7a2ef82b7fb8a367d1bd87a71fb2e",
+    "src/hrm_finance_qa/engine.py": "bc8494556dd5bb15e925978bd8cc5c4a98ac188af580e0d9537f42f5566d128c",
+    "src/hrm_finance_qa/evaluation_metrics.py": "2a3b19f9ae8f08f9e9742c094e874af7c28d54cfb7838b1c39e02b5d1e6a7a76",
+    "src/hrm_finance_qa/evidence_schema.py": "1c6a9183a05a487a5b49d5ab02e771449e52178b774633b8e6a63cf475ebe51a",
+    "src/hrm_finance_qa/external_evaluation.py": "96d3a3aa79637507dd73cb776e2d70f71aaf1b977a1e192762b5b696b706ff2c",
+    "src/hrm_finance_qa/financial_identities.py": "a4b2249fcd8a7d633b874eb67da8dc86e1c556dec5d7757d3c3e8450d586d72a",
+    "src/hrm_finance_qa/flattened_table_reconstruction.py": "1e67aa3f2e3acc068d30ece065fc0a0365358c7aa75da660e065af83fa265d4c",
+    "src/hrm_finance_qa/hrm.py": "3f6cfe5e864c9c4b4e9ec7beb995d8813fe7ee6acfe39af89f0f55dd932505e5",
+    "src/hrm_finance_qa/neural.py": "ff2e2c0c3d7a62702bd2b2b1f80d5bad2521e8ec2d347f93050fb875bb4f1d7f",
+    "src/hrm_finance_qa/ontology.py": "47375f6a95057ddda75433fd40a8e9c2be3448165e288c2764d1d54bc83e400b",
+    "src/hrm_finance_qa/program_data.py": "f068d6f15929c85c25c3d6130f777a2943a440cce9dabb7a4c99b24e6ca33e33",
+    "src/hrm_finance_qa/program_reranker.py": "7d7f456649ce0639a808b809985751c38c9a4bb1d70209a65d3bc3bbc97671f4",
+    "src/hrm_finance_qa/program_synthesis.py": "df74d65ab387afc504c03091e4e951161a526fe44856dbfe7fa64b5bcf970c5b",
+    "src/hrm_finance_qa/question_planner.py": "548016f80e5dbf8a98b2f96b9c01b166401d363d020cb3ddd35941adbe902d15",
+    "src/hrm_finance_qa/question_request_planner.py": "19579ec98d5b9e95c6973fe11805ead3214b27e97c6da0dc337a31cf3ee01f51",
+    "src/hrm_finance_qa/reasoning.py": "d3244c224dbec45f62f95e64a30f1c48fb2566830c457416bf691eca6a107f74",
+    "src/hrm_finance_qa/reasoning_engine.py": "fee38cd78d0949f4c3172290199a1b50ce0fc934cd4c8f0002f188881ca658cc",
+    "src/hrm_finance_qa/repository.py": "8e83ad3f7f676eb0eacbe038b064582e7659d35f98363cb552555d2a6b9f994a",
+    "src/hrm_finance_qa/request_answer.py": "0d875fa788d3b65b025d3d29a0fc155bba275d12d06bee0708d87bedb4e72e83",
+    "src/hrm_finance_qa/symbolic_verifier.py": "a4368dc92f735077a934a91b1628df30596b75c67f8b742a724103e61a0e25b7",
+    "src/hrm_finance_qa/v11_pipeline.py": "b6611c2b2c0ba7cd2c726b4d48f29a9b1fd01be09a4da2200865379f07ba4387",
+    "src/hrm_finance_qa/v12b2_supervision.py": "100272f4bb46a3bd51e05914c6080ddaa7f48fea3c96337aa4b6cd9a0e8db0da"
+  },
+  "preserved_artifacts": [
+    {
+      "path": "scripts/evaluate_qp4_phase2_company_layout_disjoint_contract_v3.py",
+      "sha256": "e2b06df8e151ea63f137ff85ac8f2c53ce07e79c71fe772c2ff1b8215c36b7e6"
+    },
+    {
+      "path": "config/finhrm_qp4_phase2_company_layout_disjoint_case_manifest_v1.json",
+      "sha256": "074501a1046298ac6684cbafb2a48ae1a6a77feab864da27855ab64791301679"
+    },
+    {
+      "path": "config/finhrm_qp4_phase2_company_layout_disjoint_contract_v1.json",
+      "sha256": "ac0e56d38cbda8c8d08ccf1067db829a53a3f63ae13f32052de712857d126dda"
+    },
+    {
+      "path": "scripts/run_qp4_phase2_company_layout_disjoint_evaluation.py",
+      "sha256": "5e1b1513abc576c02869bdeda111f01cba4227830230f1bbfb61c9247c82712b"
+    },
+    {
+      "path": "scripts/evaluate_qp4_phase2_company_layout_disjoint_contract.py",
+      "sha256": "ae76dcc9cc199eef627bed6bad8a807ddbe028c6f926ff54193e9377bd759d5f"
+    },
+    {
+      "path": "reports/finhrm_qp4_phase2_company_layout_disjoint_observations_v1.json",
+      "sha256": "ec379b195513a982f8021ef56e4fdffdadf7281b27ac00a02a22039d9fdc2eab"
+    },
+    {
+      "path": "reports/finhrm_qp4_phase2_company_layout_disjoint_observations_v1.md",
+      "sha256": "922fb570e89f5b39ac34b001d6e440fe35aa994140e9afea8eb6a099e741364b"
+    },
+    {
+      "path": "reports/finhrm_qp4_phase2_company_layout_disjoint_evaluation_v1.json",
+      "sha256": "a2053c767ec40c25166630c8b011d182abf98009576cdd0ff63610fce63b5c5b"
+    },
+    {
+      "path": "reports/finhrm_qp4_phase2_company_layout_disjoint_evaluation_v1.md",
+      "sha256": "15b11f6f187cc8ca6d100dac23a78f4e05aa5863f32193cf0328ba35c882296a"
+    },
+    {
+      "path": "config/finhrm_markdown_shard15_case_manifest_v2.json",
+      "sha256": "a4f615a90045ed8cb0e05e235edb620209dce98009a85663478761769ac68a78"
+    },
+    {
+      "path": "config/finhrm_markdown_shard15_semantic_contract_v2.json",
+      "sha256": "73899dcc6c5efba90f9254868996ba714b97ef28fce2673813c66e8c15aead6f"
+    },
+    {
+      "path": "scripts/run_finhrm_markdown_shard15_evaluation.py",
+      "sha256": "27cc59591dcbf34863e8c992cde29350095b236cee140be1be1ccfa7a7e4f9d2"
+    },
+    {
+      "path": "scripts/evaluate_finhrm_markdown_shard15_v2.py",
+      "sha256": "bb8df028e926cd3bf0deb806b703ae8254c0dfda7445778229692d855bffdf3e"
+    },
+    {
+      "path": "reports/finhrm_markdown_shard15_observations_v2.json",
+      "sha256": "0731a8c1c90d0959b13970976cf473baf7d2cd349a2cd64771a096e25bd4fefc"
+    },
+    {
+      "path": "reports/finhrm_markdown_shard15_observations_v2.md",
+      "sha256": "7c1d28887f8748e3f8624ad08d453b42837c523ecd9ac796cec2fda30437c322"
+    },
+    {
+      "path": "reports/finhrm_markdown_shard15_evaluation_v2.json",
+      "sha256": "5778bc27e7c8ae729dcfee3eca8a3b94158ae2c274cb5f915ceac6a5da0275a7"
+    },
+    {
+      "path": "reports/finhrm_markdown_shard15_evaluation_v2.md",
+      "sha256": "a8a4d79e104f8d2cc79c787f9632f6b21e6bd58a9d3bef1700e18d695a08fd71"
+    },
+    {
+      "path": "scripts/evaluate_multi_part_comparison_contract.py",
+      "sha256": "3edcc50c9b47d0bb7d0cab3819f967c3e9a85b78dbe770dba85b68ab41d1abaa"
+    },
+    {
+      "path": "scripts/evaluate_multi_part_comparison_contract_v2.py",
+      "sha256": "63faffc3e614a6035598c80de1e61f26556dcb849aa5b4de76647899b64dde63"
+    },
+    {
+      "path": "scripts/evaluate_multi_part_comparison_contract_v3.py",
+      "sha256": "76095146428be662b719fe093a473feb6bcc68e9da7ee95a0838ba27058e63d6"
+    },
+    {
+      "path": "reports/finhrm_multi_part_comparison_contract_v1.json",
+      "sha256": "16ac75e1ca03ab6ce405d0338d8e953e45ca5982ca881b9e6a3883dce9fbe882"
+    },
+    {
+      "path": "reports/finhrm_multi_part_comparison_contract_v1.md",
+      "sha256": "2a9e37c2c051f1c8fc16033308359479dcd905134d1f88f0e89b002d3f8f1556"
+    },
+    {
+      "path": "reports/finhrm_multi_part_comparison_contract_v2.json",
+      "sha256": "eb2b54ba61f6b48a2a4de1f2b6b04aacb9702baf847c0068b6cc5c922b7f92a0"
+    },
+    {
+      "path": "reports/finhrm_multi_part_comparison_contract_v2.md",
+      "sha256": "3ff3df9ee1e42b06aab762efae9e7027e21e96a2befb3f42b66ba826d6eb9c0c"
+    },
+    {
+      "path": "reports/finhrm_multi_part_comparison_contract_v3_runtime_closure_v1.json",
+      "sha256": "0c711e48503a16f89ac5831aafe641213ec55363d8963ed4c3721d7da88862ad"
+    },
+    {
+      "path": "reports/finhrm_multi_part_comparison_contract_v3_runtime_closure_v1.md",
+      "sha256": "205409f9791daac2d87afec08f1ca6e2c79227b1aaa9781b0c87d36ca65564b4"
+    }
+  ],
+  "required_layout_coverage": {
+    "simple_plan_actual": [
+      "ECI_24CN_BCTN.pdf"
+    ],
+    "multilevel_merged_header": [
+      "TVA_24CN_BCTN.pdf"
+    ],
+    "current_prior": [
+      "DBM_24CN_BCTN.pdf"
+    ],
+    "parent_and_consolidated": [
+      "ECI_24CN_BCTN.pdf"
+    ],
+    "missing_requested_role_year": [
+      "TVA_24CN_BCTN.pdf"
+    ],
+    "duplicate_alternate_ambiguous": [
+      "VNS_23CN_BCTN.pdf",
+      "ECI_24CN_BCTN.pdf"
+    ]
+  },
+  "sources": {
+    "ECI_24CN_BCTN.pdf": {
+      "source_name": "ECI_24CN_BCTN.pdf",
+      "company_key": "development-company-0c7371bc44f1c673",
+      "classification": "development_only",
+      "pdf": {
+        "path": "pdf/PDF_24/PDF_24/ECI_24CN_BCTN.pdf",
+        "sha256": "5476e6a0644b14353ba7f682bfe010c7e654fe1e641b1e501fb8f1e8c1c763c3"
+      },
+      "mineru_content_list": {
+        "path": "cache/mineru/ECI_24CN_BCTN-205246e8ab340c0b8f62574f/ECI_24CN_BCTN/hybrid_ocr/ECI_24CN_BCTN_content_list.json",
+        "sha256": "70b7a26fb5bbdfab952f340cdf973b35f159e757dc02ea67ca6dbc7715ba97f3",
+        "page_offset": 7
+      },
+      "markdown": {
+        "path": "reports/mineru_markdown_qp4_phase2_disjoint/ECI_24CN_BCTN.md",
+        "sha256": "59f3a263683eb0a95a201bcd85b035c72b5644ba271885f9ef55ab0ba18c8162"
+      },
+      "reviewed_physical_pages": [
+        8
+      ],
+      "layout_families": [
+        "simple_plan_actual",
+        "parent_and_consolidated",
+        "parallel_table_ambiguity"
+      ]
+    },
+    "TVA_24CN_BCTN.pdf": {
+      "source_name": "TVA_24CN_BCTN.pdf",
+      "company_key": "development-company-15aa4ce43c3fc979",
+      "classification": "development_only",
+      "pdf": {
+        "path": "pdf/PDF_24/PDF_24/TVA_24CN_BCTN.pdf",
+        "sha256": "2ab79ef997afa54449c0baa80c4ef09f389b10277abe6cb11f08e54c6ee5c23b"
+      },
+      "mineru_content_list": {
+        "path": "cache/mineru/TVA_24CN_BCTN-7f99ad7f983f7bea7a1c2df8/TVA_24CN_BCTN/hybrid_ocr/TVA_24CN_BCTN_content_list.json",
+        "sha256": "145e9309fbdfadb6d7b18618a98f99ab17ea6cf5db4469c9591729a03fbf03d8",
+        "page_offset": 20
+      },
+      "markdown": {
+        "path": "reports/mineru_markdown_qp4_phase2_disjoint/TVA_24CN_BCTN.md",
+        "sha256": "119b409e03836621cc7d85fd7959a81314889e5cde2a3239d57e701302871d28"
+      },
+      "reviewed_physical_pages": [
+        21
+      ],
+      "layout_families": [
+        "multilevel_merged_header",
+        "missing_requested_role_year"
+      ]
+    },
+    "DBM_24CN_BCTN.pdf": {
+      "source_name": "DBM_24CN_BCTN.pdf",
+      "company_key": "development-company-2a2a3143b07d2833",
+      "classification": "development_only",
+      "pdf": {
+        "path": "pdf/PDF_24/PDF_24/DBM_24CN_BCTN.pdf",
+        "sha256": "b71a52f133368ba79781cfe17ad698d4d129380f16444c23774644eab712f2cd"
+      },
+      "mineru_content_list": {
+        "path": "cache/mineru/DBM_24CN_BCTN-dcc133e1315aed5bc5453be9/DBM_24CN_BCTN/hybrid_ocr/DBM_24CN_BCTN_content_list.json",
+        "sha256": "dd4140e7a4387690caf8198eda18d3ee3ee1898d4637bda105fed73dae5d22e7",
+        "page_offset": 4
+      },
+      "markdown": {
+        "path": "reports/mineru_markdown_qp4_phase2_disjoint/DBM_24CN_BCTN.md",
+        "sha256": "70434d7341aa133f931dbdeff493cb1d4e55bf0619100c8d95b80b9636adb669"
+      },
+      "reviewed_physical_pages": [
+        6
+      ],
+      "layout_families": [
+        "current_prior_explicit_year"
+      ]
+    },
+    "VNS_23CN_BCTN.pdf": {
+      "source_name": "VNS_23CN_BCTN.pdf",
+      "company_key": "development-company-388d036c98c1ea95",
+      "classification": "development_only",
+      "pdf": {
+        "path": "pdf/PDF_23/VNS_23CN_BCTN.pdf",
+        "sha256": "5e68d6ae9536f9f7ebe3f9e61165dbcecbcc020349816f6a07b557497bc5380b"
+      },
+      "mineru_content_list": {
+        "path": "cache/mineru/VNS_23CN_BCTN-9c159a43d17bf5a2385f0e6e/VNS_23CN_BCTN/hybrid_ocr/VNS_23CN_BCTN_content_list.json",
+        "sha256": "e36d560c7f48fb27cec864fd4bc5898fa75b1b93c49a8397f7a406dada3a63c2",
+        "page_offset": 13
+      },
+      "markdown": {
+        "path": "reports/mineru_markdown_qp4_phase2_disjoint/VNS_23CN_BCTN.md",
+        "sha256": "a56199db2735868330ddfb8688328759394cb86b3405b27b4f231c63ee66efd2"
+      },
+      "reviewed_physical_pages": [
+        15
+      ],
+      "layout_families": [
+        "duplicate_alternate_same_logical_cell",
+        "simple_plan_actual"
+      ]
+    }
+  },
+  "cases": [
+    {
+      "case_id": "phase2-eci-parent-actual-select",
+      "source_name": "ECI_24CN_BCTN.pdf",
+      "category": "answer_select",
+      "layout_family": "scoped_parallel_flattened_plan_actual",
+      "question": "Theo mục 1.3 Công tác tài chính, tổng doanh thu thực hiện năm 2024 của công ty mẹ là bao nhiêu triệu đồng?"
+    },
+    {
+      "case_id": "phase2-eci-consolidated-actual-select",
+      "source_name": "ECI_24CN_BCTN.pdf",
+      "category": "answer_select",
+      "layout_family": "scoped_parallel_flattened_plan_actual",
+      "question": "Theo mục 1.3 Công tác tài chính, tổng doanh thu thực hiện hợp nhất năm 2024 là bao nhiêu triệu đồng?"
+    },
+    {
+      "case_id": "phase2-eci-parent-actual-minus-plan",
+      "source_name": "ECI_24CN_BCTN.pdf",
+      "category": "answer_comparison",
+      "layout_family": "scoped_parallel_flattened_plan_actual",
+      "question": "Tổng doanh thu thực hiện năm 2024 của công ty mẹ trừ tổng doanh thu kế hoạch năm 2024 của công ty mẹ là bao nhiêu triệu đồng?"
+    },
+    {
+      "case_id": "phase2-eci-consolidated-actual-minus-plan",
+      "source_name": "ECI_24CN_BCTN.pdf",
+      "category": "answer_comparison",
+      "layout_family": "scoped_parallel_flattened_plan_actual",
+      "question": "Tổng doanh thu thực hiện hợp nhất năm 2024 trừ tổng doanh thu kế hoạch hợp nhất năm 2024 là bao nhiêu triệu đồng?"
+    },
+    {
+      "case_id": "phase2-eci-consolidated-minus-parent-actual",
+      "source_name": "ECI_24CN_BCTN.pdf",
+      "category": "answer_cross_entity_comparison",
+      "layout_family": "scoped_parallel_flattened_plan_actual",
+      "question": "Tổng doanh thu thực hiện hợp nhất năm 2024 trừ tổng doanh thu thực hiện năm 2024 của công ty mẹ là bao nhiêu triệu đồng?"
+    },
+    {
+      "case_id": "phase2-eci-unscoped-actual-ambiguity",
+      "source_name": "ECI_24CN_BCTN.pdf",
+      "category": "ambiguity_control",
+      "layout_family": "scoped_parallel_flattened_plan_actual",
+      "question": "Theo mục 1.3 Công tác tài chính, tổng doanh thu thực hiện năm 2024 là bao nhiêu triệu đồng?"
+    },
+    {
+      "case_id": "phase2-tva-plan-2024-select",
+      "source_name": "TVA_24CN_BCTN.pdf",
+      "category": "answer_select",
+      "layout_family": "multilevel_merged_header_plan_actual",
+      "question": "Trong bảng Các chỉ tiêu chính, doanh thu kế hoạch năm 2024 là bao nhiêu triệu đồng?"
+    },
+    {
+      "case_id": "phase2-tva-actual-2024-select",
+      "source_name": "TVA_24CN_BCTN.pdf",
+      "category": "answer_select",
+      "layout_family": "multilevel_merged_header_plan_actual",
+      "question": "Trong bảng Các chỉ tiêu chính, doanh thu thực hiện năm 2024 là bao nhiêu triệu đồng?"
+    },
+    {
+      "case_id": "phase2-tva-actual-minus-plan",
+      "source_name": "TVA_24CN_BCTN.pdf",
+      "category": "answer_comparison",
+      "layout_family": "multilevel_merged_header_plan_actual",
+      "question": "Trong bảng Các chỉ tiêu chính, doanh thu thực hiện năm 2024 trừ doanh thu kế hoạch năm 2024 là bao nhiêu triệu đồng?"
+    },
+    {
+      "case_id": "phase2-tva-missing-plan-2023",
+      "source_name": "TVA_24CN_BCTN.pdf",
+      "category": "missing_role_period_control",
+      "layout_family": "multilevel_merged_header_plan_actual",
+      "question": "Trong bảng Các chỉ tiêu chính, doanh thu kế hoạch năm 2023 là bao nhiêu triệu đồng?"
+    },
+    {
+      "case_id": "phase2-dbm-current-2024-select",
+      "source_name": "DBM_24CN_BCTN.pdf",
+      "category": "answer_select",
+      "layout_family": "current_prior_explicit_year",
+      "question": "Theo mục Tình hình tài chính, doanh thu thuần năm 2024 là bao nhiêu nghìn đồng?"
+    },
+    {
+      "case_id": "phase2-dbm-current-minus-prior",
+      "source_name": "DBM_24CN_BCTN.pdf",
+      "category": "answer_comparison",
+      "layout_family": "current_prior_explicit_year",
+      "question": "Theo mục Tình hình tài chính, doanh thu thuần năm 2024 trừ doanh thu thuần năm 2023 là bao nhiêu nghìn đồng?"
+    },
+    {
+      "case_id": "phase2-vns-plan-2023-select",
+      "source_name": "VNS_23CN_BCTN.pdf",
+      "category": "answer_select",
+      "layout_family": "duplicate_alternate_same_logical_cell",
+      "question": "Theo bảng Tình hình thực hiện so với kế hoạch, doanh thu thuần kế hoạch năm 2023 là bao nhiêu triệu đồng?"
+    },
+    {
+      "case_id": "phase2-vns-actual-2023-duplicate-ambiguity",
+      "source_name": "VNS_23CN_BCTN.pdf",
+      "category": "ambiguity_control",
+      "layout_family": "duplicate_alternate_same_logical_cell",
+      "question": "Theo phần Tình hình hoạt động sản xuất kinh doanh, doanh thu thuần thực hiện năm 2023 là bao nhiêu triệu đồng?"
+    }
+  ],
+  "artifact_version": "v3-runtime-closure",
+  "expected_counts": {
+    "sources": 4,
+    "cases": 14
+  },
+  "runner": {
+    "path": "scripts/run_qp4_phase2_company_layout_disjoint_evaluation_v3.py",
+    "sha256": "376eb61953a488dccab467fa1f22e620cf4afc1c326ac66ca1b1d30711e31090"
+  },
+  "environment": {
+    "python_implementation": "CPython",
+    "python_version": "3.12.3",
+    "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "packages": {
+      "torch": "2.13.0",
+      "numpy": "2.5.1",
+      "PyYAML": "6.0.3",
+      "pypdf": "6.14.2",
+      "fastembed": "0.8.0"
+    }
+  },
+  "observation_outputs": {
+    "json": {
+      "path": "reports/finhrm_qp4_phase2_company_layout_disjoint_observations_v3.json"
+    },
+    "markdown": {
+      "path": "reports/finhrm_qp4_phase2_company_layout_disjoint_observations_v3.md"
+    }
+  },
+  "runtime_assets": [
+    {
+      "path": "config/financial_identities.yaml",
+      "sha256": "cc566b3093060ac7b98badbbd38b6ab8ae51004046d49ca4ee33619e6cbf1aa5"
+    },
+    {
+      "path": "requirements.txt",
+      "sha256": "0b5c4175ad1108c6ce101a5385d0d7e5b870f82020b8a3bcd69328328932b852"
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "schema": "mineru-real-http-requests-v1",
+  "sources": {
+    "HFX": {
+      "path": "data/markdown/policy_evaluation_v1/HFX/HFX_23CN_BCTN--ed171410df551c87.md",
+      "sha256": "393f9477562de0d315069a53ef166c742c1338599e06f2a53c418624b38d1d36"
+    },
+    "BTH": {
+      "path": "data/markdown/policy_evaluation_v1/BTH/BTH_25CN_BCTN--c3f4291745a28deb.md",
+      "sha256": "1949b44491086451fe1b04a7207cbfc8a00f2a7ebe4412ad4c052a345a9e23c5"
+    },
+    "AGP": {
+      "path": "data/markdown/mineru_rerun_v1/AGP/AGP_25CN_BCTN--e8991085d41d3c08.md",
+      "sha256": "7af3e977b1cefced4abe5786f1145c82e65f13e67cac8c301fcdbdf950a275bc"
+    },
+    "PDB": {
+      "path": "data/markdown/scope_unit_v2/PDB_24CN_BCTN--1957e2ee3f06dba6.md",
+      "sha256": "06fb246ff0de4e250cb3f7202ac58b7eeaeb34a17aa47c6f7289bf58b6a4f6f7"
+    }
+  },
+  "cases": [
+    {
+      "case_id": "newsource-hfx-plan",
+      "source_id": "HFX",
+      "question": "Tổng doanh thu kế hoạch năm 2024 là bao nhiêu tỷ đồng?"
+    },
+    {
+      "case_id": "newsource-hfx-unit",
+      "source_id": "HFX",
+      "question": "Doanh thu thuần năm 2023 là bao nhiêu tỷ đồng?"
+    },
+    {
+      "case_id": "newsource-hfx-missing",
+      "source_id": "HFX",
+      "question": "Tổng doanh thu thực hiện năm 2037 là bao nhiêu tỷ đồng?"
+    },
+    {
+      "case_id": "newsource-bth-capital",
+      "source_id": "BTH",
+      "question": "Vốn điều lệ được nêu trong báo cáo năm 2025 là bao nhiêu đồng?"
+    },
+    {
+      "case_id": "repair-hfx-unit-paraphrase",
+      "source_id": "HFX",
+      "question": "Cho biết doanh thu thuần thực hiện năm 2023 là bao nhiêu tỷ đồng?"
+    },
+    {
+      "case_id": "report-boundary-fact-date",
+      "source_id": "BTH",
+      "question": "Vốn điều lệ tại ngày 31/12/2025 là bao nhiêu đồng?"
+    },
+    {
+      "case_id": "probe-agp-profit-1",
+      "source_id": "AGP",
+      "question": "Lợi nhuận trước thuế thực hiện năm 2025 là bao nhiêu tỷ đồng?"
+    },
+    {
+      "case_id": "practical-pdb-overview",
+      "source_id": "PDB",
+      "question": "So sánh doanh thu thuần hợp nhất thực hiện năm 2024 và năm 2023, tính bằng triệu đồng."
+    }
+  ]
+}

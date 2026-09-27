@@ -13,16 +13,14 @@ import urllib.error
 import urllib.parse
 import urllib.request
 import uuid
-from dataclasses import asdict, dataclass, field
+from dataclasses import dataclass, field
 from http import HTTPStatus
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from typing import Any, Sequence
 
-from .document_hrm import DocumentHRMBundle, DocumentHRMError
-from .document_page_index import DocumentPageIndex, PageIndexStats
-from .document_reasoning_engine import DocumentHRMReasoningEngine, DocumentReasoningAnswer
-from .document_sources import DocumentSourceError, OCRConfig, discover_documents
+from .document_hrm import DocumentHRMBundle
+from .document_sources import OCRConfig, discover_documents, materialize_mineru_markdown, read_document
 
 
 _DOCUMENT_HRM_SOURCE_PATH = Path(
@@ -34,13 +32,37 @@ _DOCUMENT_HRM_SOURCE_SHA256 = (
     else "unavailable"
 )
 _RUNTIME_SOURCE_NAMES = (
+    "post_hrm_contract.py",
+    "conversation_context.py",
+    "hybrid_retrieval.py",
+    "report_text_fields.py",
+    "post_hrm_source.py",
+    "post_hrm_engine.py",
+    "post_hrm_formulas.py",
+    "column_context.py",
+    "comparison_overview.py",
+    "revenue_question_context.py",
+    "source_bindings.py",
+    "table_semantics.py",
+    "number_formats.py",
+    "metric_semantics.py",
+    "unit_defaults.py",
+    "answer_presentation.py",
     "document_hrm.py",
     "document_page_index.py",
     "document_reasoning_engine.py",
     "document_service.py",
     "document_sources.py",
+    "pdf_metadata.py",
+    "exact_dag_executor.py",
+    "exact_executor.py",
+    "evidence_schema.py",
     "ontology.py",
     "program_data.py",
+    "question_planner.py",
+    "question_request_planner.py",
+    "request_answer.py",
+    "symbolic_verifier.py",
 )
 _RUNTIME_SOURCE_PATHS = tuple(
     _DOCUMENT_HRM_SOURCE_PATH.parent / name for name in _RUNTIME_SOURCE_NAMES
@@ -240,25 +262,34 @@ class DocumentIngestionManager:
             job.started_at = time.time()
             job.error = None
         try:
-            documents = discover_documents(job.document)
-            pdf_documents = [item for item in documents if item.suffix.lower() == ".pdf"]
+            source = self.resolve_document(job.document)
+            # PDF preparation is distinct from artifact-only discovery for QA.
+            documents = [source] if source.is_file() and source.suffix.lower() == ".pdf" else discover_documents(source)
             with self._lock:
-                job.documents_total = len(pdf_documents)
-            index = DocumentPageIndex(self.index_path)
-            for document in pdf_documents:
-                _records, stats = index.load_or_build(
-                    document,
-                    ocr_config=self.ocr_config,
-                    rebuild=job.rebuild,
-                )
+                job.documents_total = len(documents)
+            for document in documents:
+                if document.suffix.lower() == ".pdf":
+                    before = hashlib.sha256(document.read_bytes()).hexdigest()
+                    destination = document.parent / ".mineru" / (document.stem + ".md")
+                    artifact = materialize_mineru_markdown(document, destination, ocr_config=self.ocr_config)
+                    if hashlib.sha256(document.read_bytes()).hexdigest() != before:
+                        raise DocumentServiceError("PDF changed during MinerU preparation; retry the upload.")
+                else:
+                    artifact = document
+                    before = hashlib.sha256(document.read_bytes()).hexdigest()
+                lines = read_document(artifact)
+                if not lines:
+                    raise DocumentServiceError("MinerU artifact contains no readable content")
+                pages = {line.page for line in lines if line.page is not None}
+                record = {
+                    "document": str(document), "artifact": str(artifact),
+                    "source_sha256": before,
+                    "artifact_sha256": hashlib.sha256(artifact.read_bytes()).hexdigest(),
+                    "stats": {"total_pages": len(pages), "text_lines": len(lines)},
+                }
                 with self._lock:
                     job.documents_completed += 1
-                    job.index_results.append(
-                        {
-                            "document": str(document),
-                            "stats": asdict(stats),
-                        }
-                    )
+                    job.index_results.append(record)
             with self._lock:
                 job.status = "ready"
                 job.completed_at = time.time()
@@ -269,6 +300,9 @@ class DocumentIngestionManager:
                 job.completed_at = time.time()
 
 
+CONTRACT_PUBLICATION_POLICY = "post_hrm_contract_v1"
+
+
 class PersistentDocumentHRMService:
     def __init__(
         self,
@@ -277,8 +311,15 @@ class PersistentDocumentHRMService:
         *,
         model_path: str | Path | None = None,
         device: str = "cpu",
+        publication_policy: str = CONTRACT_PUBLICATION_POLICY,
+        validation_backend: str | None = None,
     ) -> None:
-        self.engine = DocumentHRMReasoningEngine(bundle)
+        from .post_hrm_engine import ContractDocumentEngine,ENGINE_ID
+        if validation_backend not in {None,ENGINE_ID}:
+            raise DocumentServiceError("Legacy symbolic runtime has been retired; use post_hrm_contract_v1")
+        self.validation_backend = ENGINE_ID
+        self.engine = ContractDocumentEngine(bundle,publication_policy=CONTRACT_PUBLICATION_POLICY)
+        self.publication_policy = self.engine.publication_policy
         self.ingestion = ingestion
         self._inference_lock = threading.Lock()
         self._runtime_started_at = time.time()
@@ -327,6 +368,9 @@ class PersistentDocumentHRMService:
             "status": (
                 "healthy" if mineru.get("status") == "healthy" else "degraded"
             ),
+            "validation_engine": self.validation_backend,
+            "legacy_symbolic_active": False,
+            "publication_policy": self.publication_policy,
             "model_loaded": True,
             "model": model,
             "runtime_started_at": self._runtime_started_at,
@@ -340,6 +384,8 @@ class PersistentDocumentHRMService:
         }
 
     def answer(self, payload: dict[str, Any]) -> dict[str, Any]:
+        if "publication_policy" in payload:
+            raise DocumentServiceError("publication_policy is server configuration, not a request override")
         question = str(payload.get("question", "")).strip()
         if not question:
             raise DocumentServiceError("question is required")
@@ -352,97 +398,25 @@ class PersistentDocumentHRMService:
             raise DocumentNotReadyError(
                 "Document ingestion is still in progress", job=active
             )
-        started_at = time.perf_counter()
-        request_id = uuid.uuid4().hex[:12]
-
-        def report_progress(stage: str, elapsed: float) -> None:
-            print(
-                f"document-service inference={request_id} stage={stage} "
-                f"elapsed={elapsed:.3f}s",
-                flush=True,
-            )
-
-        try:
-            with self._inference_lock:
-                answer = self.engine.answer(
-                    question,
-                    document,
-                    top_k_chunks=int(payload.get("top_k_chunks", 8)),
-                    neighbor_chunks=int(payload.get("neighbor_chunks", 1)),
-                    ocr=True,
-                    force_ocr=False,
-                    mineru_cache_dir=self.ingestion.ocr_config.mineru_cache_dir,
-                    mineru_command=self.ingestion.ocr_config.mineru_command,
-                    mineru_api_url=self.ingestion.ocr_config.mineru_api_url,
-                    mineru_api_timeout_seconds=(
-                        self.ingestion.ocr_config.mineru_api_timeout_seconds
-                    ),
-                    mineru_backend=self.ingestion.ocr_config.mineru_backend,
-                    mineru_effort=self.ingestion.ocr_config.mineru_effort,
-                    mineru_auto_generate=False,
-                    use_page_index=True,
-                    page_index_path=self.ingestion.index_path,
-                    rebuild_page_index=False,
-                    page_top_k=int(payload.get("page_top_k", 6)),
-                    page_neighbor_pages=int(payload.get("page_neighbor_pages", 1)),
-                    progress_callback=report_progress,
-                )
-        except (DocumentSourceError, DocumentHRMError) as exc:
-            raise DocumentNotReadyError(
-                "No ready native/indexed evidence. Submit /v1/ingest for scanned PDFs. "
-                f"Details: {exc}"
-            ) from exc
-        return serialize_answer(answer, time.perf_counter() - started_at)
-
-
-def serialize_answer(
-    answer: DocumentReasoningAnswer, service_answer_seconds: float
-) -> dict[str, Any]:
-    candidate_answer = None if answer.value is None else str(answer.value)
-    return {
-        "answer": None if answer.abstained else candidate_answer,
-        "candidate_answer": candidate_answer if answer.abstained else None,
-        "unit": answer.unit,
-        "status": "ABSTAIN" if answer.abstained else "ACCEPTED",
-        "program": {
-            "operation": answer.program.operation,
-            "operands": list(answer.program.operands),
-        },
-        "confidence": answer.prediction.confidence,
-        "program_candidates_considered": (
-            answer.prediction.program_candidates_considered
-        ),
-        "symbolic_program_rejections": (
-            answer.prediction.symbolic_program_rejections
-        ),
-        "symbolic_proof_score": answer.prediction.symbolic_proof_score,
-        "symbolic_unknown_constraints": (
-            answer.prediction.symbolic_unknown_constraints
-        ),
-        "service_answer_seconds": service_answer_seconds,
-        "document_count": answer.document_count,
-        "candidate_count": answer.candidate_count,
-        "stage_timings": dict(answer.stage_timings),
-        "page_index": (
-            asdict(answer.page_index_stats)
-            if isinstance(answer.page_index_stats, PageIndexStats)
-            else None
-        ),
-        "evidence": [
-            {
-                "operand_number": item.operand_number,
-                "value": item.candidate.value,
-                "unit": item.candidate.unit,
-                "source_name": item.candidate.source_name,
-                "page": item.candidate.page,
-                "context": item.candidate.context,
-                "extraction_method": item.candidate.extraction_method,
-            }
-            for item in answer.evidence
-        ],
-        "warnings": list(answer.warnings),
-        "rendered": answer.render(),
-    }
+        prepared = document
+        if document.suffix.lower() not in {".md", ".txt"}:
+            with self.ingestion._lock:
+                records = [record for job in self.ingestion._jobs.values() if job.status == "ready"
+                           for record in job.index_results if Path(record["document"]).resolve() == document]
+            if not records:
+                raise DocumentNotReadyError("Submit this document to /v1/ingest and wait for its MinerU artifact")
+            record = records[-1]
+            prepared = self.ingestion.resolve_document(record["artifact"])
+            if (hashlib.sha256(document.read_bytes()).hexdigest() != record["source_sha256"]
+                    or hashlib.sha256(prepared.read_bytes()).hexdigest() != record["artifact_sha256"]):
+                raise DocumentNotReadyError("The indexed source changed; prepare it again with MinerU")
+        with self._inference_lock:
+            return self.engine.answer(question, prepared,
+                previous_question=str(payload.get("previous_question", ""))[:1000],
+                top_k_chunks=int(payload.get("top_k_chunks", 8)),
+                neighbor_chunks=int(payload.get("neighbor_chunks", 1)),
+                page_top_k=int(payload.get("page_top_k", 6)),
+                page_neighbor_pages=int(payload.get("page_neighbor_pages", 1)))
 
 
 class _ServiceHTTPServer(ThreadingHTTPServer):

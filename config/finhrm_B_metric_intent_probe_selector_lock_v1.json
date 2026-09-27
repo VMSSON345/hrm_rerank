@@ -1,0 +1,54 @@
+{
+  "inputs": {
+    "config/finhrm_B_metric_intent_probe_pairs_v1.json": "abaf96a049939c53231445719d0866f48478c1fe94aa057ae7192abeeee03212",
+    "reports/finhrm_B_metric_intent_probe_proposals_v1.json": "8d3e1024aa36751f63542e5503cc3fe6634c413006a1753095a9050bdb4b259a",
+    "config/finhrm_B_metric_intent_probe_protocol_v1.json": "c1c57443eaaad1df5df4d0ec6434206c1f1fb56701181141ed84f720521b3c14",
+    "scripts/compare_finhrm_B_metric_intent.py": "df08f3e880951e6194dacf35216ef2391833160e45ad728bae3756ecaf7ffb82"
+  },
+  "pool_hashes": {
+    "probe-agp-profit-1": "aa2b2bb3ea5b7dd9c74d973a2bd35ab184e51b4a81104f490e1706f35edcec9f",
+    "probe-agp-profit-2": "693325bfc82372fc029b1311356f9abbf2d03207873b53a4f0773b63914ba5ba",
+    "probe-mgg-net-1": "e8f0cbe1b0203ba4cb15dffbca4d568ec60093f290ffa1530c835299bf2ec1fe",
+    "probe-mgg-net-2": "79cf2595f104bb1600882ab6452e88d14a0c260912dfe6b756395c301c9dcf8a",
+    "probe-mgg-tax-1": "af6c779e52e89a0859c138d97ffd6a778e68e96994830b75b7c1ad7047a5ce8c",
+    "probe-mgg-tax-2": "359059694c332b428262d48b2b7eb33cc658b2426f5d733a223e1678e6897432",
+    "probe-mgg-assets-1": "d71d2f54e72147ac90aa0b2e4d1ec46a7da9ed556c1c1709e258d39119bb2656",
+    "probe-mgg-assets-2": "4abc545c5d7dd1cbfad8aec40a9b669f896effe1e77b9efb32471934e913e2cf",
+    "probe-pdb-profit-1": "0eabf527bce6fe5216ba22466632bd8e780b802a87ac0751eca5ae30e5b5246d",
+    "probe-pdb-profit-2": "06df6948e72a98ab435cc48274c5776a9f29504ad68305c5ecfd8a6ec1ab1b64",
+    "probe-pdb-change-1": "9ec31375034d01f2abeba63c28373553644119e58e16313ab300e60e1a332b33",
+    "probe-pdb-change-2": "6541eb32b10d4621762f33dc17ee74263c8c2405be8598d8a5c23f75b651a92f",
+    "probe-agp-missing": "9983a3793007abe8c0fc46590ca3023bd18c7c3b6c6d71359485fe364f44ad0a",
+    "probe-mgg-missing": "4d9645669f816ca160a6ad2988846da029ec1b0d3dca3b3be2f29b372e085d30",
+    "probe-pdb-missing": "45a426fb594889f26c3d599f86199dd906b78bb85490e298a6cc55472d67e3a6"
+  },
+  "gold_read": false,
+  "policy": "v14.2-policy-evidence-public-answer-experimental-v1",
+  "fixed_pool_pairs": [
+    [
+      "probe-agp-profit-1",
+      "probe-agp-profit-2"
+    ],
+    [
+      "probe-mgg-net-1",
+      "probe-mgg-net-2"
+    ],
+    [
+      "probe-mgg-tax-1",
+      "probe-mgg-tax-2"
+    ],
+    [
+      "probe-mgg-assets-1",
+      "probe-mgg-assets-2"
+    ],
+    [
+      "probe-pdb-profit-1",
+      "probe-pdb-profit-2"
+    ],
+    [
+      "probe-pdb-change-1",
+      "probe-pdb-change-2"
+    ]
+  ],
+  "baseline": "Deterministic slot-state, metric-state, lexical-relevance, source-coordinate rank; no learned weights."
+}

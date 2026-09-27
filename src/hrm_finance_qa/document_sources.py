@@ -16,9 +16,10 @@ from pathlib import Path
 from typing import Any, Iterable, Sequence
 
 from .ontology import decode_pdf_unicode_glyph_names, normalize_text
+from .pdf_metadata import pdf_page_count
 
 
-SUPPORTED_DOCUMENT_SUFFIXES = {".pdf", ".txt"}
+SUPPORTED_DOCUMENT_SUFFIXES = {".md", ".txt"}
 MINERU_CACHE_VERSION = 1
 
 
@@ -30,7 +31,6 @@ class DocumentSourceError(ValueError):
 class OCRConfig:
     enabled: bool = False
     force: bool = False
-    min_native_chars: int = 40
     mineru_output_dir: Path | None = None
     mineru_page_offset: int = 0
     mineru_cache_dir: Path = Path("cache/mineru")
@@ -43,8 +43,6 @@ class OCRConfig:
     mineru_auto_generate: bool = True
 
     def validate(self) -> None:
-        if self.min_native_chars < 0:
-            raise DocumentSourceError("OCR native-text threshold cannot be negative")
         if self.mineru_page_offset < 0:
             raise DocumentSourceError("MinerU page offset cannot be negative")
         if self.mineru_backend not in {"hybrid-engine", "pipeline"}:
@@ -67,13 +65,24 @@ class OCRConfig:
             )
 
 
+
+
 @dataclass(frozen=True)
-class NativeTextAssessment:
-    usable: bool
-    score: float
-    reason: str
-    character_count: int
-    token_count: int
+class StructuredSourceCell:
+    page: int
+    bbox: tuple[float, float, float, float]
+    source_span: tuple[int, int]
+    table_id: str
+    row_id: str
+    column_id: str
+    row_label: str
+    column_label: str
+    column_role: str
+    period: str
+    raw_value: str
+    value: str
+    unit: str
+    extraction_method: str = "structured_table"
 
 
 @dataclass(frozen=True)
@@ -84,6 +93,7 @@ class SourceLine:
     line_number: int
     text: str
     extraction_method: str = "native"
+    structured_cells: tuple[StructuredSourceCell, ...] = ()
 
 
 @dataclass(frozen=True)
@@ -98,6 +108,9 @@ class EvidenceChunk:
     text: str
     score: float = 0.0
     extraction_methods: tuple[str, ...] = ()
+    structured_cells: tuple[StructuredSourceCell, ...] = ()
+
+    source_annotations: tuple[dict, ...] = ()
 
     def citation(self) -> str:
         if "mineru" in self.extraction_methods:
@@ -117,6 +130,11 @@ def discover_documents(path: str | Path) -> list[Path]:
     root = Path(path).expanduser().resolve()
     if root.is_file():
         if root.suffix.lower() not in SUPPORTED_DOCUMENT_SUFFIXES:
+            if root.suffix.lower() == ".pdf":
+                raise DocumentSourceError(
+                    "Direct PDF question answering is disabled. Run "
+                    "prepare-document to create a MinerU Markdown artifact first."
+                )
             raise DocumentSourceError(f"Unsupported document type: {root.suffix}")
         return [root]
     if not root.is_dir():
@@ -127,7 +145,7 @@ def discover_documents(path: str | Path) -> list[Path]:
         if item.is_file() and item.suffix.lower() in SUPPORTED_DOCUMENT_SUFFIXES
     ]
     if not files:
-        raise DocumentSourceError(f"No PDF/TXT documents found under: {root}")
+        raise DocumentSourceError(f"No Markdown/TXT documents found under: {root}")
     return sorted(files)
 
 
@@ -138,261 +156,81 @@ def read_document(
 ) -> list[SourceLine]:
     source = Path(path).expanduser().resolve()
     suffix = source.suffix.lower()
-    if suffix == ".pdf":
-        return _read_pdf(source, ocr_config or OCRConfig())
-    if suffix == ".txt":
+    if suffix in {".md", ".txt"}:
         return _read_text(source)
+    if suffix == ".pdf":
+        raise DocumentSourceError(
+            "Direct PDF question answering is disabled. Run prepare-document "
+            "to create a MinerU Markdown artifact first."
+        )
     raise DocumentSourceError(f"Unsupported document type: {suffix}")
 
 
-def _read_pdf(
-    path: Path,
-    ocr_config: OCRConfig,
-) -> list[SourceLine]:
-    ocr_config.validate()
-    page_texts, _ = extract_native_pdf_pages(
-        path,
-        min_chars=ocr_config.min_native_chars,
-    )
-
-    native_assessments = [
-        assess_native_text(text, min_chars=ocr_config.min_native_chars)
-        for text in page_texts
-    ]
-    use_ocr = [
-        ocr_config.enabled and (ocr_config.force or not assessment.usable)
-        for assessment in native_assessments
-    ]
-    mineru_pages: dict[int, list[str]] = {}
-    if any(use_ocr):
-        mineru_pages = _load_or_generate_mineru_pages(path, use_ocr, ocr_config)
-
-    output: list[SourceLine] = []
-    global_line = 0
-    extracted_chars = 0
-    for page_number, text in enumerate(page_texts, start=1):
-        if use_ocr[page_number - 1]:
-            method = "mineru"
-            raw_lines = mineru_pages.get(page_number, [])
-        else:
-            method = "native"
-            raw_lines = text.splitlines()
-        extracted_chars += sum(len(item.strip()) for item in raw_lines)
-        for raw in raw_lines:
-            cleaned = (
-                _clean_layout_line(raw)
-                if method == "native"
-                else _clean_line(raw)
-            )
-            if not cleaned:
-                continue
-            global_line += 1
-            output.append(
-                SourceLine(
-                    source_path=str(path),
-                    source_name=path.name,
-                    page=page_number,
-                    line_number=global_line,
-                    text=cleaned,
-                    extraction_method=method,
-                )
-            )
-    if extracted_chars < 40:
-        if ocr_config.enabled:
-            raise DocumentSourceError(
-                f"MinerU found no usable text in {path.name}. Check the generated artifact."
-            )
-        raise DocumentSourceError(
-            f"PDF has no usable text layer: {path.name}. "
-            "Remove --no-ocr to allow automatic OCR fallback for scanned reports."
-        )
-    return output
 
 
-def assess_native_text(text: str, *, min_chars: int = 40) -> NativeTextAssessment:
-    """Estimate whether extracted PDF text is clean enough to skip OCR.
-
-    Character count alone accepts broken PDF encodings such as repeated
-    ``(cid:123)`` placeholders or replacement glyphs.  This lightweight check
-    deliberately uses only the native extraction so it adds no rendering/OCR
-    cost to healthy exported PDFs.
-    """
-
-    stripped = text.strip()
-    compact = "".join(character for character in stripped if not character.isspace())
-    character_count = len(compact)
-    tokens = re.findall(r"[^\W_]+", stripped, flags=re.UNICODE)
-    token_count = len(tokens)
-    if character_count == 0:
-        return NativeTextAssessment(False, 0.0, "empty", 0, token_count)
-
-    meaningful_count = sum(character.isalnum() for character in compact)
-    meaningful_ratio = meaningful_count / character_count
-    replacement_count = sum(
-        character in {"\ufffd", "\x00"}
-        or (ord(character) < 32 and character not in "\t\r\n")
-        for character in stripped
-    )
-    cid_count = len(re.findall(r"\(cid:\d+\)", stripped, flags=re.IGNORECASE))
-    error_ratio = (replacement_count + cid_count * 5) / max(1, character_count)
-    single_character_tokens = sum(len(token) == 1 for token in tokens)
-    fragmented_ratio = single_character_tokens / max(1, token_count)
-    digit_letter_boundaries = len(
-        re.findall(
-            r"(?<=[^\W\d_])\d|\d(?=[^\W\d_])",
-            stripped,
-            flags=re.UNICODE,
-        )
-    )
-    digit_substitution_ratio = digit_letter_boundaries / max(1, token_count)
-    vietnamese_toned_vowels = (
-        "àáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩ"
-        "òóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹ"
-        "ÀÁẠẢÃÂẦẤẬẨẪĂẰẮẶẲẴÈÉẸẺẼÊỀẾỆỂỄÌÍỊỈĨ"
-        "ÒÓỌỎÕÔỒỐỘỔỖƠỜỚỢỞỠÙÚỤỦŨƯỪỨỰỬỮỲÝỴỶỸ"
-    )
-    accented_fragment_boundaries = len(
-        re.findall(
-            rf"(?<=[^\W\d_])[ \t]+(?=[{vietnamese_toned_vowels}])",
-            stripped,
-            flags=re.UNICODE,
-        )
-    )
-    accented_fragment_ratio = accented_fragment_boundaries / max(1, token_count)
-    repeated_run = max(
-        (len(match.group(0)) for match in re.finditer(r"(.)\1{7,}", compact)),
-        default=0,
-    )
-    repeated_ratio = repeated_run / character_count
-
-    length_score = min(1.0, character_count / max(1, min_chars))
-    token_score = min(1.0, token_count / 8.0)
-    score = length_score * (
-        0.55 * meaningful_ratio
-        + 0.25 * token_score
-        + 0.20 * (1.0 - min(1.0, error_ratio * 10.0))
-    )
-    if character_count < min_chars:
-        reason = "too_short"
-        usable = False
-    elif meaningful_ratio < 0.35:
-        reason = "low_meaningful_character_ratio"
-        usable = False
-    elif error_ratio > 0.02:
-        reason = "broken_encoding"
-        usable = False
-    elif token_count < 3:
-        reason = "too_few_tokens"
-        usable = False
-    elif token_count >= 24 and digit_substitution_ratio > 0.15:
-        reason = "ocr_digit_substitutions"
-        usable = False
-    elif token_count >= 24 and accented_fragment_ratio > 0.15:
-        reason = "fragmented_diacritics"
-        usable = False
-    elif token_count >= 12 and fragmented_ratio > 0.65:
-        reason = "fragmented_characters"
-        usable = False
-    elif repeated_ratio > 0.25:
-        reason = "repeated_glyphs"
-        usable = False
-    else:
-        reason = "usable"
-        usable = True
-    return NativeTextAssessment(
-        usable=usable,
-        score=max(0.0, min(1.0, score)),
-        reason=reason,
-        character_count=character_count,
-        token_count=token_count,
-    )
 
 
-def extract_native_pdf_pages(
+
+
+
+
+
+
+def _pdf_page_count(path: Path) -> int:
+    try:
+        return pdf_page_count(path)
+    except (OSError, ValueError, RuntimeError) as exc:
+        raise DocumentSourceError(str(exc)) from exc
+
+
+def materialize_mineru_markdown(
     path: str | Path,
+    output: str | Path,
     *,
-    min_chars: int = 40,
-    prefer_layout: bool = False,
-) -> tuple[list[str], list[str]]:
-    """Extract the cleanest available native text layer page by page.
-
-    PyMuPDF recovers text from many Vietnamese reports whose pypdf layer is
-    empty or fragmented.  pypdf's layout mode remains useful for financial
-    tables, so both extractors are assessed and the cleaner page is retained.
-    This function performs no OCR.
-    """
+    ocr_config: OCRConfig | None = None,
+) -> Path:
+    """Run MinerU for the complete PDF and persist deterministic Markdown."""
 
     source = Path(path).expanduser().resolve()
-    pypdf_texts: list[str] | None = None
-    pymupdf_texts: list[str] | None = None
-    failures: list[str] = []
+    if not source.is_file():
+        raise FileNotFoundError(f"PDF not found: {source}")
+    if source.suffix.lower() != ".pdf":
+        raise DocumentSourceError(
+            f"MinerU preparation requires a PDF input: {source.name}"
+        )
+    config = replace(ocr_config or OCRConfig(), enabled=True, force=True)
+    config.validate()
+    page_count = _pdf_page_count(source)
+    pages = _load_or_generate_mineru_pages(
+        source,
+        [True] * page_count,
+        config,
+    )
+    if not any(lines for lines in pages.values()):
+        raise DocumentSourceError(
+            f"MinerU found no usable text in {source.name}. Check its artifact."
+        )
 
-    try:
-        from pypdf import PdfReader
-
-        reader = PdfReader(str(source))
-        pypdf_texts = []
-        for page in reader.pages:
-            try:
-                if prefer_layout:
-                    try:
-                        text = page.extract_text(extraction_mode="layout") or ""
-                    except (TypeError, LookupError):
-                        text = page.extract_text() or ""
-                else:
-                    text = page.extract_text() or ""
-            except Exception:
-                text = ""
-            pypdf_texts.append(text)
-    except Exception as exc:  # pragma: no cover - parser/environment specific
-        failures.append(f"pypdf={type(exc).__name__}")
-
-    try:
-        import fitz
-
-        with fitz.open(str(source)) as document:
-            pymupdf_texts = []
-            for page in document:
-                try:
-                    pymupdf_texts.append(page.get_text("text", sort=True) or "")
-                except Exception:
-                    pymupdf_texts.append("")
-    except Exception as exc:  # pragma: no cover - parser/environment specific
-        failures.append(f"pymupdf={type(exc).__name__}")
-
-    if pypdf_texts is None and pymupdf_texts is None:
-        detail = ", ".join(failures) or "no extractor available"
-        raise DocumentSourceError(f"Could not open PDF {source}: {detail}")
-    if pypdf_texts is None:
-        assert pymupdf_texts is not None
-        return pymupdf_texts, ["pymupdf"] * len(pymupdf_texts)
-    if pymupdf_texts is None:
-        return pypdf_texts, ["pypdf"] * len(pypdf_texts)
-    if len(pypdf_texts) != len(pymupdf_texts):
-        # A damaged PDF can expose a different page tree to each parser.  Keep
-        # the longer successful extraction rather than silently zipping pages.
-        if len(pymupdf_texts) > len(pypdf_texts):
-            return pymupdf_texts, ["pymupdf"] * len(pymupdf_texts)
-        return pypdf_texts, ["pypdf"] * len(pypdf_texts)
-
-    selected_texts: list[str] = []
-    selected_methods: list[str] = []
-    for pypdf_text, pymupdf_text in zip(
-        pypdf_texts, pymupdf_texts, strict=True
-    ):
-        pypdf_assessment = assess_native_text(pypdf_text, min_chars=min_chars)
-        pymupdf_assessment = assess_native_text(pymupdf_text, min_chars=min_chars)
-        if prefer_layout and pypdf_assessment.usable:
-            use_pymupdf = False
-        elif pymupdf_assessment.usable != pypdf_assessment.usable:
-            use_pymupdf = pymupdf_assessment.usable
-        else:
-            use_pymupdf = (
-                pymupdf_assessment.score > pypdf_assessment.score + 0.03
-            )
-        selected_texts.append(pymupdf_text if use_pymupdf else pypdf_text)
-        selected_methods.append("pymupdf" if use_pymupdf else "pypdf")
-    return selected_texts, selected_methods
+    requested = Path(output).expanduser().resolve()
+    destination = (
+        requested
+        if requested.suffix.lower() == ".md"
+        else requested / f"{source.stem}.md"
+    )
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    rendered = [
+        f"# {source.stem}",
+        "",
+        f"<!-- source: {source.name}; extractor: MinerU OCR -->",
+    ]
+    for page_number in range(1, page_count + 1):
+        rendered.extend(("", f"## Page {page_number}", ""))
+        rendered.extend(pages.get(page_number, ()))
+    destination.write_text(
+        "\n".join(rendered).rstrip() + "\n",
+        encoding="utf-8",
+    )
+    return destination
 
 
 def _load_or_generate_mineru_pages(
@@ -1259,6 +1097,51 @@ def _partition_mineru_table_lines(
     return output
 
 
+
+def _mineru_unit_header_preludes(payload: list[dict]) -> tuple[dict[int, list[str]], set[int]]:
+    """Restore a monetary unit header physically above its table on the same page.
+
+    MinerU sometimes emits headers after body blocks in content_list order.
+    Only an explicit currency declaration with a verified bounding box above
+    a nearby table is moved; ordinary running headers keep their original order.
+    """
+    table_tops: dict[int, list[float]] = {}
+    for item in payload:
+        if not isinstance(item, dict) or item.get("type") != "table":
+            continue
+        page = item.get("page_idx")
+        bbox = _mineru_table_bbox(item)
+        if isinstance(page, int) and bbox is not None:
+            table_tops.setdefault(page, []).append(float(bbox[1]))
+    found: dict[int, list[tuple[float, int, str]]] = {}
+    moved: set[int] = set()
+    unit_pattern = re.compile(
+        r"^(?:dvt|don vi(?: tinh)?|units?) "
+        r"(?:(?:nghin|trieu|ty|ti|thousand|million|billion) )?"
+        r"(?:dong|vnd|usd|eur|jpy|gbp|cny)$"
+    )
+    for index, item in enumerate(payload):
+        if not isinstance(item, dict) or item.get("type") != "header":
+            continue
+        page, bbox, raw = item.get("page_idx"), item.get("bbox"), item.get("text")
+        if not isinstance(page, int) or not isinstance(raw, str):
+            continue
+        if not isinstance(bbox, (list, tuple)) or len(bbox) != 4:
+            continue
+        if not all(isinstance(value, (int, float)) for value in bbox):
+            continue
+        cleaned = _clean_line(raw)
+        if not unit_pattern.fullmatch(normalize_text(cleaned)):
+            continue
+        if not any(0 <= top - float(bbox[3]) <= 200 for top in table_tops.get(page, ())):
+            continue
+        found.setdefault(page, []).append((float(bbox[1]), index, cleaned))
+        moved.add(index)
+    return {
+        page: [text for _, _, text in sorted(items)]
+        for page, items in found.items()
+    }, moved
+
 def _load_mineru_pages(path: Path, config: OCRConfig) -> dict[int, list[str]]:
     assert config.mineru_output_dir is not None
     content_path = _find_mineru_content_list(path, config.mineru_output_dir)
@@ -1273,9 +1156,13 @@ def _load_mineru_pages(path: Path, config: OCRConfig) -> dict[int, list[str]]:
             f"MinerU content list must contain a JSON array: {content_path}"
         )
 
-    pages: dict[int, list[str]] = {}
-    for item in payload:
-        if not isinstance(item, dict):
+    unit_preludes, moved_unit_headers = _mineru_unit_header_preludes(payload)
+    pages: dict[int, list[str]] = {
+        page + 1 + config.mineru_page_offset: list(lines)
+        for page, lines in unit_preludes.items()
+    }
+    for index, item in enumerate(payload):
+        if index in moved_unit_headers or not isinstance(item, dict):
             continue
         raw_page = item.get("page_idx")
         if not isinstance(raw_page, int) or raw_page < 0:
@@ -1294,6 +1181,7 @@ def _load_mineru_pages(path: Path, config: OCRConfig) -> dict[int, list[str]]:
                 cleaned = _clean_line(str(caption))
                 if cleaned:
                     lines.append(cleaned)
+            footnote_page = page_number
             body = item.get("table_body")
             if isinstance(body, str) and body.strip():
                 table_lines = _mineru_table_to_lines(body)
@@ -1304,6 +1192,7 @@ def _load_mineru_pages(path: Path, config: OCRConfig) -> dict[int, list[str]]:
                         table_lines, raw_page, bbox, continuations
                     )
                     # ``pages`` is one-based and may include a source-page offset.
+                    footnote_page = max(partitioned) + 1 + config.mineru_page_offset
                     lines.extend(partitioned.pop(raw_page, ()))
                     for continuation_page, continuation_lines in partitioned.items():
                         pages.setdefault(
@@ -1311,6 +1200,12 @@ def _load_mineru_pages(path: Path, config: OCRConfig) -> dict[int, list[str]]:
                         ).extend(continuation_lines)
                 else:
                     lines.extend(table_lines)
+            notes = item.get("table_footnote", ())
+            notes = (notes,) if isinstance(notes, str) else notes if isinstance(notes, list) else ()
+            for note in notes:
+                if isinstance(note, str) and (cleaned := _clean_line(note)):
+                    # Blockquote retains table-footnote ownership for downstream binding.
+                    pages.setdefault(footnote_page, []).append("> " + cleaned)
             continue
         text = item.get("text")
         if isinstance(text, str):
@@ -1357,7 +1252,14 @@ def _read_text(path: Path) -> list[SourceLine]:
         content = path.read_text(encoding="utf-8", errors="replace")
     output: list[SourceLine] = []
     page: int | None = None
-    page_pattern = re.compile(r"^\s*(?:[-=]{2,}\s*)?(?:page|trang)\s+(\d+)", re.I)
+    # This historical tag describes the Markdown input format, not verified
+    # extractor lineage. Independent evaluations verify MinerU sidecars before
+    # loading the checkpoint (see mineru_provenance_gate.py).
+    method = "mineru_markdown" if path.suffix.lower() == ".md" else "text"
+    page_pattern = re.compile(
+        r"^\s*(?:#{1,6}\s*)?(?:[-=]{2,}\s*)?(?:page|trang)\s+(\d+)",
+        re.I,
+    )
     for line_number, raw in enumerate(content.splitlines(), start=1):
         match = page_pattern.match(raw)
         if match:
@@ -1372,7 +1274,7 @@ def _read_text(path: Path) -> list[SourceLine]:
                 page=page,
                 line_number=line_number,
                 text=cleaned,
-                extraction_method="text",
+                extraction_method=method,
             )
         )
     return output
@@ -1404,6 +1306,9 @@ def chunk_lines(
         raise DocumentSourceError("overlap_lines must be between 0 and chunk_lines_count-1")
     if not lines:
         return []
+    from .source_bindings import source_annotations
+    annotations = source_annotations(lines)
+    annotation_by_identity = {id(line): annotations[i] for i, line in enumerate(lines)}
     chunks: list[EvidenceChunk] = []
     step = chunk_lines_count - overlap_lines
     groups: list[list[SourceLine]] = []
@@ -1418,7 +1323,12 @@ def chunk_lines(
             if not selected:
                 continue
             first, last = selected[0], selected[-1]
-            text = "\n".join(item.text for item in selected)
+            # SourceLine numbers refer to original source lines. Retain gaps so
+            # extraction offsets and overlapping chunks name the same physical row.
+            source_text = {item.line_number: item.text for item in selected}
+            text = "\n".join(source_text.get(number, "") for number in range(
+                first.line_number, last.line_number + 1
+            ))
             chunk_id = (
                 f"{Path(first.source_name).stem}:"
                 f"{first.line_number}-{last.line_number}"
@@ -1433,8 +1343,21 @@ def chunk_lines(
                     line_start=first.line_number,
                     line_end=last.line_number,
                     text=text,
+                    source_annotations=tuple(annotation_by_identity[id(item)] for item in selected),
                     extraction_methods=tuple(
                         dict.fromkeys(item.extraction_method for item in selected)
+                    ),
+                    structured_cells=tuple(
+                        {
+                            (
+                                cell.page,
+                                cell.table_id,
+                                cell.row_id,
+                                cell.column_id,
+                            ): cell
+                            for item in selected
+                            for cell in item.structured_cells
+                        }.values()
                     ),
                 )
             )
@@ -1505,6 +1428,17 @@ def rank_chunks(
                 score += 1.0
         if score > 0:
             scored.append(EvidenceChunk(**{**chunk.__dict__, "score": score}))
+    # An explicit source section is an intent constraint, not another BM25
+    # keyword. Preserve matching chunks before top-k drops them. The verifier
+    # still checks the exact cell; a chunk can straddle a section boundary.
+    from .source_bindings import requested_section
+    section = requested_section(question)
+    if section and scored:
+        priority = max(item.score for item in scored) + 1.0
+        scored = [replace(item, score=item.score + priority)
+                  if any(section in annotation.get("source_section_path", ())
+                         for annotation in item.source_annotations)
+                  else item for item in scored]
     scored.sort(key=lambda item: (item.score, -item.line_start), reverse=True)
     return scored[:top_k]
 
@@ -1570,3 +1504,4 @@ def _query_phrases(tokens: Sequence[str]) -> tuple[str, ...]:
             if any(len(token) > 2 for token in phrase_tokens):
                 phrases.append(" ".join(phrase_tokens))
     return tuple(dict.fromkeys(phrases))
+

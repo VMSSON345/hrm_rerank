@@ -1,0 +1,27 @@
+{
+  "started_at": "2026-09-14T04:35:20.641996+00:00",
+  "scope": "Typed report-field lookup must distinguish period/role table lanes even when their year was not extracted. No company/page/value exception.",
+  "before_runtime_sha256": "2fab3dbe04d0473f05990dc6b83dacebbda872a54678b47cbbc8cacae02403da",
+  "source": "tmp/demo_uploads/.mineru/6ebb1a1731-AAS_24CN_BCTN.md",
+  "source_sha256": "49dab13ee480eef64383514bdcc98450b49bdfb606cc7ede74e24cda3f0b1579",
+  "expected_charter": "2299995210000",
+  "source_line": 29,
+  "source_page": 2,
+  "question": "Vốn điều lệ của công ty là bao nhiêu",
+  "publication_policy": "B",
+  "budget": {
+    "binding_proposals": 3,
+    "context_recoveries": 1,
+    "additional_model_calls": 1
+  },
+  "additional_before_files": {
+    "src/hrm_finance_qa/program_data.py": "d4912a272e3ac6993935308610a917916bf265ccd00084458d6e14f2600237d8",
+    "src/hrm_finance_qa/question_planner.py": "3e9f8f48b3fb66ebcac9f10d65d8696ba718fd490b60567c40352c0999a541a3",
+    "src/hrm_finance_qa/metric_semantics.py": "045b7246b428e433c74d4dca57792faf0e9cd994c71547f8cb64ae5115d6b159",
+    "src/hrm_finance_qa/table_semantics.py": "580bf7824111c5a23acf3338008ef8e15db8e5a9a771dde19d37c158246ce0e0",
+    "src/hrm_finance_qa/source_assertions.py": "8c96b13e68c3f22b1f5497401d5d1e26c6106dcf52c53c447d42c9d6defc17b8",
+    "src/hrm_finance_qa/evidence_schema.py": "28b9b04a95fc8c3427d52091976d05605cc2e9db6dd7b37dd2ab8ede6d761d09",
+    "src/hrm_finance_qa/source_bindings.py": "cb941f727e44b9bbec9726a3dd9d80d63c2ce7a0c17f3ecabc05871549e7a96f",
+    "src/hrm_finance_qa/disclosure_equivalence.py": "e797e21ce7a307193af9eba5de17a688efa053eea4ae4180fb5a44bc081f7375"
+  }
+}

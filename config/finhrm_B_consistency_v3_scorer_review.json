@@ -1,0 +1,62 @@
+{
+  "source": {
+    "path": "data/markdown/mineru_rerun_v1/ACG/ACG_25CN_BCTN--663c4a4d4e034e2d.md",
+    "sha256": "d4d68d1b90d0f17bb1732a34203e1cf4e3803855971964f88d1e457cd921a8e8"
+  },
+  "identity": {
+    "metric": "doanh thu",
+    "years": [
+      "2025"
+    ],
+    "role": "actual",
+    "scope": "consolidated",
+    "time_semantics": "explicit"
+  },
+  "witnesses": [
+    {
+      "line_number": 926,
+      "sha256": "6a6e963dc59e8e3d4c1f2c65cb03b83ff786993c0be2eb263b8a9ba885b1f2fc",
+      "text": "Kết quả kinh doanh năm 2025"
+    },
+    {
+      "line_number": 927,
+      "sha256": "fa6b09341788537959b598768259bf8c26ac619105f397a7d92d1ead0d5ecf96",
+      "text": "Kết quả Hợp nhất năm 2025 của An Cường"
+    },
+    {
+      "line_number": 928,
+      "sha256": "6ed57786f3eae5210163f0770e4b42c2e86fe94ded83a110826820ee88ed9853",
+      "text": "ĐVT: tỷ đồng"
+    },
+    {
+      "line_number": 938,
+      "sha256": "9d78df9a43a95edf050e182b43d5ae54f5e52bf69e5ccf9dfdab2df2a33c1a17",
+      "text": "Năm 2025, thị trường bất động sản tiếp tục ấm lên khi pháp lý dự án tiếp tục được tháo gỗ và nhiều dự án được mở bán. Các dự án có pháp lý rõ ràng và chiến lược giá hợp lý có sức câu hấp thụ khá tốt. Mặc dù thị trường Mỹ, thị trường xuất khẩu chủ đạo của An Cường, chịu tác động lớn từ chính sách thuế đối ứng, An Cường đã có sự linh hoạt trong việc đầy mạnh thị trường nội địa. Theo đó, Doanh thu hợp nhất đạt 4.608,7 tỷ đồng, là mức cao nhất trong hơn 30 năm hoạt động của Công ty. LNST hợp nhất đạt 503,7 tỷ đồng, tăng 20,0% so với năm 2024 và đạt 111,9% kế hoạch do ĐHĐCD đặt ra."
+    }
+  ],
+  "facts": [
+    {
+      "line_number": 938,
+      "span": [
+        411,
+        418
+      ],
+      "raw": "4.608,7",
+      "value": "4608.7",
+      "scale": "1000000000",
+      "page": 38,
+      "period": "2025",
+      "row_labels": [
+        "Doanh thu"
+      ],
+      "column_label": "Năm 2025",
+      "entity_scopes": [
+        "entity:source:acg"
+      ],
+      "units": [
+        "tỷ đồng"
+      ]
+    }
+  ],
+  "review_basis": "Source line 938 explicitly: Nam 2025 ... Doanh thu hop nhat dat 4.608,7 ty dong; owning headings 926/927 and unit 928. Annotated from source, not runtime flags."
+}

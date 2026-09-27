@@ -1,0 +1,28 @@
+{
+  "pairs": [
+    [
+      "probe-agp-profit-1",
+      "probe-agp-profit-2"
+    ],
+    [
+      "probe-mgg-net-1",
+      "probe-mgg-net-2"
+    ],
+    [
+      "probe-mgg-tax-1",
+      "probe-mgg-tax-2"
+    ],
+    [
+      "probe-mgg-assets-1",
+      "probe-mgg-assets-2"
+    ],
+    [
+      "probe-pdb-profit-1",
+      "probe-pdb-profit-2"
+    ],
+    [
+      "probe-pdb-change-1",
+      "probe-pdb-change-2"
+    ]
+  ]
+}

@@ -1,0 +1,141 @@
+{
+  "schema": "mineru-real-report-reference-v1",
+  "review": "Same pre-inference visually reviewed PDF reference cases. No OCR-derived relabeling. Runtime never reads this file.",
+  "cases": [
+    {
+      "case_id": "new-report-01",
+      "operand_values_vnd": [
+        "4608700000000"
+      ],
+      "expected_result_vnd": "4608700000000",
+      "metric": "doanh thu thuan",
+      "years": [
+        "2025"
+      ],
+      "role": "actual",
+      "scope": "consolidated",
+      "reviewed_pdf_pages": [
+        38
+      ],
+      "expected_action": "ANSWER_IF_POLICY_ELIGIBLE"
+    },
+    {
+      "case_id": "new-report-02",
+      "operand_values_vnd": [
+        "4608700000000"
+      ],
+      "expected_result_vnd": "4608700000000",
+      "metric": "doanh thu thuan",
+      "years": [
+        "2025"
+      ],
+      "role": "actual",
+      "scope": "consolidated",
+      "reviewed_pdf_pages": [
+        38
+      ],
+      "expected_action": "ANSWER_IF_POLICY_ELIGIBLE"
+    },
+    {
+      "case_id": "new-report-03",
+      "operand_values_vnd": [
+        "930000000000"
+      ],
+      "expected_result_vnd": "930000000000",
+      "metric": "doanh thu thuan",
+      "years": [
+        "2026"
+      ],
+      "role": "plan",
+      "scope": "reporting_company",
+      "reviewed_pdf_pages": [
+        22
+      ],
+      "expected_action": "ANSWER_IF_POLICY_ELIGIBLE"
+    },
+    {
+      "case_id": "new-report-04",
+      "operand_values_vnd": [
+        "844700000000"
+      ],
+      "expected_result_vnd": "844700000000",
+      "metric": "doanh thu thuan",
+      "years": [
+        "2025"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "reviewed_pdf_pages": [
+        13,
+        22
+      ],
+      "expected_action": "ANSWER_IF_POLICY_ELIGIBLE"
+    },
+    {
+      "case_id": "new-report-05",
+      "operand_values_vnd": [
+        "844700000000",
+        "793300000000"
+      ],
+      "expected_result_vnd": "51400000000",
+      "metric": "doanh thu thuan",
+      "years": [
+        "2025",
+        "2024"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "reviewed_pdf_pages": [
+        13
+      ],
+      "expected_action": "ANSWER_IF_POLICY_ELIGIBLE"
+    },
+    {
+      "case_id": "new-report-06",
+      "operand_values_vnd": [
+        "11286332607"
+      ],
+      "expected_result_vnd": "11286332607",
+      "metric": "loi nhuan sau thue",
+      "years": [
+        "2025"
+      ],
+      "role": "actual",
+      "scope": "Alta Group",
+      "reviewed_pdf_pages": [
+        20
+      ],
+      "expected_action": "ANSWER_IF_POLICY_ELIGIBLE"
+    },
+    {
+      "case_id": "new-report-07",
+      "operand_values_vnd": [
+        "8000000000"
+      ],
+      "expected_result_vnd": "8000000000",
+      "metric": "loi nhuan sau thue",
+      "years": [
+        "2026"
+      ],
+      "role": "plan",
+      "scope": "Alta Group",
+      "reviewed_pdf_pages": [
+        20
+      ],
+      "expected_action": "ANSWER_IF_POLICY_ELIGIBLE"
+    },
+    {
+      "case_id": "new-report-08",
+      "operand_values_vnd": [],
+      "expected_result_vnd": null,
+      "metric": "loi nhuan sau thue",
+      "years": [],
+      "role": "actual",
+      "scope": "Alta Group",
+      "reviewed_pdf_pages": [
+        20
+      ],
+      "expected_action": "CLARIFY_PERIOD"
+    }
+  ]
+}

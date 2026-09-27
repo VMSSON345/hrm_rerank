@@ -1,0 +1,27 @@
+{
+  "schema": "entity-owner-source-reference-v1",
+  "cases": [
+    {
+      "case_id": "owner-check-hkt-2023",
+      "source_id": "HKT",
+      "question": "Vốn điều lệ được nêu trong báo cáo năm 2023 là bao nhiêu đồng?",
+      "metric": "von dieu le",
+      "expected_action": "ANSWER",
+      "expected_canonical": "61350290000",
+      "canonical_unit": "VND",
+      "years": [
+        "2023"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "operation": "SELECT",
+      "period_basis": "report_year",
+      "source_pdf": {
+        "bytes": 532804,
+        "path": "pdf/PDF_23/HKT_23CN_BCTN.pdf",
+        "sha256": "91cc265d0be6d75ee319c6821efd5231b3ae6fa41f63d076568331e9eee9d1f0"
+      },
+      "reference_note": "Additional questions locked before inference on existing full MinerU sources; source title and general-information capital field are the reference. No training-disjoint claim."
+    }
+  ]
+}

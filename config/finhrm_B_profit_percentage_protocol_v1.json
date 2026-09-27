@@ -1,0 +1,20 @@
+{
+  "started_at": "2026-09-14T06:34:01.917056+00:00",
+  "runtime_before": {
+    "src/hrm_finance_qa/question_planner.py": "3e546a2b151ddc802e48150a598921b1062e21c7e0f8a48efe552889e596b170",
+    "src/hrm_finance_qa/revenue_question_context.py": "03a0541283124c8cd30171e0374e21cfb0f7ac73810b0331e97545f632da3cb8",
+    "src/hrm_finance_qa/document_service.py": "eaedd4382fb16513eed90b6475eec43e14b817da4027ce8d6d3af0785e3c944c",
+    "src/hrm_finance_qa/answer_presentation.py": "84d833c6904631133d1306fcc59dbc1b2150b1d33ecd6e790df0a722be64fdc9",
+    "src/hrm_finance_qa/metric_semantics.py": "3633572668e4010971c8f03f81fb4f3796cee8477b894b2fc2fedbb3b1ecdcb4",
+    "src/hrm_finance_qa/document_reasoning_engine.py": "d604271f8b89c805abdb0156cd4dceb6ae51a836f107e41b2879f8764d3902df",
+    "src/hrm_finance_qa/column_context.py": "3f5c91b73fe80074ed8b95300cd143c477944eb9cb823940b49cdcfdfd5be1c6",
+    "src/hrm_finance_qa/program_data.py": "a9ca803b23dc732dfc8d1b44f551abdf259635c858507947d858ca31f474347e",
+    "src/hrm_finance_qa/symbolic_verifier.py": "41b3d7c81aa7ebca3a7ced4594f28e95c63c31c8ba06c8b6aae6fe26682004cc",
+    "src/hrm_finance_qa/table_semantics.py": "a763b9ca849e8578ae5845613999c1d27b1244d6994a75d48e7dea11aab42ce5",
+    "src/hrm_finance_qa/disclosure_equivalence.py": "55792a7d13bb684721592cdf93c649ad08ebfbd1a5f07037ab8e72e5cd086158"
+  },
+  "question": "Lợi nhuận năm 2024 tăng bao nhiêu phần trăm so với 2023",
+  "previous_question": "1. Lợi nhuận sau thuế năm 2035 là bao nhiêu đồng?",
+  "source": "tmp/demo_uploads/.mineru/6ebb1a1731-AAS_24CN_BCTN.md",
+  "scope": "Source/conversation metric interpretation, two-period growth/ratio/multiple grammar, direction-aware presentation. No source-number or verifier bypass."
+}

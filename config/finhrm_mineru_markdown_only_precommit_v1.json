@@ -1,0 +1,47 @@
+{
+  "schema": "finhrm-mineru-markdown-only-precommit-v1",
+  "status": "LOCKED",
+  "objective": "PDF evidence is produced only by MinerU, persisted as deterministic page-marked Markdown, and QA reads the Markdown artifact rather than the PDF.",
+  "runtime_contract": {
+    "prepare": "PDF -> MinerU OCR -> UTF-8 Markdown",
+    "answer": "Markdown -> chunks -> NumericCandidate -> Binding/HRM",
+    "pdf_answering": "fail_closed_with_prepare_instruction",
+    "native_pdf_evidence": false,
+    "pymupdf_runtime_dependency": false,
+    "model_changes": false,
+    "binding_changes": false
+  },
+  "authorized_runtime_files": [
+    "src/hrm_finance_qa/document_sources.py",
+    "src/hrm_finance_qa/document_reasoning_engine.py",
+    "src/hrm_finance_qa/cli.py",
+    "src/hrm_finance_qa/program_data.py",
+    "requirements.txt"
+  ],
+  "documentation_files": [
+    "README.md"
+  ],
+  "baseline_sha256": {
+    "src/hrm_finance_qa/document_sources.py": "5d25d873ac5f6fe70297cd5b0fee783eb69f259ea3510e6d1f1d18a4ea09c38d",
+    "src/hrm_finance_qa/document_reasoning_engine.py": "3883500011472716bc01f8e04a6d6f925173b35a14bbedd945c5ca4fb0063fa2",
+    "src/hrm_finance_qa/cli.py": "5287499fb6f1c1dfb8274db8cff754ecb3d7910e4c080967baecdc1956b3c09e",
+    "requirements.txt": "89c2d7c2b51ee924ec215c9df1de8c0f8158a6921a9e8d7b05f10a5d290b7766",
+    "README.md": "d364de82f48ae6dbe12a2860dd2a47b3c7ea17839c483d28ce554478e4e7b862"
+  },
+  "locked_tests": [
+    "tests.test_mineru_markdown_workflow.MinerUMarkdownWorkflowTests"
+  ],
+  "gates": [
+    "Markdown export is deterministic and contains a source header plus ordered ## Page N markers",
+    "Markdown ingestion restores page provenance and labels extraction as mineru_markdown",
+    "QA document discovery accepts .md and rejects .pdf",
+    "No fitz/PyMuPDF import or dependency remains in src or requirements.txt",
+    "prepare-document does not load or call HRM/Binding"
+  ],
+  "out_of_scope": [
+    "HRM weights or inference",
+    "Binding",
+    "Candidate scoring, ranking, quota or verifier",
+    "historical offline research scripts"
+  ]
+}

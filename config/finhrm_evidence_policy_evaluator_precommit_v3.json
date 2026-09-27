@@ -1,0 +1,242 @@
+{
+  "created_at": "2026-09-10T01:38:04.459352+00:00",
+  "scope": "Evaluator-only revision; re-score saved 8 pairs, no OCR/HRM/runtime change",
+  "criteria": [
+    "Pointer-bound selection unchanged",
+    "Read identity only with source line/span/page/hash and table/section ownership",
+    "Explicit headers override inherited context; missing evidence is unresolved, contradictory evidence is wrong",
+    "Preserve source/reference/HTTP/prediction/v2 files; report per-check before/after; no default promotion"
+  ],
+  "inputs": [
+    {
+      "path": "scripts/report_finhrm_evidence_policy_ab_v2.py",
+      "sha256": "95d9d92aa0490360961442359371680fdb917ee8e4ec2e7877e37f75143d3652"
+    },
+    {
+      "path": "config/finhrm_evidence_policy_reference_v1.json",
+      "sha256": "fc986933c797837381fd1fc46cae19d289cdaf356a2d8fd677263d270e472827"
+    },
+    {
+      "path": "config/finhrm_evidence_policy_requests_v1.json",
+      "sha256": "ec5e4066a837651aa5d6e74f463485f6b1a2d4caa8b3c38c28812a1447158630"
+    },
+    {
+      "path": "config/finhrm_evidence_policy_protocol_v1.json",
+      "sha256": "5846152352e265ae4e8a0195362421ac5a4e656a8ef074ea73321b41c4742718"
+    },
+    {
+      "path": "reports/finhrm_evidence_policy_observations_v1.json",
+      "sha256": "b1d8c901770a3b9dbd4362f37b30e1e558b4b5a04573605ab6ba8e719b8b2c1c"
+    },
+    {
+      "path": "reports/finhrm_evidence_policy_proposals_v1.json",
+      "sha256": "4e6264b44b351b7a770216f21027a025b6970d8d2fd5074f25162989c1aa2155"
+    },
+    {
+      "path": "reports/finhrm_evidence_policy_results_v2.json",
+      "sha256": "59ef2d82433fa52ca4e558528106f99950bf079eb8802b407597947336ebda5c"
+    },
+    {
+      "path": "data/markdown/mineru_rerun_v1/ACG/ACG_25CN_BCTN--663c4a4d4e034e2d.md",
+      "sha256": "d4d68d1b90d0f17bb1732a34203e1cf4e3803855971964f88d1e457cd921a8e8"
+    },
+    {
+      "path": "data/markdown/mineru_rerun_v1/AGP/AGP_25CN_BCTN--e8991085d41d3c08.md",
+      "sha256": "7af3e977b1cefced4abe5786f1145c82e65f13e67cac8c301fcdbdf950a275bc"
+    },
+    {
+      "path": "data/markdown/scope_unit_v2/HKT_23CN_BCTN--91cc265d0be6d75e.md",
+      "sha256": "b5550a26fa89acab88e14488568090db23761de4d21d8e8ee68f57fb6f6cc31a"
+    }
+  ],
+  "runtime": [
+    {
+      "path": "src/hrm_finance_qa/__init__.py",
+      "sha256": "c316966feb7929c62f81d9d6f0c7807985c7176b1401bbee59fb2a59bbe7de1e"
+    },
+    {
+      "path": "src/hrm_finance_qa/answer_presentation.py",
+      "sha256": "7a8059f75ba2dfd91c7808e7ad417eb275145de58bf38043cd460bdb1a7df80d"
+    },
+    {
+      "path": "src/hrm_finance_qa/cache_schema.py",
+      "sha256": "73de59f448cad7585b8215ad954c892ae76b84fb8944e89757cb4658e2c561d4"
+    },
+    {
+      "path": "src/hrm_finance_qa/calibration_policy.py",
+      "sha256": "e568ad4957f5fb8dbf2a27c6e6e48bf869b796e7bcb1335d70918f909bea37d3"
+    },
+    {
+      "path": "src/hrm_finance_qa/candidate_evaluation.py",
+      "sha256": "21ba9da22fa8ebf1b8c77f148be1a35116af33c07e9a970f2aed6470514182f2"
+    },
+    {
+      "path": "src/hrm_finance_qa/cli.py",
+      "sha256": "6aeb9ad00e573cc228138d0ee18d4517619a77961d2f11220618e88b24726140"
+    },
+    {
+      "path": "src/hrm_finance_qa/dense_retrieval.py",
+      "sha256": "6896d217e79b730f0c8555c0b4d8cf8b72fa722cf3af6a1f06093a318e577dc3"
+    },
+    {
+      "path": "src/hrm_finance_qa/direction_contract.py",
+      "sha256": "a18aa130419fc74ce647bd92dc9c1b1217007738e636aad0f28c7f78396be937"
+    },
+    {
+      "path": "src/hrm_finance_qa/document_agent.py",
+      "sha256": "932250766ebb63da8f99fdfe8ab390fee82bcbc5aea866ca9bb057e818c64290"
+    },
+    {
+      "path": "src/hrm_finance_qa/document_hrm.py",
+      "sha256": "05695fdd1fb7c876b1875a4cbb360b3e3fc048f9653aac9e673c22c02c419fe9"
+    },
+    {
+      "path": "src/hrm_finance_qa/document_page_index.py",
+      "sha256": "ce9f336256396ad2e9695ea390a09a9392eb7bf4c415eadb63f0fd6f148f8312"
+    },
+    {
+      "path": "src/hrm_finance_qa/document_reasoning_engine.py",
+      "sha256": "1a58a8a6566f9c529de95bf0d99fe87b1d645f4518a77df269d45cf4220b77f4"
+    },
+    {
+      "path": "src/hrm_finance_qa/document_search.py",
+      "sha256": "3aa79ffd648c8e6d9764ff73e09d88e2deec387d3168f94d7ffc54bb41aaf089"
+    },
+    {
+      "path": "src/hrm_finance_qa/document_service.py",
+      "sha256": "e0670ed1470bc8027ae4e7708fb886055a1935023e04123d6a67e46625358871"
+    },
+    {
+      "path": "src/hrm_finance_qa/document_sources.py",
+      "sha256": "ed57dee929c513e913b7af0af807b89c2d7c3fd242cd4d6eb07eed0b52008f90"
+    },
+    {
+      "path": "src/hrm_finance_qa/engine.py",
+      "sha256": "bc8494556dd5bb15e925978bd8cc5c4a98ac188af580e0d9537f42f5566d128c"
+    },
+    {
+      "path": "src/hrm_finance_qa/evaluation_metrics.py",
+      "sha256": "2a3b19f9ae8f08f9e9742c094e874af7c28d54cfb7838b1c39e02b5d1e6a7a76"
+    },
+    {
+      "path": "src/hrm_finance_qa/evidence_schema.py",
+      "sha256": "a211b748aa60b863b40105191faff7adff244b396fbb9334eaabb1d20445a428"
+    },
+    {
+      "path": "src/hrm_finance_qa/exact_dag_executor.py",
+      "sha256": "ee1aa0f90c4f71913108a1dd8ea28d966188c8e9c4993786f2bb9b3a7e422fa5"
+    },
+    {
+      "path": "src/hrm_finance_qa/exact_executor.py",
+      "sha256": "97a897e7e76f6d1a089c625017464cf1755143440928eb5ced819c6b7294fd9d"
+    },
+    {
+      "path": "src/hrm_finance_qa/external_evaluation.py",
+      "sha256": "96d3a3aa79637507dd73cb776e2d70f71aaf1b977a1e192762b5b696b706ff2c"
+    },
+    {
+      "path": "src/hrm_finance_qa/financial_hrm_features.py",
+      "sha256": "b5c0d351b6acf94bf4b2ced08e5b2aebc91c7b1bc7b53c6dbbbd405183c30a59"
+    },
+    {
+      "path": "src/hrm_finance_qa/financial_identities.py",
+      "sha256": "a4b2249fcd8a7d633b874eb67da8dc86e1c556dec5d7757d3c3e8450d586d72a"
+    },
+    {
+      "path": "src/hrm_finance_qa/flattened_table_reconstruction.py",
+      "sha256": "1e67aa3f2e3acc068d30ece065fc0a0365358c7aa75da660e065af83fa265d4c"
+    },
+    {
+      "path": "src/hrm_finance_qa/hrm.py",
+      "sha256": "3f6cfe5e864c9c4b4e9ec7beb995d8813fe7ee6acfe39af89f0f55dd932505e5"
+    },
+    {
+      "path": "src/hrm_finance_qa/neural.py",
+      "sha256": "ff2e2c0c3d7a62702bd2b2b1f80d5bad2521e8ec2d347f93050fb875bb4f1d7f"
+    },
+    {
+      "path": "src/hrm_finance_qa/ontology.py",
+      "sha256": "0ed2cce08e36d2570975e4cfe5156c79fa6710e540cb7122418b2a3e7f8dff3d"
+    },
+    {
+      "path": "src/hrm_finance_qa/pdf_metadata.py",
+      "sha256": "af0a8dbabaa5a0f8c9de0f22f2012387bf256721de03e86b99acb5dc75e6f212"
+    },
+    {
+      "path": "src/hrm_finance_qa/physical_coordinates.py",
+      "sha256": "8b805eb0ba991710edad6af7eb46f6c421f57643fcc5efb6b5663e90691da6ea"
+    },
+    {
+      "path": "src/hrm_finance_qa/program_data.py",
+      "sha256": "8f8387dcc438190f47b51be9b0e9121226be1f1e1647923572535e6836218300"
+    },
+    {
+      "path": "src/hrm_finance_qa/program_reranker.py",
+      "sha256": "7d7f456649ce0639a808b809985751c38c9a4bb1d70209a65d3bc3bbc97671f4"
+    },
+    {
+      "path": "src/hrm_finance_qa/program_synthesis.py",
+      "sha256": "756ca351ae05259b4b24f4f62cbe74eeff89033d3a1ec8912671ea976c44a0ea"
+    },
+    {
+      "path": "src/hrm_finance_qa/question_planner.py",
+      "sha256": "df87101dcef0720f1e4f5befcb225fc4c3733af5e07754563c35658c1d06a29f"
+    },
+    {
+      "path": "src/hrm_finance_qa/question_request_planner.py",
+      "sha256": "fe2e34d7a9b880b6c17dd1b9d6b8f7c8da787f36057fd13a0d98fec55c4a8e34"
+    },
+    {
+      "path": "src/hrm_finance_qa/reasoning.py",
+      "sha256": "d3244c224dbec45f62f95e64a30f1c48fb2566830c457416bf691eca6a107f74"
+    },
+    {
+      "path": "src/hrm_finance_qa/reasoning_engine.py",
+      "sha256": "fee38cd78d0949f4c3172290199a1b50ce0fc934cd4c8f0002f188881ca658cc"
+    },
+    {
+      "path": "src/hrm_finance_qa/repository.py",
+      "sha256": "8e83ad3f7f676eb0eacbe038b064582e7659d35f98363cb552555d2a6b9f994a"
+    },
+    {
+      "path": "src/hrm_finance_qa/request_answer.py",
+      "sha256": "c677cb199c852f0c2e248db2eed81737dc402b2fc82e8be4d8e4b3f23bb9920a"
+    },
+    {
+      "path": "src/hrm_finance_qa/semantic_encoder.py",
+      "sha256": "870bd5bcd04cf54ac1343e16ba3445f2216551a49bac6cf19ada92c842ab2ebe"
+    },
+    {
+      "path": "src/hrm_finance_qa/source_action_policy.py",
+      "sha256": "46a37b3ab2d7b4238571e71c91dd8dead51dc2bf66832b91cad9fcd0b553b4e9"
+    },
+    {
+      "path": "src/hrm_finance_qa/source_binding.py",
+      "sha256": "dd325743d5643625454f26dc1821cbe916bb5b6c739c0b335e8c0d4e01519fbe"
+    },
+    {
+      "path": "src/hrm_finance_qa/source_bindings.py",
+      "sha256": "e466f375758d891adf8545059898a05702ed403eb95154a9f0d779f4ab20ec71"
+    },
+    {
+      "path": "src/hrm_finance_qa/symbolic_verifier.py",
+      "sha256": "780f330f56163ccf8d699e8e5ab1eda7554f737cde2e1c5919aee2facf47a7a9"
+    },
+    {
+      "path": "src/hrm_finance_qa/table_semantics.py",
+      "sha256": "e638391c07aa80602a502d5a0d6947e89f61fd766d4d27ef58e1cef9961d21e2"
+    },
+    {
+      "path": "src/hrm_finance_qa/training_state.py",
+      "sha256": "d1548b9ab06d289dfd37168da7954a0493db0abdcf6732e04e8c915ab763018b"
+    },
+    {
+      "path": "src/hrm_finance_qa/v11_pipeline.py",
+      "sha256": "b6611c2b2c0ba7cd2c726b4d48f29a9b1fd01be09a4da2200865379f07ba4387"
+    },
+    {
+      "path": "src/hrm_finance_qa/v12b2_supervision.py",
+      "sha256": "100272f4bb46a3bd51e05914c6080ddaa7f48fea3c96337aa4b6cd9a0e8db0da"
+    }
+  ]
+}

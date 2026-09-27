@@ -1,0 +1,201 @@
+{
+  "schema": "finhrm-v14-development-protocol-precommit-v1",
+  "status": "FROZEN_BEFORE_V14_RUNTIME_CHANGES",
+  "created_at": "2026-08-31",
+  "objective": "Develop a report-independent variable-arity financial reasoning model without reusing the consumed V13 protected test for model, threshold, or rule selection.",
+  "immutable_history": {
+    "v2_evaluator": {
+      "path": "scripts/evaluate_finhrm_markdown_shard15_v2.py",
+      "sha256": "bb8df028e926cd3bf0deb806b703ae8254c0dfda7445778229692d855bffdf3e"
+    },
+    "v2_report_json": {
+      "path": "reports/finhrm_markdown_shard15_evaluation_v2.json",
+      "sha256": "5778bc27e7c8ae729dcfee3eca8a3b94158ae2c274cb5f915ceac6a5da0275a7"
+    },
+    "v2_report_markdown": {
+      "path": "reports/finhrm_markdown_shard15_evaluation_v2.md",
+      "sha256": "a8a4d79e104f8d2cc79c787f9632f6b21e6bd58a9d3bef1700e18d695a08fd71"
+    },
+    "v13_freeze": {
+      "path": "config/finhrm_v13_candidate_freeze_v1.json",
+      "sha256": "7049403c0128d8fd23281ba15eda9dd7c8f5a2133c5824e233ece3a820553bd1"
+    },
+    "v13_protected_evaluation": {
+      "path": "reports/finhrm_v13_protected_test_evaluation_v1.json",
+      "sha256": "483203480146694e14defc1174601cb7b5b6814244d3aa54ab17cb17aa21bb3c"
+    },
+    "v8_blind_evaluation": {
+      "path": "reports/document_hrm_V8_neurosymbolic_search_blind_test.json",
+      "sha256": "10748d246fc9d76b8c9d7853ff182058b6c733ffaf954a0f69a2e6649dfb136b"
+    },
+    "v8_checkpoint": {
+      "path": "models/document_hrm_V8_candidate.pt",
+      "sha256": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de"
+    },
+    "v13_checkpoint": {
+      "path": "models/document_hrm_V13_typed_hierarchy_clean_v2_warm_e3_seed31.pt",
+      "sha256": "90a3e25e9d04aedf5c3964f4a46e27de3573a13c1e9f2592ae84a20fea11aa70"
+    }
+  },
+  "development_data": {
+    "allowed_inputs": [
+      {
+        "path": "data/train.jsonl",
+        "sha256": "b79587f409262971e34aef8996dd1909293f29f1962a2abc7fd71e7b77856775",
+        "records": 2109
+      },
+      {
+        "path": "data/validation.jsonl",
+        "sha256": "5dc2d149e60f11b4a5e1ca68bf96d25ca383b389c86a696551a72cfddbfc5d58",
+        "records": 200
+      }
+    ],
+    "split_seed": 14031,
+    "validation_policy": {
+      "target_fraction": 0.20,
+      "target_company_components_min": 35,
+      "target_company_components_max": 45,
+      "real_source_components_only": true,
+      "synthetic_context_rows_are_train_only": true,
+      "atomic_keys": [
+        "canonical company/ticker across every year",
+        "supervision company_key",
+        "source SHA-256",
+        "source filename",
+        "canonical evidence fingerprint",
+        "runtime example group key"
+      ],
+      "required_zero_overlap": [
+        "example ID",
+        "exact record fingerprint",
+        "evidence fingerprint",
+        "company",
+        "source SHA-256",
+        "source filename",
+        "runtime and canonical group"
+      ]
+    },
+    "known_limitations": [
+      "Only eight of 2309 development rows have explicit layout labels",
+      "The V13 clean validation contains one real source company plus synthetic data and is not reused as the sole V14 validation",
+      "The root V13 splits share ten companies between train and test across different years and are not company-disjoint"
+    ]
+  },
+  "consumed_historical_test": {
+    "path": "data/test.jsonl",
+    "sha256": "2ead5ebe9846ec993eff42fefa932ff46f57a8207826130ed0b8bf4d65f5cf4f",
+    "records": 1500,
+    "role": "HASH_LOCKED_HISTORICAL_REGRESSION_ONLY",
+    "payload_may_be_used_for_v14_development": false,
+    "may_select_model_or_threshold": false,
+    "may_select_rules_or_architecture": false
+  },
+  "new_protected_sources": {
+    "manifest": "config/finhrm_v14_protected_source_manifest_v1.json",
+    "manifest_sha256": "d04dd9587e8bc8182f5f69be1341a959a321e05fb75a0248392515ab1a0641d9",
+    "sources": 20,
+    "companies": 20,
+    "status": "FROZEN_UNCLASSIFIED_BLIND_SOURCES",
+    "content_access_before_candidate_freeze": false,
+    "qa_gold_before_candidate_freeze": false,
+    "inference_before_candidate_freeze": false
+  },
+  "runtime_dependency_lock": {
+    "scope": "all Python files under src/hrm_finance_qa plus configuration, identity catalog, requirements, model assets, environment and commands",
+    "precommit_output": "reports/finhrm_v14_precommit_dependency_lock_v1.json",
+    "candidate_freeze_must_rehash_full_scope": true,
+    "directory_merkle_hash_required": true
+  },
+  "architecture": {
+    "checkpoint_schema_version": 12,
+    "neural_operation_abi": "legacy-10-class-preserved",
+    "variable_sum_mode": "sum_n_v1_opt_in",
+    "logical_operation": "SUM_N",
+    "legacy_wire_operations": [
+      "ADD",
+      "SUM3",
+      "SUM4"
+    ],
+    "supported_sum_operand_bounds": [
+      2,
+      8
+    ],
+    "required_new_heads": [
+      "sum operand-count head",
+      "shared unordered sum-membership head"
+    ],
+    "backward_compatibility": [
+      "V8/V13 checkpoints load with variable_sum_mode disabled",
+      "frozen evaluators retain legacy operation labels and metrics",
+      "SUM_N is never appended to the frozen neural operation ID list"
+    ]
+  },
+  "symbolic_contract": {
+    "required_for_sum_n": [
+      "global physical-cell injectivity",
+      "set completeness or explicit operand-count proof",
+      "per-operand metric/role grounding",
+      "per-operand period proof",
+      "per-operand entity proof",
+      "all-operand unit compatibility and canonical scale replay",
+      "source/table/section scope",
+      "subtotal-component overlap rejection when provenance proves the relation"
+    ],
+    "required_unknown_policy": "ABSTAIN",
+    "no_value_magnitude_unit_inference": true,
+    "no_company_specific_rules": true
+  },
+  "calibration_contract": {
+    "states": [
+      "CALIBRATED",
+      "DISABLED",
+      "UNCALIBRATED"
+    ],
+    "disabled_threshold_is_null": true,
+    "numeric_one_is_not_a_sentinel": true,
+    "must_use_public_answer_gate": true,
+    "minimum_support_required": true,
+    "precision_lower_bound_required": true,
+    "protected_data_calibration_forbidden": true
+  },
+  "training_protocol": {
+    "architecture_ablation_seed": 31,
+    "finalist_seeds": [
+      31,
+      43,
+      71
+    ],
+    "initialization_arms": [
+      "V8 compatible warm start",
+      "V13 compatible warm start",
+      "scratch control"
+    ],
+    "selection_data": "V14_DEVELOPMENT_ONLY",
+    "selection_metrics": [
+      "execution accuracy",
+      "accepted execution precision",
+      "accepted coverage",
+      "operand recall at 10",
+      "worst operation",
+      "worst company component",
+      "worst source/layout group when labels exist"
+    ]
+  },
+  "release_gates_before_candidate_freeze": [
+    "all legacy-mode regression tests pass",
+    "V2 and V13 immutable artifact hashes match",
+    "development train/validation leakage is zero on every declared key",
+    "evaluation/calibration acceptance matches the public answer gate",
+    "SUM_N has nonzero validation coverage without a numeric 1.0 sentinel",
+    "operand recall at 10 is at least 0.95",
+    "accepted_wrong is zero on the declared safety validation",
+    "source errors are zero on the document-runtime development cohort",
+    "notice development replay is 14 of 14",
+    "full runtime dependency closure is rehashed"
+  ],
+  "protected_evaluation_policy": {
+    "authorized_runs_after_candidate_freeze": 1,
+    "post_test_tuning_allowed": false,
+    "failure_action": "DO_NOT_PROMOTE_AND_START_A_NEW_VERSION_WITH_A_NEW_UNTOUCHED_COHORT"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "parent": "config/finhrm_B_metric_intent_protocol_v1.json",
+  "policy": "B only; no OCR/training or calibration tuning.",
+  "changes": "Typed source columns, bounded financial year, same-fact source precision corroboration, verified comparison overview.",
+  "development": "39 + 9 + 15 kept separate. Former15 is now development. Preserve all published-correct values.",
+  "smoke": [
+    "transfer-agp-profit-1",
+    "probe-mgg-assets-1",
+    "new-report-04",
+    "new-report-05",
+    "newsource-mgg-net",
+    "fresh-cms-separate",
+    "owner-check-hkt-2023",
+    "additional-hav-difference"
+  ],
+  "practical": "9 questions on PDB/BTH/HAV, including four three-part comparisons and one partial; references frozen before inference.",
+  "new_user_policy": "Open two-year or plan/actual comparisons may provide both values and a signed difference; missing parts do not hide verified parts.",
+  "old_test_changes": "Two old bare-comparison rejection tests updated because the user explicitly changed desired behavior; all other expectations preserved.",
+  "frozen_probe_no_tuning": true,
+  "acceptance": {
+    "answerable_coverage_min": 0.9,
+    "paraphrase_consistency_min": 0.95,
+    "published_wrong_max": 0,
+    "preserve_old_correct": true
+  },
+  "review_images": {
+    "tmp/pdfs/B_column_context_AGP-30.png": "b1ae479cb2dbb6cbd69a5b25c47c322510d46ab261059b635240ad7cb2903f80",
+    "tmp/pdfs/B_column_context_MGG_review-6.jpg": "404556908c92ec9e7e84283fb601f253a71ae1e8f5dc4fdb06245c7292257115",
+    "tmp/pdfs/B_context_identity_PDB-08.png": "bb525f50645c1307e00a709ecb96d6db79367cec7f62e22cac720480d7367745",
+    "tmp/pdfs/policy_evaluation_v1/BTH-3.png": "0192fac9e21b8e8a63c0088432cdc799d1d1d2d1abcbeb124b0ed8775ee93787",
+    "tmp/pdfs/B_disclosures_v1/HAV-15.png": "cc6d794bb3cc308a990db2b42f420dc7ec350b579e53f090588ce44d982a1219"
+  },
+  "source_review_notes": {
+    "AGP30": "Audited period ends31/12/2025; signing date12/02/2026 is separate.",
+    "MGG6": "853.906 million annual total; (100.666) is comparison delta. Same-fact coarse rendering853.9 billion on page5.",
+    "PDB8": "Net revenue actual2023 235110 and actual2024 307927 million; delta72817 million.",
+    "BTH3": "After-tax profit2025 186053840598; gross sales plan169000000000 and actual272109210439. Unit assumed VND under user policy.",
+    "HAV15": "Net revenue2022 1055 and2023 2341 million; financial expense2023 negative19 million."
+  }
+}

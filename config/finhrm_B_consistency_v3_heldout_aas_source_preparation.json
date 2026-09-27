@@ -1,0 +1,825 @@
+{
+  "status": "SOURCE_CURATED_NOT_OPENED",
+  "sources": {
+    "AAS": {
+      "path": "tmp/demo_uploads/.mineru/6ebb1a1731-AAS_24CN_BCTN.md",
+      "sha256": "49dab13ee480eef64383514bdcc98450b49bdfb606cc7ede74e24cda3f0b1579"
+    }
+  },
+  "cases": [
+    {
+      "case_id": "heldout-aas-charter-01",
+      "source_id": "AAS",
+      "split": "independent",
+      "fact_id": "aas-charter",
+      "question": "Vốn điều lệ của công ty là bao nhiêu?",
+      "fact_group": "aas-charter",
+      "evidence_kind": "FIELD_VALUE"
+    },
+    {
+      "case_id": "heldout-aas-charter-02",
+      "source_id": "AAS",
+      "split": "independent",
+      "fact_id": "aas-charter",
+      "question": "Trong thông tin khái quát, công ty ghi vốn điều lệ ở mức nào?",
+      "fact_group": "aas-charter",
+      "evidence_kind": "FIELD_VALUE"
+    },
+    {
+      "case_id": "heldout-aas-owner-01",
+      "source_id": "AAS",
+      "split": "independent",
+      "fact_id": "aas-owner",
+      "question": "Vốn đầu tư của chủ sở hữu là bao nhiêu?",
+      "fact_group": "aas-owner",
+      "evidence_kind": "FIELD_VALUE"
+    },
+    {
+      "case_id": "heldout-aas-owner-02",
+      "source_id": "AAS",
+      "split": "independent",
+      "fact_id": "aas-owner",
+      "question": "Trong thông tin khái quát, vốn đầu tư của chủ sở hữu được ghi là bao nhiêu đồng?",
+      "fact_group": "aas-owner",
+      "evidence_kind": "FIELD_VALUE"
+    },
+    {
+      "case_id": "heldout-aas-initial-01",
+      "source_id": "AAS",
+      "split": "independent",
+      "fact_id": "aas-initial",
+      "question": "Vốn điều lệ ban đầu năm 2006 là bao nhiêu?",
+      "fact_group": "aas-initial",
+      "evidence_kind": "SOURCE_ASSERTION"
+    },
+    {
+      "case_id": "heldout-aas-initial-02",
+      "source_id": "AAS",
+      "split": "independent",
+      "fact_id": "aas-initial",
+      "question": "Khi thành lập năm 2006, vốn điều lệ của công ty là bao nhiêu đồng?",
+      "fact_group": "aas-initial",
+      "evidence_kind": "SOURCE_ASSERTION"
+    },
+    {
+      "case_id": "heldout-aas-revenue-01",
+      "source_id": "AAS",
+      "split": "independent",
+      "fact_id": "aas-revenue",
+      "question": "Doanh thu hoạt động năm 2024 là bao nhiêu đồng?",
+      "fact_group": "aas-revenue",
+      "evidence_kind": "TABLE_CELL"
+    },
+    {
+      "case_id": "heldout-aas-revenue-02",
+      "source_id": "AAS",
+      "split": "independent",
+      "fact_id": "aas-revenue",
+      "question": "Năm 2024, công ty ghi doanh thu hoạt động ở mức nào?",
+      "fact_group": "aas-revenue",
+      "evidence_kind": "TABLE_CELL"
+    },
+    {
+      "case_id": "heldout-aas-profit_plan-01",
+      "source_id": "AAS",
+      "split": "independent",
+      "fact_id": "aas-profit_plan",
+      "question": "Kế hoạch lợi nhuận sau thuế năm 2025 là bao nhiêu đồng?",
+      "fact_group": "aas-profit_plan",
+      "evidence_kind": "TABLE_CELL"
+    },
+    {
+      "case_id": "heldout-aas-profit_plan-02",
+      "source_id": "AAS",
+      "split": "independent",
+      "fact_id": "aas-profit_plan",
+      "question": "Năm 2025, lợi nhuận sau thuế theo kế hoạch là bao nhiêu?",
+      "fact_group": "aas-profit_plan",
+      "evidence_kind": "TABLE_CELL"
+    },
+    {
+      "case_id": "heldout-aas-profit_diff-01",
+      "source_id": "AAS",
+      "split": "independent",
+      "fact_id": "aas-profit_diff",
+      "question": "Lợi nhuận sau thuế năm 2024 trừ năm 2023 là bao nhiêu đồng?",
+      "fact_group": "aas-profit_diff",
+      "evidence_kind": "TABLE_CELL"
+    },
+    {
+      "case_id": "heldout-aas-profit_diff-02",
+      "source_id": "AAS",
+      "split": "independent",
+      "fact_id": "aas-profit_diff",
+      "question": "Lấy lợi nhuận sau thuế năm 2024 trừ năm 2023 thì được bao nhiêu?",
+      "fact_group": "aas-profit_diff",
+      "evidence_kind": "TABLE_CELL"
+    },
+    {
+      "case_id": "heldout-aas-wrong_year",
+      "source_id": "AAS",
+      "split": "independent",
+      "fact_id": "aas-wrong_year",
+      "question": "Doanh thu hoạt động thực hiện năm 2035 là bao nhiêu đồng?",
+      "fact_group": "aas-wrong_year",
+      "evidence_kind": "TABLE_CELL"
+    },
+    {
+      "case_id": "heldout-aas-wrong_entity",
+      "source_id": "AAS",
+      "split": "independent",
+      "fact_id": "aas-wrong_entity",
+      "question": "Vốn điều lệ của công ty con là bao nhiêu?",
+      "fact_group": "aas-wrong_entity",
+      "evidence_kind": "TABLE_CELL"
+    }
+  ],
+  "references": [
+    {
+      "case_id": "heldout-aas-charter-01",
+      "expected_action": "ANSWER",
+      "expected_canonical": "2299995210000",
+      "canonical_unit": "VND",
+      "metric": "Vốn điều lệ",
+      "years": [],
+      "role": "not_applicable",
+      "scope": "reporting_company",
+      "operation": "SELECT",
+      "operand_canonical": [
+        "2299995210000"
+      ],
+      "unit_basis": "explicit",
+      "source_witnesses": [
+        {
+          "line_number": 29,
+          "page": 2,
+          "text": "\\- Vốn điều lệ: 2.299.995.210.000 VND (Hai nghìn, hai trăm chín mươi chín tỷ, chín trăm chín mươi lăm triệu, hai trăm mười nghìn đồng)",
+          "line_sha256": "fe59f26059e9ca7fcc74bbfd68ad445e56c0a7b4db449cc109d5177a494a518f"
+        }
+      ],
+      "time_semantics": "undated_profile_fact",
+      "reference_note": "Source reviewed before V3 heldout inference. Do not tune runtime on this set."
+    },
+    {
+      "case_id": "heldout-aas-charter-02",
+      "expected_action": "ANSWER",
+      "expected_canonical": "2299995210000",
+      "canonical_unit": "VND",
+      "metric": "Vốn điều lệ",
+      "years": [],
+      "role": "not_applicable",
+      "scope": "reporting_company",
+      "operation": "SELECT",
+      "operand_canonical": [
+        "2299995210000"
+      ],
+      "unit_basis": "explicit",
+      "source_witnesses": [
+        {
+          "line_number": 29,
+          "page": 2,
+          "text": "\\- Vốn điều lệ: 2.299.995.210.000 VND (Hai nghìn, hai trăm chín mươi chín tỷ, chín trăm chín mươi lăm triệu, hai trăm mười nghìn đồng)",
+          "line_sha256": "fe59f26059e9ca7fcc74bbfd68ad445e56c0a7b4db449cc109d5177a494a518f"
+        }
+      ],
+      "time_semantics": "undated_profile_fact",
+      "reference_note": "Source reviewed before V3 heldout inference. Do not tune runtime on this set."
+    },
+    {
+      "case_id": "heldout-aas-owner-01",
+      "expected_action": "ANSWER",
+      "expected_canonical": "2299995210000",
+      "canonical_unit": "VND",
+      "metric": "Vốn đầu tư của chủ sở hữu",
+      "years": [],
+      "role": "not_applicable",
+      "scope": "reporting_company",
+      "operation": "SELECT",
+      "operand_canonical": [
+        "2299995210000"
+      ],
+      "unit_basis": "explicit",
+      "source_witnesses": [
+        {
+          "line_number": 30,
+          "page": 2,
+          "text": "\\- Vốn đầu tư của chủ sở hữu: 2.299.995.210.000 VND",
+          "line_sha256": "f7ca2b6b1eeb106100feccfe0a6eb51289ac95df8d12fd273ecf93929c1df55e"
+        }
+      ],
+      "time_semantics": "undated_profile_fact",
+      "reference_note": "Source reviewed before V3 heldout inference. Do not tune runtime on this set."
+    },
+    {
+      "case_id": "heldout-aas-owner-02",
+      "expected_action": "ANSWER",
+      "expected_canonical": "2299995210000",
+      "canonical_unit": "VND",
+      "metric": "Vốn đầu tư của chủ sở hữu",
+      "years": [],
+      "role": "not_applicable",
+      "scope": "reporting_company",
+      "operation": "SELECT",
+      "operand_canonical": [
+        "2299995210000"
+      ],
+      "unit_basis": "explicit",
+      "source_witnesses": [
+        {
+          "line_number": 30,
+          "page": 2,
+          "text": "\\- Vốn đầu tư của chủ sở hữu: 2.299.995.210.000 VND",
+          "line_sha256": "f7ca2b6b1eeb106100feccfe0a6eb51289ac95df8d12fd273ecf93929c1df55e"
+        }
+      ],
+      "time_semantics": "undated_profile_fact",
+      "reference_note": "Source reviewed before V3 heldout inference. Do not tune runtime on this set."
+    },
+    {
+      "case_id": "heldout-aas-initial-01",
+      "expected_action": "ANSWER",
+      "expected_canonical": "22000000000",
+      "canonical_unit": "VND",
+      "metric": "Vốn điều lệ",
+      "years": [
+        "2006"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "operation": "SELECT",
+      "operand_canonical": [
+        "22000000000"
+      ],
+      "unit_basis": "explicit",
+      "source_witnesses": [
+        {
+          "line_number": 37,
+          "page": 2,
+          "text": "\\+ Ngày 26/12/2006, Công ty được thành lập với tên gọi là Công ty CP Chứng khoán Gia Anh theo Giấy phép thành lập số 38/UBCK-GPHĐKD do UBCKNN cấp ngày 26/12/2006. Vốn điều lệ của Công ty ban đầu là 22 tỷ đồng. Công ty được cấp Giấy phép hoạt động những nghiệp vụ: Môi giới chứng khoán, Tự doanh chứng khoán, Tự vấn tài chính và đầu tư chứng khoán; Lưu ký chứng khoán.",
+          "line_sha256": "6ac97785b22349720fb14b01f860169dc9d64b809d1af298acc07b7e878a581a"
+        }
+      ],
+      "time_semantics": "fact_year",
+      "reference_note": "Source reviewed before V3 heldout inference. Do not tune runtime on this set."
+    },
+    {
+      "case_id": "heldout-aas-initial-02",
+      "expected_action": "ANSWER",
+      "expected_canonical": "22000000000",
+      "canonical_unit": "VND",
+      "metric": "Vốn điều lệ",
+      "years": [
+        "2006"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "operation": "SELECT",
+      "operand_canonical": [
+        "22000000000"
+      ],
+      "unit_basis": "explicit",
+      "source_witnesses": [
+        {
+          "line_number": 37,
+          "page": 2,
+          "text": "\\+ Ngày 26/12/2006, Công ty được thành lập với tên gọi là Công ty CP Chứng khoán Gia Anh theo Giấy phép thành lập số 38/UBCK-GPHĐKD do UBCKNN cấp ngày 26/12/2006. Vốn điều lệ của Công ty ban đầu là 22 tỷ đồng. Công ty được cấp Giấy phép hoạt động những nghiệp vụ: Môi giới chứng khoán, Tự doanh chứng khoán, Tự vấn tài chính và đầu tư chứng khoán; Lưu ký chứng khoán.",
+          "line_sha256": "6ac97785b22349720fb14b01f860169dc9d64b809d1af298acc07b7e878a581a"
+        }
+      ],
+      "time_semantics": "fact_year",
+      "reference_note": "Source reviewed before V3 heldout inference. Do not tune runtime on this set."
+    },
+    {
+      "case_id": "heldout-aas-revenue-01",
+      "expected_action": "ANSWER",
+      "expected_canonical": "409821494557",
+      "canonical_unit": "VND",
+      "metric": "Doanh thu hoạt động",
+      "years": [
+        "2024"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "operation": "SELECT",
+      "operand_canonical": [
+        "409821494557"
+      ],
+      "unit_basis": "explicit",
+      "source_witnesses": [
+        {
+          "line_number": 134,
+          "page": 7,
+          "text": "Doanh thu hoạt động | Năm 2024: 409.821.494.557 | Năm 2023: 656.522.206.728 | -38%",
+          "line_sha256": "75389be1e49b507521335bcbefd9a00a3e69802a3cd1094773a97aae67540555"
+        },
+        {
+          "line_number": 336,
+          "page": 14,
+          "text": "Doanh thu hoạt động | Năm 2024: 409.821.494.557 | Năm 2023: 656.522.206.728 | -38%",
+          "line_sha256": "75389be1e49b507521335bcbefd9a00a3e69802a3cd1094773a97aae67540555"
+        }
+      ],
+      "time_semantics": "fact_year",
+      "reference_note": "Source reviewed before V3 heldout inference. Do not tune runtime on this set."
+    },
+    {
+      "case_id": "heldout-aas-revenue-02",
+      "expected_action": "ANSWER",
+      "expected_canonical": "409821494557",
+      "canonical_unit": "VND",
+      "metric": "Doanh thu hoạt động",
+      "years": [
+        "2024"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "operation": "SELECT",
+      "operand_canonical": [
+        "409821494557"
+      ],
+      "unit_basis": "explicit",
+      "source_witnesses": [
+        {
+          "line_number": 134,
+          "page": 7,
+          "text": "Doanh thu hoạt động | Năm 2024: 409.821.494.557 | Năm 2023: 656.522.206.728 | -38%",
+          "line_sha256": "75389be1e49b507521335bcbefd9a00a3e69802a3cd1094773a97aae67540555"
+        },
+        {
+          "line_number": 336,
+          "page": 14,
+          "text": "Doanh thu hoạt động | Năm 2024: 409.821.494.557 | Năm 2023: 656.522.206.728 | -38%",
+          "line_sha256": "75389be1e49b507521335bcbefd9a00a3e69802a3cd1094773a97aae67540555"
+        }
+      ],
+      "time_semantics": "fact_year",
+      "reference_note": "Source reviewed before V3 heldout inference. Do not tune runtime on this set."
+    },
+    {
+      "case_id": "heldout-aas-profit_plan-01",
+      "expected_action": "ANSWER",
+      "expected_canonical": "82000000000",
+      "canonical_unit": "VND",
+      "metric": "Lợi nhuận sau thuế",
+      "years": [
+        "2025"
+      ],
+      "role": "plan",
+      "scope": "reporting_company",
+      "operation": "SELECT",
+      "operand_canonical": [
+        "82000000000"
+      ],
+      "unit_basis": "explicit",
+      "source_witnesses": [
+        {
+          "line_number": 375,
+          "page": 16,
+          "text": "STT: 3 | Lợi nhuận sau thuế | Năm 2024 (VNĐ): 73.661.409.934 | KH năm 2025 (VNĐ): 82.000.000.000 | Kế hoạch so với 2024: 11,32%",
+          "line_sha256": "a4bba785d0677f5a7c9da81532e8a1872b57e28837a6768641cb7add2d106aed"
+        }
+      ],
+      "time_semantics": "fact_year",
+      "reference_note": "Source reviewed before V3 heldout inference. Do not tune runtime on this set."
+    },
+    {
+      "case_id": "heldout-aas-profit_plan-02",
+      "expected_action": "ANSWER",
+      "expected_canonical": "82000000000",
+      "canonical_unit": "VND",
+      "metric": "Lợi nhuận sau thuế",
+      "years": [
+        "2025"
+      ],
+      "role": "plan",
+      "scope": "reporting_company",
+      "operation": "SELECT",
+      "operand_canonical": [
+        "82000000000"
+      ],
+      "unit_basis": "explicit",
+      "source_witnesses": [
+        {
+          "line_number": 375,
+          "page": 16,
+          "text": "STT: 3 | Lợi nhuận sau thuế | Năm 2024 (VNĐ): 73.661.409.934 | KH năm 2025 (VNĐ): 82.000.000.000 | Kế hoạch so với 2024: 11,32%",
+          "line_sha256": "a4bba785d0677f5a7c9da81532e8a1872b57e28837a6768641cb7add2d106aed"
+        }
+      ],
+      "time_semantics": "fact_year",
+      "reference_note": "Source reviewed before V3 heldout inference. Do not tune runtime on this set."
+    },
+    {
+      "case_id": "heldout-aas-profit_diff-01",
+      "expected_action": "ANSWER",
+      "expected_canonical": "-13277630287",
+      "canonical_unit": "VND",
+      "metric": "Lợi nhuận sau thuế",
+      "years": [
+        "2024",
+        "2023"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "operation": "SUBTRACT",
+      "operand_canonical": [
+        "73661409934",
+        "86939040221"
+      ],
+      "unit_basis": "explicit",
+      "source_witnesses": [
+        {
+          "line_number": 136,
+          "page": 7,
+          "text": "Lợi nhuận sau thuế | Năm 2024: 73.661.409.934 | Năm 2023: 86.939.040.221 | -15%",
+          "line_sha256": "10a5feb27b954674884a487af648f44124df3a6d85ede2b90662aa0e9cb357d5"
+        },
+        {
+          "line_number": 217,
+          "page": 10,
+          "text": "Lợi nhuận sau thuế | Năm 2023: 86.939.040.221 | Năm 2024: 73.661.409.934 | -15%",
+          "line_sha256": "8aff39fc1c1b9544e5ef0a9298ca8d833bbc2d8d6ea9d180b3474186fa645ac6"
+        },
+        {
+          "line_number": 337,
+          "page": 14,
+          "text": "Lợi nhuận sau thuế | Năm 2024: 73.661.409.934 | Năm 2023: 86.939.040.221 | -15%",
+          "line_sha256": "10a5feb27b954674884a487af648f44124df3a6d85ede2b90662aa0e9cb357d5"
+        },
+        {
+          "line_number": 375,
+          "page": 16,
+          "text": "STT: 3 | Lợi nhuận sau thuế | Năm 2024 (VNĐ): 73.661.409.934 | KH năm 2025 (VNĐ): 82.000.000.000 | Kế hoạch so với 2024: 11,32%",
+          "line_sha256": "a4bba785d0677f5a7c9da81532e8a1872b57e28837a6768641cb7add2d106aed"
+        }
+      ],
+      "time_semantics": "fact_year",
+      "reference_note": "Source reviewed before V3 heldout inference. Do not tune runtime on this set."
+    },
+    {
+      "case_id": "heldout-aas-profit_diff-02",
+      "expected_action": "ANSWER",
+      "expected_canonical": "-13277630287",
+      "canonical_unit": "VND",
+      "metric": "Lợi nhuận sau thuế",
+      "years": [
+        "2024",
+        "2023"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "operation": "SUBTRACT",
+      "operand_canonical": [
+        "73661409934",
+        "86939040221"
+      ],
+      "unit_basis": "explicit",
+      "source_witnesses": [
+        {
+          "line_number": 136,
+          "page": 7,
+          "text": "Lợi nhuận sau thuế | Năm 2024: 73.661.409.934 | Năm 2023: 86.939.040.221 | -15%",
+          "line_sha256": "10a5feb27b954674884a487af648f44124df3a6d85ede2b90662aa0e9cb357d5"
+        },
+        {
+          "line_number": 217,
+          "page": 10,
+          "text": "Lợi nhuận sau thuế | Năm 2023: 86.939.040.221 | Năm 2024: 73.661.409.934 | -15%",
+          "line_sha256": "8aff39fc1c1b9544e5ef0a9298ca8d833bbc2d8d6ea9d180b3474186fa645ac6"
+        },
+        {
+          "line_number": 337,
+          "page": 14,
+          "text": "Lợi nhuận sau thuế | Năm 2024: 73.661.409.934 | Năm 2023: 86.939.040.221 | -15%",
+          "line_sha256": "10a5feb27b954674884a487af648f44124df3a6d85ede2b90662aa0e9cb357d5"
+        },
+        {
+          "line_number": 375,
+          "page": 16,
+          "text": "STT: 3 | Lợi nhuận sau thuế | Năm 2024 (VNĐ): 73.661.409.934 | KH năm 2025 (VNĐ): 82.000.000.000 | Kế hoạch so với 2024: 11,32%",
+          "line_sha256": "a4bba785d0677f5a7c9da81532e8a1872b57e28837a6768641cb7add2d106aed"
+        }
+      ],
+      "time_semantics": "fact_year",
+      "reference_note": "Source reviewed before V3 heldout inference. Do not tune runtime on this set."
+    },
+    {
+      "case_id": "heldout-aas-wrong_year",
+      "expected_action": "WITHHOLD",
+      "reference_note": "No 2035 actual revenue; report explicitly says no subsidiaries/associates at line 80.",
+      "allowed_runtime_actions": [
+        "ABSTAIN",
+        "REJECT",
+        "CLARIFY"
+      ]
+    },
+    {
+      "case_id": "heldout-aas-wrong_entity",
+      "expected_action": "WITHHOLD",
+      "reference_note": "No 2035 actual revenue; report explicitly says no subsidiaries/associates at line 80.",
+      "allowed_runtime_actions": [
+        "ABSTAIN",
+        "REJECT",
+        "CLARIFY"
+      ]
+    }
+  ],
+  "reviews": {
+    "heldout-aas-charter-01": {
+      "source_id": "AAS",
+      "identity": {
+        "metric": "Vốn điều lệ",
+        "years": [],
+        "role": "not_applicable",
+        "scope": "reporting_company",
+        "time_semantics": "undated_profile_fact"
+      },
+      "source_witnesses": [
+        {
+          "line_number": 29,
+          "page": 2,
+          "text": "\\- Vốn điều lệ: 2.299.995.210.000 VND (Hai nghìn, hai trăm chín mươi chín tỷ, chín trăm chín mươi lăm triệu, hai trăm mười nghìn đồng)",
+          "line_sha256": "fe59f26059e9ca7fcc74bbfd68ad445e56c0a7b4db449cc109d5177a494a518f"
+        }
+      ],
+      "basis": "Manual reading of frozen MinerU source, before inference."
+    },
+    "heldout-aas-charter-02": {
+      "source_id": "AAS",
+      "identity": {
+        "metric": "Vốn điều lệ",
+        "years": [],
+        "role": "not_applicable",
+        "scope": "reporting_company",
+        "time_semantics": "undated_profile_fact"
+      },
+      "source_witnesses": [
+        {
+          "line_number": 29,
+          "page": 2,
+          "text": "\\- Vốn điều lệ: 2.299.995.210.000 VND (Hai nghìn, hai trăm chín mươi chín tỷ, chín trăm chín mươi lăm triệu, hai trăm mười nghìn đồng)",
+          "line_sha256": "fe59f26059e9ca7fcc74bbfd68ad445e56c0a7b4db449cc109d5177a494a518f"
+        }
+      ],
+      "basis": "Manual reading of frozen MinerU source, before inference."
+    },
+    "heldout-aas-owner-01": {
+      "source_id": "AAS",
+      "identity": {
+        "metric": "Vốn đầu tư của chủ sở hữu",
+        "years": [],
+        "role": "not_applicable",
+        "scope": "reporting_company",
+        "time_semantics": "undated_profile_fact"
+      },
+      "source_witnesses": [
+        {
+          "line_number": 30,
+          "page": 2,
+          "text": "\\- Vốn đầu tư của chủ sở hữu: 2.299.995.210.000 VND",
+          "line_sha256": "f7ca2b6b1eeb106100feccfe0a6eb51289ac95df8d12fd273ecf93929c1df55e"
+        }
+      ],
+      "basis": "Manual reading of frozen MinerU source, before inference."
+    },
+    "heldout-aas-owner-02": {
+      "source_id": "AAS",
+      "identity": {
+        "metric": "Vốn đầu tư của chủ sở hữu",
+        "years": [],
+        "role": "not_applicable",
+        "scope": "reporting_company",
+        "time_semantics": "undated_profile_fact"
+      },
+      "source_witnesses": [
+        {
+          "line_number": 30,
+          "page": 2,
+          "text": "\\- Vốn đầu tư của chủ sở hữu: 2.299.995.210.000 VND",
+          "line_sha256": "f7ca2b6b1eeb106100feccfe0a6eb51289ac95df8d12fd273ecf93929c1df55e"
+        }
+      ],
+      "basis": "Manual reading of frozen MinerU source, before inference."
+    },
+    "heldout-aas-initial-01": {
+      "source_id": "AAS",
+      "identity": {
+        "metric": "Vốn điều lệ",
+        "years": [
+          "2006"
+        ],
+        "role": "actual",
+        "scope": "reporting_company",
+        "time_semantics": "fact_year"
+      },
+      "source_witnesses": [
+        {
+          "line_number": 37,
+          "page": 2,
+          "text": "\\+ Ngày 26/12/2006, Công ty được thành lập với tên gọi là Công ty CP Chứng khoán Gia Anh theo Giấy phép thành lập số 38/UBCK-GPHĐKD do UBCKNN cấp ngày 26/12/2006. Vốn điều lệ của Công ty ban đầu là 22 tỷ đồng. Công ty được cấp Giấy phép hoạt động những nghiệp vụ: Môi giới chứng khoán, Tự doanh chứng khoán, Tự vấn tài chính và đầu tư chứng khoán; Lưu ký chứng khoán.",
+          "line_sha256": "6ac97785b22349720fb14b01f860169dc9d64b809d1af298acc07b7e878a581a"
+        }
+      ],
+      "basis": "Manual reading of frozen MinerU source, before inference."
+    },
+    "heldout-aas-initial-02": {
+      "source_id": "AAS",
+      "identity": {
+        "metric": "Vốn điều lệ",
+        "years": [
+          "2006"
+        ],
+        "role": "actual",
+        "scope": "reporting_company",
+        "time_semantics": "fact_year"
+      },
+      "source_witnesses": [
+        {
+          "line_number": 37,
+          "page": 2,
+          "text": "\\+ Ngày 26/12/2006, Công ty được thành lập với tên gọi là Công ty CP Chứng khoán Gia Anh theo Giấy phép thành lập số 38/UBCK-GPHĐKD do UBCKNN cấp ngày 26/12/2006. Vốn điều lệ của Công ty ban đầu là 22 tỷ đồng. Công ty được cấp Giấy phép hoạt động những nghiệp vụ: Môi giới chứng khoán, Tự doanh chứng khoán, Tự vấn tài chính và đầu tư chứng khoán; Lưu ký chứng khoán.",
+          "line_sha256": "6ac97785b22349720fb14b01f860169dc9d64b809d1af298acc07b7e878a581a"
+        }
+      ],
+      "basis": "Manual reading of frozen MinerU source, before inference."
+    },
+    "heldout-aas-revenue-01": {
+      "source_id": "AAS",
+      "identity": {
+        "metric": "Doanh thu hoạt động",
+        "years": [
+          "2024"
+        ],
+        "role": "actual",
+        "scope": "reporting_company",
+        "time_semantics": "fact_year"
+      },
+      "source_witnesses": [
+        {
+          "line_number": 134,
+          "page": 7,
+          "text": "Doanh thu hoạt động | Năm 2024: 409.821.494.557 | Năm 2023: 656.522.206.728 | -38%",
+          "line_sha256": "75389be1e49b507521335bcbefd9a00a3e69802a3cd1094773a97aae67540555"
+        },
+        {
+          "line_number": 336,
+          "page": 14,
+          "text": "Doanh thu hoạt động | Năm 2024: 409.821.494.557 | Năm 2023: 656.522.206.728 | -38%",
+          "line_sha256": "75389be1e49b507521335bcbefd9a00a3e69802a3cd1094773a97aae67540555"
+        }
+      ],
+      "basis": "Manual reading of frozen MinerU source, before inference."
+    },
+    "heldout-aas-revenue-02": {
+      "source_id": "AAS",
+      "identity": {
+        "metric": "Doanh thu hoạt động",
+        "years": [
+          "2024"
+        ],
+        "role": "actual",
+        "scope": "reporting_company",
+        "time_semantics": "fact_year"
+      },
+      "source_witnesses": [
+        {
+          "line_number": 134,
+          "page": 7,
+          "text": "Doanh thu hoạt động | Năm 2024: 409.821.494.557 | Năm 2023: 656.522.206.728 | -38%",
+          "line_sha256": "75389be1e49b507521335bcbefd9a00a3e69802a3cd1094773a97aae67540555"
+        },
+        {
+          "line_number": 336,
+          "page": 14,
+          "text": "Doanh thu hoạt động | Năm 2024: 409.821.494.557 | Năm 2023: 656.522.206.728 | -38%",
+          "line_sha256": "75389be1e49b507521335bcbefd9a00a3e69802a3cd1094773a97aae67540555"
+        }
+      ],
+      "basis": "Manual reading of frozen MinerU source, before inference."
+    },
+    "heldout-aas-profit_plan-01": {
+      "source_id": "AAS",
+      "identity": {
+        "metric": "Lợi nhuận sau thuế",
+        "years": [
+          "2025"
+        ],
+        "role": "plan",
+        "scope": "reporting_company",
+        "time_semantics": "fact_year"
+      },
+      "source_witnesses": [
+        {
+          "line_number": 375,
+          "page": 16,
+          "text": "STT: 3 | Lợi nhuận sau thuế | Năm 2024 (VNĐ): 73.661.409.934 | KH năm 2025 (VNĐ): 82.000.000.000 | Kế hoạch so với 2024: 11,32%",
+          "line_sha256": "a4bba785d0677f5a7c9da81532e8a1872b57e28837a6768641cb7add2d106aed"
+        }
+      ],
+      "basis": "Manual reading of frozen MinerU source, before inference."
+    },
+    "heldout-aas-profit_plan-02": {
+      "source_id": "AAS",
+      "identity": {
+        "metric": "Lợi nhuận sau thuế",
+        "years": [
+          "2025"
+        ],
+        "role": "plan",
+        "scope": "reporting_company",
+        "time_semantics": "fact_year"
+      },
+      "source_witnesses": [
+        {
+          "line_number": 375,
+          "page": 16,
+          "text": "STT: 3 | Lợi nhuận sau thuế | Năm 2024 (VNĐ): 73.661.409.934 | KH năm 2025 (VNĐ): 82.000.000.000 | Kế hoạch so với 2024: 11,32%",
+          "line_sha256": "a4bba785d0677f5a7c9da81532e8a1872b57e28837a6768641cb7add2d106aed"
+        }
+      ],
+      "basis": "Manual reading of frozen MinerU source, before inference."
+    },
+    "heldout-aas-profit_diff-01": {
+      "source_id": "AAS",
+      "identity": {
+        "metric": "Lợi nhuận sau thuế",
+        "years": [
+          "2024",
+          "2023"
+        ],
+        "role": "actual",
+        "scope": "reporting_company",
+        "time_semantics": "fact_year"
+      },
+      "source_witnesses": [
+        {
+          "line_number": 136,
+          "page": 7,
+          "text": "Lợi nhuận sau thuế | Năm 2024: 73.661.409.934 | Năm 2023: 86.939.040.221 | -15%",
+          "line_sha256": "10a5feb27b954674884a487af648f44124df3a6d85ede2b90662aa0e9cb357d5"
+        },
+        {
+          "line_number": 217,
+          "page": 10,
+          "text": "Lợi nhuận sau thuế | Năm 2023: 86.939.040.221 | Năm 2024: 73.661.409.934 | -15%",
+          "line_sha256": "8aff39fc1c1b9544e5ef0a9298ca8d833bbc2d8d6ea9d180b3474186fa645ac6"
+        },
+        {
+          "line_number": 337,
+          "page": 14,
+          "text": "Lợi nhuận sau thuế | Năm 2024: 73.661.409.934 | Năm 2023: 86.939.040.221 | -15%",
+          "line_sha256": "10a5feb27b954674884a487af648f44124df3a6d85ede2b90662aa0e9cb357d5"
+        },
+        {
+          "line_number": 375,
+          "page": 16,
+          "text": "STT: 3 | Lợi nhuận sau thuế | Năm 2024 (VNĐ): 73.661.409.934 | KH năm 2025 (VNĐ): 82.000.000.000 | Kế hoạch so với 2024: 11,32%",
+          "line_sha256": "a4bba785d0677f5a7c9da81532e8a1872b57e28837a6768641cb7add2d106aed"
+        }
+      ],
+      "basis": "Manual reading of frozen MinerU source, before inference."
+    },
+    "heldout-aas-profit_diff-02": {
+      "source_id": "AAS",
+      "identity": {
+        "metric": "Lợi nhuận sau thuế",
+        "years": [
+          "2024",
+          "2023"
+        ],
+        "role": "actual",
+        "scope": "reporting_company",
+        "time_semantics": "fact_year"
+      },
+      "source_witnesses": [
+        {
+          "line_number": 136,
+          "page": 7,
+          "text": "Lợi nhuận sau thuế | Năm 2024: 73.661.409.934 | Năm 2023: 86.939.040.221 | -15%",
+          "line_sha256": "10a5feb27b954674884a487af648f44124df3a6d85ede2b90662aa0e9cb357d5"
+        },
+        {
+          "line_number": 217,
+          "page": 10,
+          "text": "Lợi nhuận sau thuế | Năm 2023: 86.939.040.221 | Năm 2024: 73.661.409.934 | -15%",
+          "line_sha256": "8aff39fc1c1b9544e5ef0a9298ca8d833bbc2d8d6ea9d180b3474186fa645ac6"
+        },
+        {
+          "line_number": 337,
+          "page": 14,
+          "text": "Lợi nhuận sau thuế | Năm 2024: 73.661.409.934 | Năm 2023: 86.939.040.221 | -15%",
+          "line_sha256": "10a5feb27b954674884a487af648f44124df3a6d85ede2b90662aa0e9cb357d5"
+        },
+        {
+          "line_number": 375,
+          "page": 16,
+          "text": "STT: 3 | Lợi nhuận sau thuế | Năm 2024 (VNĐ): 73.661.409.934 | KH năm 2025 (VNĐ): 82.000.000.000 | Kế hoạch so với 2024: 11,32%",
+          "line_sha256": "a4bba785d0677f5a7c9da81532e8a1872b57e28837a6768641cb7add2d106aed"
+        }
+      ],
+      "basis": "Manual reading of frozen MinerU source, before inference."
+    }
+  },
+  "excluded_from_holdout": true,
+  "exclusion_reason": "Historical development catalog contains AAS source; no inference run."
+}

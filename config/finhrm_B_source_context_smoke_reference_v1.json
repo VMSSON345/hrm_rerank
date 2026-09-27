@@ -1,0 +1,335 @@
+{
+  "cases": [
+    {
+      "case_id": "new-report-01",
+      "source_id": "ACG",
+      "question": "Doanh thu thuần hợp nhất năm 2025 là bao nhiêu?",
+      "expected_action": "ANSWER",
+      "expected_canonical": "4608700000000",
+      "canonical_unit": "VND",
+      "metric": "doanh thu thuan",
+      "years": [
+        "2025"
+      ],
+      "role": "actual",
+      "scope": "consolidated",
+      "pdf_pages": [
+        38
+      ],
+      "reference_note": "Previously PDF-reviewed reference; reused without changing value",
+      "prior_reference": "config/finhrm_evidence_policy_reference_v1.json"
+    },
+    {
+      "case_id": "new-report-05",
+      "source_id": "AGP",
+      "question": "Doanh thu thuần năm 2025 tăng bao nhiêu tỷ đồng so với năm 2024?",
+      "expected_action": "ANSWER",
+      "expected_canonical": "51400000000",
+      "canonical_unit": "VND",
+      "metric": "doanh thu thuan",
+      "years": [
+        "2025",
+        "2024"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "pdf_pages": [
+        13
+      ],
+      "reference_note": "Previously PDF-reviewed reference; reused without changing value",
+      "prior_reference": "config/finhrm_evidence_policy_reference_v1.json"
+    },
+    {
+      "case_id": "additional-bsd-net",
+      "source_id": "BSD",
+      "question": "Doanh thu thuần năm 2023 là bao nhiêu đồng?",
+      "expected_action": "ANSWER",
+      "expected_canonical": "311192583425",
+      "canonical_unit": "VND",
+      "metric": "doanh thu thuan",
+      "years": [
+        "2023"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "pdf_pages": [
+        9
+      ],
+      "reference_note": "Direct visual PDF review before inference; numbers and KH/TH/units checked. Missing-2037 also checked against complete MinerU artifact."
+    },
+    {
+      "case_id": "additional-bsd-missing",
+      "source_id": "BSD",
+      "question": "Doanh thu thuần năm 2037 là bao nhiêu đồng?",
+      "expected_action": "ABSTAIN",
+      "expected_canonical": null,
+      "canonical_unit": "VND",
+      "metric": "doanh thu thuan",
+      "years": [
+        "2037"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "pdf_pages": [
+        9
+      ],
+      "reference_note": "Direct visual PDF review before inference; numbers and KH/TH/units checked. Missing-2037 also checked against complete MinerU artifact."
+    },
+    {
+      "case_id": "fresh-pdb-actual",
+      "source_id": "PDB",
+      "question": "Doanh thu thuần hợp nhất thực hiện năm 2024 là bao nhiêu triệu đồng?",
+      "expected_action": "ANSWER",
+      "expected_canonical": "307927000000",
+      "canonical_unit": "VND",
+      "metric": "doanh thu thuan",
+      "years": [
+        "2024"
+      ],
+      "role": "actual",
+      "scope": "consolidated",
+      "operation": "SELECT",
+      "pdf_pages": [
+        8
+      ],
+      "source_pdf": {
+        "path": "pdf/PDF_24/PDF_24/PDB_24CN_BCTN.pdf",
+        "sha256": "1957e2ee3f06dba63ac29c3ad462aa7ce8ee654e4a1b7e92589b6716c60a968e"
+      },
+      "review_images": [
+        {
+          "path": "tmp/pdfs/B_semantic_format_v1/PDB-8.png",
+          "sha256": "5d065e2e796bd44f7223ef2d8a4e2dc1dd3fb5fe8842c3ad3e830211dfcb8288"
+        }
+      ],
+      "operand_values": [
+        "307927"
+      ],
+      "operand_unit": "triệu đồng",
+      "absolute_tolerance": "500000",
+      "reference_quantum_VND": "1000000",
+      "reference_note": "Explicit consolidated table: TH 2024 307.927 million VND. Half a displayed million precommitted for compatibility with a finer rendition of this same fact; no relative tolerance."
+    },
+    {
+      "case_id": "fresh-pdb-plan",
+      "source_id": "PDB",
+      "question": "Doanh thu thuần hợp nhất kế hoạch năm 2024 là bao nhiêu triệu đồng?",
+      "expected_action": "ANSWER",
+      "expected_canonical": "257000000000",
+      "canonical_unit": "VND",
+      "metric": "doanh thu thuan",
+      "years": [
+        "2024"
+      ],
+      "role": "plan",
+      "scope": "consolidated",
+      "operation": "SELECT",
+      "pdf_pages": [
+        8
+      ],
+      "source_pdf": {
+        "path": "pdf/PDF_24/PDF_24/PDB_24CN_BCTN.pdf",
+        "sha256": "1957e2ee3f06dba63ac29c3ad462aa7ce8ee654e4a1b7e92589b6716c60a968e"
+      },
+      "review_images": [
+        {
+          "path": "tmp/pdfs/B_semantic_format_v1/PDB-8.png",
+          "sha256": "5d065e2e796bd44f7223ef2d8a4e2dc1dd3fb5fe8842c3ad3e830211dfcb8288"
+        }
+      ],
+      "operand_values": [
+        "257000"
+      ],
+      "operand_unit": "triệu đồng",
+      "reference_note": "Explicit consolidated table: KH 2024 257.000 million VND."
+    },
+    {
+      "case_id": "fresh-ssg-difference",
+      "source_id": "SSG",
+      "question": "Doanh thu thuần năm 2024 tăng bao nhiêu triệu đồng so với năm 2023?",
+      "expected_action": "ANSWER",
+      "expected_canonical": "72042000000",
+      "canonical_unit": "VND",
+      "metric": "doanh thu thuan",
+      "years": [
+        "2023",
+        "2024"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "operation": "SUBTRACT",
+      "pdf_pages": [
+        6
+      ],
+      "source_pdf": {
+        "path": "pdf/PDF_24/PDF_24/SSG_24CN_BCTN.pdf",
+        "sha256": "03525afbe2d1c74e6b50d26062c604b13364ca3bf2c95c4529185facd34f2e7b"
+      },
+      "review_images": [
+        {
+          "path": "tmp/pdfs/B_semantic_format_v1/SSG-6.png",
+          "sha256": "82f3f3e8e170e1fb15513ccf8bb8523b9f7b9f9cd530b4bf1da464a8127ba608"
+        }
+      ],
+      "operand_values": [
+        "107836",
+        "35794"
+      ],
+      "operand_unit": "triệu đồng",
+      "reference_note": "Source table with explicit million-VND unit: 107.836 - 35.794 = 72.042 million VND."
+    },
+    {
+      "case_id": "fresh-ssg-missing",
+      "source_id": "SSG",
+      "question": "Doanh thu thuần năm 2037 là bao nhiêu triệu đồng?",
+      "expected_action": "ABSTAIN",
+      "expected_canonical": null,
+      "canonical_unit": "VND",
+      "metric": "doanh thu thuan",
+      "years": [
+        "2037"
+      ],
+      "role": "actual",
+      "scope": "reporting_company",
+      "operation": "SELECT",
+      "pdf_pages": [
+        6
+      ],
+      "source_pdf": {
+        "path": "pdf/PDF_24/PDF_24/SSG_24CN_BCTN.pdf",
+        "sha256": "03525afbe2d1c74e6b50d26062c604b13364ca3bf2c95c4529185facd34f2e7b"
+      },
+      "review_images": [
+        {
+          "path": "tmp/pdfs/B_semantic_format_v1/SSG-6.png",
+          "sha256": "82f3f3e8e170e1fb15513ccf8bb8523b9f7b9f9cd530b4bf1da464a8127ba608"
+        }
+      ],
+      "reference_note": "Requested year absent from full MinerU Markdown; PDF financial table covers 2023/2024.",
+      "reason": "MISSING_REQUESTED_PERIOD"
+    }
+  ],
+  "reference_contract": "Original22 unchanged; additional6 PDF reviewed before inference. Exact canonical comparison, no post-hoc tolerance.",
+  "additional_reviews": [
+    {
+      "case_id": "additional-bsd-net",
+      "markdown": "data/markdown/scope_unit_v2/BSD_23CN_BCTN--b90d50e824213031.md",
+      "line_number": 280,
+      "source_row": "Doanh thu thuần | VNĐ | Năm 2022: 289,078,607,069 | Năm 2023: 311,192,583,425 | 108%",
+      "pdf": {
+        "bytes": 504150,
+        "path": "pdf/PDF_23/BSD_23CN_BCTN.pdf",
+        "sha256": "b90d50e8242130316d5eeb3179326b8123d2d41605a4693d40be13b36ba2e549"
+      },
+      "page": 9,
+      "visual_review_png": {
+        "path": "tmp/pdfs/B_disclosures_v1/BSD-9.png",
+        "sha256": "fd5d8f36f22e8d08e167936c2f5edea0099e514800ef0c789ca68707294aca2c"
+      },
+      "sidecar": {
+        "path": "data/markdown/scope_unit_v2/BSD_23CN_BCTN--b90d50e824213031.provenance.json",
+        "sha256": "c3032ea7deaae56268b5ebe736f3d07ee48db56e3b1683548fe07f9a4ca1b1ae"
+      }
+    },
+    {
+      "case_id": "additional-bsd-missing",
+      "markdown": "data/markdown/scope_unit_v2/BSD_23CN_BCTN--b90d50e824213031.md",
+      "line_number": 280,
+      "source_row": "Doanh thu thuần | VNĐ | Năm 2022: 289,078,607,069 | Năm 2023: 311,192,583,425 | 108%",
+      "pdf": {
+        "bytes": 504150,
+        "path": "pdf/PDF_23/BSD_23CN_BCTN.pdf",
+        "sha256": "b90d50e8242130316d5eeb3179326b8123d2d41605a4693d40be13b36ba2e549"
+      },
+      "page": 9,
+      "visual_review_png": {
+        "path": "tmp/pdfs/B_disclosures_v1/BSD-9.png",
+        "sha256": "fd5d8f36f22e8d08e167936c2f5edea0099e514800ef0c789ca68707294aca2c"
+      },
+      "sidecar": {
+        "path": "data/markdown/scope_unit_v2/BSD_23CN_BCTN--b90d50e824213031.provenance.json",
+        "sha256": "c3032ea7deaae56268b5ebe736f3d07ee48db56e3b1683548fe07f9a4ca1b1ae"
+      }
+    },
+    {
+      "case_id": "additional-bhg-plan",
+      "markdown": "data/markdown/scope_unit_v2/BHG_23CN_BCTN--62a6808775bffb52.md",
+      "line_number": 88,
+      "source_row": "STT: 3 | Lợi nhuận sau thuế | Tỷ đồng | KH 2023: 0,960 | TH 2023: 1,225 | 127,6",
+      "pdf": {
+        "bytes": 280072,
+        "path": "pdf/PDF_23/BHG_23CN_BCTN.pdf",
+        "sha256": "62a6808775bffb526b5f4894a463646522410469e7f3084407d498f987303702"
+      },
+      "page": 4,
+      "visual_review_png": {
+        "path": "tmp/pdfs/B_disclosures_v1/BHG-4.png",
+        "sha256": "6886bdc97391a67e43862904d6411e939e97a29868050512f11103e759fab3eb"
+      },
+      "sidecar": {
+        "path": "data/markdown/scope_unit_v2/BHG_23CN_BCTN--62a6808775bffb52.provenance.json",
+        "sha256": "7ad5f7902227c7a706bfc3eceaf81a93464666f4401d7d06e0c100ed4ef434b3"
+      }
+    },
+    {
+      "case_id": "additional-bhg-missing",
+      "markdown": "data/markdown/scope_unit_v2/BHG_23CN_BCTN--62a6808775bffb52.md",
+      "line_number": 88,
+      "source_row": "STT: 3 | Lợi nhuận sau thuế | Tỷ đồng | KH 2023: 0,960 | TH 2023: 1,225 | 127,6",
+      "pdf": {
+        "bytes": 280072,
+        "path": "pdf/PDF_23/BHG_23CN_BCTN.pdf",
+        "sha256": "62a6808775bffb526b5f4894a463646522410469e7f3084407d498f987303702"
+      },
+      "page": 4,
+      "visual_review_png": {
+        "path": "tmp/pdfs/B_disclosures_v1/BHG-4.png",
+        "sha256": "6886bdc97391a67e43862904d6411e939e97a29868050512f11103e759fab3eb"
+      },
+      "sidecar": {
+        "path": "data/markdown/scope_unit_v2/BHG_23CN_BCTN--62a6808775bffb52.provenance.json",
+        "sha256": "7ad5f7902227c7a706bfc3eceaf81a93464666f4401d7d06e0c100ed4ef434b3"
+      }
+    },
+    {
+      "case_id": "additional-hav-net",
+      "markdown": "data/markdown/scope_unit_v2/HAV_23CN_BCTN--e57968185e1c63bc.md",
+      "line_number": 300,
+      "source_row": "1. Doanh thu thuần | Thực hiện năm 2022: 1.055 | Kế hoạch năm 2023: 1.130 | Thực hiện năm 2023: 2.341 | 122% | 107%",
+      "pdf": {
+        "bytes": 559116,
+        "path": "pdf/PDF_23/HAV_23CN_BCTN.pdf",
+        "sha256": "e57968185e1c63bcf76bbb3cedb2f0dd252e787d7e2bcc4dae0e1a7c36de5a9a"
+      },
+      "page": 15,
+      "visual_review_png": {
+        "path": "tmp/pdfs/B_disclosures_v1/HAV-15.png",
+        "sha256": "cc6d794bb3cc308a990db2b42f420dc7ec350b579e53f090588ce44d982a1219"
+      },
+      "sidecar": {
+        "path": "data/markdown/scope_unit_v2/HAV_23CN_BCTN--e57968185e1c63bc.provenance.json",
+        "sha256": "1bfc10ce88805d100903d1bc9900e4e69484576f897c977f05c03f6f7eb94ec2"
+      }
+    },
+    {
+      "case_id": "additional-hav-difference",
+      "markdown": "data/markdown/scope_unit_v2/HAV_23CN_BCTN--e57968185e1c63bc.md",
+      "line_number": 300,
+      "source_row": "1. Doanh thu thuần | Thực hiện năm 2022: 1.055 | Kế hoạch năm 2023: 1.130 | Thực hiện năm 2023: 2.341 | 122% | 107%",
+      "pdf": {
+        "bytes": 559116,
+        "path": "pdf/PDF_23/HAV_23CN_BCTN.pdf",
+        "sha256": "e57968185e1c63bcf76bbb3cedb2f0dd252e787d7e2bcc4dae0e1a7c36de5a9a"
+      },
+      "page": 15,
+      "visual_review_png": {
+        "path": "tmp/pdfs/B_disclosures_v1/HAV-15.png",
+        "sha256": "cc6d794bb3cc308a990db2b42f420dc7ec350b579e53f090588ce44d982a1219"
+      },
+      "sidecar": {
+        "path": "data/markdown/scope_unit_v2/HAV_23CN_BCTN--e57968185e1c63bc.provenance.json",
+        "sha256": "1bfc10ce88805d100903d1bc9900e4e69484576f897c977f05c03f6f7eb94ec2"
+      }
+    }
+  ]
+}

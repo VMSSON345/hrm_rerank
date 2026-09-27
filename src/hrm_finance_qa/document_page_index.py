@@ -3,7 +3,7 @@ from __future__ import annotations
 import sqlite3
 import time
 from contextlib import closing
-from dataclasses import dataclass, replace
+from dataclasses import dataclass
 from hashlib import blake2b
 from pathlib import Path
 from typing import Sequence
@@ -13,18 +13,16 @@ from .document_sources import (
     EvidenceChunk,
     OCRConfig,
     SourceLine,
-    _clean_layout_line,
     _clean_line,
     _load_or_generate_mineru_pages,
-    assess_native_text,
     chunk_lines,
-    extract_native_pdf_pages,
+    _pdf_page_count,
     rank_chunks,
 )
 
 
 PAGE_INDEX_SCHEMA_VERSION = 2
-PAGE_INDEX_CONTENT_VERSION = 8
+PAGE_INDEX_CONTENT_VERSION = 9
 
 
 class DocumentPageIndexError(DocumentSourceError):
@@ -33,6 +31,8 @@ class DocumentPageIndexError(DocumentSourceError):
 
 @dataclass(frozen=True)
 class PageRecord:
+    """Index schema compatibility: native fields are empty in all new records."""
+
     document_fingerprint: str
     source_path: str
     source_name: str
@@ -87,7 +87,7 @@ class PageIndexedChunks:
 
 
 class DocumentPageIndex:
-    """Persistent native-text and MinerU index keyed by PDF fingerprint."""
+    """Persistent MinerU-only index keyed by PDF fingerprint."""
 
     def __init__(self, path: str | Path) -> None:
         self.path = Path(path).expanduser().resolve()
@@ -119,6 +119,8 @@ class DocumentPageIndex:
                 f"Page-level indexing currently supports PDF only: {source.name}"
             )
         ocr_config.validate()
+        if not ocr_config.enabled:
+            raise DocumentPageIndexError("PDF indexing requires MinerU; prepare Markdown first. Native PDF reading is disabled.")
         fingerprint = self.fingerprint(source)
         started_at = time.perf_counter()
         try:
@@ -132,7 +134,7 @@ class DocumentPageIndex:
                         not item.native_usable and item.ocr_state == "unavailable"
                         for item in cached
                     )
-                    if complete and not missing_mineru:
+                    if complete and not missing_mineru and all(item.extraction_method == "mineru" for item in cached):
                         return cached, PageIndexStats(
                             total_pages=len(cached),
                             native_pages=sum(item.native_usable for item in cached),
@@ -283,75 +285,27 @@ class DocumentPageIndex:
             for row in rows
         ]
 
-    @staticmethod
-    def _read_native_pages(path: Path) -> list[str]:
-        texts, _ = extract_native_pdf_pages(path)
-        return texts
-
     def _build_records(
-        self,
-        path: Path,
-        fingerprint: str,
-        *,
-        ocr_config: OCRConfig,
+        self, path: Path, fingerprint: str, *, ocr_config: OCRConfig,
     ) -> tuple[list[PageRecord], int]:
-        page_texts = self._read_native_pages(path)
-        assessments = [
-            assess_native_text(text, min_chars=ocr_config.min_native_chars)
-            for text in page_texts
-        ]
-        needs_mineru = [
-            ocr_config.enabled and not assessment.usable
-            for assessment in assessments
-        ]
-        mineru_pages: dict[int, list[str]] = {}
-        if any(needs_mineru):
-            mineru_pages = _load_or_generate_mineru_pages(
-                path, needs_mineru, ocr_config
-            )
-            for page_number, selected in enumerate(needs_mineru, start=1):
-                if selected:
-                    mineru_pages.setdefault(page_number, [])
-
+        page_count = _pdf_page_count(path)
+        pages = _load_or_generate_mineru_pages(path, [True] * page_count, ocr_config)
+        if not any(pages.values()):
+            raise DocumentPageIndexError(f"MinerU found no usable content in {path.name}")
         stat = path.stat()
-        records: list[PageRecord] = []
-        mineru_count = 0
-        for page_number, (native_text, assessment) in enumerate(
-            zip(page_texts, assessments), start=1
-        ):
-            cleaned_native = "\n".join(
-                cleaned
-                for raw in native_text.splitlines()
-                if (cleaned := _clean_layout_line(raw))
+        records = [
+            PageRecord(
+                document_fingerprint=fingerprint, source_path=str(path),
+                source_name=path.name, source_size=stat.st_size,
+                source_mtime_ns=stat.st_mtime_ns, page_number=number,
+                native_usable=False, native_score=0.0, native_reason="disabled",
+                native_text="", extraction_method="mineru",
+                searchable_text="\n".join(pages.get(number, [])),
+                ocr_state="high_quality",
             )
-            extracted_lines = mineru_pages.get(page_number, [])
-            if needs_mineru[page_number - 1]:
-                searchable = "\n".join(extracted_lines)
-                extraction_method = "mineru"
-                ocr_state = "high_quality"
-                mineru_count += 1
-            else:
-                searchable = cleaned_native
-                extraction_method = "native"
-                ocr_state = "not_needed" if assessment.usable else "unavailable"
-            records.append(
-                PageRecord(
-                    document_fingerprint=fingerprint,
-                    source_path=str(path),
-                    source_name=path.name,
-                    source_size=stat.st_size,
-                    source_mtime_ns=stat.st_mtime_ns,
-                    page_number=page_number,
-                    native_usable=assessment.usable,
-                    native_score=assessment.score,
-                    native_reason=assessment.reason,
-                    native_text=cleaned_native,
-                    extraction_method=extraction_method,
-                    searchable_text=searchable,
-                    ocr_state=ocr_state,
-                )
-            )
-        return records, mineru_count
+            for number in range(1, page_count + 1)
+        ]
+        return records, page_count
 
     @staticmethod
     def _replace_document(
@@ -429,14 +383,14 @@ def build_page_indexed_chunks(
     sources = [Path(item).expanduser().resolve() for item in documents]
     if any(source.suffix.lower() != ".pdf" for source in sources):
         raise DocumentPageIndexError(
-            "Page-level index requires an all-PDF input; use the legacy fallback for TXT"
+            "Page-level index requires PDF; read prepared Markdown/TXT with build_chunks"
         )
 
     index = DocumentPageIndex(index_path)
     records: list[PageRecord] = []
     stats_items: list[PageIndexStats] = []
     for source in sources:
-        index_ocr_config = replace(ocr_config, enabled=False, force=False)
+        index_ocr_config = ocr_config
         document_records, document_stats = index.load_or_build(
             source,
             ocr_config=index_ocr_config,
@@ -529,7 +483,7 @@ def _rank_page_records(
                 page_end=item.page_number,
                 line_start=item.page_number * 100_000,
                 line_end=item.page_number * 100_000,
-                text=(item.searchable_text if ocr_enabled else item.native_text),
+                text=item.searchable_text,
                 extraction_methods=(item.extraction_method,),
             )
         )
@@ -556,129 +510,35 @@ def _expand_page_neighbors(
 
 
 def _materialize_selected_pages(
-    selected: Sequence[PageRecord],
-    *,
-    all_records: Sequence[PageRecord],
-    index: DocumentPageIndex,
-    ocr_config: OCRConfig,
+    selected: Sequence[PageRecord], *, all_records: Sequence[PageRecord],
+    index: DocumentPageIndex, ocr_config: OCRConfig,
     prefer_mineru_for_selected_pages: bool = False,
 ) -> tuple[list[PageRecord], int, int, list[str]]:
-    output: list[PageRecord] = []
-    new_ocr_count = 0
-    cache_hits = 0
-    warnings: list[str] = []
-    by_source: dict[str, list[PageRecord]] = {}
-    for item in selected:
-        by_source.setdefault(item.source_path, []).append(item)
-    page_counts: dict[str, int] = {}
-    for item in all_records:
-        page_counts[item.source_path] = max(
-            page_counts.get(item.source_path, 0), item.page_number
-        )
-
-    for source_path, source_records in by_source.items():
-        pending: list[PageRecord] = []
-        for item in source_records:
-            requires_ocr = ocr_config.enabled and (
-                ocr_config.force
-                or not item.native_usable
-                or prefer_mineru_for_selected_pages
-            )
-            if not requires_ocr:
-                output.append(
-                    replace(
-                        item,
-                        extraction_method="native",
-                        searchable_text=item.native_text,
-                    )
-                )
-                continue
-            if _has_compatible_high_quality_ocr(item, ocr_config):
-                output.append(item)
-                cache_hits += 1
-            else:
-                pending.append(item)
-        if not pending:
-            continue
-        source = Path(source_path)
-        selected_mask = [False] * page_counts[source_path]
-        for item in pending:
-            selected_mask[item.page_number - 1] = True
-        try:
-            page_lines = _load_or_generate_mineru_pages(
-                source, selected_mask, ocr_config
-            )
-        except DocumentSourceError as exc:
-            if not prefer_mineru_for_selected_pages:
-                raise
-            warnings.append(
-                "Selective MinerU override was unavailable; retained native "
-                f"evidence for {source.name}: {exc}"
-            )
-            output.extend(
-                replace(
-                    item,
-                    extraction_method="native",
-                    searchable_text=item.native_text,
-                )
-                for item in pending
-            )
-            continue
-        updates: list[PageRecord] = []
-        for item in pending:
-            lines = page_lines.get(item.page_number, [])
-            new_ocr_count += 1
-            if lines:
-                updated = replace(
-                    item,
-                    extraction_method="mineru",
-                    searchable_text="\n".join(lines),
-                    ocr_state="high_quality",
-                )
-                updates.append(updated)
-                output.append(updated)
-            else:
-                # Do not destroy a previously useful indexed representation
-                # when a newly requested MinerU range yields no parsed line.
-                output.append(item)
-        index.update_records(updates)
-    output.sort(key=lambda item: (item.source_path, item.page_number))
-    return output, new_ocr_count, cache_hits, warnings
+    # Every page is prepared with MinerU before retrieval; there is no native override.
+    if not ocr_config.enabled or any(item.extraction_method != "mineru" for item in selected):
+        raise DocumentPageIndexError("Only prepared MinerU pages may supply PDF evidence")
+    return list(selected), 0, len(selected), []
 
 
 def _has_compatible_high_quality_ocr(
     item: PageRecord, config: OCRConfig
 ) -> bool:
     del config
-    return item.ocr_state == "high_quality" and item.extraction_method in {
-        "mineru",
-        "ocr",
-    }
+    return item.ocr_state == "high_quality" and item.extraction_method == "mineru"
 
 
 def _records_to_lines(
-    records: Sequence[PageRecord], *, ocr_enabled: bool
+    records: Sequence[PageRecord], *, ocr_enabled: bool,
 ) -> list[SourceLine]:
+    if not ocr_enabled or any(item.extraction_method != "mineru" for item in records):
+        raise DocumentPageIndexError("Only prepared MinerU pages may supply PDF evidence")
     output: list[SourceLine] = []
     for item in records:
-        text = item.searchable_text if ocr_enabled else item.native_text
-        method = item.extraction_method if ocr_enabled else "native"
-        for local_line, raw in enumerate(text.splitlines(), start=1):
-            cleaned = (
-                _clean_layout_line(raw)
-                if method == "native"
-                else _clean_line(raw)
-            )
-            if not cleaned:
-                continue
-            output.append(
-                SourceLine(
-                    source_path=item.source_path,
-                    source_name=item.source_name,
-                    page=item.page_number,
-                    line_number=item.page_number * 100_000 + local_line,
-                    text=cleaned,
-                    extraction_method=method,
-                )
-            )
+        for local_line, raw in enumerate(item.searchable_text.splitlines(), start=1):
+            if cleaned := _clean_line(raw):
+                output.append(SourceLine(
+                    source_path=item.source_path, source_name=item.source_name,
+                    page=item.page_number, line_number=item.page_number * 100_000 + local_line,
+                    text=cleaned, extraction_method="mineru",
+                ))
     return output

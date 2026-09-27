@@ -1,0 +1,323 @@
+{
+  "fixture_only": true,
+  "frozen_parent": "config/finhrm_B_verify_flex_v2_mutations.json",
+  "frozen_parent_sha256": "e5c95779051a98c67cdf3835ff4ac59c9f0fa60149a8ce2c70645cba674c37f7",
+  "method": "Deterministic source transformations specified by frozen P0 mutation list; no model output used. Original fixtures and oracles unchanged.",
+  "sources": {
+    "entity-boundary": {
+      "path": "config/finhrm_B_verify_flex_v2_fixtures/entity-boundary.md",
+      "sha256": "5928813d6f8fbbeeb99792a66ea92ea27a39a5049a135c409bfe3ff3fe70fa90"
+    },
+    "metric-distinct": {
+      "path": "config/finhrm_B_verify_flex_v2_fixtures/metric-distinct.md",
+      "sha256": "519afcbd43ce69c72cf02bac7157c23e8a9f7e5250597146814c9f5b481e1989"
+    },
+    "metric-distinct-set_owner_equal_to_charter": {
+      "path": "tmp/finhrm_B_verify_flex_v2_mutations/metric-distinct-set_owner_equal_to_charter.md",
+      "sha256": "fc0025620f4fd2b30fc074a8e5c0229ebfd98545eb6341a58e71bfe63dc9bfa3"
+    },
+    "historical-capital": {
+      "path": "config/finhrm_B_verify_flex_v2_fixtures/historical-capital.md",
+      "sha256": "efb0738145be0abc93167759837adfd0c19535fdcbcf44aedc58a4ae72e57072"
+    },
+    "missing-fact-date": {
+      "path": "config/finhrm_B_verify_flex_v2_fixtures/missing-fact-date.md",
+      "sha256": "519afcbd43ce69c72cf02bac7157c23e8a9f7e5250597146814c9f5b481e1989"
+    },
+    "wrong-report-year": {
+      "path": "config/finhrm_B_verify_flex_v2_fixtures/wrong-report-year.md",
+      "sha256": "519afcbd43ce69c72cf02bac7157c23e8a9f7e5250597146814c9f5b481e1989"
+    },
+    "undated-no-title": {
+      "path": "config/finhrm_B_verify_flex_v2_fixtures/undated-no-title.md",
+      "sha256": "86a3739874afada6a8534253ca9c41c9d493673023420db27ff6b72915a542dc"
+    },
+    "plan-actual": {
+      "path": "config/finhrm_B_verify_flex_v2_fixtures/plan-actual.md",
+      "sha256": "390279ddfd83f6db901f9cd82e66c5e392250e838f79f999820f5f0b14a7af69"
+    },
+    "explicit-scope": {
+      "path": "config/finhrm_B_verify_flex_v2_fixtures/explicit-scope.md",
+      "sha256": "519afcbd43ce69c72cf02bac7157c23e8a9f7e5250597146814c9f5b481e1989"
+    },
+    "conflicting-facts": {
+      "path": "config/finhrm_B_verify_flex_v2_fixtures/conflicting-facts.md",
+      "sha256": "d0665f729452c8df80f24b01a94c546c1b9b4c350d32b2b796829f10776f2d5b"
+    },
+    "unit-scale": {
+      "path": "config/finhrm_B_verify_flex_v2_fixtures/unit-scale.md",
+      "sha256": "3570a56eb5e6a279aebe10d51495fe9f3a08700bc592a6613abd149db082419e"
+    },
+    "unit-scale-remove_monetary_unit": {
+      "path": "tmp/finhrm_B_verify_flex_v2_mutations/unit-scale-remove_monetary_unit.md",
+      "sha256": "c6fa76159d79fcd27e3fffcf35c1d4b08a56304e809f162c417cb8323d17cc84"
+    },
+    "unit-scale-conflicting_units": {
+      "path": "tmp/finhrm_B_verify_flex_v2_mutations/unit-scale-conflicting_units.md",
+      "sha256": "480a0aa0ac1ea6e837e1bb5cda3b421f6ec13598b41622f79e801e27ae333da3"
+    },
+    "unit-scale-replace_field_with_share_count": {
+      "path": "tmp/finhrm_B_verify_flex_v2_mutations/unit-scale-replace_field_with_share_count.md",
+      "sha256": "e0a20230ac8cd25fc2b6096eed1793be80300d9704de56ba6ea50f965edccb7f"
+    },
+    "witness-integrity": {
+      "path": "config/finhrm_B_verify_flex_v2_fixtures/witness-integrity.md",
+      "sha256": "519afcbd43ce69c72cf02bac7157c23e8a9f7e5250597146814c9f5b481e1989"
+    },
+    "invariance": {
+      "path": "config/finhrm_B_verify_flex_v2_fixtures/invariance.md",
+      "sha256": "519afcbd43ce69c72cf02bac7157c23e8a9f7e5250597146814c9f5b481e1989"
+    },
+    "invariance-rename_company": {
+      "path": "tmp/finhrm_B_verify_flex_v2_mutations/invariance-rename_company.md",
+      "sha256": "a202631152bad773138be7d3f5c4f27bd8077d7ff1b86e2f97e249f7d6632519"
+    },
+    "invariance-change_report_year": {
+      "path": "tmp/finhrm_B_verify_flex_v2_mutations/invariance-change_report_year.md",
+      "sha256": "76c876b1bcc8822796298fd43776b28312a9bb210acffcbb500b8dfb2dbd6566"
+    },
+    "invariance-change_charter_value": {
+      "path": "tmp/finhrm_B_verify_flex_v2_mutations/invariance-change_charter_value.md",
+      "sha256": "5a9039af707cbf9820eb91841c4e7f5cb52a3cf62d7adfa1e76201345974fea0"
+    },
+    "invariance-move_page": {
+      "path": "tmp/finhrm_B_verify_flex_v2_mutations/invariance-move_page.md",
+      "sha256": "d7e3b43977989a9597fe9badf76f75d50a610f10183fe9002146fc224a562f33"
+    },
+    "invariance-switch_document": {
+      "path": "tmp/finhrm_B_verify_flex_v2_mutations/invariance-switch_document.md",
+      "sha256": "519afcbd43ce69c72cf02bac7157c23e8a9f7e5250597146814c9f5b481e1989"
+    }
+  },
+  "cases": [
+    {
+      "case_id": "entity-boundary",
+      "source_id": "entity-boundary",
+      "question": "Vốn điều lệ là bao nhiêu",
+      "split": "mutations",
+      "expected_action": "ANSWER",
+      "expected_canonical": "123000000000"
+    },
+    {
+      "case_id": "metric-distinct",
+      "source_id": "metric-distinct",
+      "question": "Vốn đầu tư của chủ sở hữu là bao nhiêu",
+      "split": "mutations",
+      "expected_action": "ANSWER",
+      "expected_canonical": "127000000000"
+    },
+    {
+      "case_id": "metric-distinct-set_owner_equal_to_charter",
+      "source_id": "metric-distinct-set_owner_equal_to_charter",
+      "question": "Vốn đầu tư của chủ sở hữu là bao nhiêu",
+      "split": "mutations",
+      "expected_action": "ANSWER",
+      "expected_canonical": "123000000000",
+      "transformation": {
+        "operation": "set_owner_equal_to_charter",
+        "expected_metric": "vốn đầu tư của chủ sở hữu",
+        "expected_value": "123000000000"
+      },
+      "parent_fixture": "metric-distinct"
+    },
+    {
+      "case_id": "historical-capital",
+      "source_id": "historical-capital",
+      "question": "Vốn điều lệ là bao nhiêu",
+      "split": "mutations",
+      "expected_action": "ANSWER",
+      "expected_canonical": "123000000000"
+    },
+    {
+      "case_id": "missing-fact-date",
+      "source_id": "missing-fact-date",
+      "question": "Vốn điều lệ tại ngày 31/12/2031 là bao nhiêu?",
+      "split": "mutations",
+      "expected_action": "WITHHOLD",
+      "expected_canonical": null
+    },
+    {
+      "case_id": "wrong-report-year",
+      "source_id": "wrong-report-year",
+      "question": "Vốn điều lệ được nêu trong báo cáo năm 2032 là bao nhiêu?",
+      "split": "mutations",
+      "expected_action": "WITHHOLD",
+      "expected_canonical": null
+    },
+    {
+      "case_id": "undated-no-title",
+      "source_id": "undated-no-title",
+      "question": "Vốn điều lệ là bao nhiêu",
+      "split": "mutations",
+      "expected_action": "ANSWER",
+      "expected_canonical": "123000000000"
+    },
+    {
+      "case_id": "plan-actual",
+      "source_id": "plan-actual",
+      "question": "Doanh thu thuần năm 2031 là bao nhiêu đồng?",
+      "split": "mutations",
+      "expected_action": "ANSWER",
+      "expected_canonical": "250000000"
+    },
+    {
+      "case_id": "explicit-scope",
+      "source_id": "explicit-scope",
+      "question": "Vốn điều lệ hợp nhất là bao nhiêu?",
+      "split": "mutations",
+      "expected_action": "WITHHOLD",
+      "expected_canonical": null
+    },
+    {
+      "case_id": "conflicting-facts",
+      "source_id": "conflicting-facts",
+      "question": "Vốn điều lệ là bao nhiêu",
+      "split": "mutations",
+      "expected_action": "WITHHOLD",
+      "expected_canonical": null
+    },
+    {
+      "case_id": "unit-scale",
+      "source_id": "unit-scale",
+      "question": "Vốn điều lệ là bao nhiêu",
+      "split": "mutations",
+      "expected_action": "ANSWER",
+      "expected_canonical": "123000000000"
+    },
+    {
+      "case_id": "unit-scale-remove_monetary_unit",
+      "source_id": "unit-scale-remove_monetary_unit",
+      "question": "Vốn điều lệ là bao nhiêu",
+      "split": "mutations",
+      "expected_action": "ANSWER",
+      "expected_canonical": "123000",
+      "transformation": {
+        "operation": "remove_monetary_unit",
+        "expected_action": "ANSWER",
+        "expected_value": "123000"
+      },
+      "parent_fixture": "unit-scale"
+    },
+    {
+      "case_id": "unit-scale-conflicting_units",
+      "source_id": "unit-scale-conflicting_units",
+      "question": "Vốn điều lệ là bao nhiêu",
+      "split": "mutations",
+      "expected_action": "WITHHOLD",
+      "expected_canonical": null,
+      "transformation": {
+        "operation": "conflicting_units",
+        "expected_action": "WITHHOLD"
+      },
+      "parent_fixture": "unit-scale"
+    },
+    {
+      "case_id": "unit-scale-replace_field_with_share_count",
+      "source_id": "unit-scale-replace_field_with_share_count",
+      "question": "Số cổ phần là bao nhiêu?",
+      "split": "mutations",
+      "expected_action": "FORBID_VND",
+      "expected_canonical": null,
+      "transformation": {
+        "operation": "replace_field_with_share_count",
+        "question": "Số cổ phần là bao nhiêu?",
+        "forbid_canonical_unit": "VND"
+      },
+      "parent_fixture": "unit-scale"
+    },
+    {
+      "case_id": "witness-integrity",
+      "source_id": "witness-integrity",
+      "question": "Vốn điều lệ là bao nhiêu",
+      "split": "mutations",
+      "expected_action": "ANSWER",
+      "expected_canonical": "123000000000"
+    },
+    {
+      "case_id": "invariance",
+      "source_id": "invariance",
+      "question": "Vốn điều lệ là bao nhiêu",
+      "split": "mutations",
+      "expected_action": "ANSWER",
+      "expected_canonical": "123000000000"
+    },
+    {
+      "case_id": "invariance-rename_company",
+      "source_id": "invariance-rename_company",
+      "question": "Vốn điều lệ là bao nhiêu",
+      "split": "mutations",
+      "expected_action": "ANSWER",
+      "expected_canonical": "123000000000",
+      "transformation": {
+        "operation": "rename_company",
+        "replacement": "CÔNG TY CỔ PHẦN BÌNH MINH",
+        "expected_value": "123000000000"
+      },
+      "parent_fixture": "invariance"
+    },
+    {
+      "case_id": "invariance-change_report_year",
+      "source_id": "invariance-change_report_year",
+      "question": "Vốn điều lệ là bao nhiêu",
+      "split": "mutations",
+      "expected_action": "ANSWER",
+      "expected_canonical": "123000000000",
+      "transformation": {
+        "operation": "change_report_year",
+        "replacement": "2037",
+        "expected_value": "123000000000"
+      },
+      "parent_fixture": "invariance"
+    },
+    {
+      "case_id": "invariance-change_charter_value",
+      "source_id": "invariance-change_charter_value",
+      "question": "Vốn điều lệ là bao nhiêu",
+      "split": "mutations",
+      "expected_action": "ANSWER",
+      "expected_canonical": "321000000000",
+      "transformation": {
+        "operation": "change_charter_value",
+        "replacement": "321.000.000.000",
+        "expected_value": "321000000000"
+      },
+      "parent_fixture": "invariance"
+    },
+    {
+      "case_id": "invariance-move_page",
+      "source_id": "invariance-move_page",
+      "question": "Vốn điều lệ là bao nhiêu",
+      "split": "mutations",
+      "expected_action": "ANSWER",
+      "expected_canonical": "123000000000",
+      "transformation": {
+        "operation": "move_page",
+        "replacement": 7,
+        "expected_value": "123000000000"
+      },
+      "parent_fixture": "invariance"
+    },
+    {
+      "case_id": "invariance-switch_document",
+      "source_id": "invariance-switch_document",
+      "question": "Vốn đầu tư của chủ sở hữu là bao nhiêu",
+      "split": "mutations",
+      "expected_action": "ANSWER",
+      "expected_canonical": "127000000000",
+      "transformation": {
+        "operation": "switch_document",
+        "target": "metric-distinct",
+        "question": "Vốn đầu tư của chủ sở hữu là bao nhiêu",
+        "expected_value": "127000000000"
+      },
+      "parent_fixture": "invariance"
+    }
+  ],
+  "non_http_mutations": [
+    "tamper_value",
+    "tamper_hash",
+    "tamper_span",
+    "tamper_source",
+    "reverse_candidate_order"
+  ]
+}

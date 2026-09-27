@@ -1,0 +1,17 @@
+{
+  "created_at": "2026-09-10T15:56:34.301171+00:00",
+  "parent_protocol": "config/finhrm_B_report_fields_protocol_v1.json",
+  "snapshot": {
+    "path": "archive/B_entity_owner_parent_v1.zip",
+    "sha256": "c5f837813d50c6728f0544d0375fd8df21466d9ac34877622e6aca377953ed14"
+  },
+  "criteria": [
+    "B only; same checkpoint, full MinerU artifacts, executor/certificate; no training/OCR.",
+    "Ownership follows source section/relationship and company-name declarations, independent of question or values.",
+    "Keep accounting consolidation/separate scope distinct from legal-entity parent/subsidiary relationships.",
+    "Record source-owned evidence and boundaries; ambiguous/missing company names remain unresolved.",
+    "Use the same entity checks in selection and verification; no company/page/value/testcase branches.",
+    "Preserve 25 correct publications and 11 expected withholdings on fixed38; CMS2 remain unscored.",
+    "Preserve separate prior4, recover HAV reporting-company capital; freeze extra questions before inference and retain failures."
+  ]
+}

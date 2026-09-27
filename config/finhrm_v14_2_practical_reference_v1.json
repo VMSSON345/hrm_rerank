@@ -1,0 +1,197 @@
+{
+  "schema": "practical-probe-source-reference-v1",
+  "scope": "Exploratory cross-report development probe. Sources already seen in development; no independent/holdout/generalization certification. Frozen before this HTTP run. No runtime edits.",
+  "cases": [
+    {
+      "case_id": "practical-01",
+      "cohort": "control_new_wording",
+      "metric": "loi nhuan sau thue",
+      "operand_values_vnd": [
+        "461013161"
+      ],
+      "years": [
+        "2023"
+      ],
+      "role": "actual",
+      "expected_source_missing": false
+    },
+    {
+      "case_id": "practical-02",
+      "cohort": "previous_control",
+      "metric": "loi nhuan sau thue",
+      "operand_values_vnd": [
+        "4800000000"
+      ],
+      "years": [
+        "2023"
+      ],
+      "role": "plan",
+      "expected_source_missing": false
+    },
+    {
+      "case_id": "practical-03",
+      "cohort": "control_new_wording",
+      "metric": "loi nhuan truoc thue",
+      "operand_values_vnd": [
+        "579148096"
+      ],
+      "years": [
+        "2023"
+      ],
+      "role": "actual",
+      "expected_source_missing": false
+    },
+    {
+      "case_id": "practical-04",
+      "cohort": "additional_known_development_report",
+      "metric": "doanh thu thuan",
+      "operand_values_vnd": [
+        "2341000000"
+      ],
+      "years": [
+        "2023"
+      ],
+      "role": "actual",
+      "expected_source_missing": false
+    },
+    {
+      "case_id": "practical-05",
+      "cohort": "additional_known_development_report",
+      "metric": "doanh thu thuan",
+      "operand_values_vnd": [
+        "2341000000"
+      ],
+      "years": [
+        "2023"
+      ],
+      "role": "actual",
+      "expected_source_missing": false
+    },
+    {
+      "case_id": "practical-06",
+      "cohort": "additional_known_development_report",
+      "metric": "doanh thu thuan",
+      "operand_values_vnd": [
+        "2341000000",
+        "1055000000"
+      ],
+      "years": [
+        "2023",
+        "2022"
+      ],
+      "role": "actual",
+      "expected_source_missing": false
+    },
+    {
+      "case_id": "practical-07",
+      "cohort": "additional_known_development_report",
+      "metric": "loi nhuan sau thue",
+      "operand_values_vnd": [
+        "60847000000"
+      ],
+      "years": [
+        "2024"
+      ],
+      "role": "actual",
+      "expected_source_missing": false
+    },
+    {
+      "case_id": "practical-08",
+      "cohort": "additional_known_development_report",
+      "metric": "loi nhuan sau thue",
+      "operand_values_vnd": [
+        "60847000000"
+      ],
+      "years": [
+        "2024"
+      ],
+      "role": "actual",
+      "expected_source_missing": false
+    },
+    {
+      "case_id": "practical-09",
+      "cohort": "additional_known_development_report",
+      "metric": "loi nhuan sau thue",
+      "operand_values_vnd": [
+        "5242000000"
+      ],
+      "years": [
+        "2024"
+      ],
+      "role": "plan",
+      "expected_source_missing": false
+    },
+    {
+      "case_id": "practical-10",
+      "cohort": "previous_missing_control",
+      "metric": "doanh thu thuan",
+      "operand_values_vnd": [],
+      "years": [
+        "2023"
+      ],
+      "role": "actual",
+      "expected_source_missing": true
+    }
+  ],
+  "equivalent_question_pairs": [
+    [
+      "practical-04",
+      "practical-05"
+    ],
+    [
+      "practical-07",
+      "practical-08"
+    ]
+  ],
+  "semantic_contrast_pairs": [
+    [
+      "practical-01",
+      "practical-02"
+    ],
+    [
+      "practical-01",
+      "practical-03"
+    ],
+    [
+      "practical-07",
+      "practical-09"
+    ]
+  ],
+  "source_reviews": [
+    {
+      "source": "HAV",
+      "pdf_path": "pdf/PDF_23/HAV_23CN_BCTN.pdf",
+      "physical_pages": [
+        20
+      ],
+      "review": "Visual review of existing full-page rendering: financial table, million VND, 2022 revenue 1055, 2023 revenue 2341.",
+      "sha256": "e57968185e1c63bcf76bbb3cedb2f0dd252e787d7e2bcc4dae0e1a7c36de5a9a"
+    },
+    {
+      "source": "SSG",
+      "pdf_path": "pdf/PDF_24/PDF_24/SSG_24CN_BCTN.pdf",
+      "physical_pages": [
+        4
+      ],
+      "review": "Visual review of existing full-page rendering: million VND; 2024 LNST plan 5242 versus actual 60847; multi-row header verified.",
+      "sha256": "03525afbe2d1c74e6b50d26062c604b13364ca3bf2c95c4529185facd34f2e7b"
+    },
+    {
+      "source": "HKT",
+      "pdf_path": "pdf/PDF_23/HKT_23CN_BCTN.pdf",
+      "physical_pages": [
+        8,
+        9,
+        11
+      ],
+      "review": "Reuse earlier reviewed source facts in reading implementation and table_context_source_review_v2; actual LNST 461013161, plan 4800000000, actual LNTT 579148096.",
+      "sha256": "91cc265d0be6d75ee319c6821efd5231b3ae6fa41f63d076568331e9eee9d1f0"
+    },
+    {
+      "source": "ASM",
+      "markdown_path": "data/markdown/ASM_23CN_BCTN--6e1bff5169b34a91.md",
+      "review": "Read full one-page announcement; no requested financial figures. Missing only in supplied document, not a claim about all company sources.",
+      "sha256": "747886793a62056d727f8b1628efe78d294fa4942c1277d519f7b85cd7158ead"
+    }
+  ]
+}

@@ -214,17 +214,59 @@ def _tokens(text: str) -> set[str]:
     }
 
 
+def _normalize_metric_ocr_text(text: str) -> str:
+    """Repair only explicit, generic OCR fractures of financial vocabulary."""
+
+    normalized = normalize_text(text).strip()
+    normalized = re.sub(
+        r"\b(?:lai|loi nhuan)\s+tr\s+c\s+thu\b",
+        "loi nhuan truoc thue",
+        normalized,
+    )
+    normalized = re.sub(
+        r"\b(?:lai|loi nhuan)\s+sau\s+thu\b",
+        "loi nhuan sau thue",
+        normalized,
+    )
+    return normalized
+
+
+def _exclusive_metric_modifiers(text: str) -> dict[str, str]:
+    """Return source-explicit metric qualifiers that cannot be synonyms."""
+
+    padded = f" {_normalize_metric_ocr_text(text)} "
+    modifiers: dict[str, str] = {}
+    if " truoc thue " in padded:
+        modifiers["tax_basis"] = "before_tax"
+    elif " sau thue " in padded:
+        modifiers["tax_basis"] = "after_tax"
+    if " ngan han " in padded:
+        modifiers["maturity"] = "short_term"
+    elif " dai han " in padded:
+        modifiers["maturity"] = "long_term"
+    return modifiers
+
+
 def metric_alias_score(text: str, aliases: Iterable[str]) -> float:
     """Score a metric against auditable aliases without issuer-specific data."""
 
-    observed = normalize_text(text).strip()
+    observed = _normalize_metric_ocr_text(text)
     observed_tokens = _tokens(observed)
     observed_compact = re.sub(r"[^a-z0-9]+", "", observed)
+    observed_modifiers = _exclusive_metric_modifiers(observed)
     best = 0.0
     for alias in aliases:
-        expected = normalize_text(alias).strip()
+        expected = _normalize_metric_ocr_text(alias)
         expected_tokens = _tokens(expected)
         expected_compact = re.sub(r"[^a-z0-9]+", "", expected)
+        expected_modifiers = _exclusive_metric_modifiers(expected)
+        if any(
+            name in observed_modifiers
+            and name in expected_modifiers
+            and observed_modifiers[name] != expected_modifiers[name]
+            for name in observed_modifiers.keys() | expected_modifiers.keys()
+        ):
+            continue
         if not expected_tokens or not observed_tokens:
             continue
         if observed_compact == expected_compact:

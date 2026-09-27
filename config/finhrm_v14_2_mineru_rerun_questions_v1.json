@@ -1,0 +1,45 @@
+{
+  "cases": [
+    {
+      "case_id": "new-report-01",
+      "source_id": "ACG",
+      "question": "Doanh thu thuần hợp nhất năm 2025 là bao nhiêu?"
+    },
+    {
+      "case_id": "new-report-02",
+      "source_id": "ACG",
+      "question": "Cho biết doanh thu thuần hợp nhất năm 2025 là bao nhiêu?"
+    },
+    {
+      "case_id": "new-report-03",
+      "source_id": "AGP",
+      "question": "Doanh thu thuần kế hoạch năm 2026 là bao nhiêu?"
+    },
+    {
+      "case_id": "new-report-04",
+      "source_id": "AGP",
+      "question": "Doanh thu thuần năm 2025 là bao nhiêu?"
+    },
+    {
+      "case_id": "new-report-05",
+      "source_id": "AGP",
+      "question": "Doanh thu thuần năm 2025 tăng bao nhiêu tỷ đồng so với năm 2024?"
+    },
+    {
+      "case_id": "new-report-06",
+      "source_id": "ALT",
+      "question": "Lợi nhuận sau thuế thực hiện năm 2025 là bao nhiêu?"
+    },
+    {
+      "case_id": "new-report-07",
+      "source_id": "ALT",
+      "question": "Lợi nhuận sau thuế kế hoạch năm 2026 là bao nhiêu?"
+    },
+    {
+      "case_id": "new-report-08",
+      "source_id": "ALT",
+      "question": "Lợi nhuận sau thuế năm 2025 hoặc năm 2026 là bao nhiêu?"
+    }
+  ],
+  "lineage": "Same eight questions and PDF references; ACG/ALT have training exposure, no unseen-source claim."
+}

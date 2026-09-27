@@ -1,0 +1,793 @@
+{
+  "cases": [
+    {
+      "case_id": "s15-001",
+      "question": "Theo báo cáo, doanh thu thuần năm 2023 của doanh nghiệp mã GGG là bao nhiêu đồng?",
+      "question_sha256": "52bb9dff3dc6c04c569a3c862611619a68728929c02c250ead361e327189f8bd",
+      "source_id": "GGG"
+    },
+    {
+      "case_id": "s15-002",
+      "question": "Theo báo cáo, lợi nhuận sau thuế năm 2023 của doanh nghiệp mã GGG là bao nhiêu đồng?",
+      "question_sha256": "e7558ea788b3c0413e6d1d6a8d4e33e651588d6cb09762d83e8a9e8315dbca7c",
+      "source_id": "GGG"
+    },
+    {
+      "case_id": "s15-003",
+      "question": "Doanh thu thuần năm 2023 của doanh nghiệp mã GGG chênh lệch bao nhiêu đồng so với năm 2022? Hãy tính năm 2023 trừ năm 2022.",
+      "question_sha256": "af8441baf40797daa5baf42cb15e743617dc5c1fe80111b013075f11f67e080a",
+      "source_id": "GGG"
+    },
+    {
+      "case_id": "s15-004",
+      "question": "Lợi nhuận sau thuế năm 2023 của doanh nghiệp mã GGG chênh lệch bao nhiêu đồng so với năm 2022? Hãy tính năm 2023 trừ năm 2022.",
+      "question_sha256": "8d5ca9fe3a52c93eba6e23b499b947d79c64a6bd9caab26c17298caa51cd5d0a",
+      "source_id": "GGG"
+    },
+    {
+      "case_id": "s15-005",
+      "question": "Hãy trả lời riêng: (1) Doanh thu thuần năm 2023 của doanh nghiệp mã GGG là bao nhiêu đồng? (2) Lợi nhuận sau thuế năm 2023 của doanh nghiệp mã GGG là bao nhiêu đồng?",
+      "question_sha256": "5ebcabb81d3bc8d36e815858b8a1433b0bbb68c2adc3e053c49b7b851568e185",
+      "source_id": "GGG"
+    },
+    {
+      "case_id": "s15-006",
+      "question": "Theo báo cáo, tổng giá trị tài sản năm 2023 của doanh nghiệp mã GGG là bao nhiêu đồng?",
+      "question_sha256": "3cf528c347533135d7f6d7aedb18436f4c0f9e7dfb726180ed254c11e26ad0b6",
+      "source_id": "GGG"
+    },
+    {
+      "case_id": "s15-007",
+      "question": "Theo báo cáo, doanh thu thuần năm 2023 của doanh nghiệp mã BHG là bao nhiêu đồng?",
+      "question_sha256": "d5e84c91a6d1b9a6b477cb2ac15a259d2e4bbd3348be7f8df760be381d044330",
+      "source_id": "BHG"
+    },
+    {
+      "case_id": "s15-008",
+      "question": "Theo báo cáo, lợi nhuận sau thuế năm 2023 của doanh nghiệp mã BHG là bao nhiêu đồng?",
+      "question_sha256": "432d56e95ccd0a218649894fd90875ca5dd9ff93d7a44fd72f8fd624ae263204",
+      "source_id": "BHG"
+    },
+    {
+      "case_id": "s15-009",
+      "question": "Doanh thu thuần năm 2023 của doanh nghiệp mã BHG chênh lệch bao nhiêu đồng so với năm 2022? Hãy tính năm 2023 trừ năm 2022.",
+      "question_sha256": "2ff0c0d89e5236a7799675c3da9ad07cc1f02d59ba18b06855fd52ce8bba7627",
+      "source_id": "BHG"
+    },
+    {
+      "case_id": "s15-010",
+      "question": "Lợi nhuận sau thuế năm 2023 của doanh nghiệp mã BHG chênh lệch bao nhiêu đồng so với năm 2022? Hãy tính năm 2023 trừ năm 2022.",
+      "question_sha256": "7f72569a3a23624b16d4da2d1c55cda0c37ec698c0436f0492f01eb9470ee01e",
+      "source_id": "BHG"
+    },
+    {
+      "case_id": "s15-011",
+      "question": "Hãy trả lời riêng: (1) Doanh thu thuần năm 2023 của doanh nghiệp mã BHG là bao nhiêu đồng? (2) Lợi nhuận sau thuế năm 2023 của doanh nghiệp mã BHG là bao nhiêu đồng?",
+      "question_sha256": "e71d346454b3f095551d71627e95de04d23b7485a0dba77cb19aa274d73fc950",
+      "source_id": "BHG"
+    },
+    {
+      "case_id": "s15-012",
+      "question": "Theo báo cáo, tổng giá trị tài sản năm 2023 của doanh nghiệp mã BHG là bao nhiêu đồng?",
+      "question_sha256": "28da03d7d465cf01ca28cf0c8c8dd79cfa9b4b1db9cc85a80bb872d39f421474",
+      "source_id": "BHG"
+    },
+    {
+      "case_id": "s15-013",
+      "question": "Theo báo cáo, doanh thu thuần năm 2023 của doanh nghiệp mã BSD là bao nhiêu đồng?",
+      "question_sha256": "290c49d13c5ea114430b536dc0efe77cf5d5ca8b00d26f51bb7cbda0080933b2",
+      "source_id": "BSD"
+    },
+    {
+      "case_id": "s15-014",
+      "question": "Theo báo cáo, lợi nhuận sau thuế năm 2023 của doanh nghiệp mã BSD là bao nhiêu đồng?",
+      "question_sha256": "b738158aa1ab2d31a5ee89a3389232bb2adf0cba456343ce82704d36139cac15",
+      "source_id": "BSD"
+    },
+    {
+      "case_id": "s15-015",
+      "question": "Doanh thu thuần năm 2023 của doanh nghiệp mã BSD chênh lệch bao nhiêu đồng so với năm 2022? Hãy tính năm 2023 trừ năm 2022.",
+      "question_sha256": "a3a88b7b682a8ada3387715a5d5164c55f264125560e4404a8537e16c23284ec",
+      "source_id": "BSD"
+    },
+    {
+      "case_id": "s15-016",
+      "question": "Lợi nhuận sau thuế năm 2023 của doanh nghiệp mã BSD chênh lệch bao nhiêu đồng so với năm 2022? Hãy tính năm 2023 trừ năm 2022.",
+      "question_sha256": "4c1f1db73ccfbc681fc3064dbd7e8d4f1cf17981aa819bfdb26fac0bd2e445c2",
+      "source_id": "BSD"
+    },
+    {
+      "case_id": "s15-017",
+      "question": "Hãy trả lời riêng: (1) Doanh thu thuần năm 2023 của doanh nghiệp mã BSD là bao nhiêu đồng? (2) Lợi nhuận sau thuế năm 2023 của doanh nghiệp mã BSD là bao nhiêu đồng?",
+      "question_sha256": "af9fbe449634518b9e35983b280217b9014aaf92e96624950916dce7a4f81bbc",
+      "source_id": "BSD"
+    },
+    {
+      "case_id": "s15-018",
+      "question": "Theo báo cáo, tổng giá trị tài sản năm 2023 của doanh nghiệp mã BSD là bao nhiêu đồng?",
+      "question_sha256": "69d12f18d2affb3c5bfc3f984bef0afdbc7b7f0fad14239bc72524cd33f60e5e",
+      "source_id": "BSD"
+    },
+    {
+      "case_id": "s15-019",
+      "question": "Theo báo cáo, doanh thu thuần về bán hàng và cung cấp dịch vụ năm 2023 của toàn hệ thống của doanh nghiệp mã CMS là bao nhiêu đồng?",
+      "question_sha256": "bbff9b983d02b892d8c93f07381be6f5a5bedb1f37b3845fadd22a9f46101433",
+      "source_id": "CMS"
+    },
+    {
+      "case_id": "s15-020",
+      "question": "Theo báo cáo, lợi nhuận sau thuế năm 2023 của toàn hệ thống của doanh nghiệp mã CMS là bao nhiêu đồng?",
+      "question_sha256": "41e36c4d6dadc15c61980fbf509d87ff7e98ca9576e5d6566e9cb6e42dc9314f",
+      "source_id": "CMS"
+    },
+    {
+      "case_id": "s15-021",
+      "question": "Doanh thu thuần về bán hàng và cung cấp dịch vụ năm 2023 của toàn hệ thống của doanh nghiệp mã CMS chênh lệch bao nhiêu đồng so với năm 2022? Hãy tính năm 2023 trừ năm 2022.",
+      "question_sha256": "a5be4920576752627e194bdc514d097f1574b8dc19873b97081227a57c88627b",
+      "source_id": "CMS"
+    },
+    {
+      "case_id": "s15-022",
+      "question": "Lợi nhuận sau thuế năm 2023 của toàn hệ thống của doanh nghiệp mã CMS chênh lệch bao nhiêu đồng so với năm 2022? Hãy tính năm 2023 trừ năm 2022.",
+      "question_sha256": "5ce7fb98817724f0542aec7ef2eeceee02231f29c89f0f8c4cece1a71353a1d1",
+      "source_id": "CMS"
+    },
+    {
+      "case_id": "s15-023",
+      "question": "Hãy trả lời riêng: (1) Doanh thu thuần về bán hàng và cung cấp dịch vụ năm 2023 của toàn hệ thống của doanh nghiệp mã CMS là bao nhiêu đồng? (2) Lợi nhuận sau thuế năm 2023 của toàn hệ thống của doanh nghiệp mã CMS là bao nhiêu đồng?",
+      "question_sha256": "2a99983bc9fb797e70456944b8654d24fdef25aaad1f8e384ff62c54f29a16bc",
+      "source_id": "CMS"
+    },
+    {
+      "case_id": "s15-024",
+      "question": "Theo báo cáo, tổng giá trị tài sản năm 2023 của toàn hệ thống của doanh nghiệp mã CMS là bao nhiêu đồng?",
+      "question_sha256": "60ce7720118fb0b8d08b39de9a6403245fd6d97e98fbd221114846cfff8a3ff5",
+      "source_id": "CMS"
+    },
+    {
+      "case_id": "s15-025",
+      "question": "Theo báo cáo, doanh thu thuần năm 2023 của doanh nghiệp mã HAV là bao nhiêu đồng?",
+      "question_sha256": "714bdfb2fb4411be931e4f33c5c4046c278b999a538f4d9c7d0c81fefb642186",
+      "source_id": "HAV"
+    },
+    {
+      "case_id": "s15-026",
+      "question": "Theo báo cáo, lợi nhuận sau thuế năm 2023 của doanh nghiệp mã HAV là bao nhiêu đồng?",
+      "question_sha256": "a2f37c33d8f03b7b32c2d53f9101304c403afb52b3d1d50b15b6f456444d4a29",
+      "source_id": "HAV"
+    },
+    {
+      "case_id": "s15-027",
+      "question": "Doanh thu thuần năm 2023 của doanh nghiệp mã HAV chênh lệch bao nhiêu đồng so với năm 2022? Hãy tính năm 2023 trừ năm 2022.",
+      "question_sha256": "aa57a6817f081c377f564db0b4c7ed90011860936f9be8fbd8d4ba8f8727f63f",
+      "source_id": "HAV"
+    },
+    {
+      "case_id": "s15-028",
+      "question": "Lợi nhuận sau thuế năm 2023 của doanh nghiệp mã HAV chênh lệch bao nhiêu đồng so với năm 2022? Hãy tính năm 2023 trừ năm 2022.",
+      "question_sha256": "9a700ccd73c13a3881575aafc983d1a8a14752f287401fbbe6e1ed9adea0ca66",
+      "source_id": "HAV"
+    },
+    {
+      "case_id": "s15-029",
+      "question": "Hãy trả lời riêng: (1) Doanh thu thuần năm 2023 của doanh nghiệp mã HAV là bao nhiêu đồng? (2) Lợi nhuận sau thuế năm 2023 của doanh nghiệp mã HAV là bao nhiêu đồng?",
+      "question_sha256": "ef1b292c052e8e38b7ff23493d46dd902d2192ed5e10f4c9fdad935d2d087c93",
+      "source_id": "HAV"
+    },
+    {
+      "case_id": "s15-030",
+      "question": "Theo báo cáo, doanh thu thuần năm 2023 của doanh nghiệp mã HKT là bao nhiêu đồng?",
+      "question_sha256": "ad3be200981efb6274ab1d31bbe08d59529d8945e224aeae93c77f59c1ac3b78",
+      "source_id": "HKT"
+    },
+    {
+      "case_id": "s15-031",
+      "question": "Theo báo cáo, lợi nhuận sau thuế năm 2023 của doanh nghiệp mã HKT là bao nhiêu đồng?",
+      "question_sha256": "071f1b6e447fd66b4edcfd65a4d994fc968908324aa719c13c3a023dba8dcc7c",
+      "source_id": "HKT"
+    },
+    {
+      "case_id": "s15-032",
+      "question": "Doanh thu thuần năm 2023 của doanh nghiệp mã HKT chênh lệch bao nhiêu đồng so với năm 2022? Hãy tính năm 2023 trừ năm 2022.",
+      "question_sha256": "379f0fb50a1fc1fcf09911ecd62296d8b22388fa62651af0be9f2d539b9a18dd",
+      "source_id": "HKT"
+    },
+    {
+      "case_id": "s15-033",
+      "question": "Lợi nhuận sau thuế năm 2023 của doanh nghiệp mã HKT chênh lệch bao nhiêu đồng so với năm 2022? Hãy tính năm 2023 trừ năm 2022.",
+      "question_sha256": "a007843bc658f030e0e617675cf9c7557cf9b93bda0cc99f502b1402ddd94af0",
+      "source_id": "HKT"
+    },
+    {
+      "case_id": "s15-034",
+      "question": "Hãy trả lời riêng: (1) Doanh thu thuần năm 2023 của doanh nghiệp mã HKT là bao nhiêu đồng? (2) Lợi nhuận sau thuế năm 2023 của doanh nghiệp mã HKT là bao nhiêu đồng?",
+      "question_sha256": "5134861e963a7c2d99962fd525930c9e2f1c08001ceb4fc1fcbecd4f1b775bea",
+      "source_id": "HKT"
+    },
+    {
+      "case_id": "s15-035",
+      "question": "Theo báo cáo, tổng giá trị tài sản năm 2023 của doanh nghiệp mã HKT là bao nhiêu đồng?",
+      "question_sha256": "1f3e57aa6f8976c211ac91e7f5e6609d0313fb13b3abeb98a9cc5e6768258191",
+      "source_id": "HKT"
+    },
+    {
+      "case_id": "s15-036",
+      "question": "Theo báo cáo, doanh thu thuần năm 2024 của Din Capital (mã PDB), theo mục 4 Tình hình tài chính là bao nhiêu đồng?",
+      "question_sha256": "12e11ce1313535e520cc2c9b196ebe3cb317b5fb94e7b2028d27ba967819effc",
+      "source_id": "PDB"
+    },
+    {
+      "case_id": "s15-037",
+      "question": "Theo báo cáo, lợi nhuận sau thuế năm 2024 của Din Capital (mã PDB), theo mục 4 Tình hình tài chính là bao nhiêu đồng?",
+      "question_sha256": "e3f233567551e8eaee6ed680cf57eafc16659b48a983c5c409067bf058466d41",
+      "source_id": "PDB"
+    },
+    {
+      "case_id": "s15-038",
+      "question": "Doanh thu thuần năm 2024 của Din Capital (mã PDB), theo mục 4 Tình hình tài chính chênh lệch bao nhiêu đồng so với năm 2023? Hãy tính năm 2024 trừ năm 2023.",
+      "question_sha256": "9780403ee450e1c4a649bbac3d1f5a13e78bbbbfd2f612f685333623cc4a240d",
+      "source_id": "PDB"
+    },
+    {
+      "case_id": "s15-039",
+      "question": "Lợi nhuận sau thuế năm 2024 của Din Capital (mã PDB), theo mục 4 Tình hình tài chính chênh lệch bao nhiêu đồng so với năm 2023? Hãy tính năm 2024 trừ năm 2023.",
+      "question_sha256": "41000158afc6edeed9aba390e26e6e428624436a71ed324224ff6c6071b19213",
+      "source_id": "PDB"
+    },
+    {
+      "case_id": "s15-040",
+      "question": "Hãy trả lời riêng: (1) Doanh thu thuần năm 2024 của Din Capital (mã PDB), theo mục 4 Tình hình tài chính là bao nhiêu đồng? (2) Lợi nhuận sau thuế năm 2024 của Din Capital (mã PDB), theo mục 4 Tình hình tài chính là bao nhiêu đồng?",
+      "question_sha256": "2c4d6328e09407c1a9bd910fe3c70c8bf27ce3dc687e5da6faa5beba7ec78385",
+      "source_id": "PDB"
+    },
+    {
+      "case_id": "s15-041",
+      "question": "Theo báo cáo, tổng giá trị tài sản năm 2024 của Din Capital (mã PDB), theo mục 4 Tình hình tài chính là bao nhiêu đồng?",
+      "question_sha256": "139c3fc97af4b99f07cef141e9feb1f52ed0e851ec8a2fa1304204b90abb8e07",
+      "source_id": "PDB"
+    },
+    {
+      "case_id": "s15-042",
+      "question": "Theo báo cáo, tổng doanh thu năm 2024 của doanh nghiệp mã SSG là bao nhiêu đồng?",
+      "question_sha256": "a6c945f8394862e57a516e38197fa20490c2048fdc9e0b6b12dade4fdfd174f6",
+      "source_id": "SSG"
+    },
+    {
+      "case_id": "s15-043",
+      "question": "Theo báo cáo, lợi nhuận sau thuế năm 2024 của doanh nghiệp mã SSG là bao nhiêu đồng?",
+      "question_sha256": "91e848797915ac23e557a4dd20d3a641f6f075af891ef131802a341fd3021147",
+      "source_id": "SSG"
+    },
+    {
+      "case_id": "s15-044",
+      "question": "Tổng doanh thu năm 2024 của doanh nghiệp mã SSG chênh lệch bao nhiêu đồng so với năm 2023? Hãy tính năm 2024 trừ năm 2023.",
+      "question_sha256": "43ff89b8477132cd1ce6be0257066f99ba21cceee793d1f5e02b241e89582d9f",
+      "source_id": "SSG"
+    },
+    {
+      "case_id": "s15-045",
+      "question": "Lợi nhuận sau thuế năm 2024 của doanh nghiệp mã SSG chênh lệch bao nhiêu đồng so với năm 2023? Hãy tính năm 2024 trừ năm 2023.",
+      "question_sha256": "582e87a922a16de924d3a532ebc967f83d31b15081ae1a7609ad05a11834af1f",
+      "source_id": "SSG"
+    },
+    {
+      "case_id": "s15-046",
+      "question": "Hãy trả lời riêng: (1) Tổng doanh thu năm 2024 của doanh nghiệp mã SSG là bao nhiêu đồng? (2) Lợi nhuận sau thuế năm 2024 của doanh nghiệp mã SSG là bao nhiêu đồng?",
+      "question_sha256": "8b51fe51e00899d7152524e5395274730cf5ba1959e58660fe61f92cd5429aa0",
+      "source_id": "SSG"
+    },
+    {
+      "case_id": "s15-047",
+      "question": "Doanh thu thuần năm 2023 của doanh nghiệp mã ASM là bao nhiêu đồng?",
+      "question_sha256": "c22e067b49b1583f2b67c829990eb25e75f07e5d58c2b10be1365544a82ffcaa",
+      "source_id": "ASM"
+    },
+    {
+      "case_id": "s15-048",
+      "question": "Doanh thu thuần năm 2023 của doanh nghiệp mã ASM chênh lệch bao nhiêu đồng so với năm 2022? Hãy tính năm 2023 trừ năm 2022.",
+      "question_sha256": "07684b813a28a82685a09f2fb23c28752b1f52ee70a36919fcaa5d01c719a04d",
+      "source_id": "ASM"
+    },
+    {
+      "case_id": "s15-049",
+      "question": "Doanh thu thuần năm 2023 của doanh nghiệp mã DAT là bao nhiêu đồng?",
+      "question_sha256": "8e129a241aca115b760550110be35ae56deca432eb6e9253c17c638afb0983bb",
+      "source_id": "DAT"
+    },
+    {
+      "case_id": "s15-050",
+      "question": "Doanh thu thuần năm 2023 của doanh nghiệp mã DAT chênh lệch bao nhiêu đồng so với năm 2022? Hãy tính năm 2023 trừ năm 2022.",
+      "question_sha256": "f38989f45a7b86f932a097018a1d8db4269153882865b7bfdeaa5a06800df73b",
+      "source_id": "DAT"
+    },
+    {
+      "case_id": "s15-051",
+      "question": "Doanh thu thuần năm 2023 của doanh nghiệp mã DXG là bao nhiêu đồng?",
+      "question_sha256": "a159816c1ca0afbf11486b9b3da00429b430060aa06e7b7df5cdfa96ef011c81",
+      "source_id": "DXG"
+    },
+    {
+      "case_id": "s15-052",
+      "question": "Doanh thu thuần năm 2023 của doanh nghiệp mã DXG chênh lệch bao nhiêu đồng so với năm 2022? Hãy tính năm 2023 trừ năm 2022.",
+      "question_sha256": "8ccf1c5750242915677fe0c67ce2c883dbe6c105860442b1b770a7225b7331cd",
+      "source_id": "DXG"
+    },
+    {
+      "case_id": "s15-053",
+      "question": "Doanh thu thuần năm 2023 của doanh nghiệp mã HVH là bao nhiêu đồng?",
+      "question_sha256": "b5cd0f1d1ae623ff8409d0898fa10a62f1af94080301c4a02472a24b87942e1d",
+      "source_id": "HVH"
+    },
+    {
+      "case_id": "s15-054",
+      "question": "Doanh thu thuần năm 2023 của doanh nghiệp mã HVH chênh lệch bao nhiêu đồng so với năm 2022? Hãy tính năm 2023 trừ năm 2022.",
+      "question_sha256": "fb737131810622110c4048160dbfe72d5849931d96894c27c0e84ac71d045cb6",
+      "source_id": "HVH"
+    },
+    {
+      "case_id": "s15-055",
+      "question": "Doanh thu thuần năm 2023 của doanh nghiệp mã NSC là bao nhiêu đồng?",
+      "question_sha256": "b63338c766448364af75e64b509603510efe1a33e081ec26b95b972337278e00",
+      "source_id": "NSC"
+    },
+    {
+      "case_id": "s15-056",
+      "question": "Doanh thu thuần năm 2023 của doanh nghiệp mã NSC chênh lệch bao nhiêu đồng so với năm 2022? Hãy tính năm 2023 trừ năm 2022.",
+      "question_sha256": "747af55bdee284f05d6b2028568ddbc274454eab5bb9539543faaba36dc060fd",
+      "source_id": "NSC"
+    },
+    {
+      "case_id": "s15-057",
+      "question": "Doanh thu thuần năm 2024 của doanh nghiệp mã PGD là bao nhiêu đồng?",
+      "question_sha256": "f97186f1536b83a2771b73fceeeb393482c56fd34c7999bf751f414d75c8de88",
+      "source_id": "PGD"
+    },
+    {
+      "case_id": "s15-058",
+      "question": "Doanh thu thuần năm 2024 của doanh nghiệp mã PGD chênh lệch bao nhiêu đồng so với năm 2023? Hãy tính năm 2024 trừ năm 2023.",
+      "question_sha256": "0fdfcbead3ba7f70f4856b7f9baffb966031886a7cc320e4eaa282633b6a0fd5",
+      "source_id": "PGD"
+    },
+    {
+      "case_id": "s15-059",
+      "question": "Doanh thu thuần năm 2024 của doanh nghiệp mã SHI là bao nhiêu đồng?",
+      "question_sha256": "14bd8e1d735257992930babcebf596ebea7099e6d6af62ef05247d9e8ac200b0",
+      "source_id": "SHI"
+    },
+    {
+      "case_id": "s15-060",
+      "question": "Doanh thu thuần năm 2024 của doanh nghiệp mã SHI chênh lệch bao nhiêu đồng so với năm 2023? Hãy tính năm 2024 trừ năm 2023.",
+      "question_sha256": "b66e6a896186423fef6334b8fdd1878eeb199509c9448b6e19cf9cfb0e8e2972",
+      "source_id": "SHI"
+    }
+  ],
+  "checkpoint": {
+    "path": "models/document_hrm_V8_candidate.pt",
+    "sha256": "3a33276ded0d2ff2dd3d200c4c774a59eec0f8cad7102bc273cb263d983944de"
+  },
+  "counts": {
+    "cases": 60,
+    "sources": 15
+  },
+  "created_at": "2026-08-30T00:00:00+07:00",
+  "manifest_id": "finhrm-markdown-shard15-postrepair-development-v2",
+  "pre_run_policy": {
+    "frozen_before_runtime": true,
+    "model_invoked_during_freeze": false,
+    "numeric_gold_present": false,
+    "runtime_changes_allowed": false,
+    "semantic_expected_actions_present": false,
+    "single_execution_only": true
+  },
+  "preserved_artifacts": [
+    {
+      "path": "scripts/run_qp4_mineru_markdown_60_evaluation.py",
+      "sha256": "2f8329cc4143140019747284ae2c580c916f92ab66d488adda4b22c5560fe7cb"
+    },
+    {
+      "path": "reports/finhrm_qp4_mineru_markdown_60_evaluation_v1.json",
+      "sha256": "b35a42017fbc58b5ba7e5bf57236d02396f572b705f91cf61e86f6d17da1c4a9"
+    },
+    {
+      "path": "reports/finhrm_qp4_mineru_markdown_60_evaluation_v1.md",
+      "sha256": "31ce333eb230f7121b55e36786dbb01e649d5f691d13f6f046b99c8127f646e8"
+    },
+    {
+      "path": "reports/finhrm_markdown_shard15_observations_v1.json",
+      "sha256": "bd4f9f9885b0c9fc935b730d21259e7be8fd550b4e1665d8b1814882a39a0e26"
+    },
+    {
+      "path": "reports/finhrm_markdown_shard15_observations_v1.md",
+      "sha256": "51d519418fed7da94096ea4957e979934c134747e610a7c2434bbf5564d63c08"
+    },
+    {
+      "path": "reports/finhrm_markdown_shard15_evaluation_v1.json",
+      "sha256": "aa5c5b4a9abe210a19177eef629c375c4adbf28b67144876dfd3e1430a1eda41"
+    },
+    {
+      "path": "reports/finhrm_markdown_shard15_evaluation_v1.md",
+      "sha256": "258bc7de499457268c4e79086ff0b46951fb7bdc90449b04c593eb7652c5d06d"
+    }
+  ],
+  "runtime_sources": {
+    "src/hrm_finance_qa/__init__.py": "c316966feb7929c62f81d9d6f0c7807985c7176b1401bbee59fb2a59bbe7de1e",
+    "src/hrm_finance_qa/answer_presentation.py": "062fba9428bb4b11a2fd598df32f5622399f21d404690c9a7a99e24d1d96537d",
+    "src/hrm_finance_qa/cache_schema.py": "73de59f448cad7585b8215ad954c892ae76b84fb8944e89757cb4658e2c561d4",
+    "src/hrm_finance_qa/candidate_evaluation.py": "21ba9da22fa8ebf1b8c77f148be1a35116af33c07e9a970f2aed6470514182f2",
+    "src/hrm_finance_qa/cli.py": "7887070672def5ba1a8d5ebe754f6b2b1c51c825774b0de49879bf0e19d06ff9",
+    "src/hrm_finance_qa/dense_retrieval.py": "6896d217e79b730f0c8555c0b4d8cf8b72fa722cf3af6a1f06093a318e577dc3",
+    "src/hrm_finance_qa/direction_contract.py": "a18aa130419fc74ce647bd92dc9c1b1217007738e636aad0f28c7f78396be937",
+    "src/hrm_finance_qa/document_agent.py": "932250766ebb63da8f99fdfe8ab390fee82bcbc5aea866ca9bb057e818c64290",
+    "src/hrm_finance_qa/document_hrm.py": "ff687dd30af3a66105f016036ba26fa159801a6ab3c7b135c8ebcf3e60e7df16",
+    "src/hrm_finance_qa/document_page_index.py": "97d356533734bb09bdeb318038d720ac2daf700046e753d1d134804f7bb7c884",
+    "src/hrm_finance_qa/document_reasoning_engine.py": "6d674d6f85559c605602e6395ffc8e5e09580297b81d9d48f545b64ad9f5fa07",
+    "src/hrm_finance_qa/document_search.py": "3aa79ffd648c8e6d9764ff73e09d88e2deec387d3168f94d7ffc54bb41aaf089",
+    "src/hrm_finance_qa/document_service.py": "328aab3d76d50ba98f23ce1c42823cdbfe53a7dd023eebeea72c1e49d5066c22",
+    "src/hrm_finance_qa/document_sources.py": "79b4c7eddb80119ed8f355236b2baaa72dc7a2ef82b7fb8a367d1bd87a71fb2e",
+    "src/hrm_finance_qa/engine.py": "bc8494556dd5bb15e925978bd8cc5c4a98ac188af580e0d9537f42f5566d128c",
+    "src/hrm_finance_qa/evaluation_metrics.py": "2a3b19f9ae8f08f9e9742c094e874af7c28d54cfb7838b1c39e02b5d1e6a7a76",
+    "src/hrm_finance_qa/evidence_schema.py": "1c6a9183a05a487a5b49d5ab02e771449e52178b774633b8e6a63cf475ebe51a",
+    "src/hrm_finance_qa/external_evaluation.py": "96d3a3aa79637507dd73cb776e2d70f71aaf1b977a1e192762b5b696b706ff2c",
+    "src/hrm_finance_qa/financial_identities.py": "a4b2249fcd8a7d633b874eb67da8dc86e1c556dec5d7757d3c3e8450d586d72a",
+    "src/hrm_finance_qa/flattened_table_reconstruction.py": "1e67aa3f2e3acc068d30ece065fc0a0365358c7aa75da660e065af83fa265d4c",
+    "src/hrm_finance_qa/hrm.py": "3f6cfe5e864c9c4b4e9ec7beb995d8813fe7ee6acfe39af89f0f55dd932505e5",
+    "src/hrm_finance_qa/neural.py": "ff2e2c0c3d7a62702bd2b2b1f80d5bad2521e8ec2d347f93050fb875bb4f1d7f",
+    "src/hrm_finance_qa/ontology.py": "47375f6a95057ddda75433fd40a8e9c2be3448165e288c2764d1d54bc83e400b",
+    "src/hrm_finance_qa/program_data.py": "88d25ea876c0d12d1d17bade8a9d84d4a245983d56af17d28b9e57d2041dab88",
+    "src/hrm_finance_qa/program_reranker.py": "7d7f456649ce0639a808b809985751c38c9a4bb1d70209a65d3bc3bbc97671f4",
+    "src/hrm_finance_qa/program_synthesis.py": "df74d65ab387afc504c03091e4e951161a526fe44856dbfe7fa64b5bcf970c5b",
+    "src/hrm_finance_qa/question_planner.py": "1ffe19598d9986ee0aaf45e7cafe4622b18c73763eccbfbf068f644acab58954",
+    "src/hrm_finance_qa/question_request_planner.py": "804d0b05799b3b88292b07c243cef3b613a5f89f3e738c65375124d46108099a",
+    "src/hrm_finance_qa/reasoning.py": "d3244c224dbec45f62f95e64a30f1c48fb2566830c457416bf691eca6a107f74",
+    "src/hrm_finance_qa/reasoning_engine.py": "fee38cd78d0949f4c3172290199a1b50ce0fc934cd4c8f0002f188881ca658cc",
+    "src/hrm_finance_qa/repository.py": "8e83ad3f7f676eb0eacbe038b064582e7659d35f98363cb552555d2a6b9f994a",
+    "src/hrm_finance_qa/request_answer.py": "84f630f5a90f4ed711ecbf4f16f8ba3bd82106ccdf453352004440de20644141",
+    "src/hrm_finance_qa/symbolic_verifier.py": "b67f9eb87ae20c921a1135ffc9d2564e6d553dffb8b3db16dfb8b349478ab761",
+    "src/hrm_finance_qa/v11_pipeline.py": "b6611c2b2c0ba7cd2c726b4d48f29a9b1fd01be09a4da2200865379f07ba4387",
+    "src/hrm_finance_qa/v12b2_supervision.py": "100272f4bb46a3bd51e05914c6080ddaa7f48fea3c96337aa4b6cd9a0e8db0da"
+  },
+  "schema": "finhrm-markdown-shard15-case-manifest-v1",
+  "sources": {
+    "ASM": {
+      "canonical_markdown_path": "reports/mineru_markdown_development_full_v1/ASM/ASM_23CN_BCTN--6e1bff5169b34a91.md",
+      "canonical_markdown_sha256": "747886793a62056d727f8b1628efe78d294fa4942c1277d519f7b85cd7158ead",
+      "canonical_provenance_path": "reports/mineru_markdown_development_full_v1/ASM/ASM_23CN_BCTN--6e1bff5169b34a91.provenance.json",
+      "canonical_provenance_sha256": "1e4d05d4ddc9e4c1c5d3d4b6412210a36dd98da2b1c327d6a0ee59b907968b59",
+      "case_ids": [
+        "s15-047",
+        "s15-048"
+      ],
+      "markdown_path": "data/markdown/ASM_23CN_BCTN--6e1bff5169b34a91.md",
+      "markdown_sha256": "747886793a62056d727f8b1628efe78d294fa4942c1277d519f7b85cd7158ead",
+      "page_count": 1,
+      "pdf_path": "pdf/PDF_23/ASM_23CN_BCTN.pdf",
+      "pdf_sha256": "6e1bff5169b34a9149be95b3076e1a1b389f728ab3f971d064607d2aa6154f58",
+      "provenance_path": "data/markdown/ASM_23CN_BCTN--6e1bff5169b34a91.provenance.json",
+      "provenance_sha256": "1e4d05d4ddc9e4c1c5d3d4b6412210a36dd98da2b1c327d6a0ee59b907968b59",
+      "source_name": "ASM_23CN_BCTN.pdf",
+      "validator_record_sha256": "9618ef278372eebb0dd2367120bc0eb3a143883c11c728f1277cb6788208399d"
+    },
+    "BHG": {
+      "canonical_markdown_path": "reports/mineru_markdown_development_full_v1/BHG/BHG_23CN_BCTN--62a6808775bffb52.md",
+      "canonical_markdown_sha256": "cb4526df834e9448b3c23d6181df56fe3526a724f8a5fa929d895782e4c0bb18",
+      "canonical_provenance_path": "reports/mineru_markdown_development_full_v1/BHG/BHG_23CN_BCTN--62a6808775bffb52.provenance.json",
+      "canonical_provenance_sha256": "88c99cb1811c6d2d161832a644622715a97c2aa8066bd861e970908d0d6f73c4",
+      "case_ids": [
+        "s15-007",
+        "s15-008",
+        "s15-009",
+        "s15-010",
+        "s15-011",
+        "s15-012"
+      ],
+      "markdown_path": "data/markdown/BHG_23CN_BCTN--62a6808775bffb52.md",
+      "markdown_sha256": "cb4526df834e9448b3c23d6181df56fe3526a724f8a5fa929d895782e4c0bb18",
+      "page_count": 20,
+      "pdf_path": "pdf/PDF_23/BHG_23CN_BCTN.pdf",
+      "pdf_sha256": "62a6808775bffb526b5f4894a463646522410469e7f3084407d498f987303702",
+      "provenance_path": "data/markdown/BHG_23CN_BCTN--62a6808775bffb52.provenance.json",
+      "provenance_sha256": "88c99cb1811c6d2d161832a644622715a97c2aa8066bd861e970908d0d6f73c4",
+      "source_name": "BHG_23CN_BCTN.pdf",
+      "validator_record_sha256": "d13518971096776e4bd2918df0e2abefc09a11512ff9d4a5db38bf318f17f626"
+    },
+    "BSD": {
+      "canonical_markdown_path": "reports/mineru_markdown_development_full_v1/BSD/BSD_23CN_BCTN--b90d50e824213031.md",
+      "canonical_markdown_sha256": "97e4e876a0ceca7344312f827a20fb522a6c381afab567323e4690ee38510c6a",
+      "canonical_provenance_path": "reports/mineru_markdown_development_full_v1/BSD/BSD_23CN_BCTN--b90d50e824213031.provenance.json",
+      "canonical_provenance_sha256": "19593c0b0a64a0d15de50cc045f2fb5c8a08bf94307cf94b6e5d708566a6f25a",
+      "case_ids": [
+        "s15-013",
+        "s15-014",
+        "s15-015",
+        "s15-016",
+        "s15-017",
+        "s15-018"
+      ],
+      "markdown_path": "data/markdown/BSD_23CN_BCTN--b90d50e824213031.md",
+      "markdown_sha256": "97e4e876a0ceca7344312f827a20fb522a6c381afab567323e4690ee38510c6a",
+      "page_count": 16,
+      "pdf_path": "pdf/PDF_23/BSD_23CN_BCTN.pdf",
+      "pdf_sha256": "b90d50e8242130316d5eeb3179326b8123d2d41605a4693d40be13b36ba2e549",
+      "provenance_path": "data/markdown/BSD_23CN_BCTN--b90d50e824213031.provenance.json",
+      "provenance_sha256": "19593c0b0a64a0d15de50cc045f2fb5c8a08bf94307cf94b6e5d708566a6f25a",
+      "source_name": "BSD_23CN_BCTN.pdf",
+      "validator_record_sha256": "79108754fdb210599c6ff3561581535a7b772f10d1cac5c6ba1e69f2264ffe5d"
+    },
+    "CMS": {
+      "canonical_markdown_path": "reports/mineru_markdown_development_full_v1/CMS/CMS_23CN_BCTN--b5944cc10f6fe4f0.md",
+      "canonical_markdown_sha256": "0d01803595a6078e7dcef7288205cb6b5191fd6d9f07dd305febd95d3d6dfbf1",
+      "canonical_provenance_path": "reports/mineru_markdown_development_full_v1/CMS/CMS_23CN_BCTN--b5944cc10f6fe4f0.provenance.json",
+      "canonical_provenance_sha256": "a55aab97ea070c9f915f776903bb03f2268f03dfe40b54c91cafcf9af15399df",
+      "case_ids": [
+        "s15-019",
+        "s15-020",
+        "s15-021",
+        "s15-022",
+        "s15-023",
+        "s15-024"
+      ],
+      "markdown_path": "data/markdown/CMS_23CN_BCTN--b5944cc10f6fe4f0.md",
+      "markdown_sha256": "0d01803595a6078e7dcef7288205cb6b5191fd6d9f07dd305febd95d3d6dfbf1",
+      "page_count": 31,
+      "pdf_path": "pdf/PDF_23/CMS_23CN_BCTN.pdf",
+      "pdf_sha256": "b5944cc10f6fe4f003249e81aeb6bb2ba6b01bc7a4f63d1367478652488308eb",
+      "provenance_path": "data/markdown/CMS_23CN_BCTN--b5944cc10f6fe4f0.provenance.json",
+      "provenance_sha256": "a55aab97ea070c9f915f776903bb03f2268f03dfe40b54c91cafcf9af15399df",
+      "source_name": "CMS_23CN_BCTN.pdf",
+      "validator_record_sha256": "9935d17c342f5b5faad81c2896704c761c2c5a4b790e59217b21f5a18b6233ad"
+    },
+    "DAT": {
+      "canonical_markdown_path": "reports/mineru_markdown_development_full_v1/DAT/DAT_23CN_BCTN--d63cae36fb099013.md",
+      "canonical_markdown_sha256": "c701f518929fc60d4b9b8366ffe9c4001e2074bce5a63a5c4bb4256ce3a9178d",
+      "canonical_provenance_path": "reports/mineru_markdown_development_full_v1/DAT/DAT_23CN_BCTN--d63cae36fb099013.provenance.json",
+      "canonical_provenance_sha256": "132a3aa5d05a379ed9c89d867753ea6d8361e2e628d71df3e58438a47833624a",
+      "case_ids": [
+        "s15-049",
+        "s15-050"
+      ],
+      "markdown_path": "data/markdown/DAT_23CN_BCTN--d63cae36fb099013.md",
+      "markdown_sha256": "c701f518929fc60d4b9b8366ffe9c4001e2074bce5a63a5c4bb4256ce3a9178d",
+      "page_count": 1,
+      "pdf_path": "pdf/PDF_23/DAT_23CN_BCTN.pdf",
+      "pdf_sha256": "d63cae36fb099013a9305bd3378258997204058918f93f8b1fba1fd33d8ff37d",
+      "provenance_path": "data/markdown/DAT_23CN_BCTN--d63cae36fb099013.provenance.json",
+      "provenance_sha256": "132a3aa5d05a379ed9c89d867753ea6d8361e2e628d71df3e58438a47833624a",
+      "source_name": "DAT_23CN_BCTN.pdf",
+      "validator_record_sha256": "1ea857029ab764779872e1276eed6abe455abb284096f36894b6171a0072055f"
+    },
+    "DXG": {
+      "canonical_markdown_path": "reports/mineru_markdown_development_full_v1/DXG/DXG_23CN_BCTN--a318f16b5bb351b2.md",
+      "canonical_markdown_sha256": "049ff73505043f5b855e8486010ea1fd5f0180d55ea93d2b9fb9d5832ef3a3fd",
+      "canonical_provenance_path": "reports/mineru_markdown_development_full_v1/DXG/DXG_23CN_BCTN--a318f16b5bb351b2.provenance.json",
+      "canonical_provenance_sha256": "851cbd8e78ad9c6b5d22ff6e5fbb3e8a3da3045aa1f196e3119eec51cec6a050",
+      "case_ids": [
+        "s15-051",
+        "s15-052"
+      ],
+      "markdown_path": "data/markdown/DXG_23CN_BCTN--a318f16b5bb351b2.md",
+      "markdown_sha256": "049ff73505043f5b855e8486010ea1fd5f0180d55ea93d2b9fb9d5832ef3a3fd",
+      "page_count": 1,
+      "pdf_path": "pdf/PDF_23/DXG_23CN_BCTN.pdf",
+      "pdf_sha256": "a318f16b5bb351b27bdace32166ba04aaafbcaf553df186a22b89814d5c6b705",
+      "provenance_path": "data/markdown/DXG_23CN_BCTN--a318f16b5bb351b2.provenance.json",
+      "provenance_sha256": "851cbd8e78ad9c6b5d22ff6e5fbb3e8a3da3045aa1f196e3119eec51cec6a050",
+      "source_name": "DXG_23CN_BCTN.pdf",
+      "validator_record_sha256": "d8519c129f172be36717566e0e669a58aaae7e4534a2a3cf8c466dc7de226c3d"
+    },
+    "GGG": {
+      "canonical_markdown_path": "reports/mineru_markdown_development_full_v1/GGG/GGG_23CN_BCTN--e86ead28fb761a59.md",
+      "canonical_markdown_sha256": "fcfe9688835b4eb0c8387f7621d15fe684537bc454a52b4d0919b05cabb09ead",
+      "canonical_provenance_path": "reports/mineru_markdown_development_full_v1/GGG/GGG_23CN_BCTN--e86ead28fb761a59.provenance.json",
+      "canonical_provenance_sha256": "8ec476d20775aa3317cb6f2526a71c06b321e96e4a821a04f84219f4e93ccbd1",
+      "case_ids": [
+        "s15-001",
+        "s15-002",
+        "s15-003",
+        "s15-004",
+        "s15-005",
+        "s15-006"
+      ],
+      "markdown_path": "data/markdown/GGG_23CN_BCTN--e86ead28fb761a59.md",
+      "markdown_sha256": "fcfe9688835b4eb0c8387f7621d15fe684537bc454a52b4d0919b05cabb09ead",
+      "page_count": 8,
+      "pdf_path": "pdf/PDF_23/GGG_23CN_BCTN.pdf",
+      "pdf_sha256": "e86ead28fb761a59bdaa85c8ad3822090f1251f07eb3d39e60f89fc40a3f5f8f",
+      "provenance_path": "data/markdown/GGG_23CN_BCTN--e86ead28fb761a59.provenance.json",
+      "provenance_sha256": "8ec476d20775aa3317cb6f2526a71c06b321e96e4a821a04f84219f4e93ccbd1",
+      "source_name": "GGG_23CN_BCTN.pdf",
+      "validator_record_sha256": "f6117e8c9867fc3500f6e77f1206e027be6d5c9845e194c225516bfa21c49ec2"
+    },
+    "HAV": {
+      "canonical_markdown_path": "reports/mineru_markdown_development_full_v1/HAV/HAV_23CN_BCTN--e57968185e1c63bc.md",
+      "canonical_markdown_sha256": "d21be0ba08bf138e3f4c985179bc051c8e3c94d98c6e522b4d75a229d7aff3ba",
+      "canonical_provenance_path": "reports/mineru_markdown_development_full_v1/HAV/HAV_23CN_BCTN--e57968185e1c63bc.provenance.json",
+      "canonical_provenance_sha256": "dab0f88e9bb103f77d14aa49c083235d37e95943fb48e2f7237de6e911ca0be6",
+      "case_ids": [
+        "s15-025",
+        "s15-026",
+        "s15-027",
+        "s15-028",
+        "s15-029"
+      ],
+      "markdown_path": "data/markdown/HAV_23CN_BCTN--e57968185e1c63bc.md",
+      "markdown_sha256": "d21be0ba08bf138e3f4c985179bc051c8e3c94d98c6e522b4d75a229d7aff3ba",
+      "page_count": 28,
+      "pdf_path": "pdf/PDF_23/HAV_23CN_BCTN.pdf",
+      "pdf_sha256": "e57968185e1c63bcf76bbb3cedb2f0dd252e787d7e2bcc4dae0e1a7c36de5a9a",
+      "provenance_path": "data/markdown/HAV_23CN_BCTN--e57968185e1c63bc.provenance.json",
+      "provenance_sha256": "dab0f88e9bb103f77d14aa49c083235d37e95943fb48e2f7237de6e911ca0be6",
+      "source_name": "HAV_23CN_BCTN.pdf",
+      "validator_record_sha256": "8a00bdfb6af8f2c4563e92a68fb476b6e590a9cf1995925778f5f0bb5b9914da"
+    },
+    "HKT": {
+      "canonical_markdown_path": "reports/mineru_markdown_development_full_v1/HKT/HKT_23CN_BCTN--91cc265d0be6d75e.md",
+      "canonical_markdown_sha256": "2044d10feff95f714fbba05ce10a992b82ae791ec149a903a46142f35cf9015c",
+      "canonical_provenance_path": "reports/mineru_markdown_development_full_v1/HKT/HKT_23CN_BCTN--91cc265d0be6d75e.provenance.json",
+      "canonical_provenance_sha256": "2d5c585d8a6e36fde748a493b664802a1e8af9927f57fba8afb16168fafe1efb",
+      "case_ids": [
+        "s15-030",
+        "s15-031",
+        "s15-032",
+        "s15-033",
+        "s15-034",
+        "s15-035"
+      ],
+      "markdown_path": "data/markdown/HKT_23CN_BCTN--91cc265d0be6d75e.md",
+      "markdown_sha256": "2044d10feff95f714fbba05ce10a992b82ae791ec149a903a46142f35cf9015c",
+      "page_count": 19,
+      "pdf_path": "pdf/PDF_23/HKT_23CN_BCTN.pdf",
+      "pdf_sha256": "91cc265d0be6d75ee319c6821efd5231b3ae6fa41f63d076568331e9eee9d1f0",
+      "provenance_path": "data/markdown/HKT_23CN_BCTN--91cc265d0be6d75e.provenance.json",
+      "provenance_sha256": "2d5c585d8a6e36fde748a493b664802a1e8af9927f57fba8afb16168fafe1efb",
+      "source_name": "HKT_23CN_BCTN.pdf",
+      "validator_record_sha256": "ae5547988ef498dbfb619a2f8914c90f2eda19271bc98622f9305954b69bbfa5"
+    },
+    "HVH": {
+      "canonical_markdown_path": "reports/mineru_markdown_development_full_v1/HVH/HVH_23CN_BCTN--5e62f780926f9cb0.md",
+      "canonical_markdown_sha256": "83956970b13c0861640cfa2dbf0df059d9e7450948d9e6f940ee9467a8c511fe",
+      "canonical_provenance_path": "reports/mineru_markdown_development_full_v1/HVH/HVH_23CN_BCTN--5e62f780926f9cb0.provenance.json",
+      "canonical_provenance_sha256": "2aecf1f08a4620b3d22f82b7c6c46656806e53cb82e07ba47157e5d9f63edd78",
+      "case_ids": [
+        "s15-053",
+        "s15-054"
+      ],
+      "markdown_path": "data/markdown/HVH_23CN_BCTN--5e62f780926f9cb0.md",
+      "markdown_sha256": "83956970b13c0861640cfa2dbf0df059d9e7450948d9e6f940ee9467a8c511fe",
+      "page_count": 1,
+      "pdf_path": "pdf/PDF_23/HVH_23CN_BCTN.pdf",
+      "pdf_sha256": "5e62f780926f9cb043715e27075c1d59a6c238f059dd9d9d2298a5e1ef969450",
+      "provenance_path": "data/markdown/HVH_23CN_BCTN--5e62f780926f9cb0.provenance.json",
+      "provenance_sha256": "2aecf1f08a4620b3d22f82b7c6c46656806e53cb82e07ba47157e5d9f63edd78",
+      "source_name": "HVH_23CN_BCTN.pdf",
+      "validator_record_sha256": "24c50261f8f7f7f88d2f57fe3202cfa79d7df6155d425a0acaf502f1cee78b49"
+    },
+    "NSC": {
+      "canonical_markdown_path": "reports/mineru_markdown_development_full_v1/NSC/NSC_23CN_BCTN--abb07a3a0137bf24.md",
+      "canonical_markdown_sha256": "31cab27652699041ce093d826e832397016c7e19a859d40565798e6f3530632c",
+      "canonical_provenance_path": "reports/mineru_markdown_development_full_v1/NSC/NSC_23CN_BCTN--abb07a3a0137bf24.provenance.json",
+      "canonical_provenance_sha256": "960f15e487e1ce94aad327a0bde0e4f101153b6b52889c220b82b524c580e555",
+      "case_ids": [
+        "s15-055",
+        "s15-056"
+      ],
+      "markdown_path": "data/markdown/NSC_23CN_BCTN--abb07a3a0137bf24.md",
+      "markdown_sha256": "31cab27652699041ce093d826e832397016c7e19a859d40565798e6f3530632c",
+      "page_count": 1,
+      "pdf_path": "pdf/PDF_23/NSC_23CN_BCTN.pdf",
+      "pdf_sha256": "abb07a3a0137bf24240e07665919b4c1953a88c02105bc19578ccd8528adbd8f",
+      "provenance_path": "data/markdown/NSC_23CN_BCTN--abb07a3a0137bf24.provenance.json",
+      "provenance_sha256": "960f15e487e1ce94aad327a0bde0e4f101153b6b52889c220b82b524c580e555",
+      "source_name": "NSC_23CN_BCTN.pdf",
+      "validator_record_sha256": "bd09beb20b967c934334cfe38b1601cdd274fb560c199d0a1fb5482ff00c0f14"
+    },
+    "PDB": {
+      "canonical_markdown_path": "reports/mineru_markdown_development_full_v1/PDB/PDB_24CN_BCTN--1957e2ee3f06dba6.md",
+      "canonical_markdown_sha256": "7388957c0fc2f6955a398c7fba33a2f88a91a9a57be08b8b9eda419738745cf8",
+      "canonical_provenance_path": "reports/mineru_markdown_development_full_v1/PDB/PDB_24CN_BCTN--1957e2ee3f06dba6.provenance.json",
+      "canonical_provenance_sha256": "ac3f687c97d2be574102b464f7b242292b1748be5fe290eabc9c854af683e7b4",
+      "case_ids": [
+        "s15-036",
+        "s15-037",
+        "s15-038",
+        "s15-039",
+        "s15-040",
+        "s15-041"
+      ],
+      "markdown_path": "data/markdown/PDB_24CN_BCTN--1957e2ee3f06dba6.md",
+      "markdown_sha256": "7388957c0fc2f6955a398c7fba33a2f88a91a9a57be08b8b9eda419738745cf8",
+      "page_count": 25,
+      "pdf_path": "pdf/PDF_24/PDF_24/PDB_24CN_BCTN.pdf",
+      "pdf_sha256": "1957e2ee3f06dba63ac29c3ad462aa7ce8ee654e4a1b7e92589b6716c60a968e",
+      "provenance_path": "data/markdown/PDB_24CN_BCTN--1957e2ee3f06dba6.provenance.json",
+      "provenance_sha256": "ac3f687c97d2be574102b464f7b242292b1748be5fe290eabc9c854af683e7b4",
+      "source_name": "PDB_24CN_BCTN.pdf",
+      "validator_record_sha256": "c7421c694b24c90291f295851180f2637eba3c9514b383f0bfdb1469ca30bd51"
+    },
+    "PGD": {
+      "canonical_markdown_path": "reports/mineru_markdown_development_full_v1/PGD/PGD_24CN_BCTN--e70dcde234071317.md",
+      "canonical_markdown_sha256": "29c2fab408e3d8086f5d59704a1cc936db9d2b611ad56753182f8277a2fb1c9d",
+      "canonical_provenance_path": "reports/mineru_markdown_development_full_v1/PGD/PGD_24CN_BCTN--e70dcde234071317.provenance.json",
+      "canonical_provenance_sha256": "d83e8fafe0da46a664ec6002784785ef451ea918ca54bb91e2433cf61f30d270",
+      "case_ids": [
+        "s15-057",
+        "s15-058"
+      ],
+      "markdown_path": "data/markdown/PGD_24CN_BCTN--e70dcde234071317.md",
+      "markdown_sha256": "29c2fab408e3d8086f5d59704a1cc936db9d2b611ad56753182f8277a2fb1c9d",
+      "page_count": 1,
+      "pdf_path": "pdf/PDF_24/PDF_24/PGD_24CN_BCTN.pdf",
+      "pdf_sha256": "e70dcde23407131743a2e40c15afc34544d63599e0ca3b085821cc376ad114a6",
+      "provenance_path": "data/markdown/PGD_24CN_BCTN--e70dcde234071317.provenance.json",
+      "provenance_sha256": "d83e8fafe0da46a664ec6002784785ef451ea918ca54bb91e2433cf61f30d270",
+      "source_name": "PGD_24CN_BCTN.pdf",
+      "validator_record_sha256": "aadbabb042b96b4ca3642d78ad8393280da39796fe7caf81eab4c279f59900bb"
+    },
+    "SHI": {
+      "canonical_markdown_path": "reports/mineru_markdown_development_full_v1/SHI/SHI_24CN_BCTN--6a3fe91f4c3f02d9.md",
+      "canonical_markdown_sha256": "a9a33f865283eaa6eaf0bafc7cfdaebc34b7faf4309fd69dc858397475d2235d",
+      "canonical_provenance_path": "reports/mineru_markdown_development_full_v1/SHI/SHI_24CN_BCTN--6a3fe91f4c3f02d9.provenance.json",
+      "canonical_provenance_sha256": "029388c67c21d030921cf459acd3f0fc0f379563fc0c559cb99f61828350a4c6",
+      "case_ids": [
+        "s15-059",
+        "s15-060"
+      ],
+      "markdown_path": "data/markdown/SHI_24CN_BCTN--6a3fe91f4c3f02d9.md",
+      "markdown_sha256": "a9a33f865283eaa6eaf0bafc7cfdaebc34b7faf4309fd69dc858397475d2235d",
+      "page_count": 2,
+      "pdf_path": "pdf/PDF_24/PDF_24/SHI_24CN_BCTN.pdf",
+      "pdf_sha256": "6a3fe91f4c3f02d91e259f43cc8a1a989f3d7a99c8f5ad2cb6ceeb81bef165c6",
+      "provenance_path": "data/markdown/SHI_24CN_BCTN--6a3fe91f4c3f02d9.provenance.json",
+      "provenance_sha256": "029388c67c21d030921cf459acd3f0fc0f379563fc0c559cb99f61828350a4c6",
+      "source_name": "SHI_24CN_BCTN.pdf",
+      "validator_record_sha256": "a8cdc2c5528ce724f7aa81ece19a5460be6dd919812a647bac4e77b191d7b2cc"
+    },
+    "SSG": {
+      "canonical_markdown_path": "reports/mineru_markdown_development_full_v1/SSG/SSG_24CN_BCTN--03525afbe2d1c74e.md",
+      "canonical_markdown_sha256": "978992a03e16713d4be70f01b01c9c23151718bd2a9010fcc6c393a5a7bc61e6",
+      "canonical_provenance_path": "reports/mineru_markdown_development_full_v1/SSG/SSG_24CN_BCTN--03525afbe2d1c74e.provenance.json",
+      "canonical_provenance_sha256": "c057e3088bec802f210eb5d5626c2415998bea7fe41b1f3a3146ea5e64f165ad",
+      "case_ids": [
+        "s15-042",
+        "s15-043",
+        "s15-044",
+        "s15-045",
+        "s15-046"
+      ],
+      "markdown_path": "data/markdown/SSG_24CN_BCTN--03525afbe2d1c74e.md",
+      "markdown_sha256": "978992a03e16713d4be70f01b01c9c23151718bd2a9010fcc6c393a5a7bc61e6",
+      "page_count": 13,
+      "pdf_path": "pdf/PDF_24/PDF_24/SSG_24CN_BCTN.pdf",
+      "pdf_sha256": "03525afbe2d1c74e6b50d26062c604b13364ca3bf2c95c4529185facd34f2e7b",
+      "provenance_path": "data/markdown/SSG_24CN_BCTN--03525afbe2d1c74e.provenance.json",
+      "provenance_sha256": "c057e3088bec802f210eb5d5626c2415998bea7fe41b1f3a3146ea5e64f165ad",
+      "source_name": "SSG_24CN_BCTN.pdf",
+      "validator_record_sha256": "7650497301d10ce1753a00c74d7fbb53a9613bb698728c78ddf3f79682077d5c"
+    }
+  },
+  "status": "FROZEN_BEFORE_RUNTIME",
+  "tooling": {
+    "scripts/build_finhrm_markdown_shard15_contract.py": "5eabe73f087697dacc563d97c449670e2162b2b353cd3ebaee6d588aa1e76a8b",
+    "scripts/build_finhrm_markdown_shard15_contract_v1.py": "578f8a36d21bf3ede7dbbfe0e8027e87d0ac5fb19d1b6b497b9993b085ca0b16",
+    "scripts/build_finhrm_markdown_shard15_contract_v2.py": "56302c63c394449cec7b73bf147014122c6bdba613354ab621965b3ab9c8f26c",
+    "scripts/build_finhrm_markdown_shard15_contract_v3.py": "af08d71b5501bae56ea43aa0fd74066d12606cc50f8271ac3af19ad687b0947d",
+    "scripts/build_finhrm_markdown_shard15_postrepair_v2.py": "cacdfb52ac3ca74603604321e9a8f028c849e2b712dbd1e1cffc3236903f8061",
+    "scripts/build_finhrm_markdown_shard15_postrepair_v3.py": "01ce06d61ada3eff687b92e16ab2f7bb1403c81c51d598206d24ae33cd3dd586",
+    "scripts/build_finhrm_markdown_shard15_postrepair_v4.py": "6d84b7825a84bc4b3a20829bf1cb4064b459055ea8940e4f3b852d770910074d",
+    "scripts/evaluate_finhrm_markdown_shard15_v1.py": "892c891bf6f096812727951880ddeaa66f7f0cfafc059266591c02db0417a090",
+    "scripts/evaluate_finhrm_markdown_shard15_v2.py": "bb8df028e926cd3bf0deb806b703ae8254c0dfda7445778229692d855bffdf3e",
+    "scripts/run_finhrm_markdown_shard15_evaluation.py": "27cc59591dcbf34863e8c992cde29350095b236cee140be1be1ccfa7a7e4f9d2"
+  },
+  "validator_report": {
+    "path": "reports/finhrm_mineru_markdown_corpus_validation_v1.json",
+    "sha256": "80a4f585e07609a037b1b5e9c8ed9e847c90cf9897b399163ff50ce1a9eaadfe"
+  },
+  "development_cycle": {
+    "kind": "adaptive_postrepair_development",
+    "baseline_manifest": {
+      "path": "config/finhrm_markdown_shard15_case_manifest_v1.json",
+      "sha256": "859a7238a268d36abe80f3fa1e29526c3bae4137c39e3314fc23f65a32268ad7"
+    },
+    "baseline_observations_read_during_repair": true,
+    "unbiased_or_disjoint_validation_claimed": false
+  }
+}

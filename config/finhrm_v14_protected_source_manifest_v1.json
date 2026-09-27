@@ -1,0 +1,189 @@
+{
+  "schema": "finhrm-v14-protected-source-manifest-v1",
+  "status": "FROZEN_UNCLASSIFIED_BLIND_SOURCES",
+  "created_at": "2026-08-31",
+  "selection": {
+    "method": "metadata-only deterministic conservative source-history exclusion",
+    "source_pool": "pdf/",
+    "repository_pdf_files": 2127,
+    "repository_company_codes": 1270,
+    "untouched_exact_sources_after_conservative_text_audit": 943,
+    "untouched_company_codes_after_conservative_text_audit": 361,
+    "selected_sources": 20,
+    "selected_companies": 20,
+    "year_counts": {
+      "2023": 10,
+      "2024": 10
+    },
+    "content_opened": false,
+    "pdf_text_extracted": false,
+    "ocr_run": false,
+    "qa_gold_created": false,
+    "model_inference_runs": 0
+  },
+  "sources": [
+    {
+      "path": "pdf/PDF_24/PDF_24/AAH_24CN_BCTN.pdf",
+      "company_code": "AAH",
+      "year": 2024,
+      "sha256": "e28d74e0538669d8c5cf28210292794e65d00bbe06a41b9da22f3917c6d8cde2",
+      "layout_classification": "UNCLASSIFIED_BLIND"
+    },
+    {
+      "path": "pdf/PDF_23/ABI_23CN_BCTN.pdf",
+      "company_code": "ABI",
+      "year": 2023,
+      "sha256": "4aa0a4365392d69146f581937181ce16087e5f9499b6bd0f0cb3b878106016b6",
+      "layout_classification": "UNCLASSIFIED_BLIND"
+    },
+    {
+      "path": "pdf/PDF_24/PDF_24/ABR_24CN_BCTN.pdf",
+      "company_code": "ABR",
+      "year": 2024,
+      "sha256": "724f6704c953adb7ab61e9c568f9be96b4101302afd014c4bef32deb44d7efd0",
+      "layout_classification": "UNCLASSIFIED_BLIND"
+    },
+    {
+      "path": "pdf/PDF_23/ABT_23CN_BCTN.pdf",
+      "company_code": "ABT",
+      "year": 2023,
+      "sha256": "1de726b819cc70bd038438865bcffc41bb9429425e86a6b6602b3790bcd032e5",
+      "layout_classification": "UNCLASSIFIED_BLIND"
+    },
+    {
+      "path": "pdf/PDF_24/PDF_24/ACL_24CN_BCTN.pdf",
+      "company_code": "ACL",
+      "year": 2024,
+      "sha256": "323836b1336d4bc0b8e55f759eac9732ef84db5b4d19e37c43c61218dda5dc9a",
+      "layout_classification": "UNCLASSIFIED_BLIND"
+    },
+    {
+      "path": "pdf/PDF_23/AGF_23CN_BCTN.pdf",
+      "company_code": "AGF",
+      "year": 2023,
+      "sha256": "1fabe273cc0724150b267bc574ad91be069c2ad25cefe24c6af3d1cf15105774",
+      "layout_classification": "UNCLASSIFIED_BLIND"
+    },
+    {
+      "path": "pdf/PDF_24/PDF_24/AME_24CN_BCTN.pdf",
+      "company_code": "AME",
+      "year": 2024,
+      "sha256": "1fe72b04b091968083da096ed78b002a020045ccc1411de542b498d2fa67d811",
+      "layout_classification": "UNCLASSIFIED_BLIND"
+    },
+    {
+      "path": "pdf/PDF_23/ANV_23CN_BCTN.pdf",
+      "company_code": "ANV",
+      "year": 2023,
+      "sha256": "4f91db06874b244cdd44d2eaad244d04e98dda6599db2818c122ac4165f5e4a2",
+      "layout_classification": "UNCLASSIFIED_BLIND"
+    },
+    {
+      "path": "pdf/PDF_24/PDF_24/APC_24CN_BCTN.pdf",
+      "company_code": "APC",
+      "year": 2024,
+      "sha256": "d8d2ec0bb66efc8abc82ff3023155bedd40a4fc3cea9926ccb6fcbdc1439a7be",
+      "layout_classification": "UNCLASSIFIED_BLIND"
+    },
+    {
+      "path": "pdf/PDF_23/APF_23CN_BCTN.pdf",
+      "company_code": "APF",
+      "year": 2023,
+      "sha256": "2ba9da0b5351636c03bd62a94312e62f7056bd3beab29150fff860d1b3fa7b65",
+      "layout_classification": "UNCLASSIFIED_BLIND"
+    },
+    {
+      "path": "pdf/PDF_24/PDF_24/ARM_24CN_BCTN.pdf",
+      "company_code": "ARM",
+      "year": 2024,
+      "sha256": "430ba6bfc92756517297cfe196643fa0b5ece45cc33ffbd231497a924b3e4522",
+      "layout_classification": "UNCLASSIFIED_BLIND"
+    },
+    {
+      "path": "pdf/PDF_23/ART_23CN_BCTN.pdf",
+      "company_code": "ART",
+      "year": 2023,
+      "sha256": "aee53064590bf8c7041c4f30e605b10cbf5bdd51b35202687ae493c73973066c",
+      "layout_classification": "UNCLASSIFIED_BLIND"
+    },
+    {
+      "path": "pdf/PDF_24/PDF_24/AST_24CN_BCTN.pdf",
+      "company_code": "AST",
+      "year": 2024,
+      "sha256": "35886037fe42c315686318000fa48fe61f61cedbe16c48e43447848477ed30a9",
+      "layout_classification": "UNCLASSIFIED_BLIND"
+    },
+    {
+      "path": "pdf/PDF_23/ATS_23CN_BCTN.pdf",
+      "company_code": "ATS",
+      "year": 2023,
+      "sha256": "2bae31acfb9aa710b99a92eb6e5a7f24188acd61c00bbe4ef845814a1942c260",
+      "layout_classification": "UNCLASSIFIED_BLIND"
+    },
+    {
+      "path": "pdf/PDF_24/PDF_24/AVC_24CN_BCTN.pdf",
+      "company_code": "AVC",
+      "year": 2024,
+      "sha256": "98df9ebc32bbe3e6eb863ae6c4ec1ca86931757375e70406a3cc854e7f0885ce",
+      "layout_classification": "UNCLASSIFIED_BLIND"
+    },
+    {
+      "path": "pdf/PDF_23/BAB_23CN_BCTN.pdf",
+      "company_code": "BAB",
+      "year": 2023,
+      "sha256": "f32772dd4bdbfca282b0723df78ec433fbb35da418e8ab3311924a6bd1975aa7",
+      "layout_classification": "UNCLASSIFIED_BLIND"
+    },
+    {
+      "path": "pdf/PDF_24/PDF_24/BBH_24CN_BCTN.pdf",
+      "company_code": "BBH",
+      "year": 2024,
+      "sha256": "22b2e83a1c741c83f6e6bed1a2dcb7025049761b5e5d8d35f65d83c3529c9be9",
+      "layout_classification": "UNCLASSIFIED_BLIND"
+    },
+    {
+      "path": "pdf/PDF_23/BCA_23CN_BCTN.pdf",
+      "company_code": "BCA",
+      "year": 2023,
+      "sha256": "d905a783bada09d7328ef39d666b301a53161362dec1c6cccc3ca068324b38d1",
+      "layout_classification": "UNCLASSIFIED_BLIND"
+    },
+    {
+      "path": "pdf/PDF_24/PDF_24/BCC_24CN_BCTN.pdf",
+      "company_code": "BCC",
+      "year": 2024,
+      "sha256": "215e5bbff8861a7ff6b3e29333bbd696492d9d1a5baf58e50daee91dfc18687a",
+      "layout_classification": "UNCLASSIFIED_BLIND"
+    },
+    {
+      "path": "pdf/PDF_23/BCP_23CN_BCTN.pdf",
+      "company_code": "BCP",
+      "year": 2023,
+      "sha256": "cc17cc0b7bec7733a8e9e11a14c6ef4a7d06c70792743140ba11adbd1c7ffd33",
+      "layout_classification": "UNCLASSIFIED_BLIND"
+    }
+  ],
+  "allowed_before_candidate_freeze": [
+    "verify path, byte size, and SHA-256",
+    "classify container/layout using metadata and structure without extracting report text",
+    "record corruption or unreadable-file status"
+  ],
+  "forbidden_before_candidate_freeze": [
+    "extract PDF text or tables",
+    "run OCR or MinerU",
+    "create or inspect protected questions and gold answers",
+    "run any model inference",
+    "use source identity as a model feature"
+  ],
+  "post_freeze_policy": [
+    "curate protected QA only after the V14 candidate and runtime are frozen",
+    "evaluate exactly once",
+    "do not tune V14 using protected outcomes",
+    "a later development cycle requires another untouched source cohort"
+  ],
+  "limitations": [
+    "filename/source-history audit cannot prove absence from deleted artifacts or external history",
+    "layout-disjoint status is not yet proven and must remain UNCLASSIFIED_BLIND",
+    "filename year does not prove every fiscal period contained in the report"
+  ]
+}
